@@ -62,12 +62,14 @@ import com.bliss.support.colorpicker.ColorPickerPreference;
 
 import com.bliss.support.preferences.SystemSettingEditTextPreference;
 import com.bliss.support.preferences.SystemSettingSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingListPreference;
 
 @SearchIndexable
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
+    private static final String PREF_SMART_PULLDOWN = "qs_smart_pulldown";
     private static final String BLISS_FOOTER_TEXT_STRING = "footer_text_string";
     private static final String QS_PANEL_COLOR = "qs_panel_color";
     private static final String QS_BLUR_INTENSITY = "qs_blur_intensity";
@@ -77,9 +79,13 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
 
+    private static final int SMART_PULLDOWN_OFF = 0;
+    private static final int SMART_PULLDOWN_DISMISSABLE = 1;
+    private static final int SMART_PULLDOWN_ONGOING = 2;
+    private static final int SMART_PULLDOWN_NONE = 3;
 
     private LineageSystemSettingListPreference mQuickPulldown;
-
+    private SystemSettingListPreference mSmartPulldown;
     private SystemSettingEditTextPreference mFooterString;
     private ColorPickerPreference mQsPanelColor;
     private SystemSettingSeekBarPreference mQsBlurIntensity;
@@ -98,6 +104,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
+
+        mSmartPulldown = (SystemSettingListPreference) findPreference(PREF_SMART_PULLDOWN);
+        mSmartPulldown.setOnPreferenceChangeListener(this);
+        updateSmartPulldownSummary(mSmartPulldown.getIntValue(0));
 
         mQsPanelColor = (ColorPickerPreference) findPreference(QS_PANEL_COLOR);
         mQsPanelColor.setOnPreferenceChangeListener(this);
@@ -146,6 +156,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 int value = Integer.parseInt((String) newValue);
                 updateQuickPulldownSummary(value);
                 break;
+            case PREF_SMART_PULLDOWN:
+
             case QS_PANEL_COLOR:
                 String hex = ColorPickerPreference.convertToARGB(
                         Integer.valueOf(String.valueOf(newValue)));
@@ -195,6 +207,30 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQuickPulldown.setSummary(summary);
     }
 
+    private void updateSmartPulldownSummary(int value) {
+        String summary="";
+        switch (value) {
+            case SMART_PULLDOWN_ONGOINGOFF:
+                summary = getResources().getString(
+                    R.string.smart_pulldown_off);
+                break;
+            case SMART_PULLDOWN_NONE:
+                summary = getResources().getString(
+                    R.string.smart_pulldown_none_summary);
+                break;
+            case SMART_PULLDOWN_DISMISSABLE:
+            case SMART_PULLDOWN_ONGOING:
+                summary = getResources().getString(
+                    R.string.status_bar_quick_qs_pulldown_summary,
+                    getResources().getString(value == SMART_PULLDOWN_DISMISSABLE
+                    ? R.string.smart_pulldown_dismissable
+                    : R.string.smart_pulldown_ongoing));
+                break;
+        }
+        mSmartPulldown.setSummary(summary);
+    }
+
+
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
         LineageSettings.Secure.putIntForUser(resolver,
@@ -217,6 +253,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 Settings.System.QS_BATTERY_STYLE, -1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.QS_DATAUSAGE, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.QS_SMART_PULLDOWN, 1, UserHandle.USER_CURRENT);
     }
 
     @Override
