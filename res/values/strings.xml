@@ -162,4 +162,8 @@
     <string name="reset">Reset</string>
     <string name="color_picker_dialog_title">Color</string>
 
+    <!-- Notification count -->
+    <string name="status_bar_notif_count_title">Show notification count</string>
+    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+
 </resources>
