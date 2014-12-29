@@ -62,7 +62,8 @@ public class Animation extends SettingsPreferenceFragment implements
     private static final String WALLPAPER_CLOSE = "wallpaper_close";
     private static final String WALLPAPER_INTRA_OPEN = "wallpaper_intra_open";
     private static final String WALLPAPER_INTRA_CLOSE = "wallpaper_intra_close";
-
+    private static final String TASK_OPEN_BEHIND = "task_open_behind";
+ 
     ListPreference mActivityOpenPref;
     ListPreference mActivityClosePref;
     ListPreference mTaskOpenPref;
@@ -73,7 +74,8 @@ public class Animation extends SettingsPreferenceFragment implements
     ListPreference mWallpaperClose;
     ListPreference mWallpaperIntraOpen;
     ListPreference mWallpaperIntraClose;
-
+    ListPreference mTaskOpenBehind;
+    
     private int[] mAnimations;
     private String[] mAnimationsStrings;
     private String[] mAnimationsNum;
@@ -161,6 +163,11 @@ public class Animation extends SettingsPreferenceFragment implements
         mWallpaperIntraClose.setEntries(mAnimationsStrings);
         mWallpaperIntraClose.setEntryValues(mAnimationsNum);
 
+        mTaskOpenBehind = (ListPreference) findPreference(TASK_OPEN_BEHIND);
+        mTaskOpenBehind.setOnPreferenceChangeListener(this);
+        mTaskOpenBehind.setSummary(getProperSummary(mTaskOpenBehind));
+        mTaskOpenBehind.setEntries(mAnimationsStrings);
+        mTaskOpenBehind.setEntryValues(mAnimationsNum);
     }
 
     @Override
@@ -207,7 +214,10 @@ public class Animation extends SettingsPreferenceFragment implements
             int val = Integer.parseInt((String) newValue);
             result = Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.ACTIVITY_ANIMATION_CONTROLS[9], val);
-       }
+        } else if (preference == mTaskOpenBehind) {
+            int val = Integer.parseInt((String) newValue);
+            result = Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.ACTIVITY_ANIMATION_CONTROLS[10], val);
         preference.setSummary(getProperSummary(preference));
         return result;
     }
@@ -234,6 +244,8 @@ public class Animation extends SettingsPreferenceFragment implements
             mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[8];
         } else if (preference == mWallpaperIntraClose) {
             mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[9];
+        } else if (preference == mTaskOpenBehind) {
+            mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[10];
         }
 
         int mNum = Settings.System.getInt(mContext.getContentResolver(), mString, 0);
