@@ -43,7 +43,7 @@
 
     <!-- Statusbar -->
     <string name="statusbar_traffic_title">Traffic</string>
-    
+
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
@@ -53,7 +53,7 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
-    
+
     <!-- AOKP custom system animations -->
     <string name="activity_open_title">Activity open animation</string>
     <string name="activity_close_title">Activity close animation</string>
@@ -61,6 +61,7 @@
     <string name="task_close_title">Task close animation</string>
     <string name="task_move_to_front_title">Move to front animation</string>
     <string name="task_move_to_back_title">Move to back animation</string>
+    <string name="task_open_behind_title">Task open behind animation</string>
     <string name="wallpaper_open_title">Wallpaper open animation</string>
     <string name="wallpaper_close_title">Wallpaper close animation</string>
     <string name="wallpaper_intra_open_title">Wallpaper intra open animation</string>
@@ -69,5 +70,5 @@
     <string name="title_animation_no_override">Prevent app overrides</string>
     <string name="summary_animation_no_override">Prevent apps from overriding transitions</string>
     <string name="animation_duration_default">Default</string>
-    
+
 </resources>
