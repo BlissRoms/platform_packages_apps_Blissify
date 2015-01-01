@@ -80,4 +80,8 @@
     <!-- QS Headers -->
     <string name="qs_header_title">Header</string>
     <string name="qs_header_summary">Quick setting header customizations</string>
+
+    <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_vibrate_title">Vibrate on touch</string>
+    <string name="quick_settings_vibrate_summary">Vibrate when touching QS tiles</string>
 </resources>
