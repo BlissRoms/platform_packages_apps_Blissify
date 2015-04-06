@@ -24,7 +24,6 @@
     <string name="clock_tab_title">Clock</string>
     <string name="statusbar_gestures_title">Gestures</string>
     <string name="statusbar_ticker_title">Ticker</string>
-    <string name="statusbar_bliss_logo">Bliss Logo</string>
 
     <!-- clock date options -->
     <string name="clock_title_enable">Alignment</string>
@@ -287,5 +286,9 @@
     <string name="text_title">Text</string>
     <string name="icon_title">Icon</string>
     <string name="colors_title">Colors</string>
+
+    <!-- Statusbar Bliss logo -->
+    <string name="statusbar_bliss_logo">Bliss Logo</string>
+    <string name="status_bar_bliss_logo_summary">Enable to show Bliss logo on the left side of statusbar</string>
 
 </resources>
