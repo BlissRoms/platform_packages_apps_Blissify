@@ -18,4 +18,10 @@
     <!-- Blissify -->
     <string name="blissify_title">Blissify</string>
 
+    <!-- Blissify Categories -->
+
+    <!-- Status bar -->
+    <string name="statusbar_settings_title">StatusBar Settings</string>
+    <string name="clock_tab_title">Clock</string>
+
 </resources>

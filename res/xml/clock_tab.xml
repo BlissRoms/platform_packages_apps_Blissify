@@ -13,16 +13,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/blissify_title">
-
-    <PreferenceScreen
-       android:key="statusbar_settings"
-       android:fragment="com.android.settings.bliss.statusbar.StatusBarSettings"
-       android:title="@string/statusbar_settings_title" 
-       android:icon="@drawable/ic_bliss_statusbar" />
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:title="@string/clock_tab_title">
 
 </PreferenceScreen>
