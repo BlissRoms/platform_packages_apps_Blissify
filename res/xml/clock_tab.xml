@@ -13,15 +13,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:title="@string/clock_tab_title">
 
-    <!-- Blissify -->
-    <string name="blissify_title">Blissify</string>
-
-    <!-- Blissify Categories -->
-
-    <!-- Status bar -->
-    <string name="statusbar_settings_title">StatusBar Settings</string>
-    <string name="clock_tab_title">Clock</string>
-
-</resources>
+</PreferenceScreen>

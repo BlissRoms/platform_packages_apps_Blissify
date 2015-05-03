@@ -19,4 +19,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_title">
 
+    <PreferenceScreen
+       android:key="statusbar_settings"
+       android:fragment="com.blissroms.blissify.statusbar.StatusBarSettings"
+       android:title="@string/statusbar_settings_title" 
+       android:icon="@drawable/ic_bliss_statusbar" />
+
 </PreferenceScreen>
