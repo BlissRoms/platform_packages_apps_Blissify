@@ -40,6 +40,7 @@ import com.blissroms.blissify.notification.tabs.BlurPersonalizations;
 import com.blissroms.blissify.notification.tabs.NotificationLightSettings;
 import com.blissroms.blissify.notification.tabs.BatteryLightSettings;
 import com.blissroms.blissify.notification.tabs.TaskManager;
+import com.blissroms.blissify.notification.tabs.BreathingNotification;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -98,6 +99,7 @@ public class NotificationSettings extends SettingsPreferenceFragment {
             frags[1] = new NotificationLightSettings();
 	    frags[2] = new BlurPersonalizations();
 	    frags[3] = new TaskManager();
+	    frags[4] = new BreathingNotification();
         }
 
         @Override
@@ -122,7 +124,8 @@ public class NotificationSettings extends SettingsPreferenceFragment {
                     getString(R.string.battery_light_settings),
                     getString(R.string.notification_light_settings),
 		    getString(R.string.blur_settings),
-		    getString(R.string.task_manager_title)};
+		    getString(R.string.task_manager_title),
+		    getString(R.string.breathing_notifications_title)};
         return titleString;
     }
 
