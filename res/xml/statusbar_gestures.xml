@@ -19,4 +19,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/statusbar_gestures_title">
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="double_tap_sleep_gesture"
+        android:title="@string/double_tap_to_sleep_title"
+        android:summary="@string/double_tap_to_sleep_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
