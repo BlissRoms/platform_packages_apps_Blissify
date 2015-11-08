@@ -18,4 +18,12 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/lockscreen_gestures_title">
 
+        <PreferenceScreen
+            android:title="@string/lockscreen_targets_message"
+            android:summary="@string/lockscreen_targets_summary">
+            <intent
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.bliss.LockscreenShortcutsActivity" />
+        </PreferenceScreen>
+
 </PreferenceScreen>

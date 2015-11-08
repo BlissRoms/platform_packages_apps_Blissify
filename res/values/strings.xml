@@ -147,4 +147,8 @@
     <string name="lockscreen_settings_title">Lockscreen Settings</string>
     <string name="lockscreen_gestures_title">Gestures</string>
 
+    <!-- Lockscreen shortcuts -->
+    <string name="lockscreen_targets_summary">View or change lock screen shortcuts</string>
+    <string name="lockscreen_targets_message">Lockscreen shortcuts</string>
+
 </resources>

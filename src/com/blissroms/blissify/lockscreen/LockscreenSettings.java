@@ -34,7 +34,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.blissroms.blissify.PagerSlidingTabStrip;
-import com.blissroms.blissify.statusbar.tabs.LockscreenGestures;
+import com.blissroms.blissify.lockscreen.tabs.LockscreenGestures;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -44,7 +44,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StatusBarSettings extends SettingsPreferenceFragment {
+public class LockscreenSettings extends SettingsPreferenceFragment {
 
     ViewPager mViewPager;
     String titleString[];
