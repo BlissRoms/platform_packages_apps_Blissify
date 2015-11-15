@@ -860,4 +860,8 @@
     <!-- Power menu torch -->
     <string name="power_menu_torch_title">Torch</string>
 
+    <!-- Notification Count in Statusbar -->
+    <string name="status_bar_notif_count_title">Show notification count</string>
+    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+
 </resources>

@@ -20,6 +20,12 @@
     android:title="@string/statusbar_gestures_title">
 
     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="status_bar_notif_count"
+        android:title="@string/status_bar_notif_count_title"
+        android:summary="@string/status_bar_notif_count_summary"
+        android:persistent="false" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
         android:key="double_tap_sleep_gesture"
         android:title="@string/double_tap_to_sleep_title"
         android:summary="@string/double_tap_to_sleep_summary"

@@ -17,6 +17,7 @@
 package com.blissroms.blissify.statusbar.tabs;
 
 import android.os.Bundle;
+import android.content.ContentResolver;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
@@ -29,21 +30,41 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 public class StatusbarGestures extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String TAG = "StatusbarGestures";
+    private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
+
+    private SwitchPreference mEnableNC;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.statusbar_gestures);
-    }
+        final PreferenceScreen prefSet = getPreferenceScreen();
+        final ContentResolver resolver = getActivity().getContentResolver();
+
+        mEnableNC = (SwitchPreference) findPreference(STATUS_BAR_NOTIF_COUNT);
+        mEnableNC.setOnPreferenceChangeListener(this);
+        int EnableNC = Settings.System.getInt(getContentResolver(),
+                STATUS_BAR_NOTIF_COUNT, 0);
+        mEnableNC.setChecked(EnableNC != 0);
+        }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if  (preference == mEnableNC) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(), STATUS_BAR_NOTIF_COUNT,
+                    value ? 1 : 0);
+            return true;
+        }
         return false;
+
     }
 
     @Override
