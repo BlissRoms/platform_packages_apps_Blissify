@@ -35,6 +35,7 @@ import android.view.ViewGroup;
 
 import com.blissroms.blissify.PagerSlidingTabStrip;
 import com.blissroms.blissify.recents.tabs.StockRecents;
+import com.blissroms.blissify.recents.tabs.OmniSwitch;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -93,6 +94,7 @@ public class RecentsSettings extends SettingsPreferenceFragment {
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
 	    frags[0] = new StockRecents();
+            frags[1] = new OmniSwitch();
         }
 
         @Override
@@ -114,7 +116,8 @@ public class RecentsSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
-		    getString(R.string.stock_recents_title)};
+		    getString(R.string.stock_recents_title),
+                    getString(R.string.omniswitch_category)};
         return titleString;
     }
 

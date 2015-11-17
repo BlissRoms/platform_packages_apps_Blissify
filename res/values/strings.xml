@@ -928,4 +928,14 @@
     <string name="custom_header_browse_title">Browse installed headers</string>
     <string name="custom_header_browse_summary">Long press on any image to use for static mode</string>
 
+    <!-- OmniSwitch -->
+    <string name="omniswitch_category">Omni switch</string>
+    <string name="recents_use_omniswitch_title">Use for recents</string>
+    <string name="recents_use_omniswitch_summary">Use omni switch instead of default recents view</string>
+    <string name="omniswitch_start_settings_title">Settings</string>
+    <string name="omniswitch_start_settings_summary">Open omni switch settings</string>
+    <string name="omniswitch_first_time_title">Information</string>
+    <string name="omniswitch_first_time_message">Make sure you have enabled omni switch. You can do this by using \"Settings\" below</string>
+    <string name="omniswitch_settings_title">Omni switch</string>
+
 </resources>
