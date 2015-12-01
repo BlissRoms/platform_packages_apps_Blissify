@@ -46,6 +46,7 @@
     <string name="statusbar_privacy_category_title">Privacy indicators</string>
     <string name="aosp_gesture_category_title">AOSP Default</string>
     <string name="qs_brightness_category_title">Brightness Slider</string>
+    <string name="blissify_buttons_volume_category">Volume Keys</string>
 
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
@@ -276,4 +277,8 @@
     <!-- Charging animation -->
     <string name="charging_animation_title">Charging animation</string>
     <string name="charging_animation_summary">Display an animation when the device is plugged in</string>
+    
+    <!--Volume keys -->
+    <string name="volume_rocker_wake_title">Volume rocker wake</string>
+    <string name="volume_rocker_wake_summary">Pressing the volume keys will wake your device</string>
 </resources>
