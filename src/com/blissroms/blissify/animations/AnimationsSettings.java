@@ -35,6 +35,7 @@ import android.view.ViewGroup;
 
 import com.blissroms.blissify.PagerSlidingTabStrip;
 import com.blissroms.blissify.animations.tabs.SystemAnimations;
+import com.blissroms.blissify.animations.tabs.Animations;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -93,6 +94,7 @@ public class AnimationsSettings extends SettingsPreferenceFragment {
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
 	    frags[0] = new SystemAnimations();
+            frags[1] = new Animations();
         }
 
         @Override
@@ -114,7 +116,8 @@ public class AnimationsSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
-		    getString(R.string.system_animations_title)};
+		    getString(R.string.system_animations_tab_title),
+		    getString(R.string.animations_tab_title)};
         return titleString;
     }
 
