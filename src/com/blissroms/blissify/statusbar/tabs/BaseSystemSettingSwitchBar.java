@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.blissroms.blissify.statusbar;
+package com.blissroms.blissify.statusbar.tabs;
 
 import android.content.ContentResolver;
 import android.content.Context;
