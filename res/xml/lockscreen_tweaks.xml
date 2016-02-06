@@ -30,4 +30,19 @@
          android:title="@string/keyguard_statusbar_clock_title"
          android:summary="@string/keyguard_statusbar_clock_summary" />
 
+    <!-- Hide Lockscreen clock & date -->
+     <PreferenceCategory
+        android:key="hide_lockscreen_items_category"
+        android:title="@string/hide_lockscreen_items_title" />
+
+     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+         android:key="hide_lockscreen_clock"
+         android:title="@string/hide_lockscreen_clock_title"
+         android:defaultValue="true" />
+
+     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+         android:key="hide_lockscreen_date"
+         android:title="@string/hide_lockscreen_date_title"
+         android:defaultValue="true" />
+
 </PreferenceScreen>

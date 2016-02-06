@@ -763,4 +763,9 @@
     <string name="keyguard_statusbar_clock_title">Keyguard statusbar clock</string>
     <string name="keyguard_statusbar_clock_summary">Show the left statusbar clock on the keyguard</string>
 
+    <!-- Hide Lockscreen clock & date -->
+    <string name="hide_lockscreen_items_title">Lockscreen items</string>
+    <string name="hide_lockscreen_clock_title">Show lockscreen clock</string>
+    <string name="hide_lockscreen_date_title">Show lockscreen date</string>
+
 </resources>
