@@ -767,5 +767,6 @@
     <string name="hide_lockscreen_items_title">Lockscreen items</string>
     <string name="hide_lockscreen_clock_title">Show lockscreen clock</string>
     <string name="hide_lockscreen_date_title">Show lockscreen date</string>
+    <string name="hide_lockscreen_alarm_title">Show lockscreen alarm</string>
 
 </resources>
