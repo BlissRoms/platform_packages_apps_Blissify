@@ -132,6 +132,11 @@ public class Buttons extends SettingsPreferenceFragment implements
         return MetricsEvent.BLISSIFY;
     }
 
+    @Override
+    protected boolean usesExtendedActionsList() {
+        return true;
+    }
+
     /**
      * For Search.
      */
