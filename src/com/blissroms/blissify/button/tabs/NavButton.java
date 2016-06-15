@@ -116,6 +116,11 @@ public class NavButton extends SettingsPreferenceFragment implements
     }
 
     @Override
+    protected boolean usesExtendedActionsList() {
+        return true;
+    }
+
+    @Override
     protected int getMetricsCategory() {
         return MetricsEvent.BLISSIFY;
     }
