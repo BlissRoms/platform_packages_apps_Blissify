@@ -141,6 +141,16 @@ public class ButtonSettings extends ActionFragment implements
     }
 
     @Override
+    protected boolean usesExtendedActionsList() {
+        return true;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+	}
+
+    @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.BLISSIFY;
     }
