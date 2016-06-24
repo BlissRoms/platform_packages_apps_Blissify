@@ -17,6 +17,7 @@
 package com.blissroms.blissify.lockscreen.tabs;
 
 import android.os.Bundle;
+import android.content.ContentResolver;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
@@ -24,6 +25,7 @@ import android.support.v7.preference.PreferenceScreen;
 import android.support.v14.preference.PreferenceFragment;
 import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
+import com.blissroms.blissify.preference.SecureSettingSwitchPreference;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -35,19 +37,39 @@ public class LockscreenTweaks extends SettingsPreferenceFragment implements
 
     private static final String TAG = "LockscreenTweaks";
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.lockscreen_tweaks);
-    }
+    private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
 
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        return false;
-    }
+    private ListPreference mLockClockFonts;
 
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.BLISSIFY;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        addPreferencesFromResource(R.xml.lockscreen_tweaks);
+
+        mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
+        mLockClockFonts.setValue(String.valueOf(Settings.System.getInt(
+                resolver, Settings.System.LOCK_CLOCK_FONTS, 4)));
+        mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+        mLockClockFonts.setOnPreferenceChangeListener(this);
+    }
+
+     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mLockClockFonts) {
+            Settings.System.putInt(resolver, Settings.System.LOCK_CLOCK_FONTS,
+                    Integer.valueOf((String) newValue));
+            mLockClockFonts.setValue(String.valueOf(newValue));
+            mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+            return true;
+        }
+          return false; 
     }
 }

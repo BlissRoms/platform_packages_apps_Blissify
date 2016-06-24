@@ -332,7 +332,7 @@ public class ClockSettings extends SettingsPreferenceFragment implements
         int lastEntry = dateEntries.length - 1;
         int dateFormat = Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.STATUSBAR_CLOCK_DATE_STYLE, 0);
-        for (int i = 0; i < dateEntries.length; i) {
+        for (int i = 0; i < dateEntries.length; i++) {
             if (i == lastEntry) {
                 parsedDateEntries[i] = dateEntries[i];
             } else {
