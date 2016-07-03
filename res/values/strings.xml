@@ -29,6 +29,10 @@
     <string name="system_animations_tab_title">System Animations</string>
     <string name="animations_tab_title">Animations</string>
 
+    <!-- Gestures Category -->
+    <string name="gestures_settings_title">Gestures Settings</string>
+    <string name="touch_gestures_tab_title">Touch Gestures</string>
+
     <!-- Status bar - Clock -->
     <string name="status_bar_clock_style_title">Clock style</string>
     <string name="status_bar_clock_style_right">Right</string>
