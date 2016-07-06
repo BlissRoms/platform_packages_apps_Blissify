@@ -20,9 +20,13 @@
 
     <!-- Blissify Categories -->
 
-    <!-- Status bar -->
+    <!-- Statusbar Category -->
     <string name="statusbar_settings_title">StatusBar Settings</string>
     <string name="clock_tab_title">Clock</string>
+
+    <!-- Animations Category -->
+    <string name="animations_settings_title">Animations Settings</string>
+    <string name="system_animations_tab_title">System Animations</string>
 
     <!-- Status bar - Clock -->
     <string name="status_bar_clock_style_title">Clock style</string>
