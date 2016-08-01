@@ -14,13 +14,16 @@
 * limitations under the License.
 */
 
-package com.blissroms.blissify.statusbar;
+package com.blissroms.blissify.quicksettings;
 
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.ContentResolver;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
@@ -32,20 +35,19 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.blissroms.blissify.PagerSlidingTabStrip;
-import com.blissroms.blissify.statusbar.tabs.ClockSettings;
-import com.blissroms.blissify.statusbar.tabs.StatusbarGestures;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
+import com.blissroms.blissify.quicksettings.tabs.QuickPullDown;
+import com.blissroms.blissify.quicksettings.tabs.QSAdvanced;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StatusBarSettings extends SettingsPreferenceFragment {
+public class QuickSettings extends SettingsPreferenceFragment {
 
     ViewPager mViewPager;
     String titleString[];
@@ -93,8 +95,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
 
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
-	    frags[0] = new ClockSettings();
-	    frags[1] = new StatusbarGestures();
+	    frags[0] = new QuickPulldown();
+	    frags[1] = new QSAdvanced();
         }
 
         @Override
@@ -116,8 +118,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
-		    getString(R.string.clock_tab_title),
-		    getString(R.string.statusbar_gestures_title)};
+		    getString(R.string.quick_pulldown_title),
+		    getString(R.string.qs_advanced_title)};
         return titleString;
     }
 

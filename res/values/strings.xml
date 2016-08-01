@@ -23,5 +23,17 @@
     <!-- Status bar -->
     <string name="statusbar_settings_title">StatusBar Settings</string>
     <string name="clock_tab_title">Clock</string>
+    <string name="statusbar_gestures_title">Gestures</string>
+
+    <!-- Quick Settings -->
+    <string name="quick_settings_title">Quick Settings</string>
+    <string name="quick_pulldown_title">Quick Pulldown</string>
+
+    <!-- Quick Settings -->
+    <string name="qs_advanced_title">Advanced</string>
+
+    <!-- Notification Settings -->
+    <string name="notification_settings_title">Notification Settings</string>
+    <string name="led_settings_title">Led Settings</string>
 
 </resources>
