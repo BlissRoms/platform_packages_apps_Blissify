@@ -22,6 +22,7 @@
     <!-- Status bar -->
     <string name="statusbar_settings_title">StatusBar Settings</string>
     <string name="clock_tab_title">Clock</string>
+    <string name="statusbar_gestures_title">Gestures</string>
 
     <!-- clock date options -->
     <string name="clock_title_enable">Alignment</string>
