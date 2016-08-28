@@ -143,4 +143,8 @@
     <string name="reset">Reset</string>
     <string name="color_picker_dialog_title">Color</string>
 
+    <!-- Lockscreen Settings -->
+    <string name="lockscreen_settings_title">Lockscreen Settings</string>
+    <string name="lockscreen_gestures_title">Gestures</string>
+
 </resources>
