@@ -24,6 +24,7 @@
     <com.blissroms.blissify.PagerSlidingTabStrip
         android:id="@+id/tabs"
         android:layout_width="match_parent"
+        android:background="@color/bliss_tab_color"
         android:layout_height="48dp" />
 
     <android.support.v4.view.ViewPager
