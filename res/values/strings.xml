@@ -74,4 +74,8 @@
     <string name="network_traffic_hidearrow_title">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the traffic monitor activity arrows</string>
 
+    <!-- Quick Settings -->
+    <string name="quick_settings_title">Quick Settings</string>
+    <string name="quick_pulldown_title">Quick Pulldown</string>
+
 </resources>
