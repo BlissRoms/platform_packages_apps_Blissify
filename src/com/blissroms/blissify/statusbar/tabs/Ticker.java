@@ -39,7 +39,7 @@ import com.android.settings.bliss.CustomSeekBarPreference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import net.bliss.colorpicker.preference.ColorPickerPreference;
 
 public class Ticker extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {

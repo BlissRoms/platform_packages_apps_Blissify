@@ -24,4 +24,33 @@
     <color name="white">#FFF</color>
     <color name="action_picker_fab_background">@color/theme_accent</color>
 
+    <!-- Bliss theme -->
+    <color name="background_bliss_blue_grey">#ff1d99c5</color>
+
+    <!-- Color picker -->
+    <color name="color_picker_color_view_drawable_border">#33ffffff</color>
+
+    <!-- Colors of the panel view buttons -->
+    <color name="black">@android:color/black</color>
+    <color name="white">@android:color/white</color>
+    <color name="holo_blue_light">@android:color/holo_blue_light</color>
+    <color name="material_deep_teal_500">@*android:color/material_deep_teal_500</color>
+    <color name="material_indigo_500">#ff3f51b5</color>
+    <color name="material_red_500">#fff44336</color>
+    <color name="material_purple_500">#ff9c27b0</color>
+    <color name="material_green_500">#ff4caf50</color>
+    <color name="material_blue_500">#ff2196f3</color>
+    <color name="material_yellow_500">#ffffeb3b</color>
+    <color name="material_orange_500">#ffff9800</color>
+    <color name="red">#ffff0000</color>
+    <color name="green">#ff00ff00</color>
+    <color name="blue">#ff0000ff</color>
+    <color name="purple">#ff800080</color>
+    <color name="yellow">#ffffff00</color>
+    <color name="orange">#ffffa500</color>
+
+    <!-- Colors of the help screen -->
+    <color name="color_picker_help_screen_background">#e0000000</color>
+    <color name="color_picker_help_summary_text_color">#b3ffffff</color>
+
 </resources>
