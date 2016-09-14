@@ -36,6 +36,7 @@ import android.view.ViewGroup;
 import com.blissroms.blissify.PagerSlidingTabStrip;
 import com.blissroms.blissify.statusbar.tabs.ClockSettings;
 import com.blissroms.blissify.statusbar.tabs.StatusbarGestures;
+import com.blissroms.blissify.statusbar.tabs.NetworkTraffic;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -95,6 +96,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
             super(fm);
 	    frags[0] = new ClockSettings();
 	    frags[1] = new StatusbarGestures();
+            frags[2] = new NetworkTraffic();
         }
 
         @Override
@@ -117,7 +119,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[]{
 		    getString(R.string.clock_tab_title),
-		    getString(R.string.statusbar_gestures_title)};
+		    getString(R.string.statusbar_gestures_title),
+		    getString(R.string.network_traffic_title)};
         return titleString;
     }
 
