@@ -37,6 +37,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class SystemAnimation extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
       private static final String TAG = "SystemAnimation";
       private static final String ACTIVITY_OPEN = "activity_open";
       private static final String ACTIVITY_CLOSE = "activity_close";
@@ -50,6 +51,8 @@ public class SystemAnimation extends SettingsPreferenceFragment implements
       private static final String WALLPAPER_CLOSE = "wallpaper_close";
       private static final String WALLPAPER_INTRA_OPEN = "wallpaper_intra_open";
       private static final String WALLPAPER_INTRA_CLOSE = "wallpaper_intra_close";
+      private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
+      private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
       ListPreference mActivityOpenPref;
       ListPreference mActivityClosePref;
@@ -63,6 +66,8 @@ public class SystemAnimation extends SettingsPreferenceFragment implements
       ListPreference mWallpaperIntraOpen;
       ListPreference mWallpaperIntraClose;
       SwitchPreference mAnimNoOverride;
+      ListPreference mListViewAnimation;
+      ListPreference mListViewInterpolator;
 
       private int[] mAnimations;
       private String[] mAnimationsStrings;
@@ -159,6 +164,21 @@ public class SystemAnimation extends SettingsPreferenceFragment implements
           mWallpaperIntraClose.setEntries(mAnimationsStrings);
           mWallpaperIntraClose.setEntryValues(mAnimationsNum);
 
+          mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
+          int listviewanimation = Settings.System.getInt(getContentResolver(),
+                  Settings.System.LISTVIEW_ANIMATION, 0);
+          mListViewAnimation.setValue(String.valueOf(listviewanimation));
+          mListViewAnimation.setSummary(mListViewAnimation.getEntry());
+          mListViewAnimation.setOnPreferenceChangeListener(this);
+    
+          mListViewInterpolator = (ListPreference) findPreference(KEY_LISTVIEW_INTERPOLATOR);
+          int listviewinterpolator = Settings.System.getInt(getContentResolver(),
+                  Settings.System.LISTVIEW_INTERPOLATOR, 0);
+          mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
+          mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
+          mListViewInterpolator.setOnPreferenceChangeListener(this);
+          mListViewInterpolator.setEnabled(listviewanimation > 0);
+
     }
 
 	@Override
@@ -204,6 +224,25 @@ public class SystemAnimation extends SettingsPreferenceFragment implements
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
                       Settings.System.ACTIVITY_ANIMATION_CONTROLS[9], val);
+          } else if (preference == mListViewAnimation) {
+            int value = Integer.parseInt((String) newValue);
+            int index = mListViewAnimation.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LISTVIEW_ANIMATION, value);
+            mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+            mListViewInterpolator.setEnabled(value > 0);
+            return true;
+         } else if (preference == mListViewInterpolator) {
+            int value = Integer.parseInt((String) newValue);
+            int index = mListViewInterpolator.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LISTVIEW_INTERPOLATOR, value);
+            mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
+            return true;
+		 } else if (preference == mTaskOpenBehind) {
+            int val = Integer.parseInt((String) newValue);
+            result = Settings.System.putInt(mContentRes,
+                    Settings.System.ACTIVITY_ANIMATION_CONTROLS[10], val);
          } 
         preference.setSummary(getProperSummary(preference));
         return false;
@@ -243,3 +282,4 @@ public class SystemAnimation extends SettingsPreferenceFragment implements
         return MetricsEvent.BLISSIFY;
     }
 }
+
