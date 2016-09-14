@@ -54,6 +54,11 @@ public class SystemAnimation extends SettingsPreferenceFragment implements
       private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
       private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
+      private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
+      private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
+
+      private static final String SCROLLINGCACHE_DEFAULT = "2";
+
       ListPreference mActivityOpenPref;
       ListPreference mActivityClosePref;
       ListPreference mTaskOpenPref;
@@ -68,6 +73,7 @@ public class SystemAnimation extends SettingsPreferenceFragment implements
       SwitchPreference mAnimNoOverride;
       ListPreference mListViewAnimation;
       ListPreference mListViewInterpolator;
+      ListPreference mScrollingCachePref;
 
       private int[] mAnimations;
       private String[] mAnimationsStrings;
@@ -76,6 +82,11 @@ public class SystemAnimation extends SettingsPreferenceFragment implements
       protected Context mContext;
 
       protected ContentResolver mContentRes;
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.BLISSIFY;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -179,6 +190,10 @@ public class SystemAnimation extends SettingsPreferenceFragment implements
           mListViewInterpolator.setOnPreferenceChangeListener(this);
           mListViewInterpolator.setEnabled(listviewanimation > 0);
 
+	  mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
+          mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
+                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
+          mScrollingCachePref.setOnPreferenceChangeListener(this);
     }
 
 	@Override
@@ -239,6 +254,11 @@ public class SystemAnimation extends SettingsPreferenceFragment implements
                     Settings.System.LISTVIEW_INTERPOLATOR, value);
             mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
             return true;
+		 } else if (preference == mScrollingCachePref) {
+            if (newValue != null) {
+                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
+            }
+            return true;
 		 } else if (preference == mTaskOpenBehind) {
             int val = Integer.parseInt((String) newValue);
             result = Settings.System.putInt(mContentRes,
@@ -276,10 +296,5 @@ public class SystemAnimation extends SettingsPreferenceFragment implements
 
         int mNum = Settings.System.getInt(mContentRes, mString, 0);
         return mAnimationsStrings[mNum];
-
-    @Override
-    protected int getMetricsCategory() {
-        return MetricsEvent.BLISSIFY;
     }
 }
-
