@@ -31,11 +31,18 @@
         android:entryValues="@array/status_bar_quick_qs_pulldown_values"
         android:defaultValue="0" />
 
-    <PreferenceScreen
+<!--    <PreferenceScreen
         android:fragment="com.blissroms.blissify.fragments.statusbar.NetworkTrafficSettings"
         android:key="network_traffic_settings"
         android:title="@string/network_traffic_settings_title"
-        android:summary="@string/network_traffic_settings_summary" />
+        android:summary="@string/network_traffic_settings_summary" /> -->
+
+        <PreferenceScreen
+            android:key="network_traffic_settings"
+            android:icon="@drawable/ic_traffic"
+            android:title="@string/network_traffic_settings_title"
+            android:summary="@string/network_traffic_settings_summary"
+            android:fragment="com.bliss.settings.fragments.statusbar.NetworkTraffic" />
 
         <Preference
             android:key="batterybar_settings"
