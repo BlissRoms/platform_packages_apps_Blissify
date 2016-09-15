@@ -93,4 +93,8 @@
     <string name="qs_advanced_data_title">Advanced data tile</string>
     <string name="qs_advanced_data_summary">Enable one tap action to enable or disable data</string>
 
+    <!-- Notification Settings -->
+    <string name="notification_settings_title">Notification Settings</string>
+    <string name="led_settings_title">Led Settings</string>
+
 </resources>

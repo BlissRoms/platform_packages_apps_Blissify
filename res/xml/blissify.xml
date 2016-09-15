@@ -30,4 +30,9 @@
        android:fragment="com.blissroms.blissify.quicksettings.QuickSettings"
        android:title="@string/quick_settings_title" />
 
+    <PreferenceScreen
+       android:key="notification_settings"
+       android:fragment="com.blissroms.blissify.notification.NotificationSettings"
+       android:title="@string/notification_settings_title" />
+
 </PreferenceScreen>
