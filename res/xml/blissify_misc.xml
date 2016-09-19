@@ -35,6 +35,21 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="hafr_category"
+        android:title="@string/hafr_category_title" >
+
+    <PreferenceScreen
+        android:icon="@drawable/ic_hafr"
+        android:title="@string/hide_apps_from_recents_title"
+        android:summary="@string/hide_apps_from_recents_summary" >
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.blissroms.blissify.fragments.misc.HAFRAppListActivity" />
+    </PreferenceScreen>
+
+    </PreferenceCategory>
+
     <!-- Wakelock blocker -->
     <PreferenceCategory
         android:key="wakelock_blocker_category"
