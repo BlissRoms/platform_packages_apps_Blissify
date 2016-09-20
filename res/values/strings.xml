@@ -109,4 +109,9 @@
     <string name="double_tap_to_sleep_title">Double-tap to sleep</string>
     <string name="double_tap_to_sleep_summary">Double-tap on the status bar or top third and bottom shortcut area of the lock screen to turn off the display</string>
 
+    <!-- Three finger screenshot gesture -->
+    <string name="gestures_title">Gestures</string>
+    <string name="three_finger_gesture">Three finger gesture</string>
+    <string name="three_finger_gesture_summary">Swipe three fingers to take a screenshot</string>
+
 </resources>
