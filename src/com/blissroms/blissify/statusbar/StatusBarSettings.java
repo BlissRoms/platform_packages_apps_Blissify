@@ -58,7 +58,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
 	final ActionBar actionBar = getActivity().getActionBar();
         //actionBar.setIcon(R.drawable.ic_settings_bliss);
 
-        View view = inflater.inflate(R.layout.bliss_ui, container, false);
+        View view = inflater.inflate(R.layout.blissify_ui, container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.pager);
 	mTabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
 
@@ -114,7 +114,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
-		    getString(R.string.clock_settings_title)};
+		    getString(R.string.clock_tab_title)};
         return titleString;
     }
 

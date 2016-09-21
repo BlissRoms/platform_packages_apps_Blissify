@@ -59,7 +59,7 @@ public class AnimationsSettings extends SettingsPreferenceFragment {
 	final ActionBar actionBar = getActivity().getActionBar();
         //actionBar.setIcon(R.drawable.ic_settings_bliss);
 
-        View view = inflater.inflate(R.layout.bliss_ui, container, false);
+        View view = inflater.inflate(R.layout.blissify_ui, container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.pager);
 	mTabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
 
