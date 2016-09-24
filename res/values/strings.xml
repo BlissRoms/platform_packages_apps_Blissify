@@ -41,6 +41,8 @@
     <string name="quick_settings_vibrate_summary">Vibrate when touching QS tiles</string>
     <string name="qs_wifi_easy_toggle_title">WiFi easy toggle</string>
     <string name="qs_wifi_easy_toggle_summary">Makes it so one click will turn WiFi on or off instead of taking you to settings</string>
+    <string name="qs_advanced_data_title">Advanced data tile</string>
+    <string name="qs_advanced_data_summary">Enable one tap action to enable or disable data</string>
 
     <!-- Notification Settings -->
     <string name="notification_settings_title">Notification Settings</string>
