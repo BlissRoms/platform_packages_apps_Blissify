@@ -37,6 +37,8 @@ import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 import com.blissroms.blissify.notification.tabs.LedSettings;
+import com.blissroms.blissify.notification.tabs.NotificationLightSettings;
+import com.blissroms.blissify.notification.tabs.BatteryLightSettings
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -91,7 +93,9 @@ public class NotificationSettings extends SettingsPreferenceFragment {
 
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
-	    frags[0] = new LedSettings();
+            frags[0] = new BatteryLightSettings();
+            frags[1] = new NotificationLightSettings();
+	    frags[2] = new LedSettings();
         }
 
         @Override
@@ -113,6 +117,8 @@ public class NotificationSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
+                    getString(R.string.battery_light_settings),
+                    getString(R.string.notification_light_settings),
 		    getString(R.string.led_settings_title)};
         return titleString;
     }
