@@ -33,6 +33,12 @@
         android:defaultValue="true"/>
 
     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="qs_fancy_animation"
+        android:title="@string/qs_fancy_animation_title"
+        android:summary="@string/qs_fancy_animation_summary"
+        android:defaultValue="true" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
         android:key="qs_settings_icon_toggle"
         android:title="@string/qs_settings_icon_title"
         android:summary="@string/qs_settings_icon_summary"
