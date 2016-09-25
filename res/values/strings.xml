@@ -33,6 +33,10 @@
     <string name="gestures_settings_title">Gestures Settings</string>
     <string name="touch_gestures_tab_title">Touch Gestures</string>
 
+    <!-- Lockscreen Category -->
+    <string name="lockscreen_settings_title">Lockscreen Settings</string>
+    <string name="lockscreen_tab_title">General Settings</string>
+
     <!-- Status bar - Clock -->
     <string name="status_bar_clock_style_title">Clock style</string>
     <string name="status_bar_clock_style_right">Right</string>
@@ -113,5 +117,10 @@
     <string name="gestures_title">Gestures</string>
     <string name="three_finger_gesture">Three finger gesture</string>
     <string name="three_finger_gesture_summary">Swipe three fingers to take a screenshot</string>
+
+    <!-- Default left shortcut on lockscreen -->
+    <string name="left_default_voice_title">Voice assist as default left shortcut</string>
+    <string name="left_default_voice_summary_on">Default shortcut on lockscreen is voice assistant</string>
+    <string name="left_default_voice_summary_off">Default shortcut on lockscreen is phone</string>
 
 </resources>
