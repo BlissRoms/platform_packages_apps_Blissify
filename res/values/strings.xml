@@ -53,6 +53,9 @@
     <string name="nav_button_title">Navigation Buttons</string>
     <string name="navigation_bar_title">Navigation Bar</string>
 
+    <!-- Power Settings -->
+    <string name="power_settings_title">Power Settings</string>
+
     <!-- Double tap-to-sleep -->
     <string name="double_tap_to_sleep_title">Double-tap to sleep</string>
     <string name="double_tap_to_sleep_summary">Double-tap on the status bar or top third and bottom shortcut area of the lock screen to turn off the display</string>
