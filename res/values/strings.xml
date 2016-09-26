@@ -21,21 +21,22 @@
     <!-- Blissify Categories -->
 
     <!-- Statusbar Category -->
-    <string name="statusbar_settings_title">StatusBar Settings</string>
+    <string name="statusbar_settings_title">Status bar settings</string>
     <string name="clock_tab_title">Clock</string>
+    <string name="icons_tab_title">Icons</string>
 
     <!-- Animations Category -->
-    <string name="animations_settings_title">Animations Settings</string>
-    <string name="system_animations_tab_title">System Animations</string>
+    <string name="animations_settings_title">Animations settings</string>
+    <string name="system_animations_tab_title">System animations</string>
     <string name="animations_tab_title">Animations</string>
 
     <!-- Gestures Category -->
-    <string name="gestures_settings_title">Gestures Settings</string>
-    <string name="touch_gestures_tab_title">Touch Gestures</string>
+    <string name="gestures_settings_title">Gestures settings</string>
+    <string name="touch_gestures_tab_title">Touch gestures</string>
 
     <!-- Lockscreen Category -->
-    <string name="lockscreen_settings_title">Lockscreen Settings</string>
-    <string name="lockscreen_tab_title">General Settings</string>
+    <string name="lockscreen_settings_title">Lockscreen settings</string>
+    <string name="lockscreen_tab_title">General settings</string>
 
     <!-- Status bar - Clock -->
     <string name="status_bar_clock_style_title">Clock style</string>
@@ -111,7 +112,7 @@
 
     <!-- Double tap-to-sleep -->
     <string name="double_tap_to_sleep_title">Double-tap to sleep</string>
-    <string name="double_tap_to_sleep_summary">Double-tap on the status bar or top third and bottom shortcut area of the lock screen to turn off the display</string>
+    <string name="double_tap_to_sleep_summary">Double-tap on the status bar to turn off the display</string>
 
     <!-- Three finger screenshot gesture -->
     <string name="gestures_title">Gestures</string>
@@ -122,5 +123,9 @@
     <string name="left_default_voice_title">Voice assist as default left shortcut</string>
     <string name="left_default_voice_summary_on">Default shortcut on lockscreen is voice assistant</string>
     <string name="left_default_voice_summary_off">Default shortcut on lockscreen is phone</string>
+
+    <!-- Show bluetooth icon when disconnected -->
+    <string name="status_bar_bluetooth_icon">Bluetooth icon</string>
+    <string name="status_bar_bluetooth_icon_summary">Shows icon when it is enabled but not connected</string>
 
 </resources>

@@ -35,6 +35,7 @@ import android.view.ViewGroup;
 
 import com.blissroms.blissify.PagerSlidingTabStrip;
 import com.blissroms.blissify.statusbar.tabs.ClockSettings;
+import com.blissroms.blissify.statusbar.tabs.IconsSettings;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -93,6 +94,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
 	    frags[0] = new ClockSettings();
+	    frags[1] = new IconsSettings();
         }
 
         @Override
@@ -114,7 +116,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
-		    getString(R.string.clock_tab_title)};
+		    getString(R.string.clock_tab_title),
+		    getString(R.string.icons_tab_title)};
         return titleString;
     }
 
