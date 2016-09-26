@@ -38,6 +38,10 @@
     <string name="lockscreen_settings_title">Lockscreen settings</string>
     <string name="lockscreen_tab_title">General settings</string>
 
+    <!-- Volume buttons Category -->
+    <string name="buttons_settings_title">Buttons settings</string>
+    <string name="volume_buttons_tab_title">Volume buttons settings</string>
+
     <!-- Status bar - Clock -->
     <string name="status_bar_clock_style_title">Clock style</string>
     <string name="status_bar_clock_style_right">Right</string>
@@ -127,5 +131,11 @@
     <!-- Show bluetooth icon when disconnected -->
     <string name="status_bar_bluetooth_icon">Bluetooth icon</string>
     <string name="status_bar_bluetooth_icon_summary">Shows icon when it is enabled but not connected</string>
+
+    <!-- Volume key cursor control -->
+    <string name="volbtn_cursor_control_title">Volume buttons control keyboard cursor</string>
+    <string name="volbtn_cursor_control_off">Disabled</string>
+    <string name="volbtn_cursor_control_on">Volume up/down moves cursor left/right</string>
+    <string name="volbtn_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
 
 </resources>
