@@ -26,6 +26,17 @@
         android:entryValues="@array/volbtn_cursor_control_values"
         android:persistent="false" />
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="volume_wake_screen"
+        android:title="@string/volume_wake_screen_title"
+        android:summaryOn="@string/volume_wake_screen_summary_on"
+        android:summaryOff="@string/volume_wake_screen_summary_off"
+        android:defaultValue="false" />
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="volbtn_music_controls"
+        android:title="@string/volbtn_music_controls_title"
+        android:summary="@string/volbtn_music_controls_summary"
+        android:defaultValue="false" />
 
 </PreferenceScreen>
