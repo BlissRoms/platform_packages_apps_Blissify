@@ -828,4 +828,8 @@
     <string name="qs_columns_title">Columns</string>
     <string name="sysui_qqs_count_title">Small QS tiles</string>
 
+    <!-- Toast Icons -->
+    <string name="toast_icon_title">Toast icon</string>
+    <string name="toast_icon_summary">Display the app icon corresponding with the toast</string>
+
 </resources>
