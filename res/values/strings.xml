@@ -36,11 +36,12 @@
 
     <!-- Lockscreen Category -->
     <string name="lockscreen_settings_title">Lockscreen settings</string>
-    <string name="lockscreen_tab_title">General settings</string>
+    <string name="lockscreen_tab_title">General</string>
 
     <!-- Volume buttons Category -->
     <string name="buttons_settings_title">Buttons settings</string>
-    <string name="volume_buttons_tab_title">Volume buttons settings</string>
+    <string name="volume_buttons_tab_title">Volume buttons</string>
+    <string name="power_buttons_tab_title">Power button</string>
 
     <!-- Status bar - Clock -->
     <string name="status_bar_clock_style_title">Clock style</string>
@@ -150,5 +151,9 @@
     <!-- Volume key playback control -->
     <string name="swap_volume_buttons_title">Reorient</string>
     <string name="swap_volume_buttons_summary">Swap volume buttons when the screen is rotated</string>
+
+    <!-- Lockscreen Torch -->
+    <string name="keyguard_toggle_torch_title">Lockscreen torch</string>
+    <string name="keyguard_toggle_torch_summary">Longpress power button while screen is off to turn on flashlight</string>
 
 </resources>

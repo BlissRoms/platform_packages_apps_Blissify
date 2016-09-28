@@ -35,6 +35,7 @@ import android.view.ViewGroup;
 
 import com.blissroms.blissify.PagerSlidingTabStrip;
 import com.blissroms.blissify.buttons.tabs.VolumeButtonsSettings;
+import com.blissroms.blissify.buttons.tabs.PowerButtonsSettings;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -92,6 +93,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment {
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
 	    frags[0] = new VolumeButtonsSettings();
+	    frags[1] = new PowerButtonsSettings();
         }
 
         @Override
@@ -113,7 +115,8 @@ public class ButtonsSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
-		    getString(R.string.volume_buttons_tab_title)};
+		    getString(R.string.volume_buttons_tab_title),
+		    getString(R.string.power_buttons_tab_title)};
         return titleString;
     }
 
