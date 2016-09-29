@@ -17,11 +17,13 @@
 package com.blissroms.blissify.gestures.tabs;
 
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
+import android.content.ContentResolver;
+import android.content.res.Resources;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -31,16 +33,55 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class TouchGestures extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
-		
+
+    private static final String QUICK_PULLDOWN = "quick_pulldown";
+
+    private ListPreference mQuickPulldown;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.touch_gestures_tab);
+
+        PreferenceScreen prefScreen = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        mQuickPulldown = (ListPreference) findPreference(QUICK_PULLDOWN);
+        mQuickPulldown.setOnPreferenceChangeListener(this);
+        int quickPulldownValue = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 0);
+        mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
+        updatePulldownSummary(quickPulldownValue);
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mQuickPulldown) {
+            int quickPulldownValue = Integer.valueOf((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN,
+                    quickPulldownValue);
+            updatePulldownSummary(quickPulldownValue);
+            return true;
+        }
         return false;
+    }
+
+    private void updatePulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // quick pulldown deactivated
+            mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_off));
+        } else if (value == 3) {
+            // quick pulldown always
+            mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_summary_always));
+        } else {
+            String direction = res.getString(value == 2
+                    ? R.string.quick_pulldown_left
+                    : R.string.quick_pulldown_right);
+            mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_summary, direction));
+        }
     }
 
     @Override

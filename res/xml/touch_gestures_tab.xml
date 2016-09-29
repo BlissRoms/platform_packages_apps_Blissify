@@ -25,10 +25,16 @@
         android:summary="@string/double_tap_to_sleep_summary"
         android:defaultValue="false" />
 
+    <ListPreference
+        android:key="quick_pulldown"
+        android:title="@string/quick_pulldown_title"
+        android:entries="@array/quick_pulldown_entries"
+        android:entryValues="@array/quick_pulldown_values" />
+
     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
-	android:key="three_finger_gesture"
-	android:title="@string/three_finger_gesture"
-	android:summary="@string/three_finger_gesture_summary"
-	android:defaultValue="false" />
+		android:key="three_finger_gesture"
+		android:title="@string/three_finger_gesture"
+		android:summary="@string/three_finger_gesture_summary"
+		android:defaultValue="false" />
 
 </PreferenceScreen>
