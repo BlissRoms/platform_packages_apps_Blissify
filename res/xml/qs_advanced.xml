@@ -18,6 +18,14 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/qs_advanced_title">
 
+
+    <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+        android:key="qs_show_brightness"
+        android:title="@string/qs_brightness_slider_title"
+        android:summaryOn="@string/qs_brightness_slider_enabled"
+        android:summaryOff="@string/qs_brightness_slider_disabled"
+        android:defaultValue="true" />
+
     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
         android:key="brightness_icon"
         android:title="@string/brightness_icon_title"
