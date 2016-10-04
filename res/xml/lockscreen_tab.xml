@@ -25,4 +25,10 @@
         android:summaryOff="@string/left_default_voice_summary_off"
         android:defaultValue="true" />
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="show_next_alarm_lockscreen"
+        android:title="@string/show_next_alarm_lockscreen_title"
+        android:summary="@string/show_next_alarm_lockscreen_summary"
+        android:defaultValue="true" />
+
 </PreferenceScreen>

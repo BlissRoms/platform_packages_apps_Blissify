@@ -156,4 +156,12 @@
     <string name="keyguard_toggle_torch_title">Lockscreen torch</string>
     <string name="keyguard_toggle_torch_summary">Longpress power button while screen is off to turn on flashlight</string>
 
+    <!-- Hide the next alarm on lockscreen -->
+    <string name="show_next_alarm_lockscreen_title">Show next alarm</string>
+    <string name="show_next_alarm_lockscreen_summary">Show the next alarm on the lockscreen when an alarm is set</string>
+
+    <!-- Hide the alarm icon in the expanded status bar -->
+    <string name="show_next_alarm_icon_title">Show alarm icon</string>
+    <string name="show_next_alarm_icon_summary">Show the alarm icon in the expanded status bar when an alarm is set</string>
+
 </resources>
