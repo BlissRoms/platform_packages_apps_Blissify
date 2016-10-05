@@ -249,4 +249,8 @@
     <string name="show_network_traffic_all">Both</string>
     <string name="nettraf_font_size">Single net font size</string>
 
+    <!-- Status bar - icons -->
+    <string name="status_bar_icons_title">Status bar icons</string>
+    <string name="status_bar_system_icons_title">System icons</string>
+    <string name="status_bar_system_icons_summary">Control which status bar icons are shown</string>
 </resources>
