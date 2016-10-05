@@ -27,6 +27,7 @@
     <string name="statusbar_bliss_logo">Bliss Logo</string>
     <string name="statusbar_carrier_label">Carrier Label</string>
     <string name="statusbar_ticker_title">Ticker</string>
+    <string name="statusbar_battery_title">Battery</string>
 
     <!-- Quick Settings -->
     <string name="quick_settings_title">Quick Settings</string>
@@ -678,5 +679,17 @@
     <string name="qs_set_animation_style">%1$s</string>
     <string name="qs_set_animation_duration">%1$s</string>
     <string name="qs_set_animation_interpolator">%1$s</string>
+
+    <!-- Battery customizations -->
+    <string name="status_bar_battery_style_title">Battery status style</string>
+    <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
+    <string name="status_bar_battery_style_icon_landscape">Icon landscape</string>
+    <string name="status_bar_battery_style_circle">Circle</string>
+    <string name="status_bar_battery_style_text">Text</string>
+    <string name="status_bar_battery_style_hidden">Hidden</string>
+    <string name="status_bar_battery_percentage_title">Battery percentage</string>
+    <string name="status_bar_battery_percentage_default">Hidden</string>
+    <string name="status_bar_battery_percentage_text_inside">Inside the icon</string>
+    <string name="status_bar_battery_percentage_text_next">Next to the icon</string>
 
 </resources>
