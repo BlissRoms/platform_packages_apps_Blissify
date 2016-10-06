@@ -95,7 +95,7 @@ public class QuickSettings extends SettingsPreferenceFragment {
 
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
-	    frags[0] = new QuickPulldown();
+	    frags[0] = new QuickPullDown();
 	    frags[1] = new QSAdvanced();
         }
 
