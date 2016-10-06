@@ -49,6 +49,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 
+import com.blissroms.blissify.notification.NotificationLightPreference;
 import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
 import com.blissroms.blissify.preference.AppSelectListPreference;
 import com.blissroms.blissify.preference.AppSelectListPreference.PackageItem;

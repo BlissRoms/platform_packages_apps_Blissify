@@ -35,7 +35,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
-
+import com.blissroms.blissify.notification.BatteryLightPreference;
 import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
 
 import java.util.List;

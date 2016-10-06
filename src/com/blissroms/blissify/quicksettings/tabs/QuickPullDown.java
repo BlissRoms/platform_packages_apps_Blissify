@@ -36,7 +36,7 @@ import com.android.settings.SettingsPreferenceFragment;
 public class QuickPullDown extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String TAG = "QuickPullDown";
+    private static final String QUICK_PULLDOWN = "QuickPullDown";
 
     private ListPreference mQuickPulldown;
 

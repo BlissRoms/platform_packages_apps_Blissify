@@ -38,7 +38,7 @@ import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 import com.blissroms.blissify.notification.tabs.LedSettings;
 import com.blissroms.blissify.notification.tabs.NotificationLightSettings;
-import com.blissroms.blissify.notification.tabs.BatteryLightSettings
+import com.blissroms.blissify.notification.tabs.BatteryLightSettings;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
