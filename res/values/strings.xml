@@ -835,4 +835,8 @@
     <!-- Blissify Tweaks -->
     <string name="advanced_settings_title">Blissify Tweaks</string>
 
+    <!-- Screenshot sound -->
+    <string name="screenshot_sound_title">Screenshot sound</string>
+    <string name="screenshot_sound_summary">Plays sound effect when screenshot is taken</string>
+
 </resources>

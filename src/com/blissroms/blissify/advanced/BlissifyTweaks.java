@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.blissroms.blissify.animation;
+package com.blissroms.blissify.advanced;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -34,6 +34,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.blissroms.blissify.PagerSlidingTabStrip;
+import com.blissroms.blissify.advanced.tabs.AdvancedSettings;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -63,7 +64,7 @@ public class BlissifyTweaks extends SettingsPreferenceFragment {
 
         StatusBarAdapter StatusBarAdapter = new StatusBarAdapter(getFragmentManager());
         mViewPager.setAdapter(StatusBarAdapter);
-       
+
 	mTabs.setViewPager(mViewPager);
         setHasOptionsMenu(true);
         return view;
@@ -91,7 +92,7 @@ public class BlissifyTweaks extends SettingsPreferenceFragment {
 
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
-
+            frags[0] = new AdvancedSettings();
         }
 
         @Override
@@ -113,7 +114,7 @@ public class BlissifyTweaks extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
-		    )};
+                    getString(R.string.advanced_settings_title)};
         return titleString;
     }
 
