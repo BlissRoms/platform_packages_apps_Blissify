@@ -1,0 +1,5 @@
+[gerrit]
+host=review.blissroms.com
+port=29418
+project=platform_packages_apps_Blissify.git
+defaultbranch=n7.0
