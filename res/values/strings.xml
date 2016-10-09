@@ -430,4 +430,13 @@
     <string name="navbar_tuner_title">Navbar tuner</string>
     <string name="navbar_tuner_summary">Customize buttons and layout</string>
 
+    <!-- Statusbar Bliss Logo -->
+    <string name="status_bar_bliss_logo_title">Bliss logo</string>
+    <string name="status_bar_bliss_logo_summary">Enable to show Bliss logo on the left side of statusbar</string>
+    <string name="status_bar_bliss_logo_color">Bliss logo color</string>
+    <string name="status_bar_bliss_logo_position">Logo location</string>
+    <string name="status_bar_bliss_logo_position_summary">Choose which side to display the logo on, left or right</string>
+    <string name="status_bar_logo_position_right">Right</string>
+    <string name="status_bar_logo_position_left">Left</string>
+
 </resources>
