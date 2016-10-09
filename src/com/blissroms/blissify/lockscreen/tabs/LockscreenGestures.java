@@ -27,6 +27,9 @@ import android.provider.Settings;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
+import com.android.settings.Utils;
+import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -35,10 +38,18 @@ public class LockscreenGestures extends SettingsPreferenceFragment implements
 
     private static final String TAG = "LockscreenGestures";
 
+    private static final String KEYGUARD_TORCH = "keyguard_toggle_torch";
+    private SystemSettingSwitchPreference mLsTorch;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.lockscreen_gestures);
+
+        mLsTorch = (SystemSettingSwitchPreference) findPreference(KEYGUARD_TORCH);
+        if (!Utils.deviceSupportsFlashLight(getActivity())) {
+            getPreferenceScreen().removePreference(mLsTorch);
+        }
     }
 
     @Override
