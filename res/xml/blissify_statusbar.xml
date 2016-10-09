@@ -111,4 +111,9 @@
         android:summary="@string/battery_percent_summary"
         android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryOptions"/>
 
+    <Preference
+        android:key="battery_bar_category"
+        android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryBar"
+        android:title="@string/battery_bar_title" />
+
 </PreferenceScreen>
