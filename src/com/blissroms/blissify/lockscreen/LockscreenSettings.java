@@ -95,6 +95,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment {
             super(fm);
 	    frags[0] = new LockscreenTweaks();
 	    frags[1] = new LockscreenGestures();
+            frags[2] = new LockscreenWeather();
         }
 
         @Override
@@ -117,7 +118,8 @@ public class LockscreenSettings extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[]{
 		    getString(R.string.lockscreen_tweaks_title),
-		    getString(R.string.lockscreen_gestures_title)};
+		    getString(R.string.lockscreen_gestures_title),
+                    getString(R.string.lockscreen_weather_title)};
         return titleString;
     }
 
