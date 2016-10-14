@@ -37,15 +37,19 @@ public class QSAdvanced extends SettingsPreferenceFragment implements
     private static final String PREF_ROWS_PORTRAIT = "qs_rows_portrait";
     private static final String PREF_ROWS_LANDSCAPE = "qs_rows_landscape";
     private static final String PREF_COLUMNS = "qs_columns";
+    private static final String PREF_SYSUI_QQS_COUNT = "sysui_qqs_count_key";
 
     private ListPreference mRowsPortrait;
     private ListPreference mRowsLandscape;
     private ListPreference mQsColumns;
+    private ListPreference mSysuiQqsCount;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.qs_advanced);
+
+        final ContentResolver resolver = getActivity().getContentResolver();
 
         int defaultValue;
 
@@ -70,12 +74,20 @@ public class QSAdvanced extends SettingsPreferenceFragment implements
         mQsColumns.setValue(String.valueOf(columnsQs));
         mQsColumns.setSummary(mQsColumns.getEntry());
         mQsColumns.setOnPreferenceChangeListener(this);
+
+        mSysuiQqsCount = (ListPreference) findPreference(PREF_SYSUI_QQS_COUNT);
+        int SysuiQqsCount = Settings.Secure.getInt(resolver,
+               Settings.Secure.QQS_COUNT, 5);
+        mSysuiQqsCount.setValue(Integer.toString(SysuiQqsCount));
+        mSysuiQqsCount.setSummary(mSysuiQqsCount.getEntry());
+        mSysuiQqsCount.setOnPreferenceChangeListener(this);
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-            int intValue;
-            int index;
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        int intValue;
+        int index;
 
             if (preference == mRowsPortrait) {
                 intValue = Integer.valueOf((String) newValue);
@@ -98,6 +110,14 @@ public class QSAdvanced extends SettingsPreferenceFragment implements
                         Settings.Secure.QS_COLUMNS, intValue);
                 preference.setSummary(mQsColumns.getEntries()[index]);
                 return true;
+            } else if (preference == mSysuiQqsCount) {
+                String SysuiQqsCount = (String) newValue;
+                int SysuiQqsCountValue = Integer.parseInt(SysuiQqsCount);
+                Settings.Secure.putInt(resolver,
+                        Settings.Secure.QQS_COUNT, SysuiQqsCountValue);
+                int SysuiQqsCountIndex = mSysuiQqsCount.findIndexOfValue(SysuiQqsCount);
+                mSysuiQqsCount.setSummary(mSysuiQqsCount.getEntries()[SysuiQqsCountIndex]);
+            return true;
             }
         return false;
     }
