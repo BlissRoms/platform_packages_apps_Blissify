@@ -43,4 +43,10 @@
        android:title="@string/lockscreen_settings_title"
        android:icon="@drawable/ic_bliss_lockscreen" />
 
+    <PreferenceScreen
+       android:key="button_settings"
+       android:fragment="com.blissroms.blissify.button.ButtonSettings"
+       android:title="@string/button_settings_title"
+       android:icon="@drawable/ic_bliss_button" />
+
 </PreferenceScreen>

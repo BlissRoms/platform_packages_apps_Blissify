@@ -115,6 +115,7 @@
         <item>1000</item>
         <item>2000</item>
         <item>5000</item>
+    </string-array>
 
     <!-- Clock & Date options -->
     <string-array name="clock_style_entries" translatable="false">
@@ -195,7 +196,6 @@
         <item>EEEE dd/MM</item>
         <item>EEEE MM/dd</item>
         <item>@string/clock_date_format_custom</item>
-
     </string-array>
 
 </resources>
