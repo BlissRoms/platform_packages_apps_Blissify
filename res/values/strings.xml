@@ -23,6 +23,7 @@
     <string name="statusbar_settings_title">StatusBar Settings</string>
     <string name="clock_tab_title">Clock</string>
     <string name="statusbar_gestures_title">Gestures</string>
+    <string name="statusbar_ticker_title">Ticker</string>
 
     <!-- clock date options -->
     <string name="clock_title_enable">Alignment</string>
@@ -276,5 +277,14 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
+
+    <!-- Status Bar Ticker -->
+    <string name="ticker_title">Status Bar Ticker</string>
+    <string name="ticker_screen_summary">Customize the ticker style</string>
+    <string name="ticker_summary">Enable the old status bar ticker</string>
+    <string name="ticker_restore_defaults_title">Restore defaults</string>
+    <string name="text_title">Text</string>
+    <string name="icon_title">Icon</string>
+    <string name="colors_title">Colors</string>
 
 </resources>
