@@ -26,6 +26,7 @@
     <string name="headsup_settings_title">Heads Up</string>
     <string name="statusbar_bliss_logo">Bliss Logo</string>
     <string name="statusbar_carrier_label">Carrier Label</string>
+    <string name="statusbar_ticker_title">Ticker</string>
 
     <!-- Quick Settings -->
     <string name="quick_settings_title">Quick Settings</string>
@@ -170,6 +171,9 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
+    <string name="reset_color_title">Reset</string>
+    <string name="reset_android_title">Android default</string>
+    <string name="reset_bliss_title">Bliss default</string>
 
     <!-- clock date options -->
     <string name="clock_title_enable">Alignment</string>
@@ -451,5 +455,45 @@
     <string name="show_carrier_enabled">Lockscreen &amp; statusbar</string>
     <string name="status_bar_carrier_color">Carrier label color</string>
     <string name="status_bar_carrier_size">Carrier label size</string>
+
+    <!-- Status Bar Ticker -->
+    <string name="ticker_title">Status Bar Ticker</string>
+    <string name="ticker_screen_summary">Customize the ticker style</string>
+    <string name="ticker_summary">Enable the old status bar ticker</string>
+    <string name="text_title">Text</string>
+    <string name="icon_title">Icon</string>
+    <string name="color_title">Color</string>
+    <string name="colors_title">Colors</string>
+    <string name="ticker_font_style_title">Font Style</string>
+    <string name="ticker_font_size_title">Font Size</string>
+
+    <!-- Ticker font styles -->
+    <string name="ticker_font_title">Lockscreen clock font</string>
+    <string name="ticker_font_summary">Change the default font of the lockscreen clock widget</string>
+    <string name="ticker_font_normal">Roboto</string>
+    <string name="ticker_font_bold">Roboto Bold</string>
+    <string name="ticker_font_italic">Roboto Italic</string>
+    <string name="ticker_font_bold_italic">Roboto Bold Italic</string>
+    <string name="ticker_font_light_normal">Roboto Light (default)</string>
+    <string name="ticker_font_light_italic">Roboto Light Italic</string>
+    <string name="ticker_font_thin_normal">Roboto Thin</string>
+    <string name="ticker_font_thin_italic">Roboto Thin Italic</string>
+    <string name="ticker_font_condensed_normal">Roboto Condensed</string>
+    <string name="ticker_font_condensed_bold">Roboto Condensed Bold</string>
+    <string name="ticker_font_condensed_italic">Roboto Condensed Italic</string>
+    <string name="ticker_font_condensed_bold_italic">Roboto Condensed Bold Italic</string>
+    <string name="ticker_font_medium_normal">Roboto Medium</string>
+    <string name="ticker_font_medium_italic">Roboto Medium Italic</string>
+    <string name="ticker_font_black_normal">Roboto Black</string>
+    <string name="ticker_font_black_italic">Roboto Black Italic</string>
+    <string name="ticker_font_condensed_light_normal">Roboto Condensed Light</string>
+    <string name="ticker_font_condensed_light_italic">Roboto Condensed Light Italic</string>
+    <string name="ticker_font_dancingscript">DancingScript</string>
+    <string name="ticker_font_dancingscript_bold">DancingScript Bold</string>
+    <string name="ticker_font_comingsoon">ComingSoon</string>
+    <string name="ticker_font_notoserif">NotoSerif Normal</string>
+    <string name="ticker_font_notoserif_italic">NotoSerif Italic</string>
+    <string name="ticker_font_notoserif_bold">NotoSerif Bold</string>
+    <string name="ticker_font_notoserif_bold_italic">NotoSerif Bold Italic</string>
 
 </resources>
