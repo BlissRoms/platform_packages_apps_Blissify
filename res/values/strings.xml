@@ -332,4 +332,9 @@
     <string name="lockscreen_targets_summary">View or change lock screen shortcuts</string>
     <string name="lockscreen_targets_message">Lockscreen shortcuts</string>
 
+    <!-- Heads up settings -->
+    <string name="summary_heads_up_enabled">Heads up notifications are enabled</string>
+    <string name="summary_heads_up_disabled">Heads up notifications are disabled</string>
+    <string name="heads_up_disabled_notice">To allow applications to display interactive notifications in a pop-up window on your screen, enable Heads up.</string>
+
 </resources>
