@@ -35,10 +35,22 @@ public class HeadsUp extends SettingsPreferenceFragment implements
 
     private static final String TAG = "HeadsUp";
 
+    private static final String KEY_HEADS_UP_SETTINGS = "heads_up_settings";
+    private PreferenceScreen mHeadsUp;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.heads_up);
+        PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mHeadsUp = (PreferenceScreen) findPreference(KEY_HEADS_UP_SETTINGS);
+    }
+
+     private boolean getUserHeadsUpState() {
+         return Settings.Global.getInt(getContentResolver(),
+                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED,
+                Settings.Global.HEADS_UP_ON) != 0;
     }
 
     @Override
@@ -49,5 +61,13 @@ public class HeadsUp extends SettingsPreferenceFragment implements
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.BLISSIFY;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        mHeadsUp.setSummary(getUserHeadsUpState()
+                ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
     }
 }
