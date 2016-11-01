@@ -21,6 +21,7 @@ import android.content.res.Resources;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.ListPreference;
@@ -36,6 +37,8 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.utils.du.ActionConstants;
 import com.android.internal.utils.du.DUActionUtils;
+import com.blissroms.blissify.button.tabs.ActionFragment;
+import com.android.settings.bliss.CustomSeekBarPreference;
 
 public class NavButton extends ActionFragment implements OnPreferenceChangeListener {
 
@@ -60,7 +63,9 @@ public class NavButton extends ActionFragment implements OnPreferenceChangeListe
 
     private SwitchPreference mHwKeyDisable;
     private ListPreference mBacklightTimeout;
-    private SwitchPreference mButtonBrightness;
+    private CustomSeekBarPreference mButtonBrightness;
+
+    private Handler mHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -110,7 +115,9 @@ public class NavButton extends ActionFragment implements OnPreferenceChangeListe
         mBacklightTimeout =
                 (ListPreference) findPreference(KEY_BACKLIGHT_TIMEOUT);
         mButtonBrightness =
-                (SwitchPreference) findPreference(KEY_BUTTON_BRIGHTNESS);
+                (CustomSeekBarPreference) findPreference(KEY_BUTTON_BRIGHTNESS);
+
+        mHandler = new Handler();
 
         // back key
         if (!hasBackKey) {
@@ -148,9 +155,10 @@ public class NavButton extends ActionFragment implements OnPreferenceChangeListe
             }
 
             if (mButtonBrightness != null) {
-        	mButtonBrightness.setChecked((Settings.System.getInt(getContentResolver(),
-            	    Settings.System.BUTTON_BRIGHTNESS, 1) == 1));
-        	mButtonBrightness.setOnPreferenceChangeListener(this);
+                int ButtonBrightness = Settings.System.getInt(getContentResolver(),
+                                Settings.System.BUTTON_BRIGHTNESS, 255);
+                mButtonBrightness.setValue(ButtonBrightness / 1);
+                mButtonBrightness.setOnPreferenceChangeListener(this);
             }
         } else {
             prefScreen.removePreference(mBacklightTimeout);
@@ -193,9 +201,9 @@ public class NavButton extends ActionFragment implements OnPreferenceChangeListe
                     .setSummary(mBacklightTimeout.getEntries()[BacklightTimeoutIndex]);
             return true;
         } else if (preference == mButtonBrightness) {
-            boolean value = (Boolean) newValue;
+            int value = (Integer) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.BUTTON_BRIGHTNESS, value ? 1 : 0);
+                    Settings.System.BUTTON_BRIGHTNESS, value * 1);
             return true;
         }
         return false;

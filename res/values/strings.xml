@@ -548,6 +548,6 @@
     <string name="backlight_timeout_30s">30 sec</string>
 
     <!-- Enable keys backlight-->
-    <string name="button_brightness_title">Enable backlight</string>
+    <string name="button_brightness_title">Backlight</string>
 
 </resources>
