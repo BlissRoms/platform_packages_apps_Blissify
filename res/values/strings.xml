@@ -938,4 +938,9 @@
     <string name="omniswitch_first_time_message">Make sure you have enabled omni switch. You can do this by using \"Settings\" below</string>
     <string name="omniswitch_settings_title">Omni switch</string>
 
+    <!-- Screenshot delay -->
+    <string name="screenshot_options_category">Screenshot options</string>
+    <string name="screenshot_delay_title">Screenshot delay</string>
+    <string name="screenshot_delay_summary">Adjust the time for when a screenshot is captured</string>
+
 </resources>

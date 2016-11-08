@@ -15,6 +15,11 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/advanced_settings_title">
 
+
+    <PreferenceCategory
+        android:key="screenshot_options"
+        android:title="@string/screenshot_options_category" >
+
     <!-- Screenshot tone -->
     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
         android:key="screenshot_sound"
@@ -27,5 +32,17 @@
         android:title="@string/three_finger_gesture"
         android:summary="@string/three_finger_gesture_summary"
         android:defaultValue="true" />
+
+    <com.android.settings.bliss.CustomSeekBarPreference
+        android:key="screenshot_delay"
+        android:title="@string/screenshot_delay_title"
+        android:summary="@string/screenshot_delay_summary"
+        settings:max="10000"
+        settings:min="100"
+        settings:interval="100"
+        settings:units="ms"
+        android:persistent="false" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
