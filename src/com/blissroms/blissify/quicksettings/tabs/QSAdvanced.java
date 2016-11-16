@@ -29,6 +29,7 @@ import android.support.v7.preference.PreferenceCategory;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.settings.bliss.CustomSeekBarPreference;
 
 public class QSAdvanced extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -36,12 +37,12 @@ public class QSAdvanced extends SettingsPreferenceFragment implements
     private static final String TAG = "QSAdvanced";
     private static final String PREF_ROWS_PORTRAIT = "qs_rows_portrait";
     private static final String PREF_ROWS_LANDSCAPE = "qs_rows_landscape";
-    private static final String PREF_COLUMNS = "qs_columns";
+    private static final String PREF_COLUMNS = "qs_layout_columns";
     private static final String PREF_SYSUI_QQS_COUNT = "sysui_qqs_count_key";
 
     private ListPreference mRowsPortrait;
     private ListPreference mRowsLandscape;
-    private ListPreference mQsColumns;
+    private CustomSeekBarPreference mQsColumns;
     private ListPreference mSysuiQqsCount;
 
     @Override
@@ -68,11 +69,10 @@ public class QSAdvanced extends SettingsPreferenceFragment implements
         mRowsLandscape.setSummary(mRowsLandscape.getEntry());
         mRowsLandscape.setOnPreferenceChangeListener(this);
 
-        mQsColumns = (ListPreference) findPreference(PREF_COLUMNS);
-        int columnsQs = Settings.Secure.getInt(resolver,
-                Settings.Secure.QS_COLUMNS, 3);
-        mQsColumns.setValue(String.valueOf(columnsQs));
-        mQsColumns.setSummary(mQsColumns.getEntry());
+        mQsColumns = (CustomSeekBarPreference) findPreference(PREF_COLUMNS);
+        int columnsQs = Settings.System.getInt(resolver,
+                Settings.System.QS_LAYOUT_COLUMNS, 3);
+        mQsColumns.setValue(columnsQs / 1);
         mQsColumns.setOnPreferenceChangeListener(this);
 
         mSysuiQqsCount = (ListPreference) findPreference(PREF_SYSUI_QQS_COUNT);
@@ -104,11 +104,8 @@ public class QSAdvanced extends SettingsPreferenceFragment implements
                 preference.setSummary(mRowsLandscape.getEntries()[index]);
                 return true;
             } else if (preference == mQsColumns) {
-                intValue = Integer.valueOf((String) newValue);
-                index = mQsColumns.findIndexOfValue((String) newValue);
-                Settings.Secure.putInt(resolver,
-                        Settings.Secure.QS_COLUMNS, intValue);
-                preference.setSummary(mQsColumns.getEntries()[index]);
+                int qsColumns = (Integer) newValue;
+                Settings.System.putInt(resolver, Settings.System.QS_LAYOUT_COLUMNS, qsColumns * 1);
                 return true;
             } else if (preference == mSysuiQqsCount) {
                 String SysuiQqsCount = (String) newValue;

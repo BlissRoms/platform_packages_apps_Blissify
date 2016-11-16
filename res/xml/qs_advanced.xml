@@ -88,10 +88,12 @@
         android:entries="@array/qs_rows_landscape_entries"
         android:entryValues="@array/qs_rows_landscape_values" />
 
-    <ListPreference
-        android:key="qs_columns"
+    <com.android.settings.bliss.CustomSeekBarPreference
+        android:key="qs_layout_columns"
         android:title="@string/qs_columns_title"
-        android:entries="@array/qs_columns_entries"
-        android:entryValues="@array/qs_columns_values" />
+        settings:max="7"
+        settings:min="1"
+        settings:units=""
+        android:persistent="false" />
 
 </PreferenceScreen>
