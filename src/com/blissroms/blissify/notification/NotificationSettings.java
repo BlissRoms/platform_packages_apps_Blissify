@@ -36,7 +36,7 @@ import com.blissroms.blissify.PagerSlidingTabStrip;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
-import com.blissroms.blissify.notification.tabs.LedSettings;
+import com.blissroms.blissify.notification.tabs.BlurPersonalizations;
 import com.blissroms.blissify.notification.tabs.NotificationLightSettings;
 import com.blissroms.blissify.notification.tabs.BatteryLightSettings;
 
@@ -95,7 +95,7 @@ public class NotificationSettings extends SettingsPreferenceFragment {
             super(fm);
             frags[0] = new BatteryLightSettings();
             frags[1] = new NotificationLightSettings();
-	    frags[2] = new LedSettings();
+	    frags[2] = new BlurPersonalizations();
         }
 
         @Override
@@ -119,7 +119,7 @@ public class NotificationSettings extends SettingsPreferenceFragment {
         titleString = new String[]{
                     getString(R.string.battery_light_settings),
                     getString(R.string.notification_light_settings),
-		    getString(R.string.led_settings_title)};
+		    getString(R.string.blur_settings)};
         return titleString;
     }
 

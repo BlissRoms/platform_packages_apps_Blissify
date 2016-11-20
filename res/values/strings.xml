@@ -550,4 +550,35 @@
     <!-- Enable keys backlight-->
     <string name="button_brightness_title">Backlight</string>
 
+     <!-- Blur Personalizations -->
+    <string name="blur_settings">Blur Personalizations</string>
+    <string name="blurred_status_bar_expanded_enabled_pref">Blurred Expanded StatusBar</string>
+    <string name="blurred_status_bar_expanded_enabled_pref_summary">Blur the StatusBar background when pulled down</string>
+    <string name="translucent_notifications_pref">Translucent Notifications</string>
+    <string name="translucent_notifications_pref_summary">Set the background of notifications translucent</string>
+    <string name="translucent_quick_settings_pref">Blurred QS </string>
+    <string name="translucent_quick_settings_pref_summary">Blur the StatusBar QS background</string>
+    <string name="transluency_level_universal">Translucency level</string>
+    <string name="blurred_recent_app_enabled_pref">Blurred RecentsApps View</string>
+    <string name="blurred_recent_app_enabled_pref_summary">Blur the background of RecentApps View</string>
+    <string name="blur_light_color">Light Background Color Filter</string>
+    <string name="blur_dark_color">Dark Background Color Filter</string>
+    <string name="blur_mixed_color">Mixed Background Color Filter</string>
+    <string name="blur_notice">About Blur...</string>
+    <string name="blur_notice_summary">Blur personalizations are disabled during Keyguard view!</string>
+    <string name="blur_colors_notice">What are these colors doing?</string>
+    <string name="blur_colors_notice_summary">These colors are the ones tiniting the BlurBackground. Instead of the normal Grey, you can now choose the colors in the way you like. \n There are three color filters: One used for light backgrounds, one used for Dark backgrounds and one used for light/dark backgrounds. \n</string>
+    <string name="blur_expstatus_cat">Expanded StatusBar </string>
+    <string name="blur_notifications_cat">Notifications</string>
+    <string name="blur_qs_cat">Quick Settings</string>
+    <string name="blur_recents_cat">RecentApps</string>  
+    <string name="blur_colors_cat">Blur Color Filters</string>
+    <string name="blur_notices_cat">Notices</string>
+    <string name="blurred_scale">Blur Scale</string>
+    <string name="blurred_scale_summary">Quailty of blur image</string>
+    <string name="blurred_radius">Blur Radius</string>
+    <string name="blurred_radius_summary">Amount of blur</string>
+    <string name="blur_cat_notice">Notice</string>
+    <string name="blur_cat_notice_summary">Blur personlizations are disabled during Keyguard view! Only Translucent Notifications are enabled!</string>
+
 </resources>
