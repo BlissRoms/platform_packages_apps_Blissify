@@ -33,6 +33,13 @@
         android:dependency="qs_show_brightness"
         android:defaultValue="true"/>
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="qs_tile_title_visibility"
+        android:title="@string/qs_tile_title_visibility_title"
+        android:summaryOn="@string/qs_tile_title_visibility_summary_on"
+        android:summaryOff="@string/qs_tile_title_visibility_summary_off"
+        android:defaultValue="true"/>
+
     <com.blissroms.blissify.preference.SecureSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:title="@string/quick_settings_vibrate_title"
