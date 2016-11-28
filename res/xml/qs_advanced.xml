@@ -43,4 +43,10 @@
         android:summary="@string/qs_advanced_data_summary"
         android:defaultValue="false" />
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="music_tile_title"
+        android:title="@string/qs_music_tile_track_optional_title"
+        android:summary="@string/qs_music_tile_track_optional_summary"
+        android:defaultValue="false"/>
+
 </PreferenceScreen>
