@@ -71,10 +71,13 @@ public class StatusBar extends SettingsPreferenceFragment
 
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
 
+    private static final String TEXT_CHARGING_SYMBOL = "text_charging_symbol";
+
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
     private LineageSystemSettingListPreference mStatusBarBattery;
     private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
+    private ListPreference mTextChargingSymbol;
 
     private PreferenceCategory mStatusBarBatteryCategory;
     private PreferenceCategory mStatusBarClockCategory;
@@ -100,6 +103,7 @@ public class StatusBar extends SettingsPreferenceFragment
         mStatusBarBatteryCategory =
                 (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_BATTERY);
 
+        mTextChargingSymbol = (ListPreference) findPreference(TEXT_CHARGING_SYMBOL);
     }
 
     @Override
@@ -159,6 +163,8 @@ public class StatusBar extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING, 1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.TEXT_CHARGING_SYMBOL, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
