@@ -26,6 +26,18 @@
     <string name="statusbar_ticker_title">Ticker</string>
     <string name="headsup_settings_title">Heads Up</string>
 
+    <!-- QS Header Icons -->
+    <string name="qs_settings_icon_title">Settings Shortcut</string>
+    <string name="qs_settings_icon_summary">Enable the settings shortcut in the header</string>
+    <string name="qs_settings_expanded_title">Settings Shortcut Expanded</string>
+    <string name="qs_settings_expanded_summary">Only enable the settings shortcut when expanded</string>
+    <string name="qs_edit_title">Edit Icon</string>
+    <string name="qs_edit_summary">Enable the tile edit icon in the header</string>
+    <string name="qs_multiuser_switch_title">MultiUser Switch</string>
+    <string name="qs_multiuser_switch_summary">Enable the MultiUser switch in the header</string>
+    <string name="qs_expand_indicator_title">Expand Indicator</string>
+    <string name="qs_expand_indicator_summary">Enable the expand indicator (^) in the header</string>
+
     <!-- clock date options -->
     <string name="clock_title_enable">Alignment</string>
     <string name="status_bar_show_clock_title">Show clock and date</string>
