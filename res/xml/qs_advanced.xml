@@ -18,7 +18,6 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/qs_advanced_title">
 
-
     <com.blissroms.blissify.preference.SecureSettingSwitchPreference
         android:key="qs_show_brightness"
         android:title="@string/qs_brightness_slider_title"
@@ -32,6 +31,38 @@
         android:summary="@string/brightness_icon_summary"
         android:dependency="qs_show_brightness"
         android:defaultValue="true"/>
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="qs_settings_icon_toggle"
+        android:title="@string/qs_settings_icon_title"
+        android:summary="@string/qs_settings_icon_summary"
+        android:disableDependentsState="true"
+        android:defaultValue="true" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="qs_settings_expanded_toggle"
+        android:title="@string/qs_settings_expanded_title"
+        android:summary="@string/qs_settings_expanded_summary"
+        android:dependency="qs_settings_icon_toggle"
+        android:defaultValue="false" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="qs_edit_toggle"
+        android:title="@string/qs_edit_title"
+        android:summary="@string/qs_edit_summary"
+        android:defaultValue="true" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="qs_multiuser_switch_toggle"
+        android:title="@string/qs_multiuser_switch_title"
+        android:summary="@string/qs_multiuser_switch_summary"
+        android:defaultValue="true" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="qs_expand_indicator_toggle"
+        android:title="@string/qs_expand_indicator_title"
+        android:summary="@string/qs_expand_indicator_summary"
+        android:defaultValue="true" />
 
     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
         android:key="qs_tile_title_visibility"
