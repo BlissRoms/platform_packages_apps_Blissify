@@ -127,4 +127,10 @@
         settings:units=""
         android:persistent="false" />
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="qs_date_time_center"
+        android:title="@string/qs_date_time_center_title"
+        android:summary="@string/qs_date_time_center_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
