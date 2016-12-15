@@ -20,13 +20,20 @@ import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.DialogInterface.OnCancelListener;
+ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.res.Configuration;
+import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+ import android.os.Handler;
 import android.preference.EditTextPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
@@ -43,12 +50,15 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import java.util.Date;
+import com.android.settings.bliss.CustomSeekBarPreference;
 
 public class ClockSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_CLOCK_STYLE = "clock_style";
     private static final String PREF_AM_PM_STYLE = "status_bar_am_pm";
+    private static final String PREF_FONT_STYLE = "statusbar_clock_font_style";
+    private static final String PREF_STATUS_BAR_CLOCK_FONT_SIZE  = "statusbar_clock_font_size";
     private static final String PREF_CLOCK_DATE_DISPLAY = "clock_date_display";
     private static final String PREF_CLOCK_DATE_STYLE = "clock_date_style";
     private static final String PREF_CLOCK_DATE_POSITION = "clock_date_position";
@@ -64,6 +74,8 @@ public class ClockSettings extends SettingsPreferenceFragment implements
     private ListPreference mClockAmPmStyle;
     private ListPreference mClockDateDisplay;
     private ListPreference mClockDateStyle;
+    private ListPreference mFontStyle;
+    private CustomSeekBarPreference mStatusBarClockFontSize;
     private ListPreference mClockDatePosition;
     private ListPreference mClockDateFormat;
     private SwitchPreference mStatusBarClock;
@@ -85,6 +97,7 @@ public class ClockSettings extends SettingsPreferenceFragment implements
         }
 
         addPreferencesFromResource(R.xml.clock_tab);
+        final ContentResolver resolver = getActivity().getContentResolver();
         prefSet = getPreferenceScreen();
 
         PackageManager pm = getPackageManager();
@@ -129,6 +142,9 @@ public class ClockSettings extends SettingsPreferenceFragment implements
                 0)));
         mClockDateStyle.setSummary(mClockDateStyle.getEntry());
 
+        mFontStyle = (ListPreference) findPreference(PREF_FONT_STYLE);
+        mStatusBarClockFontSize = (CustomSeekBarPreference) findPreference(PREF_STATUS_BAR_CLOCK_FONT_SIZE);
+
         mClockDatePosition = (ListPreference) findPreference(PREF_CLOCK_DATE_POSITION);
         mClockDatePosition.setOnPreferenceChangeListener(this);
         mClockDatePosition.setValue(Integer.toString(Settings.System.getInt(getActivity()
@@ -143,6 +159,16 @@ public class ClockSettings extends SettingsPreferenceFragment implements
         }
 
         parseClockDateFormats();
+
+        int fontStyle = Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_CLOCK_FONT_STYLE, 0);
+        mFontStyle.setValue(String.valueOf(fontStyle));
+        mFontStyle.setSummary(mFontStyle.getEntry());
+        mFontStyle.setOnPreferenceChangeListener(this);
+
+        mStatusBarClockFontSize.setValue(Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 14));
+        mStatusBarClockFontSize.setOnPreferenceChangeListener(this);
 
         mStatusBarClock = (SwitchPreference) findPreference(STATUS_BAR_CLOCK);
         mStatusBarClock.setChecked((Settings.System.getInt(
@@ -174,13 +200,14 @@ public class ClockSettings extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
         if (!mCheckPreferences) {
             return false;
         }
         AlertDialog dialog;
 
         if (preference == mClockAmPmStyle) {
-            int val = Integer.parseInt((String) newValue);
+            int val = Integer.valueOf((String) newValue);
             int index = mClockAmPmStyle.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE, val);
@@ -216,6 +243,18 @@ public class ClockSettings extends SettingsPreferenceFragment implements
                     Settings.System.STATUSBAR_CLOCK_DATE_STYLE, val);
             mClockDateStyle.setSummary(mClockDateStyle.getEntries()[index]);
             parseClockDateFormats();
+            return true;
+        } else if (preference == mFontStyle) {
+            int val = Integer.valueOf((String) newValue);
+            int index = mFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver,
+                    Settings.System.STATUSBAR_CLOCK_FONT_STYLE, val);
+            mFontStyle.setSummary(mFontStyle.getEntries()[index]);
+            return true;
+        } else if (preference == mStatusBarClockFontSize) {
+            int size = (Integer) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.STATUSBAR_CLOCK_FONT_SIZE, size);
             return true;
         } else if (preference == mClockDatePosition) {
             int val = Integer.parseInt((String) newValue);
@@ -293,7 +332,7 @@ public class ClockSettings extends SettingsPreferenceFragment implements
         int lastEntry = dateEntries.length - 1;
         int dateFormat = Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.STATUSBAR_CLOCK_DATE_STYLE, 0);
-        for (int i = 0; i < dateEntries.length; i++) {
+        for (int i = 0; i < dateEntries.length; i) {
             if (i == lastEntry) {
                 parsedDateEntries[i] = dateEntries[i];
             } else {
