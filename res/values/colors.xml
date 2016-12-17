@@ -15,7 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <color name="theme_accent">#ff009688</color>
+    <color name="theme_accent">#ff4285f4</color>
     <color name="background_tab_pressed">#1AFFFFFF</color>
     <color name="material_deep_teal_500">@*android:color/material_deep_teal_500</color>
 
