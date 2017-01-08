@@ -596,4 +596,12 @@
     <string name="task_manager_kill_button_2">Text</string>
     <string name="task_manager_kill_button_3">Classic</string>
 
+    <!-- Button Settings -->
+    <string name="buttons_settings_title">Button Settings</string>
+    <string name="navbar_settings_title">Navigation Bar</string>
+
+    <!-- Animation Settings -->
+    <string name="animation_settings_title">Animation Settings</string>
+    <string name="system_animation_title">System Animation</string>
+
 </resources>
