@@ -166,4 +166,7 @@
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 
+    <!-- Notification Settings -->
+    <string name="buttons_settings_title">Button Settings</string>
+
 </resources>
