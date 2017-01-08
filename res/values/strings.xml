@@ -166,8 +166,12 @@
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 
-    <!-- Notification Settings -->
+    <!-- Button Settings -->
     <string name="buttons_settings_title">Button Settings</string>
     <string name="navbar_settings_title">Navigation Bar</string>
+
+    <!-- Animation Settings -->
+    <string name="animation_settings_title">Animation Settings</string>
+    <string name="system_animation_title">System Animation</string>
 
 </resources>
