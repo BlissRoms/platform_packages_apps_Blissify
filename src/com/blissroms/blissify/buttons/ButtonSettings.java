@@ -34,6 +34,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.blissroms.blissify.PagerSlidingTabStrip;
+import com.blissroms.blissify.buttons.tabs.NavigationBar;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -91,6 +92,7 @@ public class ButtonSettings extends SettingsPreferenceFragment {
 
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
+	    frags[0] = new NavigationBar();
         }
 
         @Override
@@ -111,7 +113,8 @@ public class ButtonSettings extends SettingsPreferenceFragment {
 
     private String[] getTitles() {
         String titleString[];
-        titleString = new String[]{};
+        titleString = new String[]{
+		    getString(R.string.navbar_settings_title)};
         return titleString;
     }
 
