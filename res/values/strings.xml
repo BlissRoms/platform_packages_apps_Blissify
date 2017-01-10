@@ -604,6 +604,7 @@
     <string name="animation_settings_title">Animation Settings</string>
     <string name="system_animation_title">System Animation</string>
     <string name="toast_animation_title">Toast Animation</string>
+    <string name="tile_animation_title">Tile Animation</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>  
