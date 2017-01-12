@@ -41,6 +41,7 @@ import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 import com.blissroms.blissify.quicksettings.tabs.QuickPullDown;
 import com.blissroms.blissify.quicksettings.tabs.QSAdvanced;
+import com.blissroms.blissify.quicksettings.tabs.QsHeaders;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -67,7 +68,7 @@ public class QuickSettings extends SettingsPreferenceFragment {
 
         StatusBarAdapter StatusBarAdapter = new StatusBarAdapter(getFragmentManager());
         mViewPager.setAdapter(StatusBarAdapter);
-       
+
 	mTabs.setViewPager(mViewPager);
         setHasOptionsMenu(true);
         return view;
@@ -95,8 +96,9 @@ public class QuickSettings extends SettingsPreferenceFragment {
 
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
-	    frags[0] = new QuickPullDown();
-	    frags[1] = new QSAdvanced();
+            frags[0] = new QsHeaders();
+	    frags[1] = new QuickPullDown();
+	    frags[2] = new QSAdvanced();
         }
 
         @Override
@@ -118,6 +120,7 @@ public class QuickSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
+                    getString(R.string.qs_header_title),
 		    getString(R.string.quick_pulldown_title),
 		    getString(R.string.qs_advanced_title)};
         return titleString;
