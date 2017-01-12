@@ -24,6 +24,7 @@
     <string name="clock_tab_title">Clock</string>
     <string name="statusbar_gestures_title">Gestures</string>
     <string name="headsup_settings_title">Heads Up</string>
+    <string name="statusbar_bliss_logo">Bliss Logo</string>
 
     <!-- Quick Settings -->
     <string name="quick_settings_title">Quick Settings</string>

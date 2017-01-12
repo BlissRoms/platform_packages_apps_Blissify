@@ -38,6 +38,7 @@ import com.blissroms.blissify.statusbar.tabs.ClockSettings;
 import com.blissroms.blissify.statusbar.tabs.StatusbarGestures;
 import com.blissroms.blissify.statusbar.tabs.NetworkTraffic;
 import com.blissroms.blissify.statusbar.tabs.HeadsUpSettings;
+import com.blissroms.blissify.statusbar.tabs.BlissLogo;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -99,6 +100,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
 	    frags[1] = new StatusbarGestures();
             frags[2] = new NetworkTraffic();
             frags[3] = new HeadsUpSettings();
+            frags[4] = new BlissLogo();
         }
 
         @Override
@@ -123,7 +125,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
 		    getString(R.string.clock_tab_title),
 		    getString(R.string.statusbar_gestures_title),
 		    getString(R.string.network_traffic_title),
-		    getString(R.string.headsup_settings_title)};
+		    getString(R.string.headsup_settings_title),
+		    getString(R.string.statusbar_bliss_logo)};
         return titleString;
     }
 
