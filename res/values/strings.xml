@@ -24,6 +24,7 @@
     <string name="clock_tab_title">Clock</string>
     <string name="statusbar_gestures_title">Gestures</string>
     <string name="statusbar_ticker_title">Ticker</string>
+    <string name="statusbar_bliss_logo">Bliss Logo</string>
 
     <!-- clock date options -->
     <string name="clock_title_enable">Alignment</string>
