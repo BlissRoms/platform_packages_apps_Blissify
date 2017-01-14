@@ -18,4 +18,9 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/task_manager_title">
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="enable_task_manager"
+        android:title="@string/task_manager_title"
+        android:summary="@string/enable_task_manager_summary" />
+
 </PreferenceScreen>
