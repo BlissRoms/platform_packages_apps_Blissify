@@ -74,11 +74,14 @@ public class StatusBar extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String CATEGORY_BATTERY = "status_bar_battery_key";
+    private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+    private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
 
     private LineageSystemSettingListPreference mStatusBarBattery;
     private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
     private PreferenceCategory mStatusBarBatteryCategory;
 
+    private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 2;
 
     private static final String CATEGORY_CLOCK = "status_bar_clock_key";
 
@@ -130,6 +133,13 @@ public class StatusBar extends SettingsPreferenceFragment
 
         mStatusBarBatteryCategory =
                 (PreferenceCategory) prefSet.findPreference(CATEGORY_BATTERY);
+
+        mStatusBarBatteryShowPercent =
+                (LineageSystemSettingListPreference) findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
+        mStatusBarBattery =
+                (LineageSystemSettingListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
+        mStatusBarBattery.setOnPreferenceChangeListener(this);
+        enableStatusBarBatteryDependents(mStatusBarBattery.getIntValue(2));
 /*
         mStatusBarClock =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
@@ -261,7 +271,18 @@ public class StatusBar extends SettingsPreferenceFragment
             return true;
         }
 */
-        return false;
+        int value = Integer.parseInt((String) newValue);
+        String key = preference.getKey();
+        switch (key) {
+            case STATUS_BAR_BATTERY_STYLE:
+                enableStatusBarBatteryDependents(value);
+                break;
+        }
+        return true;
+    }
+
+    private void enableStatusBarBatteryDependents(int batteryIconStyle) {
+        mStatusBarBatteryShowPercent.setEnabled(batteryIconStyle != STATUS_BAR_BATTERY_STYLE_TEXT);
     }
 
 /*    private int getClockPosition() {
