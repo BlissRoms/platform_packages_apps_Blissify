@@ -23,4 +23,25 @@
         android:title="@string/task_manager_title"
         android:summary="@string/enable_task_manager_summary" />
 
+         <ListPreference
+            android:key="task_manager_kill_button"
+            android:title="@string/task_manager_kill_button"
+            android:entries="@array/task_manager_kill_button_entries"
+            android:entryValues="@array/task_manager_kill_button_values"
+            android:dependency="enable_task_manager" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="task_manager_left_button"
+            android:title="@string/task_manager_left_button_title"
+            android:summary="@string/task_manager_left_button_summary"
+            android:defaultValue="true"
+            android:dependency="enable_task_manager" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="task_manager_right_button"
+            android:title="@string/task_manager_right_button_title"
+            android:summary="@string/task_manager_right_button_summary"
+            android:defaultValue="true" 
+            android:dependency="enable_task_manager" />
+
 </PreferenceScreen>
