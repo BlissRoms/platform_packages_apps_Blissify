@@ -161,8 +161,7 @@ public class NavButton extends ActionFragment implements OnPreferenceChangeListe
                 mButtonBrightness.setOnPreferenceChangeListener(this);
             }
         } else {
-            prefScreen.removePreference(mBacklightTimeout);
-            prefScreen.removePreference(mButtonBrightness);
+            prefScreen.removePreference(hwkeyCat);
         }
 
         // let super know we can load ActionPreferences
