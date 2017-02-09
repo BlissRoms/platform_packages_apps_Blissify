@@ -63,4 +63,10 @@
             android:entries="@array/quick_pulldown_entries"
             android:entryValues="@array/quick_pulldown_values"
             android:defaultValue="0" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_running_services_toggle"
+            android:title="@string/qs_running_services_title"
+            android:summary="@string/qs_running_services_summary"
+            android:defaultValue="false" />
 </PreferenceScreen>
