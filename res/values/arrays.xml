@@ -343,6 +343,7 @@
         <item>lockdown</item>
         <item>assist</item>
         <item>voiceassist</item>
+        <item>torch</item>
         <item>silent</item>
     </string-array>
 

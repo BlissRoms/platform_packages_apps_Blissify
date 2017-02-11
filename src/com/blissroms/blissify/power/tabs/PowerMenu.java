@@ -29,6 +29,7 @@ import android.preference.SwitchPreference;
 import android.provider.Settings;
 import com.android.settings.R;
 
+import com.android.internal.util.bliss.BlissUtils;
 import com.android.internal.util.bliss.PowerMenuConstants;
 import static com.android.internal.util.bliss.PowerMenuConstants.*;
 import com.android.settings.Utils;
@@ -50,6 +51,7 @@ public class PowerMenu extends PreferenceFragment {
     private SwitchPreference mVoicePref;
     private SwitchPreference mBugReportPref;
     private SwitchPreference mSilentPref;
+    private SwitchPreference mPowermenuTorch;
 
     Context mContext;
     private ArrayList<String> mLocalUserConfig = new ArrayList<String>();
@@ -94,6 +96,8 @@ public class PowerMenu extends PreferenceFragment {
                 mVoicePref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_VOICEASSIST );
             } else if (action.equals(GLOBAL_ACTION_KEY_BUGREPORT)) {
                 mBugReportPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_BUGREPORT);
+            } else if (action.equals(GLOBAL_ACTION_KEY_TORCH)) {
+                mPowermenuTorch = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_TORCH);
             } else if (action.equals(GLOBAL_ACTION_KEY_SILENT)) {
                 mSilentPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_SILENT);
             }
@@ -157,6 +161,14 @@ public class PowerMenu extends PreferenceFragment {
             mBugReportPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_BUGREPORT));
         }
 
+        if (mPowermenuTorch != null) {
+            if (!BlissUtils.deviceSupportsFlashLight(getActivity())) {
+                getPreferenceScreen().removePreference(mPowermenuTorch);
+            } else {
+                mPowermenuTorch.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_TORCH));
+            }
+        }
+
         if (mSilentPref != null) {
             mSilentPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_SILENT));
         }
@@ -205,6 +217,11 @@ public class PowerMenu extends PreferenceFragment {
         } else if (preference == mAssistPref) {
             value = mAssistPref.isChecked();
             updateUserConfig(value, GLOBAL_ACTION_KEY_ASSIST);
+
+        } else if (preference == mPowermenuTorch) {
+            value = mPowermenuTorch.isChecked();
+            updateUserConfig(value, GLOBAL_ACTION_KEY_TORCH);
+
 
         } else if (preference == mVoicePref) {
             value = mVoicePref.isChecked();
