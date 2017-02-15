@@ -39,7 +39,7 @@ import com.blissroms.blissify.statusbar.tabs.StatusbarGestures;
 import com.blissroms.blissify.statusbar.tabs.NetworkTraffic;
 import com.blissroms.blissify.statusbar.tabs.Ticker;
 import com.blissroms.blissify.statusbar.tabs.BlissLogo;
-import com.blissroms.blissify.statusbar.tabs.HeadsUp;
+import com.blissroms.blissify.statusbar.tabs.HeadsUpSettings;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -102,7 +102,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
             frags[2] = new NetworkTraffic();
             frags[3] = new Ticker();
             frags[4] = new BlissLogo();
-            frags[3] = new HeadsUp();
+            frags[5] = new HeadsUpSettings();
         }
 
         @Override
