@@ -47,6 +47,10 @@
     <string name="notification_settings_title">Notification Settings</string>
     <string name="led_settings_title">Led Settings</string>
 
+    <!-- Button Settings -->
+    <string name="nav_button_title">Navigation Buttons</string>
+    <string name="navigation_bar_title">Navigation Bar</string>
+
     <!-- Double tap-to-sleep -->
     <string name="double_tap_to_sleep_title">Double-tap to sleep</string>
     <string name="double_tap_to_sleep_summary">Double-tap on the status bar or top third and bottom shortcut area of the lock screen to turn off the display</string>
@@ -183,5 +187,7 @@
     <string name="clock_date_style_lowercase">Lowercase</string>
     <string name="clock_date_style_uppercase">Uppercase</string>
     <string name="clock_date_format_custom">Custom java format</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
 
 </resources>
