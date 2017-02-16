@@ -1,61 +1,136 @@
 /*
-* Copyright (C) 2014 BlissRoms Project
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright (C) 2016 The Pure Nexus Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.blissroms.blissify.statusbar.tabs;
 
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
-import android.support.v7.preference.PreferenceScreen;
-import android.support.v14.preference.PreferenceFragment;
-import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
-public class HeadsUp extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+import com.blissroms.blissify.statusbar.tabs.BaseSystemSettingSwitchBar;
 
-    private static final String TAG = "HeadsUp";
+public class HeadsUp extends SettingsPreferenceFragment
+        implements BaseSystemSettingSwitchBar.SwitchBarChangeCallback,
+                Preference.OnPreferenceChangeListener {
 
-    private static final String KEY_HEADS_UP_SETTINGS = "heads_up_settings";
-    private PreferenceScreen mHeadsUp;
+    private static final String PREF_HEADS_UP_TIME_OUT = "heads_up_time_out";
+    private static final String PREF_HEADS_UP_SNOOZE_TIME = "heads_up_snooze_time";
+
+    private ListPreference mHeadsUpTimeOut;
+    private ListPreference mHeadsUpSnoozeTime;
+
+    private BaseSystemSettingSwitchBar mEnabledSwitch;
+
+    private ViewGroup mPrefsContainer;
+    private View mDisabledText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Get launch-able applications
         addPreferencesFromResource(R.xml.heads_up);
-        PreferenceScreen prefScreen = getPreferenceScreen();
 
-        mHeadsUp = (PreferenceScreen) findPreference(KEY_HEADS_UP_SETTINGS);
-    }
+        Resources systemUiResources;
+        try {
+            systemUiResources = getPackageManager().getResourcesForApplication("com.android.systemui");
+        } catch (Exception e) {
+            return;
+        }
 
-     private boolean getUserHeadsUpState() {
-         return Settings.System.getInt(getContentResolver(),
-                Settings.System.HEADS_UP_USER_ENABLED,
-                Settings.System.HEADS_UP_USER_ON) != 0;
+        int defaultTimeOut = systemUiResources.getInteger(systemUiResources.getIdentifier(
+                    "com.android.systemui:integer/heads_up_notification_decay", null, null));
+        mHeadsUpTimeOut = (ListPreference) findPreference(PREF_HEADS_UP_TIME_OUT);
+        mHeadsUpTimeOut.setOnPreferenceChangeListener(this);
+        int headsUpTimeOut = Settings.System.getInt(getContentResolver(),
+                Settings.System.HEADS_UP_TIMEOUT, defaultTimeOut);
+        mHeadsUpTimeOut.setValue(String.valueOf(headsUpTimeOut));
+        updateHeadsUpTimeOutSummary(headsUpTimeOut);
+
+        int defaultSnooze = systemUiResources.getInteger(systemUiResources.getIdentifier(
+                    "com.android.systemui:integer/heads_up_default_snooze_length_ms", null, null));
+        mHeadsUpSnoozeTime = (ListPreference) findPreference(PREF_HEADS_UP_SNOOZE_TIME);
+        mHeadsUpSnoozeTime.setOnPreferenceChangeListener(this);
+        int headsUpSnooze = Settings.System.getInt(getContentResolver(),
+                Settings.System.HEADS_UP_NOTIFICATION_SNOOZE, defaultSnooze);
+        mHeadsUpSnoozeTime.setValue(String.valueOf(headsUpSnooze));
+        updateHeadsUpSnoozeTimeSummary(headsUpSnooze);
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        return false;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.headsup_fragment, container, false);
+        mPrefsContainer = (ViewGroup) v.findViewById(R.id.prefs_container);
+        mDisabledText = v.findViewById(R.id.disabled_text);
+
+        View prefs = super.onCreateView(inflater, mPrefsContainer, savedInstanceState);
+        mPrefsContainer.addView(prefs);
+
+        return v;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        final SettingsActivity activity = (SettingsActivity) getActivity();
+        mEnabledSwitch = new BaseSystemSettingSwitchBar(activity, activity.getSwitchBar(),
+                Settings.System.HEADS_UP_USER_ENABLED, true, this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        final SettingsActivity activity = (SettingsActivity) getActivity();
+        if (mEnabledSwitch != null) {
+            mEnabledSwitch.resume(activity);
+        }
+
+        if (!Utils.isTablet(getActivity())) {
+            mPrefsContainer.setPadding(0, 0, 0, 0);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mEnabledSwitch != null) {
+            mEnabledSwitch.pause();
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (mEnabledSwitch != null) {
+            mEnabledSwitch.teardownSwitchBar();
+        }
     }
 
     @Override
@@ -64,10 +139,63 @@ public class HeadsUp extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mHeadsUpTimeOut) {
+            int headsUpTimeOut = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.HEADS_UP_TIMEOUT,
+                    headsUpTimeOut);
+            updateHeadsUpTimeOutSummary(headsUpTimeOut);
+            return true;
+        } else if (preference == mHeadsUpSnoozeTime) {
+            int headsUpSnooze = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.HEADS_UP_NOTIFICATION_SNOOZE,
+                    headsUpSnooze);
+            updateHeadsUpSnoozeTimeSummary(headsUpSnooze);
+            return true;
+        }
+        return false;
+    }
 
-        mHeadsUp.setSummary(getUserHeadsUpState()
-                ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
+    private void updateHeadsUpTimeOutSummary(int value) {
+        String summary = getResources().getString(R.string.heads_up_time_out_summary,
+                value / 1000);
+        mHeadsUpTimeOut.setSummary(summary);
+    }
+
+    private void updateHeadsUpSnoozeTimeSummary(int value) {
+        if (value == 0) {
+            mHeadsUpSnoozeTime.setSummary(getResources().getString(R.string.heads_up_snooze_disabled_summary));
+        } else if (value == 60000) {
+            mHeadsUpSnoozeTime.setSummary(getResources().getString(R.string.heads_up_snooze_summary_one_minute));
+        } else {
+            String summary = getResources().getString(R.string.heads_up_snooze_summary, value / 60 / 1000);
+            mHeadsUpSnoozeTime.setSummary(summary);
+        }
+    }
+
+    private boolean getUserHeadsUpState() {
+         return Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.HEADS_UP_USER_ENABLED,
+                Settings.System.HEADS_UP_USER_ON,
+                UserHandle.USER_CURRENT) != 0;
+    }
+
+    private void setUserHeadsUpState(int val) {
+         Settings.System.putIntForUser(getContentResolver(),
+                Settings.System.HEADS_UP_USER_ENABLED,
+                val, UserHandle.USER_CURRENT);
+    }
+
+    private void updateEnabledState() {
+        mPrefsContainer.setVisibility(getUserHeadsUpState() ? View.VISIBLE : View.GONE);
+        mDisabledText.setVisibility(getUserHeadsUpState() ? View.GONE : View.VISIBLE);
+    }
+
+    @Override
+    public void onEnablerChanged(boolean isEnabled) {
+        setUserHeadsUpState(getUserHeadsUpState() ? 1 : 0);
+        updateEnabledState();
     }
 }

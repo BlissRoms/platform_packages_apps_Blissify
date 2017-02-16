@@ -37,7 +37,7 @@ import com.blissroms.blissify.PagerSlidingTabStrip;
 import com.blissroms.blissify.statusbar.tabs.ClockSettings;
 import com.blissroms.blissify.statusbar.tabs.StatusbarGestures;
 import com.blissroms.blissify.statusbar.tabs.NetworkTraffic;
-import com.blissroms.blissify.statusbar.tabs.HeadsUp;
+import com.blissroms.blissify.statusbar.tabs.HeadsUpSettings;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -98,7 +98,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
 	    frags[0] = new ClockSettings();
 	    frags[1] = new StatusbarGestures();
             frags[2] = new NetworkTraffic();
-            frags[3] = new HeadsUp();
+            frags[3] = new HeadsUpSettings();
         }
 
         @Override
