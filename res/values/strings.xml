@@ -23,6 +23,7 @@
     <string name="statusbar_settings_title">StatusBar Settings</string>
     <string name="clock_tab_title">Clock</string>
     <string name="statusbar_gestures_title">Gestures</string>
+    <string name="headsup_settings_title">Heads Up</string>
 
     <!-- Quick Settings -->
     <string name="quick_settings_title">Quick Settings</string>
