@@ -349,4 +349,8 @@
     <string name="keyguard_torch_title">Lockscreen torch</string>
     <string name="keyguard_torch_summary">Longpress power button with screen off turns on torch</string>
 
+    <!-- Disable QS on lockscreen -->
+    <string name="block_on_secure_keyguard_title">Disable quick settings on lock screen</string>
+    <string name="block_on_secure_keyguard_summary">Disables quick settings on secure lockscreen</string> 
+
 </resources>
