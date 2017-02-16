@@ -352,6 +352,11 @@
 
     <!-- Disable QS on lockscreen -->
     <string name="block_on_secure_keyguard_title">Disable quick settings on lock screen</string>
-    <string name="block_on_secure_keyguard_summary">Disables quick settings on secure lockscreen</string> 
+    <string name="block_on_secure_keyguard_summary">Disables quick settings on secure lockscreen</string>
+
+    <!-- Heads up settings -->
+    <string name="summary_heads_up_enabled">Heads up notifications are enabled</string>
+    <string name="summary_heads_up_disabled">Heads up notifications are disabled</string>
+    <string name="heads_up_disabled_notice">To allow applications to display interactive notifications in a pop-up window on your screen, enable Heads up.</string>
 
 </resources>
