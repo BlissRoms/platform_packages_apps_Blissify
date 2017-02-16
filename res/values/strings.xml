@@ -48,6 +48,7 @@
     <string name="led_settings_title">Led Settings</string>
 
     <!-- Button Settings -->
+    <string name="button_settings_title">Buttons Settings</string>
     <string name="nav_button_title">Navigation Buttons</string>
     <string name="navigation_bar_title">Navigation Bar</string>
 
@@ -279,6 +280,7 @@
     <string name="fling_longpress_timeout_label_right">More delay</string>
     <string name="fling_longpress_title">Long press delay</string>
     <string name="fling_longpress_summary">Increase or decrease the time it takes to execute a long press</string>
+    <string name="qs_tile_animation_style_flip">Flip</string>
 
     <!-- Pulse navigation bar music visualizer -->
     <string name="pulse_help_policy_notice_title">About Pulse</string>
