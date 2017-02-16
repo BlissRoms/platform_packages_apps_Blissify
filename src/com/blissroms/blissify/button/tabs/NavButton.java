@@ -37,10 +37,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.utils.du.ActionConstants;
 import com.android.internal.utils.du.DUActionUtils;
 
-public class NavButton extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
-
-    private static final String TAG = "NavButton";
+public class NavButton extends ActionFragment implements OnPreferenceChangeListener {
 
     //Keys
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
@@ -159,4 +156,5 @@ public class NavButton extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+}
 }

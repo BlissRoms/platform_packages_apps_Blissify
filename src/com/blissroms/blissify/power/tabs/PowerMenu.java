@@ -16,36 +16,32 @@
 
 package com.blissroms.blissify.power.tabs;
 
-import android.content.ContentResolver;
-import android.content.res.Resources;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.UserInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceScreen;
-import android.support.v14.preference.SwitchPreference;
-import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import com.android.settings.R;
 
 import com.android.internal.util.bliss.PowerMenuConstants;
 import static com.android.internal.util.bliss.PowerMenuConstants.*;
-import com.android.internal.logging.MetricsProto.MetricsEvent;
-import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
-import android.util.Log;
 
-public class PowerMenu extends SettingsPreferenceFragment
-    implements Preference.OnPreferenceChangeListener {
+public class PowerMenu extends PreferenceFragment {
 
     private SwitchPreference mRebootPref;
     private SwitchPreference mScreenshotPref;
+    private SwitchPreference mScreenRecordPref;
+    private SwitchPreference mTorchPref;
     private SwitchPreference mAirplanePref;
     private SwitchPreference mUsersPref;
     private SwitchPreference mSettingsPref;
@@ -82,6 +78,8 @@ public class PowerMenu extends SettingsPreferenceFragment
                 mRebootPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_REBOOT);
             } else if (action.equals(GLOBAL_ACTION_KEY_SCREENSHOT)) {
                 mScreenshotPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_SCREENSHOT);
+            } else if (action.equals(GLOBAL_ACTION_KEY_SCREENRECORD)) {
+                mScreenRecordPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_SCREENRECORD);
             } else if (action.equals(GLOBAL_ACTION_KEY_AIRPLANE)) {
                 mAirplanePref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_AIRPLANE);
             } else if (action.equals(GLOBAL_ACTION_KEY_USERS)) {
@@ -104,7 +102,7 @@ public class PowerMenu extends SettingsPreferenceFragment
         getUserConfig();
     }
 
-    public PowerMenuFragment(){}
+    public PowerMenu(){}
 
     @Override
     public void onStart() {
@@ -116,6 +114,10 @@ public class PowerMenu extends SettingsPreferenceFragment
 
         if (mScreenshotPref != null) {
             mScreenshotPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_SCREENSHOT));
+        }
+
+        if (mScreenRecordPref != null) {
+            mScreenRecordPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_SCREENRECORD));
         }
 
         if (mAirplanePref != null) {
@@ -179,6 +181,10 @@ public class PowerMenu extends SettingsPreferenceFragment
         } else if (preference == mScreenshotPref) {
             value = mScreenshotPref.isChecked();
             updateUserConfig(value, GLOBAL_ACTION_KEY_SCREENSHOT);
+
+        } else if (preference == mScreenRecordPref) {
+            value = mScreenRecordPref.isChecked();
+            updateUserConfig(value, GLOBAL_ACTION_KEY_SCREENRECORD);
 
         } else if (preference == mAirplanePref) {
             value = mAirplanePref.isChecked();
@@ -304,10 +310,5 @@ public class PowerMenu extends SettingsPreferenceFragment
         Intent u = new Intent();
         u.setAction(Intent.UPDATE_POWER_MENU);
         mContext.sendBroadcastAsUser(u, UserHandle.ALL);
-    }
-
-    @Override
-    protected int getMetricsCategory() {
-        return MetricsEvent.BLISSIFY;
     }
 }
