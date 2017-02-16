@@ -49,4 +49,9 @@
        android:title="@string/button_settings_title"
        android:icon="@drawable/ic_bliss_button" />
 
+    <PreferenceScreen
+       android:key="power_settings"
+       android:fragment="com.blissroms.blissify.power.PowerSettings"
+       android:title="@string/power_settings_title" />
+
 </PreferenceScreen>
