@@ -19,6 +19,8 @@ package com.blissroms.blissify.statusbar.tabs;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.database.ContentObserver;
+import android.content.res.Resources;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
@@ -26,6 +28,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.os.Handler;
 import android.os.Bundle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
@@ -56,8 +59,9 @@ public class BlissLogo extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.statusbar_logo);
+        PreferenceScreen prefSet = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
-	Context context = getActivity()
+	Context context = getActivity();
 
 	mBlissLogoStyle = (ListPreference) findPreference(KEY_BLISS_LOGO_STYLE);
             int blissLogoStyle = Settings.System.getIntForUser(resolver,
@@ -69,7 +73,7 @@ public class BlissLogo extends SettingsPreferenceFragment implements
 
             // Bliss logo color
             mBlissLogoColor =
-                (ColorPickerPreference) prefScreen.findPreference(KEY_BLISS_LOGO_COLOR);
+                (ColorPickerPreference) prefSet.findPreference(KEY_BLISS_LOGO_COLOR);
             mBlissLogoColor.setOnPreferenceChangeListener(this);
             int intColor = Settings.System.getInt(resolver,
                     Settings.System.STATUS_BAR_BLISS_LOGO_COLOR, 0xffffffff);

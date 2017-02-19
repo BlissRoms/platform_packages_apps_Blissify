@@ -129,7 +129,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
 		    getString(R.string.network_traffic_title),
 		    getString(R.string.headsup_settings_title),
 		    getString(R.string.statusbar_bliss_logo),
-		    getString(R.statusbar_carrier_label)};
+		    getString(R.string.statusbar_carrier_label)};
         return titleString;
     }
 
