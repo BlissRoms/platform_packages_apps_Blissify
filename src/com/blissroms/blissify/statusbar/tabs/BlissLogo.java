@@ -16,6 +16,16 @@
 
 package com.blissroms.blissify.statusbar.tabs;
 
+import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.os.Bundle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
@@ -23,6 +33,7 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v14.preference.PreferenceFragment;
 import android.support.v14.preference.SwitchPreference;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import android.provider.Settings;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -35,14 +46,59 @@ public class BlissLogo extends SettingsPreferenceFragment implements
 
     private static final String TAG = "BlissLogo";
 
+    private static final String KEY_BLISS_LOGO_COLOR = "status_bar_bliss_logo_color";
+    private static final String KEY_BLISS_LOGO_STYLE = "status_bar_bliss_logo_style";
+
+    private ColorPickerPreference mBlissLogoColor;
+    private ListPreference mBlissLogoStyle;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.statusbar_logo);
+        final ContentResolver resolver = getActivity().getContentResolver();
+	Context context = getActivity()
+
+	mBlissLogoStyle = (ListPreference) findPreference(KEY_BLISS_LOGO_STYLE);
+            int blissLogoStyle = Settings.System.getIntForUser(resolver,
+                    Settings.System.STATUS_BAR_BLISS_LOGO_STYLE, 0,
+                    UserHandle.USER_CURRENT);
+            mBlissLogoStyle.setValue(String.valueOf(blissLogoStyle));
+            mBlissLogoStyle.setSummary(mBlissLogoStyle.getEntry());
+            mBlissLogoStyle.setOnPreferenceChangeListener(this);
+
+            // Bliss logo color
+            mBlissLogoColor =
+                (ColorPickerPreference) prefScreen.findPreference(KEY_BLISS_LOGO_COLOR);
+            mBlissLogoColor.setOnPreferenceChangeListener(this);
+            int intColor = Settings.System.getInt(resolver,
+                    Settings.System.STATUS_BAR_BLISS_LOGO_COLOR, 0xffffffff);
+            String hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mBlissLogoColor.setSummary(hexColor);
+            mBlissLogoColor.setNewPreviewColor(intColor);
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+	ContentResolver resolver = getActivity().getContentResolver();
+	if (preference == mBlissLogoColor) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(resolver,
+                        Settings.System.STATUS_BAR_BLISS_LOGO_COLOR, intHex);
+                return true;
+            } else if (preference == mBlissLogoStyle) {
+                int blissLogoStyle = Integer.valueOf((String) newValue);
+                int index = mBlissLogoStyle.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(
+                        resolver, Settings.System.STATUS_BAR_BLISS_LOGO_STYLE, blissLogoStyle,
+                        UserHandle.USER_CURRENT);
+                mBlissLogoStyle.setSummary(
+                        mBlissLogoStyle.getEntries()[index]);
+                return true;
+            }
         return false;
     }
 
