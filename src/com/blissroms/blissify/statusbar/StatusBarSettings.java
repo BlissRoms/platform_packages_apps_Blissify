@@ -40,6 +40,7 @@ import com.blissroms.blissify.statusbar.tabs.NetworkTraffic;
 import com.blissroms.blissify.statusbar.tabs.HeadsUpSettings;
 import com.blissroms.blissify.statusbar.tabs.BlissLogo;
 import com.blissroms.blissify.statusbar.tabs.CarrierLabel;
+import com.blissroms.blissify.statusbar.tabs.Ticker;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -103,6 +104,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
             frags[3] = new HeadsUpSettings();
             frags[4] = new BlissLogo();
             frags[5] = new CarrierLabel();
+            frags[6] = new Ticker();
         }
 
         @Override
@@ -129,7 +131,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
 		    getString(R.string.network_traffic_title),
 		    getString(R.string.headsup_settings_title),
 		    getString(R.string.statusbar_bliss_logo),
-		    getString(R.string.statusbar_carrier_label)};
+		    getString(R.string.statusbar_carrier_label),
+		    getString(R.string.statusbar_ticker_title)};
         return titleString;
     }
 
