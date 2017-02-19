@@ -244,33 +244,6 @@ public class ColorPickerPreference extends Preference implements
         return false;
     }
 
-    public void setResetColors(int resetColor1, int resetColor2) {
-        mResetColor1 = resetColor1;
-        mResetColor2 = resetColor2;
-    }
-
-    public void setResetColor(int color) {
-        mResetColor1 = color;
-    }
-
-    public void setResetColorsTitle(int title1ResId, int title2ResId) {
-        mResetColor1Title = mResources.getString(title1ResId);
-        mResetColor2Title = mResources.getString(title2ResId);
-    }
-
-    public void setResetColorsTitle(String title1, String title2) {
-        mResetColor1Title = title1;
-        mResetColor2Title = title2;
-    }
-
-    public void setResetColorTitle(int titleResId) {
-        mResetColor1Title = mResources.getString(titleResId);
-    }
-
-    public void setResetColorTitle(String title) {
-        mResetColor1Title = title;
-    }
-
     protected void showDialog(Bundle state) {
         mDialog = new ColorPickerDialog(getContext(), mValue);
         mDialog.setOnColorChangedListener(this);
