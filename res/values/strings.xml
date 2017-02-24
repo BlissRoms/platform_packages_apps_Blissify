@@ -581,4 +581,7 @@
     <string name="blur_cat_notice">Notice</string>
     <string name="blur_cat_notice_summary">Blur personlizations are disabled during Keyguard view! Only Translucent Notifications are enabled!</string>
 
+     <!-- Task Manager -->
+    <string name="task_manager_title">Task Manager</string>
+
 </resources>
