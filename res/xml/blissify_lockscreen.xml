@@ -24,6 +24,12 @@
         android:key="bliss_header"
         android:layout="@layout/lockscreen_header" />
 
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
+        android:key="lockscreen_hide_status_bar"
+        android:title="@string/lockscreen_hide_status_bar_title"
+        android:summary="@string/lockscreen_hide_status_bar_summary"
+        android:defaultValue="true" />
+
     <PreferenceCategory
         android:key="lockscreen_shortcuts_category"
         android:title="@string/lockscreen_shortcuts_category" >
