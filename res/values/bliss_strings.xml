@@ -682,4 +682,8 @@
     <string name="audio_panel_view_bt_sco_title">Bluetooth</string>
     <string name="audio_panel_view_timeout_title">Volume panel timeout</string>
 
+    <!-- Hide Statusbar on Lockscreen -->
+    <string name="lockscreen_hide_status_bar_title">Hide status bar</string>
+    <string name="lockscreen_hide_status_bar_summary">Touch status bar to toggle visibility</string>
+
 </resources>
