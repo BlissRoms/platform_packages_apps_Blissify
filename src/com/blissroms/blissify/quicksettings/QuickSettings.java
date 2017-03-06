@@ -42,6 +42,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.blissroms.blissify.quicksettings.tabs.QuickPullDown;
 import com.blissroms.blissify.quicksettings.tabs.QSAdvanced;
 import com.blissroms.blissify.quicksettings.tabs.QsHeaders;
+import com.blissroms.blissify.quicksettings.tabs.QSWeather;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -99,6 +100,7 @@ public class QuickSettings extends SettingsPreferenceFragment {
             frags[0] = new QsHeaders();
 	    frags[1] = new QuickPullDown();
 	    frags[2] = new QSAdvanced();
+            frags[3] = new QSWeather();
         }
 
         @Override
@@ -122,7 +124,8 @@ public class QuickSettings extends SettingsPreferenceFragment {
         titleString = new String[]{
                     getString(R.string.qs_header_title),
 		    getString(R.string.quick_pulldown_title),
-		    getString(R.string.qs_advanced_title)};
+		    getString(R.string.qs_advanced_title),
+                    getString(R.string.qs_weather_title)};
         return titleString;
     }
 
