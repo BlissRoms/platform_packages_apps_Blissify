@@ -363,5 +363,9 @@
     <string name="data_disabled_icon_title">Data disabled indicator</string>
     <string name="data_disabled_icon_summary">Display the cross sign next to signal icon when data is disabled</string>
 
+    <!-- Roaming indicator icon -->
+    <string name="roaming_indicator_icon_title">Show roaming indicator</string>
+    <string name="roaming_indicator_icon_summary">Display roaming indicator in signal icon when in roaming mode</string>
+
 </resources>
 
