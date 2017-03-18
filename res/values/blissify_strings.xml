@@ -228,4 +228,8 @@
     <string name="status_bar_notif_count_title">Notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of unread notifications on each app icon</string>
 
+    <!-- Bluetooth battery status -->
+    <string name="status_bar_bluetooth_battery_title">Bluetooth battery status</string>
+    <string name="status_bar_bluetooth_battery_summary">Display battery status for the connected Bluetooth device, if available</string>
+
 </resources>
