@@ -48,6 +48,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.blissroms.blissify.preferences.SystemSettingListPreference;
+import org.blissroms.blissify.preferences.SystemSettingSwitchPreference;
+import org.blissroms.blissify.utils.DeviceUtils;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Statusbar extends SettingsPreferenceFragment implements
@@ -56,6 +58,8 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private static final String KEY_BATTERY_STYLE = "status_bar_battery_style";
     private static final String KEY_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String KEY_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
+    private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
+    private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 4;
@@ -64,11 +68,25 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mBatteryPercent;
     private SystemSettingListPreference mBatteryStyle;
     private SystemSettingSwitchPreference mBatteryTextCharging;
+    private PreferenceCategory mIconsCategory;
+    private SystemSettingSwitchPreference mBluetoothBatteryStatus;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.blissify_statusbar);
+
+        final Context context = getContext();
+        final ContentResolver resolver = context.getContentResolver();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final Resources resources = context.getResources();
+
+        mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
+        mBluetoothBatteryStatus = (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
+
+        if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+            mIconsCategory.removePreference(mBluetoothBatteryStatus);
+        }
 
         mBatteryStyle = (SystemSettingListPreference) findPreference(KEY_BATTERY_STYLE);
         mBatteryPercent = (SystemSettingListPreference) findPreference(KEY_BATTERY_PERCENT);
@@ -124,5 +142,17 @@ public class Statusbar extends SettingsPreferenceFragment implements
      */
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.blissify_statusbar);
+        new BaseSearchIndexProvider(R.xml.blissify_statusbar) {
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                final Resources resources = context.getResources();
+
+                if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+                    keys.add(KEY_BLUETOOTH_BATTERY_STATUS);
+                }
+                return keys;
+            }
+        };
 }

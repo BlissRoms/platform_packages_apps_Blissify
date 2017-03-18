@@ -67,6 +67,13 @@
             android:summary="@string/status_bar_battery_text_charging_summary"
             android:defaultValue="true" />
 
+        <!-- Bluetooth battery status -->
+        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+            android:key="bluetooth_show_battery"
+            android:title="@string/status_bar_bluetooth_battery_title"
+            android:summary="@string/status_bar_bluetooth_battery_summary"
+            android:defaultValue="true" />
+
         <!-- Colored icons -->
         <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
             android:key="statusbar_colored_icons"
