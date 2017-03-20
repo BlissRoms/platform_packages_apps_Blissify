@@ -35,6 +35,7 @@ import android.view.ViewGroup;
 
 import com.blissroms.blissify.PagerSlidingTabStrip;
 import com.blissroms.blissify.lockscreen.tabs.LockscreenGestures;
+import com.blissroms.blissify.lockscreen.tabs.LockscreenTweaks;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -92,7 +93,8 @@ public class LockscreenSettings extends SettingsPreferenceFragment {
 
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
-	    frags[0] = new LockscreenGestures();
+	    frags[0] = new LockscreenTweaks();
+	    frags[1] = new LockscreenGestures();
         }
 
         @Override
@@ -114,6 +116,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
+		    getString(R.string.lockscreen_tweaks_title),
 		    getString(R.string.lockscreen_gestures_title)};
         return titleString;
     }

@@ -746,4 +746,7 @@
     <string name="systemui_recents_mem_display_title">Show memory bar</string>
     <string name="systemui_recents_mem_display_summary">Enable disable ram bar in recent app view</string>
 
+    <!-- Lockscreen Tweaks -->
+    <string name="lockscreen_tweaks_title">Lock Tweaks</string>
+
 </resources>
