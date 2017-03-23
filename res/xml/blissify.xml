@@ -67,4 +67,10 @@
        android:title="@string/recents_settings_title"
        android:icon="@drawable/ic_bliss_recents" />
 
+    <PreferenceScreen
+       android:key="advanced_settings"
+       android:fragment="com.blissroms.blissify.advanced.BlissifyTweaks"
+       android:title="@string/advanced_settings_title"
+       android:icon="@drawable/ic_bliss_advanced" />
+
 </PreferenceScreen>

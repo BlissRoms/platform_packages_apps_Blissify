@@ -20,7 +20,7 @@
 
     <!-- Blissify Categories -->
     <!-- Status bar -->
-    <string name="statusbar_settings_title">StatusBar Settings</string>
+    <string name="statusbar_settings_title">Status Bar</string>
     <string name="clock_tab_title">Clock</string>
     <string name="statusbar_gestures_title">Gestures</string>
     <string name="headsup_settings_title">Heads Up</string>
@@ -49,7 +49,7 @@
     <string name="qs_advanced_data_summary">Enable one tap action to enable or disable data</string>
 
     <!-- Notification Settings -->
-    <string name="notification_settings_title">Notification Settings</string>
+    <string name="notification_settings_title">Notification</string>
     <string name="led_settings_title">Led Settings</string>
 
     <!-- Button Settings -->
@@ -58,7 +58,7 @@
     <string name="navigation_bar_title">Navigation Bar</string>
 
     <!-- Power Settings -->
-    <string name="power_settings_title">Power Settings</string>
+    <string name="power_settings_title">Power</string>
 
     <!-- Double tap-to-sleep -->
     <string name="double_tap_to_sleep_title">Double-tap to sleep</string>
@@ -156,7 +156,7 @@
     <string name="color_picker_dialog_title">Color</string>
 
     <!-- Lockscreen Settings -->
-    <string name="lockscreen_settings_title">Lockscreen Settings</string>
+    <string name="lockscreen_settings_title">Lockscreen</string>
     <string name="lockscreen_gestures_title">Gestures</string>
 
     <!-- Lockscreen shortcuts -->
@@ -607,14 +607,14 @@
     <string name="task_manager_kill_button_3">Classic</string>
 
     <!-- Button Settings -->
-    <string name="buttons_settings_title">Button Settings</string>
+    <string name="buttons_settings_title">Button</string>
     <string name="navbar_settings_title">Navigation Bar</string>
 
     <!-- Animation Settings -->
-    <string name="animation_settings_title">Animation Settings</string>
-    <string name="system_animation_title">System Animation</string>
-    <string name="toast_animation_title">Toast Animation</string>
-    <string name="tile_animation_title">Tile Animation</string>
+    <string name="animation_settings_title">Animation</string>
+    <string name="system_animation_title">System</string>
+    <string name="toast_animation_title">Toast</string>
+    <string name="tile_animation_title">Tile</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>  
@@ -831,5 +831,8 @@
     <!-- Toast Icons -->
     <string name="toast_icon_title">Toast icon</string>
     <string name="toast_icon_summary">Display the app icon corresponding with the toast</string>
+
+    <!-- Blissify Tweaks -->
+    <string name="advanced_settings_title">Blissify Tweaks</string>
 
 </resources>
