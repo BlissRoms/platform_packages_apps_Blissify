@@ -55,6 +55,10 @@ import java.util.Collections;
 public class Breathing extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String KEY_SHOW_VOLTE = "show_volte_icon";
+
+    private SwitchPreference mShowVolte;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -62,12 +66,27 @@ public class Breathing extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.statusbar_advanced_icons);
         PreferenceScreen prefSet = getPreferenceScreen();
 
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mShowVolte = (SwitchPreference) findPreference(KEY_SHOW_VOLTE);
+
+        if (!TelephonyUtils.isVoiceCapable(getActivity())) {
+            prefScreen.removePreference(mShowVolte);
+        }
+
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
 
         return false;
+    }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+
+        Settings.System.putIntForUser(resolver,
+                Settings.System.SHOW_VOLTE_ICON, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
