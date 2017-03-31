@@ -46,7 +46,8 @@
     <PreferenceScreen
        android:key="buttons_settings"
        android:fragment="com.blissroms.blissify.buttons.ButtonSettings"
-       android:title="@string/buttons_settings_title" />
+       android:title="@string/buttons_settings_title"
+       android:icon="@drawable/ic_bliss_button"  />
 
     <PreferenceScreen
        android:key="animation_settings"
