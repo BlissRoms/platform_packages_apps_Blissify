@@ -38,12 +38,10 @@ public class QSAdvanced extends SettingsPreferenceFragment implements
     private static final String PREF_ROWS_PORTRAIT = "qs_rows_portrait";
     private static final String PREF_ROWS_LANDSCAPE = "qs_rows_landscape";
     private static final String PREF_COLUMNS = "qs_layout_columns";
-    private static final String PREF_SYSUI_QQS_COUNT = "sysui_qqs_count_key";
 
     private ListPreference mRowsPortrait;
     private ListPreference mRowsLandscape;
     private CustomSeekBarPreference mQsColumns;
-    private ListPreference mSysuiQqsCount;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,13 +72,6 @@ public class QSAdvanced extends SettingsPreferenceFragment implements
                 Settings.System.QS_LAYOUT_COLUMNS, 3);
         mQsColumns.setValue(columnsQs / 1);
         mQsColumns.setOnPreferenceChangeListener(this);
-
-        mSysuiQqsCount = (ListPreference) findPreference(PREF_SYSUI_QQS_COUNT);
-        int SysuiQqsCount = Settings.Secure.getInt(resolver,
-               Settings.Secure.QQS_COUNT, 5);
-        mSysuiQqsCount.setValue(Integer.toString(SysuiQqsCount));
-        mSysuiQqsCount.setSummary(mSysuiQqsCount.getEntry());
-        mSysuiQqsCount.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -107,14 +98,6 @@ public class QSAdvanced extends SettingsPreferenceFragment implements
                 int qsColumns = (Integer) newValue;
                 Settings.System.putInt(resolver, Settings.System.QS_LAYOUT_COLUMNS, qsColumns * 1);
                 return true;
-            } else if (preference == mSysuiQqsCount) {
-                String SysuiQqsCount = (String) newValue;
-                int SysuiQqsCountValue = Integer.parseInt(SysuiQqsCount);
-                Settings.Secure.putInt(resolver,
-                        Settings.Secure.QQS_COUNT, SysuiQqsCountValue);
-                int SysuiQqsCountIndex = mSysuiQqsCount.findIndexOfValue(SysuiQqsCount);
-                mSysuiQqsCount.setSummary(mSysuiQqsCount.getEntries()[SysuiQqsCountIndex]);
-            return true;
             }
         return false;
     }

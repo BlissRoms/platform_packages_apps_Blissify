@@ -107,12 +107,6 @@
         android:summary="@string/qs_battery_easy_toggle_summary"
         android:defaultValue="false" />
 
-    <ListPreference
-        android:key="sysui_qqs_count_key"
-        android:title="@string/sysui_qqs_count_title"
-        android:entries="@array/sysui_qqs_count_entries"
-        android:entryValues="@array/sysui_qqs_count_values" />
-
      <ListPreference
         android:key="qs_rows_portrait"
         android:title="@string/qs_rows_portrait_title"
