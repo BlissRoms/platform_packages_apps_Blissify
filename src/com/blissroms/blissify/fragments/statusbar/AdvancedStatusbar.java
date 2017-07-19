@@ -58,10 +58,12 @@ public class Breathing extends SettingsPreferenceFragment implements
     private static final String KEY_SHOW_VOLTE = "show_volte_icon";
     private static final String KEY_SHOW_DATA_DISABLED = "data_disabled_icon";
     private static final String KEY_SHOW_ROAMING = "roaming_indicator_icon";
+    private static final String KEY_SHOW_FOURG = "show_fourg_icon";
 
     private SwitchPreference mShowVolte;
     private SwitchPreference mDataDisabled;
     private SwitchPreference mShowRoaming;
+    private SwitchPreference mShowFourg;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -75,11 +77,13 @@ public class Breathing extends SettingsPreferenceFragment implements
         mShowVolte = (SwitchPreference) findPreference(KEY_SHOW_VOLTE);
         mDataDisabled = (SwitchPreference) findPreference(KEY_SHOW_DATA_DISABLED);
         mShowRoaming = (SwitchPreference) findPreference(KEY_SHOW_ROAMING);
+        mShowFourg = (SwitchPreference) findPreference(KEY_SHOW_FOURG);
 
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
             prefScreen.removePreference(mDataDisabled);
             prefScreen.removePreference(mShowVolte);
             prefScreen.removePreference(mShowRoaming);
+            prefScreen.removePreference(mShowFourg);
         }
 
     }
@@ -99,6 +103,8 @@ public class Breathing extends SettingsPreferenceFragment implements
                 Settings.System.DATA_DISABLED_ICON, 1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.ROAMING_INDICATOR_ICON, 1, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.SHOW_FOURG_ICON, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
