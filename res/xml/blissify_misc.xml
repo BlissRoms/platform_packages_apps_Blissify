@@ -17,6 +17,19 @@
     android:key="misc_settings"
     android:title="@string/blissify_misc_title">
 
+    <!-- Wakelock blocker -->
+    <PreferenceCategory
+        android:key="wakelock_blocker_category"
+        android:title="@string/wakelock_blocker_title" >
+
+    <Preference
+        android:key="wakelock_blocker"
+        android:title="@string/wakelock_blocker_title"
+        android:summary="@string/wakelock_blocker_summary"
+        android:fragment="com.blissroms.blissify.fragments.misc.WakeLockBlocker"/>
+
+    </PreferenceCategory>
+
     <SwitchPreference
         android:key="fingerprint_success_vib"
         android:icon="@drawable/ic_fingerprint_vibration"
