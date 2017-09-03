@@ -22,6 +22,7 @@
 
     <!-- Sub category -->
     <string name="dt2s_title">DT2S</string>
+    <string name="power_key">Power</string>
 
     <!-- Categories -->
     <string name="blissify_animation_title">Animations</string>
@@ -122,5 +123,11 @@
     <!-- Double tap status bar to sleep -->
     <string name="double_tap_to_sleep_title">Tap on status bar</string>
     <string name="double_tap_to_sleep_summary">Double-tap status bar to put the device to sleep</string>
+
+    <!-- Torch Power button gestures -->
+    <string name="torch_power_button_gesture_title">Toggle torch when screen off</string>
+    <string name="torch_power_button_gesture_none">Disabled</string>
+    <string name="torch_power_button_gesture_dt">Double tap power button (slower single tap response), Disables double power tap for camera.</string>
+    <string name="torch_power_button_gesture_lp">Long press power button</string>
 
 </resources>
