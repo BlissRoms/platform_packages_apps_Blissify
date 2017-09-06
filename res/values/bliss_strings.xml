@@ -321,4 +321,7 @@
     <string name="lockscreen_visualizer_enable">Music Visualizer</string>
     <string name="lockscreen_visualizer_enable_summary">Show visualizer bars while playing music</string>
 
+    <!-- QS footer warnings -->
+    <string name="qs_footer_warnings_title">QS footer warnings</string>
+    <string name="qs_footer_warnings_summary">Display a warning at bottom of QS panel when network is monitored by external apps or vpn</string>
 </resources>
