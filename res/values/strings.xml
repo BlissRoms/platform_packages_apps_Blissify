@@ -307,6 +307,9 @@
     <!--Double Tap to Sleep Lockscreen-->
     <string name="double_tap_sleep_lockscreen">Double tap to sleep on lockscreen</string>
 
+    <!--Double Tap to Sleep Statusbar-->
+    <string name="double_tap_sleep_gesture_title">Double tap to sleep on status bar</string>
+
     <!-- Lockscreen weather -->
     <string name="lockscreen_weather_title">Show weather condition</string>
     <string name="lockscreen_weather_summary">Show current weather condition and temperature</string>
