@@ -465,5 +465,8 @@
     <string name="enable_fc_notifications_title">Force close notifications</string>
     <string name="enable_fc_notifications_summary">Show a dialog when an application crashes</string>
 
+    <!-- Lockscreen icons -->
+    <string name="lockscreen_tuner_title">Lockscreen shortcuts</string>
+
 </resources>
 
