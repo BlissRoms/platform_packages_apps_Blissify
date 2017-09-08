@@ -519,5 +519,9 @@
     <string name="dialog_delete_title">Delete</string>
     <string name="dialog_delete_message">Remove selected item?</string>
 
+    <!-- Lockscreen icons -->
+    <string name="lockscreen_shortcuts_title">Shortcuts</string>
+    <string name="lockscreen_shortcuts_summary">Configure shortcuts on bottom of the screen</string>
+
 </resources>
 

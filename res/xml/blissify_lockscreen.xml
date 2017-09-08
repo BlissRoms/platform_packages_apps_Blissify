@@ -24,6 +24,12 @@
         android:key="bliss_header"
         android:layout="@layout/lockscreen_header" />
 
+    <Preference
+         android:title="@string/lockscreen_shortcuts_title"
+         android:summary="@string/lockscreen_shortcuts_summary">
+        <intent android:action="com.android.settings.action.LOCK_SCREEN_TUNER" />
+    </Preference>
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
         android:title="@string/lockscreen_battery_info_title"
