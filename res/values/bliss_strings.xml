@@ -701,4 +701,8 @@
     <string name="heads_up_time_out_8sec">8 seconds</string>
     <string name="heads_up_time_out_10sec">10 seconds</string>
 
+    <!-- Less boring heads-up-->
+    <string name="less_boring_heads_up_title">Make heads up less annoying</string>
+    <string name="less_boring_heads_up_summary">Show heads up only for dialer, alarm clock and messaging app</string>
+
 </resources>
