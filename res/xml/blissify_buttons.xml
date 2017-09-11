@@ -288,6 +288,12 @@
             android:title="@string/hardware_keys_double_tap_title" >
         </com.blissroms.blissify.preferences.ActionPreference>
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="allow_incall_home"
+            android:title="@string/allow_incall_home_title"
+            android:summary="@string/allow_incall_home_summary"
+            android:defaultValue="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
