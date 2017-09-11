@@ -111,6 +111,16 @@
         android:summary="@string/status_bar_toggle_brightness_summary"
         android:defaultValue="false" />
 
+    <PreferenceCategory
+        android:key="light_category"
+        android:title="@string/light_category">
+
+     <Preference
+         android:key="battery_charging_light"
+         android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryLightSettings"
+         android:title="@string/battery_light_settings" />
+    </PreferenceCategory>
+
     <Preference
         android:key="statusbar_battery"
         android:title="@string/battery_percent_title"
