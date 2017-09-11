@@ -1903,4 +1903,8 @@
     <string name="button_timeout_title">Backlight timeout</string>
     <string name="button_backlight_on_touch_only_title">Button backlight touch</string>
     <string name="button_backlight_on_touch_only_summary">Button backlight will only appear when buttons are pressed rather than on all the time. Timeout still impacts this feature.</string>
+
+    <!-- Incall Home button behavior-->
+    <string name="allow_incall_home_title">Home button when ringing</string>
+    <string name="allow_incall_home_summary">Allow to use Home button when device is ringing</string>
 </resources>
