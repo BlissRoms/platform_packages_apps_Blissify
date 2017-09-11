@@ -73,6 +73,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private ListPreference mNetTrafficType;
     private SystemSettingSwitchPreference mShowArrows;
     private CustomSeekBarPreference mNetTrafficSize;
+    private PreferenceCategory mLedsCategory;
+    private Preference mChargingLeds;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -81,6 +83,17 @@ public class StatusBar extends SettingsPreferenceFragment implements
 	final ContentResolver resolver = getActivity().getContentResolver();
         addPreferencesFromResource(R.xml.blissify_statusbar);
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        mLedsCategory = (PreferenceCategory) findPreference("light_category");
+        mChargingLeds = (Preference) findPreference("battery_charging_light");
+        if (mChargingLeds != null
+                && !getResources().getBoolean(
+                        com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+            mLedsCategory.removePreference(mChargingLeds);
+        }
+          if (mChargingLeds == null) {
+            prefSet.removePreference(mLedsCategory);
+        }
 
         int NetTrafficSize = Settings.System.getInt(resolver,
                 Settings.System.NETWORK_TRAFFIC_FONT_SIZE, 42);
