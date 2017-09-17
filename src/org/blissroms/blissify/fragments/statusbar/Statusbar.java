@@ -51,6 +51,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settings.Utils;
 import android.util.Log;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -65,6 +66,8 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private static final String KEY_STATUS_BAR_AM_PM = "status_bar_am_pm";
 
     private SecureSettingListPreference mStatusBarAmPm;
+    private SystemSettingSwitchPreference mThreshold;
+    private SystemSettingSwitchPreference mNetMonitor;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -75,12 +78,39 @@ public class Statusbar extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
 
 	mStatusBarAmPm = findPreference(KEY_STATUS_BAR_AM_PM);
+
+        boolean isNetMonitorEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_STATE, 1, UserHandle.USER_CURRENT) == 1;
+        mNetMonitor = (SystemSettingSwitchPreference) findPreference("network_traffic_state");
+        mNetMonitor.setChecked(isNetMonitorEnabled);
+        mNetMonitor.setOnPreferenceChangeListener(this);
+
+        boolean isThresholdEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 0, UserHandle.USER_CURRENT) == 1;
+        mThreshold = (SystemSettingSwitchPreference) findPreference("network_traffic_autohide_threshold");
+        mThreshold.setChecked(isThresholdEnabled);
+        mThreshold.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        return false;
+         if (preference == mNetMonitor) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_STATE, value ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+            mNetMonitor.setChecked(value);
+            mThreshold.setEnabled(value);
+            return true;
+        } else if (preference == mThreshold) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, value ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+            return true;
+        }
+       return false;
     }
 
     @Override

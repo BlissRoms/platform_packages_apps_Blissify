@@ -42,6 +42,22 @@
         android:defaultValue="false"/>
 
     <PreferenceCategory
+        android:title="@string/network_options_title">
+
+       <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="network_traffic_state"
+            android:title="@string/network_traffic_state_title"
+            android:defaultValue="false" />
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="network_traffic_autohide_threshold"
+            android:title="@string/network_traffic_autohide_title"
+            android:summary="@string/network_traffic_autohide_summary"
+            android:dependency="network_traffic_state"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
       android:title="@string/blissify_powermenu_title">
 
 	<com.bliss.support.preferences.SecureSettingSwitchPreference
