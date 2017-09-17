@@ -49,6 +49,8 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settings.Utils;
 import android.util.Log;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.CustomSeekBarPreference;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -71,6 +73,8 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private SwitchPreference mBatteryTextCharging;
     private SystemSettingListPreference mBatteryPercent;
     private SystemSettingListPreference mBatteryStyle;
+    private CustomSeekBarPreference mThreshold;
+    private SystemSettingSwitchPreference mNetMonitor;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -97,6 +101,18 @@ public class Statusbar extends SettingsPreferenceFragment implements
         mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
                 (batterystyle != BATTERY_STYLE_TEXT && batterypercent != 2));
 
+        boolean isNetMonitorEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_STATE, 1, UserHandle.USER_CURRENT) == 1;
+        mNetMonitor = (SystemSettingSwitchPreference) findPreference("network_traffic_state");
+        mNetMonitor.setChecked(isNetMonitorEnabled);
+        mNetMonitor.setOnPreferenceChangeListener(this);
+
+        int value = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 1, UserHandle.USER_CURRENT);
+        mThreshold = (CustomSeekBarPreference) findPreference("network_traffic_autohide_threshold");
+        mThreshold.setValue(value);
+        mThreshold.setOnPreferenceChangeListener(this);
+        mThreshold.setEnabled(isNetMonitorEnabled);
     }
 
     @Override
@@ -117,6 +133,20 @@ public class Statusbar extends SettingsPreferenceFragment implements
                     Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
             mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
                     (batterystyle != BATTERY_STYLE_TEXT && value != 2));
+            return true;
+        } else if (preference == mNetMonitor) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_STATE, value ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+            mNetMonitor.setChecked(value);
+            mThreshold.setEnabled(value);
+            return true;
+        } else if (preference == mThreshold) {
+            int val = (Integer) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, val,
+                    UserHandle.USER_CURRENT);
             return true;
         }
        return false;
