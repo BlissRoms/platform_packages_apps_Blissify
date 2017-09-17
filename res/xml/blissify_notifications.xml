@@ -18,7 +18,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_notifications_title">
 
-      <PreferenceCategory
+    <PreferenceCategory
         android:key="headsup_notifications_category"
         android:title="@string/headsup_category">
 
@@ -27,6 +27,18 @@
         android:summary="@string/heads_up_notifications_summary"
         android:title="@string/heads_up_notifications"
         android:fragment="org.blissroms.blissify.fragments.HeadsUpSettings"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="led"
+        android:title="@string/light_settings_header">
+
+        <Preference
+            android:key="charging_light"
+            android:title="@string/battery_light_settings"
+            android:summary="@string/battery_light_summary"
+            android:fragment="org.blissroms.blissify.fragments.BatteryLightSettings" />
 
     </PreferenceCategory>
 
