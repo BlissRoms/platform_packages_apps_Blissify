@@ -229,4 +229,9 @@
 	<!-- Bliss logo -->
     <string name="bliss_logo_title">Bliss logo</string>
     <string name="bliss_logo_summary">Blissify your device!</string>
+
+    <!-- Statusbar net monitor -->
+    <string name="network_traffic_state_title">Network traffic</string>
+    <string name="network_traffic_state_summary">Show net activity in statusbar</string>
+    <string name="network_traffic_autohide_threshold_title">Net activity autohide threshold (KB/s)</string>
 </resources>
