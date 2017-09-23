@@ -50,6 +50,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import android.util.Log;
 import android.hardware.fingerprint.FingerprintManager;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -61,18 +62,40 @@ import java.util.Collections;
 public class MiscSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
-    private static final String PIXEL_CATEGORY = "pixel_category";
+    private static final String MISC_CATEGORY = "misc_category";
+
+	private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
+
+    private FingerprintManager mFingerprintManager;
+    private SystemSettingSwitchPreference mFingerprintVib;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
+        final ContentResolver resolver = getActivity().getContentResolver();
         addPreferencesFromResource(R.xml.blissify_misc);
         PreferenceScreen prefSet = getPreferenceScreen();
+
+	    mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        mFingerprintVib = (SystemSettingSwitchPreference) findPreference(FINGERPRINT_VIB);
+        if (!mFingerprintManager.isHardwareDetected()){
+            prefSet.removePreference(mFingerprintVib);
+        } else {
+        mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.FP_SUCCESS_VIBRATE, 1) == 1));
+        mFingerprintVib.setOnPreferenceChangeListener(this);
+        }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+	    if (preference == mFingerprintVib) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.FP_SUCCESS_VIBRATE, value ? 1 : 0);
+            return true;
+        }
         return false;
     }
 
