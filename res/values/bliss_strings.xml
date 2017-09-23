@@ -24,6 +24,7 @@
     <string name="blissify_statusbar_title">StatusBar</string>
     <string name="blissify_animation_title">Animations</string>
     <string name="blissify_buttons_title">Buttons</string>
+    <string name="blissify_misc_title">Misc</string>
     <string name="system_animation_category">System</string>
     <string name="misc_animation_title">Misc</string>
     <string name="toast_animation_category">Toast Animations</string>
@@ -306,6 +307,9 @@
 
     <!-- General -->
     <string name="reset">Reset</string>
+
+    <string name="fprint_sucess_vib_title">Fingerprint authentication vibration</string>
+    <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
 
 </resources>
 

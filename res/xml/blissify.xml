@@ -36,4 +36,10 @@
           android:title="@string/blissify_buttons_title"
           android:fragment="com.blissroms.blissify.fragments.buttons.Buttons"/>
 
+      <!-- Misc -->
+      <Preference
+          android:key="misc_category"
+          android:title="@string/blissify_misc_title"
+          android:fragment="com.blissroms.blissify.fragments.misc.MiscSettings"/>
+
 </PreferenceScreen>
