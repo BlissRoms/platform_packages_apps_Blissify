@@ -45,4 +45,11 @@
             android:title="@string/notification_guts_kill_app_button_title"
             android:summary="@string/notification_guts_kill_app_button_summary"
             android:defaultValue="false" />
+
+    <!-- Heads up -->
+    <Preference
+        android:key="heads_up_settings"
+        android:title="@string/heads_up_notifications"
+        android:summary="@string/heads_up_notifications_summary"
+        android:fragment="org.blissroms.blissify.fragments.notification.HeadsUpSettings" />
 </PreferenceScreen>
