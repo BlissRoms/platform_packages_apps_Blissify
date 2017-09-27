@@ -59,6 +59,9 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
+    private SwitchPreference mShowCpuInfo;
+
+    private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -78,6 +81,23 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mFingerprintVib.setOnPreferenceChangeListener(this);
         }
 
+        mShowCpuInfo = (SwitchPreference) findPreference(SHOW_CPU_INFO_KEY);
+        mShowCpuInfo.setChecked(Settings.Global.getInt(getActivity().getContentResolver(),
+                Settings.Global.SHOW_CPU_OVERLAY, 0) == 1);
+        mShowCpuInfo.setOnPreferenceChangeListener(this);
+
+    }
+
+    private void writeCpuInfoOptions(boolean value) {
+        Settings.Global.putInt(getActivity().getContentResolver(),
+                Settings.Global.SHOW_CPU_OVERLAY, value ? 1 : 0);
+        Intent service = (new Intent())
+                .setClassName("com.android.systemui", "com.android.systemui.CPUInfoService");
+        if (value) {
+            getActivity().startService(service);
+        } else {
+            getActivity().stopService(service);
+        }
     }
 
     @Override
@@ -89,6 +109,11 @@ public class MiscSettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
+            return true;
+        }
+
+        if (preference == mShowCpuInfo) {
+            writeCpuInfoOptions((Boolean) newValue);
             return true;
         }
 
