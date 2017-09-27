@@ -23,4 +23,11 @@
         android:summary="@string/fprint_sucess_vib_summary"
         android:persistent="false" />
 
+    <!-- Show CPU Info overlay -->
+    <SwitchPreference
+        android:key="show_cpu_info"
+        android:title="@string/show_cpu_info"
+        android:summary="@string/show_cpu_info_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
