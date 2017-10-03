@@ -60,7 +60,7 @@
     <string name="volume_options_title">Volume Options</string>
     <string name="navigation_bar_options_category">Nav Bar Options</string>
     <string name="navigation_title">Navigation</string>
-
+    <string name="music_options">Music Options</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
@@ -1493,4 +1493,9 @@
     <!-- R Notification headers -->
     <string name="notification_headers_title">Show notification headers</string>
     <string name="notification_headers_summary">Whether to show R style notification headers (Requires a SystemUI restart)</string>
+
+    <!-- Headset ringtone audio focus -->
+    <string name="ringtone_focus_mode_title">When headset connected, incoming call plays on</string>
+    <string name="ringtone_focus_mode_dynamic">Headset only if music is active</string>
+    <string name="ringtone_focus_mode_stock">Both speaker and headset</string>
 </resources>
