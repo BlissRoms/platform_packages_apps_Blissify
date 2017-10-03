@@ -231,6 +231,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = mContext.getContentResolver();
         Settings.Global.putInt(resolver,
                 Settings.Global.PRIVILEGED_DEVICE_IDENTIFIER_CHECK_RELAXED, 0);
+        Settings.Global.putInt(resolver, Settings.Global.RINGTONE_FOCUS_MODE, 1);
     }
 
     @Override
