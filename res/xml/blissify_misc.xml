@@ -30,6 +30,16 @@
 
     </PreferenceCategory>
 
+    <!-- Launch music player when headset is connected -->
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="headset_connect_player"
+        android:icon="@drawable/ic_headphones"
+        android:title="@string/headset_connect_player_title"
+        android:summary="@string/headset_connect_player_summary"
+        android:entries="@array/headset_connect_player_entries"
+        android:entryValues="@array/headset_connect_player_values"
+        android:defaultValue="0" />
+
     <!-- Wakelock blocker -->
     <PreferenceCategory
         android:key="wakelock_blocker_category"

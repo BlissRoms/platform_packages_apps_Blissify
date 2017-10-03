@@ -53,6 +53,9 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+import com.bliss.support.preferences.SystemSettingMasterSwitchPreference;
+import com.bliss.support.preferences.SystemSettingListPreference;
+
 public class MiscSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
@@ -61,11 +64,14 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
     private static final String SMART_PIXELS_ENABLED = "smart_pixels_enable";
 
+    private static final String HEADSET_CONNECT_PLAYER = "headset_connect_player";
+
     private SystemSettingMasterSwitchPreference mSmartPixelsEnabled;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mFingerprintVibErr;
     private SwitchPreference mShowCpuInfo;
+    private SystemSettingListPreference mLaunchPlayerHeadsetConnection;
 
     private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
 
@@ -103,6 +109,13 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         if (!getResources().getBoolean(com.android.internal.R.bool.config_enableSmartPixels)) {
             getPreferenceScreen().removePreference(mSmartPixelsEnabled);
         }
+
+        mLaunchPlayerHeadsetConnection = (SystemSettingListPreference) findPreference(HEADSET_CONNECT_PLAYER);
+        int mLaunchPlayerHeadsetConnectionValue = Settings.System.getIntForUser(resolver,
+                Settings.System.HEADSET_CONNECT_PLAYER, 4, UserHandle.USER_CURRENT);
+        mLaunchPlayerHeadsetConnection.setValue(Integer.toString(mLaunchPlayerHeadsetConnectionValue));
+        mLaunchPlayerHeadsetConnection.setSummary(mLaunchPlayerHeadsetConnection.getEntry());
+        mLaunchPlayerHeadsetConnection.setOnPreferenceChangeListener(this);
     }
 
     private void writeCpuInfoOptions(boolean value) {
@@ -139,6 +152,14 @@ public class MiscSettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(),
 		            SMART_PIXELS_ENABLED, value ? 1 : 0);
+            return true;
+        } else if (preference == mLaunchPlayerHeadsetConnection) {
+            int mLaunchPlayerHeadsetConnectionValue = Integer.valueOf((String) objValue);
+            int index = mLaunchPlayerHeadsetConnection.findIndexOfValue((String) objValue);
+            mLaunchPlayerHeadsetConnection.setSummary(
+                    mLaunchPlayerHeadsetConnection.getEntries()[index]);
+            Settings.System.putIntForUser(resolver, Settings.System.HEADSET_CONNECT_PLAYER,
+                    mLaunchPlayerHeadsetConnectionValue, UserHandle.USER_CURRENT);
             return true;
         }
         return false;
