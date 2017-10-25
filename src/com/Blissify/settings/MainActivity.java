@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.armory.settings;
+package com.Blissify.settings;
 
 import android.os.Bundle;
 import android.support.v7.preference.Preference;
@@ -35,6 +35,6 @@ public class MainActivity extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.INVICTUS;
+        return MetricsProto.MetricsEvent.BLISS;
     }
 }
