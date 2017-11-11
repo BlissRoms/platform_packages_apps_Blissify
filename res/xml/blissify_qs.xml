@@ -97,6 +97,11 @@
         android:title="@string/blissify_misc_category_title"
         android:icon="@drawable/ic_misc">
 
+        <PreferenceScreen
+            android:key="qsheader"
+            android:title="@string/custom_header_title"
+            android:fragment="com.blissroms.blissify.fragments.qs.QSHeader" />
+
     <com.bliss.support.preferences.SecureSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:title="@string/quick_settings_vibrate_title"
