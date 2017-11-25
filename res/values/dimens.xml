@@ -19,6 +19,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <dimen name="alert_dialog_padding_material">20dp</dimen>
+    <dimen name="oval_notification_size">26dp</dimen>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
