@@ -68,8 +68,10 @@ public class ButtonSettings extends ActionFragment implements
         OnPreferenceChangeListener, Indexable {
 
     private static final String BUTTONS_CATEGORY = "buttons_category";
+    private static final String HWKEY_DISABLE = "hardware_keys_disable";
 
     // category keys
+    private static final String CATEGORY_HWKEY = "hardware_keys";
     private static final String CATEGORY_BACK = "back_key";
     private static final String CATEGORY_HOME = "home_key";
     private static final String CATEGORY_MENU = "menu_key";
@@ -91,6 +93,7 @@ public class ButtonSettings extends ActionFragment implements
     public static final int KEY_MASK_CAMERA = 0x20;
     public static final int KEY_MASK_VOLUME = 0x40;
 
+    private SwitchPreference mHwKeyDisable;
     private CustomSeekBarPreference mButtonTimoutBar;
     private CustomSeekBarPreference mManualButtonBrightness;
     private PreferenceCategory mButtonBackLightCategory;
@@ -102,6 +105,22 @@ public class ButtonSettings extends ActionFragment implements
         final ContentResolver resolver = getActivity().getContentResolver();
         addPreferencesFromResource(R.xml.blissify_buttons);
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());
+        final PreferenceCategory hwkeyCat = (PreferenceCategory) prefScreen
+                .findPreference(CATEGORY_HWKEY);
+        int keysDisabled = 0;
+        if (!needsNavbar) {
+            mHwKeyDisable = (SwitchPreference) findPreference(HWKEY_DISABLE);
+            keysDisabled = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.HARDWARE_KEYS_DISABLE, 0,
+                    UserHandle.USER_CURRENT);
+            mHwKeyDisable.setChecked(keysDisabled != 0);
+            mHwKeyDisable.setOnPreferenceChangeListener(this);
+        } else {
+            prefScreen.removePreference(hwkeyCat);
+        }
+
          // bits for hardware keys present on device
         final int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
@@ -143,6 +162,10 @@ public class ButtonSettings extends ActionFragment implements
         if (!hasAssistKey) {
             prefScreen.removePreference(assistCategory);
         }
+
+        // load preferences first
+        setActionPreferencesEnabled(keysDisabled == 0);
+
          // let super know we can load ActionPreferences
         onPreferenceScreenLoaded(ActionConstants.getDefaults(ActionConstants.HWKEYS));
 
@@ -179,6 +202,11 @@ public class ButtonSettings extends ActionFragment implements
             int buttonTimeout = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.BUTTON_BACKLIGHT_TIMEOUT, buttonTimeout);
+        } else if (preference == mHwKeyDisable) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(), Settings.System.HARDWARE_KEYS_DISABLE,
+                    value ? 1 : 0);
+            setActionPreferencesEnabled(!value);
         } else if (preference == mManualButtonBrightness) {
             int buttonBrightness = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
