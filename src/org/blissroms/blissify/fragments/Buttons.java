@@ -37,7 +37,6 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
-
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.hwkeys.ActionConstants;
 import com.android.internal.util.hwkeys.ActionUtils;
@@ -51,11 +50,18 @@ import com.android.settingslib.search.SearchIndexable;
 import org.blissroms.blissify.preferences.ActionFragment;
 import com.bliss.support.preferences.CustomSeekBarPreference;
 
+import android.provider.SearchIndexableResource;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
-public class Buttons extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+public class Buttons extends ActionFragment implements OnPreferenceChangeListener {
+
+    private static final String HWKEY_DISABLE = "hardware_keys_disable";
 
     // category keys
+    private static final String CATEGORY_HWKEY = "hardware_keys";
     private static final String CATEGORY_BACK = "back_key";
     private static final String CATEGORY_HOME = "home_key";
     private static final String CATEGORY_MENU = "menu_key";
@@ -78,6 +84,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     public static final int KEY_MASK_CAMERA = 0x20;
     public static final int KEY_MASK_VOLUME = 0x40;
 
+    private SwitchPreference mHwKeyDisable;
     private CustomSeekBarPreference mButtonTimoutBar;
     private CustomSeekBarPreference mManualButtonBrightness;
     private PreferenceCategory mButtonBackLightCategory;
@@ -90,6 +97,22 @@ public class Buttons extends SettingsPreferenceFragment implements
         final Resources res = getResources();
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());
+        final PreferenceCategory hwkeyCat = (PreferenceCategory) prefScreen
+                .findPreference(CATEGORY_HWKEY);
+        int keysDisabled = 0;
+        if (!needsNavbar) {
+            mHwKeyDisable = (SwitchPreference) findPreference(HWKEY_DISABLE);
+            keysDisabled = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.HARDWARE_KEYS_DISABLE, 0,
+                    UserHandle.USER_CURRENT);
+            mHwKeyDisable.setChecked(keysDisabled != 0);
+            mHwKeyDisable.setOnPreferenceChangeListener(this);
+        } else {
+            prefScreen.removePreference(hwkeyCat);
+        }
+
          // bits for hardware keys present on device
         final int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
@@ -134,6 +157,9 @@ public class Buttons extends SettingsPreferenceFragment implements
          // let super know we can load ActionPreferences
         onPreferenceScreenLoaded(ActionConstants.getDefaults(ActionConstants.HWKEYS));
 
+        // load preferences first
+        setActionPreferencesEnabled(keysDisabled == 0);
+
         mManualButtonBrightness = (CustomSeekBarPreference) findPreference(
                 KEY_BUTTON_MANUAL_BRIGHTNESS_NEW);
         final int customButtonBrightness = getResources().getInteger(
@@ -164,7 +190,12 @@ public class Buttons extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mButtonTimoutBar) {
+        if (preference == mHwKeyDisable) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(), Settings.System.HARDWARE_KEYS_DISABLE,
+                    value ? 1 : 0);
+            setActionPreferencesEnabled(!value);
+        } else if (preference == mButtonTimoutBar) {
             int buttonTimeout = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.BUTTON_BACKLIGHT_TIMEOUT, buttonTimeout);
@@ -192,6 +223,24 @@ public class Buttons extends SettingsPreferenceFragment implements
      * For Search.
      */
 
-    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.blissify_button);
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.blissify_button;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = super.getNonIndexableKeys(context);
+                    return keys;
+                }
+    };
 }
