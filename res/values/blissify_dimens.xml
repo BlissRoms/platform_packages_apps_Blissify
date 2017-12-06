@@ -20,4 +20,7 @@
     <dimen name="default_margin">16dp</dimen>
     <dimen name="default_padding">16dp</dimen>
 
+    <!-- Shortcut picker -->
+    <dimen name="shortcut_picker_left_padding">70dip</dimen>
+
 </resources>
