@@ -50,6 +50,9 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import android.util.Log;
 import android.hardware.fingerprint.FingerprintManager;
+import com.android.internal.util.hwkeys.ActionConstants;
+import com.android.internal.util.hwkeys.ActionUtils;
+import com.blissroms.blissify.ui.ActionFragment;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -58,17 +61,78 @@ import java.util.HashMap;
 import java.util.Collections;
 
 @SearchIndexable
-public class ButtonSettings extends SettingsPreferenceFragment implements
+public class ButtonSettings extends ActionFragment implements
         OnPreferenceChangeListener, Indexable {
 
-    private static final String PIXEL_CATEGORY = "pixel_category";
+    private static final String BUTTONS_CATEGORY = "buttons_category";
+
+    // category keys
+    private static final String CATEGORY_BACK = "back_key";
+    private static final String CATEGORY_HOME = "home_key";
+    private static final String CATEGORY_MENU = "menu_key";
+    private static final String CATEGORY_ASSIST = "assist_key";
+    private static final String CATEGORY_APPSWITCH = "app_switch_key";
+    private static final String CATEGORY_VOLUME = "volume_keys";
+    private static final String CATEGORY_POWER = "power_key";
+     // Masks for checking presence of hardware keys.
+    // Must match values in frameworks/base/core/res/res/values/config.xml
+    public static final int KEY_MASK_HOME = 0x01;
+    public static final int KEY_MASK_BACK = 0x02;
+    public static final int KEY_MASK_MENU = 0x04;
+    public static final int KEY_MASK_ASSIST = 0x08;
+    public static final int KEY_MASK_APP_SWITCH = 0x10;
+    public static final int KEY_MASK_CAMERA = 0x20;
+    public static final int KEY_MASK_VOLUME = 0x40;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.blissify_buttons);
-        PreferenceScreen prefSet = getPreferenceScreen();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+         // bits for hardware keys present on device
+        final int deviceKeys = getResources().getInteger(
+                com.android.internal.R.integer.config_deviceHardwareKeys);
+         // read bits for present hardware keys
+        final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
+        final boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
+        final boolean hasMenuKey = (deviceKeys & KEY_MASK_MENU) != 0;
+        final boolean hasAssistKey = (deviceKeys & KEY_MASK_ASSIST) != 0;
+        final boolean hasAppSwitchKey = (deviceKeys & KEY_MASK_APP_SWITCH) != 0;
+         // load categories and init/remove preferences based on device
+        // configuration
+        final PreferenceCategory backCategory = (PreferenceCategory) prefScreen
+                .findPreference(CATEGORY_BACK);
+        final PreferenceCategory homeCategory = (PreferenceCategory) prefScreen
+                .findPreference(CATEGORY_HOME);
+        final PreferenceCategory menuCategory = (PreferenceCategory) prefScreen
+                .findPreference(CATEGORY_MENU);
+        final PreferenceCategory assistCategory = (PreferenceCategory) prefScreen
+                .findPreference(CATEGORY_ASSIST);
+        final PreferenceCategory appSwitchCategory = (PreferenceCategory) prefScreen
+                .findPreference(CATEGORY_APPSWITCH);
+         // back key
+        if (!hasBackKey) {
+            prefScreen.removePreference(backCategory);
+        }
+         // home key
+        if (!hasHomeKey) {
+            prefScreen.removePreference(homeCategory);
+        }
+         // App switch key (recents)
+        if (!hasAppSwitchKey) {
+            prefScreen.removePreference(appSwitchCategory);
+        }
+         // menu key
+        if (!hasMenuKey) {
+            prefScreen.removePreference(menuCategory);
+        }
+         // search/assist key
+        if (!hasAssistKey) {
+            prefScreen.removePreference(assistCategory);
+        }
+         // let super know we can load ActionPreferences
+        onPreferenceScreenLoaded(ActionConstants.getDefaults(ActionConstants.HWKEYS));
     }
 
     @Override
