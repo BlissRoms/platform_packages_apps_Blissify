@@ -31,6 +31,12 @@
             android:entryValues="@array/qs_battery_mode_values"
             android:defaultValue="1" />
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="bluetooth_qs_show_battery"
+            android:title="@string/bluetooth_battery_title"
+            android:summary="@string/bluetooth_battery_summary"
+            android:defaultValue="true"/>
+
         <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
