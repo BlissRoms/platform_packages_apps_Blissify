@@ -32,5 +32,7 @@
     <string name="qs_category">Quick Settings</string>
     <string name="recents_category">Recents</string>
     <string name="statusbar_category">Statusbar</string>
+    <string name="system_animation_title">System</string>
+    <string name="toast_animation_title">Toast</string>
 
 </resources>
