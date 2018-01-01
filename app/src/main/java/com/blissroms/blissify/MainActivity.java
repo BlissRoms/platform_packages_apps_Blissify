@@ -32,6 +32,12 @@ import android.widget.Button;
 
 import com.blissroms.blissify.categories.Animations;
 import com.blissroms.blissify.categories.Buttons;
+import com.blissroms.blissify.categories.Gestures;
+import com.blissroms.blissify.categories.Lockscreen;
+import com.blissroms.blissify.categories.PowerMenu;
+import com.blissroms.blissify.categories.QuickSettings;
+import com.blissroms.blissify.categories.Recents;
+import com.blissroms.blissify.categories.Statusbar;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -100,22 +106,22 @@ public class MainActivity extends AppCompatActivity
             setFragment(new Buttons());
         } else if (id == R.id.nav_gestures)
         {
-
+            setFragment(new Gestures());
         } else if (id == R.id.nav_lockscreen)
         {
-
+            setFragment(new Lockscreen());
         } else if (id == R.id.nav_power)
         {
-
+            setFragment(new PowerMenu());
         } else if (id == R.id.nav_quick_settings)
         {
-
+            setFragment(new QuickSettings());
         } else if (id == R.id.nav_recents)
         {
-
+            setFragment(new Recents());
         } else if (id == R.id.nav_statusbar)
         {
-
+            setFragment(new Statusbar());
         }
 
         return true;

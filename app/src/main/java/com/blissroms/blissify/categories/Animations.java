@@ -28,11 +28,11 @@ public class Animations extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.blissify_tablayout, container, false);
+        view = inflater.inflate(R.layout.blissify_fixed_tablayout, container, false);
 
         viewPager = (ViewPager) view.findViewById(R.id.viewpager);
         viewPager.setAdapter(new AnimationAdapter(getChildFragmentManager()));
-        tableLayout = (TabLayout) view.findViewById(R.id.sliding_tabs);
+        tableLayout = (TabLayout) view.findViewById(R.id.fixed_tabs);
         tableLayout.post(new Runnable() {
             @Override
             public void run() {
