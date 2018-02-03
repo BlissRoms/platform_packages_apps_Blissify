@@ -44,6 +44,7 @@ import lineageos.preference.LineageSecureSettingSwitchPreference;
 import lineageos.providers.LineageSettings;
 
 import lineageos.preference.LineageSystemSettingListPreference;
+import com.blissroms.blissify.fragments.statusbar.Clock;
 
 import java.util.Locale;
 import android.text.TextUtils;
@@ -95,12 +96,12 @@ public class StatusBar extends SettingsPreferenceFragment
     private PreferenceScreen mNetworkTrafficPref;
 
     private static boolean sHasNotch;
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.blissify_statusbar);
-        
+
         mNetworkTrafficPref = (PreferenceScreen) findPreference(NETWORK_TRAFFIC_SETTINGS);
 
         sHasNotch = getResources().getBoolean(

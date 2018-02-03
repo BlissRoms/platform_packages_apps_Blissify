@@ -149,6 +149,10 @@
     <string name="status_bar_system_icons_summary">Control which status bar icons are shown</string>
 
     <!-- Status bar - Clock -->
+    <string name="status_bar_clock_title">Clock &amp; date</string>
+    <string name="status_bar_clock_summary">Display and customize clock &amp; date</string>
+    <string name="status_bar_clock_seconds_title">Clock seconds</string>
+    <string name="status_bar_clock_seconds_summary">Display seconds next to clock in status bar</string>
     <string name="status_bar_clock_title">Clock</string>
 
     <string name="status_bar_clock_show_seconds_title">Show seconds</string>
