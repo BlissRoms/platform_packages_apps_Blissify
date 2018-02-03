@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package com.blissroms.blissify.fragments.statusbar;
 
 import com.android.internal.logging.nano.MetricsProto;
@@ -71,7 +70,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final String ICON_BLACKLIST = "icon_blacklist";
 
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
-    private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
+
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
@@ -95,12 +94,12 @@ public class StatusBar extends SettingsPreferenceFragment
     private PreferenceScreen mNetworkTrafficPref;
 
     private static boolean sHasNotch;
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.blissify_statusbar);
-        
+
         mNetworkTrafficPref = (PreferenceScreen) findPreference(NETWORK_TRAFFIC_SETTINGS);
 
         sHasNotch = getResources().getBoolean(
@@ -110,8 +109,6 @@ public class StatusBar extends SettingsPreferenceFragment
             getPreferenceScreen().removePreference(mNetworkTrafficPref);
         }
 
-        mStatusBarAmPm =
-                (LineageSystemSettingListPreference) findPreference(STATUS_BAR_AM_PM);
         mStatusBarClock =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
         mStatusBarClock.setOnPreferenceChangeListener(this);
@@ -155,16 +152,11 @@ public class StatusBar extends SettingsPreferenceFragment
             getPreferenceScreen().addPreference(mStatusBarBatteryCategory);
         }
 
-        if (DateFormat.is24HourFormat(getActivity())) {
-            mStatusBarAmPm.setEnabled(false);
-            mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_info);
-        }
-
         final boolean disallowCenteredClock = sHasNotch || getNetworkTrafficStatus() != 0;
 
         // Adjust status bar preferences for RTL
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
-            if (disallowCenteredClock) {
+            if (sHasNotch) {
                 mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch_rtl);
                 mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch_rtl);
             } else {
@@ -173,7 +165,7 @@ public class StatusBar extends SettingsPreferenceFragment
             }
             mQuickPulldown.setEntries(R.array.status_bar_quick_qs_pulldown_entries_rtl);
             mQuickPulldown.setEntryValues(R.array.status_bar_quick_qs_pulldown_values_rtl);
-        } else if (disallowCenteredClock) {
+        } else if (sHasNotch) {
             mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch);
             mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch);
         } else {
@@ -183,6 +175,7 @@ public class StatusBar extends SettingsPreferenceFragment
 
         // Disable network traffic preferences if clock is centered in the status bar
         updateNetworkTrafficStatus(getClockPosition());
+
     }
 
     @Override
@@ -192,9 +185,6 @@ public class StatusBar extends SettingsPreferenceFragment
         switch (key) {
             case STATUS_BAR_QUICK_QS_PULLDOWN:
                 updateQuickPulldownSummary(value);
-                break;
-            case STATUS_BAR_CLOCK_STYLE:
-                updateNetworkTrafficStatus(value);
                 break;
             case STATUS_BAR_BATTERY_STYLE:
                 enableStatusBarBatteryDependents(value);
