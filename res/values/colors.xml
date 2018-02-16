@@ -45,9 +45,20 @@
 
     <color name="white">#FFF</color>
     <color name="material_deep_teal_500">@*android:color/material_deep_teal_500</color>
-    <color name="icon_tint_color">@color/theme_accent</color>
     <color name="action_bar_icon_tint">@android:color/white</color>
      <!-- Gesture Anywhere -->
     <color name="ga_gesture_color">@color/theme_accent</color>
+    <color name="icon_tint_color">@color/material_deep_teal_500</color>
+    <color name="theme_accent">#ffC0C0C0</color>
+    <color name="action_picker_fab_background">@color/theme_accent</color>
+
+    <!-- Bottom navigation -->
+    <color name="BottomBarBackgroundColor">@android:color/white</color>
+    <color name="bottom_nav_text_icon_active">@android:color/black</color>
+    <color name="bottom_nav_text_icon_inactive">@*android:color/hint_foreground_light</color>
+
+    <!-- Accent picker -->
+    <color name="accent_picker_white_accent">@android:color/white</color>
+    <color name="accent_picker_dark_accent">@android:color/black</color>
 
 </resources>
