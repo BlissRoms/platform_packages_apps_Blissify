@@ -81,8 +81,6 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
 
-    private static final String NETWORK_TRAFFIC_SETTINGS = "network_traffic_settings";
-
     private LineageSystemSettingListPreference mQuickPulldown;
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
@@ -90,7 +88,6 @@ public class StatusBar extends SettingsPreferenceFragment
     private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
 
     private PreferenceCategory mStatusBarBatteryCategory;
-    private PreferenceScreen mNetworkTrafficPref;
 
     private static boolean sHasNotch;
 
@@ -99,14 +96,8 @@ public class StatusBar extends SettingsPreferenceFragment
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.blissify_statusbar);
 
-        mNetworkTrafficPref = (PreferenceScreen) findPreference(NETWORK_TRAFFIC_SETTINGS);
-
         sHasNotch = getResources().getBoolean(
                 org.lineageos.platform.internal.R.bool.config_haveNotch);
-
-        if (sHasNotch) {
-            getPreferenceScreen().removePreference(mNetworkTrafficPref);
-        }
 
         mStatusBarClock =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
@@ -136,9 +127,6 @@ public class StatusBar extends SettingsPreferenceFragment
     public void onResume() {
         super.onResume();
 
-        sHasNotch = getResources().getBoolean(
-                org.lineageos.platform.internal.R.bool.config_haveNotch);
-
         final String curIconBlacklist = Settings.Secure.getString(getContext().getContentResolver(),
                 ICON_BLACKLIST);
 
@@ -154,7 +142,7 @@ public class StatusBar extends SettingsPreferenceFragment
             getPreferenceScreen().addPreference(mStatusBarBatteryCategory);
         }
 
-        final boolean disallowCenteredClock = sHasNotch || getNetworkTrafficStatus() != 0;
+        final boolean disallowCenteredClock = sHasNotch != 0;
 
         // Adjust status bar preferences for RTL
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
@@ -174,9 +162,6 @@ public class StatusBar extends SettingsPreferenceFragment
             mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries);
             mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values);
         }
-
-        // Disable network traffic preferences if clock is centered in the status bar
-        updateNetworkTrafficStatus(getClockPosition());
 
     }
 
