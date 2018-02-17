@@ -39,10 +39,9 @@
 
         <PreferenceScreen
             android:key="network_traffic_settings"
-            android:icon="@drawable/ic_traffic"
             android:title="@string/network_traffic_settings_title"
             android:summary="@string/network_traffic_settings_summary"
-            android:fragment="com.bliss.settings.fragments.statusbar.NetworkTraffic" />
+            android:fragment="com.blissroms.blissify.fragments.statusbar.NetworkTrafficSettings" />
 
         <Preference
             android:key="batterybar_settings"
