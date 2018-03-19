@@ -13,6 +13,7 @@ import com.blissroms.blissify.R;
  * Created by jackeagle on 31/12/17.
  */
 
+@SuppressWarnings("DefaultFileTemplate")
 public class ToastAnimation extends Fragment {
 
     @Nullable

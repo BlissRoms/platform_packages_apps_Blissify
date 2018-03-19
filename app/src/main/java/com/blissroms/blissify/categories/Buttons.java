@@ -17,20 +17,21 @@ import com.blissroms.blissify.R;
  * Created by jackeagle on 31/12/17.
  */
 
+@SuppressWarnings("DefaultFileTemplate")
 public class Buttons extends Fragment {
 
-    View view;
-    ViewPager viewPager;
-    TabLayout tableLayout;
+    private View view;
+    private ViewPager viewPager;
+    private TabLayout tableLayout;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.blissify_tablayout, container, false);
 
-        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+        viewPager = view.findViewById(R.id.viewpager);
         viewPager.setAdapter(new ButtonsAdapter(getChildFragmentManager()));
-        tableLayout = (TabLayout) view.findViewById(R.id.sliding_tabs);
+        tableLayout = view.findViewById(R.id.sliding_tabs);
         tableLayout.post(new Runnable() {
             @Override
             public void run() {
@@ -43,8 +44,8 @@ public class Buttons extends Fragment {
 
     private class ButtonsAdapter extends FragmentPagerAdapter {
 
-        String tabs[]= getTabsTitle();
-        private Fragment frags[] = new Fragment[tabs.length];
+        final String[] tabs= getTabsTitle();
+        private final Fragment[] frags = new Fragment[tabs.length];
 
         public ButtonsAdapter(FragmentManager fm) {
             super(fm);
