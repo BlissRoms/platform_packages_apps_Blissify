@@ -96,39 +96,47 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_animation)
-        {
-            setFragment(new Animations());
-        } else if (id == R.id.nav_button)
-        {
-            setFragment(new Buttons());
-        } else if (id == R.id.nav_gestures)
-        {
-            setFragment(new Gestures());
-        } else if (id == R.id.nav_lockscreen)
-        {
-            setFragment(new Lockscreen());
-        } else if (id == R.id.nav_power)
-        {
-            setFragment(new PowerMenu());
-        } else if (id == R.id.nav_quick_settings)
-        {
-            setFragment(new QuickSettings());
-        } else if (id == R.id.nav_recents)
-        {
-            setFragment(new Recents());
-        } else if (id == R.id.nav_statusbar)
-        {
-            setFragment(new Statusbar());
+        switch (id) {
+            case R.id.nav_animation:
+                setFragment(new Animations());
+                break;
+
+            case R.id.nav_button:
+                setFragment(new Buttons());
+                break;
+
+            case R.id.nav_gestures:
+                setFragment(new Gestures());
+                break;
+
+            case R.id.nav_lockscreen:
+                setFragment(new Lockscreen());
+                break;
+
+            case R.id.nav_power:
+                setFragment(new PowerMenu());
+                break;
+
+            case R.id.nav_quick_settings:
+                setFragment(new QuickSettings());
+                break;
+
+            case R.id.nav_recents:
+                setFragment(new Recents());
+                break;
+
+            case R.id.nav_statusbar:
+                setFragment(new Statusbar());
+                break;
         }
 
         return true;
     }
 
-    private void setFragment(Fragment fragment){
-        if(fragment!=null){
-            FragmentTransaction ft= getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.content_main,fragment);
+    private void setFragment(Fragment fragment) {
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_main, fragment);
             ft.commit();
         }
 

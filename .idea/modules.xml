@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/blissify.iml" filepath="$PROJECT_DIR$/blissify.iml" />
+      <module fileurl="file://$PROJECT_DIR$/studio.iml" filepath="$PROJECT_DIR$/studio.iml" />
     </modules>
   </component>
 </project>
