@@ -1,4 +1,4 @@
-package com.blissroms.blissify.fragments;
+package com.blissroms.blissify.fragments.animations;
 
 import android.content.res.Resources;
 import android.os.Bundle;

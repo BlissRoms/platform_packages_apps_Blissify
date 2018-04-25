@@ -1,4 +1,4 @@
-package com.blissroms.blissify.fragments;
+package com.blissroms.blissify.fragments.animations;
 
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -13,12 +13,7 @@ import android.view.ViewGroup;
 
 import com.blissroms.blissify.R;
 
-/**
- * Created by jackeagle on 31/12/17.
- */
-
-@SuppressWarnings("DefaultFileTemplate")
-public class ToastAnimation extends Fragment {
+public class QSTiles extends Fragment {
 
     @Nullable
     @Override
@@ -29,29 +24,29 @@ public class ToastAnimation extends Fragment {
         super.onCreate(savedInstanceState);
 
         getChildFragmentManager().beginTransaction()
-                .replace(R.id.default_view, new ToastAnimation.ToastPreference())
+                .replace(R.id.default_view, new QSTiles.QSTilesPreference())
                 .commit();
         return view;
     }
 
-    public static class ToastPreference extends PreferenceFragmentCompat implements Preference.OnPreferenceChangeListener{
+    public static class QSTilesPreference extends PreferenceFragmentCompat
+                                        implements Preference.OnPreferenceChangeListener{
 
-        public ToastPreference() {
+        public QSTilesPreference() {
         }
 
-        private static final String TAG = "TrafficSettingsFragment";
+        private static final String TAG = "QSTilesPreference";
 
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            addPreferencesFromResource(R.xml.toast_animation);
+            addPreferencesFromResource(R.xml.qstiles_animation);
             PreferenceScreen prefSet = getPreferenceScreen();
         }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             return false;
         }
-
 
     }
 }

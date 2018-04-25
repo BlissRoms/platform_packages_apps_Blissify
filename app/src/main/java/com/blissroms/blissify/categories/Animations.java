@@ -12,8 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.blissroms.blissify.R;
-import com.blissroms.blissify.fragments.SystemAnimation;
-import com.blissroms.blissify.fragments.ToastAnimation;
+import com.blissroms.blissify.fragments.animations.SystemAnimation;
+import com.blissroms.blissify.fragments.animations.ToastAnimation;
+import com.blissroms.blissify.fragments.animations.QSTiles;
 
 /**
  * Created by jackeagle on 31/12/17.
@@ -54,6 +55,7 @@ public class Animations extends Fragment {
             // Add Fragments Here
             frags[0] = new SystemAnimation();
             frags[1] = new ToastAnimation();
+            frags[2] = new QSTiles();
         }
 
         @Override
@@ -63,7 +65,7 @@ public class Animations extends Fragment {
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
 
         @Override
@@ -77,7 +79,8 @@ public class Animations extends Fragment {
             titleString = new String[]
                     {
                             getString(R.string.system_animation_title),
-                            getString(R.string.toast_animation_title)
+                            getString(R.string.toast_animation_title),
+                            getString(R.string.qstiles_animation_title)
                     };
             return titleString;
         }

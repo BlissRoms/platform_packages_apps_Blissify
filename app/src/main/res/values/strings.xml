@@ -34,5 +34,6 @@
     <string name="statusbar_category">Statusbar</string>
     <string name="system_animation_title">System</string>
     <string name="toast_animation_title">Toast</string>
+    <string name="qstiles_animation_title">QS Tile</string>
 
 </resources>

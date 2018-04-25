@@ -8,4 +8,5 @@
     <string name="qs_category">Quick Settings</string>
     <string name="recents_category">Recents</string>
     <string name="statusbar_category">Statusbar</string>
+    <string name="qstiles_animation_title">QS Tile</string>
 </resources>
