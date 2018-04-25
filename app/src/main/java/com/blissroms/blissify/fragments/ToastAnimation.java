@@ -23,13 +23,14 @@ public class ToastAnimation extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.test,container,false);
+        View view = inflater.inflate(R.layout.default_view,container,false);
 
         Resources res = getResources();
         super.onCreate(savedInstanceState);
 
         getChildFragmentManager().beginTransaction()
-                .replace(R.id.tab1, new ToastAnimation.ToastPreference());
+                .replace(R.id.default_view, new ToastAnimation.ToastPreference())
+                .commit();
         return view;
     }
 
@@ -43,7 +44,7 @@ public class ToastAnimation extends Fragment {
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            addPreferencesFromResource(R.xml.system_animation);
+            addPreferencesFromResource(R.xml.toast_animation);
             PreferenceScreen prefSet = getPreferenceScreen();
         }
 

@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:defaultValue="true"
         android:key="example_checkbox"
         android:summary="CheckBoxPreference summary"
