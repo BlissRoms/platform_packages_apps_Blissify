@@ -20,11 +20,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="0dp"
+            android:background="@color/colorPrimaryDark"
             app:tabMode="fixed"
             app:tabGravity="fill"
-            android:background="@color/colorPrimaryDark"
+            app:tabTextColor="@color/tab_default_text"
             app:tabIndicatorColor="@android:color/white"
-            app:tabIndicatorHeight="1.5dp"
+            app:tabIndicatorHeight="3dp"
+            app:tabSelectedTextColor="@color/tab_selected_text"
             />
     </android.support.design.widget.AppBarLayout>
 

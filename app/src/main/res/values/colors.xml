@@ -21,5 +21,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="icon_color">#BBDEFB</color>
+    <color name="tab_selected_text">#ffffff</color>
+    <color name="tab_default_text">#ff8a80</color>
 
 </resources>
