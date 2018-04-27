@@ -1,6 +1,10 @@
 package com.blissroms.blissify.categories;
 
+import android.content.ContentResolver;
+import android.database.ContentObserver;
 import android.os.Bundle;
+import android.os.Handler;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,12 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.blissroms.blissify.R;
+import com.blissroms.blissify.fragments.statusbar.Traffic;
 
-/**
- * Created by jackeagle on 31/12/17.
- */
-
-@SuppressWarnings("DefaultFileTemplate")
 public class Statusbar extends Fragment {
 
     private View view;
@@ -27,11 +27,11 @@ public class Statusbar extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.blissify_tablayout, container, false);
+        view = inflater.inflate(R.layout.blissify_fixed_tablayout, container, false);
 
         viewPager = view.findViewById(R.id.viewpager);
         viewPager.setAdapter(new StatusbarAdapter(getChildFragmentManager()));
-        tableLayout = view.findViewById(R.id.sliding_tabs);
+        tableLayout = view.findViewById(R.id.fixed_tabs);
         tableLayout.post(new Runnable() {
             @Override
             public void run() {
@@ -50,7 +50,7 @@ public class Statusbar extends Fragment {
         public StatusbarAdapter(FragmentManager fm) {
             super(fm);
             // Add Fragments Here
-
+            frags[0] = new Traffic();
         }
 
         @Override
@@ -60,7 +60,7 @@ public class Statusbar extends Fragment {
 
         @Override
         public int getCount() {
-            return 0;
+            return 1;
         }
 
         @Override
@@ -73,8 +73,7 @@ public class Statusbar extends Fragment {
             String titleString[];
             titleString = new String[]
                     {
-                      // Add Tab Fragment Title
-
+                            getString(R.string.statusbar_traffic_title)
                     };
             return titleString;
         }

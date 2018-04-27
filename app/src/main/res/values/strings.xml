@@ -22,6 +22,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!-- Blissify Categories -->
     <string name="action_settings">Settings</string>
     <string name="nav_header_desc">Bliss Customization</string>
     <string name="animation_category">Animations</string>
@@ -32,8 +33,13 @@
     <string name="qs_category">Quick Settings</string>
     <string name="recents_category">Recents</string>
     <string name="statusbar_category">Statusbar</string>
+
+    <!-- Animation -->
     <string name="system_animation_title">System</string>
     <string name="toast_animation_title">Toast</string>
     <string name="qstiles_animation_title">QS Tile</string>
+
+    <!-- Statusbar -->
+    <string name="statusbar_traffic_title">Traffic</string>
 
 </resources>
