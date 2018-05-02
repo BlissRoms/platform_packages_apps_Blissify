@@ -1892,6 +1892,7 @@
     <string name="hardware_keys_double_tap_title">Double tap action</string>
     <string name="hardware_keys_category">Hardware keys</string>
     <string name="hardware_keys_disable_title">Disable keys</string>
+    <string name="hardware_keys_wake_title">Wake device</string>
 
     <!-- Button brightness -->
     <string name="button_backlight_options_category">Backlight options</string>
