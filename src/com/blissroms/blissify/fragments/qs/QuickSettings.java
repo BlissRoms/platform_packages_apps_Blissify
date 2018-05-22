@@ -52,6 +52,8 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+import lineageos.providers.LineageSettings;
+
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
@@ -67,11 +69,16 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        boolean result = false;
-
         return false;
     }
 
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        LineageSettings.Secure.putIntForUser(resolver,
+                LineageSettings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1, UserHandle.USER_CURRENT);
+        LineageSettings.Secure.putIntForUser(resolver,
+                LineageSettings.Secure.QS_SHOW_AUTO_BRIGHTNESS, 1, UserHandle.USER_CURRENT);
+    }
 
     @Override
     public int getMetricsCategory() {

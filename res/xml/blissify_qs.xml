@@ -14,6 +14,7 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     android:key="qs_category"
     android:title="@string/blissify_qs_title">
 
@@ -22,5 +23,19 @@
             android:title="@string/quick_settings_vibrate_title"
             android:summary="@string/quick_settings_vibrate_summary"
             android:defaultValue="false"/>
+
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/qs_brightness_slider_title"
+            android:entries="@array/qs_brightness_slider_entries"
+            android:entryValues="@array/qs_brightness_slider_values"
+            android:defaultValue="1" />
+
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/brightness_icon_title"
+            android:summary="@string/brightness_icon_summary"
+            lineage:requiresConfig="@*android:bool/config_automatic_brightness_available"
+            android:defaultValue="true" />
 
 </PreferenceScreen>
