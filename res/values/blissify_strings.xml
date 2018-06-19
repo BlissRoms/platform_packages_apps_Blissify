@@ -553,4 +553,11 @@
     <!-- Notification headers -->
     <string name="notification_headers_title">Notification Headers</string>
     <string name="notification_headers_summary">Show headers in the notification shade\nRequires a SystemUI restart</string>
+
+    <!-- Blink flashlight for incoming calls -->
+    <string name="flashlight_on_call_title">Blink Flashlight for call</string>
+    <string name="flashlight_on_call_disabled">Disabled</string>
+    <string name="flashlight_on_call_ringer">Only in ringer mode</string>
+    <string name="flashlight_on_call_silent">Only when ringer is silent</string>
+    <string name="flashlight_on_call_always">Always</string>
 </resources>
