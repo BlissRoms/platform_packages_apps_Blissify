@@ -47,6 +47,8 @@ import com.bliss.support.preferences.CustomSeekBarPreference;
 import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import com.bliss.support.preferences.SystemSettingListPreference;
 
+import org.blissroms.blissify.fragments.SmartPixels;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,10 +60,12 @@ public class Misc extends SettingsPreferenceFragment implements
     private static final String PREF_FLASH_ON_CALL_DND = "flashlight_on_call_ignore_dnd";
     private static final String PREF_FLASH_ON_CALL_RATE = "flashlight_on_call_rate";
     private static final String FLASHLIGHT_CATEGORY = "flashlight_category";
+    private static final String SMART_PIXELS = "smart_pixels";
 
     private CustomSeekBarPreference mFlashOnCallRate;
     private SystemSettingSwitchPreference mFlashOnCallIgnoreDND;
     private SystemSettingListPreference mFlashOnCall;
+    private Preference mSmartPixels;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -97,6 +101,12 @@ public class Misc extends SettingsPreferenceFragment implements
             mFlashOnCall.setSummary(mFlashOnCall.getEntries()[value]);
             mFlashOnCall.setOnPreferenceChangeListener(this);
         }
+
+        mSmartPixels = (Preference) findPreference(SMART_PIXELS);
+        boolean mSmartPixelsSupported = getResources().getBoolean(
+                com.android.internal.R.bool.config_supportSmartPixels);
+        if (!mSmartPixelsSupported)
+            prefSet.removePreference(mSmartPixels);
     }
 
     @Override
@@ -130,5 +140,17 @@ public class Misc extends SettingsPreferenceFragment implements
      */
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.blissify_misc);
+            new BaseSearchIndexProvider(R.xml.blissify_misc){
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = super.getNonIndexableKeys(context);
+
+                    boolean mSmartPixelsSupported = context.getResources().getBoolean(
+                            com.android.internal.R.bool.config_supportSmartPixels);
+                    if (!mSmartPixelsSupported)
+                        keys.add(SMART_PIXELS);
+
+                    return keys;
+                }
+            };
 }
