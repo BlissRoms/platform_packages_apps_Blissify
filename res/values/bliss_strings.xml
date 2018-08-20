@@ -393,6 +393,9 @@
     <!-- Enable keys backlight-->
     <string name="button_brightness_title">Backlight</string>
 
+    <!-- Enable keys backlight-->
+    <string name="button_brightness_sw_title">Enable backlight</string>
+
     <!-- Hardware keys -->
     <string name="hardware_keys_category">Hardware keys</string>
 
