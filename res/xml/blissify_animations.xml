@@ -22,6 +22,14 @@
         android:key="bliss_header"
         android:layout="@layout/animations_header" /> -->
 
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="screen_off_animation"
+        android:title="@string/screen_off_animation_title"
+        android:entries="@array/screen_off_animation_entries"
+        android:entryValues="@array/screen_off_animation_values"
+        android:summary="%s"
+        android:defaultValue="0" />
+
     <ListPreference
         android:key="pref_scrollingcache"
         android:dialogTitle="@string/pref_scrollingcache_title"
