@@ -204,4 +204,10 @@
             android:disableDependentsState="true" />
     </PreferenceCategory>
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+           android:key="sensor_block" 
+           android:title="@string/sensor_block_title"
+           android:summary="@string/sensor_block_summary"
+           android:defaultValue="false" />
+
 </PreferenceScreen>
