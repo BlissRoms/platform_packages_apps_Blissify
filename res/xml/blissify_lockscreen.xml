@@ -22,7 +22,7 @@
     <Preference 
         android:key="bliss_header"
         android:layout="@layout/lockscreen_header" /> -->
-
+	
       <!-- FOD Settings -->
       <Preference
           android:key="lockscreen_fod_category"
@@ -87,6 +87,25 @@
             android:dependency="adaptive_playback_enabled" />
 
    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/lockscreen_weather_title2"
+        android:icon="@drawable/ic_misc">
+    
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_weather_enabled"
+        android:title="@string/lockscreen_weather_title"
+        android:summary="@string/lockscreen_weather_summary"
+        android:defaultValue="true" />
+
+    <Preference
+        android:key="omnijaws_settings"
+        android:title="@string/weather_title"
+        android:summary="@string/weather_summary"
+        android:dependency="lockscreen_weather_enabled"
+        android:fragment="com.blissroms.blissify.fragments.lockscreen.OmniJawsSettings" />
+    </PreferenceCategory>
+
 
     <!-- Misc Options -->
     <PreferenceCategory
