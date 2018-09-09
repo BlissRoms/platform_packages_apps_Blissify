@@ -38,7 +38,7 @@
         android:theme="@style/AppTheme"
         android:fullBackupContent="@xml/backup_descriptor">
         <activity
-            android:name=".MainActivity"
+            android:name=".BlissifyActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

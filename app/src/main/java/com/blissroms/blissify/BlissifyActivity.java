@@ -38,7 +38,7 @@ import com.blissroms.blissify.categories.QuickSettings;
 import com.blissroms.blissify.categories.Recents;
 import com.blissroms.blissify.categories.Statusbar;
 
-public class MainActivity extends AppCompatActivity
+public class BlissifyActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
