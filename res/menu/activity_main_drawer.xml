@@ -23,11 +23,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_animation"
-            android:icon="@drawable/ic_nav_animation"
+            android:icon="@drawable/ic_nav_animations"
             android:title="@string/animation_category" />
         <item
             android:id="@+id/nav_button"
-            android:icon="@drawable/ic_nav_button"
+            android:icon="@drawable/ic_nav_buttons"
             android:title="@string/button_category" />
         <item
             android:id="@+id/nav_gestures"
@@ -43,7 +43,7 @@
             android:title="@string/power_category" />
         <item
             android:id="@+id/nav_quick_settings"
-            android:icon="@drawable/ic_nav_quick_settings"
+            android:icon="@drawable/ic_nav_quicksettings"
             android:title="@string/qs_category" />
         <item
             android:id="@+id/nav_recents"
