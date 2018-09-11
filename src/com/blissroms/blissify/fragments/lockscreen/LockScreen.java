@@ -90,6 +90,12 @@ public class LockScreen extends SettingsPreferenceFragment implements
         return false;
     }
 
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.Global.putInt(resolver,
+                Settings.Global.LOCKSCREEN_ENABLE_POWER_MENU, 1);
+    }
+
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.BLISSIFY;
