@@ -52,6 +52,12 @@
         android:key="lockscreen_wake_category"
         android:title="@string/lockscreen_wake_category" >
 
+    <com.bliss.support.preferences.GlobalSettingSwitchPreference
+        android:key="lockscreen_enable_power_menu"
+        android:title="@string/lockscreen_enable_power_menu_title"
+        android:summary="@string/lockscreen_enable_power_menu_summary"
+        android:defaultValue="true" />
+
     <lineageos.preference.LineageGlobalSettingSwitchPreference
         android:key="wake_when_plugged_or_unplugged"
         android:icon="@drawable/ic_wake_on_plug"
