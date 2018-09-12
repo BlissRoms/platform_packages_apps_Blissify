@@ -465,5 +465,11 @@
     <string name="enable_fc_notifications_title">Force close notifications</string>
     <string name="enable_fc_notifications_summary">Show a dialog when an application crashes</string>
 
-</resources>
+    <!-- Screen off animation -->
+    <string name="screen_off_animation_fade">Simple fade</string>
+    <string name="screen_off_animation_color">Color fade</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Scale</string>
+    <string name="screen_off_animation_title">Screen off animation</string>
 
+</resources>

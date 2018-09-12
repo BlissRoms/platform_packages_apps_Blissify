@@ -73,6 +73,7 @@ public class Animation extends SettingsPreferenceFragment implements
     private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
     private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
     private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
+    private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
 
     ListPreference mActivityOpenPref;
     ListPreference mActivityClosePref;
@@ -94,6 +95,7 @@ public class Animation extends SettingsPreferenceFragment implements
     private ListPreference mTileAnimationStyle;
     private ListPreference mTileAnimationDuration;
     private ListPreference mTileAnimationInterpolator;
+    private ListPreference mScreenOffAnimation;
 
     private int[] mAnimations;
     private String[] mAnimationsStrings;
@@ -237,6 +239,13 @@ public class Animation extends SettingsPreferenceFragment implements
         updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
         mTileAnimationInterpolator.setOnPreferenceChangeListener(this);
 
+        mScreenOffAnimation = (ListPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
+        int screenOffAnimation = Settings.System.getInt(getContentResolver(),
+                Settings.System.SCREEN_OFF_ANIMATION, 0);
+        mScreenOffAnimation.setValue(Integer.toString(screenOffAnimation));
+        mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntry());
+        mScreenOffAnimation.setOnPreferenceChangeListener(this);
+        
     }
 
     @Override
@@ -332,7 +341,13 @@ public class Animation extends SettingsPreferenceFragment implements
                     tileAnimationInterpolator, UserHandle.USER_CURRENT);
             updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
             return true;
-        }
+       } else if (preference == mScreenOffAnimation) {
+            int value = Integer.valueOf((String) newValue);
+            int index = mScreenOffAnimation.findIndexOfValue((String) newValue);
+            mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[index]);
+            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_ANIMATION, value);
+            return true;
+       }
         preference.setSummary(getProperSummary(preference));
         return result;
     }
