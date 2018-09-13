@@ -22,4 +22,60 @@
         android:key="bliss_header"
         android:layout="@layout/animations_header" /> -->
 
+    <PreferenceCategory
+
+        android:title="@string/system_animations_category_title">
+
+        <ListPreference
+            android:key="activity_open"
+            android:summary="%s"
+            android:title="@string/activity_open_title" />
+
+        <ListPreference
+            android:key="activity_close"
+            android:summary="%s"
+            android:title="@string/activity_close_title" />
+
+        <ListPreference
+            android:key="task_open"
+            android:summary="%s"
+            android:title="@string/task_open_title" />
+
+        <ListPreference
+            android:key="task_close"
+            android:summary="%s"
+            android:title="@string/task_close_title" />
+
+        <ListPreference
+            android:key="task_to_front"
+            android:summary="%s"
+            android:title="@string/task_move_to_front_title" />
+
+        <ListPreference
+            android:key="task_to_back"
+            android:summary="%s"
+            android:title="@string/task_move_to_back_title" />
+
+        <ListPreference
+            android:key="wallpaper_open"
+            android:summary="%s"
+            android:title="@string/wallpaper_open_title" />
+
+        <ListPreference
+            android:key="wallpaper_close"
+            android:summary="%s"
+            android:title="@string/wallpaper_close_title" />
+
+        <ListPreference
+            android:key="wallpaper_intra_open"
+            android:summary="%s"
+            android:title="@string/wallpaper_intra_open_title" />
+
+        <ListPreference
+            android:key="wallpaper_intra_close"
+            android:summary="%s"
+            android:title="@string/wallpaper_intra_close_title" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
