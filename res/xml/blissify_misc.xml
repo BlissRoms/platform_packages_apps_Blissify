@@ -44,6 +44,14 @@
         android:summary="@string/use_tiles_on_secure_keyguard_summary"
         android:defaultValue="true" />
 
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="screenshot_type"
+        android:entries="@array/screenshot_type_entries"
+        android:entryValues="@array/screenshot_type_values"
+        android:title="@string/screenshot_type_title"
+        android:defaultValue="0" />
+
+
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="data_disabled_icon"
             android:title="@string/data_disabled_icon_title"
