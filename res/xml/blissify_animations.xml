@@ -42,6 +42,11 @@
             android:title="@string/task_open_title" />
 
         <ListPreference
+            android:key="task_open_behind"
+            android:summary="%s"
+            android:title="@string/task_open_behind_title" />
+
+        <ListPreference
             android:key="task_close"
             android:summary="%s"
             android:title="@string/task_close_title" />
