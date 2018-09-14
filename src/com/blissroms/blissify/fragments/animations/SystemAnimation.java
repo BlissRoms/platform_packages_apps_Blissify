@@ -14,6 +14,7 @@ import android.support.v7.preference.PreferenceScreen;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.provider.Settings;
 
 import com.android.internal.util.bliss.AwesomeAnimationHelper;
 import java.util.Arrays;
@@ -37,12 +38,11 @@ public class SystemAnimation extends Fragment {
     }
 
     public static class SystemPreference extends PreferenceFragmentCompat
-            implements Preference.OnPreferenceChangeListener{
+            implements Preference.OnPreferenceChangeListener {
 
         public SystemPreference() {
         }
 
-        private static final String TAG = "TrafficSettingsFragment";
         private static final String ACTIVITY_OPEN = "activity_open";
         private static final String ACTIVITY_CLOSE = "activity_close";
         private static final String TASK_OPEN = "task_open";
@@ -159,18 +159,6 @@ public class SystemAnimation extends Fragment {
 
         }
 
-        //@Override
-        //public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
-        //                                     Preference preference) {
-        //   if (preference == mAnimNoOverride) {
-        //        Settings.System.putBoolean(mContentRes,
-        //                Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE,
-        //                    mAnimNoOverride.isChecked());
-        //        return true;
-        //    }
-        //    return false;
-        //}
-
         @Override
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             ContentResolver resolver = getActivity().getContentResolver();
@@ -217,7 +205,7 @@ public class SystemAnimation extends Fragment {
                         Settings.System.ACTIVITY_ANIMATION_CONTROLS[9], val);
             } else if (preference == mTaskOpenBehind) {
             int val = Integer.parseInt((String) newValue);
-            result = Settings.System.putInt(mContext.getContentResolver(),
+                result = Settings.System.putInt(resolver,
                     Settings.System.ACTIVITY_ANIMATION_CONTROLS[10], val);
             }
             preference.setSummary(getProperSummary(preference));
@@ -249,9 +237,9 @@ public class SystemAnimation extends Fragment {
             } else if (preference == mTaskOpenBehind) {
             mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[10];
 
+        }
             int mNum = Settings.System.getInt(getActivity().getContentResolver(), mString, 0);
             return mAnimationsStrings[mNum];
         }
-
     }
 }

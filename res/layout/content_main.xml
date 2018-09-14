@@ -23,7 +23,7 @@
     android:fillViewport="true"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.blissroms.blissify.BlissifyActivity"
+    tools:context="com.blissroms.blissify.BlissifySettings"
     tools:showIn="@layout/app_bar_main">
 
     <FrameLayout
