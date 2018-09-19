@@ -83,7 +83,7 @@
         <item>9</item>
         <item>10</item>
     </string-array>
-
+    
     <!-- Listview Interpolator -->
     <string-array name="listview_interpolator_entries">
         <item>@string/listview_off</item>

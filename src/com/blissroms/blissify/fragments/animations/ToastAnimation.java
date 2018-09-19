@@ -44,11 +44,15 @@ public class ToastAnimation extends Fragment {
         private static final String PREF_TILE_ANIM_DURATION = "anim_tile_duration";
         private static final String PREF_TILE_ANIM_INTERPOLATOR = "anim_tile_interpolator";
         private static final String PREF_TOAST_ANIMATION = "toast_animation";
+        private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
+        private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
         private ListPreference mTileAnimationDuration;
         private ListPreference mTileAnimationInterpolator;
         private ListPreference mTileAnimationStyle;
         private ListPreference mToastAnimation;
+        private ListPreference mListViewAnimation;
+        private ListPreference mListViewInterpolator;
         Toast mToast;
 
         @Override
@@ -69,6 +73,21 @@ public class ToastAnimation extends Fragment {
                 mToast.cancel();
                 mToast = null;
             }
+            
+            // ListView Animations
+            mListViewAnimation = (ListPreference) prefSet.findPreference(KEY_LISTVIEW_ANIMATION);
+            int listviewanimation = Settings.System.getInt(resolver,
+                    Settings.System.LISTVIEW_ANIMATION, 0);
+            mListViewAnimation.setValue(String.valueOf(listviewanimation));
+            mListViewAnimation.setSummary(mListViewAnimation.getEntry());
+            mListViewAnimation.setOnPreferenceChangeListener(this);
+            mListViewInterpolator = (ListPreference) prefSet.findPreference(KEY_LISTVIEW_INTERPOLATOR);
+            int listviewinterpolator = Settings.System.getInt(resolver,
+                    Settings.System.LISTVIEW_INTERPOLATOR, 0);
+            mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
+            mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
+            mListViewInterpolator.setOnPreferenceChangeListener(this);
+            mListViewInterpolator.setEnabled(listviewanimation > 0);
         }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -86,6 +105,19 @@ public class ToastAnimation extends Fragment {
                 mToast = Toast.makeText(getActivity(), mToastAnimation.getEntries()[index],
                         Toast.LENGTH_SHORT);
                 mToast.show();
+            } else if (preference == mListViewAnimation) {
+                int value = Integer.parseInt((String) newValue);
+                int index = mListViewAnimation.findIndexOfValue((String) newValue);
+                Settings.System.putInt(resolver,
+                        Settings.System.LISTVIEW_ANIMATION, value);
+                mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+                mListViewInterpolator.setEnabled(value > 0);
+            } else if (preference == mListViewInterpolator) {
+                int value = Integer.parseInt((String) newValue);
+                int index = mListViewInterpolator.findIndexOfValue((String) newValue);
+                Settings.System.putInt(resolver,
+                        Settings.System.LISTVIEW_INTERPOLATOR, value);
+                mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
                 return true;
             }
             return false;
