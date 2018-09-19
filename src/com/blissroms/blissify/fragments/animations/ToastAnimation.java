@@ -73,10 +73,10 @@ public class ToastAnimation extends Fragment {
                 mToast.cancel();
                 mToast = null;
             }
-            
+
             // ListView Animations
             mListViewAnimation = (ListPreference) prefSet.findPreference(KEY_LISTVIEW_ANIMATION);
-            int listviewanimation = Settings.System.getInt(resolver,
+            int listviewanimation =Settings.System.getInt(resolver,
                     Settings.System.LISTVIEW_ANIMATION, 0);
             mListViewAnimation.setValue(String.valueOf(listviewanimation));
             mListViewAnimation.setSummary(mListViewAnimation.getEntry());
@@ -93,6 +93,7 @@ public class ToastAnimation extends Fragment {
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             int value;
             int index;
+
             ContentResolver resolver = getActivity().getContentResolver();
             if (preference == mToastAnimation) {
                 index = mToastAnimation.findIndexOfValue((String) newValue);
@@ -106,15 +107,30 @@ public class ToastAnimation extends Fragment {
                         Toast.LENGTH_SHORT);
                 mToast.show();
             } else if (preference == mListViewAnimation) {
-                int value = Integer.parseInt((String) newValue);
-                int index = mListViewAnimation.findIndexOfValue((String) newValue);
+                value = Integer.parseInt((String) newValue);
+                index = mListViewAnimation.findIndexOfValue((String) newValue);
                 Settings.System.putInt(resolver,
                         Settings.System.LISTVIEW_ANIMATION, value);
                 mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
                 mListViewInterpolator.setEnabled(value > 0);
             } else if (preference == mListViewInterpolator) {
-                int value = Integer.parseInt((String) newValue);
-                int index = mListViewInterpolator.findIndexOfValue((String) newValue);
+                value = Integer.parseInt((String) newValue);
+                index = mListViewInterpolator.findIndexOfValue((String) newValue);
+                Settings.System.putInt(resolver,
+                        Settings.System.LISTVIEW_INTERPOLATOR, value);
+                mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
+                return true;
+            } else if (preference == mListViewAnimation) {
+                value = Integer.parseInt((String) newValue);
+                index = mListViewAnimation.findIndexOfValue((String) newValue);
+                Settings.System.putInt(resolver,
+                        Settings.System.LISTVIEW_ANIMATION, value);
+                mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+                mListViewInterpolator.setEnabled(value > 0);
+                return true;
+            } else if (preference == mListViewInterpolator) {
+                value = Integer.parseInt((String) newValue);
+                index = mListViewInterpolator.findIndexOfValue((String) newValue);
                 Settings.System.putInt(resolver,
                         Settings.System.LISTVIEW_INTERPOLATOR, value);
                 mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
