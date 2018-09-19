@@ -10,7 +10,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.provider.Settings;
+import com.android.internal.util.bliss.AwesomeAnimationHelper;
 import com.blissroms.blissify.R;
 import com.blissroms.blissify.fragments.animations.SystemAnimation;
 import com.blissroms.blissify.fragments.animations.ToastAnimation;

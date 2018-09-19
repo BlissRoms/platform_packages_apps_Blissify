@@ -21,6 +21,10 @@ import java.util.Arrays;
 
 import com.blissroms.blissify.R;
 
+/**
+ * Created by jackeagle on 31/12/17.
+ */
+
 public class SystemAnimation extends Fragment {
 
     @Nullable
@@ -38,11 +42,12 @@ public class SystemAnimation extends Fragment {
     }
 
     public static class SystemPreference extends PreferenceFragmentCompat
-            implements Preference.OnPreferenceChangeListener {
+            implements Preference.OnPreferenceChangeListener{
 
         public SystemPreference() {
         }
 
+        private static final String TAG = "TrafficSettingsFragment";
         private static final String ACTIVITY_OPEN = "activity_open";
         private static final String ACTIVITY_CLOSE = "activity_close";
         private static final String TASK_OPEN = "task_open";
@@ -54,7 +59,6 @@ public class SystemAnimation extends Fragment {
         private static final String WALLPAPER_CLOSE = "wallpaper_close";
         private static final String WALLPAPER_INTRA_OPEN = "wallpaper_intra_open";
         private static final String WALLPAPER_INTRA_CLOSE = "wallpaper_intra_close";
-        private static final String TASK_OPEN_BEHIND = "task_open_behind";
 
         ListPreference mActivityOpenPref;
         ListPreference mActivityClosePref;
@@ -66,7 +70,6 @@ public class SystemAnimation extends Fragment {
         ListPreference mWallpaperClose;
         ListPreference mWallpaperIntraOpen;
         ListPreference mWallpaperIntraClose;
-        ListPreference mTaskOpenBehind;
         SwitchPreference mAnimNoOverride;
 
         private int[] mAnimations;
@@ -150,14 +153,19 @@ public class SystemAnimation extends Fragment {
             mWallpaperIntraClose.setSummary(getProperSummary(mWallpaperIntraClose));
             mWallpaperIntraClose.setEntries(mAnimationsStrings);
             mWallpaperIntraClose.setEntryValues(mAnimationsNum);
-
-            mTaskOpenBehind = (ListPreference) findPreference(TASK_OPEN_BEHIND);
-            mTaskOpenBehind.setOnPreferenceChangeListener(this);
-            mTaskOpenBehind.setSummary(getProperSummary(mTaskOpenBehind));
-            mTaskOpenBehind.setEntries(mAnimationsStrings);
-            mTaskOpenBehind.setEntryValues(mAnimationsNum);
-
         }
+
+        //@Override
+        //public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
+        //                                     Preference preference) {
+        //   if (preference == mAnimNoOverride) {
+        //        Settings.System.putBoolean(mContentRes,
+        //                Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE,
+        //                    mAnimNoOverride.isChecked());
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
         @Override
         public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -203,10 +211,6 @@ public class SystemAnimation extends Fragment {
                 int val = Integer.parseInt((String) newValue);
                 result = Settings.System.putInt(resolver,
                         Settings.System.ACTIVITY_ANIMATION_CONTROLS[9], val);
-            } else if (preference == mTaskOpenBehind) {
-            int val = Integer.parseInt((String) newValue);
-                result = Settings.System.putInt(resolver,
-                    Settings.System.ACTIVITY_ANIMATION_CONTROLS[10], val);
             }
             preference.setSummary(getProperSummary(preference));
             return result;
@@ -234,12 +238,11 @@ public class SystemAnimation extends Fragment {
                 mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[8];
             } else if (preference == mWallpaperIntraClose) {
                 mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[9];
-            } else if (preference == mTaskOpenBehind) {
-            mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[10];
+            }
 
-        }
             int mNum = Settings.System.getInt(getActivity().getContentResolver(), mString, 0);
             return mAnimationsStrings[mNum];
         }
+
     }
 }
