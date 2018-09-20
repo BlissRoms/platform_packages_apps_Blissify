@@ -39,6 +39,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.bliss.support.preferences.CustomSeekBarPreference;
 import com.bliss.support.preferences.SystemSettingListPreference;
+import com.bliss.support.colorpicker.ColorPickerPreference;
 
 import java.util.Date;
 
@@ -57,7 +58,11 @@ public class Clock extends SettingsPreferenceFragment
     private static final String CLOCK_DATE_FORMAT = "status_bar_clock_date_format";
     private static final String CLOCK_DATE_AUTO_HIDE_HDUR = "status_bar_clock_auto_hide_hduration";
     private static final String CLOCK_DATE_AUTO_HIDE_SDUR = "status_bar_clock_auto_hide_sduration";
+    private static final String STATUS_BAR_CLOCK_COLOR = "status_bar_clock_color";
+    private static final String STATUS_BAR_CLOCK_SIZE  = "status_bar_clock_size";
+    private static final String STATUS_BAR_CLOCK_FONT_STYLE  = "status_bar_clock_font_style";
 
+    static final int DEFAULT_STATUS_CLOCK_COLOR = 0xffffffff;
     private static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     private static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
     private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;
@@ -69,6 +74,9 @@ public class Clock extends SettingsPreferenceFragment
     private SystemSettingListPreference mClockDatePosition;
     private SystemSettingListPreference mClockDateStyle;
     private ListPreference mClockDateFormat;
+    private ColorPickerPreference mClockColor;
+    private CustomSeekBarPreference mClockSize;
+    private ListPreference mClockFontStyle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,6 +85,9 @@ public class Clock extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.status_bar_clock);
 
         ContentResolver resolver = getActivity().getContentResolver();
+
+        int intColor;
+        String hexColor;
 
         mHideDuration = (CustomSeekBarPreference) findPreference(CLOCK_DATE_AUTO_HIDE_HDUR);
         int hideVal = Settings.System.getIntForUser(resolver,
@@ -119,6 +130,26 @@ public class Clock extends SettingsPreferenceFragment
         parseClockDateFormats();
         mClockDateFormat.setEnabled(dateDisplay > 0);
         mClockDateFormat.setOnPreferenceChangeListener(this);
+
+        mClockColor = (ColorPickerPreference) findPreference(STATUS_BAR_CLOCK_COLOR);
+        mClockColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_CLOCK_COLOR, DEFAULT_STATUS_CLOCK_COLOR);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mClockColor.setSummary(hexColor);
+        mClockColor.setNewPreviewColor(intColor);
+
+        mClockSize = (CustomSeekBarPreference) findPreference(STATUS_BAR_CLOCK_SIZE);
+        int clockSize = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_CLOCK_SIZE, 14);
+        mClockSize.setValue(clockSize / 1);
+        mClockSize.setOnPreferenceChangeListener(this);
+
+        mClockFontStyle = (ListPreference) findPreference(STATUS_BAR_CLOCK_FONT_STYLE);
+        int showClockFont = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_CLOCK_FONT_STYLE, 28);
+        mClockFontStyle.setValue(String.valueOf(showClockFont));
+        mClockFontStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -147,11 +178,31 @@ public class Clock extends SettingsPreferenceFragment
               mClockDateFormat.setEnabled(true);
           }
           return true;
-        } else if (preference == mClockDatePosition) {
+      } else if (preference == mClockDatePosition) {
             parseClockDateFormats();
             return true;
       } else if (preference == mClockDateStyle) {
           parseClockDateFormats();
+          return true;
+      } else if (preference == mClockColor) {
+          String hex = ColorPickerPreference.convertToARGB(
+                  Integer.valueOf(String.valueOf(newValue)));
+          preference.setSummary(hex);
+          int intHex = ColorPickerPreference.convertToColorInt(hex);
+          Settings.System.putInt(resolver,
+                Settings.System.STATUS_BAR_CLOCK_COLOR, intHex);
+          return true;
+      }  else if (preference == mClockSize) {
+          int width = ((Integer)newValue).intValue();
+          Settings.System.putInt(resolver,
+            Settings.System.STATUS_BAR_CLOCK_SIZE, width);
+          return true;
+      }  else if (preference == mClockFontStyle) {
+          int showClockFont = Integer.valueOf((String) newValue);
+          int index = mClockFontStyle.findIndexOfValue((String) newValue);
+          Settings.System.putInt(resolver, Settings.System.
+              STATUS_BAR_CLOCK_FONT_STYLE, showClockFont);
+          mClockFontStyle.setSummary(mClockFontStyle.getEntries()[index]);
           return true;
       } else if (preference == mClockDateFormat) {
           int index = mClockDateFormat.findIndexOfValue((String) newValue);
@@ -251,6 +302,13 @@ public class Clock extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_CLOCK_DATE_FORMAT, "");
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_CLOCK_SECONDS, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_CLOCK_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_CLOCK_SIZE, 14, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_CLOCK_FONT_STYLE, 28, UserHandle.USER_CURRENT);
+
         LineageSettings.System.putIntForUser(resolver,
                 LineageSettings.System.STATUS_BAR_AM_PM, 0, UserHandle.USER_CURRENT);
     }

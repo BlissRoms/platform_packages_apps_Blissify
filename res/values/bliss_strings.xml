@@ -222,6 +222,11 @@
     <string name="clock_date_right">Right of time</string>
     <string name="clock_date_left">Left of time</string>
 
+    <!-- Statusbar Clock Font Style, Size & Color -->
+    <string name="status_bar_clock_font_style_title">Clock font style</string>
+    <string name="status_bar_clock_font_size_title">Clock font size</string>
+    <string name="status_bar_clock_color_title">Clock font color</string>
+
     <!-- Status bar - Battery -->
     <string name="status_bar_battery_title">Battery indicator</string>
     <string name="status_bar_battery_style_title">Battery style</string>
