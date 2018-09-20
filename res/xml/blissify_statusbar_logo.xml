@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014-2022 BlissRoms Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <ListPreference
+        android:key="status_bar_logo"
+        android:entries="@array/status_bar_logo_entries"
+        android:entryValues="@array/status_bar_logo_values"
+        android:summary="%s"
+        android:title="@string/status_bar_logo_title" />
+
+    <ListPreference
+        android:key="status_bar_logo_style"
+        android:entries="@array/status_bar_logo_style_entries"
+        android:entryValues="@array/status_bar_logo_style_values"
+        android:summary="%s"
+        android:title="@string/status_bar_logo_style_title" />
+
+    <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="status_bar_logo_color"
+        android:title="@string/status_bar_logo_color_title"
+        android:summary="%s"
+        android:defaultValue="0xffff8800" />
+
+</PreferenceScreen>
+
