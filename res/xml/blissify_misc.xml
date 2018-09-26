@@ -204,10 +204,22 @@
             android:disableDependentsState="true" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="misc"
+        android:title="@string/misc_category_title">
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
            android:key="sensor_block" 
            android:title="@string/sensor_block_title"
            android:summary="@string/sensor_block_summary"
            android:defaultValue="false" />
+
+    <com.bliss.support.preferences.GlobalSettingSwitchPreference
+        android:key="allow_signature_fake"
+        android:title="@string/allow_signature_fake"
+        android:summary="@string/allow_signature_fake_summary"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

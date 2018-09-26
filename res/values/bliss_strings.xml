@@ -45,6 +45,7 @@
     <string name="system_anim">System</string>
     <string name="tile_anim">Tile</string>
     <string name="misc_anim">Misc options</string>
+    <string name="misc_category_title">MISC</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
@@ -904,5 +905,9 @@
     <!-- Sensor block per-package -->
     <string name="sensor_block_title">Sensor block per-package</string>
     <string name="sensor_block_summary">Block access to certain sensors for some apps to save battery</string>
+
+    <!-- Allow fake signature -->
+    <string name="allow_signature_fake">Allow signature spoofing</string>
+    <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app.</string>
 
 </resources>
