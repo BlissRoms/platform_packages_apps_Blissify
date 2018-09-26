@@ -1021,4 +1021,11 @@
     <string name="lockscreen_weather_pixel_style_title">Pixel style</string>
     <string name="lock_screen_weather_style_title">Show weather with Pixel style</string>
     <string name="lock_screen_weather_style_summary">Instead of using the big widget, it\'ll show next to the date</string>
+    
+    <!-- Allow fake signature -->
+    <string name="allow_signature_fake">Allow signature spoofing</string>
+    <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app.</string>
+
+</resources>
+
 </resources>
