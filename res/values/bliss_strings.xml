@@ -685,6 +685,8 @@
     <string name="wallpaper_close_title">Wallpaper close animation</string>
     <string name="wallpaper_intra_open_title">Wallpaper intra open animation</string>
     <string name="wallpaper_intra_close_title">Wallpaper intra close animation</string>
+    <string name="animation_duration_title">Animation duration</string>
+    <string name="animation_duration_default">Default</string>
 
     <!-- Toast category title -->
     <string name="toast_category_title">Toast animations</string>
