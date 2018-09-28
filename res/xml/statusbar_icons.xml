@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen 
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bliss="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
         android:title="@string/carrier_label_settings_title"/>
@@ -17,5 +18,31 @@
          <PreferenceScreen
             android:key="custom_carrier_label"
             android:title="@string/custom_carrier_label_title" />
+
+     <PreferenceCategory
+         android:key="nettraffic_settings"
+         android:title="@string/nettraffic_settings_title"/>
+
+         <com.blissroms.blissify.SystemSettingListPreference
+            android:key="network_traffic_state"
+            android:title="@string/network_traffic_state_title"
+            android:defaultValue="false" />
+
+         <com.blissroms.blissify.SystemSettingListPreference
+            android:key="network_traffic_autohide"
+            android:title="@string/network_traffic_autohide"
+            android:summary="@string/network_traffic_autohide_summary"
+            android:dependency="network_traffic_state"
+            android:defaultValue="false" />
+
+         <com.blissroms.blissify.SystemSettingSeekBarPreference
+            android:key="network_traffic_autohide_threshold"
+            android:title="@string/network_traffic_autohide_threshold_title"
+            android:max="10"
+            android:min="0"
+            bliss:unitsLeft=""
+            bliss:unitsRight=""
+            android:defaultValue="0"
+            android:dependency="network_traffic_state" />
 
 </PreferenceScreen>
