@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.blissroms.blissify.R;
-import com.blissroms.blissify.fragments.statusbar.Traffic;
+import com.blissroms.blissify.fragments.statusbar.Icons;
 import com.blissroms.blissify.fragments.statusbar.Clock;
 
 public class Statusbar extends Fragment {
@@ -51,8 +51,8 @@ public class Statusbar extends Fragment {
         public StatusbarAdapter(FragmentManager fm) {
             super(fm);
             // Add Fragments Here
-            frags[0] = new Traffic();
-            frags[1] = new Clock();
+            frags[0] = new Clock();
+            frags[1] = new Icons();
         }
 
         @Override
@@ -75,8 +75,8 @@ public class Statusbar extends Fragment {
             String titleString[];
             titleString = new String[]
                     {
-                            getString(R.string.statusbar_traffic_title),
-                            getString(R.string.statusbar_clock_title)
+                            getString(R.string.statusbar_clock_title),
+                            getString(R.string.statusbar_icons_title)
                     };
             return titleString;
         }

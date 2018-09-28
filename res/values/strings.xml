@@ -42,7 +42,7 @@
     <string name="qstiles_animation_title">QS Tile</string>
 
     <!-- Statusbar -->
-    <string name="statusbar_traffic_title">Traffic</string>
+    <string name="statusbar_icons_title">Icons</string>
     <string name="statusbar_clock_title">Clock</string>
 
     <!-- Color Picker -->
@@ -141,5 +141,17 @@
     <string name="clock_date_string_edittext_summary">Enter string</string>
     <string name="menu_save">Save</string>
     <string name="menu_cancel">Cancel</string>
+
+    <!-- Custom carrier label and position -->
+    <string name="carrier_label_settings_title">Carrier Label</string>
+    <string name="carrier_label_settings_summary">Customize the carrier label</string>
+    <string name="custom_carrier_label_title">Custom carrier label</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
+    <string name="show_carrier_title">Carrier label</string>
+    <string name="show_carrier_disabled">Disabled</string>
+    <string name="show_carrier_keyguard">Lockscreen only</string>
+    <string name="show_carrier_statusbar">Statusbar only</string>
+    <string name="show_carrier_enabled">Lockscreen &amp; statusbar</string>
     
 </resources>
