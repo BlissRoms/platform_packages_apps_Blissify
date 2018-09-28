@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 
 import com.blissroms.blissify.R;
 import com.blissroms.blissify.fragments.statusbar.Icons;
+import com.blissroms.blissify.fragments.statusbar.Battery;
 import com.blissroms.blissify.fragments.statusbar.Clock;
 
 public class Statusbar extends Fragment {
@@ -51,8 +52,9 @@ public class Statusbar extends Fragment {
         public StatusbarAdapter(FragmentManager fm) {
             super(fm);
             // Add Fragments Here
-            frags[0] = new Clock();
-            frags[1] = new Icons();
+            frags[0] = new Battery();
+            frags[1] = new Clock();
+            frags[2] = new Icons();
         }
 
         @Override
@@ -62,7 +64,7 @@ public class Statusbar extends Fragment {
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
 
         @Override
@@ -75,6 +77,7 @@ public class Statusbar extends Fragment {
             String titleString[];
             titleString = new String[]
                     {
+                            getString(R.string.statusbar_battery_title),
                             getString(R.string.statusbar_clock_title),
                             getString(R.string.statusbar_icons_title)
                     };

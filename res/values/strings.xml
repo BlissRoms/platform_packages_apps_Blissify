@@ -44,6 +44,7 @@
     <!-- Statusbar -->
     <string name="statusbar_icons_title">Icons</string>
     <string name="statusbar_clock_title">Clock</string>
+    <string name="statusbar_battery_title">Battery</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -54,6 +55,25 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
+
+    <!-- Battery customizations -->
+    <string name="battery_style_category">Battery</string>
+    <string name="battery_style_title">Battery style</string>
+    <string name="battery_style_summary">Change the look of the icon in the statusbar</string>
+    <string name="battery_style_port">Portrait</string>
+    <string name="battery_style_circle">Circle</string>
+    <string name="battery_style_dotted_circle">Dotted circle</string>
+    <string name="battery_style_solid_circle">Solid circle</string>
+    <string name="battery_style_big_circle">Big circle</string>
+    <string name="battery_style_big_dotted_circle">Big dotted circle</string>
+    <string name="battery_style_square">Square</string>
+    <string name="battery_style_dotted_square">Dotted square</string>
+    <string name="battery_style_text">Text</string>
+    <string name="show_battery_percent_title">Show percentage</string>
+    <string name="battery_percent_none">Don\'t show</string>
+    <string name="battery_percent_outside">Show near icon</string>
+    <string name="battery_percent_inside">Show inside icon</string>
+
 
     <!-- AOKP custom system animations -->
     <string name="activity_open_title">Activity open animation</string>
