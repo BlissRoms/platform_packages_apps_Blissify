@@ -9,6 +9,20 @@
         android:defaultValue="false" />
 
     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="lock_screen_visualizer_use_custom_color"
+        android:title="@string/lockscreen_visualizer_enable_custom"
+        android:summary="@string/lockscreen_visualizer_enable_custom_summary"
+        android:dependency="lockscreen_visualizer_enabled"
+        android:defaultValue="false" />
+    
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="lock_screen_visualizer_custom_color"
+        android:title="@string/lockscreen_visualizer_custom_color"
+        android:dependency="lock_screen_visualizer_use_custom_color"
+        android:defaultValue="0xffffffff"
+        android:dialogTitle="@string/lockscreen_visualizer_custom_color" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
         android:key="lockscreen_weather_enabled"
         android:title="@string/lockscreen_weather_title"
         android:summary="@string/lockscreen_weather_summary"
