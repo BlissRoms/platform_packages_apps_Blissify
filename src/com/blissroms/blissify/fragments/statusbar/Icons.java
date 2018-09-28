@@ -59,7 +59,7 @@ public class Icons extends Fragment {
         public SystemPreference() {
         }
 
-        private static final String TAG = "Traffic";
+        private static final String TAG = "Icons";
         private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
 
         private PreferenceScreen mCustomCarrierLabel;
