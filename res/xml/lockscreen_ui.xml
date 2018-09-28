@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen 
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="lockscreen_weather_enabled"
+        android:title="@string/lockscreen_weather_title"
+        android:summary="@string/lockscreen_weather_summary"
+        android:defaultValue="false" />
+
+    <Preference
+        android:icon="@drawable/ic_info_outline_24dp"
+        android:persistent="false"
+        android:summary="@string/lockscreen_items_aod_info_title" />
+
+</PreferenceScreen>

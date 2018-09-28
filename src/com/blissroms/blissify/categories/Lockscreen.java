@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.blissroms.blissify.R;
+import com.blissroms.blissify.fragments.lockscreen.LockUI;
 
 /**
  * Created by jackeagle on 31/12/17.
@@ -50,6 +51,7 @@ public class Lockscreen extends Fragment {
         public LockscreenAdapter(FragmentManager fm) {
             super(fm);
             // Add Fragments Here
+            frags[0] = new LockUI();
 
         }
 
@@ -60,7 +62,7 @@ public class Lockscreen extends Fragment {
 
         @Override
         public int getCount() {
-            return 0;
+            return 1;
         }
 
         @Override
@@ -74,7 +76,7 @@ public class Lockscreen extends Fragment {
             titleString = new String[]
                     {
                       // Add Tab Fragment Title
-
+                        getString(R.string.lockscreen_ui_title)
                     };
             return titleString;
         }
