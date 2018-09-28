@@ -193,5 +193,9 @@
     <string name="lockscreen_weather_summary">Show current weather condition and temperature</string>
     <string name="lockscreen_items_aod_info_title">This visibility configuration also applies to the ambient display</string>
 
+    <!-- Lock screen visualizer -->
+    <string name="lockscreen_visualizer_title">Music visualizer</string>
+    <string name="lockscreen_visualizer_summary">Show visualizer on lockscreen when music is playing</string>
+
     
 </resources>
