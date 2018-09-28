@@ -45,4 +45,10 @@
             android:defaultValue="0"
             android:dependency="network_traffic_state" />
 
+         <com.blissroms.blissify.SystemSettingListPreference
+            android:key="use_old_mobiletype"
+            android:title="@string/use_old_mobiletype_title"
+            android:summary="@string/use_old_mobiletype_summary"
+            android:defaultValue="false" />
+
 </PreferenceScreen>
