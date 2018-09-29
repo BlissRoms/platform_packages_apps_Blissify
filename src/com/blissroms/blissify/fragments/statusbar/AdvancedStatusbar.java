@@ -46,6 +46,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import android.util.Log;
 import android.hardware.fingerprint.FingerprintManager;
+import com.bliss.support.colorpicker.ColorPickerPreference;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -60,11 +61,13 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
     private static final String KEY_SHOW_DATA_DISABLED = "data_disabled_icon";
     private static final String KEY_SHOW_ROAMING = "roaming_indicator_icon";
     private static final String KEY_SHOW_FOURG = "show_fourg_icon";
+    private static final String BLISS_LOGO_COLOR = "status_bar_logo_color";
 
     private SwitchPreference mShowVolte;
     private SwitchPreference mDataDisabled;
     private SwitchPreference mShowRoaming;
     private SwitchPreference mShowFourg;
+    private ColorPickerPreference mBlissLogoColor;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -74,6 +77,7 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
+        final ContentResolver resolver = getActivity().getContentResolver();
 
         mShowVolte = (SwitchPreference) findPreference(KEY_SHOW_VOLTE);
         mDataDisabled = (SwitchPreference) findPreference(KEY_SHOW_DATA_DISABLED);
@@ -87,11 +91,38 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
             prefScreen.removePreference(mShowFourg);
         }
 
+        mBlissLogoColor =
+                (ColorPickerPreference) findPreference(BLISS_LOGO_COLOR);
+        int intColor = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_COLOR, 0xFFFFFFFF,
+                UserHandle.USER_CURRENT);
+        String hexColor = ColorPickerPreference.convertToARGB(intColor);
+        mBlissLogoColor.setNewPreviewColor(intColor);
+        if (intColor != 0xFFFFFFFF) {
+            mBlissLogoColor.setSummary(hexColor);
+        } else {
+            mBlissLogoColor.setSummary(R.string.default_string);
+        }
+        mBlissLogoColor.setOnPreferenceChangeListener(this);
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mBlissLogoColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                Integer.parseInt(String.valueOf(newValue)));
+            int value = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_COLOR, value,
+                UserHandle.USER_CURRENT);
+            if (value != 0xFFFFFFFF) {
+                mBlissLogoColor.setSummary(hex);
+            } else {
+                mBlissLogoColor.setSummary(R.string.default_string);
+            }
+            return true;
+        }
         return false;
     }
 
@@ -108,6 +139,14 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
                 Settings.System.BLUETOOTH_SHOW_BATTERY, 1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.SHOW_FOURG_ICON, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_COLOR, 0xFFFFFFFF, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_POSITION, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_STYLE, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
