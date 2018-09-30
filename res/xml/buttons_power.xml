@@ -14,4 +14,16 @@
         android:dependency="advanced_reboot"
         android:defaultValue="false" />
 
+    <PreferenceCategory
+        android:key="proxy_check"
+        android:title="@string/system_proxi_check_enabled_title" >
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="system_proxi_check_enabled"
+        android:title="@string/system_proxi_check_enabled_title"
+        android:summary="@string/system_proxi_check_enabled_summary"
+        android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

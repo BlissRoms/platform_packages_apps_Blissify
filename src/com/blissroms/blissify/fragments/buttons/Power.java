@@ -13,9 +13,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.ListPreference;
+import android.support.v14.preference.SwitchPreference;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +38,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.blissroms.blissify.R;
+import com.android.internal.util.omni.DeviceUtils;
 
 public class Power extends Fragment {
 
@@ -60,11 +63,22 @@ public class Power extends Fragment {
         }
 
         private static final String TAG = "NavBar";
+        private static final String CATEGORY_PROXY = "proxy_check";
+        private static final String SYSTEM_PROXI_CHECK_ENABLED = "system_proxi_check_enabled";
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.xml.buttons_power);
             PreferenceScreen prefSet = getPreferenceScreen();
+
+            final PreferenceCategory proxyCategory =
+                    (PreferenceCategory) prefSet.findPreference(CATEGORY_PROXY);
+
+            boolean supportPowerButtonProxyCheck = getResources().getBoolean(com.android.internal.R.bool.config_proxiSensorWakupCheck);
+            SwitchPreference proxyCheckPreference = (SwitchPreference) findPreference(SYSTEM_PROXI_CHECK_ENABLED);
+            if (!DeviceUtils.deviceSupportsProximitySensor(getActivity()) || !supportPowerButtonProxyCheck) {
+                proxyCategory.removePreference(proxyCheckPreference);
+            }
 
         }
 
