@@ -16,6 +16,7 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.ListPreference;
+import android.support.v14.preference.SwitchPreference;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,9 @@ import java.util.Date;
 import java.util.List;
 
 import com.blissroms.blissify.R;
+import com.android.internal.util.omni.OmniSwitchConstants;
+import com.android.internal.util.omni.PackageUtils;
+import com.android.internal.util.omni.DeviceUtils;
 
 public class NavBar extends Fragment {
 
@@ -60,11 +64,21 @@ public class NavBar extends Fragment {
         }
 
         private static final String TAG = "NavBar";
+        private static final String KEYS_SHOW_NAVBAR_KEY = "navigation_bar_show";
+
+        private SwitchPreference mEnableNavBar;
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.xml.buttons_navbar);
             PreferenceScreen prefSet = getPreferenceScreen();
+            ContentResolver resolver = getActivity().getContentResolver();
+
+            mEnableNavBar = (SwitchPreference) prefSet.findPreference(KEYS_SHOW_NAVBAR_KEY);
+            boolean showNavBarDefault = DeviceUtils.deviceSupportNavigationBar(getActivity());
+            boolean showNavBar = Settings.System.getInt(resolver,
+                    Settings.System.OMNI_NAVIGATION_BAR_SHOW, showNavBarDefault ? 1 : 0) == 1;
+            mEnableNavBar.setChecked(showNavBar);
 
         }
 
@@ -74,6 +88,12 @@ public class NavBar extends Fragment {
 
     public boolean onPreferenceTreeClick(Preference preference) {
         ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mEnableNavBar) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(resolver,
+                    Settings.System.OMNI_NAVIGATION_BAR_SHOW, checked ? 1:0);
+            return true;
+        }
         return false;
     }
 

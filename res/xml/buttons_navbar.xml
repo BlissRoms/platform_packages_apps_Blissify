@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+        <SwitchPreference
+            android:key="navigation_bar_show"
+            android:title="@string/navigation_bar_show_title"
+            android:summary="@string/navigation_bar_show_summary"
+            android:persistent="false" />
+
 </PreferenceScreen>
