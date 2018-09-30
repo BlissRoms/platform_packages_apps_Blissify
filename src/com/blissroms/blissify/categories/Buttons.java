@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.blissroms.blissify.R;
 import com.blissroms.blissify.fragments.buttons.NavBar;
+import com.blissroms.blissify.fragments.buttons.Power;
 import com.blissroms.blissify.fragments.buttons.Volume;
 
 /**
@@ -53,7 +54,8 @@ public class Buttons extends Fragment {
             super(fm);
             // Add Fragments Here
             frags[0] = new NavBar();
-            frags[1] = new Volume();
+            frags[1] = new Power();
+            frags[2] = new Volume();
 
         }
 
@@ -64,7 +66,7 @@ public class Buttons extends Fragment {
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
 
         @Override
@@ -79,6 +81,7 @@ public class Buttons extends Fragment {
                     {
                       // Add Tab Fragment Title
                         getString(R.string.buttons_navbar_title),
+                        getString(R.string.buttons_power_title),
                         getString(R.string.buttons_volume_title)
 
                     };

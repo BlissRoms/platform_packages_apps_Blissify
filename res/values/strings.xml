@@ -38,6 +38,7 @@
 
     <!-- Tabs Titles -->
     <string name="buttons_navbar_title">NavBar</string>
+    <string name="buttons_power_title">Power</string>
     <string name="buttons_volume_title">Volume</string>
 
     <!-- Animation -->
