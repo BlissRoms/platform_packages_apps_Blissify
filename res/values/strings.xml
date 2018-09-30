@@ -247,6 +247,8 @@
     <!-- Navbar -->
     <string name="navigation_bar_show_title">Show navigation bar</string>
     <string name="navigation_bar_show_summary">Force enable navigation bar</string>
+    <string name="show_navbar_arrow_keys_title">Show arrow keys while typing</string>
+    <string name="show_navbar_arrow_keys_summary">Display left and right cursor buttons in navigation bar while typing.</string>
 
     <!-- Media art -->
     <string name="media_art_title">Media cover art</string>
