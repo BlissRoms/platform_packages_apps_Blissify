@@ -81,6 +81,8 @@
     <string name="battery_bar_title">Battery Bar</string>
     <string name="battery_bar_location">Battery bar location</string>
     <string name="battery_bar_color">Battery bar color</string>
+    <string name="battery_bar_charging_color">Battery bar charging color</string>
+    <string name="battery_bar_battery_low_color">Battery bar low battery color</string>
     <string name="battery_bar_style_title">Battery bar style</string>
     <string name="battery_bar_thickness_title">Battery bar thickness</string>
     <string name="battery_bar_animate_title">Charging animation</string>
@@ -91,6 +93,7 @@
     <string name="battery_bar_bottomnav">Bottom of navbar</string>
     <string name="battery_bar_reg">Regular</string>
     <string name="battery_bar_center">Center-mirrored</string>
+    <string name="battery_bar_reversed">Reversed</string>
 
     <!-- AOKP custom system animations -->
     <string name="activity_open_title">Activity open animation</string>
