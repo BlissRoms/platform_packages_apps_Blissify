@@ -34,9 +34,10 @@
         android:summary="@string/lockscreen_weather_summary"
         android:defaultValue="false" />
 
-    <Preference
-        android:icon="@drawable/ic_info_outline_24dp"
-        android:persistent="false"
-        android:summary="@string/lockscreen_items_aod_info_title" />
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="lockscreen_power_menu_disabled"
+        android:title="@string/lockscreen_power_menu_disabled_title"
+        android:summary="@string/lockscreen_power_menu_disabled_summary"
+        android:defaultValue="false" />
 
 </PreferenceScreen>
