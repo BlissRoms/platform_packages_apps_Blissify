@@ -36,6 +36,9 @@
     <string name="recents_category">Recents</string>
     <string name="statusbar_category">Statusbar</string>
 
+    <!-- Tabs Titles -->
+    <string name="buttons_navbar_title">NavBar</string>
+
     <!-- Animation -->
     <string name="system_animation_title">System</string>
     <string name="toast_animation_title">Toast</string>
