@@ -83,19 +83,19 @@ public class NavBar extends Fragment {
         }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
+            ContentResolver resolver = getActivity().getContentResolver();
             return false;
         }
 
-    public boolean onPreferenceTreeClick(Preference preference) {
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mEnableNavBar) {
-            boolean checked = ((SwitchPreference)preference).isChecked();
-            Settings.System.putInt(resolver,
-                    Settings.System.OMNI_NAVIGATION_BAR_SHOW, checked ? 1:0);
-            return true;
+        public boolean onPreferenceTreeClick(Preference preference) {
+            ContentResolver resolver = getActivity().getContentResolver();
+            if (preference == mEnableNavBar) {
+                boolean checked = ((SwitchPreference)preference).isChecked();
+                Settings.System.putInt(resolver,
+                        Settings.System.OMNI_NAVIGATION_BAR_SHOW, checked ? 1:0);
+                return true;
+            }
+            return false;
         }
-        return false;
-    }
-
     }
 }

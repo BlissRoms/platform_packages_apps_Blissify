@@ -8,6 +8,12 @@
         android:persistent="false" />
 
     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="use_bottom_gesture_navigation"
+        android:title="@string/use_bottom_gesture_title"
+        android:summary="@string/use_bottom_gesture_summary"
+        android:defaultValue="false" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
         android:key="navigation_bar_menu_arrow_keys"
         android:title="@string/show_navbar_arrow_keys_title"
         android:summary="@string/show_navbar_arrow_keys_summary"
