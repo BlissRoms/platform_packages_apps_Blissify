@@ -285,4 +285,8 @@
     <string name="media_art_title">Media cover art</string>
     <string name="media_art_summary">Enable media cover art on the lockscreen</string>
 
+    <string name="bliss_theme_select_title">Bliss themes</string>
+    <string name="bliss_theme_select_none">Disabled</string>
+    <string name="bliss_theme_select_summary">Browse and select installed Bliss themes</string>
+
 </resources>
