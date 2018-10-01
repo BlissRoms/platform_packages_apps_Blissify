@@ -12,8 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.blissroms.blissify.R;
-import com.blissroms.blissify.fragments.ui.Theme;
+import com.blissroms.blissify.fragments.ui.CallOpt;
 import com.blissroms.blissify.fragments.ui.Misc;
+import com.blissroms.blissify.fragments.ui.Theme;
+
 
 /**
  * Created by jackeagle on 31/12/17.
@@ -53,7 +55,8 @@ public class Interface extends Fragment {
             super(fm);
             // Add Fragments Here
             frags[0] = new Theme();
-            frags[1] = new Misc();
+            frags[1] = new CallOpt();
+            frags[2] = new Misc();
 
         }
 
@@ -64,7 +67,7 @@ public class Interface extends Fragment {
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
 
         @Override
@@ -79,6 +82,7 @@ public class Interface extends Fragment {
                     {
                       // Add Tab Fragment Title
                         getString(R.string.interface_theme_title),
+                        getString(R.string.interface_callopt_title),
                         getString(R.string.interface_misc_title)
 
                     };
