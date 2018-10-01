@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen 
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bliss="http://schemas.android.com/apk/res-auto">
 
          <ListPreference
             android:key="status_bar_battery_style"
@@ -47,19 +48,19 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_bar_color"
             android:title="@string/battery_bar_color"
-            android:defaultValue="0xffffffff"
+            bliss:defaultColorValue="0xffffffff"
             android:dialogTitle="@string/battery_bar_color" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_bar_charging_color"
             android:title="@string/battery_bar_charging_color"
-            android:defaultValue="0xFF00FF00"
+            bliss:defaultColorValue="0xFF00FF00"
             android:dialogTitle="@string/battery_bar_color" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_bar_battery_low_color_warning"
             android:title="@string/battery_bar_battery_low_color"
-            android:defaultValue="0xFFFF6600"
+            bliss:defaultColorValue="0xFFFF6600"
             android:dialogTitle="@string/battery_bar_color" />
 
         <SwitchPreference
@@ -70,13 +71,13 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_bar_low_color"
             android:title="@string/battery_bar_low_color"
-            android:defaultValue="0xffff4444"
+            bliss:defaultColorValue="0xffff4444"
             android:dialogTitle="@string/battery_bar_color" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_bar_high_color"
             android:title="@string/battery_bar_high_color"
-            android:defaultValue="0xff99CC00"
+            bliss:defaultColorValue="0xff99CC00"
             android:dialogTitle="@string/battery_bar_color" />
 
 </PreferenceScreen>
