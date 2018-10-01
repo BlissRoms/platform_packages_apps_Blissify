@@ -34,6 +34,9 @@ import java.util.List;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import com.blissroms.blissify.R;
+import com.android.internal.util.omni.OmniSwitchConstants;
+import com.android.internal.util.omni.PackageUtils;
+import com.android.internal.util.omni.DeviceUtils;
 
 public class Style extends Fragment {
 
@@ -57,17 +60,76 @@ public class Style extends Fragment {
         public SystemPreference() {
         }
 
+        private static final String NAVIGATION_BAR_RECENTS_STYLE = "navbar_recents_style";
+
+        private ListPreference mNavbarRecentsStyle;
+
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.xml.recents_style);
             PreferenceScreen prefSet = getPreferenceScreen();
             ContentResolver resolver = getActivity().getContentResolver();
-        }
+
+            mNavbarRecentsStyle = (ListPreference) findPreference(NAVIGATION_BAR_RECENTS_STYLE);
+            int recentsStyle = Settings.System.getInt(resolver,
+                    Settings.System.OMNI_NAVIGATION_BAR_RECENTS, 0);
+
+            mNavbarRecentsStyle.setValue(Integer.toString(recentsStyle));
+            mNavbarRecentsStyle.setSummary(mNavbarRecentsStyle.getEntry());
+            mNavbarRecentsStyle.setOnPreferenceChangeListener(this);
+            }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             ContentResolver resolver = getActivity().getContentResolver();
-        return false;
+            if (preference == mNavbarRecentsStyle) {
+                int value = Integer.valueOf((String) newValue);
+                if (value == 1) {
+                    if (!isOmniSwitchInstalled()){
+                        doOmniSwitchUnavail();
+                    } else if (!OmniSwitchConstants.isOmniSwitchRunning(getActivity())) {
+                        doOmniSwitchConfig();
+                    }
+                }
+                int index = mNavbarRecentsStyle.findIndexOfValue((String) newValue);
+                mNavbarRecentsStyle.setSummary(mNavbarRecentsStyle.getEntries()[index]);
+                Settings.System.putInt(resolver, Settings.System.OMNI_NAVIGATION_BAR_RECENTS, value);
+                return true;
+            }
+            return false;
+        }
+
+        private void checkForOmniSwitchRecents() {
+            if (!isOmniSwitchInstalled()){
+                doOmniSwitchUnavail();
+            } else if (!OmniSwitchConstants.isOmniSwitchRunning(getActivity())) {
+                doOmniSwitchConfig();
+            }
+        }
+
+        private void doOmniSwitchConfig() {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+            alertDialogBuilder.setTitle(R.string.omniswitch_title);
+            alertDialogBuilder.setMessage(R.string.omniswitch_dialog_running_new)
+                .setPositiveButton(R.string.omniswitch_settings, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        startActivity(OmniSwitchConstants.INTENT_LAUNCH_APP);
+                    }
+                });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+        }
+
+        private void doOmniSwitchUnavail() {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+            alertDialogBuilder.setTitle(R.string.omniswitch_title);
+            alertDialogBuilder.setMessage(R.string.omniswitch_dialog_unavail);
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+        }
+
+        private boolean isOmniSwitchInstalled() {
+            return PackageUtils.isAvailableApp(OmniSwitchConstants.APP_PACKAGE_NAME, getActivity());
         }
      }
 }
