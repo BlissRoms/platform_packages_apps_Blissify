@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <PreferenceCategory
+        android:key="vol_dnd_category"
+        android:title="@string/vol_dnd_category_title"/>
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="sysui_volume_down_silent"
+        android:title="@string/volbtn_down_zen_title"
+        android:summary="@string/volbtn_down_zen_summary"
+        android:defaultValue="true"/>
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="sysui_volume_up_silent"
+        android:title="@string/volbtn_up_zen_title"
+        android:summary="@string/volbtn_up_zen_summary"
+        android:defaultValue="true" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="sysui_show_full_zen"
+        android:title="@string/vol_zen_title"
+        android:summary="@string/vol_zen_summary"
+        android:defaultValue="false"/>
+
 </PreferenceScreen>
