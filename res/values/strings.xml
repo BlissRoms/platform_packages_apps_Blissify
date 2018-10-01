@@ -303,4 +303,7 @@
     <string name="flashlight_on_call_dnd">Only in DND mode</string>
     <string name="flashlight_on_call_always">Always</string>
 
+    <!-- AppOps -->
+    <string name="app_ops_settings_title">App Ops</string>
+
 </resources>
