@@ -43,6 +43,7 @@
     <string name="interface_theme_title">Theme</string>
     <string name="interface_misc_title">Misc</string>
     <string name="interface_callopt_title">Call options</string>
+    <string name="interface_weather_title">Weather</string>
 
     <!-- Animation -->
     <string name="system_animation_title">System</string>

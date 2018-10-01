@@ -15,6 +15,7 @@ import com.blissroms.blissify.R;
 import com.blissroms.blissify.fragments.ui.CallOpt;
 import com.blissroms.blissify.fragments.ui.Misc;
 import com.blissroms.blissify.fragments.ui.Theme;
+import com.blissroms.blissify.fragments.ui.Weather;
 
 
 /**
@@ -57,6 +58,7 @@ public class Interface extends Fragment {
             frags[0] = new Theme();
             frags[1] = new CallOpt();
             frags[2] = new Misc();
+            frags[3] = new Weather();
 
         }
 
@@ -67,7 +69,7 @@ public class Interface extends Fragment {
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
 
         @Override
@@ -83,7 +85,8 @@ public class Interface extends Fragment {
                       // Add Tab Fragment Title
                         getString(R.string.interface_theme_title),
                         getString(R.string.interface_callopt_title),
-                        getString(R.string.interface_misc_title)
+                        getString(R.string.interface_misc_title),
+                        getString(R.string.interface_weather_title)
 
                     };
             return titleString;
