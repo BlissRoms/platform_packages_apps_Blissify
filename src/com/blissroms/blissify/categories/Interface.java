@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.blissroms.blissify.R;
 import com.blissroms.blissify.fragments.ui.Theme;
+import com.blissroms.blissify.fragments.ui.Misc;
 
 /**
  * Created by jackeagle on 31/12/17.
@@ -52,6 +53,7 @@ public class Interface extends Fragment {
             super(fm);
             // Add Fragments Here
             frags[0] = new Theme();
+            frags[1] = new Misc();
 
         }
 
@@ -62,7 +64,7 @@ public class Interface extends Fragment {
 
         @Override
         public int getCount() {
-            return 1;
+            return 2;
         }
 
         @Override
@@ -76,7 +78,8 @@ public class Interface extends Fragment {
             titleString = new String[]
                     {
                       // Add Tab Fragment Title
-                        getString(R.string.interface_theme_title)
+                        getString(R.string.interface_theme_title),
+                        getString(R.string.interface_misc_title)
 
                     };
             return titleString;

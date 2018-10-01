@@ -41,6 +41,7 @@
     <string name="buttons_power_title">Power</string>
     <string name="buttons_volume_title">Volume</string>
     <string name="interface_theme_title">Theme</string>
+    <string name="interface_misc_title">Misc</string>
 
     <!-- Animation -->
     <string name="system_animation_title">System</string>
