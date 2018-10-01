@@ -68,6 +68,7 @@
     <string name="set">Set</string>
     <string name="color_default">Default</string>
     <string name="unit_x1000ms">x1000 ms</string>
+    <string name="unit_percent">\u0025</string>
 
     <!--SystemUI Tuner -->
     <string name="statusbar_tuner_title">Statusbar tuner</string>
@@ -327,6 +328,7 @@
     <string name="fast_charging_light_color_summary"></string>
     <string name="edit_battery_settings">Edit battery settings</string>
 
+    <!-- Omni Jaws -->
     <string name="weather_title">Weather</string>
     <string name="weather_config_title">Weather service</string>
     <string name="weather_config_summary">System service settings</string>
@@ -335,5 +337,9 @@
     <string name="weather_icon_pack_title">Condition icon pack</string>
     <string name="weather_icon_pack_note">Note\u003a you can install new icon packs from play store by searching for \"Chronus icons\"</string>
     <string name="weather_icon_pack_info_title">Condition icon pack is used in quick settings and lock screen</string>
+
+    <!-- Quick Settings -->
+    <string name="qs_panel_alpha_title">Quick Settings opacity</string>
+    <string name="qs_panel_alpha_summary">Configure opacity of background</string>
 
 </resources>

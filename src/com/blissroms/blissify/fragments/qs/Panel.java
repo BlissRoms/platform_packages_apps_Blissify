@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
+import com.blissroms.blissify.preference.SystemSettingSeekBarPreference;
 import android.provider.Settings;
 
 import java.util.Arrays;
@@ -57,16 +58,33 @@ public class Panel extends Fragment {
         public SystemPreference() {
         }
 
+        private static final String QS_PANEL_ALPHA = "qs_panel_alpha";
+
+        private SystemSettingSeekBarPreference mQsPanelAlpha;
+
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.xml.qs_panel);
             PreferenceScreen prefSet = getPreferenceScreen();
             ContentResolver resolver = getActivity().getContentResolver();
+
+            mQsPanelAlpha = (SystemSettingSeekBarPreference) findPreference(QS_PANEL_ALPHA);
+            int qsPanelAlpha = Settings.System.getInt(resolver,
+                    Settings.System.OMNI_QS_PANEL_BG_ALPHA, 221);
+            mQsPanelAlpha.setValue((int)(((double) qsPanelAlpha / 255) * 100));
+            mQsPanelAlpha.setOnPreferenceChangeListener(this);
         }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             ContentResolver resolver = getActivity().getContentResolver();
+            if (preference == mQsPanelAlpha) {
+                int bgAlpha = (Integer) newValue;
+                int trueValue = (int) (((double) bgAlpha / 100) * 255);
+                Settings.System.putInt(resolver,
+                        Settings.System.OMNI_QS_PANEL_BG_ALPHA, trueValue);
+                return true;
+             }
         return false;
         }
      }

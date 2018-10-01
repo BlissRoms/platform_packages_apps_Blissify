@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen 
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bliss="http://schemas.android.com/apk/res-auto">
+
+            <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+                android:key="qs_panel_alpha"
+                android:title="@string/qs_panel_alpha_title"
+                android:summary="@string/qs_panel_alpha_summary"
+                android:max="100"
+                bliss:min="0"
+                bliss:unitsRight="@string/unit_percent"
+                android:persistent="false" />
 
 </PreferenceScreen>
