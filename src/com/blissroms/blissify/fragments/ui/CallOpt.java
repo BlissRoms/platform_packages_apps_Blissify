@@ -57,16 +57,34 @@ public class CallOpt extends Fragment {
         public SystemPreference() {
         }
 
+        private static final String PREF_FLASHLIGHT_ON_CALL = "flashlight_on_call";
+
+        private ListPreference mFlashOnCall;
+
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.xml.interface_callopt);
             PreferenceScreen prefSet = getPreferenceScreen();
             ContentResolver resolver = getActivity().getContentResolver();
+
+            mFlashOnCall = (ListPreference) findPreference(PREF_FLASHLIGHT_ON_CALL);
+            mFlashOnCall.setOnPreferenceChangeListener(this);
+            mFlashOnCall.setValue(Integer.toString(Settings.System.getInt(resolver,
+            Settings.System.FLASHLIGHT_ON_CALL, 0)));
+            mFlashOnCall.setSummary(mFlashOnCall.getEntry());
         }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mFlashOnCall) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mFlashOnCall.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver,
+                    Settings.System.FLASHLIGHT_ON_CALL, val);
+            mFlashOnCall.setSummary(mFlashOnCall.getEntries()[index]);
+            return true;
+        }
         return false;
         }
      }
