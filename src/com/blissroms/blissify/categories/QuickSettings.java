@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.blissroms.blissify.R;
+import com.blissroms.blissify.fragments.qs.Panel;
 
 /**
  * Created by jackeagle on 31/12/17.
@@ -50,6 +51,7 @@ public class QuickSettings extends Fragment {
         public QuickSettingsAdapter(FragmentManager fm) {
             super(fm);
             // Add Fragments Here
+            frags[0] = new Panel();
 
         }
 
@@ -60,7 +62,7 @@ public class QuickSettings extends Fragment {
 
         @Override
         public int getCount() {
-            return 0;
+            return 1;
         }
 
         @Override
@@ -74,6 +76,7 @@ public class QuickSettings extends Fragment {
             titleString = new String[]
                     {
                       // Add Tab Fragment Title
+                        getString(R.string.qs_panel_title)
 
                     };
             return titleString;
