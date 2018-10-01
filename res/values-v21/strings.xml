@@ -4,7 +4,7 @@
     <string name="button_category">Buttons</string>
     <string name="gestures_category">Gestures</string>
     <string name="lockscreen_category">Lockscreen</string>
-    <string name="power_category">Power Menu</string>
+    <string name="interface_category">Interface</string>
     <string name="qs_category">Quick Settings</string>
     <string name="recents_category">Recents</string>
     <string name="statusbar_category">Statusbar</string>

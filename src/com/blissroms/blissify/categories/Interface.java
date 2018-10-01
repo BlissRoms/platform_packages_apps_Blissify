@@ -18,7 +18,7 @@ import com.blissroms.blissify.R;
  */
 
 @SuppressWarnings("DefaultFileTemplate")
-public class PowerMenu extends Fragment {
+public class Interface extends Fragment {
 
     private View view;
     private ViewPager viewPager;
@@ -30,7 +30,7 @@ public class PowerMenu extends Fragment {
         view = inflater.inflate(R.layout.blissify_tablayout, container, false);
 
         viewPager = view.findViewById(R.id.viewpager);
-        viewPager.setAdapter(new PowerMenuAdapter(getChildFragmentManager()));
+        viewPager.setAdapter(new InterfaceAdapter(getChildFragmentManager()));
         tableLayout = view.findViewById(R.id.sliding_tabs);
         tableLayout.post(new Runnable() {
             @Override
@@ -42,12 +42,12 @@ public class PowerMenu extends Fragment {
         return view;
     }
 
-    private class PowerMenuAdapter extends FragmentPagerAdapter {
+    private class InterfaceAdapter extends FragmentPagerAdapter {
 
         final String[] tabs= getTabsTitle();
         private final Fragment[] frags = new Fragment[tabs.length];
 
-        public PowerMenuAdapter(FragmentManager fm) {
+        public InterfaceAdapter(FragmentManager fm) {
             super(fm);
             // Add Fragments Here
 

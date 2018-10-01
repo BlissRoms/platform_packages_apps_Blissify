@@ -33,7 +33,7 @@ import com.blissroms.blissify.categories.Animations;
 import com.blissroms.blissify.categories.Buttons;
 import com.blissroms.blissify.categories.Gestures;
 import com.blissroms.blissify.categories.Lockscreen;
-import com.blissroms.blissify.categories.PowerMenu;
+import com.blissroms.blissify.categories.Interface;
 import com.blissroms.blissify.categories.QuickSettings;
 import com.blissroms.blissify.categories.Recents;
 import com.blissroms.blissify.categories.Statusbar;
@@ -118,8 +118,8 @@ public class BlissifySettings extends AppCompatActivity
                 setFragment(new Lockscreen());
                 break;
 
-            case R.id.nav_power:
-                setFragment(new PowerMenu());
+            case R.id.nav_interface:
+                setFragment(new Interface());
                 break;
 
             case R.id.nav_quick_settings:

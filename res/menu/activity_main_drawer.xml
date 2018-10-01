@@ -38,9 +38,9 @@
             android:icon="@drawable/ic_nav_lockscreen"
             android:title="@string/lockscreen_category" />
         <item
-            android:id="@+id/nav_power"
-            android:icon="@drawable/ic_nav_power"
-            android:title="@string/power_category" />
+            android:id="@+id/nav_interface"
+            android:icon="@drawable/ic_nav_statusbar"
+            android:title="@string/interface_category" />
         <item
             android:id="@+id/nav_quick_settings"
             android:icon="@drawable/ic_nav_quicksettings"
