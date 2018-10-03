@@ -50,6 +50,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
+
+        <activity
+            android:name="Blissify$OmniJawsSettingsActivity"
+            android:label="@string/weather_title"
+            android:taskAffinity="com.blissroms.blissify">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.blissroms.blissify.FRAGMENT_CLASS"
+                android:value="com.blissroms.blissify.fragments.ui.Weather" />
+        </activity>
+
     </application>
 </manifest>

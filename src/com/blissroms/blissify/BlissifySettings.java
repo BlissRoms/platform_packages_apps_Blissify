@@ -41,6 +41,8 @@ import com.blissroms.blissify.categories.Statusbar;
 public class BlissifySettings extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static class OmniJawsSettingsActivity extends AppCompatActivity { /* empty */ }
+
     private DrawerLayout drawer;
     private Toolbar toolbar;
     private NavigationView navigationView;
