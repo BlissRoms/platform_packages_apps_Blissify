@@ -59,8 +59,10 @@ public class Panel extends Fragment {
         }
 
         private static final String QS_PANEL_ALPHA = "qs_panel_alpha";
+        private static final String QUICK_PULLDOWN = "quick_pulldown";
 
         private SystemSettingSeekBarPreference mQsPanelAlpha;
+        private ListPreference mQuickPulldown;
 
 
         @Override
@@ -74,6 +76,14 @@ public class Panel extends Fragment {
                     Settings.System.OMNI_QS_PANEL_BG_ALPHA, 221);
             mQsPanelAlpha.setValue((int)(((double) qsPanelAlpha / 255) * 100));
             mQsPanelAlpha.setOnPreferenceChangeListener(this);
+
+            // quick pulldown
+            mQuickPulldown = (ListPreference) findPreference(QUICK_PULLDOWN);
+            mQuickPulldown.setOnPreferenceChangeListener(this);
+            int quickPulldownValue = Settings.System.getIntForUser(resolver,
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 0, UserHandle.USER_CURRENT);
+            mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
+            updatePulldownSummary(quickPulldownValue);
         }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -83,6 +93,12 @@ public class Panel extends Fragment {
                 int trueValue = (int) (((double) bgAlpha / 100) * 255);
                 Settings.System.putInt(resolver,
                         Settings.System.OMNI_QS_PANEL_BG_ALPHA, trueValue);
+                return true;
+           } else if (preference == mQuickPulldown) {
+                int quickPulldownValue = Integer.valueOf((String) newValue);
+                Settings.System.putIntForUser(resolver, Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN,
+                        quickPulldownValue, UserHandle.USER_CURRENT);
+                updatePulldownSummary(quickPulldownValue);
                 return true;
              }
         return false;
