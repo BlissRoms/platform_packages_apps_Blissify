@@ -592,10 +592,16 @@
     </string-array>
 
    <string-array name="status_bar_logo_style_entries" translatable="false">
-        <item>Xtended Main</item>
-        <item>Xtended Old</item>
+        <item>Bliss logo</item>
         <item>GZR Skull</item>
         <item>GZR Circle</item>
+        <item>Batman</item>
+        <item>Deadpool</item>
+        <item>Superman</item>
+        <item>Ironman</item>
+        <item>Spiderman</item>
+        <item>Decpticons</item>
+        <item>Minions</item>
         <item>Android</item>
         <item>Apple</item>
         <item>iOS</item>
@@ -648,6 +654,11 @@
         <item>24</item>
         <item>25</item>
         <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
     </string-array>
 
 </resources>
