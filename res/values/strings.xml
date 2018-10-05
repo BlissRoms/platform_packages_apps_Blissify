@@ -368,6 +368,9 @@
     <string name="quick_settings_vibrate_title">Vibrate on touch</string>
     <string name="quick_settings_vibrate_summary">Vibrate when touching QS tiles</string>
 
+    <string name="block_on_secure_keyguard_title">Disable quick settings</string>
+    <string name="block_on_secure_keyguard_summary">Disables quick settings on secure lockscreen</string>
+
     <!-- OmniSwitch -->
     <string name="navbar_recents_style_title">Recents style</string>
     <string name="keys_action_app_switch_defaut">Default</string>
