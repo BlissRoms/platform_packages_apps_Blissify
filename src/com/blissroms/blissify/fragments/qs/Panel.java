@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.preference.Preference;
@@ -60,9 +61,11 @@ public class Panel extends Fragment {
 
         private static final String QS_PANEL_ALPHA = "qs_panel_alpha";
         private static final String QUICK_PULLDOWN = "quick_pulldown";
+        private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
 
         private SystemSettingSeekBarPreference mQsPanelAlpha;
         private ListPreference mQuickPulldown;
+        private ListPreference mSmartPulldown;
 
 
         @Override
@@ -84,6 +87,13 @@ public class Panel extends Fragment {
                     Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 0, UserHandle.USER_CURRENT);
             mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
             updatePulldownSummary(quickPulldownValue);
+
+            mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
+            mSmartPulldown.setOnPreferenceChangeListener(this);
+            int smartPulldown = Settings.System.getInt(resolver,
+                   Settings.System.QS_SMART_PULLDOWN, 0);
+            mSmartPulldown.setValue(String.valueOf(smartPulldown));
+            updateSmartPulldownSummary(smartPulldown);
         }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -100,8 +110,44 @@ public class Panel extends Fragment {
                         quickPulldownValue, UserHandle.USER_CURRENT);
                 updatePulldownSummary(quickPulldownValue);
                 return true;
-             }
+            } else if (preference == mSmartPulldown) {
+                int smartPulldown = Integer.valueOf((String) newValue);
+                Settings.System.putInt(resolver, Settings.System.QS_SMART_PULLDOWN, smartPulldown);
+                updateSmartPulldownSummary(smartPulldown);
+                return true;
+            }
         return false;
+        }
+
+        private void updatePulldownSummary(int value) {
+            Resources res = getResources();
+             if (value == 0) {
+                // quick pulldown deactivated
+                mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_off));
+            } else if (value == 3) {
+                // quick pulldown always
+                mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_summary_always));
+            } else {
+                String direction = res.getString(value == 2
+                        ? R.string.quick_pulldown_left
+                        : R.string.quick_pulldown_right);
+                mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_summary, direction));
+            }
+        }
+
+        private void updateSmartPulldownSummary(int value) {
+            Resources res = getResources();
+             if (value == 0) {
+                // Smart pulldown deactivated
+                mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_off));
+            } else if (value == 3) {
+                mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_none_summary));
+            } else {
+                String type = res.getString(value == 1
+                        ? R.string.smart_pulldown_dismissable
+                        : R.string.smart_pulldown_ongoing);
+                mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
+            }
         }
      }
 }
