@@ -10,6 +10,13 @@
             android:defaultValue="true"/>
 
         <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+            android:key="qs_brightness_position_bottom"
+            android:title="@string/qs_brightness_position_bottom_title"
+            android:summary="@string/qs_brightness_position_bottom_summary"
+            android:defaultValue="false"
+            android:dependency="qs_show_brightness_slider" />
+
+        <com.blissroms.blissify.preference.SecureSettingSwitchPreference
             android:key="status_bar_locked_on_secure_keyguard"
             android:title="@string/block_on_secure_keyguard_title"
             android:summary="@string/block_on_secure_keyguard_summary"
