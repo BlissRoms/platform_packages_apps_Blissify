@@ -1,6 +1,11 @@
 package com.blissroms.blissify.fragments.animations;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.ContentResolver;
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.database.ContentObserver;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -44,9 +49,11 @@ public class QSTiles extends Fragment {
         private static final String TAG = "QSTilesPreference";
         private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
         private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
+        private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
 
         private ListPreference mTileAnimationStyle;
         private ListPreference mTileAnimationDuration;
+        private ListPreference mTileAnimationInterpolator;
 
 
         @Override
@@ -71,6 +78,14 @@ public class QSTiles extends Fragment {
             mTileAnimationDuration.setValue(String.valueOf(tileAnimationDuration));
             updateTileAnimationDurationSummary(tileAnimationDuration);
             mTileAnimationDuration.setOnPreferenceChangeListener(this);
+
+            mTileAnimationInterpolator = (ListPreference) findPreference(PREF_TILE_ANIM_INTERPOLATOR);
+            mTileAnimationInterpolator.setEnabled(tileAnimationStyle > 0);
+            int tileAnimationInterpolator = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.ANIM_TILE_INTERPOLATOR, 0, UserHandle.USER_CURRENT);
+            mTileAnimationInterpolator.setValue(String.valueOf(tileAnimationInterpolator));
+            updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
+            mTileAnimationInterpolator.setOnPreferenceChangeListener(this);
         }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -89,6 +104,12 @@ public class QSTiles extends Fragment {
                         tileAnimationDuration, UserHandle.USER_CURRENT);
                 updateTileAnimationDurationSummary(tileAnimationDuration);
                 return true;
+            } else if (preference == mTileAnimationInterpolator) {
+                int tileAnimationInterpolator = Integer.valueOf((String) newValue);
+                Settings.System.putIntForUser(resolver, Settings.System.ANIM_TILE_INTERPOLATOR,
+                        tileAnimationInterpolator, UserHandle.USER_CURRENT);
+                updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
+                return true;
             }
             return false;
         }
@@ -103,6 +124,12 @@ public class QSTiles extends Fragment {
             String prefix = (String) mTileAnimationDuration.getEntries()[mTileAnimationDuration.findIndexOfValue(String
                     .valueOf(tileAnimationDuration))];
             mTileAnimationDuration.setSummary(getResources().getString(R.string.qs_set_animation_duration, prefix));
+        }
+
+        private void updateTileAnimationInterpolatorSummary(int tileAnimationInterpolator) {
+            String prefix = (String) mTileAnimationInterpolator.getEntries()[mTileAnimationInterpolator.findIndexOfValue(String
+                    .valueOf(tileAnimationInterpolator))];
+            mTileAnimationInterpolator.setSummary(getResources().getString(R.string.qs_set_animation_interpolator, prefix));
         }
     }
 }

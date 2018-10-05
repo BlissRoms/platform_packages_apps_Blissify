@@ -2,17 +2,27 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListPreference
-         android:key="qs_tile_animation_style"
-         android:title="@string/qs_tile_animation_style_title"
-         android:entries="@array/qs_tile_animation_style_entries"
-         android:entryValues="@array/qs_tile_animation_style_values"
-         android:persistent="false" />
+        android:key="qs_tile_animation_style"
+        android:title="@string/qs_tile_animation_style_title"
+        android:entries="@array/qs_tile_animation_style_entries"
+        android:entryValues="@array/qs_tile_animation_style_values"
+        android:defaultValue="0"
+        android:persistent="false" />
 
-     <ListPreference
+    <ListPreference
         android:key="qs_tile_animation_duration"
         android:title="@string/qs_tile_animation_duration_title"
         android:entries="@array/qs_tile_animation_duration_entries"
         android:entryValues="@array/qs_tile_animation_duration_values"
+        android:defaultValue="2000"
+        android:persistent="false" />
+
+    <ListPreference
+        android:key="qs_tile_animation_interpolator"
+        android:title="@string/qs_tile_animation_interpolator_title"
+        android:entries="@array/qs_tile_animation_interpolator_entries"
+        android:entryValues="@array/qs_tile_animation_interpolator_values"
+        android:defaultValue="0"
         android:persistent="false" />
 
 </PreferenceScreen>
