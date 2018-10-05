@@ -399,6 +399,10 @@
     <string name="qs_show_info_header_title">Show information header</string>
     <string name="qs_show_info_header_summary">Information displayed at top of quick settings panel</string>
 
+    <!-- QS footer warnings -->
+    <string name="qs_footer_warnings_title">QS footer warnings</string>
+    <string name="qs_footer_warnings_summary">Display a warning at bottom of QS panel when network is monitored by external apps or vpn</string>
+
     <!-- OmniSwitch -->
     <string name="navbar_recents_style_title">Recents style</string>
     <string name="keys_action_app_switch_defaut">Default</string>
