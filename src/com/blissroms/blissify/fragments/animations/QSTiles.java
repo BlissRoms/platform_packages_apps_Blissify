@@ -81,7 +81,7 @@ public class QSTiles extends Fragment {
 
             mTileAnimationInterpolator = (ListPreference) findPreference(PREF_TILE_ANIM_INTERPOLATOR);
             mTileAnimationInterpolator.setEnabled(tileAnimationStyle > 0);
-            int tileAnimationInterpolator = Settings.System.getIntForUser(getContentResolver(),
+            int tileAnimationInterpolator = Settings.System.getIntForUser(resolver,
                     Settings.System.ANIM_TILE_INTERPOLATOR, 0, UserHandle.USER_CURRENT);
             mTileAnimationInterpolator.setValue(String.valueOf(tileAnimationInterpolator));
             updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);

@@ -40,16 +40,10 @@ public class ToastAnimation extends Fragment {
         }
 
         private static final String TAG = "ToastPreference";
-        private static final String PREF_TILE_ANIM_STYLE = "anim_tile_style";
-        private static final String PREF_TILE_ANIM_DURATION = "anim_tile_duration";
-        private static final String PREF_TILE_ANIM_INTERPOLATOR = "anim_tile_interpolator";
         private static final String PREF_TOAST_ANIMATION = "toast_animation";
         private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
         private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
-        private ListPreference mTileAnimationDuration;
-        private ListPreference mTileAnimationInterpolator;
-        private ListPreference mTileAnimationStyle;
         private ListPreference mToastAnimation;
         private ListPreference mListViewAnimation;
         private ListPreference mListViewInterpolator;
@@ -61,13 +55,12 @@ public class ToastAnimation extends Fragment {
             PreferenceScreen prefSet = getPreferenceScreen();
             ContentResolver resolver = getActivity().getContentResolver();
 
-            // Toast Animations
+            // Toast animation
             mToastAnimation = (ListPreference) findPreference(PREF_TOAST_ANIMATION);
-            mToastAnimation.setSummary(mToastAnimation.getEntry());
-            int CurrentToastAnimation = Settings.System.getInt(resolver,
+            int toastanimation = Settings.System.getInt(resolver,
                     Settings.System.TOAST_ANIMATION, 1);
-            mToastAnimation.setValueIndex(CurrentToastAnimation); //set to index of default value
-            mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
+            mToastAnimation.setValue(String.valueOf(toastanimation));
+            mToastAnimation.setSummary(mToastAnimation.getEntry());
             mToastAnimation.setOnPreferenceChangeListener(this);
             if (mToast != null) {
                 mToast.cancel();
@@ -96,16 +89,18 @@ public class ToastAnimation extends Fragment {
 
             ContentResolver resolver = getActivity().getContentResolver();
             if (preference == mToastAnimation) {
+                value = Integer.parseInt((String) newValue);
                 index = mToastAnimation.findIndexOfValue((String) newValue);
                 Settings.System.putInt(resolver,
-                        Settings.System.TOAST_ANIMATION, index);
+                        Settings.System.TOAST_ANIMATION, value);
                 mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
                 if (mToast != null) {
                     mToast.cancel();
                 }
-                mToast = Toast.makeText(getActivity(), mToastAnimation.getEntries()[index],
+                mToast = Toast.makeText(getActivity(), "Toast Test",
                         Toast.LENGTH_SHORT);
                 mToast.show();
+                return true;
             } else if (preference == mListViewAnimation) {
                 value = Integer.parseInt((String) newValue);
                 index = mListViewAnimation.findIndexOfValue((String) newValue);
@@ -113,6 +108,7 @@ public class ToastAnimation extends Fragment {
                         Settings.System.LISTVIEW_ANIMATION, value);
                 mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
                 mListViewInterpolator.setEnabled(value > 0);
+                return true;
             } else if (preference == mListViewInterpolator) {
                 value = Integer.parseInt((String) newValue);
                 index = mListViewInterpolator.findIndexOfValue((String) newValue);
