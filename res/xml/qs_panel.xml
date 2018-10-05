@@ -4,6 +4,12 @@
         xmlns:bliss="http://schemas.android.com/apk/res-auto">
 
         <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/brightness_slider_title"
+            android:summary="@string/brightness_slider_summary"
+            android:defaultValue="true"/>
+
+        <com.blissroms.blissify.preference.SecureSettingSwitchPreference
             android:key="status_bar_locked_on_secure_keyguard"
             android:title="@string/block_on_secure_keyguard_title"
             android:summary="@string/block_on_secure_keyguard_summary"
