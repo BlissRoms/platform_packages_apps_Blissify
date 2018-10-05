@@ -394,6 +394,8 @@
     <string name="brightness_slider_summary">Show the brightness slider underneath quick settings</string>
     <string name="qs_brightness_position_bottom_title">Brightness slider on bottom</string>
     <string name="qs_brightness_position_bottom_summary">Show a brightness slider on bottom quick settings</string>
+    <string name="brightness_icon_title">Auto Brightness Icon</string>
+    <string name="brightness_icon_summary">Show a brightness icon to the left of the brighness slider to adjust auto-brightness</string>
 
     <!-- OmniSwitch -->
     <string name="navbar_recents_style_title">Recents style</string>

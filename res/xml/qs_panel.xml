@@ -16,6 +16,13 @@
             android:defaultValue="false"
             android:dependency="qs_show_brightness_slider" />
 
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="qs_show_brightness_icon"
+            android:title="@string/brightness_icon_title"
+            android:summary="@string/brightness_icon_summary"
+            android:dependency="qs_show_brightness_slider"
+            android:defaultValue="false"/>
+
         <com.blissroms.blissify.preference.SecureSettingSwitchPreference
             android:key="status_bar_locked_on_secure_keyguard"
             android:title="@string/block_on_secure_keyguard_title"
