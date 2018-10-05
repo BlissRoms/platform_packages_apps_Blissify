@@ -187,6 +187,19 @@
     <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
 
+    <!-- Tiles animation style  -->
+    <string name="qs_tile_animation_category">QS tiles animations</string>
+    <string name="qs_tile_animation_style_title">QS tiles animation style</string>
+    <string name="qs_tile_animation_duration_title">QS tiles animation duration</string>
+    <string name="qs_tile_animation_style_off">no animation</string>
+    <string name="qs_tile_animation_style_flip">flip</string>
+    <string name="qs_tile_animation_style_rotate">rotate</string>
+    <string name="qs_tile_animation_duration_low">low</string>
+    <string name="qs_tile_animation_duration_default">default</string>
+    <string name="qs_tile_animation_duration_fast">fast</string>
+    <string name="qs_set_animation_style">Animation is set to %1$s</string>
+    <string name="qs_set_animation_duration">Animation duration is set to %1$s</string>
+
     <!-- Statusbar Clock -->
     <string name="status_bar_clock_show">Show clock and date</string>
     <string name="status_bar_clock_style_title">Clock style</string>
@@ -371,6 +384,6 @@
     <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string> 
     <string name="dashboard_suggestions_title">Dashboard suggestions</string> 
     <string name="summary_dashboard_suggestions_enabled">Dashboard suggestions are enabled</string> 
-    <string name="summary_dashboard_suggestions_disabled">Dashboard suggestions are disabled</string> 
+    <string name="summary_dashboard_suggestions_disabled">Dashboard suggestions are disabled</string>
 
 </resources>
