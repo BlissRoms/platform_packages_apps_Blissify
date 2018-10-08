@@ -146,6 +146,12 @@
     <string name="summary_animation_no_override">Prevent apps from overriding transitions</string>
     <string name="animation_duration_default">Default</string>
 
+    <!-- Screen off animation -->
+    <string name="screen_off_animation_default">Default</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Scale</string>
+    <string name="screen_off_animation_title">Screen off animation</string>
+
     <!-- Toast Animation -->
     <string name="toast_none_animation">None</string>
     <string name="toast_default_animation">Default</string>

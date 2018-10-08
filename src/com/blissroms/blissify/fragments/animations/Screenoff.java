@@ -59,15 +59,35 @@ public class Screenoff extends Fragment {
         public SystemPreference() {
         }
 
+    private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
+
+    private ListPreference mScreenOffAnimation;
+
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.xml.screenoff_animation);
             PreferenceScreen prefSet = getPreferenceScreen();
             ContentResolver resolver = getActivity().getContentResolver();
 
+            mScreenOffAnimation = (ListPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
+            int screenOffAnimation = Settings.Global.getInt(resolver,
+                    Settings.Global.SCREEN_OFF_ANIMATION, 0);
+            mScreenOffAnimation.setValue(Integer.toString(screenOffAnimation));
+            mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntry());
+            mScreenOffAnimation.setOnPreferenceChangeListener(this);
+
         }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
          ContentResolver resolver = getActivity().getContentResolver();
+         if (preference == mScreenOffAnimation) {
+            int value = Integer.valueOf((String) newValue);
+            int index = mScreenOffAnimation.findIndexOfValue((String) newValue);
+            mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[index]);
+            Settings.Global.putInt(resolver, Settings.Global.SCREEN_OFF_ANIMATION, value);
+            return true;
+         }
+         return false;
+       }
      }
 }
