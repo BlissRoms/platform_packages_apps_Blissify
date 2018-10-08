@@ -80,4 +80,12 @@
             bliss:defaultColorValue="0xff99CC00"
             android:dialogTitle="@string/battery_bar_color" />
 
+    <Preference
+            android:title="@string/statusbar_tuner_title"
+            android:summary="@string/statusbar_tuner_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.StatusBarIconsTunerActivity" />
+    </Preference>
+
 </PreferenceScreen>
