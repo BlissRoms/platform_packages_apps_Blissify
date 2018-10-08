@@ -14,6 +14,7 @@ import android.provider.Settings;
 import com.android.internal.util.bliss.AwesomeAnimationHelper;
 import com.blissroms.blissify.R;
 import com.blissroms.blissify.fragments.animations.SystemAnimation;
+import com.blissroms.blissify.fragments.animations.Screenoff;
 import com.blissroms.blissify.fragments.animations.ToastAnimation;
 import com.blissroms.blissify.fragments.animations.QSTiles;
 
@@ -55,8 +56,9 @@ public class Animations extends Fragment {
             super(fm);
             // Add Fragments Here
             frags[0] = new SystemAnimation();
-            frags[1] = new ToastAnimation();
-            frags[2] = new QSTiles();
+            frags[1] = new Screenoff();
+            frags[2] = new ToastAnimation();
+            frags[3] = new QSTiles();
         }
 
         @Override
@@ -66,7 +68,7 @@ public class Animations extends Fragment {
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
 
         @Override
@@ -80,6 +82,7 @@ public class Animations extends Fragment {
             titleString = new String[]
                     {
                             getString(R.string.system_animation_title),
+                            getString(R.string.screenoff_animation_title),
                             getString(R.string.toast_animation_title),
                             getString(R.string.qstiles_animation_title)
                     };

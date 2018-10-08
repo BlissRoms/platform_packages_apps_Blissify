@@ -50,6 +50,7 @@
 
     <!-- Animation -->
     <string name="system_animation_title">System</string>
+    <string name="screenoff_animation_title">Screen off</string>
     <string name="toast_animation_title">Toast</string>
     <string name="qstiles_animation_title">QS Tile</string>
 
