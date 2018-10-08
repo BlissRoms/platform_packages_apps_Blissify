@@ -163,6 +163,10 @@
     <string name="toast_SlideLeftRight_animation">Slide left to right</string>
     <string name="toast_SlideRightLeft_animation">Slide right to left</string>
 
+    <!-- Toast icon -->
+    <string name="toast_icon_title">Toast icon</string>
+    <string name="toast_icon_summary">Display icon of activity that generates toast message</string>
+
     <!-- ListView animation -->
     <string name="listview_animation_title">ListView animation</string>
     <string name="listview_off">Default</string>

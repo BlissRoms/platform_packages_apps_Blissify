@@ -17,6 +17,12 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="toast_icon"
+        android:title="@string/toast_icon_title"
+        android:summary="@string/toast_icon_summary"
+        android:defaultValue="true" />
+
     <ListPreference
         android:key="toast_animation"
         android:title="@string/toast_animation_title"
