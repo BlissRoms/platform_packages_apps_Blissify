@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen 
+<PreferenceScreen
         xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.blissroms.blissify.preference.GlobalSettingSwitchPreference
+        android:key="heads_up_notifications_enabled"
+        android:title="@string/heads_up_title"
+        android:summaryOn="@string/heads_up_summary_enabled"
+        android:summaryOff="@string/heads_up_summary_disabled"
+        android:defaultValue="true" />
 
     <com.blissroms.blissify.preference.SystemSettingIntListPreference
         android:key="heads_up_timeout"
         android:title="@string/heads_up_time_out_title"
         android:entries="@array/heads_up_time_out_entries"
         android:entryValues="@array/heads_up_time_out_values"
+        android:dependency="heads_up_notifications_enabled"
         android:summary="%s"
         android:defaultValue="2000" />
 
@@ -15,6 +23,7 @@
         android:title="@string/heads_up_snooze_title"
         android:entries="@array/heads_up_snooze_entries"
         android:entryValues="@array/heads_up_snooze_values"
+        android:dependency="heads_up_notifications_enabled"
         android:defaultValue="0" />
 
     <PreferenceCategory

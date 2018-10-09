@@ -499,5 +499,8 @@
     <string name="log_category">Notifications history</string>
     <string name="notification_log_title">Notification log</string>
     <string name="notification_log_summary">Show notifications history log</string>
+    <string name="heads_up_title">Enable</string>
+    <string name="heads_up_summary_enabled">Heads up notifications are enabled</string>
+    <string name="heads_up_summary_disabled">Heads up notifications are disabled</string>
 
 </resources>
