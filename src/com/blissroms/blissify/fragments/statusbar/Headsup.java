@@ -47,6 +47,7 @@ public class Headsup extends SettingsPreferenceFragment
 
             addPreferencesFromResource(R.xml.statusbar_headsup);
             PreferenceScreen prefSet = getPreferenceScreen();
+            ContentResolver resolver = getActivity().getContentResolver();
 
         }
 

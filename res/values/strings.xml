@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Blissify App name -->
     <string name="app_name">Blissify</string>
@@ -465,13 +465,39 @@
     <string name="resolve_failed_summary">Resolving app failed</string>
     <string name="choose_app">Choose app</string>
 
-    <!-- Dashboard conditions--> 
-    <string name="dashboard_category">Dashboard options</string> 
-    <string name="dashboard_conditions_title">Dashboard conditions</string> 
-    <string name="summary_dashboard_conditions_enabled">Dashboard conditions are enabled</string> 
-    <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string> 
-    <string name="dashboard_suggestions_title">Dashboard suggestions</string> 
-    <string name="summary_dashboard_suggestions_enabled">Dashboard suggestions are enabled</string> 
+    <!-- Dashboard conditions-->
+    <string name="dashboard_category">Dashboard options</string>
+    <string name="dashboard_conditions_title">Dashboard conditions</string>
+    <string name="summary_dashboard_conditions_enabled">Dashboard conditions are enabled</string>
+    <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string>
+    <string name="dashboard_suggestions_title">Dashboard suggestions</string>
+    <string name="summary_dashboard_suggestions_enabled">Dashboard suggestions are enabled</string>
     <string name="summary_dashboard_suggestions_disabled">Dashboard suggestions are disabled</string>
+
+   <!-- Heads up snooze -->
+    <string name="heads_up_category">Peek notifications</string>
+    <string name="heads_up_snooze_title">Peek notification snooze timer</string>
+    <string name="heads_up_snooze_disabled_summary">Snooze timer is disabled</string>
+    <string name="heads_up_snooze_1min">1 minute</string>
+    <string name="heads_up_snooze_5min">5 minutes</string>
+    <string name="heads_up_snooze_10min">10 minutes</string>
+    <string name="heads_up_snooze_15min">15 minutes</string>
+    <string name="heads_up_snooze_20min">20 minutes</string>
+
+    <!-- Heads up timeout-->
+    <string name="heads_up_cat_title">Heads up</string>
+    <string name="heads_up_cat_summary">Snooze, timeout blacklist etc</string>
+    <string name="heads_up_time_out_title">Time out</string>
+    <string name="heads_up_time_out_summary">Peeking notifications will show for <xliff:g id="number">%d</xliff:g> seconds</string>
+    <string name="heads_up_time_out_2sec">2 seconds</string>
+    <string name="heads_up_time_out_4sec">4 seconds</string>
+    <string name="heads_up_time_out_5sec">5 seconds</string>
+    <string name="heads_up_time_out_6sec">6 seconds</string>
+    <string name="heads_up_time_out_8sec">8 seconds</string>
+    <string name="heads_up_time_out_10sec">10 seconds</string>
+
+    <string name="log_category">Notifications history</string>
+    <string name="notification_log_title">Notification log</string>
+    <string name="notification_log_summary">Show notifications history log</string>
 
 </resources>
