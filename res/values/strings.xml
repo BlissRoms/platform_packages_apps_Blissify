@@ -72,6 +72,7 @@
     <string name="statusbar_icons_title">Items</string>
     <string name="statusbar_clock_title">Clock</string>
     <string name="statusbar_battery_title">Battery</string>
+    <string name="statusbar_headsup_title">Headsup</string>
 
     <string name="unit_x1000ms">x1000 ms</string>
     <string name="unit_percent">\u0025</string>
@@ -93,6 +94,7 @@
     <string name="statusbar_icons_summary">Various status bar icon options</string>
     <string name="statusbar_clock_summary">Clock position and layout options</string>
     <string name="statusbar_battery_summary">Battery icon and battery bar options</string>
+    <string name="statusbar_headsup_summary">Set heads up snooze and timeout options as well as blacklist</string>
     <string name="lockscreen_ui_summary">Change various lockscreen interface options</string>
 
 

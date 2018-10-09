@@ -25,6 +25,14 @@
                 />
 
      <PreferenceScreen
+                android:id="@+id/statusbar_headsup"
+                android:title="@string/statusbar_headsup_title"
+                android:summary="@string/statusbar_headsup_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.statusbar.Headsup"
+                />
+
+     <PreferenceScreen
                 android:id="@+id/statusbar_icons"
                 android:title="@string/statusbar_icons_title"
                 android:summary="@string/statusbar_icons_summary"
