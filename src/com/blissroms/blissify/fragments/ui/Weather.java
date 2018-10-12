@@ -37,32 +37,13 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
-
-import com.blissroms.blissify.R;
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.omni.PackageUtils;
 
-public class Weather extends Fragment {
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.default_view,container,false);
-
-        Resources res = getResources();
-        super.onCreate(savedInstanceState);
-
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.default_view, new Weather.SystemPreference())
-                .commit();
-        return view;
-    }
-
-    public static class SystemPreference extends PreferenceFragmentCompat
+public class Weather extends SettingsPreferenceFragment
                                          implements Preference.OnPreferenceChangeListener{
-
-        public SystemPreference() {
-        }
 
         private static final String TAG = "OmniJawsSettings";
         private static final String CATEGORY_WEATHER = "weather_category";
@@ -76,8 +57,10 @@ public class Weather extends Fragment {
         private ListPreference mWeatherIconPack;
 
 
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
             addPreferencesFromResource(R.xml.interface_weather);
             PreferenceScreen prefScreen = getPreferenceScreen();
             ContentResolver resolver = getActivity().getContentResolver();
@@ -184,5 +167,9 @@ public class Weather extends Fragment {
             }
             return true;
          }
-     }
+
+       @Override
+         public int getMetricsCategory() {
+        return MetricsProto.MetricsEvent.BLISSIFY;
+       }
 }

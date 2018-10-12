@@ -36,6 +36,19 @@
     <string name="recents_category">Recents</string>
     <string name="statusbar_category">Statusbar</string>
 
+    <!--Blissify Configurations-->
+    <string name="fab_updates">Updates</string>
+    <string name="fab_restartui">Restart UI</string>
+    <string name="fab_reset">Reset</string>
+    <string name="fab_about">About RR-OS</string>
+    <string name="fab_layout">Update layout</string>
+    <string name="fab_layout_update">Toggle classic layout</string>
+    <string name="fab_layout_toggle">Toggle tab layout</string>
+    <string name="bliss_reset_message">Reset all configurations to default values?</string>
+    <string name="bliss_reset_settings">Reset settings</string>
+    <string name="bliss_reset_yes">Yes</string>
+    <string name="bliss_reset_cancel">Cancel</string>
+
     <!-- Tabs Titles -->
     <string name="buttons_navbar_title">NavBar</string>
     <string name="buttons_power_title">Power</string>
@@ -47,6 +60,7 @@
     <string name="interface_batteryled_title">Battery LED</string>
     <string name="recents_style_title">Style</string>
     <string name="qs_panel_title">Panel</string>
+    <string name="lockscreen_ui_title">UI options</string>
 
     <!-- Animation -->
     <string name="system_animation_title">System</string>
@@ -55,21 +69,32 @@
     <string name="qstiles_animation_title">QS Tile</string>
 
     <!-- Statusbar -->
-    <string name="statusbar_icons_title">Icons</string>
+    <string name="statusbar_icons_title">Items</string>
     <string name="statusbar_clock_title">Clock</string>
     <string name="statusbar_battery_title">Battery</string>
 
-    <!-- Color Picker -->
-    <string name="dialog_color_picker">Color Picker</string>
-    <string name="press_color_to_apply">Press on color below to apply</string>
-    <string name="arrow_right">→</string>
-    <string name="arrow_down">↓</string>
-    <string name="hex">Hex:</string>
-    <string name="hex_hint">#ff000000</string>
-    <string name="set">Set</string>
-    <string name="color_default">Default</string>
     <string name="unit_x1000ms">x1000 ms</string>
     <string name="unit_percent">\u0025</string>
+
+    <!-- Tabs Summaries -->
+    <string name="buttons_navbar_summary">Navigation bar options</string>
+    <string name="buttons_power_summary">Power button options</string>
+    <string name="buttons_volume_summary">Customizations to the volume button</string>
+    <string name="interface_misc_summary">Access to AppOps and aspect ratio hack for apps</string>
+    <string name="interface_callopt_summary">Various calling options</string>
+    <string name="interface_weather_summary">Systems weather options</string>
+    <string name="interface_batteryled_summary">Change the colors for the charging led indication</string>
+    <string name="recents_style_summary">Change recents display style</string>
+    <string name="qs_panel_summary">Quick setting panel custom options</string>
+    <string name="system_animation_summary">Various system animations</string>
+    <string name="screenoff_animation_summary">Animations shown when the screen turns off</string>
+    <string name="toast_animation_summary">Animations for when the toast popup is displayed</string>
+    <string name="qstiles_animation_summary">Animations for when a tile is pressed</string>
+    <string name="statusbar_icons_summary">Various status bar icon options</string>
+    <string name="statusbar_clock_summary">Clock position and layout options</string>
+    <string name="statusbar_battery_summary">Battery icon and battery bar options</string>
+    <string name="lockscreen_ui_summary">Change various lockscreen interface options</string>
+
 
     <!--SystemUI Tuner -->
     <string name="statusbar_tuner_title">Statusbar tuner</string>
@@ -275,8 +300,6 @@
 
     <string name="use_old_mobiletype_title">Use old mobile type style</string>
     <string name="use_old_mobiletype_summary">Merge signal and type icons</string>
-
-    <string name="lockscreen_ui_title">UI options</string>
 
     <!-- Lockscreen weather -->
     <string name="lockscreen_weather_title">Show weather condition</string>

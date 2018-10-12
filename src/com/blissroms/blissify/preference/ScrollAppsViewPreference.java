@@ -30,7 +30,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.blissroms.blissify.R;
+import com.android.settings.R;
 
 import java.util.ArrayList;
 import java.util.Collection;

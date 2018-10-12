@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.ListPreference;
 import android.view.LayoutInflater;
@@ -31,39 +30,25 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.android.settings.bliss.preference.ColorPickerPreference;
 
-import com.blissroms.blissify.R;
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.nano.MetricsProto;
 
-public class LockUI extends Fragment {
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.default_view,container,false);
-
-        Resources res = getResources();
-        super.onCreate(savedInstanceState);
-
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.default_view, new LockUI.SystemPreference())
-                .commit();
-        return view;
-    }
-
-    public static class SystemPreference extends PreferenceFragmentCompat
+public class LockUI extends SettingsPreferenceFragment
                                          implements Preference.OnPreferenceChangeListener{
 
-        public SystemPreference() {
-        }
 
     private static final String LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR = "lock_screen_visualizer_custom_color";
 
     private ColorPickerPreference mVisualizerColor;
 
 
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
             addPreferencesFromResource(R.xml.lockscreen_ui);
             PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
@@ -88,8 +73,12 @@ public class LockUI extends Fragment {
                     Settings.System.LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR, intHex);
             preference.setSummary(hex);
             return true;
+            }
+         return false;
         }
-        return false;
-        }
-     }
+
+       @Override
+         public int getMetricsCategory() {
+        return MetricsProto.MetricsEvent.BLISSIFY;
+       }
 }

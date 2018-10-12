@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bliss="http://schemas.android.com/apk/res-auto">
+
+	<!-- bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
+     <PreferenceScreen
+                android:id="@+id/qs_panel"
+                android:title="@string/qs_panel_title"
+                android:summary="@string/qs_panel_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.qs.Panel"
+                />
+
+</PreferenceScreen>

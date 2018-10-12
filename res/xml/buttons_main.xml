@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<!-- bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
+     <PreferenceScreen
+                android:id="@+id/buttons_navbar"
+                android:title="@string/buttons_navbar_title"
+                android:summary="@string/buttons_navbar_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.buttons.NavBar"
+                />
+
+     <PreferenceScreen
+                android:id="@+id/buttons_power"
+                android:title="@string/buttons_power_title"
+                android:summary="@string/buttons_power_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.buttons.Power"
+                />
+
+     <PreferenceScreen
+                android:id="@+id/buttons_volume"
+                android:title="@string/buttons_volume_title"
+                android:summary="@string/buttons_volume_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.buttons.Volume"
+                />
+
+
+</PreferenceScreen>

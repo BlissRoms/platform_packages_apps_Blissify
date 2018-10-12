@@ -17,11 +17,30 @@
 
 <resources>
 
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="icon_color">#BBDEFB</color>
-    <color name="tab_selected_text">#ffffff</color>
-    <color name="tab_default_text">#ff8a80</color>
+    <color name="theme_accent">@*android:color/accent_device_default_light</color>
+    <color name="bliss_accent">@color/theme_accent</color>
+    <color name="blissify_logo_color">#3e93cc</color>
+
+    <!-- DSLV colors -->
+    <color name="dslv_float_background_color">@color/theme_accent</color>
+
+    <!-- DSLV fab color -->
+    <color name="floating_action_button_touch_tint">#80ffffff</color>
+    <color name="navbar_edit_icon_color">#607d8b</color>
+    <color name="setup_wizard_wifi_color_dark">#89ffffff</color>
+
+    <color name="divider_color">#20ffffff</color>
+    <color name="switchbar_text_color">#ffffffff</color>
+    <color name="switch_accent_color">@color/theme_accent</color>
+
+    <!-- RR Configuration tab settings colors -->
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="card_background">#fffafafa</color>
+    <color name="card_background_grey">#eeeeee</color>
+    <color name="fab_label_background">@color/card_background</color>
+    <color name="secondary_text">@*android:color/secondary_text_default_material_light</color>
+    <color name="bliss_config_tab_color">@*android:color/secondary_device_default_settings</color><!-- Tab bg color -->
+    <color name="bliss_config_tab_text_color">@*android:color/secondary_text_default_material_dark</color>
+    <color name="fab_ripple">#1fffffff</color><!-- 12% white -->
 
 </resources>

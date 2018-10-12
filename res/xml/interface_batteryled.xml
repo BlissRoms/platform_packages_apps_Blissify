@@ -30,28 +30,28 @@
         android:title="@string/battery_light_cat"
         android:dependency="battery_light_enabled">
 
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
+        <com.android.settings.bliss.preference.ColorPickerPreference
             android:key="low_color"
             android:title="@string/battery_light_low_color_title"
             android:persistent="false"
             ledPreview="true"
             bliss:defaultColorValue="0xFFFFFF00" />
 
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
+        <com.android.settings.bliss.preference.ColorPickerPreference
             android:key="medium_color"
             android:title="@string/battery_light_medium_color_title"
             android:persistent="false"
             ledPreview="true"
             bliss:defaultColorValue="0xFFFFFF00" />
 
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
+        <com.android.settings.bliss.preference.ColorPickerPreference
             android:key="full_color"
             android:title="@string/battery_light_full_color_title"
             android:persistent="false"
             ledPreview="true"
             bliss:defaultColorValue="0xFFFFFF00"/>
 
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
+        <com.android.settings.bliss.preference.ColorPickerPreference
             android:key="really_full_color"
             android:title="@string/battery_light_really_full_color_title"
             android:persistent="false"
@@ -71,7 +71,7 @@
             android:summary="@string/fast_charging_led_enabled_summary"
             android:defaultValue="false" />
 
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
+        <com.android.settings.bliss.preference.ColorPickerPreference
             android:key="fast_color"
             android:title="@string/fast_charging_light_color_title"
             android:summary="@string/fast_charging_light_color_summary"

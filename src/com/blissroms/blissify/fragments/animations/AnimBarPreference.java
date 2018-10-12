@@ -25,7 +25,7 @@ import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import com.blissroms.blissify.R;
+import com.android.settings.R;
 
 public class AnimBarPreference extends Preference
         implements OnSeekBarChangeListener {

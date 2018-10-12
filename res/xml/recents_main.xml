@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<!-- bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
+     <PreferenceScreen
+                android:id="@+id/recents_style"
+                android:title="@string/recents_style_title"
+                android:summary="@string/recents_style_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.recents.Style"
+                />
+
+</PreferenceScreen>

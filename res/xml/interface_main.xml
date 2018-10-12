@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:bliss="http://schemas.android.com/apk/res-auto">
+
+	<!-- bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
+        <Preference
+            android:key="omni_theme_select_activity"
+            android:title="@string/bliss_theme_select_title"
+            android:summary="@string/bliss_theme_select_summary"
+            android:icon="@drawable/ic_settings_style"
+            android:persistent="false" >
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="org.omnirom.omnistyle"
+                    android:targetClass="org.omnirom.omnistyle.BrowseThemesActivity" />
+        </Preference>
+
+     <PreferenceScreen
+                android:id="@+id/interface_batteryled"
+                android:title="@string/interface_batteryled_title"
+                android:summary="@string/interface_batteryled_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.ui.BattLED"
+                />
+
+     <PreferenceScreen
+                android:id="@+id/interface_callopt"
+                android:title="@string/interface_callopt_title"
+                android:summary="@string/interface_callopt_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.ui.CallOpt"
+                />
+
+     <PreferenceScreen
+                android:id="@+id/interface_weather"
+                android:title="@string/interface_weather_title"
+                android:summary="@string/interface_weather_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.ui.Weather"
+                />
+
+     <PreferenceScreen
+                android:id="@+id/interface_misc"
+                android:title="@string/interface_misc_title"
+                android:summary="@string/interface_misc_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.ui.Misc"
+                />
+
+</PreferenceScreen>

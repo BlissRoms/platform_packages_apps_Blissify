@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
@@ -33,32 +32,14 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.android.settings.bliss.preference.ColorPickerPreference;
 
-import com.blissroms.blissify.R;
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.nano.MetricsProto;
 
-public class Battery extends Fragment {
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.default_view,container,false);
-
-        Resources res = getResources();
-        super.onCreate(savedInstanceState);
-
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.default_view, new Battery.SystemPreference())
-                .commit();
-        return view;
-    }
-
-    public static class SystemPreference extends PreferenceFragmentCompat
+public class Battery extends SettingsPreferenceFragment
                                          implements Preference.OnPreferenceChangeListener{
-
-        public SystemPreference() {
-        }
-
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String BATTERY_PERCENT = "show_battery_percent";
     private static final String PREF_BATT_BAR = "battery_bar_list";
@@ -86,8 +67,10 @@ public class Battery extends Fragment {
     private ColorPickerPreference mBatteryBarBatteryHighColor;
 
 
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         addPreferencesFromResource(R.xml.statusbar_battery);
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
@@ -189,6 +172,11 @@ public class Battery extends Fragment {
 
         updateBatteryBarOptions();
         }
+
+       @Override
+         public int getMetricsCategory() {
+        return MetricsProto.MetricsEvent.BLISSIFY;
+       }
 
     private void updateBatteryBarOptions() {
         if (Settings.System.getInt(getActivity().getContentResolver(),
@@ -307,5 +295,4 @@ public class Battery extends Fragment {
        }
        return false;
        }
-    }
 }

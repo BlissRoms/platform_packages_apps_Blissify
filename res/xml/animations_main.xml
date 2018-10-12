@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<!-- bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
+     <PreferenceScreen
+                android:id="@+id/system_animations"
+                android:title="@string/system_animation_title"
+                android:summary="@string/system_animation_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.animations.SystemAnimation"
+                />
+
+     <PreferenceScreen
+                android:id="@+id/qstiles_animation"
+                android:title="@string/qstiles_animation_title"
+                android:summary="@string/qstiles_animation_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.animations.QSTiles"
+                />
+
+     <PreferenceScreen
+                android:id="@+id/screenoff_animation"
+                android:title="@string/screenoff_animation_title"
+                android:summary="@string/screenoff_animation_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.animations.Screenoff"
+                />
+
+     <PreferenceScreen
+                android:id="@+id/toast_animation"
+                android:title="@string/toast_animation_title"
+                android:summary="@string/toast_animation_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.animations.ToastAnimation"
+                />
+
+</PreferenceScreen>

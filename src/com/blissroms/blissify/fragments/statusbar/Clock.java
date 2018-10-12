@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.ListPreference;
 import android.view.LayoutInflater;
@@ -31,29 +30,12 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import com.blissroms.blissify.R;
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.nano.MetricsProto;
 
-public class Clock extends Fragment {
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.default_view,container,false);
-
-        Resources res = getResources();
-        super.onCreate(savedInstanceState);
-
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.default_view, new Clock.SystemPreference())
-                .commit();
-        return view;
-    }
-
-    public static class SystemPreference extends PreferenceFragmentCompat
+public class Clock extends SettingsPreferenceFragment
                                          implements Preference.OnPreferenceChangeListener{
-
-        public SystemPreference() {
-        }
 
         private static final String TAG = "Clock";
         private static final String STATUS_BAR_CLOCK = "status_bar_clock";
@@ -78,8 +60,10 @@ public class Clock extends Fragment {
         private ListPreference mClockDatePosition;
 
 
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
             addPreferencesFromResource(R.xml.statusbar_clock);
             PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
@@ -282,5 +266,9 @@ public class Clock extends Fragment {
             mClockDateFormat.setEntries(parsedDateEntries);
 
         }
-    }
+
+       @Override
+         public int getMetricsCategory() {
+        return MetricsProto.MetricsEvent.BLISSIFY;
+       }
 }

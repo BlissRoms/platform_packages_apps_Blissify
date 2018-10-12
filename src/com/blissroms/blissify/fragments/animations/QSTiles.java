@@ -15,36 +15,19 @@ import android.support.v14.preference.SwitchPreference;
 import android.support.v4.app.Fragment;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.provider.Settings;
 
-import com.blissroms.blissify.R;
+import com.android.internal.logging.nano.MetricsProto;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.R;
 
-public class QSTiles extends Fragment {
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.default_view,container,false);
-
-        Resources res = getResources();
-        super.onCreate(savedInstanceState);
-
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.default_view, new QSTiles.QSTilesPreference())
-                .commit();
-        return view;
-    }
-
-    public static class QSTilesPreference extends PreferenceFragmentCompat
+public class QSTiles extends SettingsPreferenceFragment
                                         implements Preference.OnPreferenceChangeListener{
 
-        public QSTilesPreference() {
-        }
 
         private static final String TAG = "QSTilesPreference";
         private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
@@ -56,8 +39,10 @@ public class QSTiles extends Fragment {
         private ListPreference mTileAnimationInterpolator;
 
 
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
             addPreferencesFromResource(R.xml.qstiles_animation);
             PreferenceScreen prefSet = getPreferenceScreen();
 
@@ -131,5 +116,10 @@ public class QSTiles extends Fragment {
                     .valueOf(tileAnimationInterpolator))];
             mTileAnimationInterpolator.setSummary(getResources().getString(R.string.qs_set_animation_interpolator, prefix));
         }
-    }
+
+        @Override
+         public int getMetricsCategory() {
+            return MetricsProto.MetricsEvent.BLISSIFY;
+        }
+
 }

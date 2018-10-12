@@ -22,7 +22,7 @@
         android:dependency="lockscreen_visualizer_enabled"
         android:defaultValue="false" />
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
+    <com.android.settings.bliss.preference.ColorPickerPreference
         android:key="lock_screen_visualizer_custom_color"
         android:title="@string/lockscreen_visualizer_custom_color"
         android:dependency="lock_screen_visualizer_use_custom_color"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bliss="http://schemas.android.com/apk/res-auto">
+
+	<!-- bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
+     <PreferenceScreen
+                android:id="@+id/lockscreen_ui"
+                android:title="@string/lockscreen_ui_title"
+                android:summary="@string/lockscreen_ui_summary"
+                android:icon="@drawable/ic_settings_leds"
+                android:fragment="com.blissroms.blissify.fragments.lockscreen.LockUI"
+                />
+
+</PreferenceScreen>

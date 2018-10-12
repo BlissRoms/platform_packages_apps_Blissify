@@ -9,7 +9,6 @@ import android.support.v14.preference.SwitchPreference;
 import android.support.v4.app.Fragment;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,33 +18,17 @@ import android.provider.Settings;
 import com.android.internal.util.bliss.AwesomeAnimationHelper;
 import java.util.Arrays;
 
-import com.blissroms.blissify.R;
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.nano.MetricsProto;
 
 /**
  * Created by jackeagle on 31/12/17.
  */
 
-public class SystemAnimation extends Fragment {
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.default_view,container,false);
-
-        Resources res = getResources();
-        super.onCreate(savedInstanceState);
-
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.default_view, new SystemAnimation.SystemPreference())
-                .commit();
-        return view;
-    }
-
-    public static class SystemPreference extends PreferenceFragmentCompat
+public class SystemAnimation extends SettingsPreferenceFragment
             implements Preference.OnPreferenceChangeListener{
 
-        public SystemPreference() {
-        }
 
         private static final String TAG = "TrafficSettingsFragment";
         private static final String ACTIVITY_OPEN = "activity_open";
@@ -78,8 +61,10 @@ public class SystemAnimation extends Fragment {
         private String[] mAnimationsStrings;
         private String[] mAnimationsNum;
 
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
             addPreferencesFromResource(R.xml.system_animation);
 
             PreferenceScreen prefs = getPreferenceScreen();
@@ -258,5 +243,10 @@ public class SystemAnimation extends Fragment {
             return mAnimationsStrings[mNum];
         }
 
-    }
+
+         @Override
+         public int getMetricsCategory() {
+            return MetricsProto.MetricsEvent.BLISSIFY;
+         }
+
 }

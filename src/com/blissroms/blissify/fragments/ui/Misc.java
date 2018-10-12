@@ -13,7 +13,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.ListPreference;
 import android.view.LayoutInflater;
@@ -33,34 +32,16 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
-
-import com.blissroms.blissify.R;
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.nano.MetricsProto;
 import com.blissroms.blissify.preference.AppMultiSelectListPreference;
 import com.blissroms.blissify.preference.ScrollAppsViewPreference;
 import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
 
-public class Misc extends Fragment {
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.default_view,container,false);
-
-        Resources res = getResources();
-        super.onCreate(savedInstanceState);
-
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.default_view, new Misc.SystemPreference())
-                .commit();
-        return view;
-    }
-
-    public static class SystemPreference extends PreferenceFragmentCompat
+public class Misc extends SettingsPreferenceFragment
                                          implements Preference.OnPreferenceChangeListener{
 
-        public SystemPreference() {
-        }
 
         private static final String TAG = "Misc";
         private static final String KEY_ASPECT_RATIO_APPS_ENABLED = "aspect_ratio_apps_enabled";
@@ -72,8 +53,10 @@ public class Misc extends Fragment {
         private ScrollAppsViewPreference mAspectRatioApps;
 
 
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
             addPreferencesFromResource(R.xml.interface_misc);
             PreferenceScreen prefSet = getPreferenceScreen();
             ContentResolver resolver = getActivity().getContentResolver();
@@ -118,5 +101,9 @@ public class Misc extends Fragment {
             }
             return false;
          }
-     }
+
+       @Override
+         public int getMetricsCategory() {
+        return MetricsProto.MetricsEvent.BLISSIFY;
+       }
 }
