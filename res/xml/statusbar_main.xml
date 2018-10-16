@@ -6,13 +6,13 @@
 	<!-- bliss Logo Header -->
     <Preference 
         android:key="bliss_logo"
-        android:layout="@layout/bliss_logo" />
+        android:layout="@layout/statusbar_top" />
 
      <PreferenceScreen
                 android:id="@+id/statusbar_battery"
                 android:title="@string/statusbar_battery_title"
                 android:summary="@string/statusbar_battery_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_battery"
                 android:fragment="com.blissroms.blissify.fragments.statusbar.Battery"
                 />
 
@@ -20,7 +20,7 @@
                 android:id="@+id/statusbar_clock"
                 android:title="@string/statusbar_clock_title"
                 android:summary="@string/statusbar_clock_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_clock"
                 android:fragment="com.blissroms.blissify.fragments.statusbar.Clock"
                 />
 
@@ -28,7 +28,7 @@
                 android:id="@+id/statusbar_headsup"
                 android:title="@string/statusbar_headsup_title"
                 android:summary="@string/statusbar_headsup_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_headsup"
                 android:fragment="com.blissroms.blissify.fragments.statusbar.Headsup"
                 />
 
@@ -36,7 +36,7 @@
                 android:id="@+id/statusbar_icons"
                 android:title="@string/statusbar_icons_title"
                 android:summary="@string/statusbar_icons_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_items"
                 android:fragment="com.blissroms.blissify.fragments.statusbar.Items"
                 />
 

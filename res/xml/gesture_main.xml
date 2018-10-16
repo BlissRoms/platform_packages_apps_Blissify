@@ -6,12 +6,12 @@
 	<!-- bliss Logo Header -->
     <Preference 
         android:key="bliss_logo"
-        android:layout="@layout/bliss_logo" />
+        android:layout="@layout/gestures_top" />
 
     <Preference
         android:title="@string/carbon_gesture_preference_title"
         android:summary="@string/carbon_gestures_summary"
-        android:icon="@drawable/ic_settings_leds"
+        android:icon="@drawable/ic_gestures"
         android:fragment="com.blissroms.blissify.fragments.gestures.CarbonGesturesSettings" />
 
 </PreferenceScreen>

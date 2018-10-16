@@ -4,13 +4,13 @@
 	<!-- bliss Logo Header -->
     <Preference 
         android:key="bliss_logo"
-        android:layout="@layout/bliss_logo" />
+        android:layout="@layout/buttons_top" />
 
      <PreferenceScreen
                 android:id="@+id/buttons_navbar"
                 android:title="@string/buttons_navbar_title"
                 android:summary="@string/buttons_navbar_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_navbar"
                 android:fragment="com.blissroms.blissify.fragments.buttons.NavBar"
                 />
 
@@ -18,7 +18,7 @@
                 android:id="@+id/buttons_power"
                 android:title="@string/buttons_power_title"
                 android:summary="@string/buttons_power_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_power"
                 android:fragment="com.blissroms.blissify.fragments.buttons.Power"
                 />
 
@@ -26,7 +26,7 @@
                 android:id="@+id/buttons_volume"
                 android:title="@string/buttons_volume_title"
                 android:summary="@string/buttons_volume_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_volume"
                 android:fragment="com.blissroms.blissify.fragments.buttons.Volume"
                 />
 

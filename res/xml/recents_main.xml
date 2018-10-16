@@ -4,13 +4,13 @@
 	<!-- bliss Logo Header -->
     <Preference 
         android:key="bliss_logo"
-        android:layout="@layout/bliss_logo" />
+        android:layout="@layout/recents_top" />
 
      <PreferenceScreen
                 android:id="@+id/recents_style"
                 android:title="@string/recents_style_title"
                 android:summary="@string/recents_style_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_style"
                 android:fragment="com.blissroms.blissify.fragments.recents.Style"
                 />
 

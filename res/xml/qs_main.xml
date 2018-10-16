@@ -6,13 +6,13 @@
 	<!-- bliss Logo Header -->
     <Preference 
         android:key="bliss_logo"
-        android:layout="@layout/bliss_logo" />
+        android:layout="@layout/qs_top" />
 
      <PreferenceScreen
                 android:id="@+id/qs_panel"
                 android:title="@string/qs_panel_title"
                 android:summary="@string/qs_panel_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_panel"
                 android:fragment="com.blissroms.blissify.fragments.qs.Panel"
                 />
 

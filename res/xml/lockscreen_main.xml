@@ -6,13 +6,13 @@
 	<!-- bliss Logo Header -->
     <Preference 
         android:key="bliss_logo"
-        android:layout="@layout/bliss_logo" />
+        android:layout="@layout/lockscreen_top" />
 
      <PreferenceScreen
                 android:id="@+id/lockscreen_ui"
                 android:title="@string/lockscreen_ui_title"
                 android:summary="@string/lockscreen_ui_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_ui_options"
                 android:fragment="com.blissroms.blissify.fragments.lockscreen.LockUI"
                 />
 

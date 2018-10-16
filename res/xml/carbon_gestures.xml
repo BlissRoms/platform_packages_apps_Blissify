@@ -19,6 +19,10 @@
      android:title="@string/carbon_gesture_preference_title"
      xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
     <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
         android:key="carbon_gestures_fingers"
         android:title="@string/carbon_gestures_fingers_title"

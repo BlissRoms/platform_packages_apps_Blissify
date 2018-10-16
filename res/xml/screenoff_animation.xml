@@ -19,6 +19,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:blissify="http://schemas.android.com/apk/res/com.blissroms.blissify" >
 
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
     <ListPreference
         android:key="screen_off_animation"
         android:title="@string/screen_off_animation_title"

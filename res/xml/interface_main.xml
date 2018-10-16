@@ -5,13 +5,13 @@
 	<!-- bliss Logo Header -->
     <Preference 
         android:key="bliss_logo"
-        android:layout="@layout/bliss_logo" />
+        android:layout="@layout/interface_top" />
 
         <Preference
             android:key="omni_theme_select_activity"
             android:title="@string/bliss_theme_select_title"
             android:summary="@string/bliss_theme_select_summary"
-            android:icon="@drawable/ic_settings_style"
+            android:icon="@drawable/ic_bliss_themes"
             android:persistent="false" >
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="org.omnirom.omnistyle"
@@ -22,7 +22,7 @@
                 android:id="@+id/interface_batteryled"
                 android:title="@string/interface_batteryled_title"
                 android:summary="@string/interface_batteryled_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_battery_led"
                 android:fragment="com.blissroms.blissify.fragments.ui.BattLED"
                 />
 
@@ -30,7 +30,7 @@
                 android:id="@+id/interface_callopt"
                 android:title="@string/interface_callopt_title"
                 android:summary="@string/interface_callopt_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_call_options"
                 android:fragment="com.blissroms.blissify.fragments.ui.CallOpt"
                 />
 
@@ -38,7 +38,7 @@
                 android:id="@+id/interface_weather"
                 android:title="@string/interface_weather_title"
                 android:summary="@string/interface_weather_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_weather"
                 android:fragment="com.blissroms.blissify.fragments.ui.Weather"
                 />
 
@@ -46,7 +46,7 @@
                 android:id="@+id/interface_misc"
                 android:title="@string/interface_misc_title"
                 android:summary="@string/interface_misc_summary"
-                android:icon="@drawable/ic_settings_leds"
+                android:icon="@drawable/ic_misc"
                 android:fragment="com.blissroms.blissify.fragments.ui.Misc"
                 />
 
