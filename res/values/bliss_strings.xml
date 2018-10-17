@@ -1605,4 +1605,11 @@
     <!-- Pocket judge -->
     <string name="pocket_judge_title">Pocket detection</string>
     <string name="pocket_judge_summary">Block screen and button inputs when device is in pocket</string>
+
+    <!-- QS tile styles -->
+    <string name="qs_tile_style_title">QS tile style</string>
+    <string name="qstile_default">Default</string>
+    <string name="qstile_circle_trim">Circle with trim</string>
+    <string name="qstile_dual_tone_circle">Dual-toned circle</string>
+    <string name="qstile_squircle_trim">Squircle with trim</string>
 </resources>

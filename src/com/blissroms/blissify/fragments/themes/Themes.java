@@ -65,6 +65,7 @@ import java.util.Collections;
 
 import com.bliss.support.colorpicker.ColorPickerPreference;
 import com.blissroms.blissify.utils.DeviceUtils;
+import com.blissroms.blissify.fragments.themes.QsTileStylePreferenceController;
 
 @SearchIndexable
 public class Themes extends DashboardFragment  implements
@@ -161,6 +162,7 @@ public class Themes extends DashboardFragment  implements
                 "android.theme.customization.adaptive_icon_shape"));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.icon_pack.android"));
+        controllers.add(new QsTileStylePreferenceController(context));
         return controllers;
     }
 

@@ -78,4 +78,18 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="qs_tile_theming"
+        android:icon="@drawable/ic_bliss_themes"
+        android:title="@string/qs_tile_style_title">
+
+        <ListPreference
+            android:key="qs_tile_style"
+            android:title="@string/qs_tile_style_title"
+            android:persistent="false"
+            android:entries="@array/qs_selector_entries"
+            android:entryValues="@array/qs_selector_values" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
