@@ -47,12 +47,9 @@
         android:title="@string/log_category">
 
         <Preference
-            android:key="notification_log"
-            android:title="@string/notification_log_title">
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.notification.NotificationStation" />
-        </Preference>
+            android:title="@string/notification_log_title"
+            android:summary="@string/notification_log_summary"
+            android:fragment="com.android.settings.notification.NotificationStation" />
 
      </PreferenceCategory>
 
