@@ -6,56 +6,62 @@
         android:layout="@layout/bliss_logo" />
 
         <!-- AppOps -->
+     <Preference
+         android:key="app_ops_settings"
+         android:title="@string/app_ops_settings_title">
+         <intent android:action="android.intent.action.MAIN"
+             android:targetPackage="com.android.settings"
+             android:targetClass="com.android.settings.applications.appops.AppOpsSummary" />
+     </Preference>
+
+     <PreferenceScreen
+        android:key="doze_settings"
+        android:title="@string/doze_settings_title"
+        android:summary="@string/doze_settings_summary"
+        android:fragment="com.blissroms.blissify.fragments.ui.DozeSettings" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="enable_conditions"
+        android:title="@string/dashboard_conditions_title"
+        android:summaryOn="@string/summary_dashboard_conditions_enabled"
+        android:summaryOff="@string/summary_dashboard_conditions_disabled"
+        android:defaultValue="false" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="enable_suggestions"
+        android:title="@string/dashboard_suggestions_title"
+        android:summaryOn="@string/summary_dashboard_suggestions_enabled"
+        android:summaryOff="@string/summary_dashboard_suggestions_disabled"
+        android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:key="aspect_ratio_category"
+        android:title="@string/aspect_ratio_category_title">
+
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="aspect_ratio_apps_enabled"
+            android:title="@string/aspect_ratio_apps_enabled_title"
+            android:summary="@string/aspect_ratio_apps_enabled_summary"
+            android:defaultValue="false" />
+
+        <com.blissroms.blissify.preference.AppMultiSelectListPreference
+            android:dependency="aspect_ratio_apps_enabled"
+            android:key="aspect_ratio_apps_list"
+            android:persistent="false"
+            android:summary="@string/aspect_ratio_apps_list_summary"
+            android:title="@string/aspect_ratio_apps_list_title" />
+
+        <com.blissroms.blissify.preference.ScrollAppsViewPreference
+            android:dependency="aspect_ratio_apps_enabled"
+            android:key="aspect_ratio_apps_list_scroller"
+            android:persistent="false"
+            android:selectable="false" />
+
         <Preference
-            android:key="app_ops_settings"
-            android:title="@string/app_ops_settings_title">
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.applications.appops.AppOpsSummary" />
-        </Preference>
-
-        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
-                android:key="enable_conditions"
-                android:title="@string/dashboard_conditions_title"
-                android:summaryOn="@string/summary_dashboard_conditions_enabled"
-                android:summaryOff="@string/summary_dashboard_conditions_disabled"
-                android:defaultValue="false" />
-
-        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
-                android:key="enable_suggestions"
-                android:title="@string/dashboard_suggestions_title"
-                android:summaryOn="@string/summary_dashboard_suggestions_enabled"
-                android:summaryOff="@string/summary_dashboard_suggestions_disabled"
-                android:defaultValue="false" />
-
-        <PreferenceCategory
-            android:key="aspect_ratio_category"
-            android:title="@string/aspect_ratio_category_title">
-
-            <com.blissroms.blissify.preference.SystemSettingSwitchPreference
-                android:key="aspect_ratio_apps_enabled"
-                android:title="@string/aspect_ratio_apps_enabled_title"
-                android:summary="@string/aspect_ratio_apps_enabled_summary"
-                android:defaultValue="false" />
-
-            <com.blissroms.blissify.preference.AppMultiSelectListPreference
-                android:dependency="aspect_ratio_apps_enabled"
-                android:key="aspect_ratio_apps_list"
-                android:persistent="false"
-                android:summary="@string/aspect_ratio_apps_list_summary"
-                android:title="@string/aspect_ratio_apps_list_title" />
-
-            <com.blissroms.blissify.preference.ScrollAppsViewPreference
-                android:dependency="aspect_ratio_apps_enabled"
-                android:key="aspect_ratio_apps_list_scroller"
-                android:persistent="false"
-                android:selectable="false" />
-
-            <Preference
-                android:dependency="aspect_ratio_apps_enabled"
-                android:icon="@drawable/ic_info_outline_24dp"
-                android:persistent="false"
-                android:summary="@string/aspect_ratio_apps_info" />
-        </PreferenceCategory>
+            android:dependency="aspect_ratio_apps_enabled"
+            android:icon="@drawable/ic_info_outline_24dp"
+            android:persistent="false"
+            android:summary="@string/aspect_ratio_apps_info" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
