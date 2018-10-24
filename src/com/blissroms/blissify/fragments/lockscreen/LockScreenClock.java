@@ -39,6 +39,7 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import com.blissroms.blissify.utils.TelephonyUtils;
 
+import com.bliss.support.colorpicker.ColorPickerPreference;
 import com.bliss.support.preferences.CustomSeekBarPreference;
 import com.bliss.support.preferences.SystemSettingListPreference;
 import com.bliss.support.preferences.SystemSettingSeekBarPreference;
@@ -73,6 +74,12 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
     private static final String KEY_LOCKSCREEN_FONT_STYLE = "lock_clock_font_style";
     private static final String KEY_LOCKSCREEN_FONT_SIZE = "lock_clock_font_size";
     private static final String KEY_TEXT_CLOCK_CATEGORY = "text_clock_customizations";
+    private static final String LOCKSCREEN_CLOCK_COLOR = "lockscreen_clock_color";
+    private static final String LOCKSCREEN_DATE_COLOR = "lockscreen_date_color";
+    private static final String LOCKSCREEN_OWNER_INFO_COLOR = "lockscreen_owner_info_color";
+    private static final String LOCKSCREEN_WEATHER_TEMP_COLOR = "lockscreen_weather_temp_color";
+    private static final String LOCKSCREEN_WEATHER_CITY_COLOR = "lockscreen_weather_city_color";
+    private static final String LOCKSCREEN_WEATHER_ICON_COLOR = "lockscreen_weather_icon_color";
 
     private SystemSettingListPreference mLockClockSelection;
     private ListPreference mTextClockAlign;
@@ -81,6 +88,16 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
     private PreferenceCategory mTextClockCategory;
     private ListPreference mFontStyle;
     private SystemSettingSeekBarPreference mFontSize;
+
+    static final int DEFAULT = 0xffffffff;
+    static final int TRANSPARENT = 0x99FFFFFF;
+
+    private ColorPickerPreference mLockscreenClockColorPicker;
+    private ColorPickerPreference mLockscreenClockDateColorPicker;
+    private ColorPickerPreference mLockscreenOwnerInfoColorPicker;
+    private ColorPickerPreference mWeatherRightTextColorPicker;
+    private ColorPickerPreference mWeatherLeftTextColorPicker;
+    private ColorPickerPreference mWeatherIconColorPicker;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -119,6 +136,57 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
                     Settings.System.TEXT_CLOCK_ALIGNMENT, 0, UserHandle.USER_CURRENT) == 1;
         mTextClockPadding.setEnabled(!mTextClockAlignx);
 
+        int intColor;
+        String hexColor;
+
+        mLockscreenClockColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_CLOCK_COLOR);
+        mLockscreenClockColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_CLOCK_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mLockscreenClockColorPicker.setSummary(hexColor);
+        mLockscreenClockColorPicker.setNewPreviewColor(intColor);
+
+        mLockscreenClockDateColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_DATE_COLOR);
+        mLockscreenClockDateColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_DATE_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mLockscreenClockDateColorPicker.setSummary(hexColor);
+        mLockscreenClockDateColorPicker.setNewPreviewColor(intColor);
+
+        mLockscreenOwnerInfoColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_OWNER_INFO_COLOR);
+        mLockscreenOwnerInfoColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(resolver,
+        		   Settings.System.LOCKSCREEN_OWNER_INFO_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mLockscreenOwnerInfoColorPicker.setSummary(hexColor);
+        mLockscreenOwnerInfoColorPicker.setNewPreviewColor(intColor);
+
+        mWeatherRightTextColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_WEATHER_TEMP_COLOR);
+        mWeatherRightTextColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                     Settings.System.LOCK_SCREEN_WEATHER_TEMP_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mWeatherRightTextColorPicker.setSummary(hexColor);
+        mWeatherRightTextColorPicker.setNewPreviewColor(intColor);
+
+        mWeatherLeftTextColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_WEATHER_CITY_COLOR);
+        mWeatherLeftTextColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCK_SCREEN_WEATHER_CITY_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mWeatherLeftTextColorPicker.setSummary(hexColor);
+        mWeatherLeftTextColorPicker.setNewPreviewColor(intColor);
+
+        mWeatherIconColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_WEATHER_ICON_COLOR);
+        mWeatherIconColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                     Settings.System.LOCK_SCREEN_WEATHER_ICON_COLOR, TRANSPARENT);
+        hexColor = String.format("#%08x", (0x99FFFFFF & intColor));
+        mWeatherIconColorPicker.setSummary(hexColor);
+        mWeatherIconColorPicker.setNewPreviewColor(intColor);
+
         updatePreferences();
     }
 
@@ -150,6 +218,54 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
         } else if (preference == mTextClockAlign) {
             boolean val = Integer.valueOf((String) objValue) == 1;
             mTextClockPadding.setEnabled(!val);
+            return true;
+        } else if (preference == mLockscreenClockColorPicker) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_CLOCK_COLOR, intHex);
+            return true;
+        } else if (preference == mLockscreenClockDateColorPicker) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_DATE_COLOR, intHex);
+            return true;
+         } else if (preference == mLockscreenOwnerInfoColorPicker) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(objValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                        Settings.System.LOCKSCREEN_OWNER_INFO_COLOR, intHex);
+                return true;
+        } else if (preference == mWeatherRightTextColorPicker) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCK_SCREEN_WEATHER_TEMP_COLOR, intHex);
+            return true;
+        } else if (preference == mWeatherLeftTextColorPicker) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCK_SCREEN_WEATHER_CITY_COLOR, intHex);
+            return true;
+        } else if (preference == mWeatherIconColorPicker) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCK_SCREEN_WEATHER_ICON_COLOR, intHex);
             return true;
         }
 
@@ -236,6 +352,19 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
                 Settings.System.LOCK_OWNERINFO_FONTS, 36, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKOWNER_FONT_SIZE, 18, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCKSCREEN_CLOCK_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCKSCREEN_DATE_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCKSCREEN_OWNER_INFO_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCK_SCREEN_WEATHER_TEMP_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCK_SCREEN_WEATHER_CITY_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCK_SCREEN_WEATHER_ICON_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
+
     }
 
     @Override

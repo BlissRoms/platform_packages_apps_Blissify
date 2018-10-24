@@ -144,4 +144,42 @@
 
     </PreferenceCategory>
 
+    <!-- LockScreen Colors -->
+    <PreferenceCategory
+        android:key="lockscreen_colorscategory"
+        android:icon="@drawable/ic_clock"
+        android:title="@string/lockscreen_colors">
+
+     <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="lockscreen_clock_color"
+        android:title="@string/lockscreen_clock_color"
+        settings:defaultColorValue="0xffffffff" />
+
+     <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="lockscreen_date_color"
+        android:title="@string/lockscreen_clock_date_color"
+        settings:defaultColorValue="0xffffffff" />
+
+    <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="lockscreen_owner_info_color"
+        android:title="@string/lockscreen_owner_info_color"
+        settings:defaultColorValue="0xffffffff" />
+
+     <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="lockscreen_weather_temp_color"
+        android:title="@string/lockscreen_weather_temp_color"
+        settings:defaultColorValue="0xffffffff" />
+
+     <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="lockscreen_weather_city_color"
+        android:title="@string/lockscreen_weather_city_color"
+        settings:defaultColorValue="0xffffffff" />
+
+    <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="lockscreen_weather_icon_color"
+        android:title="@string/lockscreen_weather_icon_color"
+        settings:defaultColorValue="0xffffffff" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
