@@ -37,6 +37,7 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.settings.R;
+import com.bliss.support.colorpicker.ColorPickerPreference;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -49,8 +50,17 @@ public class Weather extends SettingsPreferenceFragment
     private static final String DEFAULT_WEATHER_ICON_PACKAGE = "org.omnirom.omnijaws";
     private static final String DEFAULT_WEATHER_ICON_PREFIX = "outline";
     private static final String CHRONUS_ICON_PACK_INTENT = "com.dvtonder.chronus.ICON_PACK";
+    private static final String LOCKSCREEN_WEATHER_TEMP_COLOR = "lockscreen_weather_temp_color";
+    private static final String LOCKSCREEN_WEATHER_CITY_COLOR = "lockscreen_weather_city_color";
+    private static final String LOCKSCREEN_WEATHER_ICON_COLOR = "lockscreen_weather_icon_color";
+
+    static final int DEFAULT = 0xffffffff;
+    static final int TRANSPARENT = 0x99FFFFFF;
 
     private ListPreference mWeatherIconPack;
+    private ColorPickerPreference mWeatherRightTextColorPicker;
+    private ColorPickerPreference mWeatherLeftTextColorPicker;
+    private ColorPickerPreference mWeatherIconColorPicker;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,6 +94,33 @@ public class Weather extends SettingsPreferenceFragment
         mWeatherIconPack.setValueIndex(valueJawsIndex >= 0 ? valueJawsIndex : 0);
         mWeatherIconPack.setSummary(mWeatherIconPack.getEntry());
         mWeatherIconPack.setOnPreferenceChangeListener(this);
+
+        int intColor;
+        String hexColor;
+
+        mWeatherRightTextColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_WEATHER_TEMP_COLOR);
+        mWeatherRightTextColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                     Settings.System.LOCK_SCREEN_WEATHER_TEMP_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mWeatherRightTextColorPicker.setSummary(hexColor);
+        mWeatherRightTextColorPicker.setNewPreviewColor(intColor);
+
+        mWeatherLeftTextColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_WEATHER_CITY_COLOR);
+        mWeatherLeftTextColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCK_SCREEN_WEATHER_CITY_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mWeatherLeftTextColorPicker.setSummary(hexColor);
+        mWeatherLeftTextColorPicker.setNewPreviewColor(intColor);
+
+        mWeatherIconColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_WEATHER_ICON_COLOR);
+        mWeatherIconColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                     Settings.System.LOCK_SCREEN_WEATHER_ICON_COLOR, TRANSPARENT);
+        hexColor = String.format("#%08x", (0x99FFFFFF & intColor));
+        mWeatherIconColorPicker.setSummary(hexColor);
+        mWeatherIconColorPicker.setNewPreviewColor(intColor);
     }
 
     @Override
@@ -96,6 +133,30 @@ public class Weather extends SettingsPreferenceFragment
                     Settings.System.OMNIJAWS_WEATHER_ICON_PACK, value);
             int valueIndex = mWeatherIconPack.findIndexOfValue(value);
             mWeatherIconPack.setSummary(mWeatherIconPack.getEntries()[valueIndex]);
+        } else if (preference == mWeatherRightTextColorPicker) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCK_SCREEN_WEATHER_TEMP_COLOR, intHex);
+            return true;
+        } else if (preference == mWeatherLeftTextColorPicker) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCK_SCREEN_WEATHER_CITY_COLOR, intHex);
+            return true;
+        } else if (preference == mWeatherIconColorPicker) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCK_SCREEN_WEATHER_ICON_COLOR, intHex);
+            return true;
         }
         return true;
     }
@@ -153,6 +214,16 @@ public class Weather extends SettingsPreferenceFragment
             }
         }
         return true;
+    }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCK_SCREEN_WEATHER_TEMP_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCK_SCREEN_WEATHER_CITY_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCK_SCREEN_WEATHER_ICON_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
     }
 
     @Override
