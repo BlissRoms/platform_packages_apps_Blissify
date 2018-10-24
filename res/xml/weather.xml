@@ -75,4 +75,26 @@
             android:dependency="lockscreen_weather_enabled" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lockscreen_weather_colors_category"
+        android:title="@string/lockscreen_weather_colors">
+
+     <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="lockscreen_weather_temp_color"
+        android:title="@string/lockscreen_weather_temp_color"
+        settings:defaultColorValue="0xffffffff" />
+
+     <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="lockscreen_weather_city_color"
+        android:title="@string/lockscreen_weather_city_color"
+        settings:defaultColorValue="0xffffffff" />
+
+    <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="lockscreen_weather_icon_color"
+        android:title="@string/lockscreen_weather_icon_color"
+        settings:defaultColorValue="0xffffffff" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
