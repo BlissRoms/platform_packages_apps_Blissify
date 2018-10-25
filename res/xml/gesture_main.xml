@@ -14,4 +14,16 @@
         android:icon="@drawable/ic_gestures"
         android:fragment="com.blissroms.blissify.fragments.gestures.CarbonGesturesSettings" />
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="double_tap_sleep_anywhere"
+        android:title="@string/double_tap_sleep_lockscreen"
+        android:icon="@drawable/ic_settings_leds"
+        android:defaultValue="false" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="double_tap_sleep_gesture"
+        android:title="@string/double_tap_sleep_gesture_title"
+        android:icon="@drawable/ic_settings_leds"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
