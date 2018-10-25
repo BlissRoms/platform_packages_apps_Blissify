@@ -14,6 +14,7 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     android:key="qs_category"
     android:title="@string/blissify_qs_title">
@@ -30,6 +31,34 @@
             android:entries="@array/qs_battery_mode_entries"
             android:entryValues="@array/qs_battery_mode_values"
             android:defaultValue="1" />
+
+        <com.bliss.support.preferences.CustomSeekBarPreference
+            android:key="qs_rows_portrait"
+            android:title="@string/qs_rows_portrait_title"
+            android:max="7"
+            settings:min="1"
+            settings:units="" />
+
+        <com.bliss.support.preferences.CustomSeekBarPreference
+            android:key="qs_rows_landscape"
+            android:title="@string/qs_rows_landscape_title"
+            android:max="3"
+            settings:min="1"
+            settings:units="" />
+
+        <com.bliss.support.preferences.CustomSeekBarPreference
+            android:key="qs_columns_portrait"
+            android:title="@string/qs_columns_portrait_title"
+            android:max="10"
+            settings:min="1"
+            settings:units="" />
+
+        <com.bliss.support.preferences.CustomSeekBarPreference
+            android:key="qs_columns_landscape"
+            android:title="@string/qs_columns_landscape_title"
+            android:max="10"
+            settings:min="1"
+            settings:units="" />
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="bluetooth_qs_show_battery"
