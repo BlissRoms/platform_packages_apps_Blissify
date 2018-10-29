@@ -633,4 +633,16 @@
     <string name="statusbar_show_wifi_activity_title">Show Wi-Fi data indicators</string>
     <string name="statusbar_show_wifi_activity_summary">Show indicators when Wi-Fi is sending/receiving data like mobile</string>
 
+    <!-- StatusBar weather settings -->
+    <string name="statusbar_weather_cat">Statusbar Weather</string>
+    <string name="statusbar_weather_title">Layout style</string>
+    <string name="statusbar_weather_summary">Show weather temp and or image on the status bar</string>
+    <string name="statusbar_weather_dialog_title">Status bar weather style</string>
+    <string name="status_bar_weather_hidden">Hide weather</string>
+    <string name="status_bar_temperature_image_show_scale">Show temp with scale and image</string>
+    <string name="status_bar_temperature_image_hide_scale">Show temp with image without scale</string>
+    <string name="status_bar_temperature_show_scale_hide_image">Show temp with scale</string>
+    <string name="status_bar_temperature_hide_scale_hide_image">Show temp without scale</string>
+    <string name="status_bar_show_image">Show image</string>
+
 </resources>

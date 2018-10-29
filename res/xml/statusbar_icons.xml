@@ -61,4 +61,15 @@
             android:summary="@string/use_old_mobiletype_summary"
             android:defaultValue="false" />
 
+    <PreferenceCategory
+        android:key="statusbar_weather"
+        android:title="@string/statusbar_weather_cat" />
+
+         <com.blissroms.blissify.preference.SystemSettingListPreference
+            android:key="statusbar_show_weather_temp"
+            android:title="@string/statusbar_weather_title"
+            android:dialogTitle="@string/statusbar_weather_dialog_title"
+            android:entries="@array/status_bar_weather_entries"
+            android:entryValues="@array/status_bar_weather_values" />
+
 </PreferenceScreen>
