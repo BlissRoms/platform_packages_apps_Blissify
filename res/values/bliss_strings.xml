@@ -1751,4 +1751,8 @@
     <!-- GVM -->
     <string name="theme_customization_statusbar_height_title">Statusbar Height</string>
     <string name="theme_customization_ui_radius_title">UI Radius</string>
+
+    <!-- Navbar Animation -->
+    <string name="pixel_navbar_anim_title">Pixel animation</string>
+    <string name="pixel_navbar_anim_summary">Toggle home button animation</string>
 </resources>
