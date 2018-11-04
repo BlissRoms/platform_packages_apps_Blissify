@@ -70,6 +70,12 @@
         android:title="@string/statusbar_notifi_cat" />
 
         <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="status_bar_notif_count"
+            android:title="@string/status_bar_notif_count_title"
+            android:summary="@string/status_bar_notif_count_summary"
+            android:defaultValue="false" />
+
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
             android:key="status_bar_show_ticker"
             android:title="@string/status_bar_show_ticker_title"
             android:summary="@string/status_bar_show_ticker_summary"
