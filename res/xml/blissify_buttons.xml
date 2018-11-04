@@ -306,6 +306,13 @@
             android:summary="@string/volume_steps_summary"
             android:fragment="com.blissroms.blissify.fragments.buttons.VolumeSteps" />
 
+        <!-- Volume keys control media stream -->
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="volume_keys_control_ring_tone"
+            android:title="@string/volume_keys_control_ring_tone_title"
+            android:summary="@string/volume_keys_control_ring_tone_summary"
+            android:defaultValue="false" />
+
         <lineageos.preference.LineageSystemSettingSwitchPreference
             android:key="volume_wake_screen"
             android:icon="@drawable/ic_prevent_accidental_wakeup"
