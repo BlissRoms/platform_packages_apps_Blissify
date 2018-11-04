@@ -26,6 +26,11 @@
         android:summary="@string/doze_settings_summary"
         android:fragment="com.blissroms.blissify.fragments.ui.DozeSettings" />
 
+    <PreferenceScreen
+        android:key="suspend_actions"
+        android:title="@string/screen_state_toggles_title"
+        android:fragment="com.blissroms.blissify.fragments.ui.SuspendActions" />
+
     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
         android:key="enable_conditions"
         android:title="@string/dashboard_conditions_title"
