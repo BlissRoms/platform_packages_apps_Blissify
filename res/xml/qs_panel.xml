@@ -7,6 +7,13 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
+    <ListPreference
+        android:key="qs_tile_style"
+        android:title="@string/qs_tile_style_title"
+        android:persistent="false"
+        android:entries="@array/qs_selector_entries"
+        android:entryValues="@array/qs_selector_values" />
+
         <com.blissroms.blissify.preference.SecureSettingSwitchPreference
             android:key="qs_show_brightness_slider"
             android:title="@string/brightness_slider_title"

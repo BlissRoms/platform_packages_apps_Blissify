@@ -45,7 +45,9 @@ public class Panel extends SettingsPreferenceFragment
         private static final String QS_PANEL_ALPHA = "qs_panel_alpha";
         private static final String QUICK_PULLDOWN = "quick_pulldown";
         private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
+        private static final String QS_TILE_STYLE = "qs_tile_style";
 
+        private ListPreference mQsTileStyle;
         private SystemSettingSeekBarPreference mQsPanelAlpha;
         private ListPreference mQuickPulldown;
         private ListPreference mSmartPulldown;
@@ -79,6 +81,14 @@ public class Panel extends SettingsPreferenceFragment
                    Settings.System.QS_SMART_PULLDOWN, 0);
             mSmartPulldown.setValue(String.valueOf(smartPulldown));
             updateSmartPulldownSummary(smartPulldown);
+
+            mQsTileStyle = (ListPreference) findPreference(QS_TILE_STYLE);
+            int qsTileStyle = Settings.System.getInt(resolver,
+                    Settings.System.QS_TILE_STYLE, 0);
+            int valueIndex = mQsTileStyle.findIndexOfValue(String.valueOf(qsTileStyle));
+            mQsTileStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+            mQsTileStyle.setSummary(mQsTileStyle.getEntry());
+            mQsTileStyle.setOnPreferenceChangeListener(this);
         }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -89,7 +99,7 @@ public class Panel extends SettingsPreferenceFragment
                 Settings.System.putInt(resolver,
                         Settings.System.OMNI_QS_PANEL_BG_ALPHA, trueValue);
                 return true;
-           } else if (preference == mQuickPulldown) {
+            } else if (preference == mQuickPulldown) {
                 int quickPulldownValue = Integer.valueOf((String) newValue);
                 Settings.System.putIntForUser(resolver, Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN,
                         quickPulldownValue, UserHandle.USER_CURRENT);
@@ -99,6 +109,12 @@ public class Panel extends SettingsPreferenceFragment
                 int smartPulldown = Integer.valueOf((String) newValue);
                 Settings.System.putInt(resolver, Settings.System.QS_SMART_PULLDOWN, smartPulldown);
                 updateSmartPulldownSummary(smartPulldown);
+                return true;
+            } else if (preference == mQsTileStyle) {
+                String value = (String) newValue;
+                Settings.System.putInt(resolver, Settings.System.QS_TILE_STYLE, Integer.valueOf(value));
+                int valueIndex = mQsTileStyle.findIndexOfValue(value);
+                mQsTileStyle.setSummary(mQsTileStyle.getEntries()[valueIndex]);
                 return true;
             }
         return false;

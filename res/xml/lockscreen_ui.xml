@@ -13,7 +13,7 @@
         android:summary="@string/media_art_summary"
         android:defaultValue="true" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+    <com.blissroms.blissify.preference.SecureSettingSwitchPreference
         android:key="lockscreen_visualizer_enabled"
         android:title="@string/lockscreen_visualizer_enable"
         android:summary="@string/lockscreen_visualizer_enable_summary"
