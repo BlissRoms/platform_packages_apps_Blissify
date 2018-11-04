@@ -32,6 +32,12 @@
         android:fragment="com.blissroms.blissify.fragments.ui.SuspendActions" />
 
     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="sensor_block"
+        android:title="@string/sensor_block_title"
+        android:summary="@string/sensor_block_summary"
+        android:defaultValue="false" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
         android:key="enable_conditions"
         android:title="@string/dashboard_conditions_title"
         android:summaryOn="@string/summary_dashboard_conditions_enabled"
