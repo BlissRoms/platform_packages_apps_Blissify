@@ -50,6 +50,16 @@
             settings:units="Hz" />
    </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="notifications_general_category"
+        android:title="@string/general_category">
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="statusbar_notif_count"
+            android:title="@string/status_bar_notif_count_title"
+            android:summary="@string/status_bar_notif_count_summary"
+            android:defaultValue="false" />
+
         <Preference
             android:key="island_notification"
             android:title="@string/island_notification_title"
@@ -61,5 +71,7 @@
             android:title="@string/less_boring_heads_up_title"
             android:summary="@string/less_boring_heads_up_summary"
             android:defaultValue="false" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
