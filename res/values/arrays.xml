@@ -635,6 +635,9 @@
         <item>@string/qstile_default</item>
         <item>@string/qstile_circle_trim</item>
         <item>@string/qstile_dual_tone_circle</item>
+        <item>@string/qstile_oreo</item>
+        <item>@string/qstile_oreo_circle_trim</item>
+        <item>@string/qstile_oreo_squircle_trim</item>
         <item>@string/qstile_squircle_trim</item>
     </string-array>
 
@@ -643,6 +646,9 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
     </string-array>
 
 </resources>
