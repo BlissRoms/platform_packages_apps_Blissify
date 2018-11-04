@@ -44,6 +44,18 @@
      </PreferenceCategory>
 
     <PreferenceCategory
+            android:title="@string/heads_up_stoplist_title"
+            android:key="stoplist_applications"
+            android:dependency="heads_up_notifications_enabled" >
+
+        <Preference
+            android:key="add_stoplist_packages"
+            android:icon="@drawable/ic_menu_add"
+            android:title="@string/add_heads_up_package"
+            android:summary="@string/add_heads_up_stoplist_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/log_category">
 
         <Preference
