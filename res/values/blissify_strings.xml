@@ -51,6 +51,7 @@
     <string name="volume_category">Volume Rocker</string>
     <string name="statusbar_icons_category_title">Icons</string>
     <string name="statusbar_telephony_category_title">Telephony icons</string>
+    <string name="notifications_general_category_title">General</string>
 
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
@@ -467,4 +468,7 @@
     <string name="data_disabled_icon_title">Show data disabled icon</string>
     <string name="data_disabled_icon_summary">Display the cross sign next to signal bar when data is disabled</string>
 
+    <!-- Notification count -->
+    <string name="status_bar_notif_count_title">Notification count</string>
+    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 </resources>
