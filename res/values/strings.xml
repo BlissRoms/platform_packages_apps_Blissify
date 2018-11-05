@@ -99,6 +99,7 @@
 
 
     <!--SystemUI Tuner -->
+    <string name="tuner">Tuner</string>
     <string name="statusbar_tuner_title">Statusbar tuner</string>
     <string name="statusbar_tuner_summary">Battery options and statusbar icons to disable</string>
     <string name="navbar_tuner_title">NavBar tuner</string>
@@ -691,5 +692,30 @@
     <!-- Status Bar Notifi Count Dot -->
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+
+    <!-- Lock Clock Fonts -->
+    <string name="ls_clock">Clock</string>
+    <string name="lockscreen_media_cat">Media</string>
+    <string name="lockscreen_charging_cat">Bottom area</string>
+    <string name="lockscreen_weather_cat">Weather</string>
+    <string name="lock_clock_font_title">Clock font style</string>
+    <string name="lock_clock_font_stock">Normal (Default)</string>
+    <string name="lock_clock_font_bold">Bold</string>
+    <string name="lock_clock_font_italic">Italic</string>
+    <string name="lock_clock_font_bold_italic">Bold Italic</string>
+    <string name="lock_clock_font_light_italic">Light Italic</string>
+    <string name="lock_clock_font_thin_italic">Thin Italic</string>
+    <string name="lock_clock_font_light">Light</string>
+    <string name="lock_clock_font_thin">Thin</string>
+    <string name="lock_clock_font_condensed_normal">Condensed</string>
+    <string name="lock_clock_font_condensed_italic">Condensed Italic</string>
+    <string name="lock_clock_font_condensed_bold">Condensed Bold</string>
+    <string name="lock_clock_font_condensed_bold_italic">Condensed Bold Italic</string>
+    <string name="lock_clock_font_condensed_light">Condensed Light</string>
+    <string name="lock_clock_font_condensed_light_italic">Condensed Light Italic</string> 
+    <string name="lock_clock_font_medium_normal">Medium</string>
+    <string name="lock_clock_font_medium_italic">Medium Italic</string>
+    <string name="lock_clock_font_black">Black</string>
+    <string name="lock_clock_font_black_italic">Black Italic</string> 
 
 </resources>

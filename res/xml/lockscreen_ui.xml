@@ -7,57 +7,85 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
-        android:key="lockscreen_media_metadata"
-        android:title="@string/media_art_title"
-        android:summary="@string/media_art_summary"
-        android:defaultValue="true" />
+    <PreferenceCategory
+        android:key="ls_clock"
+        android:title="@string/ls_clock" />
 
-    <com.blissroms.blissify.preference.SecureSettingSwitchPreference
-        android:key="lockscreen_visualizer_enabled"
-        android:title="@string/lockscreen_visualizer_enable"
-        android:summary="@string/lockscreen_visualizer_enable_summary"
-        android:defaultValue="false" />
+         <ListPreference
+            android:key="lock_clock_fonts"
+            android:title="@string/lock_clock_font_title"
+            android:entries="@array/lock_clock_fonts_entries"
+            android:entryValues="@array/lock_clock_fonts_values"
+            android:defaultValue="0"
+            android:persistent="false" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
-        android:key="lock_screen_visualizer_use_custom_color"
-        android:title="@string/lockscreen_visualizer_enable_custom"
-        android:summary="@string/lockscreen_visualizer_enable_custom_summary"
-        android:dependency="lockscreen_visualizer_enabled"
-        android:defaultValue="false" />
+     <PreferenceCategory
+         android:key="ls_media"
+         android:title="@string/lockscreen_media_cat"/>
 
-    <com.android.settings.bliss.preference.ColorPickerPreference
-        android:key="lock_screen_visualizer_custom_color"
-        android:title="@string/lockscreen_visualizer_custom_color"
-        android:dependency="lock_screen_visualizer_use_custom_color"
-        bliss:defaultColorValue="0xffffffff"
-        android:dialogTitle="@string/lockscreen_visualizer_custom_color" />
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="lockscreen_media_metadata"
+            android:title="@string/media_art_title"
+            android:summary="@string/media_art_summary"
+            android:defaultValue="true" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
-        android:key="lockscreen_battery_info"
-        android:title="@string/lockscreen_battery_info_title"
-        android:summary="@string/lockscreen_battery_info_summary"
-        android:defaultValue="true" />
+        <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+            android:key="lockscreen_visualizer_enabled"
+            android:title="@string/lockscreen_visualizer_enable"
+            android:summary="@string/lockscreen_visualizer_enable_summary"
+            android:defaultValue="false" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
-        android:key="lockscreen_weather_enabled"
-        android:title="@string/lockscreen_weather_title"
-        android:summary="@string/lockscreen_weather_summary"
-        android:defaultValue="false" />
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="lock_screen_visualizer_use_custom_color"
+            android:title="@string/lockscreen_visualizer_enable_custom"
+            android:summary="@string/lockscreen_visualizer_enable_custom_summary"
+            android:dependency="lockscreen_visualizer_enabled"
+            android:defaultValue="false" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
-        android:key="lockscreen_weather_show_city"
-        android:title="@string/lockscreen_weather_show_city_title"
-        android:summary="@string/lockscreen_weather_show_city_summary"
-        android:dependency="lockscreen_weather_enabled"
-        android:defaultValue="true" />
+        <com.android.settings.bliss.preference.ColorPickerPreference
+            android:key="lock_screen_visualizer_custom_color"
+            android:title="@string/lockscreen_visualizer_custom_color"
+            android:dependency="lock_screen_visualizer_use_custom_color"
+            bliss:defaultColorValue="0xffffffff"
+            android:dialogTitle="@string/lockscreen_visualizer_custom_color" />
 
-     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
-        android:key="lockscreen_weather_show_temp"
-        android:title="@string/lockscreen_weather_show_temp_title"
-        android:summary="@string/lockscreen_weather_show_temp_summary"
-        android:dependency="lockscreen_weather_enabled"
-        android:defaultValue="true" />
+     <PreferenceCategory
+         android:key="ls_charge"
+         android:title="@string/lockscreen_charging_cat"/>
+
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="lockscreen_battery_info"
+            android:title="@string/lockscreen_battery_info_title"
+            android:summary="@string/lockscreen_battery_info_summary"
+            android:defaultValue="true" />
+
+     <PreferenceCategory
+         android:key="ls_weather"
+         android:title="@string/lockscreen_weather_cat"/>
+
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_enabled"
+            android:title="@string/lockscreen_weather_title"
+            android:summary="@string/lockscreen_weather_summary"
+            android:defaultValue="false" />
+
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_show_city"
+            android:title="@string/lockscreen_weather_show_city_title"
+            android:summary="@string/lockscreen_weather_show_city_summary"
+            android:dependency="lockscreen_weather_enabled"
+            android:defaultValue="true" />
+
+         <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_show_temp"
+            android:title="@string/lockscreen_weather_show_temp_title"
+            android:summary="@string/lockscreen_weather_show_temp_summary"
+            android:dependency="lockscreen_weather_enabled"
+            android:defaultValue="true" />
+
+     <PreferenceCategory
+         android:key="tuner"
+         android:title="@string/tuner"/>
 
     <Preference
             android:title="@string/lockscreen_shortcuts_title"
