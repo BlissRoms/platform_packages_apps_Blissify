@@ -76,6 +76,8 @@
 
     <string name="unit_x1000ms">x1000 ms</string>
     <string name="unit_percent">\u0025</string>
+    <string name="default_string">Default</string>
+    <string name="reset">Reset</string>
 
     <!-- Tabs Summaries -->
     <string name="buttons_navbar_summary">Navigation bar options</string>
@@ -747,6 +749,10 @@
     <string name="pulse_custom_buttons_opacity_title">Smartbar buttons opacity on Pulse</string>
     <string name="pulse_auto_color_title">Automatic Pulse color</string>
     <string name="pulse_auto_color_summary">Sync color with album arts. Overrides Lava Lamp and lines opacity.</string>
+    <string name="fling_lavalamp_color_from">Lava Lamp start color</string>
+    <string name="fling_lavalamp_color_to">Lava Lamp end color</string>
+    <string name="pulse_colors_reset_title">Reset pulse colors</string>
+    <string name="pulse_colors_reset_message">Are you sure you want to reset these colors to default?</string>
 
      <!-- Pulse config -->
     <string name="pulse_custom_dimen">Bar width</string>
