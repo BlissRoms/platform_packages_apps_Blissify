@@ -13,13 +13,20 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bliss="http://schemas.android.com/apk/res-auto"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/pulse_settings" >
 
     <SwitchPreference
         android:key="eos_fling_show_pulse"
         android:title="@string/fling_show_pulse_title"
         android:summary="@string/fling_show_pulse_summary" />
+
+    <PreferenceScreen
+        android:key="blacklist_fragment"
+        android:fragment="com.blissroms.blissify.fragments.buttons.PulseBlacklist"
+        android:title="@string/pulse_blacklist_title"
+        android:summary="@string/pulse_blacklist_summary"
+        android:persistent="false" />
 
     <ListPreference
         android:key="pulse_render_mode"
@@ -76,53 +83,53 @@
         android:key="pulse_fading_bars_category"
         android:title="@string/pulse_legacy_mode_advanced_category">
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.blissroms.blissify.preference.CustomSeekBarPreference
             android:key="pulse_custom_dimen"
             android:title="@string/pulse_custom_dimen"
             android:max="30"
-            bliss:min="1"
-            bliss:unitsLeft="dp"
+            settings:min="1"
+            settings:units="dp"
             android:dependency="pulse_fading_bars_category"/>
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.blissroms.blissify.preference.CustomSeekBarPreference
             android:key="pulse_custom_div"
             android:title="@string/pulse_custom_div"
             android:max="44"
-            bliss:min="2"
-            bliss:interval="2"
-            bliss:unitsLeft="dp"
+            settings:min="2"
+            settings:interval="2"
+            settings:units="dp"
             android:dependency="pulse_fading_bars_category"/>
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.blissroms.blissify.preference.CustomSeekBarPreference
             android:key="pulse_filled_block_size"
             android:title="@string/pulse_filled_block_size"
             android:max="8"
-            bliss:min="4"
-            bliss:unitsLeft="dp"
+            settings:min="4"
+            settings:units="dp"
             android:dependency="pulse_fading_bars_category"/>
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.blissroms.blissify.preference.CustomSeekBarPreference
             android:key="pulse_empty_block_size"
             android:title="@string/pulse_empty_block_size"
             android:max="4"
-            bliss:min="0"
-            bliss:unitsLeft="dp"
+            settings:min="0"
+            settings:units="dp"
             android:dependency="pulse_fading_bars_category"/>
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.blissroms.blissify.preference.CustomSeekBarPreference
             android:key="pulse_custom_fudge_factor"
             android:title="@string/pulse_custom_fudge_factor"
             android:max="6"
-            bliss:min="2"
+            settings:min="2"
             android:dependency="pulse_fading_bars_category"/>
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.blissroms.blissify.preference.CustomSeekBarPreference
             android:key="fling_pulse_lavalamp_speed"
             android:title="@string/lavamp_solid_speed_title"
             android:max="30000"
-            bliss:min="200"
-            bliss:interval="200"
-            bliss:unitsLeft="ms"
+            settings:min="200"
+            settings:interval="200"
+            settings:units="ms"
             android:dependency="pulse_fading_bars_category"/>
     </PreferenceCategory>
 
@@ -130,35 +137,35 @@
         android:key="pulse_2"
         android:title="@string/pulse_solid_dimen_category" >
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.blissroms.blissify.preference.CustomSeekBarPreference
             android:key="pulse_solid_units_opacity"
             android:title="@string/pulse_solid_units_opacity"
             android:max="255"
-            bliss:min="0"
+            settings:min="0"
             android:dependency="pulse_2"/>
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.blissroms.blissify.preference.CustomSeekBarPreference
             android:key="pulse_solid_units_count"
             android:title="@string/pulse_solid_units_count"
             android:max="128"
-            bliss:interval="16"
-            bliss:min="32"
+            settings:interval="16"
+            settings:min="32"
             android:dependency="pulse_2"/>
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.blissroms.blissify.preference.CustomSeekBarPreference
             android:key="pulse_solid_fudge_factor"
             android:title="@string/pulse_custom_fudge_factor"
             android:max="7"
-            bliss:min="2"
+            settings:min="2"
             android:dependency="pulse_2"/>
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.blissroms.blissify.preference.CustomSeekBarPreference
             android:key="lavamp_solid_speed"
             android:title="@string/lavamp_solid_speed_title"
             android:max="30000"
-            bliss:min="200"
-            bliss:interval="200"
-            bliss:unitsLeft="ms"
+            settings:min="200"
+            settings:interval="200"
+            settings:units="ms"
             android:dependency="pulse_2"/>
     </PreferenceCategory>
 

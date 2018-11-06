@@ -24,12 +24,6 @@ import android.support.v7.preference.PreferenceCategory;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.ListPreference;
-
-import com.android.settings.bliss.preference.ColorPickerPreference;
-import com.blissroms.blissify.preference.SystemSettingSeekBarPreference;
-import com.android.internal.logging.nano.MetricsProto;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -41,10 +35,19 @@ import android.view.MenuInflater;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PulseSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.bliss.preference.ColorPickerPreference;
+import com.blissroms.blissify.preference.CustomSeekBarPreference;
+import com.android.internal.logging.nano.MetricsProto;
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
 
-    private static final String TAG = PulseSettings.class.getSimpleName();
+public class PulseSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener, Indexable {
+
+    private static final String TAG = "PulseSettings";
     private static final String CUSTOM_DIMEN = "pulse_custom_dimen";
     private static final String CUSTOM_DIV = "pulse_custom_div";
     private static final String PULSE_BLOCK = "pulse_filled_block_size";
@@ -71,17 +74,17 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     ColorPickerPreference mLavaLampColorTo;
     SwitchPreference mLavaLampEnabled;
     SwitchPreference mSmoothingEnabled;
-    SystemSettingSeekBarPreference mCustomDimen;
-    SystemSettingSeekBarPreference mCustomDiv;
-    SystemSettingSeekBarPreference mFilled;
-    SystemSettingSeekBarPreference mEmpty;
-    SystemSettingSeekBarPreference mFudge;
-    SystemSettingSeekBarPreference mSolidFudge;
-    SystemSettingSeekBarPreference mSolidSpeed;
-    SystemSettingSeekBarPreference mFadingSpeed;
-    SystemSettingSeekBarPreference mSolidCount;
-    SystemSettingSeekBarPreference mSolidOpacity;
-    //CustomSeekBarPreference mNavButtonsOpacity;
+    CustomSeekBarPreference mCustomDimen;
+    CustomSeekBarPreference mCustomDiv;
+    CustomSeekBarPreference mFilled;
+    CustomSeekBarPreference mEmpty;
+    CustomSeekBarPreference mFudge;
+    CustomSeekBarPreference mSolidFudge;
+    CustomSeekBarPreference mSolidSpeed;
+    CustomSeekBarPreference mFadingSpeed;
+    CustomSeekBarPreference mSolidCount;
+    CustomSeekBarPreference mSolidOpacity;
+    //SeekBarPreferenceCham mNavButtonsOpacity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -142,73 +145,73 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
         int customdimen = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_CUSTOM_DIMEN, 14, UserHandle.USER_CURRENT);
-        mCustomDimen = (SystemSettingSeekBarPreference) findPreference(CUSTOM_DIMEN);
+        mCustomDimen = (CustomSeekBarPreference) findPreference(CUSTOM_DIMEN);
         mCustomDimen.setValue(customdimen);
         mCustomDimen.setOnPreferenceChangeListener(this);
 
         int customdiv = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_CUSTOM_DIV, 16, UserHandle.USER_CURRENT);
-        mCustomDiv = (SystemSettingSeekBarPreference) findPreference(CUSTOM_DIV);
+        mCustomDiv = (CustomSeekBarPreference) findPreference(CUSTOM_DIV);
         mCustomDiv.setValue(customdiv);
         mCustomDiv.setOnPreferenceChangeListener(this);
 
         int filled = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_FILLED_BLOCK_SIZE, 4, UserHandle.USER_CURRENT);
-        mFilled = (SystemSettingSeekBarPreference) findPreference(PULSE_BLOCK);
+        mFilled = (CustomSeekBarPreference) findPreference(PULSE_BLOCK);
         mFilled.setValue(filled);
         mFilled.setOnPreferenceChangeListener(this);
 
         int empty = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_EMPTY_BLOCK_SIZE, 1, UserHandle.USER_CURRENT);
-        mEmpty = (SystemSettingSeekBarPreference) findPreference(EMPTY_BLOCK);
+        mEmpty = (CustomSeekBarPreference) findPreference(EMPTY_BLOCK);
         mEmpty.setValue(empty);
         mEmpty.setOnPreferenceChangeListener(this);
 
         int fudge = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_CUSTOM_FUDGE_FACTOR, 4, UserHandle.USER_CURRENT);
-        mFudge = (SystemSettingSeekBarPreference) findPreference(FUDGE_FACOR);
+        mFudge = (CustomSeekBarPreference) findPreference(FUDGE_FACOR);
         mFudge.setValue(fudge);
         mFudge.setOnPreferenceChangeListener(this);
 
         int solidfudge = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_SOLID_FUDGE_FACTOR, 5,
                 UserHandle.USER_CURRENT);
-        mSolidFudge = (SystemSettingSeekBarPreference) findPreference(SOLID_FUDGE);
+        mSolidFudge = (CustomSeekBarPreference) findPreference(SOLID_FUDGE);
         mSolidFudge.setValue(solidfudge);
         mSolidFudge.setOnPreferenceChangeListener(this);
 
         int speed = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_LAVALAMP_SOLID_SPEED, 10000, UserHandle.USER_CURRENT);
         mSolidSpeed =
-                (SystemSettingSeekBarPreference) findPreference(SOLID_LAVAMP_SPEED);
+                (CustomSeekBarPreference) findPreference(SOLID_LAVAMP_SPEED);
         mSolidSpeed.setValue(speed);
         mSolidSpeed.setOnPreferenceChangeListener(this);
 
         int fspeed = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.FLING_PULSE_LAVALAMP_SPEED, 10000, UserHandle.USER_CURRENT);
         mFadingSpeed =
-                (SystemSettingSeekBarPreference) findPreference(FADING_LAVAMP_SPEED);
+                (CustomSeekBarPreference) findPreference(FADING_LAVAMP_SPEED);
         mFadingSpeed.setValue(fspeed);
         mFadingSpeed.setOnPreferenceChangeListener(this);
 
         int count = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_SOLID_UNITS_COUNT, 64, UserHandle.USER_CURRENT);
         mSolidCount =
-                (SystemSettingSeekBarPreference) findPreference(PULSE_SOLID_UNITS_COUNT);
+                (CustomSeekBarPreference) findPreference(PULSE_SOLID_UNITS_COUNT);
         mSolidCount.setValue(count);
         mSolidCount.setOnPreferenceChangeListener(this);
 
         int opacity = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_SOLID_UNITS_OPACITY, 200, UserHandle.USER_CURRENT);
         mSolidOpacity =
-                (SystemSettingSeekBarPreference) findPreference(PULSE_SOLID_UNITS_OPACITY);
+                (CustomSeekBarPreference) findPreference(PULSE_SOLID_UNITS_OPACITY);
         mSolidOpacity.setValue(opacity);
         mSolidOpacity.setOnPreferenceChangeListener(this);
 
         /*int buttonsOpacity = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_CUSTOM_BUTTONS_OPACITY, 200, UserHandle.USER_CURRENT);
         mNavButtonsOpacity =
-                (CustomSeekBarPreference) findPreference(PULSE_CUSTOM_BUTTONS_OPACITY);
+                (SeekBarPreferenceCham) findPreference(PULSE_CUSTOM_BUTTONS_OPACITY);
         mNavButtonsOpacity.setValue(buttonsOpacity);
         mNavButtonsOpacity.setOnPreferenceChangeListener(this);*/
     }
@@ -369,8 +372,32 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.BLISSIFY;
     }
-}
 
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+             new BaseSearchIndexProvider() {
+                 @Override
+                 public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                     sir.xmlResId = R.xml.pulse_settings;
+                     result.add(sir);
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
+}
