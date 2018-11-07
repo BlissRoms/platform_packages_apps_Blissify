@@ -60,6 +60,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private static final String FADING_LAVAMP_SPEED = "fling_pulse_lavalamp_speed";
     private static final String PULSE_SOLID_UNITS_COUNT = "pulse_solid_units_count";
     private static final String PULSE_SOLID_UNITS_OPACITY = "pulse_solid_units_opacity";
+    private static final String PULSE_FADING_BLOCKS_OPACITY = "pulse_fading_blocks_opacity";
     //private static final String PULSE_CUSTOM_BUTTONS_OPACITY = "pulse_custom_buttons_opacity";
 
     static final int DEFAULT = 0xffffffff;
@@ -84,6 +85,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     CustomSeekBarPreference mFadingSpeed;
     CustomSeekBarPreference mSolidCount;
     CustomSeekBarPreference mSolidOpacity;
+    CustomSeekBarPreference mFadingOpacity;
     //SeekBarPreferenceCham mNavButtonsOpacity;
 
     @Override
@@ -102,6 +104,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                 Settings.System.PULSE_RENDER_STYLE_URI, RENDER_STYLE_SOLID_LINES, UserHandle.USER_CURRENT);
         mRenderMode = (ListPreference) findPreference("pulse_render_mode");
         mRenderMode.setValue(String.valueOf(renderMode));
+        mRenderMode.setSummary(mRenderMode.getEntry());
         mRenderMode.setOnPreferenceChangeListener(this);
 
         mAutoColor = (SwitchPreference) findPreference("pulse_auto_color");
@@ -201,12 +204,19 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mSolidCount.setValue(count);
         mSolidCount.setOnPreferenceChangeListener(this);
 
-        int opacity = Settings.System.getIntForUser(getContentResolver(),
+        int opacitysolid = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_SOLID_UNITS_OPACITY, 200, UserHandle.USER_CURRENT);
         mSolidOpacity =
                 (CustomSeekBarPreference) findPreference(PULSE_SOLID_UNITS_OPACITY);
-        mSolidOpacity.setValue(opacity);
+        mSolidOpacity.setValue(opacitysolid);
         mSolidOpacity.setOnPreferenceChangeListener(this);
+
+        int opacityblock = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_FADING_BLOCKS_OPACITY, 200, UserHandle.USER_CURRENT);
+        mFadingOpacity =
+                (CustomSeekBarPreference) findPreference(PULSE_FADING_BLOCKS_OPACITY);
+        mFadingOpacity.setValue(opacityblock);
+        mFadingOpacity.setOnPreferenceChangeListener(this);
 
         /*int buttonsOpacity = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_CUSTOM_BUTTONS_OPACITY, 200, UserHandle.USER_CURRENT);
@@ -226,6 +236,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             fadingBarsCat.setEnabled(mode == RENDER_STYLE_FADING_BARS);
             PreferenceCategory solidBarsCat = (PreferenceCategory)findPreference("pulse_2");
             solidBarsCat.setEnabled(mode == RENDER_STYLE_SOLID_LINES);
+            mRenderMode.setSummary(mRenderMode.getEntry());
             return true;
         } else if (preference.equals(mShowPulse)) {
             boolean enabled = ((Boolean) newValue).booleanValue();
@@ -315,6 +326,11 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             int val = (Integer) newValue;
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.PULSE_SOLID_UNITS_OPACITY, val, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mFadingOpacity) {
+            int val = (Integer) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.PULSE_FADING_BLOCKS_OPACITY, val, UserHandle.USER_CURRENT);
             return true;
         }/* else if (preference == mNavButtonsOpacity) {
             int val = (Integer) newValue;

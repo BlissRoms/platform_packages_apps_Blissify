@@ -33,12 +33,6 @@
         android:dependency="navigation_bar_show"
         android:defaultValue="false" />
 
-    <PreferenceScreen
-            android:id="@+id/pulse_settings"
-            android:title="@string/pulse_settings"
-            android:summary="@string/pulse_settings_summary"
-            android:fragment="com.blissroms.blissify.fragments.buttons.PulseSettings" />
-
     <PreferenceCategory
         android:key="navigation_burnin"
         android:title="@string/navigation_burnin_category"/>

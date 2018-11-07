@@ -92,7 +92,6 @@ public class BlissifySettings extends SettingsPreferenceFragment {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mTabs.setViewPager(mViewPager);
-        setHasOptionsMenu(true);
     return view;
     }
 
