@@ -40,43 +40,65 @@ import com.android.internal.util.omni.DeviceUtils;
 public class Style extends SettingsPreferenceFragment
                                          implements Preference.OnPreferenceChangeListener{
 
-        private static final String NAVIGATION_BAR_RECENTS_STYLE = "navbar_recents_style";
+    private static final String NAVIGATION_BAR_RECENTS_STYLE = "navbar_recents_style";
+    private static final String RECENTS_COMPONENT_TYPE = "recents_component";
 
-        private ListPreference mNavbarRecentsStyle;
+    private ListPreference mNavbarRecentsStyle;
+    private ListPreference mRecentsComponentType;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-            addPreferencesFromResource(R.xml.recents_style);
-            PreferenceScreen prefSet = getPreferenceScreen();
-            ContentResolver resolver = getActivity().getContentResolver();
+        addPreferencesFromResource(R.xml.recents_style);
+        PreferenceScreen prefSet = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
 
-            mNavbarRecentsStyle = (ListPreference) findPreference(NAVIGATION_BAR_RECENTS_STYLE);
-            int recentsStyle = Settings.System.getInt(resolver,
-                    Settings.System.OMNI_NAVIGATION_BAR_RECENTS, 0);
+        mNavbarRecentsStyle = (ListPreference) findPreference(NAVIGATION_BAR_RECENTS_STYLE);
+        int recentsStyle = Settings.System.getInt(resolver,
+                Settings.System.OMNI_NAVIGATION_BAR_RECENTS, 0);
 
-            mNavbarRecentsStyle.setValue(Integer.toString(recentsStyle));
-            mNavbarRecentsStyle.setSummary(mNavbarRecentsStyle.getEntry());
-            mNavbarRecentsStyle.setOnPreferenceChangeListener(this);
-            }
+        mNavbarRecentsStyle.setValue(Integer.toString(recentsStyle));
+        mNavbarRecentsStyle.setSummary(mNavbarRecentsStyle.getEntry());
+        mNavbarRecentsStyle.setOnPreferenceChangeListener(this);
 
-        public boolean onPreferenceChange(Preference preference, Object newValue) {
-            ContentResolver resolver = getActivity().getContentResolver();
-            if (preference == mNavbarRecentsStyle) {
-                int value = Integer.valueOf((String) newValue);
-                if (value == 1) {
-                    if (!isOmniSwitchInstalled()){
-                        doOmniSwitchUnavail();
-                    } else if (!OmniSwitchConstants.isOmniSwitchRunning(getActivity())) {
-                        doOmniSwitchConfig();
-                    }
+        // recents component type
+        mRecentsComponentType = (ListPreference) findPreference(RECENTS_COMPONENT_TYPE);
+        int type = Settings.System.getInt(resolver,
+                Settings.System.RECENTS_COMPONENT, 0);
+        mRecentsComponentType.setValue(String.valueOf(type));
+        mRecentsComponentType.setSummary(mRecentsComponentType.getEntry());
+        mRecentsComponentType.setOnPreferenceChangeListener(this);
+        }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mNavbarRecentsStyle) {
+            int value = Integer.valueOf((String) newValue);
+            if (value == 1) {
+                if (!isOmniSwitchInstalled()){
+                    doOmniSwitchUnavail();
+                } else if (!OmniSwitchConstants.isOmniSwitchRunning(getActivity())) {
+                    doOmniSwitchConfig();
                 }
-                int index = mNavbarRecentsStyle.findIndexOfValue((String) newValue);
-                mNavbarRecentsStyle.setSummary(mNavbarRecentsStyle.getEntries()[index]);
-                Settings.System.putInt(resolver, Settings.System.OMNI_NAVIGATION_BAR_RECENTS, value);
-                return true;
+            }
+            int index = mNavbarRecentsStyle.findIndexOfValue((String) newValue);
+            mNavbarRecentsStyle.setSummary(mNavbarRecentsStyle.getEntries()[index]);
+            Settings.System.putInt(resolver, Settings.System.OMNI_NAVIGATION_BAR_RECENTS, value);
+            return true;
+        } else if (preference == mRecentsComponentType) {
+            int type = Integer.valueOf((String) objValue);
+            int index = mRecentsComponentType.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.RECENTS_COMPONENT, type);
+            mRecentsComponentType.setSummary(mRecentsComponentType.getEntries()[index]);
+            if (type == 1) { // Disable swipe up gesture, if oreo type selected
+               Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.SWIPE_UP_TO_SWITCH_APPS_ENABLED, 0);
+            }
+            DeviceUtils.showSystemUiRestartDialog(getContext());
+            return true;
             }
             return false;
         }

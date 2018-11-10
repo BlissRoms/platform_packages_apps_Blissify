@@ -467,6 +467,11 @@
     <string name="omniswitch_dialog_unavail">OmniSwitch is not installed.</string>
     <string name="omniswitch_title">Recents style</string>
 
+    <!-- AOSP Recents component Style -->
+    <string name="recents_component_type_title">Stock Recents Style</string>
+    <string name="recents_pie">Pie</string>
+    <string name="recents_oreo">Oreo</string>
+
     <string name="aspect_ratio_apps_enabled_title">Enable scaling</string>
     <string name="aspect_ratio_apps_enabled_summary">Allow legacy apps to use full screen</string>
     <string name="aspect_ratio_apps_list_summary"></string>
