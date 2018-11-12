@@ -88,8 +88,8 @@ public class Style extends SettingsPreferenceFragment
             Settings.System.putInt(resolver, Settings.System.OMNI_NAVIGATION_BAR_RECENTS, value);
             return true;
         } else if (preference == mRecentsComponentType) {
-            int type = Integer.valueOf((String) objValue);
-            int index = mRecentsComponentType.findIndexOfValue((String) objValue);
+            int type = Integer.valueOf((String) newValue);
+            int index = mRecentsComponentType.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.RECENTS_COMPONENT, type);
             mRecentsComponentType.setSummary(mRecentsComponentType.getEntries()[index]);
