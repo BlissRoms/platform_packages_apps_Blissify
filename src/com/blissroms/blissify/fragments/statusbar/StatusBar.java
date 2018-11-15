@@ -69,6 +69,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private SwitchPreference mShowBlissLogo;
     private CustomSeekBarPreference mThreshold;
     private ListPreference mNetTrafficLocation;
+    private ListPreference mNetTrafficType;
     private SystemSettingSwitchPreference mShowArrows;
 
     @Override
@@ -79,11 +80,17 @@ public class StatusBar extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.blissify_statusbar);
         PreferenceScreen prefSet = getPreferenceScreen();
 
-
 	    mShowBlissLogo = (SwitchPreference) findPreference(KEY_STATUS_BAR_LOGO);
         mShowBlissLogo.setChecked((Settings.System.getInt(getContentResolver(),
              Settings.System.STATUS_BAR_LOGO, 0) == 1));
         mShowBlissLogo.setOnPreferenceChangeListener(this);
+
+        int type = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_TYPE, 0, UserHandle.USER_CURRENT);
+        mNetTrafficType = (ListPreference) findPreference("network_traffic_type");
+        mNetTrafficType.setValue(String.valueOf(type));
+        mNetTrafficType.setSummary(mNetTrafficType.getEntry());
+        mNetTrafficType.setOnPreferenceChangeListener(this);
 
         mNetTrafficLocation = (ListPreference) findPreference("network_traffic_location");
         int location = Settings.System.getIntForUser(resolver,
@@ -140,7 +147,15 @@ public class StatusBar extends SettingsPreferenceFragment implements
                     Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, val,
                     UserHandle.USER_CURRENT);
             return true;
-        }
+        } else if (preference == mNetTrafficType) {
+            int val = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_TYPE, val,
+                    UserHandle.USER_CURRENT);
+            int index = mNetTrafficType.findIndexOfValue((String) objValue);
+            mNetTrafficType.setSummary(mNetTrafficType.getEntries()[index]);
+            return true;
+		}
         return false;
     }
 
@@ -149,11 +164,13 @@ public class StatusBar extends SettingsPreferenceFragment implements
             case 0:
                 mThreshold.setEnabled(false);
                 mShowArrows.setEnabled(false);
+                mNetTrafficType.setEnabled(false);
                 break;
             case 1:
             case 2:
                 mThreshold.setEnabled(true);
                 mShowArrows.setEnabled(true);
+                mNetTrafficType.setEnabled(true);
                 break;
             default:
                 break;
