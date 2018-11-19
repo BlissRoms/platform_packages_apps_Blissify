@@ -14,6 +14,12 @@
                 android:fragment="com.blissroms.blissify.fragments.buttons.NavBar"
                 />
 
+	<PreferenceScreen
+		android:fragment="com.android.settings.smartnav.NavigationBarSettings"
+		android:key="navigationbar_settings"
+                android:icon="@drawable/ic_navbar"
+		android:title="@string/navigationbar_settings_title"/>
+
      <PreferenceScreen
                 android:id="@+id/buttons_power"
                 android:title="@string/buttons_power_title"
