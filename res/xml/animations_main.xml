@@ -38,12 +38,4 @@
                 android:fragment="com.blissroms.blissify.fragments.animations.ToastAnimation"
                 />
 
-     <PreferenceScreen
-                android:key="pulse_settings"
-                android:title="@string/pulse_settings"
-                android:summary="@string/pulse_settings_summary"
-                android:icon="@drawable/ic_volume"
-                android:fragment="com.blissroms.blissify.fragments.buttons.PulseSettings"
-                />
-
 </PreferenceScreen>
