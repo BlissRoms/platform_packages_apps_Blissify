@@ -31,6 +31,8 @@ import com.android.settings.R;
 import android.text.format.DateFormat;
 import android.util.ArraySet;
 
+import android.net.ConnectivityManager;
+
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -84,6 +86,10 @@ public class StatusBar extends SettingsPreferenceFragment
 
     private static final String NETWORK_TRAFFIC_SETTINGS = "network_traffic_settings";
 
+    private static final String SMS_BREATH = "sms_breath";
+    private static final String MISSED_CALL_BREATH = "missed_call_breath";
+    private static final String VOICEMAIL_BREATH = "voicemail_breath";
+
     private LineageSystemSettingListPreference mQuickPulldown;
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
@@ -93,6 +99,10 @@ public class StatusBar extends SettingsPreferenceFragment
     private PreferenceCategory mStatusBarBatteryCategory;
     private PreferenceCategory mStatusBarClockCategory;
     private PreferenceScreen mNetworkTrafficPref;
+
+    private SwitchPreference mSmsBreath;
+    private SwitchPreference mMissedCallBreath;
+    private SwitchPreference mVoicemailBreath;
 
     private static boolean sHasNotch;
     
@@ -133,6 +143,32 @@ public class StatusBar extends SettingsPreferenceFragment
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
+
+          // Breathing Notifications
+           mSmsBreath = (SwitchPreference) findPreference(SMS_BREATH);
+           mMissedCallBreath = (SwitchPreference) findPreference(MISSED_CALL_BREATH);
+           mVoicemailBreath = (SwitchPreference) findPreference(VOICEMAIL_BREATH);
+
+           ConnectivityManager cm = (ConnectivityManager)
+                   getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+
+           if (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)) {
+               mSmsBreath.setChecked(Settings.Global.getInt(resolver,
+                       Settings.Global.KEY_SMS_BREATH, 0) == 1);
+               mSmsBreath.setOnPreferenceChangeListener(this);
+
+               mMissedCallBreath.setChecked(Settings.Global.getInt(resolver,
+                       Settings.Global.KEY_MISSED_CALL_BREATH, 0) == 1);
+               mMissedCallBreath.setOnPreferenceChangeListener(this);
+
+               mVoicemailBreath.setChecked(Settings.System.getInt(resolver,
+                       Settings.System.KEY_VOICEMAIL_BREATH, 0) == 1);
+               mVoicemailBreath.setOnPreferenceChangeListener(this);
+           } else {
+               prefSet.removePreference(mSmsBreath);
+               prefSet.removePreference(mMissedCallBreath);
+               prefSet.removePreference(mVoicemailBreath);
+           }
 
     }
 
@@ -198,6 +234,18 @@ public class StatusBar extends SettingsPreferenceFragment
                 break;
             case STATUS_BAR_BATTERY_STYLE:
                 enableStatusBarBatteryDependents(value);
+                break;
+            case SMS_BREATH:
+                boolean value = (Boolean) newValue;
+                Settings.Global.putInt(getContentResolver(), SMS_BREATH, value ? 1 : 0);
+                break;
+            case MISSED_CALL_BREATH:
+                boolean value = (Boolean) newValue;
+                Settings.Global.putInt(getContentResolver(), MISSED_CALL_BREATH, value ? 1 : 0);
+                break;
+            case VOICEMAIL_BREATH:
+                boolean value = (Boolean) newValue;
+                Settings.System.putInt(getContentResolver(), VOICEMAIL_BREATH, value ? 1 : 0);
                 break;
         }
         return true;
