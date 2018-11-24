@@ -46,8 +46,6 @@ public class Power extends SettingsPreferenceFragment
 
 
         private static final String TAG = "Power";
-        private static final String CATEGORY_PROXY = "proxy_check";
-        private static final String SYSTEM_PROXI_CHECK_ENABLED = "system_proxi_check_enabled";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,16 +53,6 @@ public class Power extends SettingsPreferenceFragment
 
             addPreferencesFromResource(R.xml.buttons_power);
             PreferenceScreen prefSet = getPreferenceScreen();
-
-            final PreferenceCategory proxyCategory =
-                    (PreferenceCategory) prefSet.findPreference(CATEGORY_PROXY);
-
-            boolean supportPowerButtonProxyCheck = getResources().getBoolean(com.android.internal.R.bool.config_proxiSensorWakupCheck);
-            SwitchPreference proxyCheckPreference = (SwitchPreference) findPreference(SYSTEM_PROXI_CHECK_ENABLED);
-            if (!DeviceUtils.deviceSupportsProximitySensor(getActivity()) || !supportPowerButtonProxyCheck) {
-                proxyCategory.removePreference(proxyCheckPreference);
-            }
-
         }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
