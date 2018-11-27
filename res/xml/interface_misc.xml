@@ -59,6 +59,12 @@
         android:title="@string/screenshot_type_title"
         android:defaultValue="0" />
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="notification_guts_kill_app_button"
+        android:title="@string/notification_guts_kill_app_button_title"
+        android:summary="@string/notification_guts_kill_app_button_summary"
+        android:defaultValue="false" />
+
     <PreferenceCategory 
         android:title="@string/corners_category" />
 
