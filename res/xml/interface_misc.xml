@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <Preference 
         android:key="bliss_logo"
@@ -57,6 +58,27 @@
         android:entryValues="@array/screenshot_type_values"
         android:title="@string/screenshot_type_title"
         android:defaultValue="0" />
+
+    <PreferenceCategory 
+        android:title="@string/corners_category" />
+
+         <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+            android:key="sysui_rounded_size"
+            android:title="@string/corner_radius"
+            android:max="60"
+            android:min="1"
+            settings:units=""
+            android:defaultValue="1"
+            android:persistent="false" />
+			
+        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+            android:key="sysui_rounded_content_padding"
+            android:title="@string/content_padding"
+            android:max="20"
+            android:min="0"
+            settings:units=""
+            android:defaultValue="0"
+            android:persistent="false" />
 
     <PreferenceCategory
         android:key="aspect_ratio_category"
