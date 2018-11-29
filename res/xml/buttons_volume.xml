@@ -27,4 +27,10 @@
         android:summary="@string/vol_zen_summary"
         android:defaultValue="false"/>
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="swap_volume_buttons"
+        android:title="@string/swap_volume_buttons_title"
+        android:summary="@string/swap_volume_buttons_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
