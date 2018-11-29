@@ -23,6 +23,10 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
+    <PreferenceCategory
+         android:key="system_animations"
+         android:title="@string/system_animation_title" />
+
         <SwitchPreference
             android:key="animation_no_override"
             android:title="@string/title_animation_no_override"
@@ -71,5 +75,18 @@
         <ListPreference
             android:key="wallpaper_intra_close"
             android:title="@string/wallpaper_intra_close_title" />
+
+    <PreferenceCategory
+         android:key="power_animation"
+         android:title="@string/power_menu_title" />
+
+         <ListPreference
+            android:key="power_menu_animations"
+            android:title="@string/power_menu_animation_title"
+            android:dialogTitle="@string/power_menu_animation_dialog_title"
+            android:entries="@array/power_menu_animations_entries"
+            android:entryValues="@array/power_menu_animations_values"
+            android:summary="@string/power_menu_animation_summary"
+            android:persistent="false" />
 
 </PreferenceScreen>
