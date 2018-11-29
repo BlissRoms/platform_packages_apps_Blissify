@@ -44,6 +44,8 @@ public class SystemAnimation extends SettingsPreferenceFragment
         private static final String WALLPAPER_INTRA_CLOSE = "wallpaper_intra_close";
         private static final String TASK_OPEN_BEHIND = "task_open_behind";
         private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
+        private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
+        private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
         ListPreference mActivityOpenPref;
         ListPreference mActivityClosePref;
@@ -58,6 +60,8 @@ public class SystemAnimation extends SettingsPreferenceFragment
         ListPreference mTaskOpenBehind;
         SwitchPreference mAnimNoOverride;
         private ListPreference mPowerMenuAnimations;
+        private ListPreference mListViewAnimation;
+        private ListPreference mListViewInterpolator;
 
         private int[] mAnimations;
         private String[] mAnimationsStrings;
@@ -70,6 +74,7 @@ public class SystemAnimation extends SettingsPreferenceFragment
             addPreferencesFromResource(R.xml.system_animation);
 
             PreferenceScreen prefs = getPreferenceScreen();
+            ContentResolver resolver = getActivity().getContentResolver();
             mAnimations = AwesomeAnimationHelper.getAnimationsList();
             int animqty = mAnimations.length;
             mAnimationsStrings = new String[animqty];
@@ -154,6 +159,22 @@ public class SystemAnimation extends SettingsPreferenceFragment
                     getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS, 0)));
             mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
             mPowerMenuAnimations.setOnPreferenceChangeListener(this);
+
+            // ListView Animations
+            mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
+            int listviewanimation =Settings.System.getInt(resolver,
+                    Settings.System.LISTVIEW_ANIMATION, 0);
+            mListViewAnimation.setValue(String.valueOf(listviewanimation));
+            mListViewAnimation.setSummary(mListViewAnimation.getEntry());
+            mListViewAnimation.setOnPreferenceChangeListener(this);
+
+            mListViewInterpolator = (ListPreference) findPreference(KEY_LISTVIEW_INTERPOLATOR);
+            int listviewinterpolator = Settings.System.getInt(resolver,
+                    Settings.System.LISTVIEW_INTERPOLATOR, 0);
+            mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
+            mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
+            mListViewInterpolator.setOnPreferenceChangeListener(this);
+            mListViewInterpolator.setEnabled(listviewanimation > 0);
         }
 
         //@Override
@@ -242,6 +263,19 @@ public class SystemAnimation extends SettingsPreferenceFragment
                     Integer.valueOf((String) newValue));
             mPowerMenuAnimations.setValue(String.valueOf(newValue));
             mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
+            return true;
+        } else if (preference == mListViewAnimation) {
+            int val = Integer.parseInt((String) newValue);
+            Settings.System.putInt(resolver,
+                    Settings.System.LISTVIEW_ANIMATION, val);
+            mListViewAnimation.setSummary(mListViewAnimation.getEntry());
+            mListViewInterpolator.setEnabled(val > 0);
+            return true;
+        } else if (preference == mListViewInterpolator) {
+            int val = Integer.parseInt((String) newValue);
+            Settings.System.putInt(resolver,
+                    Settings.System.LISTVIEW_INTERPOLATOR, val);
+            mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
             return true;
         }
         return false;

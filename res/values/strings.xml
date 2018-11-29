@@ -207,6 +207,7 @@
     <string name="toast_icon_summary">Display icon of activity that generates toast message</string>
 
     <!-- ListView animation -->
+    <string name="listview_ani_title">ListView</string>
     <string name="listview_animation_title">ListView animation</string>
     <string name="listview_off">Default</string>
     <string name="listview_wave_left">Wave (left)</string>

@@ -22,12 +22,8 @@ public class ToastAnimation extends SettingsPreferenceFragment implements Prefer
 
         private static final String TAG = "ToastPreference";
         private static final String PREF_TOAST_ANIMATION = "toast_animation";
-        private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
-        private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
         private ListPreference mToastAnimation;
-        private ListPreference mListViewAnimation;
-        private ListPreference mListViewInterpolator;
         Toast mToast;
 
     @Override
@@ -50,20 +46,6 @@ public class ToastAnimation extends SettingsPreferenceFragment implements Prefer
                 mToast = null;
             }
 
-            // ListView Animations
-            mListViewAnimation = (ListPreference) prefSet.findPreference(KEY_LISTVIEW_ANIMATION);
-            int listviewanimation =Settings.System.getInt(resolver,
-                    Settings.System.LISTVIEW_ANIMATION, 0);
-            mListViewAnimation.setValue(String.valueOf(listviewanimation));
-            mListViewAnimation.setSummary(mListViewAnimation.getEntry());
-            mListViewAnimation.setOnPreferenceChangeListener(this);
-            mListViewInterpolator = (ListPreference) prefSet.findPreference(KEY_LISTVIEW_INTERPOLATOR);
-            int listviewinterpolator = Settings.System.getInt(resolver,
-                    Settings.System.LISTVIEW_INTERPOLATOR, 0);
-            mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
-            mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
-            mListViewInterpolator.setOnPreferenceChangeListener(this);
-            mListViewInterpolator.setEnabled(listviewanimation > 0);
         }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -83,36 +65,6 @@ public class ToastAnimation extends SettingsPreferenceFragment implements Prefer
                 mToast = Toast.makeText(getActivity(), "Toast Test",
                         Toast.LENGTH_SHORT);
                 mToast.show();
-                return true;
-            } else if (preference == mListViewAnimation) {
-                value = Integer.parseInt((String) newValue);
-                index = mListViewAnimation.findIndexOfValue((String) newValue);
-                Settings.System.putInt(resolver,
-                        Settings.System.LISTVIEW_ANIMATION, value);
-                mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
-                mListViewInterpolator.setEnabled(value > 0);
-                return true;
-            } else if (preference == mListViewInterpolator) {
-                value = Integer.parseInt((String) newValue);
-                index = mListViewInterpolator.findIndexOfValue((String) newValue);
-                Settings.System.putInt(resolver,
-                        Settings.System.LISTVIEW_INTERPOLATOR, value);
-                mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
-                return true;
-            } else if (preference == mListViewAnimation) {
-                value = Integer.parseInt((String) newValue);
-                index = mListViewAnimation.findIndexOfValue((String) newValue);
-                Settings.System.putInt(resolver,
-                        Settings.System.LISTVIEW_ANIMATION, value);
-                mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
-                mListViewInterpolator.setEnabled(value > 0);
-                return true;
-            } else if (preference == mListViewInterpolator) {
-                value = Integer.parseInt((String) newValue);
-                index = mListViewInterpolator.findIndexOfValue((String) newValue);
-                Settings.System.putInt(resolver,
-                        Settings.System.LISTVIEW_INTERPOLATOR, value);
-                mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
                 return true;
             }
             return false;
