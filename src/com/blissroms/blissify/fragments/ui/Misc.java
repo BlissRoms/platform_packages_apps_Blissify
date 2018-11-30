@@ -51,6 +51,7 @@ public class Misc extends SettingsPreferenceFragment
     private static final String KEY_ASPECT_RATIO_APPS_LIST_SCROLLER = "aspect_ratio_apps_list_scroller";
     private static final String SYSUI_ROUNDED_CONTENT_PADDING = "sysui_rounded_content_padding";
     private static final String SYSUI_ROUNDED_SIZE = "sysui_rounded_size";
+    private static final String DEVICE_CATEGORY = "device_extras_category";
 
     private AppMultiSelectListPreference mAspectRatioAppsSelect;
     private ScrollAppsViewPreference mAspectRatioApps;
@@ -77,6 +78,11 @@ public class Misc extends SettingsPreferenceFragment
                 Settings.Secure.SYSUI_ROUNDED_SIZE, 1);
                 mCornerRadius.setValue(cornerRadius / 1);
                 mCornerRadius.setOnPreferenceChangeListener(this);
+
+        Preference DeviceExtras = findPreference(DEVICE_CATEGORY);
+        if (!getResources().getBoolean(R.bool.has_device_extras)) {
+            getPreferenceScreen().removePreference(DeviceExtras);
+        }
 
         final PreferenceCategory aspectRatioCategory =
                 (PreferenceCategory) getPreferenceScreen().findPreference(KEY_ASPECT_RATIO_CATEGORY);
