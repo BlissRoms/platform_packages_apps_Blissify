@@ -31,14 +31,6 @@
                 />
 
      <PreferenceScreen
-                android:id="@+id/buttons_volume"
-                android:title="@string/buttons_volume_title"
-                android:summary="@string/buttons_volume_summary"
-                android:icon="@drawable/ic_volume"
-                android:fragment="com.blissroms.blissify.fragments.buttons.Volume"
-                />
-
-     <PreferenceScreen
                 android:id="@+id/buttons_hwkeys"
                 android:title="@string/buttons_hwkeys_title"
                 android:summary="@string/buttons_hwkeys_summary"

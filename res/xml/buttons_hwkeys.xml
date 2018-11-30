@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen 
        xmlns:android="http://schemas.android.com/apk/res/android"
-       xmlns:bliss="http://schemas.android.com/apk/res-auto">
+       xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+       xmlns:blissns="http://schemas.android.com/apk/res-auto">
 
     <Preference 
         android:key="bliss_logo"
@@ -134,5 +135,49 @@
         </com.android.settings.smartnav.ActionPreference>
 
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="vol_key"
+        android:title="@string/buttons_volume_title"/>
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="swap_volume_buttons"
+        android:title="@string/swap_volume_buttons_title"
+        android:summary="@string/swap_volume_buttons_summary"
+        android:defaultValue="false" />
+
+    <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        android:key="volume_dialog_timeout"
+        android:title="@string/volume_dialog_timeout_title"
+        android:min="500"
+        android:max="10000"
+        android:defaultValue="3000"
+        blissns:interval="100"
+        settings:unitsLeft=""
+        settings:unitsRight="ms" />
+
+    <PreferenceCategory
+        android:key="vol_dnd_category"
+        android:title="@string/vol_dnd_category_title"/>
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="sysui_volume_down_silent"
+        android:title="@string/volbtn_down_zen_title"
+        android:summary="@string/volbtn_down_zen_summary"
+        android:defaultValue="true"/>
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="sysui_volume_up_silent"
+        android:title="@string/volbtn_up_zen_title"
+        android:summary="@string/volbtn_up_zen_summary"
+        android:defaultValue="true" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="sysui_show_full_zen"
+        android:title="@string/vol_zen_title"
+        android:summary="@string/vol_zen_summary"
+        android:defaultValue="false"/>
+
+
 
 </PreferenceScreen>
