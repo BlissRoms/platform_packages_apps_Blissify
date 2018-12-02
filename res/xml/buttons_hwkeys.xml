@@ -156,6 +156,21 @@
         settings:unitsLeft=""
         settings:unitsRight="ms" />
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="screen_shot_shortcut"
+        android:title="@string/screen_shot_shortcut"
+        android:summaryOn="@string/screen_shot_shortcut_on"
+        android:summaryOff="@string/screen_shot_shortcut_off"
+        android:defaultValue="true" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="screen_record_shortcut"
+        android:title="@string/screen_record_shortcut"
+        android:summaryOn="@string/screen_record_shortcut_on"
+        android:summaryOff="@string/screen_record_shortcut_off"
+        android:defaultValue="true" />
+
+
     <PreferenceCategory
         android:key="vol_dnd_category"
         android:title="@string/vol_dnd_category_title"/>
@@ -177,7 +192,5 @@
         android:title="@string/vol_zen_title"
         android:summary="@string/vol_zen_summary"
         android:defaultValue="false"/>
-
-
 
 </PreferenceScreen>

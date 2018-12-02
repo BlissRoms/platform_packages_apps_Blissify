@@ -804,4 +804,14 @@
     <string name="device_extras_title">Device extras</string>
     <string name="device_extras_summary">Device specific tweaks</string>
 
+   <!-- ScreenRecord Shortcut -->
+    <string name="screen_record_shortcut">Screenrecord Shortcut</string>
+    <string name="screen_record_shortcut_on">Power + Volume Up triggers Screenrecord</string>
+    <string name="screen_record_shortcut_off">Power + Volume Up does nothing</string>
+
+   <!-- ScreenShot Shortcut -->
+    <string name="screen_shot_shortcut">Screenshot Shortcut</string>
+    <string name="screen_shot_shortcut_on">Power + Volume Down triggers screenshot</string>
+    <string name="screen_shot_shortcut_off">Power + Volume Down does nothing</string>
+
 </resources>
