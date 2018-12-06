@@ -815,6 +815,7 @@
     <string name="screen_shot_shortcut_off">Power + Volume Down does nothing</string>
 
     <!-- Recents panel settings -->
+    <string name="recent_button_title" >Stock Recents</string>
     <string name="clearall_recents_category">Clear all button</string>
     <string name="show_clear_all_recents_button_title">Enable clear all button</string>
     <string name="show_clear_all_recents_button_summary">Show the clear all button when using recents</string>

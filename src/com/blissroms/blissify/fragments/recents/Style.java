@@ -6,11 +6,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.res.Resources;
+import android.content.SharedPreferences; 
 import android.database.ContentObserver;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.ListPreference;
@@ -42,9 +44,13 @@ public class Style extends SettingsPreferenceFragment
 
     private static final String NAVIGATION_BAR_RECENTS_STYLE = "navbar_recents_style";
     private static final String RECENTS_COMPONENT_TYPE = "recents_component";
+    private static final String KEY_CATEGORY_STOCK = "stock_recents";
+    private static final String KEY_CATEGORY_CLEAR = "clearall_recents_category";
 
     private ListPreference mNavbarRecentsStyle;
     private ListPreference mRecentsComponentType;
+    private PreferenceCategory mStockCat;
+    private PreferenceCategory mClearCat;
 
 
     @Override
@@ -70,6 +76,10 @@ public class Style extends SettingsPreferenceFragment
         mRecentsComponentType.setValue(String.valueOf(type));
         mRecentsComponentType.setSummary(mRecentsComponentType.getEntry());
         mRecentsComponentType.setOnPreferenceChangeListener(this);
+
+        mStockCat = (PreferenceCategory) findPreference(KEY_CATEGORY_STOCK);
+        mClearCat = (PreferenceCategory) findPreference(KEY_CATEGORY_CLEAR);
+        updateRecentsState(type); 
         }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -93,6 +103,7 @@ public class Style extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.RECENTS_COMPONENT, type);
             mRecentsComponentType.setSummary(mRecentsComponentType.getEntries()[index]);
+            updateRecentsState(type); 
             if (type == 1) { // Disable swipe up gesture, if oreo type selected
                Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.SWIPE_UP_TO_SWITCH_APPS_ENABLED, 0);
@@ -135,6 +146,16 @@ public class Style extends SettingsPreferenceFragment
         private boolean isOmniSwitchInstalled() {
             return PackageUtils.isAvailableApp(OmniSwitchConstants.APP_PACKAGE_NAME, getActivity());
         }
+
+    public void updateRecentsState(int type) {
+        if (type == 0) {
+           mStockCat.setEnabled(false);
+           mClearCat.setEnabled(false);
+        } else {
+           mStockCat.setEnabled(true);
+           mClearCat.setEnabled(true);
+        }
+    }
 
         @Override
         public int getMetricsCategory() {
