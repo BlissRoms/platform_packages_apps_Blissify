@@ -61,7 +61,9 @@ import java.util.Collections;
 public class StatusBar extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
-    private static final String PIXEL_CATEGORY = "pixel_category";
+    private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
+
+    private SwitchPreference mShowBlissLogo;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -69,10 +71,22 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.blissify_statusbar);
         PreferenceScreen prefSet = getPreferenceScreen();
+
+
+	    mShowBlissLogo = (SwitchPreference) findPreference(KEY_STATUS_BAR_LOGO);
+        mShowBlissLogo.setChecked((Settings.System.getInt(getContentResolver(),
+             Settings.System.STATUS_BAR_LOGO, 0) == 1));
+        mShowBlissLogo.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if  (preference == mShowBlissLogo) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_LOGO, value ? 1 : 0);
+            return true;
+        }
         return false;
     }
 

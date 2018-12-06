@@ -225,4 +225,8 @@
     <string name="qs_running_services_summary">Enable the running services icon in the footer</string>
     <string name="qs_edit_title">Edit Icon</string>
     <string name="qs_edit_summary">Enable the tile edit icon in the footer</string>
+
+	<!-- Bliss logo -->
+    <string name="bliss_logo_title">Bliss logo</string>
+    <string name="bliss_logo_summary">Blissify your device!</string>
 </resources>
