@@ -20,6 +20,13 @@
             android:defaultValue="0"
             android:entryValues="@array/recents_component_type_title_values"/>
 
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="systemui_recents_mem_display"
+            android:title="@string/recents_show_membar_title"
+            android:summary="@string/recents_show_membar_summary"
+            android:dependency="recents_component"
+            android:defaultValue="false" />
+
     <PreferenceCategory
         android:key="clearall_recents_category"
         android:title="@string/clearall_recents_category"/>
