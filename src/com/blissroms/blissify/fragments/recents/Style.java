@@ -45,11 +45,13 @@ public class Style extends SettingsPreferenceFragment
     private static final String NAVIGATION_BAR_RECENTS_STYLE = "navbar_recents_style";
     private static final String RECENTS_COMPONENT_TYPE = "recents_component";
     private static final String KEY_CATEGORY_STOCK = "stock_recents";
+    private static final String KEY_CATEGORY_IMMERSIVE = "immersive";
     private static final String KEY_CATEGORY_CLEAR = "clearall_recents_category";
 
     private ListPreference mNavbarRecentsStyle;
     private ListPreference mRecentsComponentType;
     private PreferenceCategory mStockCat;
+    private PreferenceCategory mImmersiveCat;
     private PreferenceCategory mClearCat;
 
 
@@ -78,6 +80,7 @@ public class Style extends SettingsPreferenceFragment
         mRecentsComponentType.setOnPreferenceChangeListener(this);
 
         mStockCat = (PreferenceCategory) findPreference(KEY_CATEGORY_STOCK);
+        mImmersiveCat = (PreferenceCategory) findPreference(KEY_CATEGORY_IMMERSIVE);
         mClearCat = (PreferenceCategory) findPreference(KEY_CATEGORY_CLEAR);
         updateRecentsState(type); 
         }
@@ -150,9 +153,11 @@ public class Style extends SettingsPreferenceFragment
     public void updateRecentsState(int type) {
         if (type == 0) {
            mStockCat.setEnabled(false);
+           mImmersiveCat.setEnabled(false);
            mClearCat.setEnabled(false);
         } else {
            mStockCat.setEnabled(true);
+           mImmersiveCat.setEnabled(true);
            mClearCat.setEnabled(true);
         }
     }

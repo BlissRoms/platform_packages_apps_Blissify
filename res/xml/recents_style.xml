@@ -30,6 +30,12 @@
             android:summary="@string/recents_show_membar_summary"
             android:defaultValue="false" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory 
+        android:title="@string/immersive_recents_title"
+        android:key="immersive" >
+
         <com.blissroms.blissify.preference.SystemSettingListPreference
             android:key="immersive_recents"
             android:title="@string/immersive_recents_title"
@@ -38,6 +44,18 @@
             android:entries="@array/immersive_recents_entries"
             android:entryValues="@array/immersive_recents_values"
             android:defaultValue="0" />
+
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="recents_full_screen_clock"
+            android:title="@string/recents_full_screen_clock_title"
+            android:summary="@string/recents_full_screen_clock_summary"
+            android:defaultValue="false" />
+
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="recents_full_screen_date"
+            android:title="@string/recents_full_screen_date_title"
+            android:summary="@string/recents_full_screen_date_summary"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 
@@ -59,6 +77,12 @@
             android:entryValues="@array/recents_clear_all_location_values"
             android:dependency="show_clear_all_recents"
             android:defaultValue="3" />
+
+        <PreferenceScreen
+            android:key="recent_stock_styles"
+            android:title="@string/recent_styles"
+            android:summary="@string/recent_styles_summary"
+            android:fragment="com.blissroms.blissify.fragments.recents.StockStyles" />
 
     </PreferenceCategory>
 
