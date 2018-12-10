@@ -15,6 +15,13 @@
         android:fragment="com.blissroms.blissify.fragments.gestures.CarbonGesturesSettings" />
 
     <Preference
+        android:key="app_circle_bar"
+        android:title="@string/app_circle_bar_title"
+        android:summary="@string/app_circle_bar_summary"
+        android:icon="@drawable/ic_gestures"
+        android:fragment="com.blissroms.blissify.fragments.gestures.AppCircleBar" />
+
+    <Preference
         android:title="@string/doubletap_gestures_title"
         android:summary="@string/doubletap_gestures_summary"
         android:icon="@drawable/ic_gestures"
