@@ -29,6 +29,13 @@
         android:icon="@drawable/ic_gestures"
         android:fragment="com.blissroms.blissify.fragments.gestures.AppCircleBar" />
 
+    <Preference 
+        android:key="edge_gestures" 
+        android:title="@string/edge_gestures_title" 
+        android:summary="@string/edge_gestures_summary"
+        android:icon="@drawable/ic_gestures"
+        android:fragment="com.blissroms.blissify.fragments.gestures.EdgeGesturesSettings"/>
+
     <Preference
         android:title="@string/doubletap_gestures_title"
         android:summary="@string/doubletap_gestures_summary"
