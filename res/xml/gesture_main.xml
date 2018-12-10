@@ -14,6 +14,14 @@
         android:icon="@drawable/ic_gestures"
         android:fragment="com.blissroms.blissify.fragments.gestures.CarbonGesturesSettings" />
 
+    <!-- PA Pie -->
+    <Preference
+        android:key="pa_pie_control" 
+        android:title="@string/pa_pie_control_title" 
+        android:summary="@string/pa_pie_control_summary"
+        android:icon="@drawable/ic_gestures"
+        android:fragment="com.blissroms.blissify.fragments.gestures.PieSettings" />
+
     <Preference
         android:key="app_circle_bar"
         android:title="@string/app_circle_bar_title"
