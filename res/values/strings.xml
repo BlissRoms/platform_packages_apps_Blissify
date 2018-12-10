@@ -454,6 +454,8 @@
     <string name="qs_brightness_position_bottom_summary">Show a brightness slider on bottom quick settings</string>
     <string name="brightness_icon_title">Auto Brightness Icon</string>
     <string name="brightness_icon_summary">Show a brightness icon to the left of the brighness slider to adjust auto-brightness</string>
+    <string name="brightness_buttons_title">Brightness buttons</string>
+    <string name="brightness_buttons_summary">Show buttons on each side of the slider that increase/decrease by 5%</string>
     <string name="qs_show_info_header_title">Show information header</string>
     <string name="qs_show_info_header_summary">Information displayed at top of quick settings panel</string>
 

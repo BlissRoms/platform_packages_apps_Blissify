@@ -34,6 +34,13 @@
             android:dependency="qs_show_brightness_slider"
             android:defaultValue="false"/>
 
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="qs_show_brightness_buttons"
+            android:title="@string/brightness_buttons_title"
+            android:summary="@string/brightness_buttons_summary"
+            android:dependency="qs_show_brightness_slider"
+            android:defaultValue="false"/>
+
         <com.blissroms.blissify.preference.SecureSettingSwitchPreference
             android:key="qs_show_info_header"
             android:title="@string/qs_show_info_header_title"
