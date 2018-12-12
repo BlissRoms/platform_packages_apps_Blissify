@@ -11,7 +11,7 @@
     <Preference
         android:title="@string/carbon_gesture_preference_title"
         android:summary="@string/carbon_gestures_summary"
-        android:icon="@drawable/ic_gestures"
+        android:icon="@drawable/ic_carbon"
         android:fragment="com.blissroms.blissify.fragments.gestures.CarbonGesturesSettings" />
 
     <!-- PA Pie -->
@@ -19,27 +19,27 @@
         android:key="pa_pie_control" 
         android:title="@string/pa_pie_control_title" 
         android:summary="@string/pa_pie_control_summary"
-        android:icon="@drawable/ic_gestures"
+        android:icon="@drawable/ic_pie"
         android:fragment="com.blissroms.blissify.fragments.gestures.PieSettings" />
 
     <Preference
         android:key="app_circle_bar"
         android:title="@string/app_circle_bar_title"
         android:summary="@string/app_circle_bar_summary"
-        android:icon="@drawable/ic_gestures"
+        android:icon="@drawable/ic_appcirclebar"
         android:fragment="com.blissroms.blissify.fragments.gestures.AppCircleBar" />
 
     <Preference 
         android:key="edge_gestures" 
         android:title="@string/edge_gestures_title" 
         android:summary="@string/edge_gestures_summary"
-        android:icon="@drawable/ic_gestures"
+        android:icon="@drawable/ic_edgegestures"
         android:fragment="com.blissroms.blissify.fragments.gestures.EdgeGesturesSettings"/>
 
     <Preference
         android:title="@string/doubletap_gestures_title"
         android:summary="@string/doubletap_gestures_summary"
-        android:icon="@drawable/ic_gestures"
+        android:icon="@drawable/ic_doubletap"
         android:fragment="com.blissroms.blissify.fragments.gestures.DoubletapSettings" />
 
 </PreferenceScreen>
