@@ -43,4 +43,11 @@
     <color name="bliss_config_tab_text_color">@*android:color/secondary_text_default_material_dark</color>
     <color name="fab_ripple">#1fffffff</color><!-- 12% white -->
 
+    <color name="white">#FFF</color>
+    <color name="material_deep_teal_500">@*android:color/material_deep_teal_500</color>
+    <color name="icon_tint_color">@color/theme_accent</color>
+    <color name="action_bar_icon_tint">@android:color/white</color>
+     <!-- Gesture Anywhere -->
+    <color name="ga_gesture_color">@color/theme_accent</color>
+
 </resources>
