@@ -91,6 +91,12 @@
     <PreferenceCategory
         android:key="hardware_backlight"
         android:title="@string/hardware_backlight_category" >
+
+        <SwitchPreference
+            android:key="button_brightness_sw"
+            android:title="@string/button_brightness_sw_title"
+            android:persistent="false" />
+
         <com.blissroms.blissify.preference.CustomSeekBarPreference
             android:key="button_brightness"
             android:title="@string/button_brightness_title"
@@ -98,6 +104,7 @@
             settings:min="0"
             settings:units=""
             android:persistent="false" />
+
         <ListPreference
             android:dialogTitle="@string/backlight_timeout_title"
             android:entries="@array/backlight_timeout_entries"
@@ -105,6 +112,7 @@
             android:key="backlight_timeout"
             android:persistent="false"
             android:title="@string/backlight_timeout_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
