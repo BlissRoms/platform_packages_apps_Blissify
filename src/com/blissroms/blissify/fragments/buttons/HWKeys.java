@@ -49,6 +49,8 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.utils.ActionConstants;
 import com.android.internal.utils.ActionUtils;
 import com.blissroms.blissify.preference.CustomSeekBarPreference;
+import com.android.internal.util.omni.DeviceUtils;
+import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
 
 public class HWKeys extends ActionFragment
         implements Preference.OnPreferenceChangeListener {
@@ -56,6 +58,7 @@ public class HWKeys extends ActionFragment
     private static final String KEY_BUTTON_BRIGHTNESS = "button_brightness";
     private static final String KEY_BUTTON_BRIGHTNESS_SW = "button_brightness_sw";
     private static final String KEY_BACKLIGHT_TIMEOUT = "backlight_timeout";
+    private static final String KEY_VOLUME_PANEL_ON_LEFT = "volume_panel_on_left";
     
     // category keys
     private static final String CATEGORY_HWKEY = "hardware_keys";
@@ -80,6 +83,7 @@ public class HWKeys extends ActionFragment
     private ListPreference mBacklightTimeout;
     private CustomSeekBarPreference mButtonBrightness;
     private SwitchPreference mButtonBrightness_sw;
+    private SystemSettingSwitchPreference mVolumePanelLeft;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -88,6 +92,11 @@ public class HWKeys extends ActionFragment
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
+
+        mVolumePanelLeft = (SystemSettingSwitchPreference) findPreference(KEY_VOLUME_PANEL_ON_LEFT);
+        mVolumePanelLeft.setChecked(Settings.System.getInt(resolver,
+                                Settings.System.VOLUME_PANEL_ON_LEFT, 0) == 1);
+        mVolumePanelLeft.setOnPreferenceChangeListener(this);
 
         final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());
         final PreferenceCategory hwkeyCat = (PreferenceCategory) prefScreen
@@ -231,6 +240,12 @@ public class HWKeys extends ActionFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.BUTTON_BRIGHTNESS, value ? 1 : 0);
             return true;
+        } else if (preference == mVolumePanelLeft) {
+           boolean value = (Boolean) newValue;
+           Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.VOLUME_PANEL_ON_LEFT, value ? 0 : 1);
+            DeviceUtils.showSystemUiRestartDialog(getContext());
+           return true;
         }
         return false;
     }

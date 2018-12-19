@@ -184,6 +184,12 @@
         settings:unitsRight="ms" />
 
     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="volume_panel_on_left"
+        android:title="@string/volume_panel_on_left_title"
+        android:summary="@string/volume_panel_on_left_summary"
+        android:defaultValue="false" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
         android:key="screen_shot_shortcut"
         android:title="@string/screen_shot_shortcut"
         android:summaryOn="@string/screen_shot_shortcut_on"
