@@ -653,7 +653,10 @@
         <item>@string/qstile_oreo_circle_trim</item>
         <item>@string/qstile_oreo_squircle_trim</item>
         <item>@string/qstile_squircle_trim</item>
+        <item>@string/qstile_squaremedo</item>
+        <item>@string/qstile_inkdrop</item>
     </string-array>
+
     <string-array name="qs_selector_values" translatable="false">
         <item>0</item>
         <item>1</item>
@@ -665,6 +668,8 @@
         <item>7</item>
         <item>8</item>
         <item>9</item>
+        <item>10</item>
+        <item>11</item>
     </string-array>
 
     <!-- Notification ticker -->
