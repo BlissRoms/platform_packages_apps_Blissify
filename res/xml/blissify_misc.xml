@@ -22,6 +22,18 @@
         android:key="bliss_header"
         android:layout="@layout/more_header" />
 
+    <PreferenceCategory
+        android:key="slim_recents_category"
+        android:title="@string/slim_recents_title">
+
+    <com.bliss.support.preferences.SystemSettingMasterSwitchPreference
+        android:key="slim_recents_fragment"
+        android:fragment="com.blissroms.blissify.fragments.misc.SlimRecents"
+        android:title="@string/slim_recents_fragment_title"
+        android:summary="@string/slim_recents_fragment_summary"/>
+
+    </PreferenceCategory>
+
     <!-- Agressive battery -->
     <PreferenceCategory
         android:key="aggressive_battery"
