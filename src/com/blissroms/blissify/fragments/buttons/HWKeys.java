@@ -101,6 +101,8 @@ public class HWKeys extends ActionFragment
         final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());
         final PreferenceCategory hwkeyCat = (PreferenceCategory) prefScreen
                 .findPreference(CATEGORY_HWKEY);
+        final PreferenceCategory hwkeylightCat = (PreferenceCategory) prefScreen
+                .findPreference(CATEGORY_HWLIGHT);
         int keysDisabled = 0;
         if (!needsNavbar) {
             mHwKeyDisable = (SwitchPreference) findPreference(HWKEY_DISABLE);
@@ -148,6 +150,7 @@ public class HWKeys extends ActionFragment
                 }
         } else {
             prefScreen.removePreference(hwkeyCat);
+            prefScreen.removePreference(hwkeylightCat);
         }
 
         // bits for hardware keys present on device
