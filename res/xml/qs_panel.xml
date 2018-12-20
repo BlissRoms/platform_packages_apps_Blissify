@@ -7,12 +7,20 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
+    <PreferenceCategory
+        android:key="tile_style"
+        android:title="@string/tile_bg" />
+
     <ListPreference
         android:key="qs_tile_style"
         android:title="@string/qs_tile_style_title"
         android:persistent="false"
         android:entries="@array/qs_selector_entries"
         android:entryValues="@array/qs_selector_values" />
+
+    <PreferenceCategory
+        android:key="bright_slide"
+        android:title="@string/bright_slide" />
 
         <com.blissroms.blissify.preference.SecureSettingSwitchPreference
             android:key="qs_show_brightness_slider"
@@ -41,6 +49,10 @@
             android:dependency="qs_show_brightness_slider"
             android:defaultValue="false"/>
 
+    <PreferenceCategory
+        android:key="icons_and_info"
+        android:title="@string/icons_and_info" />
+
         <com.blissroms.blissify.preference.SecureSettingSwitchPreference
             android:key="qs_show_info_header"
             android:title="@string/qs_show_info_header_title"
@@ -64,6 +76,10 @@
             android:title="@string/qs_footer_warnings_title"
             android:summary="@string/qs_footer_warnings_summary"
             android:defaultValue="true" />
+
+    <PreferenceCategory
+        android:key="panel_options"
+        android:title="@string/panel_options" />
 
         <com.blissroms.blissify.preference.SecureSettingSwitchPreference
             android:key="status_bar_locked_on_secure_keyguard"

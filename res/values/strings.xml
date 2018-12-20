@@ -1094,4 +1094,9 @@
     <string name="volume_panel_on_left_title">Volume Panel on Left</string>
     <string name="volume_panel_on_left_summary">Change volume panel from right side to left side</string>
 
+    <string name="tile_bg">Custom tile icon options</string>
+    <string name="bright_slide">Brightness slider options</string>
+    <string name="icons_and_info">Icons and info options</string>
+    <string name="panel_options">Panel options</string>
+
 </resources>
