@@ -10,16 +10,8 @@
                 android:id="@+id/buttons_navbar"
                 android:title="@string/buttons_navbar_title"
                 android:summary="@string/buttons_navbar_summary"
-                android:icon="@drawable/ic_navbar"
-                android:fragment="com.blissroms.blissify.fragments.buttons.NavBar"
-                />
-
-     <PreferenceScreen
-		android:fragment="com.android.settings.smartnav.NavigationBarSettings"
-		android:key="navigationbar_settings"
                 android:icon="@drawable/ic_smartnav"
-		android:title="@string/navigationbar_settings_title"
-                android:summary="@string/buttons_smartbar_summary"
+                android:fragment="com.android.settings.smartnav.NavigationBarSettings"
                 />
 
      <PreferenceScreen
@@ -37,6 +29,5 @@
                 android:icon="@drawable/ic_hardware_keys"
                 android:fragment="com.blissroms.blissify.fragments.buttons.HWKeys"
                 />
-
 
 </PreferenceScreen>
