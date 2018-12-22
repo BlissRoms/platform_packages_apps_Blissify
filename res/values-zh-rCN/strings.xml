@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Blissify Categories -->
+    <string name="action_settings">"设置"</string>
+    <string name="nav_header_desc">"Bliss配置"</string>
+    <string name="animation_category">"动画"</string>
+    <string name="button_category">"按键"</string>
+    <string name="gestures_category">"手势"</string>
+    <string name="lockscreen_category">"锁屏"</string>
+    <string name="interface_category">"界面"</string>
+    <string name="qs_category">"快速设置"</string>
+    <string name="recents_category">"最近任务"</string>
+    <string name="statusbar_category">"状态栏"</string>
+
+    <!--Blissify Configurations-->
+    <string name="fab_updates">"更新"</string>
+    <string name="fab_restartui">"重启UI"</string>
+    <string name="fab_reset">"重置"</string>
+    <string name="fab_about">"关于RR-OS"</string>
+    <string name="fab_layout">"更新布局"</string>
+    <string name="fab_layout_update">"切换经典布局"</string>
+    <string name="fab_layout_toggle">"切换选项卡布局"</string>
+    <string name="bliss_reset_message">"将所有配置重置为默认值？"</string>
+    <string name="bliss_reset_settings">"重置设置"</string>
+    <string name="bliss_reset_yes">"确认"</string>
+    <string name="bliss_reset_cancel">"取消"</string>
+
+    <!-- Tabs Titles -->
+    <string name="navigationbar_settings_title">"智能导航"</string>
+    <string name="buttons_navbar_title">"导航条"</string>
+    <string name="buttons_power_title">"电源"</string>
+    <string name="buttons_volume_title">"音量"</string>
+    <string name="buttons_hwkeys_title">"硬件"</string>
+    <string name="interface_theme_title">"主题"</string>
+    <string name="interface_misc_title">"杂项"</string>
+    <string name="interface_callopt_title">"通话设置"</string>
+    <string name="interface_weather_title">"天气"</string>
+    <string name="interface_batteryled_title">"电池LED"</string>
+    <string name="recents_style_title">"样式"</string>
+    <string name="qs_panel_title">"面板"</string>
+    <string name="lockscreen_ui_title">"UI设置"</string>
+
+    <!-- Animation -->
+    <string name="system_animation_title">"系统"</string>
+    <string name="screenoff_animation_title">"屏幕关闭"</string>
+    <string name="toast_animation_title">"消息框"</string>
+    <string name="qstiles_animation_title">"快捷瓷块"</string>
+
+    <!-- Statusbar -->
+    <string name="statusbar_icons_title">"图标"</string>
+    <string name="statusbar_clock_title">"时钟"</string>
+    <string name="statusbar_battery_title">"电池"</string>
+    <string name="statusbar_headsup_title">"悬浮通知"</string>
+
+    <string name="default_string">"默认"</string>
+    <string name="reset">"重置"</string>
+
+    <!-- Tabs Summaries -->
+    <string name="buttons_navbar_summary">"导航栏设置"</string>
+    <string name="buttons_smartbar_summary">"自定义导航栏高度"</string>
+    <string name="buttons_power_summary">"电源按钮设置"</string>
+    <string name="buttons_volume_summary">"音量按键设置"</string>
+    <string name="buttons_hwkeys_summary">"自定义硬件设置"</string>
+    <string name="interface_misc_summary">"访问应用程序操作和应用程序占用屏幕高度"</string>
+    <string name="interface_callopt_summary">"通话设置"</string>
+    <string name="interface_weather_summary">"天气设置"</string>
+    <string name="interface_batteryled_summary">"充电指示灯颜色选择"</string>
+    <string name="recents_style_summary">"最近任务栏样式"</string>
+    <string name="qs_panel_summary">"快速设置面板定制"</string>
+    <string name="system_animation_summary">"系统动画设置"</string>
+    <string name="screenoff_animation_summary">"屏幕关闭动画"</string>
+    <string name="toast_animation_summary">"消息弹出窗口动画"</string>
+    <string name="qstiles_animation_summary">"按下图标动画"</string>
+    <string name="statusbar_icons_summary">"状态栏图标设置"</string>
+    <string name="statusbar_clock_summary">"时钟位置和布局设置"</string>
+    <string name="statusbar_battery_summary">"电池图标和电池条设置"</string>
+    <string name="statusbar_headsup_summary">"设置睡眠和超时黑名单"</string>
+    <string name="lockscreen_ui_summary">"锁屏界面设置"</string>
+
+
+    <!--SystemUI Tuner -->
+    <string name="tuner">"系统UI调节"</string>
+    <string name="statusbar_tuner_title">"状态栏调节"</string>
+    <string name="statusbar_tuner_summary">"禁用电池选项和状态栏图标"</string>
+    <string name="navbar_tuner_title">"导航栏调节"</string>
+    <string name="navbar_tuner_summary">"编辑导航栏布局和按钮"</string>
+    <string name="lockscreen_shortcuts_title">"锁屏调节"</string>
+    <string name="lockscreen_shortcuts_summary">"锁屏底部快捷设置"</string>
+    <string name="vol_dnd_category_title">"勿扰模式"</string>
+    <string name="volbtn_down_zen_title">"勿扰模式音量"</string>
+    <string name="volbtn_down_zen_summary">"音量降低进入勿扰模式"</string>
+    <string name="volbtn_up_zen_title">"勿扰模式增加音量"</string>
+    <string name="volbtn_up_zen_summary">"增加音量退出勿扰模式"</string>
+    <string name="vol_zen_title">"勿扰模式开关"</string>
+    <string name="vol_zen_summary">"通知面板上显示勿扰开关"</string>
+
+    <!-- Battery customizations -->
+    <string name="battery_style_category">"电池"</string>
+    <string name="battery_style_title">"电池样式"</string>
+    <string name="battery_style_summary">"更改状态栏电池图标"</string>
+    <string name="battery_style_port">"默认图标"</string>
+    <string name="battery_style_circle">"圆形"</string>
+    <string name="battery_style_dotted_circle">"虚线圆形"</string>
+    <string name="battery_style_solid_circle">"实心圆形"</string>
+    <string name="battery_style_big_circle">"大圆形"</string>
+    <string name="battery_style_big_dotted_circle">"大虚线圆"</string>
+    <string name="battery_style_square">"方形"</string>
+    <string name="battery_style_dotted_square">"虚线方形"</string>
+    <string name="battery_style_text">"文本"</string>
+    <string name="show_battery_percent_title">"显示百分比"</string>
+    <string name="battery_percent_none">"不显示图标"</string>
+    <string name="battery_percent_outside">"图标旁"</string>
+    <string name="battery_percent_inside">"图标内部"</string>
+
+    <!-- Battery Bar -->
+    <string name="battery_icon">"电池图标样式"</string>
+    <string name="battery_not_title">"条形电池图标"</string>
+    <string name="battery_not_summary">"电池图标将显示在所有按钮显示的地方"</string>
+    <string name="battery_bar_title">"条形电池"</string>
+    <string name="battery_bar_location">"条形电池位置"</string>
+    <string name="battery_bar_color">"条形电池颜色"</string>
+    <string name="battery_bar_charging_color">"条形电池充电颜色"</string>
+    <string name="battery_bar_battery_low_color">"条形电量底颜色"</string>
+    <string name="battery_bar_style_title">"条形电池样式"</string>
+    <string name="battery_bar_thickness_title">"电池厚度"</string>
+    <string name="battery_bar_animate_title">"充电动画"</string>
+    <string name="battery_bar_animate_summary">"充电动画可能会导致各种bug。请自己决定要不要使用。"</string>
+    <string name="battery_bar_hide">"隐藏"</string>
+    <string name="battery_bar_statusbar">"状态栏"</string>
+    <string name="battery_bar_topnav">"导航栏顶部"</string>
+    <string name="battery_bar_bottomnav">"导航栏底部"</string>
+    <string name="battery_bar_reg">"常规"</string>
+    <string name="battery_bar_center">"中心镜像"</string>
+    <string name="battery_bar_reversed">"反转"</string>
+    <string name="battery_bar_use_gradient_color">"开启颜色渐变"</string>
+    <string name="battery_bar_gradient_color_summary">"使用渐变色作为电池级别的比例"</string>
+    <string name="battery_bar_high_color">"高浓度颜色"</string>
+    <string name="battery_bar_low_color">"底浓度颜色"</string>
+
+    <!-- AOKP custom system animations -->
+    <string name="activity_open_title">"运行开启动画"</string>
+    <string name="activity_close_title">"运行关闭动画"</string>
+    <string name="task_open_title">"任务打开动画"</string>
+    <string name="task_close_title">"任务关闭动画"</string>
+    <string name="task_move_to_front_title">"向前移动动画"</string>
+    <string name="task_move_to_back_title">"向后移动动画"</string>
+    <string name="task_open_behind_title">"动画后打开任务"</string>
+    <string name="wallpaper_open_title">"开启动态壁纸"</string>
+    <string name="wallpaper_close_title">"关闭动态壁纸"</string>
+    <string name="wallpaper_intra_open_title">"壁纸内开启动画"</string>
+    <string name="wallpaper_intra_close_title">"壁纸内关闭动画"</string>
+    <string name="animation_duration_title">"动画持续时间"</string>
+    <string name="title_animation_no_override">"防止覆盖程序"</string>
+    <string name="summary_animation_no_override">"防止旋转覆盖程序"</string>
+    <string name="animation_duration_default">"默认"</string>
+
+    <!-- Screen off animation -->
+    <string name="screen_off_animation_fade">"简单淡出"</string>
+    <string name="screen_off_animation_color">"颜色渐变"</string>
+    <string name="screen_off_animation_scale">"缩放"</string>
+    <string name="screen_off_animation_title">"屏幕关闭动画"</string>
+
+    <!-- Toast Animation -->
+    <string name="toast_none_animation">"无"</string>
+    <string name="toast_default_animation">"默认"</string>
+    <string name="toast_fade_animation">"淡出"</string>
+    <string name="toast_SlideRight_animation">"向右滑动"</string>
+    <string name="toast_SlideLeft_animation">"向左滑动"</string>
+    <string name="toast_FastFade_animation">"快速淡出"</string>
+    <string name="toast_GrowFade_animation">"缓慢淡出"</string>
+    <string name="toast_GrowFadeCenter_animation">"中心缓慢淡出"</string>
+    <string name="toast_GrowFadeBottom_animation">"缓慢底部淡出"</string>
+    <string name="toast_Translucent_animation">"半透透明"</string>
+    <string name="toast_SlideLeftRight_animation">"从左向右滑动"</string>
+    <string name="toast_SlideRightLeft_animation">"从右向左滑动"</string>
+
+    <!-- Toast icon -->
+    <string name="toast_icon_title">"Toast图标"</string>
+    <string name="toast_icon_summary">"显示生成Toast消息的活动的图标"</string>
+
+    <!-- ListView animation -->
+    <string name="listview_ani_title">"列表视图"</string>
+    <string name="listview_animation_title">"列表动画"</string>
+    <string name="listview_off">"默认"</string>
+    <string name="listview_wave_left">"波浪(左)"</string>
+    <string name="listview_wave_right">"波浪 (右)"</string>
+    <string name="listview_alpha">"透明度"</string>
+    <string name="listview_scale">"缩放"</string>
+    <string name="listview_stack_top">"堆叠（顶部）"</string>
+    <string name="listview_stack_bottom">"堆叠（底部）"</string>
+    <string name="listview_unfold">"展开"</string>
+    <string name="listview_fold">"折叠"</string>
+    <string name="listview_translate_left">"翻页 (左)"</string>
+    <string name="listview_translate_right">"翻页 (右)"</string>
+
+    <!-- ListView interpolator -->
+    <string name="listview_interpolator_title">"列表补偿"</string>
+    <string name="listview_accelerate_interpolator">"加速"</string>
+    <string name="listview_decelerate_interpolator">"缓慢"</string>
+    <string name="listview_accelerate_decelerate_interpolator">"加速和缓慢"</string>
+    <string name="listview_anticipate_interpolator">"预先"</string>
+    <string name="listview_overshoot_interpolator">"超过"</string>
+    <string name="listview_anticipate_overshoot_interpolator">"预先和超过"</string>
+    <string name="listview_bounce_interpolator">"弹回"</string>
+
+    <!-- Tiles animation style  -->
+    <string name="qs_tile_animation_category">"QS磁贴动画"</string>
+    <string name="qs_tile_animation_style_title">"QS平铺动画样式"</string>
+    <string name="qs_tile_animation_duration_title">"QS平铺动画持续时间"</string>
+    <string name="qs_tile_animation_style_off">"无动画"</string>
+    <string name="qs_tile_animation_style_flip">"反转"</string>
+    <string name="qs_tile_animation_style_rotate">"旋转"</string>
+    <string name="qs_tile_animation_duration_low">"向下"</string>
+    <string name="qs_tile_animation_duration_default">"默认"</string>
+    <string name="qs_tile_animation_duration_fast">"快速"</string>
+    <string name="qs_set_animation_style">"动画设置为 %1$s"</string>
+    <string name="qs_set_animation_duration">"动画持续时间设置为 %1$s"</string>
+    <string name="qs_tile_animation_interpolator_title">"动画补偿"</string> 
+    <string name="qs_tile_animation_interpolator_linearInterpolator">"直线"</string>
+    <string name="qs_tile_animation_interpolator_accelerateInterpolator">"加速"</string>
+    <string name="qs_tile_animation_interpolator_decelerateInterpolator">"缓慢"</string>
+    <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">"加速和缓慢"</string>
+    <string name="qs_tile_animation_interpolator_bounceInterpolator">"弹回"</string>
+    <string name="qs_tile_animation_interpolator_overshootInterpolator">"超过"</string>
+    <string name="qs_tile_animation_interpolator_anticipateInterpolator">"预先"</string>
+    <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">"预先和超过"</string>
+
+    <!-- Statusbar Clock -->
+    <string name="status_bar_clock_show">"显示时钟和日期"</string>
+    <string name="status_bar_clock_style_title">"时钟样式"</string>
+    <string name="status_bar_clock_style_right">"右"</string>
+    <string name="status_bar_clock_style_center">"中心"</string>
+    <string name="status_bar_clock_style_left">"左"</string>
+    <string name="status_bar_am_pm_title">"上午/下午 风格"</string>
+    <string name="status_bar_am_pm_info">"启用24小时制"</string>
+    <string name="status_bar_am_pm_normal">"正常"</string>
+    <string name="status_bar_am_pm_small">"小"</string>
+    <string name="status_bar_am_pm_hidden">"隐藏（默认）"</string>
+    <string name="clock_seconds_display">"显示秒数"</string>
+    <string name="clock_date_display">"日期"</string>
+    <string name="clock_date_display_summary">"在时钟前显示自定义日期"</string>
+    <string name="clock_date_display_none">"不要显示"</string>
+    <string name="clock_date_display_small">"小字体"</string>
+    <string name="clock_date_display_normal">"普通字体大小"</string>
+    <string name="clock_date_style">"日期样式"</string>
+    <string name="clock_date_style_normal">"正常"</string>
+    <string name="clock_date_style_lowercase">"小写"</string>
+    <string name="clock_date_style_uppercase">"大写"</string>
+    <string name="clock_date_format_custom">"自定义java格式"</string>
+    <string name="clock_date_format">"日期格式"</string>
+    <string name="clock_date_string_edittext_title">"必须采用日期格式. MM/dd/yy"</string>
+    <string name="clock_date_string_edittext_summary">"输入字符串"</string>
+    <string name="clock_date_right">"时钟右边"</string>
+    <string name="clock_date_left">"时钟左边"</string>
+    <string name="clock_date_position">"日期位置"</string>
+    <string name="status_bar_clock_font_style_title">"字体样式"</string>
+    <string name="status_bar_clock_font_style_summary">"%1$s"</string>
+    <string name="status_bar_clock_font_size_title">"字体大小"</string>
+    <string name="menu_save">"保存"</string>
+    <string name="menu_cancel">"取消"</string>
+
+    <!-- Custom carrier label and position -->
+    <string name="carrier_label_settings_title">"运营商标签"</string>
+    <string name="carrier_label_settings_summary">"自定义运营商标签"</string>
+    <string name="custom_carrier_label_title">"自定义运营商标签"</string>
+    <string name="custom_carrier_label_explain">"请输入新标签。留空表示不使用"</string>
+    <string name="custom_carrier_label_notset">"当前未设置自定义标签"</string>
+    <string name="show_carrier_title">"运营商标签"</string>
+    <string name="show_carrier_disabled">"已禁用"</string>
+    <string name="show_carrier_keyguard">"仅限锁屏"</string>
+    <string name="show_carrier_statusbar">"仅限状态栏"</string>
+    <string name="show_carrier_enabled">"锁屏很状态栏全部"</string>
+
+    <!-- Network traffic Settings -->
+    <string name="nettraffic_settings_title">"流量监控"</string>
+    <string name="network_traffic_state_title">"在状态栏中显示网络流量监控"</string>
+    <string name="network_traffic_autohide">"自动隐藏"</string>
+    <string name="network_traffic_autohide_summary">"不活动时隐藏流量监控"</string>
+    <string name="network_traffic_autohide_threshold_title">"网络活动自动隐藏阈值(KB/s)"</string>
+    <string name="network_traffic_hidearrow">"隐藏箭头"</string>
+    <string name="network_traffic_hidearrow_summary">"隐藏网络流量指示箭头"</string>
+
+    <string name="use_old_mobiletype_title">"使用旧的移动类型样式"</string>
+    <string name="use_old_mobiletype_summary">"合并信号和类型图标"</string>
+
+    <!--Double Tap Gestures-->
+    <string name="doubletap_gestures_title">"双击"</string>
+    <string name="doubletap_gestures_summary">"双击手势的设置"</string>
+    <string name="double_tap_sleep_lockscreen">"锁屏"</string>
+    <string name="double_tap_sleep_lockscreen_summary">"双击锁屏"</string>
+    <string name="double_tap_sleep_gesture_title">"状态栏"</string>
+    <string name="double_tap_sleep_gesture_summary">"双击以在状态栏锁屏"</string>
+
+    <!-- Lockscreen weather -->
+    <string name="lockscreen_weather_title">"显示天气状况"</string>
+    <string name="lockscreen_weather_summary">"显示当前天气状况和温度"</string>
+    <string name="lockscreen_items_aod_info_title">"这种可见性配置也适用于环境显示"</string>
+    <string name="lockscreen_weather_show_city_title">"显示城市名称"</string>
+    <string name="lockscreen_weather_show_city_summary">"在图像左侧显示当前城市的名称"</string>
+    <string name="lockscreen_weather_show_temp_title">"显示温度"</string>
+    <string name="lockscreen_weather_show_temp_summary">"在图像右侧显示当前城市温度"</string>
+
+    <!-- Lockscreen visualizer -->
+    <string name="lockscreen_visualizer_category">"可视化"</string>
+    <string name="lockscreen_visualizer_enable">"启用锁屏可视化"</string>
+    <string name="lockscreen_visualizer_enable_summary">"播放音乐时在锁屏上显示可视化工具"</string>
+    <string name="lockscreen_visualizer_enable_custom">"使用自定义颜色"</string>
+    <string name="lockscreen_visualizer_enable_custom_summary">"使用预设颜色代替生成的颜色"</string>
+    <string name="lockscreen_visualizer_custom_color">"可视化颜色"</string>
+
+    <!-- Lockscreen battery info indicator  -->
+    <string name="lockscreen_battery_info_title">"锁屏计电信息"</string>
+    <string name="lockscreen_battery_info_summary">"在充电时显示相关充电器的最大电流、电压和电池温度"</string>
+
+    <!-- Power Button -->
+    <string name="global_actions_advanced_reboot_summary">"在重启菜单中显示更多选项"</string>
+    <string name="global_actions_advanced_reboot_title">"启用高级重启"</string>
+    <string name="global_actions_advanced_reboot_summary_new">"如果未锁定，则在重新启动菜单中显示更多选项"</string>
+    <string name="lockscreen_power_menu_disabled_title">"锁定时禁用电源菜单"</string>
+    <string name="lockscreen_power_menu_disabled_summary">"禁用安全锁屏上的电源菜单"</string>
+
+    <!-- Navbar -->
+    <string name="navigation_bar_show_title">"显示导航栏"</string>
+    <string name="navigation_bar_show_summary">"强制启用导航栏"</string>
+    <string name="use_bottom_gesture_title">"使用上滑手势进行导航"</string>
+    <string name="use_bottom_gesture_summary">"必须隐藏导航栏。从左/右向上滑动返回。向上滑动中心就是主页。向上滑动并按住是近期任务"</string>
+    <string name="show_navbar_arrow_keys_title">"输入时显示箭头键"</string>
+    <string name="show_navbar_arrow_keys_summary">"输入时在导航栏中显示左右光标按钮。"</string>
+    <!-- Burn-in Protection -->
+    <string name="navigation_burnin_category">"Burn-in保护"</string>
+    <string name="burn_in_protection_title">"开启"</string>
+    <string name="burn_in_protection_summary">"移动导航和状态栏图标防止burn-in"</string>
+    <string name="burn_in_protection_interval_title">"切换时间"</string>
+    <string name="burn_in_protection_interval_summary">"多久换一次图标"</string>
+
+    <!-- Media art -->
+    <string name="media_art_title">"媒体封面艺术"</string>
+    <string name="media_art_summary">"在锁屏上启用媒体封面"</string>
+
+    <string name="bliss_theme_select_title">"Bliss主题"</string>
+    <string name="bliss_theme_select_none">"已禁用"</string>
+    <string name="bliss_theme_select_summary">"浏览并选择已安装的Bliss主题"</string>
+
+    <!-- Incall vibrate options -->
+    <string name="incall_vibrate_connect_title">"通话振动"</string>
+    <string name="incall_vibrate_call_wait_title">"呼叫等待振动"</string>
+    <string name="incall_vibrate_disconnect_title">"挂断时振动"</string>
+    <string name="incall_notifications_vibrate">"在通话中较少的振动"</string>
+    <string name="incall_notifications_vibrate_summary">"通话中振动而不是铃声通知"</string>
+
+   <!-- Blink flashlight for incoming calls -->
+    <string name="flashlight_on_call_title">"通话中LED闪烁"</string>
+    <string name="flashlight_on_call_disabled">"禁用"</string>
+    <string name="flashlight_on_call_not_dnd">"仅在响铃模式下启用"</string>
+    <string name="flashlight_on_call_dnd">"仅在DND中启用"</string>
+    <string name="flashlight_on_call_always">"始终"</string>
+
+    <!-- Battery light settings  -->
+    <string name="battery_light_cat">"充电时LED灯的颜色"</string>
+    <string name="batterylight_title">"电池LED设置"</string>
+    <string name="battery_light_enable">"启用"</string>
+    <string name="battery_low_pulse_title">"如果电量底充电时"</string>
+    <string name="battery_light_only_full_charge_title">"仅在充满电时点亮"</string>
+    <string name="battery_light_list_title">"颜色"</string>
+    <string name="battery_light_low_color_title">"电量不足"</string>
+    <string name="battery_light_medium_color_title">"正在充电"</string>
+    <string name="battery_light_full_color_title">"已充电 (90%)"</string>
+    <string name="battery_light_really_full_color_title">"已充电 (100%)"</string>
+    <string name="notification_light_zen_mode">"在“请勿打扰”模式下点亮"</string>
+    <string name="fast_color_cat_title">"快速充电"</string>
+    <string name="fast_charging_led_enabled_title">"启用快速充电颜色"</string>
+    <string name="fast_charging_led_enabled_summary">"快速充电时，使用不同的颜色，直到充电90％"</string>
+    <string name="fast_charging_light_color_title">"颜色"</string>
+    <string name="fast_charging_light_color_summary">""</string>
+    <string name="edit_battery_settings">"编辑电池设置"</string>
+
+    <!-- Omni Jaws -->
+    <string name="weather_title">"天气"</string>
+    <string name="weather_config_title">"天气服务"</string>
+    <string name="weather_config_summary">"系统服务设置"</string>
+    <string name="header_weather_title">"天气标题"</string>
+    <string name="header_weather_summary">"启用通知面板标题天气显示"</string>
+    <string name="weather_icon_pack_title">"环境图标包"</string>
+    <string name="weather_icon_pack_note">"在谷歌商店中搜索Chronus icons，可以下载更多图标包"</string>
+    <string name="weather_icon_pack_info_title">"图标包用于快速设置和锁屏"</string>
+
+    <!-- Quick Settings -->
+    <string name="qs_panel_alpha_title">"快速设置透明度"</string>
+    <string name="qs_panel_alpha_summary">"配置背景的透明度"</string>
+
+    <string name="quick_settings_vibrate_title">"触摸时振动"</string>
+    <string name="quick_settings_vibrate_summary">"触摸QS图块时振动"</string>
+
+    <string name="block_on_secure_keyguard_title">"禁用快速设置"</string>
+    <string name="block_on_secure_keyguard_summary">"禁用安全锁屏上的快速设置"</string>
+
+    <!-- Quick pull down-->
+    <string name="quick_pulldown_title">"快速下拉"</string>
+    <string name="quick_pulldown_summary">"%1$s状态栏的边缘下拉快速设置"</string>
+    <string name="quick_pulldown_summary_always">"始终在状态栏下拉列表中显示快速设置"</string>
+    <string name="quick_pulldown_off">"关闭"</string>
+    <string name="quick_pulldown_left">"左"</string>
+    <string name="quick_pulldown_right">"右"</string>
+    <string name="quick_pulldown_always">"始终"</string>
+
+    <!-- Smart pulldown-->
+    <string name="smart_pulldown_title">"智能下拉"</string>
+    <string name="smart_pulldown_summary">"当有%1$s通知时，打开快速设置"</string>
+    <string name="smart_pulldown_none_summary">"在没有通知时打开快速设置"</string>
+    <string name="smart_pulldown_off">"关闭"</string>
+    <string name="smart_pulldown_none">"无通知"</string>
+    <string name="smart_pulldown_dismissable">"没有可以解出的"</string>
+    <string name="smart_pulldown_ongoing">"没有正在运行的"</string>
+
+    <!-- Brightness slider -->
+    <string name="brightness_slider_title">"亮度滑块"</string>
+    <string name="brightness_slider_summary">"在快速设置下显示亮度滑块"</string>
+    <string name="qs_brightness_position_bottom_title">"底部的亮度滑块"</string>
+    <string name="qs_brightness_position_bottom_summary">"在底部快速设置上显示亮度滑块"</string>
+    <string name="brightness_icon_title">"自动亮度图标"</string>
+    <string name="brightness_icon_summary">"在亮度滑块左侧显示亮度图标以调整自动亮度"</string>
+    <string name="brightness_buttons_title">"亮度按钮"</string>
+    <string name="brightness_buttons_summary">"显示滑块两侧增加或减少按钮的值为5%"</string>
+    <string name="qs_show_info_header_title">"显示信息标题"</string>
+    <string name="qs_show_info_header_summary">"快速设置面板顶部显示的信息"</string>
+
+    <!-- QS footer warnings -->
+    <string name="qs_footer_warnings_title">"QS界面警告"</string>
+    <string name="qs_footer_warnings_summary">"当外部应用程序或vpn监视网络时，在QS面板底部显示警告"</string>
+
+    <!-- OmniSwitch -->
+    <string name="navbar_recents_style_title">"近期任务样式"</string>
+    <string name="keys_action_app_switch_defaut">"默认"</string>
+    <string name="keys_action_omniswitch_short">"OmniSwitch"</string>
+    <string name="omniswitch_settings">"设置"</string>
+    <string name="omniswitch_dialog_running_new">"OmniSwitch当前未启用。请在应用程序设置中启用它。"</string>
+    <string name="omniswitch_dialog_unavail">"OmniSwitch没有安装。"</string>
+    <string name="omniswitch_title">"近期任务样式"</string>
+
+    <!-- AOSP Recents component Style -->
+    <string name="recents_component_type_title">"安卓经典样式"</string>
+    <string name="aspect_ratio_apps_enabled_title">"启用缩放"</string>
+    <string name="aspect_ratio_apps_enabled_summary">"允许后台应用程序使用全屏"</string>
+    <string name="aspect_ratio_apps_list_summary">""</string>
+    <string name="aspect_ratio_apps_list_title">"允许使用扩展的应用"</string>
+    <string name="aspect_ratio_category_title">"旧版应用扩展"</string>
+    <string name="aspect_ratio_apps_info">"更改后需要重新启动应用程序"</string>
+    <string name="action_save">"保存"</string>
+    <string name="disabled_entry">"禁用"</string>
+    <string name="profile_choose_app">"选择应用"</string>
+    <string name="not_ready_summary">"解析..."</string>
+    <string name="resolve_failed_summary">"解析应用程序失败"</string>
+    <string name="choose_app">"选择应用"</string>
+
+    <!-- Dashboard conditions-->
+    <string name="dashboard_category">"仪表盘数据设置"</string>
+    <string name="dashboard_conditions_title">"仪表板条件"</string>
+    <string name="summary_dashboard_conditions_enabled">"启用仪表板环境"</string>
+    <string name="summary_dashboard_conditions_disabled">"禁用仪表板环境"</string>
+    <string name="dashboard_suggestions_title">"仪表板建议"</string>
+    <string name="summary_dashboard_suggestions_enabled">"启用仪表板建议"</string>
+    <string name="summary_dashboard_suggestions_disabled">"禁用仪表板建议"</string>
+
+   <!-- Heads up snooze -->
+    <string name="heads_up_category">"Peek通知"</string>
+    <string name="heads_up_snooze_title">"Peek通知打盹时间"</string>
+    <string name="heads_up_snooze_disabled_summary">"暂停贪睡计时器"</string>
+    <string name="heads_up_snooze_1min">"1分钟"</string>
+    <string name="heads_up_snooze_5min">"5分钟"</string>
+    <string name="heads_up_snooze_10min">"10分钟"</string>
+    <string name="heads_up_snooze_15min">"15分钟"</string>
+    <string name="heads_up_snooze_20min">"20分钟"</string>
+
+    <!-- Heads up timeout-->
+    <string name="heads_up_cat_title">"挺提醒"</string>
+    <string name="heads_up_cat_summary">"暂停, 等待超时"</string>
+    <string name="heads_up_time_out_title">"超时"</string>
+    <string name="heads_up_time_out_summary">"将要显示Peek通知"<xliff:g id="number">"%d"</xliff:g>"秒"</string>
+    <string name="heads_up_time_out_2sec">"2秒"</string>
+    <string name="heads_up_time_out_4sec">"4秒"</string>
+    <string name="heads_up_time_out_5sec">"5秒"</string>
+    <string name="heads_up_time_out_6sec">"6秒"</string>
+    <string name="heads_up_time_out_8sec">"8秒"</string>
+    <string name="heads_up_time_out_10sec">"10秒"</string>
+
+    <string name="log_category">"历史通知记录"</string>
+    <string name="notification_log_title">"通知日志"</string>
+    <string name="notification_log_summary">"显示历史通知记录日志"</string>
+    <string name="heads_up_title">"启用"</string>
+    <string name="heads_up_summary_enabled">"启用通知提醒"</string>
+    <string name="heads_up_summary_disabled">"禁用通知提醒"</string>
+    <string name="add_heads_up_package">"添加应用"</string>
+    <string name="add_heads_up_stoplist_summary">"禁用这些应用提醒"</string>
+    <string name="add_heads_up_blacklist_summary">"不要显示这些应用程序的提醒"</string>
+    <string name="heads_up_blacklist_title">"黑名单"</string>
+    <string name="heads_up_stoplist_title">"停止列表"</string>
+    <string name="dialog_delete_title">"删除"</string>
+    <string name="dialog_delete_message">"删除所选项目？"</string>
+
+    <!-- Hide Apps from Recents -->
+    <string name="hide_apps_from_recents_title">"隐藏应用在近期任务"</string>
+    <string name="hide_apps_from_recents_summary">"防止应用出现在近期任务"</string>
+    <string name="hide_from_recents_add_app">"添加应用"</string>
+    <string name="title_activity_carbon_recents_settings">"近期任务"</string>
+
+    <!-- CarbonGestures -->
+    <string name="carbon_gesture_preference_title">"Carbon手势"</string>
+    <string name="carbon_gestures_summary">"配置自定义全局手势"</string>
+    <string name="carbon_gestures_fingers_title">"指纹手势"</string>
+    <string name="carbon_gestures_right_title">"向右手势"</string>
+    <string name="carbon_gestures_left_title">"向左手势"</string>
+    <string name="carbon_gestures_up_title">"向上手势"</string>
+    <string name="carbon_gestures_down_title">"向下手势"</string>
+    <string name="carbon_gesture_disabled">"禁用"</string>
+    <string name="carbon_gesture_back">"返回"</string>
+    <string name="carbon_gesture_home">"主页"</string>
+    <string name="carbon_gesture_recents">"最近任务"</string>
+    <string name="carbon_gesture_power">"电源"</string>
+    <string name="carbon_gesture_volume_down">"音乐降低"</string>
+    <string name="carbon_gesture_volume_up">"音乐增加"</string>
+    <string name="carbon_gesture_volume_mute">"静音"</string>
+    <string name="carbon_gesture_screenshot">"截图"</string>
+    <string name="carbon_gesture_media_play_pause">"播放/暂停媒体"</string>
+    <string name="carbon_gesture_media_skip">"跳过媒体"</string>
+    <string name="carbon_gesture_media_previous">"上一个媒体"</string>
+    <string name="carbon_gesture_customapp">"启动应用程序"</string>
+    <string name="carbon_gesture_launch">"启动"</string>
+
+    <!-- Doze settings editor -->
+    <string name="doze_settings_title">"Doze设置"</string>
+    <string name="doze_settings_summary">"编辑doze配置设置"</string>
+    <string name="doze_settings_applied">"设置已应用"</string>
+    <string name="action_restoredefault">"恢复默认值"</string>
+    <string name="action_profile">"个人资料"</string>
+    <string name="action_save_as_profile">"另存为个人资料"</string>
+    <string name="delete_profile">"删除配置文件"</string>
+    <string name="profile_name">"名称"</string>
+    <string name="string_seconds">"秒"</string>
+    <string name="string_default">"默认"</string>
+    <string name="action_filter">"过滤"</string>
+
+    <!-- QS footer icons -->
+    <string name="qs_footer_services_title">"显示正在运行的服务图标"</string>
+    <string name="qs_footer_services_summary">"快速设置页脚中显示正在运行的服务图标"</string>
+    <string name="qs_footer_settings_title">"显示设置图标"</string>
+    <string name="qs_footer_settings_summary">"快速设置页脚中的显示设置图标"</string>
+
+    <!-- Smart Pixels -->
+    <string name="smart_pixels_title">"智能Pixels"</string>
+    <string name="smart_pixels_summary">"关闭Pixels以降低电池消耗"</string>
+    <string name="smart_pixels_enable_title">"启用智能Pixels"</string>
+    <string name="smart_pixels_enable_summary">"关闭Pixel以降低功耗"</string>
+    <string name="smart_pixels_on_power_save_title">"电池保护程序自动启用"</string>
+    <string name="smart_pixels_on_power_save_summary">"启用节电功能时启用智能Pixel"</string>
+    <string name="smart_pixels_percent">"禁用的Pixel百分比"</string>
+    <string name="smart_pixels_shift">"通过移动每个Pixel来防止burn-in"</string>
+
+    <!-- Onehand UI mode -->
+    <string name="one_hand_mode_title">"启用但是模式"</string>
+    <string name="one_hand_mode_summary">"允许在导航栏上向右或向左滑动以启用"</string>
+
+    <!-- WiFi Activity switch -->
+    <string name="statusbar_show_wifi_activity_title">"显示Wi-Fi数据指示器"</string>
+    <string name="statusbar_show_wifi_activity_summary">"当Wi-Fi像移动一样发送/接收数据时，显示指示器"</string>
+
+    <!-- StatusBar weather settings -->
+    <string name="statusbar_weather_cat">"状态栏天气"</string>
+    <string name="statusbar_weather_title">"布局样式"</string>
+    <string name="statusbar_weather_summary">"在状态栏上显示天气温度和/或图标"</string>
+    <string name="statusbar_weather_dialog_title">"状态栏天气样式"</string>
+    <string name="status_bar_weather_hidden">"隐藏天气"</string>
+    <string name="status_bar_temperature_image_show_scale">"使用比例和图像显示温度"</string>
+    <string name="status_bar_temperature_image_hide_scale">"使用不带比例的图像显示温度"</string>
+    <string name="status_bar_temperature_show_scale_hide_image">"显示带刻度的温度"</string>
+    <string name="status_bar_temperature_hide_scale_hide_image">"显示不带比例的温度"</string>
+    <string name="status_bar_show_image">"显示图标"</string>
+
+    <!-- QS tile styles -->
+    <string name="qs_tile_style_title">"QS磁贴风格"</string>
+    <string name="qstile_default">"默认"</string>
+    <string name="qstile_circle_gradient">"圆形 (椭圆)"</string>
+    <string name="qstile_circle_trim">"圆形 (正圆)"</string>
+    <string name="qstile_dottedcircle">"虚线圆"</string>
+    <string name="qstile_circle_dualtone">"双圆圈"</string>
+    <string name="qstile_dual_tone_circle">"双圆圈 (正圆)"</string>
+    <string name="qstile_oreo">Oreo</string>
+    <string name="qstile_oreo_circle_trim">"Oreo (正圆)"</string>
+    <string name="qstile_oreo_squircle_trim">"Oreo (正方)"</string>
+    <string name="qstile_squircle_trim">"方形 (正)"</string>
+
+    <!-- Statusbar ticker -->
+    <string name="statusbar_icons_cat">"图标"</string>
+    <string name="statusbar_notifi_cat">"通知"</string>
+    <string name="status_bar_ticker_title">"Ticker"</string>
+    <string name="status_bar_show_ticker_title">"Ticker"</string>
+    <string name="status_bar_show_ticker_summary">"状态栏中的通知预览"</string>
+    <string name="ticker_animation_mode_title">"Ticker动画"</string>
+    <string name="ticker_animation_mode_alpha_fade">"淡出"</string>
+    <string name="ticker_animation_mode_scroll">"滚动"</string>
+    <string name="ticker_tick_duration_title">"持续时间"</string>
+
+    <!-- Screen state service -->
+    <string name="screen_state_toggles_title">"暂停操作"</string>
+    <string name="screen_state_toggles_enable_title">"启用"</string>
+    <string name="screen_state_toggles_enable_summary">"操作将在屏幕关闭时执行。屏幕上的前一个状态将被恢复。"</string>
+    <string name="screen_state_toggles_mobile_title">"移动网络"</string>
+    <string name="screen_state_toggles_location_title">"位置"</string>
+    <string name="screen_state_toggles_twog">"切换到2G"</string>
+    <string name="screen_state_toggles_twog_summary">"网络模式将在锁屏时切换为2G"</string>
+    <string name="screen_state_toggles_gps">"禁用GPS"</string>
+    <string name="screen_state_toggles_gps_summary">"基于GPS的位置服务将在锁屏时禁用"</string>
+    <string name="screen_state_toggles_mobile_data">"禁用移动数据"</string>
+    <string name="screen_state_toggles_mobile_data_summary">"在锁屏时将禁用移动数据"</string>
+    <string name="screen_state_off_delay_title">"屏幕关闭操作延迟"</string>
+    <string name="screen_state_off_delay_summary">"在屏幕关闭后执行操作之前要等待的分钟数"</string>
+    <string name="screen_state_on_delay_title">"动作延迟屏幕"</string>
+    <string name="screen_state_on_delay_summary">"在屏幕上执行操作之前要等待的分钟数"</string>
+
+    <!-- Sensor block per-package -->
+    <string name="sensor_block_title">"传感器组件"</string>
+    <string name="sensor_block_summary">"阻止某些应用程序访问某些传感器以节省电量。"</string>
+
+    <!-- Status Bar Notifi Count Dot -->
+    <string name="status_bar_notif_count_title">"显示通知计数"</string>
+    <string name="status_bar_notif_count_summary">"显示待处理通知的数量"</string>
+
+    <!-- Lock Clock Fonts -->
+    <string name="ls_clock">"时钟"</string>
+    <string name="lockscreen_media_cat">"媒体"</string>
+    <string name="lockscreen_charging_cat">"底部区域"</string>
+    <string name="lockscreen_weather_cat">"天气"</string>
+    <string name="lock_clock_font_title">"时钟字体样式"</string>
+    <string name="lock_clock_font_stock">"正常（默认）"</string>
+    <string name="lock_clock_font_bold">"黑体"</string>
+    <string name="lock_clock_font_italic">"斜体"</string>
+    <string name="lock_clock_font_bold_italic">"斜体黑体"</string>
+    <string name="lock_clock_font_light_italic">"倾斜发光"</string>
+    <string name="lock_clock_font_thin_italic">"倾斜细体"</string>
+    <string name="lock_clock_font_light">"发光"</string>
+    <string name="lock_clock_font_thin">"细体"</string>
+    <string name="lock_clock_font_condensed_normal">"浓稠"</string>
+    <string name="lock_clock_font_condensed_italic">"倾斜浓稠"</string>
+    <string name="lock_clock_font_condensed_bold">"浓稠黑体"</string>
+    <string name="lock_clock_font_condensed_bold_italic">"倾斜浓稠黑体"</string>
+    <string name="lock_clock_font_condensed_light">"浓稠发光"</string>
+    <string name="lock_clock_font_condensed_light_italic">"倾斜浓稠发光"</string> 
+    <string name="lock_clock_font_medium_normal">"适中"</string>
+    <string name="lock_clock_font_medium_italic">"倾斜适中"</string>
+    <string name="lock_clock_font_black">"黑色"</string>
+    <string name="lock_clock_font_black_italic">"黑色倾斜"</string>
+
+    <string name="nav_media_cat">"媒体"</string>
+
+    <!-- Roaming indicator icon -->
+    <string name="roaming_indicator_icon_title">"漫游指示符"</string>
+    <string name="roaming_indicator_icon_summary">"在漫游模式下显示信号图标中的漫游指示符"</string>
+
+    <!-- Show VoLTE icon on statusbar -->
+    <string name="volte_icon_title">"VoLTE图标"</string>
+    <string name="volte_icon_summary">"关闭VoLTE图标"</string>
+
+    <!-- Screen shot -->
+    <string name="screenshot_type_title">"屏幕截图类型"</string>
+    <string name="screenshot_type_fullscreen">"全屏截图"</string>
+    <string name="screenshot_type_partial">"部分屏幕截图"</string>
+
+    <!-- Rounded corners -->
+    <string name="corners_category">"角"</string> 
+    <string name="corner_radius">"圆角半径"</string>
+    <string name="content_padding">"圆角填充"</string>
+
+    <!-- Notification guts kill app button -->
+    <string name="notification_guts_kill_app_button_title">"结束app按钮"</string>
+    <string name="notification_guts_kill_app_button_summary">"在通知的长按菜单中显示一个结束app按钮"</string>
+
+    <!-- Power menu animations  -->
+    <string name="power_menu_title" >电源菜单"</string>
+    <string name="power_menu_animation_title">"电源菜单动画"</string>
+    <string name="power_menu_animation_summary">"更改电源菜单的进入/退出动画"</string>
+    <string name="power_menu_animation_dialog_title">"选择电源菜单动画"</string>
+    <string name="power_menu_animation_aosp">"AOSP（默认）"</string>
+    <string name="power_menu_animation_bottom">"底部"</string>
+    <string name="power_menu_animation_top">"顶部"</string>
+    <string name="power_menu_animation_xylon">"飞入"</string>
+    <string name="power_menu_animation_slide">"幻灯片"</string>
+    <string name="power_menu_animation_turn">"转动"</string>
+    <string name="power_menu_animation_fly">"发光"</string>
+    <string name="power_menu_animation_card">3D</string>
+    <string name="power_menu_animation_translucent_top">"半透明（顶部）"</string>
+    <string name="power_menu_animation_translucent_bottom">"半透明（底部）"</string>
+    <string name="power_menu_animation_rotate">"旋转"</string>
+
+    <!-- Volume swap buttons -->
+    <string name="swap_volume_buttons_title">"重新定向"</string>
+    <string name="swap_volume_buttons_summary">"旋转屏幕时交换音量按钮"</string>
+
+    <!-- Volume dialog timeout -->
+    <string name="volume_dialog_timeout_title">"音量对话框超时"</string>
+
+    <!-- Hardware button navigation -->
+    <string name="hardware_keys_volume_keys_title">"音量摇杆"</string>
+    <string name="hardware_keys_home_key_title">"主页按钮"</string>
+    <string name="hardware_keys_menu_key_title">"菜单按钮"</string>
+    <string name="hardware_keys_assist_key_title">"搜索按钮"</string>
+    <string name="hardware_keys_appswitch_key_title">"概述按钮"</string>
+    <string name="hardware_keys_back_key_title">"后退按钮"</string>
+    <string name="hardware_keys_double_tap_summary">"设置双击动作"</string>
+    <string name="hardware_keys_single_tap_summary">"设置单击操作"</string>
+    <string name="hardware_keys_long_press_summary">"设置长按动作"</string>
+    <string name="hardware_keys_single_tap_title">"单击操作"</string>
+    <string name="hardware_keys_long_press_title">"长按动作"</string>
+    <string name="hardware_keys_double_tap_title">"双击动作"</string>
+    <string name="hardware_keys_category">"导航按钮"</string>
+    <string name="hardware_keys_disable_title">"禁用导航按钮"</string>
+
+   <!-- Device extras -->
+    <string name="device_extras_title">"设备附加功能"</string>
+    <string name="device_extras_summary">"设备特定的调整"</string>
+
+   <!-- ScreenRecord Shortcut -->
+    <string name="screen_record_shortcut">"屏幕录制快捷键"</string>
+    <string name="screen_record_shortcut_on">"电源 + 音量+ 触发录制"</string>
+    <string name="screen_record_shortcut_off">"电源 + 音量+ 什么也不做"</string>
+
+   <!-- ScreenShot Shortcut -->
+    <string name="screen_shot_shortcut">"截屏快捷方式"</string>
+    <string name="screen_shot_shortcut_on">"电源 + 音量+ 触发截图"</string>
+    <string name="screen_shot_shortcut_off">"电源 + 音量+ 什么也不做"</string>
+
+    <!-- Recents panel settings -->
+    <string name="recent_button_title" >Stock后台管理"</string>
+    <string name="clearall_recents_category">"清除所有按钮"</string>
+
+    <!-- Recents membar -->
+    <string name="recents_show_membar_title">"记忆栏"</string>
+    <string name="recents_show_membar_summary">"显示带有设备可用内存的条形图"</string>
+
+    <!-- Immersive Recents -->
+    <string name="immersive_recents_title">"沉浸式后台管理"</string>
+    <string name="immersive_recents_summary">"更改后台管理视图"</string>
+    <string name="immersive_recents_dialog_title">"选择最近视图"</string>
+    <string name="immersive_recents_default">"默认"</string>
+    <string name="immersive_recents_fullscreen">"全屏"</string>
+    <string name="immersive_recents_statusbar">"仅限状态栏"</string>
+    <string name="immersive_recents_navbar">"仅限导航栏"</string>
+
+    <!-- Clock and date immersive recents-->
+    <string name="recents_full_screen_clock_title">"显示时钟"</string>
+    <string name="recents_full_screen_clock_summary">"在沉浸式状态显示时钟"</string>
+    <string name="recents_full_screen_date_title">"显示日期"</string>
+    <string name="recents_full_screen_date_summary">"在沉浸式状态显示日期"</string>
+     <!--Recents styles-->
+    <string name="show_clear_all_recents_button_title">"清除所有按钮"</string>
+    <string name="show_clear_all_recents_button_summary">"显示全部清除按钮"</string>
+    <string name="recents_clear_all_location_title">"清除按钮位置"</string>
+    <string name="recents_clear_all_location_top_right">"右上角"</string>
+    <string name="recents_clear_all_location_top_left">"左上角"</string>
+    <string name="recents_clear_all_location_top_center">"顶部中心"</string>
+    <string name="recents_clear_all_location_bottom_right">"右下角"</string>
+    <string name="recents_clear_all_location_bottom_left">"左下角"</string>
+    <string name="recents_clear_all_location_bottom_center">"底部中心"</string>
+    <string name="recents_clear_all_title">"全部清除"</string>
+    <string name="clear_recents_style">"按钮样式"</string>
+    <string name="fab_button_color">"清除所有背景颜色"</string>
+    <string name="kill_app_button_color">"清除所有图标颜色"</string>
+    <string name="mem_bar_color">"记忆栏"</string>
+    <string name="recents_clock_color">"全屏后台时钟文本"</string>
+    <string name="recents_date_color">"全屏后台日期文本"</string>
+    <string name="recents_styles_1">"样式"</string>
+    <string name="recents_colors">"样式"</string>
+    <string name="recents_style_2">"颜色"</string>
+    <string name="recents_style_3">"任务视图标题"</string>
+    <string name="pin_button_color">"屏幕固定按钮"</string>
+    <string name="mw_button_color">"多窗口按钮"</string>
+    <string name="float_button_color">"浮动按钮"</string>
+    <string name="tv_app_color">"应用程序图标填充（填充整个图标）"</string>
+    <string name="tv_app_text_color">"应用程序描述文本"</string>
+    <string name="recent_styles">"后台风格"</string>
+    <string name="recent_styles_summary">"自定义后台元素"</string>
+    <string name="mem_text_color">"内存文本"</string>
+    <string name="clear_button_color">"全部清除"</string>
+    <string name="clear_recents_style_enable">"自定义后台风格"</string>
+    <string name="clear_recents_style_enable_summary">"启用/禁用后台应用视图的自定义样式"</string> 
+    <string name="recents_rotate_fab">"动画工厂"</string> 
+    <string name="recents_rotate_fab_summary">"启用/禁用清除所有按钮的旋转"</string>
+    <string name="recents_fab_vibrate">"按下清除按钮振动"</string>
+    <string name="recents_fab_vibrate_summary">"启用/禁用取消所有按钮的触摸振动"</string>
+    <string name="fab_animation_style">"浮动按钮动画"</string>
+    <string name="recents_fab_lp">"在FAB上启用长按"</string>
+    <string name="recents_fab_lp_summary">"如果长按更新内存"</string>
+    <string name="recents_fab_lp_anim">"长按FAB动画"</string>
+    <string name="clear_animation_style">"清除所有动画"</string>
+    <string name="button1">"默认"</string>
+    <string name="button2">"方形复选框"</string>
+    <string name="button3">"图形"</string>
+    <string name="button4">"垂直线1"</string>
+    <string name="button5">"垂直线2"</string>
+    <string name="button6">"剪贴板"</string>
+    <string name="button7">"着色"</string>
+    <string name="button8">"水平线"</string>
+    <string name="button9">"循环复选框"</string>
+    <string name="button10">"滑动删除"</string>
+    <string name="button14">"滑动立方"</string>
+    <string name="button16">"箭头左侧"</string>
+    <string name="button17">"图层关闭"</string>
+    <string name="button18">"箭头返回"</string>
+    <string name="button19">"层次"</string>
+    <string name="button20">"归档"</string>
+    <string name="button21">"数据库+"</string>
+    <string name="button22">"收缩箭"</string>
+    <string name="button24">"数据库-"</string>
+    <string name="button25">"序列立方体"</string>
+    <string name="animation0">"旋转"</string>
+    <string name="animation1">"退出后台"</string>
+    <string name="animation2">"平移退出"</string>
+    <string name="animation3">"带状平移"</string>
+    <string name="animation5">"向下滑动"</string>
+    <string name="animation6">"木质"</string>
+    <string name="animation8">"向右滑出"</string>
+    <string name="animation10">"淡出淡出"</string>
+    <string name="animation11">"向左滑出"</string>
+    <string name="animation12">"淡出"</string>
+    <string name="animation13">"快速淡出"</string>
+    <string name="animation14">"向上滑出"</string>
+    <string name="animation15">"快速旋转"</string>
+
+    <!-- Power menu and dialogs opacity -->
+    <string name="panel_porn_title">"透明度"</string>
+    <string name="power_menu_transparency">"电源/重启菜单不透明"</string>
+    <string name="power_menu_dialog_dim">"电源/重启对话框暗淡背景量"</string>
+
+    <!-- App circle bar -->
+    <string name="app_circle_bar_title">"应用程序圆栏"</string>
+    <string name="app_circle_bar_summary">"显示要启动的可选应用程序圈"</string>
+    <string name="app_circle_bar_enable_title">"启用应用程序圈栏"</string>
+    <string name="app_circle_bar_enable_summary">"触摸屏幕右侧后显示圆形应用启动器"</string>
+    <string name="app_circle_bar_included_apps_title">"包含的应用"</string>
+    <string name="app_circle_bar_included_apps_summary">"将在应用圆圈栏中显示的应用"</string>
+    <string name="trigger_category">"触发区域"</string>
+    <string name="trigger_width_title">"触发宽度"</string>
+    <string name="trigger_width_summary">"调整触发区域的宽度"</string>
+    <string name="trigger_top_title">"触发位置"</string>
+    <string name="trigger_top_summary">"调整触发区域的垂直位置"</string>
+    <string name="trigger_bottom_title">"触发高度"</string>
+    <string name="trigger_bottom_summary">"调整触发区域的高度"</string>
+
+      <!-- Pie --> 
+    <string name="pa_pie_control_summary">"从边缘滑动以启用/禁用包含很酷的PIE快捷方式和导航"</string>
+    <string name="pie_enable_title">"启用PIE导航"</string> 
+    <string name="pa_pie_control_title">"Pie"</string> 
+    <string name="pie_settings">"Pie设置"</string> 
+    <string name="pie_settings_summary">"根据喜好调整Pie"</string> 
+    <string name="pie_theme_mode_title">"主题"</string> 
+    <string name="pie_auto">"自动"</string> 
+    <string name="pie_white">"白色"</string> 
+    <string name="pie_dark">"暗"</string> 
+    <string name="pie_battery_title">"电池指示灯"</string> 
+    <string name="pie_battery_text">"仅文本"</string> 
+    <string name="pie_battery_circle">"仅限圆圈"</string> 
+    <string name="pie_battery_both">"都显示"</string> 
+    <string name="pie_status_indicator">"网络指示符"</string> 
+    <string name="pie_status_wifi">"仅限Wifi"</string> 
+    <string name="pie_status_mobile">"仅限移动网络"</string> 
+    <string name="pie_status_none">"无"</string> 
+    <string name="pie_status_both">"都显示"</string> 
+    <string name="pa_pie_gravity_title">"Pie手势"</string> 
+    <string name="pa_pie_gravity_summary">"选择Pie的放置位置"</string> 
+    <string name="pa_pie_gravity_bottom">"底部"</string> 
+    <string name="pa_pie_gravity_right">"右边"</string> 
+    <string name="pa_pie_gravity_left">"左边"</string>
+
+    <!-- Edge gestures -->
+    <string name="edge_gestures_title">"边缘手势"</string>
+    <string name="edge_gestures_feedback_duration_title">"触摸反馈持续时间"</string>
+    <string name="edge_gestures_long_press_delay_title">"延迟直到长按动作开始"</string>
+    <string name="edge_gestures_back_category_title">"后退手势"</string>
+    <string name="edge_gestures_back_edges_title">"触发后退手势"</string>
+    <string name="edge_gestures_landscape_back_edges_title">"横向触发手势"</string>
+    <string name="edge_gestures_back_screen_percent_title">"后退手势必须低于此屏幕百分比"</string>
+    <string name="edge_gestures_back_screen_percent_summary">"触发屏幕 % 以下"</string>
+    <string name="edge_gestures_summary">"使用边缘手势导航"</string>
+    <string name="edge_gestures_back_show_ui_feedback_title">"后退手势动画"</string> 
+    <string name="edge_gestures_back_show_ui_feedback_summary">"使用后退手势时显示边缘的动画反馈"</string>
+
+    <!-- Gesture Anywhere -->
+    <string name="gesture_anywhere_title">"全能手势"</string>
+    <string name="gesture_anywhere_enabled_title">"全能手势"</string>
+    <string name="gesture_anywhere_enabled_summary">"启用全能手势功能"</string>
+    <string name="gesture_anywhere_position_title">"位置"</string>
+    <string name="gesture_anywhere_position_left">"左边"</string>
+    <string name="gesture_anywhere_position_right">"右边"</string>
+    <string name="gesture_anywhere_gestures_title">"手势"</string>
+    <string name="gesture_anywhere_gestures_summary">"添加，删除和编辑手势"</string>
+    <!-- Label, button used to add a gesture -->
+    <string name="ga_button_add">添加手势"</string>
+    <!-- Label, button used to reload all gestures -->
+    <string name="ga_button_reload">"重新载入"</string>
+    <!-- Label, button used to cancel the operation of adding a gesture -->
+    <string name="ga_button_discard">"禁用"</string>
+    <!-- Label, button used to save a gesture newly created -->
+    <string name="ga_button_done">"完成"</string>
+    <!-- Label, prompt asking the user to enter the name of the gesture -->
+    <string name="ga_prompt_gesture_name">"名称"</string>
+    <!-- Error message, informs the user he needs to enter a name before saving a gesture -->
+    <string name="ga_error_missing_name">"您必须输入名称"</string>
+    <!-- success message, tells the user where the gesture was saved -->
+    <string name="ga_save_success">"手势保存在 %s"</string>
+    <!-- Buttons in Rename gesture dialog box -->
+    <string name="ga_rename_action">"确定"</string>
+    <!-- Buttons in Rename gesture dialog box -->
+    <string name="ga_cancel_action">"取消"</string>
+    <!-- Message displayed when the user opens the gestures settings screen -->
+    <string name="ga_gestures_loading">"加载手势..."</string>
+    <!-- Message displayed when the user has no gestures -->
+    <string name="ga_gestures_empty">"无手势"</string>
+    <!-- Title of the screen used to view/manage gestures -->
+    <string name="ga_gestures_activity">"手势"</string>
+    <!-- Noun, menu item used to edit a gesture -->
+    <string name="ga_gestures_edit">"编辑"</string>
+    <!-- Noun, menu item used to remove a gesture -->
+    <string name="ga_gestures_delete">"删除"</string>
+    <!-- Message displayed when a gesture is successfully deleted -->
+    <string name="ga_gestures_delete_success">"删除手势"</string>
+    <!-- Title of dialog box -->
+    <string name="ga_gestures_rename_title">"重命名手势"</string>
+    <!-- Label of gesture name field in Rename gesture dialog box -->
+    <string name="ga_gestures_rename_label">"手势名称"</string>
+    <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
+    <string name="ga_gestures_error_loading">"无法加载%s。请确保有可用的存储器。"</string>
+    <!-- Summaries For Forgotten Ones -->
+    <string name="gesture_anywhere_summary">"全能手势设置"</string>
+
+    <!-- Buttons backlight timeout -->
+    <string name="hardware_backlight_category">"实体按键背光"</string>
+    <string name="backlight_timeout_title">"按钮背光超时"</string>
+    <string name="backlight_timeout_on">"始终启用"</string>
+    <string name="backlight_timeout_3s">"3 秒"</string>
+    <string name="backlight_timeout_default">"5 秒 (默认)"</string>
+    <string name="backlight_timeout_10s">"10 秒"</string>
+    <string name="backlight_timeout_15s">"15 秒"</string>
+    <string name="backlight_timeout_20s">"20 秒"</string>
+    <string name="backlight_timeout_30s">"30 秒"</string>
+    <!-- Enable keys backlight-->
+    <string name="button_brightness_title">"背光"</string>
+    <!-- Enable keys backlight-->
+    <string name="button_brightness_sw_title">"开启背光"</string>
+
+</resources>
