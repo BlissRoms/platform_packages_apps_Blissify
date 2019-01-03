@@ -1571,4 +1571,14 @@
     <string name="screen_state_toggles_mobile_data_summary">Mobile data will be disabled on screen off</string>
     <string name="screen_state_off_delay_title">Screen-off actions delay</string>
     <string name="screen_state_on_delay_title">Screen-on actions delay</string>
+
+    <!-- Display cutout options -->
+    <string name="cutout_main">Display cutout settings</string>
+    <string name="cutout_main_summary">They really cut corners with this one</string>
+    <string name="display_cutout_style_title">Cutout style</string>
+    <string name="display_cutout_style_normal">Normal</string>
+    <string name="display_cutout_style_immerse">Immerse</string>
+    <string name="display_cutout_style_hide">Hide</string>
+    <string name="stock_statusbar_in_hide">Stock statusbar height</string>
+    <string name="stock_statusbar_in_hide_summary">Use default statusbar height in Hide</string>
 </resources>
