@@ -57,6 +57,8 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+import com.blissroms.blissify.utils.DeviceUtils;
+
 @SearchIndexable
 public class MiscSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
@@ -69,6 +71,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private static final String PREF_ALTERNATIVE_RECENTS_CATEGORY = "alternative_recents_category";
     private static final String PREF_SWIPE_UP_ENABLED = "swipe_up_enabled_warning";
     private static final String SCREEN_STATE_TOGGLES_ENABLE = "screen_state_toggles_enable_key";
+    private static final String DISPLAY_CUTOUT_SETTINGS = "display_cutout_settings"
 
     private SystemSettingMasterSwitchPreference mSmartPixelsEnabled;
     private FingerprintManager mFingerprintManager;
@@ -79,6 +82,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mStockRecentsCategory;
     private PreferenceCategory mAlternativeRecentsCategory;
     private SystemSettingMasterSwitchPreference mEnableScreenStateToggles;
+    private PreferenceCategory mDisplayCutout
     private Context mContext;
 
     private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
@@ -168,6 +172,12 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                 Settings.System.START_SCREEN_STATE_SERVICE, 0, UserHandle.USER_CURRENT);
         mEnableScreenStateToggles.setChecked(enabled != 0);
         mEnableScreenStateToggles.setOnPreferenceChangeListener(this);
+
+
+        mDisplayCutout = (PreferenceCategory) findPreference(DISPLAY_CUTOUT_SETTINGS);
+        if (DeviceUtils.hasNotch(mContext))
+            prefSet.removePreference(mDisplayCutout);
+        }
     }
 
     private void updateDependencies() {
