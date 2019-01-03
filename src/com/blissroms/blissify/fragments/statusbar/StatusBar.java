@@ -29,6 +29,7 @@ import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.provider.Settings;
 import com.android.settings.R;
+import com.android.settings.widget.CardPreference;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -45,6 +46,7 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.Locale;
 import android.text.TextUtils;
 import android.view.View;
+import com.android.internal.util.bliss.BlissUtils;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -66,6 +68,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
     private static final String NETWORK_TRAFFIC_FONT_SIZE  = "network_traffic_font_size";
+    private static final String PREF_KEY_CUTOUT = "cutout_settings";
 
     private SwitchPreference mShowBlissLogo;
     private CustomSeekBarPreference mThreshold;
@@ -76,6 +79,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mNetTrafficSize;
     private PreferenceCategory mLedsCategory;
     private Preference mChargingLeds;
+    private CardPreference mCutoutPref;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -121,6 +125,14 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mNetTrafficLayout.setValue(String.valueOf(netlayout));
         mNetTrafficLayout.setSummary(mNetTrafficLayout.getEntry());
         mNetTrafficLayout.setOnPreferenceChangeListener(this);
+
+        CardPreference mCutoutPref = findPreference("cutout_settings");
+        String hasDisplayCutout = getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
+        if (TextUtils.isEmpty(hasDisplayCutout)) {
+            getPreferenceScreen().removePreference(mCutoutPref);
+        } else {
+            mCutoutPref = (CardPreference) findPreference(PREF_KEY_CUTOUT);
+        }
 
         mNetTrafficLocation = (ListPreference) findPreference("network_traffic_location");
         int location = Settings.System.getIntForUser(resolver,

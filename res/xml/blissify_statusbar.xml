@@ -196,6 +196,13 @@
         android:title="@string/blissify_misc_category_title"
         android:icon="@drawable/ic_misc">
 
+    <com.android.settings.widget.CardPreference
+        android:key="cutout_settings"
+        android:fragment="com.blissroms.blissify.fragments.statusbar.CutoutFragment"
+        android:icon="@drawable/ic_cutout_background"
+        android:title="@string/cutout_main"
+        android:summary="@string/cutout_main_summary" />
+
 	<com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="status_bar_brightness_control"
         android:title="@string/status_bar_toggle_brightness"
