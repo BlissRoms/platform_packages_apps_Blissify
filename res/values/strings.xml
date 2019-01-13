@@ -1101,4 +1101,8 @@
     <string name="icons_and_info">Icons and info options</string>
     <string name="panel_options">Panel options</string>
 
+    <!-- Ambient visualizer -->
+    <string name="ambient_visualizer_title">Ambient visualizer</string>
+    <string name="ambient_visualizer_summary">Shows the visualization bars also on ambient display (but less opaque)</string>
+
 </resources>
