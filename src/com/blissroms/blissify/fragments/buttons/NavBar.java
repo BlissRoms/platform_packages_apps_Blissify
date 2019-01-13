@@ -48,11 +48,11 @@ import com.android.internal.util.omni.OmniSwitchConstants;
 import com.android.internal.util.omni.PackageUtils;
 import com.android.internal.util.omni.DeviceUtils;
 
-public class NavBar extends SettingsPreferenceFragment 
+public class NavBar extends SettingsPreferenceFragment
                                          implements Preference.OnPreferenceChangeListener{
 
         private static final String TAG = "NavBar";
-        private static final String KEYS_SHOW_NAVBAR_KEY = "navigation_bar_show";
+        private static final String KEYS_SHOW_NAVBAR_KEY = "navbar_visibility";
 
         private SwitchPreference mEnableNavBar;
 
@@ -65,8 +65,8 @@ public class NavBar extends SettingsPreferenceFragment
 
             mEnableNavBar = (SwitchPreference) prefSet.findPreference(KEYS_SHOW_NAVBAR_KEY);
             boolean showNavBarDefault = DeviceUtils.deviceSupportNavigationBar(getActivity());
-            boolean showNavBar = Settings.System.getInt(resolver,
-                    Settings.System.OMNI_NAVIGATION_BAR_SHOW, showNavBarDefault ? 1 : 0) == 1;
+            boolean showNavBar = Settings.Secure.getInt(resolver,
+                    Settings.Secure.NAVIGATION_BAR_VISIBLE, showNavBarDefault ? 1 : 0) == 1;
             mEnableNavBar.setChecked(showNavBar);
 
         }
@@ -80,8 +80,8 @@ public class NavBar extends SettingsPreferenceFragment
             ContentResolver resolver = getActivity().getContentResolver();
             if (preference == mEnableNavBar) {
                 boolean checked = ((SwitchPreference)preference).isChecked();
-                Settings.System.putInt(resolver,
-                        Settings.System.OMNI_NAVIGATION_BAR_SHOW, checked ? 1:0);
+                Settings.Secure.putInt(resolver,
+                        Settings.Secure.NAVIGATION_BAR_VISIBLE, checked ? 1:0);
                 return true;
             }
             return false;

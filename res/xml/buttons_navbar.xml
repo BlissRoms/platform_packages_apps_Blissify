@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen 
+<PreferenceScreen
        xmlns:android="http://schemas.android.com/apk/res/android"
        xmlns:bliss="http://schemas.android.com/apk/res-auto">
 
-    <Preference 
+    <Preference
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
     <SwitchPreference
-        android:key="navigation_bar_show"
+        android:key="navbar_visibility"
         android:title="@string/navigation_bar_show_title"
         android:summary="@string/navigation_bar_show_summary"
         android:persistent="false" />
@@ -23,20 +23,20 @@
         android:key="navigation_bar_menu_arrow_keys"
         android:title="@string/show_navbar_arrow_keys_title"
         android:summary="@string/show_navbar_arrow_keys_summary"
-        android:dependency="navigation_bar_show"
+        android:dependency="navbar_visibility"
         android:defaultValue="false" />
 
     <com.blissroms.blissify.preference.SystemSettingSwitchPreference
         android:key="one_hand_mode_enabled"
         android:title="@string/one_hand_mode_title"
         android:summary="@string/one_hand_mode_summary"
-        android:dependency="navigation_bar_show"
+        android:dependency="navbar_visibility"
         android:defaultValue="false" />
 
     <Preference
             android:title="@string/navbar_tuner_title"
             android:summary="@string/navbar_tuner_summary"
-            android:dependency="navigation_bar_show">
+            android:dependency="navbar_visibility">
         <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.NavBarTunerActivity" />
