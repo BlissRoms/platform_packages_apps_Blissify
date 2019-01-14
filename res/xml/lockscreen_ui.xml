@@ -11,6 +11,18 @@
         android:key="ls_clock"
         android:title="@string/ls_clock" />
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="lockscreen_clock"
+        android:title="@string/lockscreen_clock_title"
+        android:summary="@string/lockscreen_clock_summary"
+        android:defaultValue="true" />
+
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="lockscreen_info"
+        android:title="@string/lockscreen_info_title"
+        android:summary="@string/lockscreen_info_summary"
+        android:defaultValue="true" />
+
          <ListPreference
             android:key="lock_clock_fonts"
             android:title="@string/lock_clock_font_title"
