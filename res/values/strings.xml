@@ -1134,5 +1134,9 @@
     <string name="volume_rocker_music_controls_title">Playback control</string>
     <string name="volume_rocker_music_controls_summary">When the screen is off, long-pressing the volume keys will seek music tracks</string>
 
+    <!-- Ambient music ticker -->
+    <string name="force_ambient_for_media_title">Music ticker</string>
+    <string name="force_ambient_for_media_summary">Display the playing music track info within Ambient display</string>
+
 
 </resources>

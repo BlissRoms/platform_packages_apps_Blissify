@@ -48,6 +48,12 @@
             android:summary="@string/media_art_summary"
             android:defaultValue="true" />
 
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="force_ambient_for_media"
+            android:title="@string/force_ambient_for_media_title"
+            android:summary="@string/force_ambient_for_media_summary"
+            android:defaultValue="false" />
+
         <com.blissroms.blissify.preference.SecureSettingSwitchPreference
             android:key="lockscreen_visualizer_enabled"
             android:title="@string/lockscreen_visualizer_enable"
