@@ -1131,4 +1131,8 @@
     <string name="lockscreen_clock_selection_sammy_accent">Sammy accent</string>
     <string name="lockscreen_clock_selection_sammy_accent_alt">Sammy accent(darker hour)</string>
 
+    <string name="volume_rocker_music_controls_title">Playback control</string>
+    <string name="volume_rocker_music_controls_summary">When the screen is off, long-pressing the volume keys will seek music tracks</string>
+
+
 </resources>
