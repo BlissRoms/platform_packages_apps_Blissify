@@ -1140,5 +1140,9 @@
     <string name="force_ambient_for_media_title">Music ticker</string>
     <string name="force_ambient_for_media_summary">Display the playing music track info within Ambient display</string>
 
+    <!-- Fingerprint authentication vibration -->
+    <string name="fprint_sucess_vib_title">Fingerprint authentication vibration</string>
+    <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
+
 
 </resources>
