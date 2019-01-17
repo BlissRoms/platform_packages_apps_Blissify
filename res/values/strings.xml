@@ -1147,5 +1147,9 @@
     <string name="face_auto_unlock_title">Face auto unlock</string>
     <string name="face_auto_unlock_summary">Dismiss lockscreen after face unlocking</string>
 
+    <!-- Hide Lockscreen shortcuts on secure Lockscreen --> 
+    <string name="lockscreen_hide_shortcuts_title">Hide Bottom Shortcuts</string> 
+    <string name="lockscreen_hide_shortcuts_summary">Hide Left-Right Shortcuts on secure lock screens</string> 
+
 
 </resources>
