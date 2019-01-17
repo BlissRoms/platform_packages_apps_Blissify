@@ -16,4 +16,12 @@
                 android:fragment="com.blissroms.blissify.fragments.lockscreen.LockUI"
                 />
 
+     <PreferenceScreen
+                android:id="@+id/lockscreen_security"
+                android:title="@string/lockscreen_sec_title"
+                android:summary="@string/lockscreen_sec_summary"
+                android:icon="@drawable/ic_system"
+                android:fragment="com.blissroms.blissify.fragments.lockscreen.LockSecurity"
+                />
+
 </PreferenceScreen>

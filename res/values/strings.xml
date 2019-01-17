@@ -63,6 +63,7 @@
     <string name="recents_style_title">Style</string>
     <string name="qs_panel_title">Panel</string>
     <string name="lockscreen_ui_title">UI options</string>
+    <string name="lockscreen_sec_title">Security options</string>
 
     <!-- Animation -->
     <string name="system_animation_title">System</string>
@@ -102,6 +103,7 @@
     <string name="statusbar_battery_summary">Battery icon and battery bar options</string>
     <string name="statusbar_headsup_summary">Set heads up snooze and timeout options as well as blacklist</string>
     <string name="lockscreen_ui_summary">Change various lockscreen interface options</string>
+    <string name="lockscreen_sec_summary">Change lockscreen security options</string>
 
 
     <!--SystemUI Tuner -->
