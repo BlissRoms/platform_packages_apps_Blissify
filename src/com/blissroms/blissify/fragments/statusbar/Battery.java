@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.preference.Preference;
@@ -40,8 +41,7 @@ import com.android.internal.logging.nano.MetricsProto;
 
 public class Battery extends SettingsPreferenceFragment
                                          implements Preference.OnPreferenceChangeListener{
-    private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
-    private static final String BATTERY_PERCENT = "show_battery_percent";
+
     private static final String PREF_BATT_BAR = "battery_bar_list";
     private static final String PREF_BATT_BAR_STYLE = "battery_bar_style";
     private static final String PREF_BATT_BAR_COLOR = "battery_bar_color";
@@ -53,7 +53,7 @@ public class Battery extends SettingsPreferenceFragment
     private static final String PREF_BATT_BAR_WIDTH = "battery_bar_thickness";
     private static final String PREF_BATT_ANIMATE = "battery_bar_animate";
 
-    private ListPreference mStatusBarBattery;
+    private ListPreference mBatteryIconStyle;
     private ListPreference mBatteryPercentage;
     private ListPreference mBatteryBar;
     private ListPreference mBatteryBarStyle;
@@ -76,21 +76,21 @@ public class Battery extends SettingsPreferenceFragment
         ContentResolver resolver = getActivity().getContentResolver();
 	
         // Battery styles
-        mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
-        int batteryStyle = Settings.Secure.getInt(resolver,
-                Settings.Secure.STATUS_BAR_BATTERY_STYLE, 0);
-        mStatusBarBattery.setValue(String.valueOf(batteryStyle));
-        mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
-        mStatusBarBattery.setOnPreferenceChangeListener(this);
+        int batteryStyle = Settings.Secure.getIntForUser(resolver,
+                Settings.Secure.STATUS_BAR_BATTERY_STYLE, 0/*portrait*/,
+                UserHandle.USER_CURRENT);
+        mBatteryIconStyle = (ListPreference) findPreference("status_bar_battery_style");
+        mBatteryIconStyle.setValue(Integer.toString(batteryStyle));
+        mBatteryIconStyle.setOnPreferenceChangeListener(this);
 
-        mBatteryPercentage = (ListPreference) findPreference(BATTERY_PERCENT);
-        int showPercent = Settings.System.getInt(resolver,
-                Settings.System.SHOW_BATTERY_PERCENT, 1);
-        mBatteryPercentage.setValue(Integer.toString(showPercent));
-        int valueIndex = mBatteryPercentage.findIndexOfValue(String.valueOf(showPercent));
-        mBatteryPercentage.setSummary(mBatteryPercentage.getEntries()[valueIndex]);
+        int percentage = Settings.System.getIntForUser(resolver,
+                Settings.System.SHOW_BATTERY_PERCENT, 1,
+                UserHandle.USER_CURRENT);
+        mBatteryPercentage = (ListPreference) findPreference("status_bar_show_battery_percent");
+        mBatteryPercentage.setValue(Integer.toString(percentage));
         mBatteryPercentage.setOnPreferenceChangeListener(this);
-        boolean hideForcePercentage = batteryStyle == 8; /*text*/
+        boolean hideForcePercentage =
+                batteryStyle == 5 || batteryStyle == 6; /*text or hidden style*/
         mBatteryPercentage.setEnabled(!hideForcePercentage);
 
         // battery bar
@@ -206,19 +206,21 @@ public class Battery extends SettingsPreferenceFragment
         public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
             AlertDialog dialog;
-        if (preference == mStatusBarBattery) {
-            int clockStyle = Integer.valueOf((String) newValue);
-            int index = mStatusBarBattery.findIndexOfValue((String) newValue);
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.STATUS_BAR_BATTERY_STYLE, clockStyle);
-            mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
+        if (preference == mBatteryIconStyle) {
+            int value = Integer.valueOf((String) newValue);
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    Settings.Secure.STATUS_BAR_BATTERY_STYLE, value,
+                    UserHandle.USER_CURRENT);
+            boolean hideForcePercentage = value == 5 || value == 6;/*text or hidden style*/
+            mBatteryPercentage.setEnabled(!hideForcePercentage);
             return true;
         } else  if (preference == mBatteryPercentage) {
-            int showPercent = Integer.valueOf((String) newValue);
-            int index = mBatteryPercentage.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.SHOW_BATTERY_PERCENT, showPercent);
-            mBatteryPercentage.setSummary(mBatteryPercentage.getEntries()[index]);
+            int value = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.SHOW_BATTERY_PERCENT, value,
+                    UserHandle.USER_CURRENT);
+            boolean hideForcePercentage = value == 5 || value == 6;/*text or hidden style*/
+            mBatteryPercentage.setEnabled(!hideForcePercentage);
             return true;
         } else if (preference == mBatteryBarColor) {
             String hex = ColorPickerPreference.convertToARGB(
