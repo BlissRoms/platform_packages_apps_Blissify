@@ -91,6 +91,14 @@
             android:summary="@string/lockscreen_battery_info_summary"
             android:defaultValue="true" />
 
+        <com.blissroms.blissify.preference.SystemSettingIntListPreference
+            android:key="ambient_bottom_display"
+            android:entries="@array/ambient_display_bottom_info_entries"
+            android:entryValues="@array/ambient_display_bottom_info_values"
+            android:title="@string/ambient_display_bottom_info_title"
+            android:summary="%s"
+            android:defaultValue="0" />
+
      <PreferenceCategory
          android:key="ls_weather"
          android:title="@string/lockscreen_weather_cat"/>
