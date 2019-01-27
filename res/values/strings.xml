@@ -1167,4 +1167,8 @@
     <string name="ambient_display_bottom_info_battery">Battery percent</string>
     <string name="ambient_display_bottom_info_weather">Brief weather info</string>
 
+    <!-- Privacy guard -->
+    <string name="privacy_guard_settings_title">Privacy guard</string>
+    <string name="privacy_guard_settings_summary">In depth control over application permissions</string>
+
 </resources>

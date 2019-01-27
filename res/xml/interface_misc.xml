@@ -8,12 +8,10 @@
 
         <!-- AppOps -->
      <Preference
-         android:key="app_ops_settings"
-         android:title="@string/app_ops_settings_title">
-         <intent android:action="android.intent.action.MAIN"
-             android:targetPackage="com.android.settings"
-             android:targetClass="com.android.settings.applications.appops.AppOpsSummary" />
-     </Preference>
+         android:key="privacy_guard_manager"
+         android:title="@string/privacy_guard_settings_title"
+         android:summary="@string/privacy_guard_settings_summary"
+         android:fragment="com.android.settings.privacyguard.PrivacyGuardManager" />
 
      <Preference
          android:key="device_extras_category"
