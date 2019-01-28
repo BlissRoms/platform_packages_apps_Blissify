@@ -62,6 +62,7 @@
     <string name="interface_batteryled_title">Battery LED</string>
     <string name="recents_style_title">Style</string>
     <string name="qs_panel_title">Panel</string>
+    <string name="qs_header_title">Header</string>
     <string name="lockscreen_ui_title">UI options</string>
     <string name="lockscreen_sec_title">Security options</string>
 
@@ -94,6 +95,7 @@
     <string name="interface_batteryled_summary">Change the colors for the charging led indication</string>
     <string name="recents_style_summary">Change recents display style</string>
     <string name="qs_panel_summary">Quick setting panel custom options</string>
+    <string name="qs_header_summary">Quick setting header customizations</string>
     <string name="system_animation_summary">Various system animations</string>
     <string name="screenoff_animation_summary">Animations shown when the screen turns off</string>
     <string name="toast_animation_summary">Animations for when the toast popup is displayed</string>

@@ -16,4 +16,12 @@
                 android:fragment="com.blissroms.blissify.fragments.qs.Panel"
                 />
 
+     <PreferenceScreen
+                android:id="@+id/qs_header"
+                android:title="@string/qs_header_title"
+                android:summary="@string/qs_header_summary"
+                android:icon="@drawable/ic_items"
+                android:fragment="com.blissroms.blissify.fragments.qs.Header"
+                />
+
 </PreferenceScreen>
