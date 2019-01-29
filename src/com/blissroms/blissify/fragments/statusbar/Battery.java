@@ -126,7 +126,7 @@ public class Battery extends SettingsPreferenceFragment
 
         mBatteryBarChargingColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_CHARGING_COLOR);
         int chargeColor = Settings.System.getInt(resolver,
-                Settings.System.BATTERY_BAR_CHARGING_COLOR, 0xff00f00);
+                Settings.System.BATTERY_BAR_CHARGING_COLOR, 0xff00ff00);
         String chargeColorHex = String.format("#%08x", (0xff00ff00 & chargeColor));
         mBatteryBarChargingColor.setSummary(chargeColorHex);
         mBatteryBarChargingColor.setNewPreviewColor(chargeColor);
@@ -282,7 +282,7 @@ public class Battery extends SettingsPreferenceFragment
             int index = mBatteryBarThickness.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver,
                     Settings.System.BATTERY_BAR_THICKNESS, val);
-            mBatteryBarStyle.setSummary(mBatteryBarThickness.getEntries()[index]);
+            mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntries()[index]);
             return true;
         } else if (preference == mBatteryBarChargingAnimation) {
             boolean value = (Boolean) newValue;

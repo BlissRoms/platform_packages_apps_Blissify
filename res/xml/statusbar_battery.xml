@@ -52,7 +52,7 @@
         <com.android.settings.bliss.preference.ColorPickerPreference
             android:key="battery_bar_color"
             android:title="@string/battery_bar_color"
-            bliss:defaultColorValue="0xffffffff"
+            bliss:defaultColorValue="0xff00a3ff"
             android:dialogTitle="@string/battery_bar_color" />
 
         <com.android.settings.bliss.preference.ColorPickerPreference
@@ -75,7 +75,7 @@
         <com.android.settings.bliss.preference.ColorPickerPreference
             android:key="battery_bar_low_color"
             android:title="@string/battery_bar_low_color"
-            bliss:defaultColorValue="0xffff4444"
+            bliss:defaultColorValue="0xffff0040"
             android:dialogTitle="@string/battery_bar_color" />
 
         <com.android.settings.bliss.preference.ColorPickerPreference
