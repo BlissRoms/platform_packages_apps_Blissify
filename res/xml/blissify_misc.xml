@@ -17,6 +17,13 @@
     android:key="misc_settings"
     android:title="@string/blissify_misc_title">
 
+    <!-- Always On when charging-->
+    <com.bliss.support.SystemSettingSwitchPreference
+         android:key="doze_on_charge"
+         android:title="@string/doze_on_charge_title"
+         android:summary="@string/doze_on_charge_summary"
+         android:defaultValue="false" />
+
     <!-- Wakelock blocker -->
     <PreferenceCategory
         android:key="wakelock_blocker_category"
