@@ -1679,6 +1679,7 @@
         <item>@string/qstile_attemptmountain</item>
         <item>@string/qstile_squaremedo</item>
         <item>@string/qstile_inkdrop</item>
+        <item>@string/qstile_cookie</item>
     </string-array>
 
     <string-array name="qs_selector_values" translatable="false">
@@ -1693,6 +1694,7 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
+        <item>11</item>
     </string-array>
 
 </resources>
