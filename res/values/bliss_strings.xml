@@ -678,5 +678,6 @@
     <string name="audio_panel_view_alarm_title">Alarm</string>
     <string name="audio_panel_view_voice_title">Voice</string>
     <string name="audio_panel_view_bt_sco_title">Bluetooth</string>
+    <string name="audio_panel_view_timeout_title">Volume panel timeout</string>
 
 </resources>
