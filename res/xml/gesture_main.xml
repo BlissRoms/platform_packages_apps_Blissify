@@ -14,6 +14,13 @@
         android:icon="@drawable/ic_carbon"
         android:fragment="com.blissroms.blissify.fragments.gestures.CarbonGesturesSettings" />
 
+        <Preference
+        android:key="active_edge_category"
+        android:icon="@drawable/dt_active_edge"
+        android:title="@string/active_edge_title"
+        android:summary="@string/active_edge_summary"
+        android:fragment="com.blissroms.blissify.fragments.gestures.ActiveEdge" />
+
     <!-- PA Pie -->
     <Preference
         android:key="pa_pie_control" 
