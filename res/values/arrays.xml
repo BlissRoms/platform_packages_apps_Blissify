@@ -1117,9 +1117,14 @@
         <item>@string/action_volume_panel</item>
         <item>@string/action_screen_off</item>
         <item>@string/action_notifications</item>
-        <!--<item>@string/action_screenshot</item>-->
+        <item>@string/action_screenshot</item>
         <item>@string/action_qs_panel</item>
         <item>@string/action_app_action</item>
+        <item>@string/action_splitscreen_action</item>
+        <item>@string/action_lastapp_action</item>
+        <item>@string/action_screenrecord</item>
+        <item>@string/action_medianext_action</item>
+        <item>@string/action_mediaplay_action</item>
     </string-array>
 
     <string-array name="active_edge_actions_values" translatable="false">
@@ -1132,9 +1137,14 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
-        <!--<item>9</item>-->
+        <item>9</item>
         <item>10</item>
         <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
     </string-array>
 
 </resources>
