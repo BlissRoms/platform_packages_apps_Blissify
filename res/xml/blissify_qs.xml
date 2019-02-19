@@ -38,4 +38,11 @@
             lineage:requiresConfig="@*android:bool/config_automatic_brightness_available"
             android:defaultValue="true" />
 
+        <!-- QS clock -->
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="show_qs_clock"
+            android:title="@string/qs_clock_title"
+            android:summary="@string/qs_clock_summary"
+            android:defaultValue="true" />
+
 </PreferenceScreen>
