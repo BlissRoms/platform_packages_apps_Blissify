@@ -61,6 +61,8 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
     private static final String SMART_PIXELS_ENABLED = "smart_pixels_enable";
 
+    private static final String KEY_DOZE_ON_CHARGE = "doze_on_charge";
+
     private SystemSettingMasterSwitchPreference mSmartPixelsEnabled;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
@@ -102,6 +104,14 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
         if (!getResources().getBoolean(com.android.internal.R.bool.config_enableSmartPixels)) {
             getPreferenceScreen().removePreference(mSmartPixelsEnabled);
+        }
+
+        boolean dozeAlwaysOnDisplayAvailable = getContext().getResources().
+                getBoolean(com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
+        Preference DozeOnCharge = findPreference(KEY_DOZE_ON_CHARGE);
+
+        if (!dozeAlwaysOnDisplayAvailable){
+            DozeOnCharge.getParent().removePreference(DozeOnCharge);
         }
     }
 
