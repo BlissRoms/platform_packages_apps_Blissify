@@ -30,10 +30,11 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v14.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
-
+import com.android.internal.utils.ActionHandler;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+import com.android.settings.smartnav.SimpleActionFragment;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
@@ -42,9 +43,10 @@ import com.blissroms.blissify.preference.CustomSeekBarPreference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActiveEdge extends SettingsPreferenceFragment
+public class ActiveEdge extends SimpleActionFragment implements
         implements Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_SQUEEZE_SMART_ACTION = "squeeze_selection_smart_action";
     private CustomSeekBarPreference mActiveEdgeSensitivity;
     private ListPreference mActiveEdgeActions;
     private SwitchPreference mActiveEdgeWake;
@@ -56,13 +58,6 @@ public class ActiveEdge extends SettingsPreferenceFragment
 
         final ContentResolver resolver = getActivity().getContentResolver();
 
-        int activeEdgeActions = Settings.Secure.getIntForUser(resolver,
-                Settings.Secure.SQUEEZE_SELECTION, 0,
-                UserHandle.USER_CURRENT);
-        mActiveEdgeActions = (ListPreference) findPreference("squeeze_selection");
-        mActiveEdgeActions.setValue(Integer.toString(activeEdgeActions));
-        mActiveEdgeActions.setSummary(mActiveEdgeActions.getEntry());
-        mActiveEdgeActions.setOnPreferenceChangeListener(this);
 
         int sensitivity = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.ASSIST_GESTURE_SENSITIVITY, 2, UserHandle.USER_CURRENT);
@@ -75,21 +70,14 @@ public class ActiveEdge extends SettingsPreferenceFragment
                 Settings.Secure.ASSIST_GESTURE_WAKE_ENABLED, 1,
                 UserHandle.USER_CURRENT) == 1));
         mActiveEdgeWake.setOnPreferenceChangeListener(this);
+
+        onPreferenceScreenLoaded(null);
     }
 
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mActiveEdgeActions) {
-            int value = Integer.valueOf((String) newValue);
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.SQUEEZE_SELECTION, value,
-                    UserHandle.USER_CURRENT);
-            int index = mActiveEdgeActions.findIndexOfValue((String) newValue);
-            mActiveEdgeActions.setSummary(
-                    mActiveEdgeActions.getEntries()[index]);
-            return true;
-        } else if (preference == mActiveEdgeSensitivity) {
+        if (preference == mActiveEdgeSensitivity) {
             int val = (Integer) newValue;
             Settings.Secure.putIntForUser(getContentResolver(),
                     Settings.Secure.ASSIST_GESTURE_SENSITIVITY, val,
@@ -103,6 +91,17 @@ public class ActiveEdge extends SettingsPreferenceFragment
             return true;
         }
         return false;
+    }
+
+    @Override
+    protected ActionPreferenceInfo getActionPreferenceInfoForKey(String key) {
+        if (key.equals(KEY_SQUEEZE_SMART_ACTION)) {
+            return new ActionPreferenceInfo(getActivity(),
+                    ActionPreferenceInfo.TYPE_SECURE,
+                    ActionHandler.SYSTEMUI_TASK_NO_ACTION,
+                    Settings.Secure.SQUEEZE_SELECTION_SMART_ACTIONS);
+        }
+        return null;
     }
 
     @Override
