@@ -1125,7 +1125,6 @@
         <item>@string/action_screenrecord</item>
         <item>@string/action_medianext_action</item>
         <item>@string/action_mediaplay_action</item>
-        <item>@string/action_ringer_modes</item>
     </string-array>
 
     <string-array name="active_edge_actions_values" translatable="false">
@@ -1146,7 +1145,6 @@
         <item>14</item>
         <item>15</item>
         <item>16</item>
-        <item>17</item>
     </string-array>
 
 </resources>
