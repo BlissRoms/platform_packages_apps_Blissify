@@ -20,21 +20,9 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
-    <ListPreference
-        android:key="squeeze_selection"
-        android:title="@string/active_edge_actions_title"
-        android:entries="@array/active_edge_actions_entries"
-        android:entryValues="@array/active_edge_actions_values"
-        android:defaultValue="0" />
-
-    <Preference
-        android:key="squeeze_app_selection"
-        android:title="@string/active_edge_app_select_title"
-        android:summary="@string/active_edge_app_select_summary">
-        <intent android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.systemui"
-            android:targetClass="com.google.android.systemui.elmyra.actions.AppPicker" />
-    </Preference>
+    <com.android.settings.smartnav.ActionPreference
+        android:key="squeeze_selection_smart_action"
+        android:title="@string/active_edge_actions_title"/>
 
     <com.blissroms.blissify.preference.CustomSeekBarPreference
         android:key="gesture_assist_sensitivity"
