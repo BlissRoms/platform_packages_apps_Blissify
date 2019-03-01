@@ -106,6 +106,7 @@ public class Style extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.RECENTS_LAYOUT_STYLE, type);
             mRecentsLayoutStylePref.setSummary(mRecentsLayoutStylePref.getEntries()[index]);
+            updateRecentsState(type);
             if (type != 0) { // Disable swipe up gesture, if oreo type selected
                 Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.SWIPE_UP_TO_SWITCH_APPS_ENABLED, 0);
