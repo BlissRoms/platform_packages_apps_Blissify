@@ -59,9 +59,12 @@ import java.util.List;
 @SearchIndexable
 public class NetworkTraffic extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
+    private static final String NETWORK_TRAFFIC_FONT_SIZE  = "network_traffic_font_size";
+
     private CustomSeekBarPreference mThreshold;
     private ListPreference mNetTrafficType;
     private ListPreference mNetTrafficLayout;
+    private CustomSeekBarPreference mNetTrafficSize;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,11 +81,22 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements OnPref
         mThreshold.setValue(trafvalue);
         mThreshold.setOnPreferenceChangeListener(this);
 
+        mNetTrafficSize = (CustomSeekBarPreference) findPreference(NETWORK_TRAFFIC_FONT_SIZE);
+        int NetTrafficSize = Settings.System.getInt(resolver,
+                Settings.System.NETWORK_TRAFFIC_FONT_SIZE, 24);
+        mNetTrafficSize.setValue(NetTrafficSize / 1);
+        mNetTrafficSize.setOnPreferenceChangeListener(this);
+
         mNetTrafficType = (ListPreference) findPreference("network_traffic_type");
         int type = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_TYPE, 0, UserHandle.USER_CURRENT);
         mNetTrafficType.setValue(String.valueOf(type));
         mNetTrafficType.setOnPreferenceChangeListener(this);
+        if (type == 1 || type == 2) {
+            mNetTrafficSize.setEnabled(true);
+        } else {
+            mNetTrafficSize.setEnabled(false);
+        }
 
         mNetTrafficLayout = (ListPreference) findPreference("network_traffic_layout");
         int netlayout = Settings.System.getIntForUser(resolver,
@@ -90,6 +104,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements OnPref
         mNetTrafficLayout.setValue(String.valueOf(netlayout));
         mNetTrafficLayout.setSummary(mNetTrafficLayout.getEntry());
         mNetTrafficLayout.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -110,6 +125,11 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements OnPref
                     Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, val,
                     UserHandle.USER_CURRENT);
             return true;
+        }  else if (preference == mNetTrafficSize) {
+            int width = ((Integer)objValue).intValue();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_FONT_SIZE, width);
+            return true;
         } else if (preference == mNetTrafficType) {
             int val = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
@@ -117,6 +137,11 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements OnPref
                     UserHandle.USER_CURRENT);
             int index = mNetTrafficType.findIndexOfValue((String) objValue);
             mNetTrafficType.setSummary(mNetTrafficType.getEntries()[index]);
+            if (val == 1 || val == 2) {
+                mNetTrafficSize.setEnabled(true);
+            } else {
+                mNetTrafficSize.setEnabled(false);
+            }
             return true;
         } else if (preference == mNetTrafficLayout) {
             int val = Integer.valueOf((String) objValue);

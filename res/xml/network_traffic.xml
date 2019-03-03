@@ -58,4 +58,12 @@
         android:dependency="network_traffic_state"
         android:defaultValue="false" />
 
+    <com.bliss.support.preferences.CustomSeekBarPreference
+        android:key="network_traffic_font_size"
+        android:title="@string/nettraf_font_size"
+        android:max="48"
+        settings:min="21"
+        settings:defaultValue="24"
+        settings:units="dp" />
+
 </PreferenceScreen>
