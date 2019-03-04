@@ -647,6 +647,7 @@
     <string-array name="qs_selector_entries" translatable="false">
         <item>@string/qstile_default</item>
         <item>@string/qstile_circle_gradient</item>
+        <item>@string/qstile_circleoutline</item>
         <item>@string/qstile_circle_trim</item>
         <item>@string/qstile_cookie</item>
         <item>@string/qstile_dottedcircle</item>
@@ -688,6 +689,7 @@
         <item>17</item>
         <item>18</item>
         <item>19</item>
+        <item>20</item>
     </string-array>
 
     <!-- Notification ticker -->
