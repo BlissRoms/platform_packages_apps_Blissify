@@ -13,6 +13,13 @@
         android:summaryOff="@string/heads_up_summary_disabled"
         android:defaultValue="true" />
 
+    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        android:key="less_boring_heads_up"
+        android:title="@string/less_boring_heads_up_title"
+        android:summary="@string/less_boring_heads_up_summary"
+        android:dependency="heads_up_notifications_enabled"
+        android:defaultValue="false" />
+
     <com.blissroms.blissify.preference.SystemSettingIntListPreference
         android:key="heads_up_timeout"
         android:title="@string/heads_up_time_out_title"

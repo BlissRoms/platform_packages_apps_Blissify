@@ -1217,4 +1217,8 @@
     <string name="active_edge_wake_title">Allow when screen is off</string>
     <string name="active_edge_wake_summary">Trigger any action even when the screen is off</string>
     <string name="active_edge_footer_info">Not all squeeze actions within Active Edge have the capability to activate the display. Actions marked with (*) will wake the device, and those marked with (~) can be used while the device screen is off.</string>
+
+    <!-- Heads up options -->
+    <string name="less_boring_heads_up_title">Dialer HeadsUp</string>
+    <string name="less_boring_heads_up_summary">Show heads up only for dialer app and disable all others</string>
 </resources>
