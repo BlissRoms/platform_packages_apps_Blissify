@@ -995,7 +995,10 @@
     <string name="fod_wallpaper_color">Use wallpaper color for FOD icon</string>
     <string name="fod_wallpaper_color_summary">Uses adjusted primary wallpaper color for FOD icon\nNOTE: might look good only with some wallpapers</string>
 
+    <!-- lockscreen clock and date font style -->
+    <string name="lockscreen_clockdate_category">Clock &amp; date</string>
     <string name="clock_font_style_title">Clock font style</string>
+    <string name="date_font_style_title">Date font style</string>
     <string name="font_style_title">Font style</string>
     <string name="font_normal">Normal</string>
     <string name="font_italic">Italic</string>
