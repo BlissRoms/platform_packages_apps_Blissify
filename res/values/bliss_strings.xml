@@ -1010,7 +1010,10 @@
     <string name="lockscreen_clock_selection_sammy_accent">Sammy accent</string>
     <string name="lockscreen_clock_selection_sammy_accent_alt">Sammy accent(darker hour)</string>
 
+    <!-- lockscreen clock and date font style -->
+    <string name="lockscreen_clockdate_category">Clock &amp; date</string>
     <string name="clock_font_style_title">Clock font style</string>
+    <string name="date_font_style_title">Date font style</string>
     <string name="font_style_title">Font style</string>
     <string name="font_normal">Normal</string>
     <string name="font_italic">Italic</string>
