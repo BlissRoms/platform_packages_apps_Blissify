@@ -40,10 +40,8 @@ public class LockUI extends SettingsPreferenceFragment
                                          implements Preference.OnPreferenceChangeListener{
 
 
-    private static final String LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR = "lock_screen_visualizer_custom_color";
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
 
-    private ColorPickerPreference mVisualizerColor;
     ListPreference mLockClockFonts;
 
 
@@ -54,15 +52,6 @@ public class LockUI extends SettingsPreferenceFragment
             addPreferencesFromResource(R.xml.lockscreen_ui);
             PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
-        // Visualizer custom color
-        mVisualizerColor = (ColorPickerPreference) findPreference(LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR);
-        int visColor = Settings.System.getInt(resolver,
-                Settings.System.LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR, 0xff1976D2);
-        String visColorHex = String.format("#%08x", (0xff1976D2 & visColor));
-        mVisualizerColor.setSummary(visColorHex);
-        mVisualizerColor.setNewPreviewColor(visColor);
-        mVisualizerColor.setAlphaSliderEnabled(true);
-        mVisualizerColor.setOnPreferenceChangeListener(this);
 
         // Lockscren Clock Fonts
         mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
@@ -74,15 +63,7 @@ public class LockUI extends SettingsPreferenceFragment
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
          ContentResolver resolver = getActivity().getContentResolver();
-         if (preference == mVisualizerColor) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(resolver,
-                    Settings.System.LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR, intHex);
-            preference.setSummary(hex);
-            return true;
-        } else if (preference == mLockClockFonts) {
+        if (preference == mLockClockFonts) {
             Settings.System.putInt(getContentResolver(), Settings.System.LOCK_CLOCK_FONTS,
                     Integer.valueOf((String) newValue));
             mLockClockFonts.setValue(String.valueOf(newValue));
