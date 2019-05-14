@@ -348,6 +348,10 @@
     <string name="lockscreen_lavalamp_title">Lava lamp</string>
     <string name="lockscreen_lavalamp_summary">Animate smooth lava lamp style color blend</string>
     <string name="lockscreen_lavalamp_speed_title">Lava lamp color blend interval</string>
+    <string name="lockscreen_solid_lines_category">Solid Lines</string>
+    <string name="lockscreen_solid_units_count_title">Lines count</string>
+    <string name="lockscreen_solid_fudge_factor_title">Sanity level</string>
+    <string name="lockscreen_solid_units_opacity_title">Lines opacity</string>
 
     <!-- Lockscreen battery info indicator  -->
     <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
