@@ -67,6 +67,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:icon="@drawable/ic_screen_off"
+        android:title="@string/ime_settings_title">
+
+    <Preference
+        android:key="ime_settings"
+        android:title="@string/ime_settings_title"
+        android:summary="@string/ime_settings_summary"
+        android:fragment="com.blissroms.blissify.fragments.misc.ImeSettings"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="display_cutout_settings"
         android:icon="@drawable/ic_items"
         android:title="@string/cutout_main">
