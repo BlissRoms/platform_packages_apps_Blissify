@@ -60,32 +60,12 @@
             android:summary="@string/force_ambient_for_media_summary"
             android:defaultValue="false" />
 
-        <com.blissroms.blissify.preference.SecureSettingSwitchPreference
-            android:key="lockscreen_visualizer_enabled"
-            android:title="@string/lockscreen_visualizer_enable"
-            android:summary="@string/lockscreen_visualizer_enable_summary"
-            android:defaultValue="false" />
-
-        <com.blissroms.blissify.preference.SecureSettingSwitchPreference
-            android:key="ambient_visualizer"
-            android:title="@string/ambient_visualizer_title"
-            android:summary="@string/ambient_visualizer_summary"
-            android:dependency="lockscreen_visualizer_enabled"
-            android:defaultValue="false" />
-
-        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
-            android:key="lock_screen_visualizer_use_custom_color"
-            android:title="@string/lockscreen_visualizer_enable_custom"
-            android:summary="@string/lockscreen_visualizer_enable_custom_summary"
-            android:dependency="lockscreen_visualizer_enabled"
-            android:defaultValue="false" />
-
-        <com.android.settings.bliss.preference.ColorPickerPreference
-            android:key="lock_screen_visualizer_custom_color"
-            android:title="@string/lockscreen_visualizer_custom_color"
-            android:dependency="lock_screen_visualizer_use_custom_color"
-            bliss:defaultColorValue="0xffffffff"
-            android:dialogTitle="@string/lockscreen_visualizer_custom_color" />
+        <Preference
+            android:key="lockscreen_visualizer"
+            android:icon="@drawable/ic_visualizer"
+            android:title="@string/music_visualizer_title"
+            android:summary="@string/music_visualizer_summary"
+            android:fragment="com.blissroms.blissify.fragments.lockscreen.LockScreenVisualizer" />
 
      <PreferenceCategory
          android:key="ls_charge"
