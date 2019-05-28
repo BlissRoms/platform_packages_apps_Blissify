@@ -837,4 +837,8 @@
     <string name="show_carrier_statusbar">Statusbar</string>
     <string name="show_carrier_enabled">Both</string>
 
+    <!-- Charging animation -->
+    <string name="lockscreen_charging_animation_title">Charging animation</string>
+    <string name="lockscreen_charging_animation_summary">Display animation when charging</string>
+
 </resources>
