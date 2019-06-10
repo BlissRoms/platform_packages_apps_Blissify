@@ -787,4 +787,8 @@
     <string name="lock_screen_weather_style_summaryOff">Omni(with location)</string>
     <string name="lock_screen_weather_style_summaryOn">AOSP(without location)</string>
 
+    <!-- smart notifications -->
+    <string name="notification_sound_vib_screen_on_title">Noisy notifications if screen on</string>
+    <string name="notification_sound_vib_screen_on_summary">Disable to block notifications sound and vibration when the screen is awake</string>
+
 </resources>
