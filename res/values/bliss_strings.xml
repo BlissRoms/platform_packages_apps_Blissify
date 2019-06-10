@@ -767,4 +767,8 @@
     <string name="headset_connect_player_both_no_carkit">When wired or BT headset (no carkit) is plugged in</string>
     <string name="headset_connect_player_both">When wired or BT headset is plugged in</string>
 
+    <!-- smart notifications -->
+    <string name="notification_sound_vib_screen_on_title">Noisy notifications if screen on</string>
+    <string name="notification_sound_vib_screen_on_summary">Disable to block notifications sound and vibration when the screen is awake</string>
+
 </resources>
