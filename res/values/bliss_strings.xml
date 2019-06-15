@@ -431,4 +431,8 @@
     <string name="navigation_bar_layout_summary">Customize the layout of the navigation bar</string>
     <string name="navigation_bar_arrow_keys_title">Show arrow keys while typing</string>
     <string name="navigation_bar_arrow_keys_summary">Display left and right cursor buttons in navigation bar while typing</string>
+
+    <!-- Charging animation -->
+    <string name="lockscreen_charging_animation_title">Lockscreen charging animation</string>
+    <string name="lockscreen_charging_animation_summary">Display a fancy animation when the device is charging</string>
 </resources>
