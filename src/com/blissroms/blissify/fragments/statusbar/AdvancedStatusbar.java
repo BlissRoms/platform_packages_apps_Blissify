@@ -57,8 +57,10 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String KEY_SHOW_VOLTE = "show_volte_icon";
+    private static final String KEY_SHOW_DATA_DISABLED = "data_disabled_icon";
 
     private SwitchPreference mShowVolte;
+    private SwitchPreference mDataDisabled;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -70,8 +72,10 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
         mShowVolte = (SwitchPreference) findPreference(KEY_SHOW_VOLTE);
+        mDataDisabled = (SwitchPreference) findPreference(KEY_SHOW_DATA_DISABLED);
 
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
+            prefScreen.removePreference(mDataDisabled);
             prefScreen.removePreference(mShowVolte);
         }
 
@@ -88,6 +92,8 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
 
         Settings.System.putIntForUser(resolver,
                 Settings.System.SHOW_VOLTE_ICON, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.DATA_DISABLED_ICON, 1, UserHandle.USER_CURRENT);
     }
 
     @Override
