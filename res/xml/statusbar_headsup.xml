@@ -6,21 +6,21 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
-    <com.blissroms.blissify.preference.GlobalSettingSwitchPreference
+    <com.bliss.support.preferences.GlobalSettingSwitchPreference
         android:key="heads_up_notifications_enabled"
         android:title="@string/heads_up_title"
         android:summaryOn="@string/heads_up_summary_enabled"
         android:summaryOff="@string/heads_up_summary_disabled"
         android:defaultValue="true" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="less_boring_heads_up"
         android:title="@string/less_boring_heads_up_title"
         android:summary="@string/less_boring_heads_up_summary"
         android:dependency="heads_up_notifications_enabled"
         android:defaultValue="false" />
 
-    <com.blissroms.blissify.preference.SystemSettingIntListPreference
+    <com.bliss.support.preferences.SystemSettingIntListPreference
         android:key="heads_up_timeout"
         android:title="@string/heads_up_time_out_title"
         android:entries="@array/heads_up_time_out_entries"
@@ -29,7 +29,7 @@
         android:summary="%s"
         android:defaultValue="2000" />
 
-    <com.blissroms.blissify.preference.SystemSettingIntListPreference
+    <com.bliss.support.preferences.SystemSettingIntListPreference
         android:key="heads_up_notification_snooze"
         android:title="@string/heads_up_snooze_title"
         android:entries="@array/heads_up_snooze_entries"

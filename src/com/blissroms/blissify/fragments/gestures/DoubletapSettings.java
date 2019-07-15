@@ -35,7 +35,7 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto;
-import com.blissroms.blissify.preference.SystemSettingSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingSeekBarPreference;
 
 public class DoubletapSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {

@@ -31,8 +31,8 @@ import java.util.List;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
-import com.blissroms.blissify.preference.SystemSettingSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.SystemSettingSeekBarPreference;
 import com.android.internal.logging.nano.MetricsProto;
 
 public class Clock extends SettingsPreferenceFragment

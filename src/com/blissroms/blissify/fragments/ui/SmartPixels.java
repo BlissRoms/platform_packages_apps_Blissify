@@ -35,7 +35,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 public class SmartPixels extends SettingsPreferenceFragment implements
