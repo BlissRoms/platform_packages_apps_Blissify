@@ -22,27 +22,27 @@
         android:key="bright_slide"
         android:title="@string/bright_slide" />
 
-        <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+        <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="qs_show_brightness_slider"
             android:title="@string/brightness_slider_title"
             android:summary="@string/brightness_slider_summary"
             android:defaultValue="true"/>
 
-        <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+        <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="qs_brightness_position_bottom"
             android:title="@string/qs_brightness_position_bottom_title"
             android:summary="@string/qs_brightness_position_bottom_summary"
             android:defaultValue="false"
             android:dependency="qs_show_brightness_slider" />
 
-        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_brightness_icon"
             android:title="@string/brightness_icon_title"
             android:summary="@string/brightness_icon_summary"
             android:dependency="qs_show_brightness_slider"
             android:defaultValue="false"/>
 
-        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_brightness_buttons"
             android:title="@string/brightness_buttons_title"
             android:summary="@string/brightness_buttons_summary"
@@ -53,25 +53,25 @@
         android:key="icons_and_info"
         android:title="@string/icons_and_info" />
 
-        <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+        <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="qs_show_info_header"
             android:title="@string/qs_show_info_header_title"
             android:summary="@string/qs_show_info_header_summary"
             android:defaultValue="false" />
 
-        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="qs_footer_show_settings"
             android:title="@string/qs_footer_settings_title"
             android:summary="@string/qs_footer_settings_summary"
             android:defaultValue="true" />
 
-         <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="qs_footer_show_services"
             android:title="@string/qs_footer_services_title"
             android:summary="@string/qs_footer_services_summary"
             android:defaultValue="false" />
 
-        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="qs_footer_warnings"
             android:title="@string/qs_footer_warnings_title"
             android:summary="@string/qs_footer_warnings_summary"
@@ -81,19 +81,19 @@
         android:key="panel_options"
         android:title="@string/panel_options" />
 
-        <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+        <com.bliss.support.preferences.SecureSettingSwitchPreference
 	    android:key="qs_show_drag_handle"
 	    android:title="@string/tuner_show_drag_handle_title"
 	    android:summary="@string/tuner_show_drag_handle_summary"
 	    android:defaultValue="true" />
 
-        <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+        <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
             android:summary="@string/quick_settings_vibrate_summary"
             android:defaultValue="false"/>
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="qs_panel_alpha"
             android:title="@string/qs_panel_alpha_title"
             android:summary="@string/qs_panel_alpha_summary"

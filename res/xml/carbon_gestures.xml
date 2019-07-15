@@ -23,7 +23,7 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
-    <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
         android:key="carbon_gestures_fingers"
         android:title="@string/carbon_gestures_fingers_title"
         android:max="4"
