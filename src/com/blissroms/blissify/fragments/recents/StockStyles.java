@@ -40,7 +40,7 @@ import android.util.Log;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.bliss.preference.ColorPickerPreference;
+import com.bliss.support.colorpicker.ColorPickerPreference;
 
 import java.util.List;
 import java.util.ArrayList;

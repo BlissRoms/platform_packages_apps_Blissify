@@ -37,9 +37,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.EditText;
-import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
-import com.blissroms.blissify.preference.PackageListAdapter;
-import com.blissroms.blissify.preference.PackageListAdapter.PackageItem;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.PackageListAdapter;
+import com.bliss.support.preferences.PackageListAdapter.PackageItem;
 import android.provider.Settings;
 
 import java.util.Arrays;
@@ -52,7 +52,6 @@ import java.util.Map;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
 import com.android.internal.logging.nano.MetricsProto;
 
 public class Headsup extends SettingsPreferenceFragment

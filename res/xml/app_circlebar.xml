@@ -16,20 +16,20 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:benzo="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:bliss="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/app_circle_bar_title" >
 
     <Preference 
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="enable_app_circle_bar"
         android:title="@string/app_circle_bar_enable_title"
         android:summary="@string/app_circle_bar_enable_summary"
         android:defaultValue="false" />
 
-    <com.blissroms.blissify.preference.AppMultiSelectListPreference
+    <com.bliss.support.preferences.AppMultiSelectListPreference
         android:key="app_circle_bar_included_apps"
         android:persistent="false"
         android:title="@string/app_circle_bar_included_apps_title"
@@ -40,34 +40,34 @@
         android:key="app_circle_trigger"
         android:title="@string/trigger_category"/>
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="trigger_width"
             android:title="@string/trigger_width_title"
             android:summary="@string/trigger_width_summary"
             android:max="40"
             android:min="4"
-            benzo:unitsLeft=""
-            benzo:unitsRight="px"
+            bliss:unitsLeft=""
+            bliss:unitsRight="px"
             android:dependency="enable_app_circle_bar" />
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="trigger_top"
             android:title="@string/trigger_top_title"
             android:summary="@string/trigger_top_summary"
             android:max="99"
             android:min="0"
-            benzo:unitsLeft=""
-            benzo:unitsRight="%"
+            bliss:unitsLeft=""
+            bliss:unitsRight="%"
             android:dependency="enable_app_circle_bar" />
 
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="trigger_bottom"
             android:title="@string/trigger_bottom_title"
             android:summary="@string/trigger_bottom_summary"
             android:max="100"
             android:min="1"
-            benzo:unitsLeft=""
-            benzo:unitsRight="%"
+            bliss:unitsLeft=""
+            bliss:unitsRight="%"
             android:dependency="enable_app_circle_bar" />
 
 </PreferenceScreen>

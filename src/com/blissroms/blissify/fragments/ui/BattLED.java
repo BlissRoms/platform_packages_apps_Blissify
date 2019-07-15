@@ -23,7 +23,7 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import android.provider.Settings;
 
 import java.util.Arrays;
@@ -32,7 +32,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import com.android.settings.bliss.preference.ColorPickerPreference;
+import com.bliss.support.colorpicker.ColorPickerPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
