@@ -28,7 +28,7 @@
         android:key="long_squeeze_selection_smart_action"
         android:title="@string/active_edge_long_squeeze_actions_title"/>
 
-    <com.blissroms.blissify.preference.CustomSeekBarPreference
+    <com.bliss.support.preferences.CustomSeekBarPreference
         android:key="gesture_assist_sensitivity"
         android:title="@string/active_edge_sensitivity_title"
         android:max="8"

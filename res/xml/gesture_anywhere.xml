@@ -45,7 +45,7 @@
     <PreferenceCategory
         android:title="@string/trigger_category" />
 
-    <com.blissroms.blissify.preference.CustomSeekBarPreference
+    <com.bliss.support.preferences.CustomSeekBarPreference
         android:key="gesture_anywhere_trigger_width"
         android:title="@string/trigger_width_title"
         android:defaultValue="40"
@@ -54,7 +54,7 @@
         settings:units="px"
         android:dependency="gesture_anywhere_enabled" />
 
-    <com.blissroms.blissify.preference.CustomSeekBarPreference
+    <com.bliss.support.preferences.CustomSeekBarPreference
         android:key="gesture_anywhere_trigger_top"
         android:title="@string/trigger_top_title"
         android:defaultValue="0"
@@ -63,7 +63,7 @@
         settings:units="%"
         android:dependency="gesture_anywhere_enabled" />
 
-    <com.blissroms.blissify.preference.CustomSeekBarPreference
+    <com.bliss.support.preferences.CustomSeekBarPreference
         android:key="gesture_anywhere_trigger_bottom"
         android:title="@string/trigger_bottom_title"
         android:defaultValue="100"
