@@ -38,7 +38,7 @@ import com.android.settings.smartnav.SimpleActionFragment;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-import com.blissroms.blissify.preference.CustomSeekBarPreference;
+import com.bliss.support.preferences.CustomSeekBarPreference;
 
 import java.util.ArrayList;
 import java.util.List;

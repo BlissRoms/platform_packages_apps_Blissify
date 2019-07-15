@@ -49,19 +49,19 @@
             android:title="@string/battery_bar_animate_title"
             android:summary="@string/battery_bar_animate_summary" />
 
-        <com.android.settings.bliss.preference.ColorPickerPreference
+        <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="battery_bar_color"
             android:title="@string/battery_bar_color"
             bliss:defaultColorValue="0xff00a3ff"
             android:dialogTitle="@string/battery_bar_color" />
 
-        <com.android.settings.bliss.preference.ColorPickerPreference
+        <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="battery_bar_charging_color"
             android:title="@string/battery_bar_charging_color"
             bliss:defaultColorValue="0xFF00FF00"
             android:dialogTitle="@string/battery_bar_color" />
 
-        <com.android.settings.bliss.preference.ColorPickerPreference
+        <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="battery_bar_battery_low_color_warning"
             android:title="@string/battery_bar_battery_low_color"
             bliss:defaultColorValue="0xFFFF6600"
@@ -72,13 +72,13 @@
             android:title="@string/battery_bar_use_gradient_color"
             android:summary="@string/battery_bar_gradient_color_summary" />
 
-        <com.android.settings.bliss.preference.ColorPickerPreference
+        <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="battery_bar_low_color"
             android:title="@string/battery_bar_low_color"
             bliss:defaultColorValue="0xffff0040"
             android:dialogTitle="@string/battery_bar_color" />
 
-        <com.android.settings.bliss.preference.ColorPickerPreference
+        <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="battery_bar_high_color"
             android:title="@string/battery_bar_high_color"
             bliss:defaultColorValue="0xff99CC00"

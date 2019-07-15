@@ -22,7 +22,7 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
-   <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+   <com.bliss.support.preferences.SecureSettingSwitchPreference
          android:key="pie_state"
          android:title="@string/pie_enable_title"
          android:defaultValue="false" />

@@ -22,7 +22,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import com.android.settings.bliss.preference.ColorPickerPreference;
+import com.bliss.support.colorpicker.ColorPickerPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;

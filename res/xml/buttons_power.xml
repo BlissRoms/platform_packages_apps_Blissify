@@ -7,13 +7,13 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="advanced_reboot"
         android:title="@string/global_actions_advanced_reboot_title"
         android:summary="@string/global_actions_advanced_reboot_summary_new"
         android:defaultValue="true" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_power_menu_disabled"
         android:title="@string/lockscreen_power_menu_disabled_title"
         android:summary="@string/lockscreen_power_menu_disabled_summary"
@@ -23,7 +23,7 @@
     <PreferenceCategory
         android:title="@string/panel_porn_title">
 		
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="transparent_power_menu"
             android:title="@string/power_menu_transparency"
             android:max="100"
@@ -32,7 +32,7 @@
             settings:unitsRight="%"
             android:defaultValue="100" />
 			
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="transparent_power_dialog_dim"
             android:title="@string/power_menu_dialog_dim"
             android:max="100"

@@ -48,9 +48,9 @@ import com.android.settings.smartnav.ActionFragment;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.utils.ActionConstants;
 import com.android.internal.utils.ActionUtils;
-import com.blissroms.blissify.preference.CustomSeekBarPreference;
+import com.bliss.support.preferences.CustomSeekBarPreference;
 import com.android.internal.util.omni.DeviceUtils;
-import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
 
 public class HWKeys extends ActionFragment
         implements Preference.OnPreferenceChangeListener {

@@ -16,27 +16,27 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/music_visualizer_title" >
 
-    <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
         android:key="lockscreen_visualizer_enabled"
         android:title="@string/music_visualizer_title"
         android:summary="@string/music_visualizer_summary"
         android:defaultValue="true" />
 
-    <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
        android:key="lockscreen_visualizer_autocolor"
         android:title="@string/lockscreen_autocolor_title"
         android:summary="@string/lockscreen_autocolor_summary"
         android:defaultValue="false"
         android:dependency="lockscreen_visualizer_enabled"/>
 
-    <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
         android:key="lockscreen_lavalamp_enabled"
         android:title="@string/lockscreen_lavalamp_title"
         android:summary="@string/lockscreen_lavalamp_summary"
         android:defaultValue="true"
         android:dependency="lockscreen_visualizer_enabled"/>
 
-    <com.blissroms.blissify.preference.SecureSettingSeekBarPreference
+    <com.bliss.support.preferences.SecureSettingSeekBarPreference
         android:key="lockscreen_lavalamp_speed"
         android:title="@string/lockscreen_lavalamp_speed_title"
         android:defaultValue="10000"
@@ -50,7 +50,7 @@
         android:id="@+id/lockscreen_solid_lines_category"
         android:title="@string/lockscreen_solid_lines_category" >
 
-        <com.blissroms.blissify.preference.SecureSettingSeekBarPreference
+        <com.bliss.support.preferences.SecureSettingSeekBarPreference
             android:key="lockscreen_solid_units_count"
             android:title="@string/lockscreen_solid_units_count_title"
             android:defaultValue="32"
@@ -58,14 +58,14 @@
             settings:min="16"
             settings:interval="16"/>
 
-        <com.blissroms.blissify.preference.SecureSettingSeekBarPreference
+        <com.bliss.support.preferences.SecureSettingSeekBarPreference
             android:key="lockscreen_solid_fudge_factor"
             android:title="@string/lockscreen_solid_fudge_factor_title"
             android:defaultValue="16"
             android:max="32"
             settings:min="2"/>
 
-        <com.blissroms.blissify.preference.SecureSettingSeekBarPreference
+        <com.bliss.support.preferences.SecureSettingSeekBarPreference
             android:key="lockscreen_solid_units_opacity"
             android:title="@string/lockscreen_solid_units_opacity_title"
             android:defaultValue="140"
@@ -74,7 +74,7 @@
             settings:interval="5"/>
     </PreferenceCategory>
 
-    <com.blissroms.blissify.preference.SecureSettingSwitchPreference
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
         android:key="ambient_visualizer"
         android:title="@string/ambient_visualizer_title"
         android:summary="@string/ambient_visualizer_summary"
