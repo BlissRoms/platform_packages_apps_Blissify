@@ -5,22 +5,22 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
-        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="vibrate_on_connect"
             android:title="@string/incall_vibrate_connect_title"
             android:defaultValue="false" />
 
-        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="vibrate_on_callwaiting"
             android:title="@string/incall_vibrate_call_wait_title"
             android:defaultValue="false" />
 
-        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="vibrate_on_disconnect"
             android:title="@string/incall_vibrate_disconnect_title"
             android:defaultValue="false" />
 
-        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="incall_notifications_vibrate"
             android:title="@string/incall_notifications_vibrate"
             android:summary="@string/incall_notifications_vibrate_summary"

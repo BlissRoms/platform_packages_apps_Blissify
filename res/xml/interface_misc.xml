@@ -39,34 +39,34 @@
         android:title="@string/screen_state_toggles_title"
         android:fragment="com.blissroms.blissify.fragments.ui.SuspendActions" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="sensor_block"
         android:title="@string/sensor_block_title"
         android:summary="@string/sensor_block_summary"
         android:defaultValue="false" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="enable_conditions"
         android:title="@string/dashboard_conditions_title"
         android:summaryOn="@string/summary_dashboard_conditions_enabled"
         android:summaryOff="@string/summary_dashboard_conditions_disabled"
         android:defaultValue="false" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="enable_suggestions"
         android:title="@string/dashboard_suggestions_title"
         android:summaryOn="@string/summary_dashboard_suggestions_enabled"
         android:summaryOff="@string/summary_dashboard_suggestions_disabled"
         android:defaultValue="false" />
 
-    <com.blissroms.blissify.preference.SystemSettingListPreference
+    <com.bliss.support.preferences.SystemSettingListPreference
         android:key="screenshot_type"
         android:entries="@array/screenshot_type_entries"
         android:entryValues="@array/screenshot_type_values"
         android:title="@string/screenshot_type_title"
         android:defaultValue="0" />
 
-    <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="notification_guts_kill_app_button"
         android:title="@string/notification_guts_kill_app_button_title"
         android:summary="@string/notification_guts_kill_app_button_summary"
@@ -75,7 +75,7 @@
     <PreferenceCategory 
         android:title="@string/corners_category" />
 
-         <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+         <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="sysui_rounded_size"
             android:title="@string/corner_radius"
             android:max="60"
@@ -84,7 +84,7 @@
             android:defaultValue="1"
             android:persistent="false" />
 			
-        <com.blissroms.blissify.preference.SystemSettingSeekBarPreference
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="sysui_rounded_content_padding"
             android:title="@string/content_padding"
             android:max="20"
@@ -97,20 +97,20 @@
         android:key="aspect_ratio_category"
         android:title="@string/aspect_ratio_category_title">
 
-        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="aspect_ratio_apps_enabled"
             android:title="@string/aspect_ratio_apps_enabled_title"
             android:summary="@string/aspect_ratio_apps_enabled_summary"
             android:defaultValue="false" />
 
-        <com.blissroms.blissify.preference.AppMultiSelectListPreference
+        <com.bliss.support.preferences.AppMultiSelectListPreference
             android:dependency="aspect_ratio_apps_enabled"
             android:key="aspect_ratio_apps_list"
             android:persistent="false"
             android:summary="@string/aspect_ratio_apps_list_summary"
             android:title="@string/aspect_ratio_apps_list_title" />
 
-        <com.blissroms.blissify.preference.ScrollAppsViewPreference
+        <com.bliss.support.preferences.ScrollAppsViewPreference
             android:dependency="aspect_ratio_apps_enabled"
             android:key="aspect_ratio_apps_list_scroller"
             android:persistent="false"

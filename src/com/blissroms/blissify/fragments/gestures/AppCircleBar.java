@@ -48,9 +48,9 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
-import com.blissroms.blissify.preference.AppMultiSelectListPreference;
-import com.blissroms.blissify.preference.SystemSettingSeekBarPreference;
-import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.AppMultiSelectListPreference;
+import com.bliss.support.preferences.SystemSettingSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
 
 import java.io.File;
 import java.lang.Thread;
