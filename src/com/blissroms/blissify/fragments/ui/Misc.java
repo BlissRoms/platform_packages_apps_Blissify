@@ -23,7 +23,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.text.TextUtils;
-import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import android.provider.Settings;
 
 import java.util.Arrays;
@@ -35,10 +35,10 @@ import java.util.List;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto;
-import com.blissroms.blissify.preference.AppMultiSelectListPreference;
-import com.blissroms.blissify.preference.ScrollAppsViewPreference;
-import com.blissroms.blissify.preference.SystemSettingSwitchPreference;
-import com.blissroms.blissify.preference.SystemSettingSeekBarPreference;
+import com.bliss.support.preferences.AppMultiSelectListPreference;
+import com.bliss.support.preferences.ScrollAppsViewPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.SystemSettingSeekBarPreference;
 
 public class Misc extends SettingsPreferenceFragment
                                          implements Preference.OnPreferenceChangeListener{
