@@ -43,6 +43,8 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 public class UISettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_BATTERY_LIGHTS = "interface_batteryled";
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,13 @@ public class UISettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
+
+        if (!getResources().getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+            Preference pref = getPreferenceScreen().findPreference(KEY_BATTERY_LIGHTS);
+            if (pref != null) {
+                getPreferenceScreen().removePreference(pref);
+            }
+        }
 
     }
 
