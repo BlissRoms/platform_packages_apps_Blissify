@@ -13,6 +13,13 @@
             android:summary="@string/pocket_judge_summary" 
             android:defaultValue="false" />
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="pocket_judge_allow_fp"
+            android:title="@string/pocket_judge_fp_title"
+            android:summary="@string/pocket_judge_fp_summary"
+            android:defaultValue="false"
+            android:dependency="pocket_judge" />
+
     <PreferenceCategory
         android:key="ls_clock"
         android:title="@string/ls_clock" />
