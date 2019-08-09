@@ -7,6 +7,12 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="pocket_judge" 
+            android:title="@string/pocket_judge_title" 
+            android:summary="@string/pocket_judge_summary" 
+            android:defaultValue="false" />
+
     <PreferenceCategory
         android:key="ls_clock"
         android:title="@string/ls_clock" />
