@@ -49,6 +49,7 @@
             android:key="status_bar_custom_header_shadow"
             android:title="@string/status_bar_custom_header_shadow_title"
             android:summary="@string/status_bar_custom_header_shadow_summary"
+            allowEditText="true"
             android:max="100"
             settings:min="0"
             settings:units="%"
