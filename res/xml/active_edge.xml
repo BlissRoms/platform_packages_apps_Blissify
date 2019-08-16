@@ -31,6 +31,7 @@
     <com.bliss.support.preferences.CustomSeekBarPreference
         android:key="gesture_assist_sensitivity"
         android:title="@string/active_edge_sensitivity_title"
+        allowEditText="true"
         android:max="8"
         settings:min="0"
         settings:units="" />
