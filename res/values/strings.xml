@@ -1272,4 +1272,8 @@
     <string name="accent_picker_material_colors">Material palette</string>
     <string name="accent_picker_custom_colors">User requested</string>
 
+    <!-- Fingerprint -->
+    <string name="fingerprint_settings_title">Fingerprint</string>
+    <string name="fingerprint_category_custom_icon">Custom icon</string>
+
 </resources>
