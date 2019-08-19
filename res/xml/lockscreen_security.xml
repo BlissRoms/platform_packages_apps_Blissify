@@ -13,6 +13,14 @@
         android:summary="@string/fprint_sucess_vib_summary"
         android:persistent="false" />
 
+        <PreferenceCategory
+            android:key="category_fingerprint_custom_icon"
+            android:title="@string/fingerprint_category_custom_icon">
+            <Preference
+                android:title="Select a custom file"
+                android:key="custom_fingerprint_icon" />
+        </PreferenceCategory>
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference  
         android:key="fp_unlock_keystore" 
         android:title="@string/fp_unlock_keystore_title" 
