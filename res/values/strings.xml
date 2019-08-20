@@ -123,7 +123,7 @@
     <string name="volbtn_up_zen_title">Volume up in do not disturb</string>
     <string name="volbtn_up_zen_summary">allow volume up to exit do not disturb mode</string>
     <string name="vol_zen_title">Do not disturb switch</string>
-    <string name="vol_zen_summary">Show do not disturb swith on volume panel</string>
+    <string name="vol_zen_summary">Show do not disturb switch on volume panel</string>
 
     <!-- Battery customizations -->
     <string name="battery_style_category">Battery</string>
