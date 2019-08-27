@@ -1085,6 +1085,7 @@
         <item>@string/lockscreen_clock_selection_dot</item>
         <item>@string/lockscreen_clock_selection_spectrum</item>
         <item>@string/lockscreen_clock_selection_sneeky</item>
+        <item>@string/lockscreen_clock_selection_text</item>
     </string-array>
 
     <string-array name="lockscreen_clock_selection_values" translatable="false">
@@ -1105,6 +1106,7 @@
         <item>14</item>
         <item>15</item>
         <item>16</item>
+        <item>17</item>
     </string-array>
 
     <!-- Ambient Display Bottom info -->
