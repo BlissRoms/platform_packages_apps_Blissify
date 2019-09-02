@@ -1284,6 +1284,8 @@
     <!-- Wakeup options -->
     <string name="wakeup_when_plugged_unplugged_title">Wake up on charge</string>
     <string name="wakeup_when_plugged_unplugged_summary">Wake up device if charger is plugged/unplugged.</string>
+    <!-- Vibrate on plug -->
+    <string name="vibration_on_charge_state_changed_title">Vibrate on USB plug</string>
 
     <!-- Charging animation -->
     <string name="lockscreen_charging_animation_title">Charging animation</string>
