@@ -120,14 +120,14 @@
             android:summary="@string/aspect_ratio_apps_enabled_summary"
             android:defaultValue="false" />
 
-        <com.bliss.support.preferences.AppMultiSelectListPreference
+        <com.bliss.support.preferences.AppMultiSelectListPreferenceAlt
             android:dependency="aspect_ratio_apps_enabled"
             android:key="aspect_ratio_apps_list"
             android:persistent="false"
             android:summary="@string/aspect_ratio_apps_list_summary"
             android:title="@string/aspect_ratio_apps_list_title" />
 
-        <com.bliss.support.preferences.ScrollAppsViewPreference
+        <com.bliss.support.preferences.ScrollAppsViewPreferenceAlt
             android:dependency="aspect_ratio_apps_enabled"
             android:key="aspect_ratio_apps_list_scroller"
             android:persistent="false"

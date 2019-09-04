@@ -23,7 +23,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.text.TextUtils;
-import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import android.provider.Settings;
 
 import java.util.Arrays;
@@ -35,8 +34,8 @@ import java.util.List;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto;
-import com.bliss.support.preferences.AppMultiSelectListPreference;
-import com.bliss.support.preferences.ScrollAppsViewPreference;
+import com.bliss.support.preferences.AppMultiSelectListPreferenceAlt;
+import com.bliss.support.preferences.ScrollAppsViewPreferenceAlt;
 import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import com.bliss.support.preferences.SystemSettingSeekBarPreference;
 
@@ -53,8 +52,8 @@ public class Misc extends SettingsPreferenceFragment
     private static final String SYSUI_ROUNDED_SIZE = "sysui_rounded_size";
     private static final String DEVICE_CATEGORY = "device_extras_category";
 
-    private AppMultiSelectListPreference mAspectRatioAppsSelect;
-    private ScrollAppsViewPreference mAspectRatioApps;
+    private AppMultiSelectListPreferenceAlt mAspectRatioAppsSelect;
+    private ScrollAppsViewPreferenceAlt mAspectRatioApps;
     private SystemSettingSeekBarPreference mContentPadding;
     private SystemSettingSeekBarPreference mCornerRadius;
 
@@ -90,8 +89,8 @@ public class Misc extends SettingsPreferenceFragment
         if (!supportMaxAspectRatio) {
             getPreferenceScreen().removePreference(aspectRatioCategory);
         } else {
-            mAspectRatioAppsSelect = (AppMultiSelectListPreference) findPreference(KEY_ASPECT_RATIO_APPS_LIST);
-            mAspectRatioApps = (ScrollAppsViewPreference) findPreference(KEY_ASPECT_RATIO_APPS_LIST_SCROLLER);
+            mAspectRatioAppsSelect = (AppMultiSelectListPreferenceAlt) findPreference(KEY_ASPECT_RATIO_APPS_LIST);
+            mAspectRatioApps = (ScrollAppsViewPreferenceAlt) findPreference(KEY_ASPECT_RATIO_APPS_LIST_SCROLLER);
             final String valuesString = Settings.System.getString(resolver, Settings.System.OMNI_ASPECT_RATIO_APPS_LIST);
             List<String> valuesList = new ArrayList<String>();
             if (!TextUtils.isEmpty(valuesString)) {
