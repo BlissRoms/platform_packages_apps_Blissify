@@ -1304,5 +1304,11 @@
     <string name="lockscreen_date_selection_str_gradient">Gradient</string>
     <string name="lockscreen_date_selection_str_border_accent">Dark with accented borders</string>
     <string name="lockscreen_date_selection_str_border_gradient">Dark with gradient borders</string>
+    <string name="lockscreen_date_selection_outline_box">White outline</string> 
+    <string name="lockscreen_date_selection_outline_round">White outline (Round)</string>
+    <string name="lockscreen_date_selection_outline_box_black">Black outline</string> 
+    <string name="lockscreen_date_selection_outline_round_black">Black outline (Round)</string>
+    <string name="lockscreen_date_selection_outline_box_accent">Accent based outline</string> 
+    <string name="lockscreen_date_selection_outline_round_accent">Accent based (Round)</string>
 
 </resources>
