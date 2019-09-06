@@ -57,6 +57,14 @@
             android:dependency="lockscreen_info"
             android:defaultValue="0" />
 
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="lockscreen_format"
+            android:title="@string/lockscreen_date_format_title"
+            android:entries="@array/lockscreen_date_format_entries"
+            android:entryValues="@array/lockscreen_date_format_values"
+            android:dependency="lockscreen_info"
+            android:defaultValue="0" />
+
          <ListPreference
             android:key="lock_clock_fonts"
             android:title="@string/lock_clock_font_title"
