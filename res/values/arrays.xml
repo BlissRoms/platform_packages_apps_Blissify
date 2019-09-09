@@ -1165,6 +1165,8 @@
         <item>@string/lockscreen_date_selection_outline_round_black</item>
         <item>@string/lockscreen_date_selection_outline_box_accent</item>
         <item>@string/lockscreen_date_selection_outline_round_accent</item>
+        <item>@string/lockscreen_date_selection_str_half_gradient</item>
+        <item>@string/lockscreen_date_selection_str_half_accent</item>
     </string-array>
 
     <string-array name="lockscreen_date_selection_values" translatable="false">
@@ -1183,6 +1185,8 @@
         <item>14</item>
         <item>15</item>
         <item>16</item>
+        <item>17</item>
+        <item>18</item>
     </string-array>
 
     <!-- Lockscreen date styles -->

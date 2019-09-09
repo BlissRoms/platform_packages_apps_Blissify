@@ -1308,6 +1308,8 @@
     <string name="lockscreen_date_selection_outline_round_black">Black outline (Round)</string>
     <string name="lockscreen_date_selection_outline_box_accent">Accent based outline</string> 
     <string name="lockscreen_date_selection_outline_round_accent">Accent based (Round)</string>
+    <string name="lockscreen_date_selection_str_half_gradient">Gradient (Transparent ending)</string>
+    <string name="lockscreen_date_selection_str_half_accent">Accent (Transparent ending)</string>
 
     <string name="lockscreen_date_format_title">Date format</string>
     <string name="lockscreen_date_format_default">Default</string>
