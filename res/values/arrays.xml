@@ -24,6 +24,7 @@
         <item>@string/battery_style_dotted_circle</item>
         <item>@string/battery_style_big_circle</item>
         <item>@string/battery_style_big_dotted_circle</item>
+        <item>@string/status_bar_battery_style_pa_circle</item>
         <item>@string/battery_style_text</item>
         <item>@string/battery_style_hidden</item>
          <item>@string/status_bar_battery_style_q</item>
@@ -35,6 +36,7 @@
         <item>3</item>
         <item>4</item>
         <item>7</item>
+        <item>9</item>
         <item>5</item>
         <item>6</item>
         <item>8</item>
