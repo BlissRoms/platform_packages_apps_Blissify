@@ -20,8 +20,48 @@
     <!-- Blissify -->
     <string name="blissify_title">Blissify</string>
 
+    <!-- Tabs -->
+    <string name="navigationbar_settings_title">SmartNav</string>
+    <string name="buttons_navbar_title">NavBar</string>
+    <string name="buttons_power_title">Power</string>
+    <string name="buttons_volume_title">Volume</string>
+    <string name="buttons_hwkeys_title">Hardware</string>
+    <string name="interface_theme_title">Theme</string>
+    <string name="interface_misc_title">Misc</string>
+    <string name="interface_callopt_title">Call options</string>
+    <string name="interface_weather_title">Weather</string>
+    <string name="interface_batteryled_title">Battery LED</string>
+    <string name="recents_style_title">Style</string>
+    <string name="qs_panel_title">Panel</string>
+    <string name="qs_header_title">Header</string>
+    <string name="lockscreen_ui_title">UI options</string>
+    <string name="lockscreen_sec_title">Security options</string>
+
     <!-- Categories -->
-    <string name="blissify_statusbar_title">StatusBar</string>
+    <string name="action_settings">Settings</string>
+    <string name="nav_header_desc">Bliss Customization</string>
+    <string name="animation_category">Animations</string>
+    <string name="button_category">Buttons</string>
+    <string name="gestures_category">Gestures</string>
+    <string name="lockscreen_category">Lockscreen</string>
+    <string name="interface_category">Interface</string>
+    <string name="qs_category">Quick Settings</string>
+    <string name="recents_category">Recents</string>
+    <string name="statusbar_category">Statusbar</string>
+
+    <!-- Statusbar -->
+
+    <!-- Buttons -->
+
+    <!-- Quick Settings -->
+
+    <!-- Lockscreen -->
+
+    <!-- Recents -->
+
+    <!-- Gestures -->
+
+    <!-- Animations -->
 
 </resources>
 
