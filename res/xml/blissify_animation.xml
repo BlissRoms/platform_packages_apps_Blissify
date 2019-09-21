@@ -16,18 +16,6 @@
 <PreferenceScreen 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/blissify_title" >
-
-      <!-- Status Bar -->
-      <Preference
-          android:key="statusbar_category"
-          android:title="@string/blissify_statusbar_title"
-          android:fragment="com.blissroms.blissify.fragments.statusbar.StatusBar"/>
-
-      <!-- Animation -->
-      <Preference
-          android:key="animation_category"
-          android:title="@string/blissify_animation_title"
-          android:fragment="com.blissroms.blissify.fragments.animation.Animation"/>
+    android:title="@string/blissify_animation_title" >
 
 </PreferenceScreen>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
  
-package com.blissroms.blissify.fragments;
+package com.blissroms.blissify.fragments.animation;
 
 import com.android.internal.logging.nano.MetricsProto;
 
@@ -50,14 +50,14 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
-public class StatusBar extends SettingsPreferenceFragment implements
+public class Animation extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        addPreferencesFromResource(R.xml.blissify_statusbar);
+        addPreferencesFromResource(R.xml.blissify_animation);
         PreferenceScreen prefSet = getPreferenceScreen();
 
     }
