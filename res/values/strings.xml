@@ -22,6 +22,7 @@
 
     <!-- Categories -->
     <string name="blissify_statusbar_title">StatusBar</string>
-
+    <string name="blissify_animation_title">Animations</string>
+    
 </resources>
 
