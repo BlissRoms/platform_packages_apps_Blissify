@@ -18,6 +18,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_animation_title" >
 
+    <PreferenceCategory
+        android:key="system_animations"
+        android:title="@string/system_animation_category"/>
+
         <ListPreference
             android:key="activity_open"
             android:title="@string/activity_open_title" />
