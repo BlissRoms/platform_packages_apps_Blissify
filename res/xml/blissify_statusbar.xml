@@ -18,6 +18,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_statusbar_title" >
 
+    <PreferenceCategory
+        android:key="status_network"
+        android:title="@string/network_traffic_category"/>
+
     <DropDownPreference
         android:key="network_traffic_mode"
         android:title="@string/network_traffic_mode_title"

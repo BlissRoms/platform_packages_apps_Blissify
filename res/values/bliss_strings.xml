@@ -26,7 +26,8 @@
     <string name="system_animation_category">System</string>
     <string name="misc_animation_title">Misc</string>
     <string name="toast_animation_category">Toast Animations</string>
-    
+    <string name="network_traffic_category">Network Traffic</string>
+
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>  
     <string name="system_animation_title">System animations</string>
