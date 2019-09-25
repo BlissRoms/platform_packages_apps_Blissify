@@ -30,4 +30,10 @@
           android:title="@string/blissify_animation_title"
           android:fragment="com.blissroms.blissify.fragments.animation.Animation"/>
 
+      <!-- Buttons -->
+      <Preference
+          android:key="buttons_category"
+          android:title="@string/blissify_buttons_title"
+          android:fragment="com.blissroms.blissify.fragments.buttons.Buttons"/>
+
 </PreferenceScreen>
