@@ -18,4 +18,32 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_statusbar_title" >
 
+    <DropDownPreference
+        android:key="network_traffic_mode"
+        android:title="@string/network_traffic_mode_title"
+        android:entries="@array/network_traffic_mode_entries"
+        android:entryValues="@array/network_traffic_mode_values"
+        android:summary="%s"
+        android:persistent="false" />
+
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+        android:key="network_traffic_autohide"
+        android:title="@string/network_traffic_autohide"
+        android:summary="@string/network_traffic_autohide_summary"
+        android:defaultValue="false" />
+
+    <DropDownPreference
+        android:key="network_traffic_units"
+        android:title="@string/network_traffic_units_title"
+        android:entries="@array/network_traffic_units_entries"
+        android:entryValues="@array/network_traffic_units_values"
+        android:summary="%s"
+        android:persistent="false" />
+
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+        android:key="network_traffic_show_units"
+        android:title="@string/network_traffic_show_units"
+        android:summary="@string/network_traffic_show_units_summary"
+        android:defaultValue="true" />
+
 </PreferenceScreen>
