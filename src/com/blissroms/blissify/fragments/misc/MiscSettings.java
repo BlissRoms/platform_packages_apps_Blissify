@@ -36,6 +36,7 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
+import com.bliss.support.preferences.SystemSettingMasterSwitchPreference;
 
 import java.util.Locale;
 import android.text.TextUtils;
@@ -57,6 +58,9 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
 
+    private static final String SMART_PIXELS_ENABLED = "smart_pixels_enable";
+
+    private SystemSettingMasterSwitchPreference mSmartPixelsEnabled;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mShowCpuInfo;
@@ -86,6 +90,16 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                 Settings.Global.SHOW_CPU_OVERLAY, 0) == 1);
         mShowCpuInfo.setOnPreferenceChangeListener(this);
 
+        mSmartPixelsEnabled = (SystemSettingMasterSwitchPreference) findPreference(SMART_PIXELS_ENABLED);
+        mSmartPixelsEnabled.setOnPreferenceChangeListener(this);
+        int smartPixelsEnabled = Settings.System.getInt(getContentResolver(),
+                SMART_PIXELS_ENABLED, 0);
+        mSmartPixelsEnabled.setChecked(smartPixelsEnabled != 0);
+
+        if (!getResources().getBoolean(com.android.internal.R.bool.config_enableSmartPixels)) {
+            getPreferenceScreen().removePreference(mSmartPixelsEnabled);
+        }
+        
     }
 
     private void writeCpuInfoOptions(boolean value) {
@@ -117,6 +131,13 @@ public class MiscSettings extends SettingsPreferenceFragment implements
             return true;
         }
 
+        if (preference == mSmartPixelsEnabled) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(),
+		            SMART_PIXELS_ENABLED, value ? 1 : 0);
+            return true;
+        }
+        
         return false;
     }
 
