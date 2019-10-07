@@ -71,6 +71,8 @@ public class Buttons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "SystemSettings";
 
+    private static final String HWKEYS_DISABLED = "hardware_keys_disable";
+    private static final String KEY_ANBI = "anbi_enabled";
     private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
     private static final String KEY_HOME_LONG_PRESS = "hardware_keys_home_long_press";
     private static final String KEY_HOME_DOUBLE_TAP = "hardware_keys_home_double_tap";
@@ -114,6 +116,8 @@ public class Buttons extends SettingsPreferenceFragment implements
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String CATEGORY_BACKLIGHT = "key_backlight";
 
+    private SwitchPreference mHardwareKeysDisable;
+    private SwitchPreference mAnbi;
     private ListPreference mHomeLongPressAction;
     private ListPreference mHomeDoubleTapAction;
     private ListPreference mBackLongPressAction;
@@ -187,6 +191,15 @@ public class Buttons extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_CAMERA);
 
         LineageHardwareManager mLineageHardware = LineageHardwareManager.getInstance(getActivity());
+        mHardwareKeysDisable = (SwitchPreference) findPreference(HWKEYS_DISABLED);
+
+        if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
+            mHardwareKeysDisable.setOnPreferenceChangeListener(this);
+        } else {
+            prefScreen.removePreference(mHardwareKeysDisable);
+        }
+
+        mAnbi = (SwitchPreference) findPreference(KEY_ANBI);
 
         // Power button ends calls.
         mPowerEndCall = (SwitchPreference) findPreference(KEY_POWER_END_CALL);
@@ -223,6 +236,20 @@ public class Buttons extends SettingsPreferenceFragment implements
         if (!backlight.isButtonSupported() /*&& !backlight.isKeyboardSupported()*/) {
             prefScreen.removePreference(backlight);
             backlight = null;
+        } else if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
+            backlight.setEnabled(!(Settings.Secure.getIntForUser(resolver,
+                    Settings.Secure.HARDWARE_KEYS_DISABLE, 0,
+                    UserHandle.USER_CURRENT) == 1));
+        }
+
+        if (!hasHomeKey && !hasBackKey && !hasMenuKey && !hasAssistKey && !hasAppSwitchKey) {
+            prefScreen.removePreference(mAnbi);
+            mAnbi = null;
+        } else if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
+            mAnbi.setEnabled(!(Settings.Secure.getIntForUser(resolver,
+                    Settings.Secure.HARDWARE_KEYS_DISABLE, 0,
+                    UserHandle.USER_CURRENT) == 1));
+        }
 
         if (hasPowerKey) {
             if (!TelephonyUtils.isVoiceCapable(getActivity())) {
@@ -443,7 +470,16 @@ public class Buttons extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mHomeLongPressAction) {
+        if (preference == mHardwareKeysDisable) {
+            boolean value = (Boolean) newValue;
+            if (mAnbi != null) {
+                mAnbi.setEnabled(!value);
+            }
+            if (backlight != null) {
+                backlight.setEnabled(!value);
+            }
+            return true;
+        } else if (preference == mHomeLongPressAction) {
             handleListChange((ListPreference) preference, newValue,
                     LineageSettings.System.KEY_HOME_LONG_PRESS_ACTION);
             return true;
@@ -543,6 +579,8 @@ public class Buttons extends SettingsPreferenceFragment implements
         ContentResolver resolver = mContext.getContentResolver();
         LineageSettings.Secure.putIntForUser(resolver,
                 LineageSettings.Secure.ADVANCED_REBOOT, 1, UserHandle.USER_CURRENT);
+        Settings.Secure.putIntForUser(resolver,
+                Settings.Secure.HARDWARE_KEYS_DISABLE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.ANBI_ENABLED, 0, UserHandle.USER_CURRENT);
     }
@@ -589,6 +627,12 @@ public class Buttons extends SettingsPreferenceFragment implements
                     final boolean hasCameraKey = (deviceKeys & KEY_MASK_CAMERA) != 0;
 
                     LineageHardwareManager mLineageHardware = LineageHardwareManager.getInstance(context);
+
+                    if (!mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE))
+                        keys.add(HWKEYS_DISABLED);
+
+                    if (!hasHomeKey && !hasBackKey && !hasMenuKey && !hasAssistKey && !hasAppSwitchKey)
+                        keys.add(KEY_ANBI);
 
                     if (!hasPowerKey) {
                         keys.add(KEY_POWER_MENU);
