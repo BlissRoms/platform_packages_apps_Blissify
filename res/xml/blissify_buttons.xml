@@ -26,6 +26,17 @@
         android:key="bliss_header"
         android:layout="@layout/buttons_header" />
 
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
+        android:key="hardware_keys_disable"
+        android:title="@string/hwkeys_disabled_title"
+        android:summary="@string/hwkeys_disabled_summary" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="anbi_enabled"
+        android:title="@string/anbi_title"
+        android:summary="@string/anbi_summary"
+        android:defaultValue="false" />
+
     <SwitchPreference
         android:key="disable_nav_keys"
         android:title="@string/disable_navkeys_title"
