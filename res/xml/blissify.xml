@@ -22,24 +22,28 @@
       <Preference
           android:key="statusbar_category"
           android:title="@string/blissify_statusbar_title"
-          android:fragment="com.blissroms.blissify.fragments.statusbar.StatusBar"/>
+          android:fragment="com.blissroms.blissify.fragments.statusbar.StatusBar"
+          android:icon="@drawable/ic_blissify_statusbar"/>
 
       <!-- Animation -->
       <Preference
           android:key="animation_category"
           android:title="@string/blissify_animation_title"
-          android:fragment="com.blissroms.blissify.fragments.animation.Animation"/>
+          android:fragment="com.blissroms.blissify.fragments.animation.Animation"
+          android:icon="@drawable/ic_blissify_animation"/>
 
       <!-- Buttons -->
       <Preference
           android:key="buttons_category"
           android:title="@string/blissify_buttons_title"
-          android:fragment="com.blissroms.blissify.fragments.buttons.Buttons"/>
+          android:fragment="com.blissroms.blissify.fragments.buttons.Buttons"
+          android:icon="@drawable/ic_blissify_button"/>
 
       <!-- Misc -->
       <Preference
           android:key="misc_category"
           android:title="@string/blissify_misc_title"
-          android:fragment="com.blissroms.blissify.fragments.misc.MiscSettings"/>
+          android:fragment="com.blissroms.blissify.fragments.misc.MiscSettings"
+          android:icon="@drawable/ic_blissify_misc"/>
 
 </PreferenceScreen>
