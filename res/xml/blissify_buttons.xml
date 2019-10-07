@@ -21,6 +21,11 @@
     android:key="buttons_settings"
     android:title="@string/blissify_buttons_title">
 
+    <!-- Bliss Header -->
+    <Preference 
+        android:key="bliss_header"
+        android:layout="@layout/buttons_header" />
+
     <SwitchPreference
         android:key="disable_nav_keys"
         android:title="@string/disable_navkeys_title"
