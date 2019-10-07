@@ -57,4 +57,11 @@
         android:summary="@string/toast_icon_summary" 
         android:defaultValue="true" /> 
 
+    <com.bliss.support.preferences.SystemSettingMasterSwitchPreference
+        android:key="smart_pixels_enable"
+        android:fragment="com.blissroms.blissify.fragments.misc.SmartPixels"
+        android:title="@string/smart_pixels_title"
+        android:summary="@string/smart_pixels_summary"
+        android:defaultValue="false" />
+    
 </PreferenceScreen>
