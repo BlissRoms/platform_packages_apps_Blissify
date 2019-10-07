@@ -18,6 +18,11 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_animation_title" >
 
+    <!-- Bliss Header -->
+    <Preference 
+        android:key="bliss_header"
+        android:layout="@layout/animation_header" />
+
     <PreferenceCategory
         android:key="system_animations"
         android:title="@string/system_animation_category"/>
