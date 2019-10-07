@@ -19,6 +19,11 @@
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     android:title="@string/blissify_statusbar_title" >
 
+    <!-- Bliss Header -->
+    <Preference 
+        android:key="bliss_header"
+        android:layout="@layout/statusbar_header" />
+
     <lineageos.preference.LineageSystemSettingListPreference
         android:key="qs_quick_pulldown"
         android:title="@string/status_bar_quick_qs_pulldown_title"
