@@ -21,6 +21,12 @@
     android:key="buttons_settings"
     android:title="@string/blissify_buttons_title">
 
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+        android:key="advanced_reboot"
+        android:title="@string/advanced_reboot_title"
+        android:summary="@string/advanced_reboot_summary"
+        android:defaultValue="false" />
+
     <SwitchPreference
         android:key="disable_nav_keys"
         android:title="@string/disable_navkeys_title"
