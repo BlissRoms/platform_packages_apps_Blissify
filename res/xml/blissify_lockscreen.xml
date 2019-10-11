@@ -17,4 +17,9 @@
     android:key="lockscreen_settings"
     android:title="@string/blissify_lockscreen_title">
 
+    <!-- Bliss Header -->
+    <Preference 
+        android:key="bliss_header"
+        android:layout="@layout/lockscreen_header" />
+
 </PreferenceScreen>
