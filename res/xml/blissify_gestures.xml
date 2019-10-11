@@ -18,4 +18,9 @@
     android:key="gestures_settings"
     android:title="@string/blissify_gestures_title">
 
+    <!-- Bliss Header -->
+    <Preference 
+        android:key="bliss_header"
+        android:layout="@layout/gestures_header" />
+
 </PreferenceScreen>
