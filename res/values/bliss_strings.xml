@@ -26,6 +26,7 @@
     <string name="blissify_buttons_title">Buttons</string>
     <string name="blissify_misc_title">Misc</string>
     <string name="blissify_lockscreen_title">Lockscreen</string>
+    <string name="blissify_gestures_title">Gestures</string>
     <string name="system_animation_category">System</string>
     <string name="misc_animation_title">Misc</string>
     <string name="toast_animation_category">Toast Animations</string>

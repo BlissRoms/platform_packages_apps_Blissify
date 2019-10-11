@@ -46,6 +46,13 @@
           android:fragment="com.blissroms.blissify.fragments.lockscreen.LockScreen"
           android:icon="@drawable/ic_blissify_lockscreen"/>
 
+      <!-- Gestures -->
+      <Preference
+          android:key="gestures_category"
+          android:title="@string/blissify_gestures_title"
+          android:fragment="com.blissroms.blissify.fragments.gestures.Gestures"
+          android:icon="@drawable/ic_blissify_gestures"/>
+
       <!-- Misc -->
       <Preference
           android:key="misc_category"
