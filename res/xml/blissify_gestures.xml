@@ -30,4 +30,13 @@
         android:summary="@string/status_bar_double_tap_to_sleep_summary"
         android:defaultValue="true" />
 
+    <SwitchPreference
+        android:key="lift_to_wake"
+        android:title="@string/lift_to_wake_title" />
+
+    <SwitchPreference
+        android:key="tap_to_wake"
+        android:title="@string/tap_to_wake"
+        android:summary="@string/tap_to_wake_summary" />
+
 </PreferenceScreen>
