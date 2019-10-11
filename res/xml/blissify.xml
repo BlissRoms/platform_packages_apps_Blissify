@@ -39,6 +39,13 @@
           android:fragment="com.blissroms.blissify.fragments.buttons.Buttons"
           android:icon="@drawable/ic_blissify_button"/>
 
+      <!-- LockScreen -->
+      <Preference
+          android:key="lockscreen_category"
+          android:title="@string/blissify_lockscreen_title"
+          android:fragment="com.blissroms.blissify.fragments.lockscreen.LockScreen"
+          android:icon="@drawable/ic_blissify_lockscreen"/>
+
       <!-- Misc -->
       <Preference
           android:key="misc_category"
