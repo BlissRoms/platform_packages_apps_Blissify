@@ -352,5 +352,8 @@
     <string name="toast_icon_title">Toast icon</string>
     <string name="toast_icon_summary">Display icon of activity that generates toast message</string>
 
+    <!--statusbar advanced system icons -->
+    <string name="statusbar_advanced_icons">Advanced System Icons</string>
+
 </resources>
 

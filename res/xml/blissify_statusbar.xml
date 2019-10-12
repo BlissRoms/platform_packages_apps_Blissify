@@ -61,6 +61,12 @@
             <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </PreferenceScreen>
 
+      <!-- Breathing Notifications -->
+      <Preference
+          android:key="advanced_icons"
+          android:title="@string/statusbar_advanced_icons"
+          android:fragment="com.blissroms.blissify.fragments.statusbar.AdvancedStatusbar" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -139,5 +145,5 @@
             android:summary="@string/status_bar_toggle_brightness_summary"
             android:defaultValue="false" />
     </PreferenceCategory>
-    
+
 </PreferenceScreen>
