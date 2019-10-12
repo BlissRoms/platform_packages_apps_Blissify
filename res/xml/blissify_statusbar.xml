@@ -133,5 +133,11 @@
             android:summary="@string/status_bar_toggle_brightness_summary"
             android:defaultValue="false" />
     </PreferenceCategory>
-    
+
+      <!-- Breathing Notifications -->
+      <Preference
+          android:key="breathing_settings"
+          android:title="@string/statusbar_breathing_title"
+          android:fragment="com.blissroms.blissify.fragments.statusbar.Breathing" />
+
 </PreferenceScreen>
