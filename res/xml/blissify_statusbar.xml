@@ -41,7 +41,7 @@
             android:key="batterybar_settings"
             android:title="@string/battery_bar_title"
             android:summary="@string/battery_bar_summary"
-            android:fragment="com.bliss.settings.fragments.statusbar.BatterybarSettings" />
+            android:fragment="com.blissroms.blissify.fragments.statusbar.BatterybarSettings" />
 
     <PreferenceCategory
         android:title="@string/status_bar_icons_title">

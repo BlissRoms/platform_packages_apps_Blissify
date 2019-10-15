@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.bliss.settings.fragments.statusbar;
+package com.blissroms.blissify.fragments.statusbar;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -39,7 +39,6 @@ import android.view.WindowManagerGlobal;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.bliss.support.colorpicker.ColorPickerPreference;
-import com.bliss.support.preferences.CustomSeekBarPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
 
