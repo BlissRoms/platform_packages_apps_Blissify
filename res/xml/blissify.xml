@@ -25,6 +25,11 @@
           android:fragment="com.blissroms.blissify.fragments.statusbar.StatusBar"
           android:icon="@drawable/ic_blissify_statusbar"/>
 
+      <Preference
+          android:key="qs_category"
+          android:title="@string/blissify_qs_title"
+          android:fragment="com.blissroms.blissify.fragments.qs.QuickSettings" />
+
       <!-- Animation -->
       <Preference
           android:key="animation_category"
