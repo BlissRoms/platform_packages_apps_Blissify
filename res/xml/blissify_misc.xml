@@ -17,6 +17,13 @@
     android:key="misc_settings"
     android:title="@string/blissify_misc_title">
 
+    <!-- Rounded Corners -->
+    <PreferenceScreen
+        android:key="rounded_corners"
+        android:title="@string/corners_title"
+        android:summary="@string/corners_summary"
+        android:fragment="com.blissroms.blissify.fragments.misc.RoundedCorners" />
+
     <SwitchPreference
         android:key="fingerprint_success_vib"
         android:title="@string/fprint_sucess_vib_title"

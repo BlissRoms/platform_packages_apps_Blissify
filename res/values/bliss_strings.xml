@@ -428,5 +428,13 @@
     <string name="qs_clock_title">Clock</string>
     <string name="qs_clock_summary">Display clock in quick status bar header</string>
 
+    <!-- Rounded corners -->
+    <string name="corners_title">Rounded corners</string>
+    <string name="corners_summary">Allow customized rounded corners</string>
+    <string name="corner_radius">Rounded corner radius</string>
+    <string name="content_padding">Corner content padding</string>
+    <string name="status_bar_padding">Statusbar extra padding</string>
+    <string name="corner_fwvals">Use default values</string>
+
 </resources>
 
