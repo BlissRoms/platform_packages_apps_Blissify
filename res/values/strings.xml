@@ -377,7 +377,8 @@
     <string name="gesture_swipe_length_summary">Heigth from bottom to trigger swipe</string>
     <string name="gesture_action_timeout_title">Swipe trigger timeout</string>
     <string name="gesture_action_timeout_summary">Timeout before the gesture action is started</string>
-    <string name="gesture_settings_info">Available gestures:\n\nFor Back:\t\tSwipe up on left or right side\nFor Home:\t\tSwipe up center\nFor Recent Apps:\t\tSwipe up center and hold\nFor Long Press Home:\t\tShort swipe up and hold in the center</string>
+    <string name="bottom_gestures_feedback_duration_title">Haptic feedback duration</string>
+    <string name="gesture_settings_info">Navigation bar must and will be automatically disabled!\n\nAvailable gestures:\n\nBack\n- Swipe up on left or right side\n\nHome\n- Swipe up center\n\nRecent apps\n- Swipe up center and hold\n\nLong press home\n- Short swipe up and hold in the center</string>
     <string name="show_navbar_arrow_keys_title">Show arrow keys while typing</string>
     <string name="show_navbar_arrow_keys_summary">Display left and right cursor buttons in navigation bar while typing.</string>
     <!-- Burn-in Protection -->
