@@ -19,4 +19,27 @@
         android:summary="@string/use_bottom_gesture_summary"
         android:defaultValue="false" />
 
+    <com.bliss.support.preferences.SeekBarPreferenceCham
+        android:key="gesture_swipe_length"
+        android:title="@string/gesture_swipe_length_title"
+        android:summary="@string/gesture_swipe_length_summary"
+        android:persistent="false"
+        android:defaultValue="@*android:integer/config_navgestureswipeminlength"
+        bliss:unitsRight="@string/unit_px" />
+
+    <com.bliss.support.preferences.SeekBarPreferenceCham
+        android:key="gesture_swipe_timeout"
+        android:title="@string/gesture_action_timeout_title"
+        android:summary="@string/gesture_action_timeout_summary"
+        android:max="500"
+        android:min="100"
+        android:defaultValue="@*android:integer/config_navgestureswipetimout"
+        android:persistent="false"
+        bliss:unitsRight="@string/unit_msec" />
+
+    <Preference
+        android:key="gestures_usage"
+        android:selectable="false"
+        android:summary="@string/gesture_settings_info" />
+
 </PreferenceScreen>
