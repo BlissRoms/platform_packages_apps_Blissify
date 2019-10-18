@@ -340,6 +340,10 @@
     <string name="lockscreen_weather_show_temp_title">Show temperature</string>
     <string name="lockscreen_weather_show_temp_summary">Show current city temperature on right of image</string>
 
+    <string name="lock_screen_weather_style_title">Weather style</string>
+    <string name="lock_screen_weather_style_summaryOff">Weather is shown below date line with location</string>
+    <string name="lock_screen_weather_style_summaryOn">Weather is shown on the date line without location</string>
+
     <!-- Lockscreen visualizer -->
     <string name="music_visualizer_title">Music visualizer</string>
     <string name="music_visualizer_summary">Display music visualizer when available</string>
