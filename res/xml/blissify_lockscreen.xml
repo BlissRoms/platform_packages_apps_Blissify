@@ -55,6 +55,14 @@
         android:title="@string/lockscreen_media_art_title"
         android:defaultValue="true" />
 
+    <com.bliss.support.preferences.CustomSeekBarPreference
+        android:key="lockscreen_media_blur"
+        android:title="@string/lockscreen_media_blur_title"
+        android:summary="@string/lockscreen_media_blur_summary"
+        android:max="2500"
+        settings:min="1"
+        android:persistent="false" />
+
     <lineageos.preference.LineageSecureSettingSwitchPreference
         android:key="lockscreen_visualizer"
         android:title="@string/lockscreen_visualizer_title"
