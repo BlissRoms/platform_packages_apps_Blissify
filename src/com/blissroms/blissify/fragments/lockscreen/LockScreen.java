@@ -52,8 +52,14 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+import com.bliss.support.preferences.CustomSeekBarPreference;
+
 public class LockScreen extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
+
+    private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
+
+    private CustomSeekBarPreference mLockscreenMediaBlur;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -62,11 +68,25 @@ public class LockScreen extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.blissify_lockscreen);
         PreferenceScreen prefSet = getPreferenceScreen();
 
+        int defaultBlur = 25;
+        mLockscreenMediaBlur = (CustomSeekBarPreference) findPreference(KEY_LOCKSCREEN_MEDIA_BLUR);
+        int value = Settings.System.getInt(getContentResolver(),
+                Settings.System.OMNI_LOCKSCREEN_MEDIA_BLUR, defaultBlur);
+        mLockscreenMediaBlur.setValue(value);
+        mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-    
+
+        if (preference == mLockscreenMediaBlur) {
+            int value = (Integer) objValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.OMNI_LOCKSCREEN_MEDIA_BLUR, value);
+            return true;
+        }
+
         return false;
     }
 
