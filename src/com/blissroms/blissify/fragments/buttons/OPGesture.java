@@ -44,9 +44,11 @@ public class OPGesture extends SettingsPreferenceFragment implements
     private static final String TAG = "NavBar";
     private static final String KEYS_SHOW_NAVBAR_KEY = "navbar_visibility";
     private static final String KEY_SWIPE_LENGTH = "gesture_swipe_length";
+    private static final String KEY_SWIPE_START = "gesture_swipe_start";
     private static final String KEY_SWIPE_TIMEOUT = "gesture_swipe_timeout";
 
     private SeekBarPreferenceCham mSwipeTriggerLength;
+    private SeekBarPreferenceCham mSwipeTriggerStart;
     private SeekBarPreferenceCham mSwipeTriggerTimeout;
 
     private SwitchPreference mEnableNavBar;
@@ -75,6 +77,13 @@ public class OPGesture extends SettingsPreferenceFragment implements
         mSwipeTriggerLength.setValue(value);
         mSwipeTriggerLength.setOnPreferenceChangeListener(this);
 
+        mSwipeTriggerStart = (SeekBarPreferenceCham) findPreference(KEY_SWIPE_START);
+        value = Settings.System.getInt(getContentResolver(),
+                Settings.System.BOTTOM_GESTURE_SWIPE_START,
+                getResources().getInteger(com.android.internal.R.integer.config_navgestureswipestart));
+        mSwipeTriggerStart.setValue(value);
+        mSwipeTriggerStart.setOnPreferenceChangeListener(this);
+
         mSwipeTriggerTimeout = (SeekBarPreferenceCham) findPreference(KEY_SWIPE_TIMEOUT);
         value = Settings.System.getInt(getContentResolver(),
                 Settings.System.OMNI_BOTTOM_GESTURE_TRIGGER_TIMEOUT,
@@ -88,13 +97,21 @@ public class OPGesture extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference.equals(mSwipeTriggerLength)) {
             int value = (Integer) newValue;
-            Settings.System.putInt(resolver,
-                    Settings.System.OMNI_BOTTOM_GESTURE_SWIPE_LIMIT, value);
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.OMNI_BOTTOM_GESTURE_SWIPE_LIMIT,
+                    value, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference.equals(mSwipeTriggerStart)) {
+            int value = (Integer) newValue;
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.BOTTOM_GESTURE_SWIPE_START,
+                    value, UserHandle.USER_CURRENT);
             return true;
         } else if (preference.equals(mSwipeTriggerTimeout)) {
             int value = (Integer) newValue;
-            Settings.System.putInt(resolver,
-                    Settings.System.OMNI_BOTTOM_GESTURE_TRIGGER_TIMEOUT, value);
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.OMNI_BOTTOM_GESTURE_TRIGGER_TIMEOUT,
+                    value, UserHandle.USER_CURRENT);
             return true;
         }
         return false;
