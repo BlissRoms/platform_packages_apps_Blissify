@@ -51,6 +51,15 @@
         android:summary="@string/lockscreen_power_menu_disabled_summary"
         android:defaultValue="true" />
 
+	<com.bliss.support.preferences.SystemSettingListPreference
+        android:key="volume_key_cursor_control"
+        android:summary="%s"
+        android:title="@string/volume_key_cursor_control_title"
+        android:dialogTitle="@string/volume_key_cursor_control_title"
+        android:entries="@array/volume_key_cursor_control_entries"
+        android:entryValues="@array/volume_key_cursor_control_values"
+        android:defaultValue="0" />
+
     <PreferenceCategory
         android:key="back_key"
         android:title="@string/hardware_keys_back_key_title" >
