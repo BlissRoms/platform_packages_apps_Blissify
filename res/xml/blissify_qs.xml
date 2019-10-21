@@ -18,6 +18,11 @@
     android:key="qs_category"
     android:title="@string/blissify_qs_title">
 
+    <!-- Bliss Header -->
+    <Preference 
+        android:key="bliss_header"
+        android:layout="@layout/qs_header" />
+
         <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
