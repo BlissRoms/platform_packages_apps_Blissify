@@ -44,6 +44,22 @@
             android:title="@string/doze_on_charge_title"
             android:summary="@string/doze_on_charge_summary" />
 
+    <PreferenceCategory
+
+        android:title="@string/lockscreen_ui_category_title">
+
+        <ListPreference
+            android:key="lock_clock_fonts"
+            android:title="@string/lock_clock_font_title"
+            android:dialogTitle="@string/lock_clock_font_dialog_title"
+            android:entries="@array/lock_clock_fonts_entries"
+            android:entryValues="@array/lock_clock_fonts_values"
+            android:summary="%s"
+            android:defaultValue="28"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
     <!-- Udfps options -->
     <PreferenceCategory
         android:key="udfps_category"
