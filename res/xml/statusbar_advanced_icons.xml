@@ -16,7 +16,7 @@
     android:title="@string/statusbar_advanced_icons">
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="volte_icon"
+            android:key="show_volte_icon"
             android:icon="@drawable/ic_volte"
             android:title="@string/volte_icon_title"
             android:summary="@string/volte_icon_summary"
