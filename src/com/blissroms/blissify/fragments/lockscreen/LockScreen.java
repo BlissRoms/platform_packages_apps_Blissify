@@ -60,9 +60,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
     private static final String KEY_LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
+    private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
 
     private CustomSeekBarPreference mLockscreenMediaBlur;
     private SecureSettingListPreference mLockscreenAlbumArt;
+    private ListPreference mLockClockFonts;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -81,6 +83,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mLockscreenAlbumArt = (SecureSettingListPreference) findPreference(KEY_LOCKSCREEN_ALBUMART_FILTER);
         mLockscreenAlbumArt.setOnPreferenceChangeListener(this);
 
+        // Lockscren Clock Fonts
+        mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
     }
 
     @Override
@@ -110,6 +114,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 Settings.Global.LOCKSCREEN_ENABLE_POWER_MENU, 1);
         Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CHARGING_ANIMATION, 1, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCK_CLOCK_FONTS,, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
