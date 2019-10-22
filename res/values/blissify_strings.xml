@@ -529,4 +529,8 @@
     <string name="lock_clock_font_dumbledor">Dumbledor</string>
     <string name="lock_clock_font_phantombold">PhantomBold</string>
 
+    <!-- Lock Date Fonts -->
+    <string name="lock_date_font_title">LS Date font style</string>
+    <string name="lock_date_font_dialog_title">Select lockscreen date font</string>
+
 </resources>
