@@ -410,4 +410,7 @@
     <string name="all_clock_font_dumbledor">Dumbledor</string>
     <string name="all_clock_font_phantombold">PhantomBold</string>
 
+    <!-- Hide Lockscreen shortcuts on secure Lockscreen -->
+    <string name="lockscreen_hide_shortcuts_title">Hide bottom shortcuts</string>
+    <string name="lockscreen_hide_shortcuts_summary">Hide left-right shortcuts on secure lock screens</string>
 </resources>
