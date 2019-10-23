@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+       xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:bliss="http://schemas.android.com/apk/res-auto">
+
+    <Preference
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
+    <SwitchPreference
+        android:key="navbar_visibility"
+        android:title="@string/navigation_bar_show_title"
+        android:summary="@string/navigation_bar_show_summary"
+        android:persistent="false" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="use_bottom_gesture_navigation"
+        android:title="@string/use_bottom_gesture_title"
+        android:summary="@string/use_bottom_gesture_summary"
+        android:defaultValue="false" />
+
+    <com.bliss.support.preferences.SeekBarPreferenceCham
+        android:key="gesture_swipe_length"
+        android:title="@string/gesture_swipe_length_title"
+        android:summary="@string/gesture_swipe_length_summary"
+        android:persistent="false"
+        android:defaultValue="@*android:integer/config_navgestureswipeminlength"
+        bliss:unitsRight="@string/unit_px" />
+
+    <com.bliss.support.preferences.SeekBarPreferenceCham
+        android:key="gesture_swipe_start"
+        android:title="@string/gesture_swipe_start_title"
+        android:summary="@string/gesture_swipe_start_summary"
+        android:max="50"
+        android:min="20"
+        android:persistent="false"
+        android:defaultValue="@*android:integer/config_navgestureswipestart"
+        bliss:unitsRight="@string/unit_px" />
+
+    <com.bliss.support.preferences.SeekBarPreferenceCham
+        android:key="gesture_swipe_timeout"
+        android:title="@string/gesture_action_timeout_title"
+        android:summary="@string/gesture_action_timeout_summary"
+        android:max="500"
+        android:min="100"
+        android:defaultValue="@*android:integer/config_navgestureswipetimout"
+        android:persistent="false"
+        bliss:unitsRight="@string/unit_milliseconds" />
+
+    <com.bliss.support.preferences.SystemSettingIntListPreference
+        android:key="bottom_gesture_navigation_feedback_duration"
+        android:entries="@array/bottom_gestures_feedback_time_labels"
+        android:entryValues="@array/bottom_gestures_feedback_time"
+        android:title="@string/bottom_gestures_feedback_duration_title"
+        android:summary="%s"
+        android:defaultValue="50" />
+
+    <com.android.settingslib.widget.FooterPreference
+        android:title="@string/gesture_settings_info" />
+
+</PreferenceScreen>
