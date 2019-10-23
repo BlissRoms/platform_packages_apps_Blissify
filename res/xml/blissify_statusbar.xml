@@ -47,7 +47,8 @@
             android:key="batterybar_settings"
             android:title="@string/battery_bar_title"
             android:summary="@string/battery_bar_summary"
-            android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryBar" />
+            android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryBar"
+            android:icon="@drawable/ic_battery_bar" />
 
     <PreferenceCategory
         android:title="@string/status_bar_icons_title">
@@ -62,16 +63,17 @@
 
         <PreferenceScreen
             android:key="status_bar_icons"
+            android:icon="@drawable/ic_statusbar_icons"
             android:title="@string/status_bar_system_icons_title"
             android:summary="@string/status_bar_system_icons_summary">
             <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </PreferenceScreen>
 
-      <!-- Breathing Notifications -->
       <Preference
           android:key="advanced_icons"
           android:title="@string/statusbar_advanced_icons"
-          android:fragment="com.blissroms.blissify.fragments.statusbar.AdvancedStatusbar" />
+          android:fragment="com.blissroms.blissify.fragments.statusbar.AdvancedStatusbar"
+          android:icon="@drawable/ic_statusbar_icons" />
 
     </PreferenceCategory>
 
@@ -81,6 +83,7 @@
 
         <lineageos.preference.LineageSystemSettingListPreference
             android:key="status_bar_clock"
+            android:icon="@drawable/ic_clock"
             android:title="@string/status_bar_clock_position_title"
             android:summary="%s"
             android:dialogTitle="@string/status_bar_clock_position_title"
@@ -92,7 +95,8 @@
             android:key="clock"
             android:title="@string/status_bar_clock_title"
             android:summary="@string/status_bar_clock_summary"
-            android:fragment="com.blissroms.blissify.fragments.statusbar.Clock" />
+            android:fragment="com.blissroms.blissify.fragments.statusbar.Clock"
+            android:icon="@drawable/ic_clock" />
 
     </PreferenceCategory>
 
