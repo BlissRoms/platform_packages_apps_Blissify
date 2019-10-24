@@ -47,7 +47,8 @@
             android:key="batterybar_settings"
             android:title="@string/battery_bar_title"
             android:summary="@string/battery_bar_summary"
-            android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryBar" />
+            android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryBar"
+            android:icon="@drawable/ic_battery_bar" />
 
     <PreferenceCategory
         android:title="@string/status_bar_icons_title">
@@ -81,6 +82,7 @@
 
         <lineageos.preference.LineageSystemSettingListPreference
             android:key="status_bar_clock"
+            android:icon="@drawable/ic_clock"
             android:title="@string/status_bar_clock_position_title"
             android:summary="%s"
             android:dialogTitle="@string/status_bar_clock_position_title"
@@ -92,7 +94,8 @@
             android:key="clock"
             android:title="@string/status_bar_clock_title"
             android:summary="@string/status_bar_clock_summary"
-            android:fragment="com.blissroms.blissify.fragments.statusbar.Clock" />
+            android:fragment="com.blissroms.blissify.fragments.statusbar.Clock"
+            android:icon="@drawable/ic_clock" />
 
     </PreferenceCategory>
 
