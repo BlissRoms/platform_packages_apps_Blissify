@@ -24,28 +24,37 @@
         android:key="bliss_header"
         android:layout="@layout/lockscreen_header" />
 
+    <PreferenceCategory
+        android:key="lockscreen_shortcuts_category"
+        android:title="@string/lockscreen_shortcuts_category" >
+
     <Preference
          android:title="@string/lockscreen_shortcuts_title"
          android:summary="@string/lockscreen_shortcuts_summary">
         <intent android:action="com.android.settings.action.LOCK_SCREEN_TUNER" />
     </Preference>
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lockscreen_charging_category"
+        android:title="@string/lockscreen_charging_category" >
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
+        android:icon="@drawable/ic_lockscreen_charging_info"
         android:title="@string/lockscreen_battery_info_title"
         android:summary="@string/lockscreen_battery_info_summary"
         android:defaultValue="true" />
+    </PreferenceCategory>
 
-     <com.bliss.support.preferences.SecureSettingListPreference
-            android:key="lockscreen_albumart_filter"
-            android:title="@string/lockscreen_albumart_filter_title"
-            android:entries="@array/lockscreen_albumart_filter_entries"
-            android:entryValues="@array/lockscreen_albumart_filter_values"
-            android:dependency="lockscreen_media_metadata"
-            android:defaultValue="0" />
+    <PreferenceCategory
+        android:key="lockscreen_wake_category"
+        android:title="@string/lockscreen_wake_category" >
 
     <lineageos.preference.LineageGlobalSettingSwitchPreference
         android:key="wake_when_plugged_or_unplugged"
+        android:icon="@drawable/ic_wake_on_plug"
         android:title="@string/wake_when_plugged_or_unplugged_title"
         android:summary="@string/wake_when_plugged_or_unplugged_summary"
         android:defaultValue="@*android:bool/config_unplugTurnsOnScreen" />
@@ -53,33 +62,67 @@
     <!-- Prevent accidental wake-up -->
     <lineageos.preference.LineageSystemSettingSwitchPreference
         android:key="proximity_on_wake"
+        android:icon="@drawable/ic_prevent_accidental_wakeup"
         android:title="@string/proximity_wake_title"
         android:summary="@string/proximity_wake_summary"
         android:defaultValue="false"
         lineage:requiresConfig="@*lineageos.platform:bool/config_proximityCheckOnWake" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="fp_unlock_keystore"
+        android:icon="@drawable/ic_force_fp_authentication"
+        android:title="@string/fp_unlock_keystore_title"
+        android:summary="@string/fp_unlock_keystore_summary"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lockscreen_media_category"
+        android:title="@string/lockscreen_media_category" >
+
+     <com.bliss.support.preferences.SecureSettingListPreference
+        android:key="lockscreen_albumart_filter"
+        android:icon="@drawable/ic_display_media_cover_art"
+        android:title="@string/lockscreen_albumart_filter_title"
+        android:entries="@array/lockscreen_albumart_filter_entries"
+        android:entryValues="@array/lockscreen_albumart_filter_values"
+        android:dependency="lockscreen_media_metadata"
+        android:defaultValue="0" />
+
     <lineageos.preference.LineageSecureSettingSwitchPreference
         android:key="lockscreen_media_metadata"
+        android:icon="@drawable/ic_display_media_cover_art"
         android:title="@string/lockscreen_media_art_title"
         android:defaultValue="true" />
 
     <com.bliss.support.preferences.CustomSeekBarPreference
         android:key="lockscreen_media_blur"
+        android:icon="@drawable/ic_media_art_blur"
         android:title="@string/lockscreen_media_blur_title"
         android:summary="@string/lockscreen_media_blur_summary"
         android:max="2500"
         settings:min="1"
         android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lockscreen_visualizer_category"
+        android:title="@string/lockscreen_visualizer_category" >
 
     <lineageos.preference.LineageSecureSettingSwitchPreference
         android:key="lockscreen_visualizer"
+        android:icon="@drawable/ic_music_visualizer"
         android:title="@string/lockscreen_visualizer_title"
         android:defaultValue="true" />
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="fp_unlock_keystore"
-        android:title="@string/fp_unlock_keystore_title"
-        android:summary="@string/fp_unlock_keystore_summary"
-        android:defaultValue="false" />
+    <Preference
+        android:key="lockscreen_visualizer"
+        android:icon="@drawable/ic_music_visualizer"
+        android:title="@string/music_visualizer_title"
+        android:summary="@string/music_visualizer_summary"
+        android:fragment="com.blissroms.blissify.fragments.lockscreen.LockScreenVisualizer" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
