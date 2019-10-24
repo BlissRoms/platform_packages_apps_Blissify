@@ -27,12 +27,14 @@
     <!-- Double tap to sleep -->
     <lineageos.preference.LineageSystemSettingSwitchPreference
         android:key="double_tap_sleep_gesture"
+            android:icon="@drawable/ic_double_tap"
         android:title="@string/status_bar_double_tap_to_sleep_title"
         android:summary="@string/status_bar_double_tap_to_sleep_summary"
         android:defaultValue="true" />
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="three_finger_gesture"
+        android:icon="@drawable/ic_three_finger_gesture"
         android:title="@string/three_finger_gesture"
         android:summary="@string/three_finger_gesture_summary"
         android:defaultValue="false" />
