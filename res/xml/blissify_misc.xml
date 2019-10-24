@@ -17,21 +17,34 @@
     android:key="misc_settings"
     android:title="@string/blissify_misc_title">
 
-    <!-- Rounded Corners -->
-    <PreferenceScreen
-        android:key="rounded_corners"
-        android:title="@string/corners_title"
-        android:summary="@string/corners_summary"
-        android:fragment="com.blissroms.blissify.fragments.misc.RoundedCorners" />
-
     <SwitchPreference
         android:key="fingerprint_success_vib"
+        android:icon="@drawable/ic_fingerprint_vibration"
         android:title="@string/fprint_sucess_vib_title"
         android:summary="@string/fprint_sucess_vib_summary"
         android:persistent="false" />
 
+    <PreferenceCategory
+        android:key="rounded_corners_category"
+        android:title="@string/corners_title" >
+
+    <!-- Rounded Corners -->
+    <PreferenceScreen
+        android:key="rounded_corners"
+        android:icon="@drawable/ic_rounded_corners"
+        android:title="@string/corners_title"
+        android:summary="@string/corners_summary"
+        android:fragment="com.blissroms.blissify.fragments.misc.RoundedCorners" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="dashboard_settings_category"
+        android:title="@string/dashboard_settings_category" >
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="enable_suggestions"
+        android:icon="@drawable/ic_dashboard"
         android:title="@string/dashboard_suggestions_title"
         android:summaryOn="@string/summary_dashboard_suggestions_enabled"
         android:summaryOff="@string/summary_dashboard_suggestions_disabled"
@@ -39,23 +52,40 @@
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="enable_conditions"
+        android:icon="@drawable/ic_dashboard"
         android:title="@string/dashboard_conditions_title"
         android:summaryOn="@string/summary_dashboard_conditions_enabled"
         android:summaryOff="@string/summary_dashboard_conditions_disabled"
         android:defaultValue="true" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="cpu_info"
+        android:title="@string/cpu_info">
+
     <!-- Show CPU Info overlay -->
     <SwitchPreference
         android:key="show_cpu_info"
+        android:icon="@drawable/ic_cpu_info"
         android:title="@string/show_cpu_info"
         android:summary="@string/show_cpu_info_summary"
         android:defaultValue="false" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="toast"
+        android:title="@string/toast">
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="toast_icon" 
+        android:icon="@drawable/ic_toast_icon"
         android:title="@string/toast_icon_title" 
         android:summary="@string/toast_icon_summary" 
         android:defaultValue="true" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="notification_messages"
@@ -63,18 +93,25 @@
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="enable_fc_notifications" 
+        android:icon="@drawable/ic_force_close_notifications"
         android:title="@string/enable_fc_notifications_title" 
         android:summary="@string/enable_fc_notifications_summary" 
         android:defaultValue="true" /> 
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="smart_pixels"
+        android:title="@string/smart_pixels">
+
     <com.bliss.support.preferences.SystemSettingMasterSwitchPreference
         android:key="smart_pixels_enable"
+        android:icon="@drawable/ic_smart_pixels"
         android:fragment="com.blissroms.blissify.fragments.misc.SmartPixels"
         android:title="@string/smart_pixels_title"
         android:summary="@string/smart_pixels_summary"
         android:defaultValue="false" />
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="aggressive_battery"
