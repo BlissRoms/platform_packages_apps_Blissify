@@ -33,6 +33,13 @@
     <string name="misc_animation_title">Misc</string>
     <string name="toast_animation_category">Toast Animations</string>
     <string name="network_traffic_category">Network Traffic</string>
+    <string name="lockscreen_media_category">Media</string>
+    <string name="lockscreen_visualizer_category">Visualizer</string>
+    <string name="lockscreen_wake_category">Wake</string>
+    <string name="dashboard_settings_category">DashBoard</string>
+    <string name="cpu_info">Cpu Info</string>
+    <string name="toast">Toast</string>
+    <string name="smart_pixels">Smart Pixels</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
@@ -363,6 +370,7 @@
     <string name="advanced_reboot_summary">When unlocked, include options in the power menu for restarting into recovery or bootloader</string>
 
     <!-- Lockscreen battery info indicator  -->
+    <string name="lockscreen_charging_category">Lockscreen Charging</string>
     <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
     <string name="lockscreen_battery_info_summary">Display negociated charger max current and voltage and battery temperature on lockscreen while charging</string>
 
@@ -520,6 +528,7 @@
     <string name="dialog_delete_message">Remove selected item?</string>
 
     <!-- Lockscreen icons -->
+    <string name="lockscreen_shortcuts_category">Lockscreen Shortcuts</string>
     <string name="lockscreen_shortcuts_title">Shortcuts</string>
     <string name="lockscreen_shortcuts_summary">Configure shortcuts on bottom of the screen</string>
 
@@ -544,6 +553,10 @@
     <string name="missed_call_breath_summary">Will give your missed call notifications a breathing effect in the statusbar</string>
     <string name="voicemail_breath_title">Breathing Voicemail</string>
     <string name="voicemail_breath_summary">Will give your voicemail notifications a breathing effect in the statusbar</string>
+
+    <!-- Music Visualizer -->
+    <string name="music_visualizer_title">Music visualizer</string>
+    <string name="music_visualizer_summary">Display music visualizer when available</string>
 
 </resources>
 
