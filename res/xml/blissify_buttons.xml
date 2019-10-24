@@ -277,6 +277,12 @@
         android:key="volume_keys"
         android:title="@string/hardware_keys_volume_keys_title" >
 
+        <Preference
+            android:key="vol_steps"
+            android:title="@string/volume_steps_title"
+            android:summary="@string/volume_steps_summary"
+            android:fragment="com.blissroms.blissify.fragments.buttons.VolumeSteps" />
+
         <lineageos.preference.LineageSystemSettingSwitchPreference
             android:key="volume_wake_screen"
             android:title="@string/button_wake_title"
