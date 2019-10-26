@@ -626,6 +626,8 @@
     <string name="status_bar_bliss_logo_style">Logo style</string>
     <string name="status_bar_logo_position_right">Right</string>
     <string name="status_bar_logo_position_left">Left</string>
+    <string name="status_bar_logo_position_right_quick">Right with QS Panel</string>
+    <string name="status_bar_logo_position_left_quick">Left with QS Panel</string>
     <string name="status_bar_logo_style_bliss">bliss</string>
     <string name="status_bar_logo_style_android">Android</string>
     <string name="status_bar_logo_style_apple">Apple</string>
