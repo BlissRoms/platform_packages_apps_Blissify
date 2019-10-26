@@ -7,18 +7,6 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
-    <SwitchPreference
-        android:key="navbar_visibility"
-        android:title="@string/navigation_bar_show_title"
-        android:summary="@string/navigation_bar_show_summary"
-        android:persistent="false" />
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="use_bottom_gesture_navigation"
-        android:title="@string/use_bottom_gesture_title"
-        android:summary="@string/use_bottom_gesture_summary"
-        android:defaultValue="false" />
-
     <com.bliss.support.preferences.SeekBarPreferenceCham
         android:key="gesture_swipe_length"
         android:title="@string/gesture_swipe_length_title"
