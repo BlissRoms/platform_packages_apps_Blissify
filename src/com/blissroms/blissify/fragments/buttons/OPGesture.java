@@ -53,7 +53,6 @@ public class OPGesture extends SettingsPreferenceFragment implements
     private SeekBarPreferenceCham mSwipeTriggerStart;
     private SeekBarPreferenceCham mSwipeTriggerTimeout;
 
-    private SwitchPreference mEnableNavBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,12 +61,6 @@ public class OPGesture extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.buttons_op_gesture);
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
-
-        mEnableNavBar = (SwitchPreference) prefSet.findPreference(KEYS_SHOW_NAVBAR_KEY);
-        boolean showNavBarDefault = DeviceUtils.deviceSupportNavigationBar(getActivity());
-        boolean showNavBar = Settings.Secure.getInt(resolver,
-                Settings.Secure.NAVIGATION_BAR_VISIBLE, showNavBarDefault ? 1 : 0) == 1;
-        mEnableNavBar.setChecked(showNavBar);
 
         mSwipeTriggerLength = (SeekBarPreferenceCham) findPreference(KEY_SWIPE_LENGTH);
         int value = Settings.System.getInt(getContentResolver(),
@@ -114,17 +107,6 @@ public class OPGesture extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(resolver,
                     Settings.System.OMNI_BOTTOM_GESTURE_TRIGGER_TIMEOUT,
                     value, UserHandle.USER_CURRENT);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean onPreferenceTreeClick(Preference preference) {
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mEnableNavBar) {
-            boolean checked = ((SwitchPreference)preference).isChecked();
-            Settings.Secure.putInt(resolver,
-                    Settings.Secure.NAVIGATION_BAR_VISIBLE, checked ? 1:0);
             return true;
         }
         return false;
