@@ -23,6 +23,14 @@
         android:key="bliss_header"
         android:layout="@layout/qs_header" />
 
+        <!-- Battery mode -->
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="qs_battery_mode"
+            android:title="@string/battery_percentage_title"
+            android:entries="@array/qs_battery_mode_entries"
+            android:entryValues="@array/qs_battery_mode_values"
+            android:defaultValue="1" />
+
         <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
