@@ -34,7 +34,9 @@
     <string name="network_traffic_category">Network Traffic</string>
 
     <!-- AOKP custom system animations -->
-    <string name="animation_title">Animations</string>  
+    <string name="animation_title">Animations</string>
+    <string name="system_animation_summary">Customize the animations of each window in system</string>
+    <string name="animation_duration_custom">Custom</string>
     <string name="system_animation_title">System animations</string>
     <string name="activity_open_title">Activity open animation</string>
     <string name="activity_close_title">Activity close animation</string>
@@ -54,6 +56,7 @@
     
     <!-- Toast Animation -->
     <string name="toast_animation_title">Toast animation</string>
+    <string name="toast_animation_test">This is test for toast animation</string>
     <string name="toast_none_animation">None</string>
     <string name="toast_default_animation">Default</string>
     <string name="toast_fade_animation">Fade</string>
@@ -479,6 +482,10 @@
     <string name="smart_pixels_on_power_save_summary">Enable with battery saver to increase power savings</string>
     <string name="smart_pixels_percent">Percent of pixels to disable</string>
     <string name="smart_pixels_shift">Burn-in protection interval</string>
+
+    <!-- Force disable transition animation -->
+    <string name="disable_transition_animations_title">Disable transition animations</string>
+    <string name="disable_transition_animations_summary">Force disable all transition animations</string>
 
     <string name="qs_tile_title_visibility_title">Tile title</string>
     <string name="qs_tile_title_visibility_summary">Display title below each tile</string>
