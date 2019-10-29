@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
-     Copyright (C) 2018 Havoc-OS
+     Copyright (C) 2016-2019 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,66 +15,80 @@
      limitations under the License.
 -->
 <PreferenceScreen
+    android:title="@string/battery_bar_title"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-	android:title="@string/battery_bar_title" >
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <ListPreference
-            android:key="battery_bar_list"
-            android:title="@string/battery_bar_location"
-            android:entries="@array/battery_bar_entries"
-            android:entryValues="@array/battery_bar_values" />
+    <!--<ListPreference
+        android:key="statusbar_battery_bar_list"
+        android:title="@string/battery_bar"
+        android:entries="@array/battery_bar_entries"
+        android:entryValues="@array/battery_bar_values" />-->
 
-        <ListPreference
-            android:key="battery_bar_style"
-            android:title="@string/battery_bar_style_title"
-            android:entries="@array/battery_bar_style_entries"
-            android:entryValues="@array/battery_bar_style_values" />
+    <SwitchPreference
+        android:key="statusbar_battery_bar"
+        android:title="@string/battery_bar_title"
+        android:defaultValue="false" />
 
-        <ListPreference
-            android:key="battery_bar_thickness"
-            android:title="@string/battery_bar_thickness_title"
-            android:entries="@array/battery_bar_thickness_entries"
-            android:entryValues="@array/battery_bar_thickness_values" />
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="statusbar_battery_bar_thickness"
+        android:title="@string/battery_bar_thickness_title"
+        android:defaultValue="2"
+        android:max="4"
+        settings:min="1"
+        settings:units="@string/unit_pixels"
+        android:dependency="statusbar_battery_bar" />
 
-        <com.bliss.support.colorpicker.ColorPickerPreference
-            android:key="battery_bar_color"
-            android:title="@string/battery_bar_color"
-            android:defaultValue="0xffffffff"
-            android:dialogTitle="@string/battery_bar_color" />
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="statusbar_battery_bar_style"
+        android:title="@string/battery_bar_style_title"
+        android:entries="@array/battery_bar_style_entries"
+        android:entryValues="@array/battery_bar_style_values"
+        android:defaultValue="0"
+        android:dependency="statusbar_battery_bar" />
 
-        <com.bliss.support.colorpicker.ColorPickerPreference
-            android:key="battery_bar_charging_color"
-            android:title="@string/battery_bar_charging_color"
-            android:defaultValue="0xFF00FF00"
-            android:dialogTitle="@string/battery_bar_color" />
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="statusbar_battery_bar_blend_color"
+        android:title="@string/battery_bar_blend_color_title"
+        android:summary="@string/battery_bar_blend_color_summary"
+        android:defaultValue="true"
+        android:dependency="statusbar_battery_bar" />
 
-        <com.bliss.support.colorpicker.ColorPickerPreference
-            android:key="battery_bar_battery_low_color_warning"
-            android:title="@string/battery_bar_battery_low_color"
-            android:defaultValue="0xFFFF6600"
-            android:dialogTitle="@string/battery_bar_color" />
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="statusbar_battery_bar_blend_color_reverse"
+        android:title="@string/battery_bar_blend_color_reverse_title"
+        android:summaryOn="@string/battery_bar_blend_color_reverse_summary_on"
+        android:summaryOff="@string/battery_bar_blend_color_reverse_summary_off"
+        android:dependency="statusbar_battery_bar_blend_color"
+        android:defaultValue="false" />
 
-        <SwitchPreference
-            android:key="battery_bar_animate"
-            android:title="@string/battery_bar_animate_title"
-            android:summary="@string/battery_bar_animate_summary" />
+    <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="statusbar_battery_bar_color"
+        android:title="@string/battery_bar_color"
+        android:defaultValue="0xff76c124"
+        android:dependency="statusbar_battery_bar" />
 
-        <SwitchPreference
-            android:key="battery_bar_use_gradient_color"
-            android:title="@string/battery_bar_use_gradient_color"
-            android:summary="@string/battery_bar_gradient_color_summary" />
+    <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="statusbar_battery_bar_battery_low_color"
+        android:title="@string/battery_bar_battery_low_color"
+        android:defaultValue="0xfff90028"
+        android:dependency="statusbar_battery_bar" />
 
-        <com.bliss.support.colorpicker.ColorPickerPreference
-            android:key="battery_bar_low_color"
-            android:title="@string/battery_bar_low_color"
-            android:defaultValue="0xffff4444"
-            android:dialogTitle="@string/battery_bar_color" />
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="statusbar_battery_bar_animate"
+        android:title="@string/battery_bar_animate_title"
+        android:defaultValue="true"
+        android:dependency="statusbar_battery_bar" />
 
-        <com.bliss.support.colorpicker.ColorPickerPreference
-            android:key="battery_bar_high_color"
-            android:title="@string/battery_bar_high_color"
-            android:defaultValue="0xff99CC00"
-            android:dialogTitle="@string/battery_bar_color" />
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="statusbar_battery_bar_enable_charging_color"
+        android:title="@string/battery_bar_use_charging_color"
+        android:defaultValue="true"
+        android:dependency="statusbar_battery_bar" />
 
+    <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="statusbar_battery_bar_charging_color"
+        android:title="@string/battery_bar_charging_color"
+        android:defaultValue="0xffffc90f"
+        android:dependency="statusbar_battery_bar_enable_charging_color" />
 </PreferenceScreen>

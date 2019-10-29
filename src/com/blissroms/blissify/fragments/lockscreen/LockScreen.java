@@ -71,7 +71,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         int defaultBlur = 25;
         mLockscreenMediaBlur = (CustomSeekBarPreference) findPreference(KEY_LOCKSCREEN_MEDIA_BLUR);
         int value = Settings.System.getInt(getContentResolver(),
-                Settings.System.OMNI_LOCKSCREEN_MEDIA_BLUR, defaultBlur);
+                Settings.System.LOCKSCREEN_MEDIA_BLUR, defaultBlur);
         mLockscreenMediaBlur.setValue(value);
         mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
 
@@ -83,7 +83,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         if (preference == mLockscreenMediaBlur) {
             int value = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.OMNI_LOCKSCREEN_MEDIA_BLUR, value);
+                    Settings.System.LOCKSCREEN_MEDIA_BLUR, value);
             return true;
         }
 
