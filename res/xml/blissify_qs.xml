@@ -29,6 +29,12 @@
             android:summary="@string/quick_settings_vibrate_summary"
             android:defaultValue="false"/>
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_title_visibility"
+            android:title="@string/qs_tile_title_visibility_title"
+            android:summary="@string/qs_tile_title_visibility_summary"
+            android:defaultValue="true" />
+
         <lineageos.preference.LineageSecureSettingListPreference
             android:key="qs_show_brightness_slider"
             android:title="@string/qs_brightness_slider_title"

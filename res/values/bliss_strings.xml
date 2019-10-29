@@ -479,6 +479,9 @@
     <string name="smart_pixels_on_power_save_summary">Enable with battery saver to increase power savings</string>
     <string name="smart_pixels_percent">Percent of pixels to disable</string>
     <string name="smart_pixels_shift">Burn-in protection interval</string>
+
+    <string name="qs_tile_title_visibility_title">Tile title</string>
+    <string name="qs_tile_title_visibility_summary">Display title below each tile</string>
     
 </resources>
 
