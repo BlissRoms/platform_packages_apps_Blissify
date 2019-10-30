@@ -199,6 +199,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 Settings.System.LOCK_OWNERINFO_FONTS, 36, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKOWNER_FONT_SIZE, 18, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.POCKET_JUDGE, 0, UserHandle.USER_CURRENT);
     }
 
     private void updateClock() {
