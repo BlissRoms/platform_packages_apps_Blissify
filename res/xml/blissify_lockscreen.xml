@@ -163,6 +163,12 @@
         android:icon="@drawable/ic_ui_options"
         android:title="@string/lockscreen_items_category" >
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="pocket_judge"
+        android:title="@string/pocket_judge_title"
+        android:summary="@string/pocket_judge_summary"
+        android:defaultValue="false" />
+
     <com.bliss.support.preferences.GlobalSettingSwitchPreference
         android:key="lockscreen_enable_qs"
         android:title="@string/lockscreen_enable_qs_title"
