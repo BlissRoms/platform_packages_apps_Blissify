@@ -33,6 +33,13 @@
         android:defaultValue="true" />
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="double_tap_sleep_lockscreen"
+            android:icon="@drawable/ic_doubletap"
+            android:title="@string/double_tap_sleep_anywhere_title"
+            android:summary="@string/double_tap_sleep_anywhere_summary"
+            android:defaultValue="true" />
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="three_finger_gesture"
         android:icon="@drawable/ic_swipe_to_screenshot"
         android:title="@string/three_finger_gesture"
