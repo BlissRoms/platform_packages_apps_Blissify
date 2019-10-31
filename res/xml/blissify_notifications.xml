@@ -27,7 +27,7 @@
         android:defaultValue="true" />
 
   <PreferenceCategory
-        android:title="@string/breathing_notifications_category" />
+        android:title="@string/breathing_notifications_category" >
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="sms_breath"
@@ -46,6 +46,7 @@
         android:title="@string/voicemail_breath_title"
         android:summary="@string/voicemail_breath_summary"
         android:persistent="false"/>
-
+    
+    </PreferenceCategory>
 </PreferenceScreen>
 
