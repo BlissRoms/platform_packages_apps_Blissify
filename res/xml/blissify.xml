@@ -64,7 +64,8 @@
       <Preference
           android:key="notifications_category"
           android:title="@string/blissify_notifications_title"
-          android:fragment="com.blissroms.blissify.fragments.notifications.Notifications"/>
+          android:fragment="com.blissroms.blissify.fragments.notifications.Notifications"
+          android:icon="@drawable/ic_blissify_notification"/>
 
       <!-- Misc -->
       <Preference
