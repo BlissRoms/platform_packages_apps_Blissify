@@ -30,6 +30,13 @@
         android:defaultValue="false" />
 
     <com.bliss.support.preferences.SecureSettingSwitchPreference
+        android:key="lockscreen_visualizer_smoothing_enabled"
+        android:title="@string/lockscreen_visualizer_smoothing_title"
+        android:summary="@string/lockscreen_visualizer_smoothing_summary"
+        android:dependency="lockscreen_visualizer_enabled"
+        android:defaultValue="false" />
+
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
         android:key="lockscreen_visualizer_autocolor"
         android:title="@string/lockscreen_autocolor_title"
         android:summary="@string/lockscreen_autocolor_summary"
