@@ -574,6 +574,8 @@
     <string name="lockscreen_autocolor_title">Automatic color</string>
     <string name="lockscreen_autocolor_summary">Sync color with background</string>
     <string name="lockscreen_autocolor_lavalamp">Requires lava lamp disabled</string>
+    <string name="lockscreen_visualizer_smoothing_title">Turn on smoothing</string>
+    <string name="lockscreen_visualizer_smoothing_summary">Each bar is animated more smoothly</string>
     <string name="lockscreen_lavalamp_title">Lava lamp</string>
     <string name="lockscreen_lavalamp_summary">Animate smooth lava lamp style color blend</string>
     <string name="lockscreen_lavalamp_speed_title">Lava lamp color blend interval</string>
