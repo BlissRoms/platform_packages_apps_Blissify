@@ -43,6 +43,12 @@
         android:summary="@string/fprint_sucess_vib_summary"
         android:persistent="false" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="fp_error_vibrate"
+        android:title="@string/fp_error_vibrate_title"
+        android:summary="@string/fp_error_vibrate_summary"
+        android:defaultValue="true" />
+
     <PreferenceCategory
         android:key="rounded_corners_category"
         android:title="@string/corners_title" >
