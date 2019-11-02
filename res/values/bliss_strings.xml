@@ -373,8 +373,11 @@
     <!-- General -->
     <string name="reset">Reset</string>
 
+    <!-- Fingerprint authentication vibration -->
     <string name="fprint_sucess_vib_title">Fingerprint authentication vibration</string>
     <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
+    <string name="fp_error_vibrate_title">Fingerprint error vibration</string>
+    <string name="fp_error_vibrate_summary">Vibrate when fingerprint authentication fails</string>
 
     <!-- Advanced restart options -->
     <string name="advanced_reboot_title">Advanced restart</string>

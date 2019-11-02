@@ -57,12 +57,14 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
+    private static final String FP_ERROR_VIBRATE = "fp_error_vibrate";
 
     private static final String SMART_PIXELS_ENABLED = "smart_pixels_enable";
 
     private SystemSettingMasterSwitchPreference mSmartPixelsEnabled;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
+    private SwitchPreference mFingerprintVibErr;
     private SwitchPreference mShowCpuInfo;
 
     private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
@@ -77,8 +79,10 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_VIB);
+        mFingerprintVibErr = (SwitchPreference) findPreference(FP_ERROR_VIBRATE);
         if (!mFingerprintManager.isHardwareDetected()){
             prefSet.removePreference(mFingerprintVib);
+            prefSet.removePreference(mFingerprintVibErr);
         } else {
         mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
@@ -99,7 +103,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         if (!getResources().getBoolean(com.android.internal.R.bool.config_enableSmartPixels)) {
             getPreferenceScreen().removePreference(mSmartPixelsEnabled);
         }
-        
     }
 
     private void writeCpuInfoOptions(boolean value) {
@@ -124,20 +127,20 @@ public class MiscSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
             return true;
-        }
-
-        if (preference == mShowCpuInfo) {
+        } else if (preference == mFingerprintVibErr) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.FP_ERROR_VIBRATE, value ? 1 : 0);
+            return true;
+        } else if (preference == mShowCpuInfo) {
             writeCpuInfoOptions((Boolean) objValue);
             return true;
-        }
-
-        if (preference == mSmartPixelsEnabled) {
+        } else if (preference == mSmartPixelsEnabled) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(),
 		            SMART_PIXELS_ENABLED, value ? 1 : 0);
             return true;
         }
-        
         return false;
     }
 
