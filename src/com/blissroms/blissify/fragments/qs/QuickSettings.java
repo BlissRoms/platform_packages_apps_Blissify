@@ -57,6 +57,10 @@ import lineageos.providers.LineageSettings;
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String QS_TILE_COLUMNS = "qs_tile_columns";
+
+    private LineageSystemSettingListPreference mQSTileColumns;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -65,6 +69,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
 
         ContentResolver resolver = getActivity().getContentResolver();
+
+        mQSTileColumns =
+                (LineageSystemSettingListPreference) findPreference(QS_TILE_COLUMNS);
+        mQSTileColumns.setOnPreferenceChangeListener(this);
     }
 
     @Override

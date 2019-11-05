@@ -23,6 +23,13 @@
         android:key="bliss_header"
         android:layout="@layout/qs_header" />
 
+        <lineageos.preference.LineageSystemSettingListPreference
+            android:key="qs_tile_columns"
+            android:title="@string/qs_tile_columns_title"
+            android:entries="@array/qs_tile_columns_entries"
+            android:entryValues="@array/qs_tile_columns_values"
+            android:defaultValue="3" />
+
         <!-- Battery mode -->
         <com.bliss.support.preferences.SystemSettingListPreference
             android:key="qs_battery_mode"
