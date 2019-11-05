@@ -74,12 +74,14 @@ public class StatusBar extends SettingsPreferenceFragment
 
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
 
+    private static final String STATUS_BAR_QS_TILE_COLUMNS = "status_bar_qs_tile_columns";
 
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
 
     private LineageSystemSettingListPreference mQuickPulldown;
+    private LineageSystemSettingListPreference mQSTileColumns;
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
     private LineageSystemSettingListPreference mStatusBarBattery;
@@ -114,6 +116,9 @@ public class StatusBar extends SettingsPreferenceFragment
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
 
+        mQSTileColumns =
+                (LineageSystemSettingListPreference) findPreference(STATUS_BAR_QS_TILE_COLUMNS);
+        mQSTileColumns.setOnPreferenceChangeListener(this);
     }
 
     @Override

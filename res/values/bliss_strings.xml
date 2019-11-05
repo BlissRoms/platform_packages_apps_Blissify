@@ -721,4 +721,7 @@
     <string name="notification_guts_kill_app_button_title">Kill app button</string>
     <string name="notification_guts_kill_app_button_summary">Show a kill app button in the notification\'s longpress menu</string>
 
+    <!-- QS coloumns -->
+    <string name="status_bar_qs_tile_columns_title">Quick settings tile columns</string>
+
 </resources>
