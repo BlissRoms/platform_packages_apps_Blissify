@@ -534,4 +534,8 @@
     <string name="netflix_spoof_title">Netflix Spoof</string>
     <string name="netflix_spoof_summary">Spoof your device as different model for Netflix</string>
 
+    <!-- Heads up options -->
+    <string name="less_boring_heads_up_title">Less boring heads up</string>
+    <string name="less_boring_heads_up_summary">Show heads up only for dialer, messaging and alarm app</string>
+
 </resources>
