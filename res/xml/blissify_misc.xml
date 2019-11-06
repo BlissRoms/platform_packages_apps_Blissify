@@ -39,6 +39,19 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="suspend_actions"
+        android:title="@string/screen_state_toggles_title">
+
+    <com.bliss.support.preferences.SystemSettingMasterSwitchPreference
+        android:key="screen_state_toggles_enable_key"
+        android:fragment="com.blissroms.blissify.fragments.misc.ScreenStateToggles"
+        android:title="@string/screen_state_toggles_title"
+        android:summary="@string/screen_state_toggles_summary"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
+
     <!-- Agressive battery 
     <PreferenceCategory
         android:key="aggressive_battery"
