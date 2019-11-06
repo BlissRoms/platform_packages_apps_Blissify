@@ -68,6 +68,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private static final String PREF_STOCK_RECENTS_CATEGORY = "stock_recents_category";
     private static final String PREF_ALTERNATIVE_RECENTS_CATEGORY = "alternative_recents_category";
     private static final String PREF_SWIPE_UP_ENABLED = "swipe_up_enabled_warning";
+    private static final String SCREEN_STATE_TOGGLES_ENABLE = "screen_state_toggles_enable_key";
 
     private SystemSettingMasterSwitchPreference mSmartPixelsEnabled;
     private FingerprintManager mFingerprintManager;
@@ -77,6 +78,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mSmartPixelsCategory;
     private PreferenceCategory mStockRecentsCategory;
     private PreferenceCategory mAlternativeRecentsCategory;
+    private SystemSettingMasterSwitchPreference mEnableScreenStateToggles;
     private Context mContext;
 
     private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
@@ -160,6 +162,12 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         } else {
             mAlternativeRecentsCategory.removePreference(findPreference(PREF_SWIPE_UP_ENABLED));
         }
+
+        mEnableScreenStateToggles = (SystemSettingMasterSwitchPreference) findPreference(SCREEN_STATE_TOGGLES_ENABLE);
+        int enabled = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.START_SCREEN_STATE_SERVICE, 0, UserHandle.USER_CURRENT);
+        mEnableScreenStateToggles.setChecked(enabled != 0);
+        mEnableScreenStateToggles.setOnPreferenceChangeListener(this);
     }
 
     private void updateDependencies() {
@@ -222,6 +230,19 @@ public class MiscSettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.System.putInt(resolver,
 		            SMART_PIXELS_ENABLED, value ? 1 : 0);
+            return true;
+        } else if (preference == mEnableScreenStateToggles) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.START_SCREEN_STATE_SERVICE, value ? 1 : 0, UserHandle.USER_CURRENT);
+            Intent service = (new Intent())
+                .setClassName("com.android.systemui", "com.android.systemui.screenstate.ScreenStateService");
+            if (value) {
+                getActivity().stopService(service);
+                getActivity().startService(service);
+            } else {
+                getActivity().stopService(service);
+            }
             return true;
         }
         return false;
