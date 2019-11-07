@@ -387,6 +387,9 @@
     <string name="lockscreen_charging_category">Lockscreen Charging</string>
     <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
     <string name="lockscreen_battery_info_summary">Display negociated charger max current and voltage and battery temperature on lockscreen while charging</string>
+    <!-- Wireless charging animation -->
+    <string name="wireless_charging_animation_title">Charging animation</string>
+    <string name="wireless_charging_animation_summary">Display an animation when the device is plugged in</string>
 
     <!-- setting: show CPU info-->
     <string name="show_cpu_info">Show CPU info</string>
