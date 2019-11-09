@@ -1387,4 +1387,7 @@
     <string name="accent_preset_68">XiaomiOrange</string>
     <string name="accent_preset_title">Accent preset</string>
 
+    <!-- Clock style -->
+    <string name="clock_style_title">Clock style</string>
+    <string name="clock_style_summary">Choose between Default &amp; Analog Clocks</string>
 </resources>
