@@ -1252,4 +1252,8 @@
     <!-- QS Panel MIUI style brightness slider -->
     <string name="brightness_slider_qs_unexpanded">MIUI style brightness slider (testing)</string>
     <string name="brightness_slider_qs_unexpanded_summary">Shows brightness slider below qs panel</string>
+
+    <!-- Clock style -->
+    <string name="clock_style_title">Clock style</string>
+    <string name="clock_style_summary">Choose between Default &amp; Analog Clocks</string>
 </resources>
