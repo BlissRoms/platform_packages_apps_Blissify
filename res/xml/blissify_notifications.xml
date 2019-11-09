@@ -34,4 +34,11 @@
         android:title="@string/screenshot_sound_title"
         android:defaultValue="true" />
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="less_boring_heads_up"
+            android:title="@string/less_boring_heads_up_title"
+            android:summary="@string/less_boring_heads_up_summary"
+            android:defaultValue="false" />
+
 </PreferenceScreen>
+
