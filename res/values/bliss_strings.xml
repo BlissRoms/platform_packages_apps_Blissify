@@ -1248,4 +1248,8 @@
     <string name="theming_title">Styles &amp; Wallpapers</string>
     <string name="theme_select_title">Themes</string>
     <string name="theme_select_summary">Browse and select installed themes</string>
+
+    <!-- Clock style -->
+    <string name="clock_style_title">Clock style</string>
+    <string name="clock_style_summary">Choose between Default &amp; Analog Clocks</string>
 </resources>
