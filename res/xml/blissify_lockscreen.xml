@@ -30,6 +30,16 @@
         android:icon="@drawable/ic_clock"
         android:title="@string/lockscreen_clock_category">
 
+    <Preference
+        android:key="clock_style"
+        android:title="@string/clock_style_title"
+        android:summary="@string/clock_style_summary">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.android.customization"
+            android:targetClass="com.android.customization.picker.LockClockPickerActivity" />
+    </Preference>
+
     <com.bliss.support.preferences.SystemSettingListPreference
         android:key="lockscreen_clock_selection"
         android:title="@string/lockscreen_clock_title"
