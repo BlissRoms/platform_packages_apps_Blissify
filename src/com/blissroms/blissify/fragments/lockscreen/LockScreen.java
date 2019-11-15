@@ -58,8 +58,10 @@ public class LockScreen extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
+    private static final String KEY_LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
 
     private CustomSeekBarPreference mLockscreenMediaBlur;
+    private SecureSettingListPreference mLockscreenAlbumArt;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -75,6 +77,9 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mLockscreenMediaBlur.setValue(value);
         mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
 
+        mLockscreenAlbumArt = (SecureSettingListPreference) findPreference(KEY_LOCKSCREEN_ALBUMART_FILTER);
+        mLockscreenAlbumArt.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -85,6 +90,14 @@ public class LockScreen extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_MEDIA_BLUR, value);
             return true;
+      } else if (preference == mLockscreenAlbumArt) {
+          int val = Integer.parseInt((String) newValue);
+          if (value == 0) {
+              mLockscreenMediaBlur.setEnabled(true);
+          } else {
+              mLockscreenMediaBlur.setEnabled(false);
+          }
+          return true;
         }
 
         return false;
