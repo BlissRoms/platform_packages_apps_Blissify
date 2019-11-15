@@ -50,7 +50,7 @@
         android:max="30000"
         settings:min="200"
         settings:interval="200"
-        settings:units="@string/unit_milliseconds"
+        settings:units="ms"
         android:dependency="lockscreen_lavalamp_enabled"/>
 
     <com.bliss.support.preferences.SecureSettingSeekBarPreference
