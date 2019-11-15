@@ -15,6 +15,7 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="qs_category"
     android:title="@string/blissify_qs_title">
 
@@ -22,6 +23,55 @@
     <Preference 
         android:key="bliss_header"
         android:layout="@layout/qs_header" />
+
+        <com.bliss.support.preferences.SecureSettingSwitchPreference
+            android:key="quick_settings_vibrate"
+            android:title="@string/quick_settings_vibrate_title"
+            android:summary="@string/quick_settings_vibrate_summary"
+            android:defaultValue="false"/>
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_title_visibility"
+            android:title="@string/qs_tile_title_visibility_title"
+            android:summary="@string/qs_tile_title_visibility_summary"
+            android:defaultValue="true" />
+
+    <PreferenceCategory
+        android:key="qs_columns_rows_category"
+        android:title="@string/qs_columns_rows_category_title" >
+
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_rows_portrait"
+            android:title="@string/qs_rows_portrait_title"
+            android:max="5"
+            android:min="1"
+            android:defaultValue="3"
+            settings:units="" />
+
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_rows_landscape"
+            android:title="@string/qs_rows_landscape_title"
+            android:max="5"
+            android:min="1"
+            android:defaultValue="1"
+            settings:units="" />
+
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_columns_portrait"
+            android:title="@string/qs_columns_portrait_title"
+            android:max="7"
+            android:min="1"
+            android:defaultValue="4"
+            settings:units="" />
+
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_columns_landscape"
+            android:title="@string/qs_columns_landscape_title"
+            android:max="9"
+            android:min="1"
+            android:defaultValue="4"
+            settings:units="" />
+        </PreferenceCategory>
 
         <!-- Battery mode -->
         <com.bliss.support.preferences.SystemSettingListPreference
@@ -36,18 +86,6 @@
             android:title="@string/bluetooth_battery_title"
             android:summary="@string/bluetooth_battery_summary"
             android:defaultValue="true"/>
-
-        <com.bliss.support.preferences.SecureSettingSwitchPreference
-            android:key="quick_settings_vibrate"
-            android:title="@string/quick_settings_vibrate_title"
-            android:summary="@string/quick_settings_vibrate_summary"
-            android:defaultValue="false"/>
-
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="qs_tile_title_visibility"
-            android:title="@string/qs_tile_title_visibility_title"
-            android:summary="@string/qs_tile_title_visibility_summary"
-            android:defaultValue="true" />
 
         <lineageos.preference.LineageSecureSettingListPreference
             android:key="qs_show_brightness_slider"
