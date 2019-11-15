@@ -58,8 +58,10 @@ public class LockScreen extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
+    private static final String KEY_LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
 
     private CustomSeekBarPreference mLockscreenMediaBlur;
+    private ListPreference mAlbumArtFilter;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -68,19 +70,26 @@ public class LockScreen extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.blissify_lockscreen);
         PreferenceScreen prefSet = getPreferenceScreen();
 
+        mAlbumArtFilter = (ListPreference) findPreference(KEY_LOCKSCREEN_ALBUMART_FILTER);
+        String currValue = mAlbumArtFilter.getEntry().toString();
+        mAlbumArtFilter.setOnPreferenceChangeListener(this);
+
         int defaultBlur = 25;
         mLockscreenMediaBlur = (CustomSeekBarPreference) findPreference(KEY_LOCKSCREEN_MEDIA_BLUR);
         int value = Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_MEDIA_BLUR, defaultBlur);
+            Settings.System.LOCKSCREEN_MEDIA_BLUR, defaultBlur);
         mLockscreenMediaBlur.setValue(value);
         mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
-
+        mLockscreenMediaBlur.setEnabled(true);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
 
-        if (preference == mLockscreenMediaBlur) {
+        if (preference == mAlbumArtFilter) {
+            boolean mAlbumArtFilterEnabled = (Boolean) objValue;
+            mLockscreenMediaBlur.setEnabled(!mAlbumArtFilterEnabled);
+        } else if (preference == mLockscreenMediaBlur) {
             int value = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_MEDIA_BLUR, value);
