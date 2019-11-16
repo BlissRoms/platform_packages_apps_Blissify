@@ -17,6 +17,19 @@
     android:key="misc_settings"
     android:title="@string/blissify_misc_title">
 
+    <!-- Gaming Mode -->
+    <PreferenceCategory
+        android:key="gaming_mode_category"
+        android:title="@string/gaming_mode_title" >
+
+    <Preference
+        android:key="gaming_mode"
+        android:title="@string/gaming_mode_title"
+        android:summary="@string/gaming_mode_summary"
+        android:fragment="com.blissroms.blissify.fragments.misc.GamingMode"/>
+
+    </PreferenceCategory>
+
     <!-- Wakelock blocker -->
     <PreferenceCategory
         android:key="wakelock_blocker_category"
