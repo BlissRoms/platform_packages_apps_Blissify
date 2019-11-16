@@ -116,14 +116,17 @@
         android:title="@string/lockscreen_media_art_title"
         android:defaultValue="true" />
 
-    <com.bliss.support.preferences.CustomSeekBarPreference
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
         android:key="lockscreen_media_blur"
         android:icon="@drawable/ic_media_art_blur"
         android:title="@string/lockscreen_media_blur_title"
         android:summary="@string/lockscreen_media_blur_summary"
-        android:max="2500"
-        settings:min="1"
-        android:persistent="false" />
+        android:max="100"
+        settings:min="5"
+        settings:units="%"
+        settings:interval="5"
+        android:defaultValue="100"
+        android:dependency="lockscreen_media_metadata" />
     </PreferenceCategory>
 
     <PreferenceCategory
