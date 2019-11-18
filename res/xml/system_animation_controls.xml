@@ -16,6 +16,11 @@
     android:title="@string/system_animation_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <!-- Bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
         <com.bliss.support.preferences.GlobalSettingSwitchPreference
             android:key="disable_transition_animations"
             android:title="@string/disable_transition_animations_title"

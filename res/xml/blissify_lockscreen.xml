@@ -131,12 +131,6 @@
         android:key="lockscreen_visualizer_category"
         android:title="@string/lockscreen_visualizer_category" >
 
-    <lineageos.preference.LineageSecureSettingSwitchPreference
-        android:key="lockscreen_visualizer"
-        android:icon="@drawable/ic_music_visualizer"
-        android:title="@string/lockscreen_visualizer_title"
-        android:defaultValue="true" />
-
     <Preference
         android:key="lockscreen_visualizer"
         android:icon="@drawable/ic_music_visualizer"

@@ -25,7 +25,7 @@
     <string name="blissify_qs_title">Quick Settings</string>
     <string name="blissify_animation_title">Animations</string>
     <string name="blissify_buttons_title">Buttons</string>
-    <string name="blissify_misc_title">Misc</string>
+    <string name="blissify_misc_title">More</string>
     <string name="blissify_lockscreen_title">Lockscreen</string>
     <string name="blissify_gestures_title">Gestures</string>
     <string name="blissify_notifications_title">Notifications</string>
@@ -40,6 +40,11 @@
     <string name="cpu_info">Cpu Info</string>
     <string name="toast">Toast</string>
     <string name="smart_pixels">Smart Pixels</string>
+    <string name="battery_options">Battery options</string>
+    <string name="tile_options">Tile options</string>
+    <string name="system_anim">System</string>
+    <string name="tile_anim">Tile</string>
+    <string name="misc_anim">Misc options</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
