@@ -14,6 +14,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/volume_steps_title">
 
+    <!-- Bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
     <ListPreference
         android:key="volume_steps_alarm"
         android:title="@string/volume_steps_alarm_title"

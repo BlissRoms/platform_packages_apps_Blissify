@@ -19,6 +19,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <!-- Bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
     <!--<ListPreference
         android:key="statusbar_battery_bar_list"
         android:title="@string/battery_bar"
@@ -36,7 +41,7 @@
         android:defaultValue="2"
         android:max="4"
         settings:min="1"
-        settings:units="@string/unit_pixels"
+        settings:units="dp"
         android:dependency="statusbar_battery_bar" />
 
     <com.bliss.support.preferences.SystemSettingListPreference

@@ -16,7 +16,14 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="network_traffic"
+    android:title="@string/network_traffic_settings_title">
+
+    <!-- Bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
 
     <lineageos.preference.LineageSecureSettingListPreference
         android:key="network_traffic_location"

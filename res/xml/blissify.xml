@@ -18,6 +18,11 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_title" >
 
+    <!-- Bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
       <!-- Status Bar -->
       <Preference
           android:key="statusbar_category"

@@ -18,6 +18,11 @@
     android:key="notifications_category"
     android:title="@string/blissify_notifications_title">
 
+    <!-- Bliss Header -->
+    <Preference 
+        android:key="bliss_header"
+        android:layout="@layout/notifications_header" />
+
     <com.bliss.support.preferences.GlobalSettingMasterSwitchPreference 
         android:key="heads_up_notifications_enabled"
         android:fragment="com.blissroms.blissify.fragments.notifications.HeadsUp"
