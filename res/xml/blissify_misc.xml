@@ -17,6 +17,11 @@
     android:key="misc_settings"
     android:title="@string/blissify_misc_title">
 
+    <!-- Bliss Header -->
+    <Preference 
+        android:key="bliss_header"
+        android:layout="@layout/more_header" />
+
     <!-- Gaming Mode -->
     <PreferenceCategory
         android:key="gaming_mode_category"

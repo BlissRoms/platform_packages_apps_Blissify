@@ -19,28 +19,33 @@
     android:key="power_menu"
     android:title="@string/power_menu_title">
 
-    <CheckBoxPreference
+    <!-- Bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
+    <SwitchPreference
         android:key="screenshot"
         android:title="@string/power_menu_screenshot_title"
         android:summary="@string/power_menu_screenshot_summary"
         android:defaultValue="false" />
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="airplane"
         android:title="@string/power_menu_airplane_title"
         android:defaultValue="false" />
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="users"
         android:title="@string/power_menu_users_title"
         android:defaultValue="false" />
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="bugreport"
         android:title="@string/power_menu_bug_report_title"
         android:defaultValue="false" />
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="lockdown"
         android:title="@string/power_menu_lockdown_title"
         android:defaultValue="false" />

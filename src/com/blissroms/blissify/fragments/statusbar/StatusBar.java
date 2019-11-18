@@ -40,10 +40,9 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import androidx.preference.DropDownPreference;
 
+import lineageos.preference.LineageSystemSettingListPreference;
 import lineageos.preference.LineageSecureSettingSwitchPreference;
 import lineageos.providers.LineageSettings;
-
-import lineageos.preference.LineageSystemSettingListPreference;
 
 import java.util.Locale;
 import android.text.TextUtils;
@@ -72,14 +71,6 @@ public class StatusBar extends SettingsPreferenceFragment
 
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
 
-    private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
-
-
-    private static final int PULLDOWN_DIR_NONE = 0;
-    private static final int PULLDOWN_DIR_RIGHT = 1;
-    private static final int PULLDOWN_DIR_LEFT = 2;
-
-    private LineageSystemSettingListPreference mQuickPulldown;
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
     private LineageSystemSettingListPreference mStatusBarBattery;
@@ -108,11 +99,6 @@ public class StatusBar extends SettingsPreferenceFragment
 
         mStatusBarBatteryCategory =
                 (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_BATTERY);
-
-        mQuickPulldown =
-                (LineageSystemSettingListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
-        mQuickPulldown.setOnPreferenceChangeListener(this);
-        updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
 
     }
 
@@ -144,8 +130,6 @@ public class StatusBar extends SettingsPreferenceFragment
                 mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_rtl);
                 mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_rtl);
             }
-            mQuickPulldown.setEntries(R.array.status_bar_quick_qs_pulldown_entries_rtl);
-            mQuickPulldown.setEntryValues(R.array.status_bar_quick_qs_pulldown_values_rtl);
         } else if (sHasNotch) {
             mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch);
             mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch);
@@ -158,34 +142,7 @@ public class StatusBar extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        int value = Integer.parseInt((String) newValue);
-        String key = preference.getKey();
-        switch (key) {
-            case STATUS_BAR_QUICK_QS_PULLDOWN:
-                updateQuickPulldownSummary(value);
-                break;
-        }
         return true;
-    }
-
-    private void updateQuickPulldownSummary(int value) {
-        String summary="";
-        switch (value) {
-            case PULLDOWN_DIR_NONE:
-                summary = getResources().getString(
-                    R.string.status_bar_quick_qs_pulldown_off);
-                break;
-
-            case PULLDOWN_DIR_LEFT:
-            case PULLDOWN_DIR_RIGHT:
-                summary = getResources().getString(
-                    R.string.status_bar_quick_qs_pulldown_summary,
-                    getResources().getString(value == PULLDOWN_DIR_LEFT
-                        ? R.string.status_bar_quick_qs_pulldown_summary_left
-                        : R.string.status_bar_quick_qs_pulldown_summary_right));
-                break;
-        }
-        mQuickPulldown.setSummary(summary);
     }
 
     private int getClockPosition() {
