@@ -24,20 +24,16 @@
         android:key="bliss_header"
         android:layout="@layout/qs_header" />
 
-        <com.bliss.support.preferences.SecureSettingSwitchPreference
-            android:key="quick_settings_vibrate"
-            android:title="@string/quick_settings_vibrate_title"
-            android:summary="@string/quick_settings_vibrate_summary"
-            android:defaultValue="false"/>
-
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="qs_tile_title_visibility"
-            android:title="@string/qs_tile_title_visibility_title"
-            android:summary="@string/qs_tile_title_visibility_summary"
-            android:defaultValue="true" />
+    <lineageos.preference.LineageSystemSettingListPreference
+        android:key="qs_quick_pulldown"
+        android:title="@string/status_bar_quick_qs_pulldown_title"
+        android:entries="@array/status_bar_quick_qs_pulldown_entries"
+        android:entryValues="@array/status_bar_quick_qs_pulldown_values"
+        android:defaultValue="0" />
 
     <PreferenceCategory
         android:key="qs_columns_rows_category"
+        android:icon="@drawable/ic_statusbar_icons"
         android:title="@string/qs_columns_rows_category_title" >
 
         <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -71,7 +67,30 @@
             android:min="1"
             android:defaultValue="4"
             settings:units="" />
-        </PreferenceCategory>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/tile_options"
+        android:icon="@drawable/ic_blissify_qs">
+
+        <com.bliss.support.preferences.SecureSettingSwitchPreference
+            android:key="quick_settings_vibrate"
+            android:title="@string/quick_settings_vibrate_title"
+            android:summary="@string/quick_settings_vibrate_summary"
+            android:defaultValue="false"/>
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_title_visibility"
+            android:title="@string/qs_tile_title_visibility_title"
+            android:summary="@string/qs_tile_title_visibility_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/battery_options"
+        android:icon="@drawable/ic_battery_bar">
 
         <!-- Battery mode -->
         <com.bliss.support.preferences.SystemSettingListPreference
@@ -87,6 +106,12 @@
             android:summary="@string/bluetooth_battery_summary"
             android:defaultValue="true"/>
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/status_bar_brightness_category"
+        android:icon="@drawable/ic_blissify_misc">
+
         <lineageos.preference.LineageSecureSettingListPreference
             android:key="qs_show_brightness_slider"
             android:title="@string/qs_brightness_slider_title"
@@ -101,11 +126,13 @@
             lineage:requiresConfig="@*android:bool/config_automatic_brightness_available"
             android:defaultValue="true" />
 
-        <!-- QS clock -->
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="show_qs_clock"
-            android:title="@string/qs_clock_title"
-            android:summary="@string/qs_clock_summary"
-            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <!-- QS clock -->
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="show_qs_clock"
+        android:title="@string/qs_clock_title"
+        android:summary="@string/qs_clock_summary"
+        android:defaultValue="true" />
 
 </PreferenceScreen>
