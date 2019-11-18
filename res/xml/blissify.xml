@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen 
+<PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_title" >
@@ -24,56 +24,56 @@
         android:layout="@layout/bliss_logo" />
 
       <!-- Status Bar -->
-      <Preference
+      <com.blissroms.blissify.ui.BlissPreference
           android:key="statusbar_category"
           android:title="@string/blissify_statusbar_title"
           android:fragment="com.blissroms.blissify.fragments.statusbar.StatusBar"
           android:icon="@drawable/ic_blissify_statusbar"/>
 
       <!-- Quick Settings -->
-      <Preference
+      <com.blissroms.blissify.ui.BlissPreference
           android:key="qs_category"
           android:title="@string/blissify_qs_title"
           android:fragment="com.blissroms.blissify.fragments.qs.QuickSettings"
           android:icon="@drawable/ic_blissify_qs" />
 
       <!-- Animation -->
-      <Preference
+      <com.blissroms.blissify.ui.BlissPreference
           android:key="animation_category"
           android:title="@string/blissify_animation_title"
           android:fragment="com.blissroms.blissify.fragments.animation.Animations"
           android:icon="@drawable/ic_blissify_animation"/>
 
       <!-- Buttons -->
-      <Preference
+      <com.blissroms.blissify.ui.BlissPreference
           android:key="buttons_category"
           android:title="@string/blissify_buttons_title"
           android:fragment="com.blissroms.blissify.fragments.buttons.Buttons"
           android:icon="@drawable/ic_blissify_button"/>
 
       <!-- LockScreen -->
-      <Preference
+      <com.blissroms.blissify.ui.BlissPreference
           android:key="lockscreen_category"
           android:title="@string/blissify_lockscreen_title"
           android:fragment="com.blissroms.blissify.fragments.lockscreen.LockScreen"
           android:icon="@drawable/ic_blissify_lockscreen"/>
 
       <!-- Gestures -->
-      <Preference
+      <com.blissroms.blissify.ui.BlissPreference
           android:key="gestures_category"
           android:title="@string/blissify_gestures_title"
           android:fragment="com.blissroms.blissify.fragments.gestures.Gestures"
           android:icon="@drawable/ic_blissify_gestures"/>
 
       <!-- Notifications -->
-      <Preference
+      <com.blissroms.blissify.ui.BlissPreference
           android:key="notifications_category"
           android:title="@string/blissify_notifications_title"
           android:fragment="com.blissroms.blissify.fragments.notifications.Notifications"
           android:icon="@drawable/ic_blissify_notification"/>
 
       <!-- Misc -->
-      <Preference
+      <com.blissroms.blissify.ui.BlissPreference
           android:key="misc_category"
           android:title="@string/blissify_misc_title"
           android:fragment="com.blissroms.blissify.fragments.misc.MiscSettings"
