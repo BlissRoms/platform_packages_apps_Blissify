@@ -783,4 +783,8 @@
     <string name="lock_screen_weather_condition_icon_summaryOn">Condition icon is shown on Lockscreen</string>
     <string name="lock_screen_weather_condition_icon_summaryOff">Condition icon is hidden on Lockscreen</string>
 
+    <string name="lock_screen_weather_style_title">Weather style</string>
+    <string name="lock_screen_weather_style_summaryOff">Omni(with location)</string>
+    <string name="lock_screen_weather_style_summaryOn">AOSP(without location)</string>
+
 </resources>
