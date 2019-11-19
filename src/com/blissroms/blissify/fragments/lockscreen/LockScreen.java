@@ -78,10 +78,9 @@ public class LockScreen extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         Context mContext = getContext();
 
-        int defaultBlur = 25;
         mLockscreenMediaBlur = (CustomSeekBarPreference) findPreference(KEY_LOCKSCREEN_MEDIA_BLUR);
-        int value = Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_MEDIA_BLUR, defaultBlur);
+        int value = Math.min(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_MEDIA_BLUR, 12), 25);
         mLockscreenMediaBlur.setValue(value);
         mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
 
