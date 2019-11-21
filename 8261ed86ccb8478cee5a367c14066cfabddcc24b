@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeecbe57_dc5ecfaa",
+        "filename": "res/xml/blissify_misc.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2019-11-21T03:45:59Z",
+      "side": 0,
+      "message": "maybe change this xml to more if we r calling it more ? thus the misc folder -\u003e and MiscSettings.java -\u003e MoreSettings.java ?",
+      "revId": "8261ed86ccb8478cee5a367c14066cfabddcc24b",
+      "serverId": "b7386340-edb3-408c-9cac-98e148952b30",
+      "unresolved": true
+    }
+  ]
+}
