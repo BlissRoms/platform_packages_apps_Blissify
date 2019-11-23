@@ -76,6 +76,14 @@
 
     </PreferenceCategory>
 
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_panel_bg_alpha"
+            android:title="@string/qs_panel_alpha_title"
+            android:summary="@string/qs_panel_alpha_summary"
+            android:max="100"
+            settings:min="0"
+            settings:units="%" />
+
     <PreferenceCategory
         android:title="@string/tile_options"
         android:icon="@drawable/ic_blissify_qs">
