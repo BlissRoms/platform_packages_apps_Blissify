@@ -116,4 +116,9 @@
         android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryBar"
         android:title="@string/battery_bar_title" />
 
+    <Preference
+        android:key="carrier_label"
+        android:fragment="com.blissroms.blissify.fragments.statusbar.CarrierLabel"
+        android:title="@string/carrier_label_settings_title" />
+
 </PreferenceScreen>
