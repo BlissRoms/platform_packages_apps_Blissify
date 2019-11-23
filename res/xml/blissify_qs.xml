@@ -24,6 +24,12 @@
         android:key="bliss_header"
         android:layout="@layout/qs_header" />
 
+     <PreferenceScreen
+        android:id="@+id/qs_header"
+        android:title="@string/qs_header_title"
+        android:summary="@string/qs_header_summary"
+        android:fragment="com.blissroms.blissify.fragments.qs.QSHeader"/>
+
     <lineageos.preference.LineageSystemSettingListPreference
         android:key="qs_quick_pulldown"
         android:title="@string/status_bar_quick_qs_pulldown_title"
