@@ -155,5 +155,12 @@
         android:summary="@string/battery_estimate_summary"
         android:defaultValue="true" />
 
+        <com.bliss.support.preferences.CustomSystemSeekBarPreference
+            android:key="qs_panel_bg_alpha"
+            android:title="@string/qs_panel_alpha_title"
+            android:max="255"
+            android:min="100"
+            settings:interval="5"
+            android:defaultValue="255" />
     </PreferenceCategory>
 </PreferenceScreen>
