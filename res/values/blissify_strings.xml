@@ -453,4 +453,8 @@
     <string name="lock_screen_weather_condition_icon_title">Condition icon display</string>
     <string name="lock_screen_weather_condition_icon_summaryOn">Condition icon is shown on Lockscreen</string>
     <string name="lock_screen_weather_condition_icon_summaryOff">Condition icon is hidden on Lockscreen</string>
+
+    <!-- Old mobile type icons -->
+    <string name="use_old_mobiletype_title">Small mobile type icon</string>
+    <string name="use_old_mobiletype_summary">Show mobile type icon on top of the signal indicator</string>
 </resources>
