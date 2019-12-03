@@ -956,4 +956,8 @@
     <string name="vibrate_on_notifications_title">Notification vibration</string>
     <string name="vibrate_on_notifications_summary">Vibrate on notifications</string>
 
+    <!-- QS Footer Text -->
+    <string name="footer_text_show_title">Display footer text</string>
+    <string name="footer_text_show_summary">Toogle to show custom text on qs footer</string>
+
 </resources>
