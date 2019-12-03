@@ -247,6 +247,12 @@ public class QSHeaders extends SettingsPreferenceFragment implements
         mHeaderBrowse.setEnabled(isBrowseHeaderAvailable() && providerName.equals(mFileHeaderProvider));
     }
 
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER, 0, UserHandle.USER_CURRENT);
+    }
+
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.BLISSIFY;
