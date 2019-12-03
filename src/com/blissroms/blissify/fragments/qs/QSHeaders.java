@@ -76,7 +76,7 @@ public class QSHeaders extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mHeaderShadow;
     private ListPreference mHeaderProvider;
     private String mDaylightHeaderProvider;
-    private SystemSettingSwitchPreference mHeaderEnabled;
+    private SwitchPreference mHeaderEnabled;
     private Preference mFileHeader;
     private String mFileHeaderProvider;
 
@@ -97,7 +97,7 @@ public class QSHeaders extends SettingsPreferenceFragment implements
         mFileHeaderProvider = getResources().getString(R.string.file_header_provider);
         mHeaderBrowse = findPreference(CUSTOM_HEADER_BROWSE);
 
-        mHeaderEnabled = (SystemSettingSwitchPreference) findPreference(STATUS_BAR_CUSTOM_HEADER);
+        mHeaderEnabled = (SwitchPreference) findPreference(STATUS_BAR_CUSTOM_HEADER);
         mHeaderEnabled.setOnPreferenceChangeListener(this);
 
         mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
@@ -245,6 +245,14 @@ public class QSHeaders extends SettingsPreferenceFragment implements
         mDaylightHeaderPack.setEnabled(providerName.equals(mDaylightHeaderProvider));
         mFileHeader.setEnabled(providerName.equals(mFileHeaderProvider));
         mHeaderBrowse.setEnabled(isBrowseHeaderAvailable() && providerName.equals(mFileHeaderProvider));
+    }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
