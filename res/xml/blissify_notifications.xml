@@ -15,6 +15,7 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="notifications_category"
     android:title="@string/blissify_notifications_title">
 
@@ -36,6 +37,24 @@
         android:title="@string/notification_guts_kill_app_button_title"
         android:summary="@string/notification_guts_kill_app_button_summary"
         android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:key="notification_screen"
+        android:title="@string/notification_screen_title" >
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="pulse_ambient_light"
+            android:title="@string/pulse_ambient_light_title"
+            android:summary="@string/pulse_ambient_light_summary"
+            android:defaultValue="false" />
+
+        <com.bliss.support.colorpicker.ColorPickerPreference
+            android:key="pulse_ambient_light_color"
+            android:title="@string/pulse_ambient_light_color_title"
+            android:persistent="false"
+            android:dependency="pulse_ambient_light"
+            settings:defaultColorValue="0xFF3980FF" />
+    </PreferenceCategory>
 
   <PreferenceCategory
         android:title="@string/breathing_notifications_category" >
