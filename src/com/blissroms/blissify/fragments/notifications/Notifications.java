@@ -56,6 +56,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+import com.blissroms.blissify.fragments.notifications.AmbientLightSettingsPreview;
 import com.bliss.support.colorpicker.ColorPickerPreference;
 import com.bliss.support.preferences.CustomSeekBarPreference;
 import com.bliss.support.preferences.GlobalSettingMasterSwitchPreference;
@@ -148,6 +149,7 @@ public class Notifications extends SettingsPreferenceFragment implements
         mEdgeLightColorPreference = (ColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
+        AmbientLightSettingsPreview.setAmbientLightPreviewColor(edgeLightColor);
         mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
         mEdgeLightColorPreference.setAlphaSliderEnabled(false);
         String edgeLightColorHex = ColorPickerPreference.convertToRGB(edgeLightColor);
@@ -200,6 +202,7 @@ public class Notifications extends SettingsPreferenceFragment implements
             } else {
                 preference.setSummary(hex);
             }
+            AmbientLightSettingsPreview.setAmbientLightPreviewColor(Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
                     Settings.System.PULSE_AMBIENT_LIGHT_COLOR, intHex);
