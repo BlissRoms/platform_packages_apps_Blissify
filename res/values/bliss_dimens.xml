@@ -16,9 +16,12 @@
 -->
 
 <resources>
-
-    <color name="blissify_logo_color">#3e93cc</color>
-    <color name="ambient_light_screen_color">#111111</color>
-    <color name="ambient_light_body_color">#323232</color>
+    <dimen name="ambient_light_preview_imageview_marginHorizontal">4.5dp</dimen>
+    <dimen name="ambient_light_preview_imageview_marginVertical">20dp</dimen>
+    <dimen name="ambient_light_preview_imageview_width">15dp</dimen>
+    <dimen name="ambient_light_preview_layout_height">300dp</dimen>
+    <dimen name="ambient_light_preview_layout_width">150dp</dimen>
+    <dimen name="ambient_light_preview_paddingHorizontal">50dp</dimen>
+    <dimen name="ambient_light_preview_paddingVertical">30dp</dimen>
 
 </resources>
