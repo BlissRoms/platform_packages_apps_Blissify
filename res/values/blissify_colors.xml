@@ -17,4 +17,8 @@
 
 <resources>
 
+    <!-- Ambient lights-->
+    <color name="ambient_light_screen_color">#111111</color>
+    <color name="ambient_light_body_color">#323232</color>
+
 </resources>
