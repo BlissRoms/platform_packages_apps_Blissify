@@ -986,4 +986,8 @@
     <string name="fod_icon_picker_title">FOD icon picker</string>
     <string name="fod_icon_picker_summary">Pick your favourite fingerprint icon</string>
 
+    <!-- Smart replies -->
+    <string name="hide_smart_replies_title">Hide smart replies</string>
+    <string name="hide_smart_replies_summary">Hide smart replies to save screen space with peeking notifications</string>
+
 </resources>
