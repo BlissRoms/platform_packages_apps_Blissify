@@ -39,6 +39,13 @@
         android:defaultValue="false" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="hide_smart_replies"
+        android:title="@string/hide_smart_replies_title"
+        android:summary="@string/hide_smart_replies_summary"
+        android:defaultValue="false"/>
+
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="notification_guts_kill_app_button"
         android:title="@string/notification_guts_kill_app_button_title"
         android:summary="@string/notification_guts_kill_app_button_summary"
