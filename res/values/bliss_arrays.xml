@@ -925,6 +925,7 @@
         <item>@string/status_bar_volte_style_4</item>
         <item>@string/status_bar_volte_style_5</item>
         <item>@string/status_bar_volte_style_6</item>
+        <item>@string/status_bar_volte_style_7</item>
     </string-array>
 
     <string-array name="status_bar_volte_values" translatable="false">
@@ -935,6 +936,7 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
+        <item>7</item>
     </string-array>
 
     <!-- QS battery style  -->
