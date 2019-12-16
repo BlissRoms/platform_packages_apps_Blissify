@@ -20,5 +20,6 @@
     <color name="blissify_logo_color">#3e93cc</color>
     <color name="ambient_light_screen_color">#111111</color>
     <color name="ambient_light_body_color">#323232</color>
+    <color name="fod_item_background_stroke_color">#d6d6d6</color>
 
 </resources>
