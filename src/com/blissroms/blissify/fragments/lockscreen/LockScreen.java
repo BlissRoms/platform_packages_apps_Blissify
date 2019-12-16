@@ -60,9 +60,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
     private static final String KEY_LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
+    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker_category";
 
     private CustomSeekBarPreference mLockscreenMediaBlur;
     private SecureSettingListPreference mLockscreenAlbumArt;
+    private Preference mFODIconPicker;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -81,6 +83,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mLockscreenAlbumArt = (SecureSettingListPreference) findPreference(KEY_LOCKSCREEN_ALBUMART_FILTER);
         mLockscreenAlbumArt.setOnPreferenceChangeListener(this);
 
+        mFODIconPicker = (Preference) findPreference(FOD_ICON_PICKER_CATEGORY);
+        if (mFODIconPicker != null
+                && !getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) {
+            prefScreen.removePreference(mFODIconPicker);
+        }
     }
 
     @Override
