@@ -55,14 +55,18 @@ import java.util.Collections;
 import com.bliss.support.preferences.CustomSeekBarPreference;
 import com.bliss.support.preferences.SecureSettingListPreference;
 
+import lineageos.app.LineageContextConstants;
+
 public class LockScreen extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
     private static final String KEY_LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
+    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
 
     private CustomSeekBarPreference mLockscreenMediaBlur;
     private SecureSettingListPreference mLockscreenAlbumArt;
+    private PreferenceCategory mFODIconPickerCategory;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -70,6 +74,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.blissify_lockscreen);
         PreferenceScreen prefSet = getPreferenceScreen();
+        Context mContext = getContext();
 
         int defaultBlur = 25;
         mLockscreenMediaBlur = (CustomSeekBarPreference) findPreference(KEY_LOCKSCREEN_MEDIA_BLUR);
@@ -81,6 +86,13 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mLockscreenAlbumArt = (SecureSettingListPreference) findPreference(KEY_LOCKSCREEN_ALBUMART_FILTER);
         mLockscreenAlbumArt.setOnPreferenceChangeListener(this);
 
+        PackageManager packageManager = mContext.getPackageManager();
+        boolean hasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
+
+        mFODIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
+        if (mFODIconPicker != null && hasFod) {
+            prefSet.removePreference(mFODIconPickerCategory);
+        }
     }
 
     @Override
