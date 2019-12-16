@@ -44,6 +44,7 @@ import android.view.View;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.internal.util.bliss.BlissUtils;
 import android.util.Log;
 import android.hardware.fingerprint.FingerprintManager;
 
@@ -58,14 +59,15 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String FP_ERROR_VIBRATE = "fp_error_vibrate";
-
     private static final String SMART_PIXELS_ENABLED = "smart_pixels_enable";
+    private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
 
     private SystemSettingMasterSwitchPreference mSmartPixelsEnabled;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mFingerprintVibErr;
     private SwitchPreference mShowCpuInfo;
+    private ListPreference mFlashlightOnCall;
 
     private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
 
@@ -87,6 +89,17 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
         mFingerprintVib.setOnPreferenceChangeListener(this);
+        }
+
+        mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
+        Preference FlashOnCall = findPreference("flashlight_on_call");
+        int flashlightValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.FLASHLIGHT_ON_CALL, 0);
+        mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
+        mFlashlightOnCall.setOnPreferenceChangeListener(this);
+
+        if (!BlissUtils.deviceSupportsFlashLight(getActivity())) {
+            prefSet.removePreference(FlashOnCall);
         }
 
         mShowCpuInfo = (SwitchPreference) findPreference(SHOW_CPU_INFO_KEY);
@@ -124,12 +137,12 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
         if (preference == mFingerprintVib) {
             boolean value = (Boolean) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(resolver,
                     Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
             return true;
         } else if (preference == mFingerprintVibErr) {
             boolean value = (Boolean) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(resolver,
                     Settings.System.FP_ERROR_VIBRATE, value ? 1 : 0);
             return true;
         } else if (preference == mShowCpuInfo) {
@@ -137,8 +150,14 @@ public class MiscSettings extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mSmartPixelsEnabled) {
             boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(),
+            Settings.System.putInt(resolver,
 		            SMART_PIXELS_ENABLED, value ? 1 : 0);
+            return true;
+        } else if (preference == mFlashlightOnCall) {
+            int flashlightValue = Integer.parseInt(((String) objValue).toString());
+            Settings.System.putInt(resolver,
+                  Settings.System.FLASHLIGHT_ON_CALL, flashlightValue);
+            mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
             return true;
         }
         return false;
