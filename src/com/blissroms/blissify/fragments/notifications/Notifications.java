@@ -46,6 +46,7 @@ import android.view.View;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.internal.util.bliss.BlissUtils;
 import android.util.Log;
 
 import java.util.List;
@@ -66,12 +67,14 @@ public class Notifications extends SettingsPreferenceFragment implements
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
+    private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
 
     private SwitchPreference mSmsBreath;
     private SwitchPreference mMissedCallBreath;
     private SwitchPreference mVoicemailBreath;
     private GlobalSettingMasterSwitchPreference mHeadsUpEnabled;
     private ColorPickerPreference mEdgeLightColorPreference;
+    private ListPreference mFlashlightOnCall;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -114,6 +117,17 @@ public class Notifications extends SettingsPreferenceFragment implements
             prefSet.removePreference(mVoicemailBreath);
         }
 
+        mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
+        Preference FlashOnCall = findPreference("flashlight_on_call");
+        int flashlightValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.FLASHLIGHT_ON_CALL, 0);
+        mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
+        mFlashlightOnCall.setOnPreferenceChangeListener(this);
+
+        if (!BlissUtils.deviceSupportsFlashLight(getActivity())) {
+            prefSet.removePreference(FlashOnCall);
+        }
+
         mEdgeLightColorPreference = (ColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
@@ -136,22 +150,24 @@ public class Notifications extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
+        ContentResolver resolver = getActivity().getContentResolver();
+
         if (preference == mHeadsUpEnabled) {
             boolean value = (Boolean) newValue;
-            Settings.Global.putInt(getContentResolver(),
+            Settings.Global.putInt(resolver,
 		            HEADS_UP_NOTIFICATIONS_ENABLED, value ? 1 : 0);
             return true;
         } else if (preference == mSmsBreath) {
                 boolean value = (Boolean) newValue;
-                Settings.Global.putInt(getContentResolver(), SMS_BREATH, value ? 1 : 0);
+                Settings.Global.putInt(resolver, SMS_BREATH, value ? 1 : 0);
                 return true;
         } else if (preference == mMissedCallBreath) {
                 boolean value = (Boolean) newValue;
-                Settings.Global.putInt(getContentResolver(), MISSED_CALL_BREATH, value ? 1 : 0);
+                Settings.Global.putInt(resolver, MISSED_CALL_BREATH, value ? 1 : 0);
                 return true;
         } else if (preference == mVoicemailBreath) {
                 boolean value = (Boolean) newValue;
-                Settings.System.putInt(getContentResolver(), VOICEMAIL_BREATH, value ? 1 : 0);
+                Settings.System.putInt(resolver, VOICEMAIL_BREATH, value ? 1 : 0);
                 return true;
         } else if (preference == mEdgeLightColorPreference) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -162,8 +178,14 @@ public class Notifications extends SettingsPreferenceFragment implements
                 preference.setSummary(hex);
             }
             int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getContentResolver(),
+            Settings.System.putInt(resolver,
                     Settings.System.PULSE_AMBIENT_LIGHT_COLOR, intHex);
+            return true;
+        } else if (preference == mFlashlightOnCall) {
+            int flashlightValue = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putInt(resolver,
+                  Settings.System.FLASHLIGHT_ON_CALL, flashlightValue);
+            mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
             return true;
         }
         return false;

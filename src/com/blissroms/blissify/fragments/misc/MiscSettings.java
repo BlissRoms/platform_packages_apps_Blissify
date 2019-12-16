@@ -58,14 +58,15 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String FP_ERROR_VIBRATE = "fp_error_vibrate";
-
     private static final String SMART_PIXELS_ENABLED = "smart_pixels_enable";
+
 
     private SystemSettingMasterSwitchPreference mSmartPixelsEnabled;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mFingerprintVibErr;
     private SwitchPreference mShowCpuInfo;
+
 
     private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
 
@@ -88,6 +89,8 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                 Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
         mFingerprintVib.setOnPreferenceChangeListener(this);
         }
+
+
 
         mShowCpuInfo = (SwitchPreference) findPreference(SHOW_CPU_INFO_KEY);
         mShowCpuInfo.setChecked(Settings.Global.getInt(getActivity().getContentResolver(),
@@ -124,12 +127,12 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
         if (preference == mFingerprintVib) {
             boolean value = (Boolean) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(resolver,
                     Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
             return true;
         } else if (preference == mFingerprintVibErr) {
             boolean value = (Boolean) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(resolver,
                     Settings.System.FP_ERROR_VIBRATE, value ? 1 : 0);
             return true;
         } else if (preference == mShowCpuInfo) {
@@ -137,7 +140,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mSmartPixelsEnabled) {
             boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(),
+            Settings.System.putInt(resolver,
 		            SMART_PIXELS_ENABLED, value ? 1 : 0);
             return true;
         }
