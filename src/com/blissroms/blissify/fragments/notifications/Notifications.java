@@ -68,10 +68,16 @@ public class Notifications extends SettingsPreferenceFragment implements
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
     private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
+    private static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
+    private static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
+    private static final String VIBRATE_ON_DISCONNECT = "vibrate_on_disconnect";
 
     private SwitchPreference mSmsBreath;
     private SwitchPreference mMissedCallBreath;
     private SwitchPreference mVoicemailBreath;
+    private SwitchPreference mVibOnConnect;
+    private SwitchPreference mVibOnWait;
+    private SwitchPreference mVibOnDisconnect;
     private GlobalSettingMasterSwitchPreference mHeadsUpEnabled;
     private ColorPickerPreference mEdgeLightColorPreference;
     private ListPreference mFlashlightOnCall;
@@ -96,6 +102,11 @@ public class Notifications extends SettingsPreferenceFragment implements
         mMissedCallBreath = (SwitchPreference) findPreference(MISSED_CALL_BREATH);
         mVoicemailBreath = (SwitchPreference) findPreference(VOICEMAIL_BREATH);
 
+        // In-Call Vibration options
+        mVibOnConnect = (SwitchPreference) findPreference(VIBRATE_ON_CONNECT);
+        mVibOnWait = (SwitchPreference) findPreference(VIBRATE_ON_CALLWAITING);
+        mVibOnDisconnect = (SwitchPreference) findPreference(VIBRATE_ON_DISCONNECT);
+
         ConnectivityManager cm = (ConnectivityManager)
                 getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -114,6 +125,9 @@ public class Notifications extends SettingsPreferenceFragment implements
         } else {
             prefSet.removePreference(mSmsBreath);
             prefSet.removePreference(mMissedCallBreath);
+            prefSet.removePreference(mVoicemailBreath);
+            prefSet.removePreference(mVibOnConnect);
+            prefSet.removePreference(mVibOnWait);
             prefSet.removePreference(mVoicemailBreath);
         }
 
