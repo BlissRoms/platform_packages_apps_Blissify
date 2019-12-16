@@ -461,6 +461,7 @@
     <string name="status_bar_volte_style_4">Square 2 tone</string>
     <string name="status_bar_volte_style_5">Oneplus</string>
     <string name="status_bar_volte_style_6">Notch friendly</string>
+    <string name="status_bar_volte_style_7">VoLIT Icon</string>
 
     <!-- Data disabled indicator -->
     <string name="data_disabled_icon_title">Data disabled indicator</string>
