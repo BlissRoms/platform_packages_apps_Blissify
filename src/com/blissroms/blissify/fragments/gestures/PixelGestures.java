@@ -55,12 +55,24 @@ import java.util.Collections;
 public class PixelGestures extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String AWARE_CATEGORY = "aware_settings";
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.blissify_pixel_gestures);
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        Preference Aware = findPreference(AWARE_CATEGORY);
+        if (!getResources().getBoolean(R.bool.has_aware)) {
+            getPreferenceScreen().removePreference(Aware);
+        } else {
+            if (!SystemProperties.getBoolean(
+                    "ro.vendor.aware_available", false)) {
+                getPreferenceScreen().removePreference(Aware);
+            }
+        }
 
     }
 
