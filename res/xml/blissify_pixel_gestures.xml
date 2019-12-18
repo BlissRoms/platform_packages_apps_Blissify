@@ -15,4 +15,10 @@
     android:key="gestures_settings"
     android:title="@string/blissify_pixel_gestures_title">
 
+    <com.google.android.settings.aware.AwareSettingsDialogPreference
+        android:key="aware_settings"
+        android:icon="@drawable/ic_bliss_aware"
+        android:title="@string/aware_settings_title"
+        android:summary="@string/aware_settings_summary" />
+
 </PreferenceScreen>
