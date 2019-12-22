@@ -43,6 +43,19 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="lockscreen_content_category"
+        android:title="@string/lockscreen_display_category" >
+
+       <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_date_display"
+            android:title="@string/lockscreen_date_title"
+            android:summaryOn="@string/lockscreen_date_summaryOn"
+            android:summaryOff="@string/lockscreen_date_summaryOff"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="lockscreen_charging_category"
         android:title="@string/lockscreen_charging_category" >
 
