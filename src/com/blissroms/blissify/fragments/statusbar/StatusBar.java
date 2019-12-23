@@ -72,6 +72,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
 
     private static final String TEXT_CHARGING_SYMBOL = "text_charging_symbol";
+    private static final String STATUS_BAR_BATTERY_BAR = "batterybar_settings";
 
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
@@ -82,6 +83,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private PreferenceCategory mStatusBarBatteryCategory;
     private PreferenceCategory mStatusBarClockCategory;
     private PreferenceScreen mNetworkTrafficPref;
+    private PreferenceScreen mBatteryBarPref;
 
     private static boolean sHasNotch;
 
@@ -103,6 +105,9 @@ public class StatusBar extends SettingsPreferenceFragment
         mStatusBarBatteryCategory =
                 (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_BATTERY);
 
+        mBatteryBarPref =
+                (PreferenceScreen) getPreferenceScreen().findPreference(STATUS_BAR_BATTERY_BAR);
+
         mTextChargingSymbol = (ListPreference) findPreference(TEXT_CHARGING_SYMBOL);
     }
 
@@ -123,6 +128,12 @@ public class StatusBar extends SettingsPreferenceFragment
             getPreferenceScreen().removePreference(mStatusBarBatteryCategory);
         } else {
             getPreferenceScreen().addPreference(mStatusBarBatteryCategory);
+        }
+
+        if (sHasNotch) {
+            getPreferenceScreen().removePreference(mBatteryBarPref);
+        } else {
+            getPreferenceScreen().addPreference(mBatteryBarPref);
         }
 
         // Adjust status bar preferences for RTL
