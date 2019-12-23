@@ -48,6 +48,7 @@ import java.util.Locale;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.android.internal.util.bliss.BlissUtils;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import android.util.Log;
@@ -72,6 +73,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
 
     private static final String TEXT_CHARGING_SYMBOL = "text_charging_symbol";
+    private static final String STATUS_BAR_BATTERY_BAR = "batterybar_settings";
 
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
@@ -82,6 +84,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private PreferenceCategory mStatusBarBatteryCategory;
     private PreferenceCategory mStatusBarClockCategory;
     private PreferenceScreen mNetworkTrafficPref;
+    private PreferenceScreen mBatteryBarPref;
 
     private static boolean sHasNotch;
 
@@ -103,7 +106,15 @@ public class StatusBar extends SettingsPreferenceFragment
         mStatusBarBatteryCategory =
                 (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_BATTERY);
 
+        mBatteryBarPref =
+                (PreferenceScreen) getPreferenceScreen().findPreference(STATUS_BAR_BATTERY_BAR);
+
         mTextChargingSymbol = (ListPreference) findPreference(TEXT_CHARGING_SYMBOL);
+
+        if (!BlissUtils.hasNotch(getContext())) {
+            getPreferenceScreen().removePreference(mBatteryBarPref);
+        }
+
     }
 
     @Override
