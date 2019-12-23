@@ -901,10 +901,4 @@
     <string name="screenshot_type_fullscreen">Full</string>
     <string name="screenshot_type_partial">Partial</string>
 
-    <!-- Lock screen content -->
-    <string name="lockscreen_display_category">Content options</string>
-    <string name="lockscreen_date_title">Date display</string>
-    <string name="lockscreen_date_summaryOff">Date display hidden, this includes AOSP weather</string>
-    <string name="lockscreen_date_summaryOn">Date display enabled</string>
-
 </resources>
