@@ -940,4 +940,8 @@
     <string name="qs_services_toggle_title">Running Services icon</string>
     <string name="qs_services_toggle_summary">Display Running Services icon in quick settings footer</string>
 
+    <!-- QS Users -->
+    <string name="qs_user_toggle_title">User switcher icon</string>
+    <string name="qs_user_toggle_summary">Display Multi-user switcher icon in quick settings footer</string>
+
 </resources>

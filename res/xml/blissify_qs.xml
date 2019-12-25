@@ -86,6 +86,12 @@
             android:summary="@string/qs_services_toggle_summary"
             android:defaultValue="false"/>
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_user_toggle"
+            android:title="@string/qs_user_toggle_title"
+            android:summary="@string/qs_user_toggle_summary"
+            android:defaultValue="true"/>
+
     </PreferenceCategory>
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
