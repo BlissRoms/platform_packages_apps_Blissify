@@ -930,4 +930,9 @@
     <string name="sb_weather_statusbar">Status bar</string>
     <string name="sb_weather_header">Expanded header</string>
 
+    <!-- Notification Vibration -->
+    <string name="notifications_vib_category">Notification Options</string>
+    <string name="vibrate_on_notifications_title">Notification vibration</string>
+    <string name="vibrate_on_notifications_summary">Vibrate on notifications</string>
+
 </resources>
