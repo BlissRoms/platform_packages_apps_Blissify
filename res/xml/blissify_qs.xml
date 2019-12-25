@@ -76,6 +76,18 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/qs_footer_options"
+        android:icon="@drawable/ic_blissify_qs">
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_services_toggle"
+            android:title="@string/qs_services_toggle_title"
+            android:summary="@string/qs_services_toggle_summary"
+            android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="qs_panel_bg_alpha"
             android:title="@string/qs_panel_alpha_title"

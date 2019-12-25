@@ -935,4 +935,9 @@
     <string name="vibrate_on_notifications_title">Notification vibration</string>
     <string name="vibrate_on_notifications_summary">Vibrate on notifications</string>
 
+    <!-- QS Running Services -->
+    <string name="qs_footer_options">Quick Settings Footer</string>
+    <string name="qs_services_toggle_title">Running Services icon</string>
+    <string name="qs_services_toggle_summary">Display Running Services icon in quick settings footer</string>
+
 </resources>
