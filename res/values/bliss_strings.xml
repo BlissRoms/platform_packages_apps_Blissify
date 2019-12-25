@@ -951,4 +951,9 @@
     <string name="qs_footer_edit_title">Edit icon</string>
     <string name="qs_footer_edit_summary">Display the tile edit icon in quick settings footer</string>
 
+    <!-- Notification Vibration -->
+    <string name="notifications_vib_category">Notification Options</string>
+    <string name="vibrate_on_notifications_title">Notification vibration</string>
+    <string name="vibrate_on_notifications_summary">Vibrate on notifications</string>
+
 </resources>
