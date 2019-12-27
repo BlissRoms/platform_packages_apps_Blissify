@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b027ce0d_cc3c3dd3",
+        "filename": "res/xml/statusbar_advanced_icons.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2019-12-27T16:25:33Z",
+      "side": 1,
+      "message": "status \u003e nstatus",
+      "revId": "abab42cde74bc98a9ddc7ec18a222035fa5184d7",
+      "serverId": "b7386340-edb3-408c-9cac-98e148952b30",
+      "unresolved": true
+    }
+  ]
+}
