@@ -147,6 +147,8 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
                 Settings.System.STATUS_BAR_LOGO_POSITION, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_LOGO_STYLE, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.USE_OLD_MOBILETYPE, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
