@@ -136,8 +136,8 @@ public class Notifications extends SettingsPreferenceFragment implements
 
         mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
         Preference FlashOnCall = findPreference("flashlight_on_call");
-        int flashlightValue = Settings.System.getInt(getContentResolver(),
-                Settings.System.FLASHLIGHT_ON_CALL, 0);
+        int flashlightValue = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.FLASHLIGHT_ON_CALL, 0, UserHandle.USER_CURRENT);
         mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
         mFlashlightOnCall.setOnPreferenceChangeListener(this);
 
@@ -211,8 +211,8 @@ public class Notifications extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mFlashlightOnCall) {
             int flashlightValue = Integer.parseInt(((String) newValue).toString());
-            Settings.System.putInt(resolver,
-                  Settings.System.FLASHLIGHT_ON_CALL, flashlightValue);
+            Settings.System.putIntForUser(resolver,
+                  Settings.System.FLASHLIGHT_ON_CALL, flashlightValue, UserHandle.USER_CURRENT);
             mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
             return true;
         }
