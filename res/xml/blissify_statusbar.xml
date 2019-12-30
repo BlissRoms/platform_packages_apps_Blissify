@@ -119,6 +119,7 @@
       <Preference
           android:key="advanced_icons"
           android:title="@string/statusbar_advanced_icons"
+          android:summary="@string/statusbar_advanced_icons_summary"
           android:fragment="com.blissroms.blissify.fragments.statusbar.AdvancedStatusbar" />
 
       <PreferenceScreen

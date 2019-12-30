@@ -46,6 +46,9 @@
     <string name="tile_anim">Tile</string>
     <string name="misc_anim">Misc options</string>
     <string name="misc_category_title">MISC</string>
+    <string name="status_bar_logo_category">Status Bar Logo</string>
+    <string name="status_bar_weather_category">Status Bar Weather</string>
+    <string name="system_icons_category">System Icons</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
@@ -445,6 +448,7 @@
 
     <!--statusbar advanced system icons -->
     <string name="statusbar_advanced_icons">Advanced System Icons</string>
+    <string name="statusbar_advanced_icons_summary">Logo, Weather, volte, 4g, data, bt</string> 
 
     <string name="volte_icon_title">VoLTE icon</string>
     <string name="volte_icon_summary">Display VoLTE icon when available</string>
