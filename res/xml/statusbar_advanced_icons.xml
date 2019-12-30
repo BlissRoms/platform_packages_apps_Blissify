@@ -20,13 +20,11 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="use_old_mobiletype"
-            android:title="@string/use_old_mobiletype_title"
-            android:summary="@string/use_old_mobiletype_summary"
-            android:defaultValue="false" />
+    <PreferenceCategory
+        android:key="status_bar_logo"
+        android:icon="@drawable/ic_statusbar_icons"
+        android:title="@string/status_bar_logo_category" >
 
-    <!-- Status bar bliss logo -->
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="status_bar_logo"
             android:title="@string/status_bar_bliss_logo_title"
@@ -56,6 +54,13 @@
             android:defaultValue="0"
             android:dependency="status_bar_logo" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="status_bar_weather_category"
+        android:icon="@drawable/ic_weather"
+        android:title="@string/status_bar_weather_category" >
+
        <com.bliss.support.preferences.SystemSettingListPreference
             android:key="status_bar_show_weather_temp"
             android:title="@string/statusbar_weather_title"
@@ -73,17 +78,31 @@
             android:summary="%s"
             android:defaultValue="0" />
 
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="bluetooth_show_battery"
-            android:title="@string/bluetooth_battery_title"
-            android:summary="@string/bluetooth_battery_summary"
-            android:defaultValue="true"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="system_icons_category"
+        android:icon="@drawable/ic_statusbar_icons"
+        android:title="@string/system_icons_category" >
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="show_volte_icon"
             android:icon="@drawable/ic_volte"
             android:title="@string/volte_icon_title"
             android:summary="@string/volte_icon_summary"
+            android:defaultValue="false"/>
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="use_old_mobiletype"
+            android:title="@string/use_old_mobiletype_title"
+            android:summary="@string/use_old_mobiletype_summary"
+            android:defaultValue="false" />
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="show_fourg_icon"
+            android:icon="@drawable/ic_fourg_icon"
+            android:title="@string/show_fourg_icon_title"
+            android:summary="@string/show_fourg_icon_summary"
             android:defaultValue="false"/>
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -101,10 +120,11 @@
             android:defaultValue="true"/>
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="show_fourg_icon"
-            android:icon="@drawable/ic_fourg_icon"
-            android:title="@string/show_fourg_icon_title"
-            android:summary="@string/show_fourg_icon_summary"
-            android:defaultValue="false"/>
+            android:key="bluetooth_show_battery"
+            android:title="@string/bluetooth_battery_title"
+            android:summary="@string/bluetooth_battery_summary"
+            android:defaultValue="true"/>
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
