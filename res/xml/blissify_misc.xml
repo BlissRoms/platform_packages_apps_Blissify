@@ -41,6 +41,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="oneui_actionbar"
+        android:icon="@drawable/ic_items"
+        android:title="@string/enable_oneui">
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+         android:key="settings_spacer"
+         android:title="@string/enable_oneui"
+         android:summary="@string/enable_oneui_summary"
+         android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="suspend_actions"
         android:icon="@drawable/ic_screen_off"
         android:title="@string/screen_state_toggles_title">
