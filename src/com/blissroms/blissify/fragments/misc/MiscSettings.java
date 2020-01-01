@@ -81,7 +81,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_VIB);
         mFingerprintVibErr = (SwitchPreference) findPreference(FP_ERROR_VIBRATE);
-        if (!mFingerprintManager.isHardwareDetected()){
+        if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected()){
             prefSet.removePreference(mFingerprintVib);
             prefSet.removePreference(mFingerprintVibErr);
         } else {
