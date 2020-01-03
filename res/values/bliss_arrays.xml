@@ -358,13 +358,13 @@
         <item>6</item>
     </string-array>
 
-    <string-array name="status_bar_battery_percentage_entries" translatable="false">
+    <string-array name="battery_percentage_entries" translatable="false">
         <item>@string/battery_percentage_off</item>
         <item>@string/battery_percentage_next</item>
         <item>@string/battery_percentage_inside</item>
     </string-array>
 
-    <string-array name="status_bar_battery_percentage_values" translatable="false">
+    <string-array name="battery_percentage_values" translatable="false">
         <item>0</item>
         <item>2</item>
         <item>1</item>
@@ -637,21 +637,6 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
-    </string-array>
-
-    <!-- quick settings battery mode  -->
-    <string-array name="qs_battery_mode_entries">
-        <item>@string/battery_percentage_off</item>
-        <item>@string/battery_percentage_next</item>
-        <item>@string/battery_percentage_inside</item>
-        <item>@string/battery_percentage_estimate</item>
-    </string-array>
-
-    <string-array name="qs_battery_mode_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
     </string-array>
 
     <!-- Status bar logo position -->
