@@ -36,6 +36,8 @@ import com.android.settings.R;
 import com.bliss.support.colorpicker.ColorPickerPreference;
 import com.bliss.support.preferences.CustomSeekBarPreference;
 
+import com.android.internal.util.bliss.BlissUtils;
+
 public class BatteryBar extends SettingsPreferenceFragment
             implements Preference.OnPreferenceChangeListener  {
 
@@ -73,6 +75,11 @@ public class BatteryBar extends SettingsPreferenceFragment
         boolean showing = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUSBAR_BATTERY_BAR, 0, UserHandle.USER_CURRENT) != 0;
         mBatteryBar.setChecked(showing);
+
+        if (!BlissUtils.hasNotch(getContext())) {
+        mBatteryBar.SetEnabled(false);
+        }
+
         mBatteryBar.setOnPreferenceChangeListener(this);
 
         mBatteryBarColor = (ColorPickerPreference) prefSet.findPreference(PREF_BATT_BAR_COLOR);
