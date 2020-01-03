@@ -74,6 +74,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
 
     private static final String TEXT_CHARGING_SYMBOL = "text_charging_symbol";
+    private static final String CATEGORY_BATTERY_BAR = "batterybar_key";
 
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
@@ -84,6 +85,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private PreferenceCategory mStatusBarBatteryCategory;
     private PreferenceCategory mStatusBarClockCategory;
     private PreferenceScreen mNetworkTrafficPref;
+    private PreferenceCategory mBatteryBarCategory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -99,6 +101,9 @@ public class StatusBar extends SettingsPreferenceFragment
 
         mStatusBarBatteryCategory =
                 (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_BATTERY);
+
+        mBatteryBarCategory =
+                (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_BATTERY_BAR);
 
         mTextChargingSymbol = (ListPreference) findPreference(TEXT_CHARGING_SYMBOL);
     }
@@ -120,6 +125,12 @@ public class StatusBar extends SettingsPreferenceFragment
             getPreferenceScreen().removePreference(mStatusBarBatteryCategory);
         } else {
             getPreferenceScreen().addPreference(mStatusBarBatteryCategory);
+        }
+
+        if (BlissUtils.hasNotch(getContext())) {
+            getPreferenceScreen().removePreference(mBatteryBarCategory);
+        } else {
+            getPreferenceScreen().addPreference(mBatteryBarCategory);
         }
 
         // Adjust status bar preferences for RTL

@@ -83,6 +83,13 @@
             android:entryValues="@array/text_charging_symbol_values"
             android:defaultValue="0" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="batterybar_key"
+        android:icon="@drawable/ic_battery_bar"
+        android:title="@string/battery_bar_title">
+
         <Preference
             android:key="batterybar_settings"
             android:title="@string/battery_bar_title"
