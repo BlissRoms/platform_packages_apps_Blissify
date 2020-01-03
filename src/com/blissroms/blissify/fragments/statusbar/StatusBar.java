@@ -61,6 +61,8 @@ import java.util.HashMap;
 import java.util.Collections;
 import java.util.Set;
 
+import com.android.internal.util.bliss.BlissUtils;
+
 public class StatusBar extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
@@ -127,14 +129,14 @@ public class StatusBar extends SettingsPreferenceFragment
 
         // Adjust status bar preferences for RTL
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
-            if (sHasNotch) {
+            if (BlissUtils.hasNotch(getContext())) {
                 mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch_rtl);
                 mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch_rtl);
             } else {
                 mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_rtl);
                 mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_rtl);
             }
-        } else if (sHasNotch) {
+        } else if (BlissUtils.hasNotch(getContext())) {
             mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch);
             mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch);
         } else {
