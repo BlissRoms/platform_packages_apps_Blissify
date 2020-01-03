@@ -57,13 +57,13 @@ import java.util.Collections;
 public class AdvancedStatusbar extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-    private static final String KEY_SHOW_VOLTE = "show_volte_icon";
+    private static final String KEY_SHOW_VOLTE = "volte_icon_style";
     private static final String KEY_SHOW_DATA_DISABLED = "data_disabled_icon";
     private static final String KEY_SHOW_ROAMING = "roaming_indicator_icon";
     private static final String KEY_SHOW_FOURG = "show_fourg_icon";
     private static final String BLISS_LOGO_COLOR = "status_bar_logo_color";
 
-    private SwitchPreference mShowVolte;
+    private ListPreference mShowVolte;
     private SwitchPreference mDataDisabled;
     private SwitchPreference mShowRoaming;
     private SwitchPreference mShowFourg;
@@ -79,7 +79,7 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
 
-        mShowVolte = (SwitchPreference) findPreference(KEY_SHOW_VOLTE);
+        mShowVolte = (ListPreference) findPreference(KEY_SHOW_VOLTE);
         mDataDisabled = (SwitchPreference) findPreference(KEY_SHOW_DATA_DISABLED);
         mShowRoaming = (SwitchPreference) findPreference(KEY_SHOW_ROAMING);
         mShowFourg = (SwitchPreference) findPreference(KEY_SHOW_FOURG);
@@ -130,7 +130,7 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
         ContentResolver resolver = mContext.getContentResolver();
 
         Settings.System.putIntForUser(resolver,
-                Settings.System.SHOW_VOLTE_ICON, 0, UserHandle.USER_CURRENT);
+                Settings.System.VOLTE_ICON_STYLE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.DATA_DISABLED_ICON, 1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,

@@ -451,7 +451,13 @@
     <string name="statusbar_advanced_icons_summary">Logo, Weather, volte, 4g, data, bt</string> 
 
     <string name="volte_icon_title">VoLTE icon</string>
-    <string name="volte_icon_summary">Display VoLTE icon when available</string>
+    <string name="status_bar_volte_disabled">Disabled</string>
+    <string name="status_bar_volte_style_1">Style 1</string>
+    <string name="status_bar_volte_style_2">Style 2</string>
+    <string name="status_bar_volte_style_3">Style 3</string>
+    <string name="status_bar_volte_style_4">Style 4</string>
+    <string name="status_bar_volte_style_5">Style 5</string>
+    <string name="status_bar_volte_style_6">Style 6</string>
 
     <!-- Data disabled indicator -->
     <string name="data_disabled_icon_title">Data disabled indicator</string>
