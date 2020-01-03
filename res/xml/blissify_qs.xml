@@ -191,6 +191,24 @@
         android:title="@string/battery_options"
         android:icon="@drawable/ic_battery_bar">
 
+        <!-- Battery styles -->
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="qs_battery_style"
+            android:title="@string/status_bar_battery_style_title"
+            android:dialogTitle="@string/status_bar_battery_style_title"
+            android:entries="@array/qs_battery_style_entries"
+            android:entryValues="@array/qs_battery_style_values"
+            android:defaultValue="-1" />
+
+        <!-- Battery location -->
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="qs_battery_location"
+            android:title="@string/qs_battery_location_title"
+            android:dialogTitle="@string/qs_battery_location_title"
+            android:entries="@array/qs_battery_location_entries"
+            android:entryValues="@array/qs_battery_location_values"
+            android:defaultValue="0" />
+
         <!-- Battery percent -->
         <com.bliss.support.preferences.SystemSettingListPreference
             android:key="qs_show_battery_percent"
