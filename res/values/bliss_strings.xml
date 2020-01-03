@@ -451,7 +451,13 @@
     <string name="statusbar_advanced_icons_summary">Logo, Weather, volte, 4g, data, bt</string> 
 
     <string name="volte_icon_title">VoLTE icon</string>
-    <string name="volte_icon_summary">Display VoLTE icon when available</string>
+    <string name="status_bar_volte_disabled">Disabled</string>
+    <string name="status_bar_volte_style_1">Bliss Style</string>
+    <string name="status_bar_volte_style_2">Sony</string>
+    <string name="status_bar_volte_style_3">Pill shape</string>
+    <string name="status_bar_volte_style_4">Square 2 tone</string>
+    <string name="status_bar_volte_style_5">Oneplus</string>
+    <string name="status_bar_volte_style_6">Notch friendly</string>
 
     <!-- Data disabled indicator -->
     <string name="data_disabled_icon_title">Data disabled indicator</string>
