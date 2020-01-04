@@ -30,6 +30,12 @@
         android:summary="@string/lockscreen_show_status_bar_summary"
         android:defaultValue="true" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_lock_icon"
+        android:title="@string/lockscreen_lock_icon_title"
+        android:summary="@string/lockscreen_lock_icon_summary"
+        android:defaultValue="true" />
+
     <PreferenceCategory
         android:key="lockscreen_shortcuts_category"
         android:title="@string/lockscreen_shortcuts_category" >

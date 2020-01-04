@@ -966,6 +966,10 @@
     <string name="footer_text_show_title">Display footer text</string>
     <string name="footer_text_show_summary">Toogle to show custom text on qs footer</string>
     <string name="footer_text_string_title">Customize footer text</string>
-    <string name="footer_text_string_summary">Set to empty for default #BlissRoms</string> 
+    <string name="footer_text_string_summary">Set to empty for default #BlissRoms</string>
+
+    <!-- Lockscreen lock icon -->
+    <string name="lockscreen_lock_icon_title">Lock icon</string>
+    <string name="lockscreen_lock_icon_summary">Display lock icon on the lockscreen</string>
 
 </resources>
