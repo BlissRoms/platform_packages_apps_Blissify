@@ -38,7 +38,7 @@
             android:id="@+id/fodicon1_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
-            android:src="@drawable/fod_icon_default_0"
+            android:src="@drawable/fod_icon_bliss"
             android:scaleType="centerInside"
             android:padding="@dimen/fod_picker_item_padding"
             android:layout_margin="@dimen/fod_picker_item_margin"
@@ -114,16 +114,6 @@
             android:id="@+id/fodicon7_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
-            android:src="@drawable/fod_icon_arc_reactor"
-            android:scaleType="centerInside"
-            android:padding="@dimen/fod_picker_item_padding"
-            android:layout_margin="@dimen/fod_picker_item_margin"
-            android:background="@drawable/fod_picker_item_background"/>
-
-        <ImageButton
-            android:id="@+id/fodicon8_button"
-            android:layout_width="@dimen/fod_picker_item_size"
-            android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_cpt_america_flat"
             android:scaleType="centerInside"
             android:padding="@dimen/fod_picker_item_padding"
@@ -131,7 +121,7 @@
             android:background="@drawable/fod_picker_item_background"/>
 
         <ImageButton
-            android:id="@+id/fodicon9_button"
+            android:id="@+id/fodicon8_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_cpt_america_flat_gray"
@@ -149,7 +139,7 @@
         android:gravity="center">
 
         <ImageButton
-            android:id="@+id/fodicon10_button"
+            android:id="@+id/fodicon9_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_dragon_black_flat"
@@ -159,7 +149,7 @@
             android:background="@drawable/fod_picker_item_background"/>
 
         <ImageButton
-            android:id="@+id/fodicon11_button"
+            android:id="@+id/fodicon10_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_future"
@@ -169,7 +159,7 @@
             android:background="@drawable/fod_picker_item_background"/>
 
         <ImageButton
-            android:id="@+id/fodicon12_button"
+            android:id="@+id/fodicon11_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_glow_circle"
@@ -187,7 +177,7 @@
         android:gravity="center">
 
         <ImageButton
-            android:id="@+id/fodicon13_button"
+            android:id="@+id/fodicon12_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_neon_arc"
@@ -197,7 +187,7 @@
             android:background="@drawable/fod_picker_item_background"/>
 
         <ImageButton
-            android:id="@+id/fodicon14_button"
+            android:id="@+id/fodicon13_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_neon_arc_gray"
@@ -207,7 +197,7 @@
             android:background="@drawable/fod_picker_item_background"/>
 
         <ImageButton
-            android:id="@+id/fodicon15_button"
+            android:id="@+id/fodicon14_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_neon_circle_pink"
@@ -225,7 +215,7 @@
         android:gravity="center">
 
         <ImageButton
-            android:id="@+id/fodicon16_button"
+            android:id="@+id/fodicon15_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_neon_triangle"
@@ -235,7 +225,7 @@
             android:background="@drawable/fod_picker_item_background"/>
 
         <ImageButton
-            android:id="@+id/fodicon17_button"
+            android:id="@+id/fodicon16_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_paint_splash_circle"
@@ -245,7 +235,7 @@
             android:background="@drawable/fod_picker_item_background"/>
 
         <ImageButton
-            android:id="@+id/fodicon18_button"
+            android:id="@+id/fodicon17_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_rainbow_horn"
@@ -263,7 +253,7 @@
         android:gravity="center">
 
         <ImageButton
-            android:id="@+id/fodicon19_button"
+            android:id="@+id/fodicon18_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_shooky"
@@ -273,7 +263,7 @@
             android:background="@drawable/fod_picker_item_background"/>
 
         <ImageButton
-            android:id="@+id/fodicon20_button"
+            android:id="@+id/fodicon19_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_spiral_blue"
@@ -283,7 +273,7 @@
             android:background="@drawable/fod_picker_item_background"/>
 
         <ImageButton
-            android:id="@+id/fodicon21_button"
+            android:id="@+id/fodicon20_button"
             android:layout_width="@dimen/fod_picker_item_size"
             android:layout_height="@dimen/fod_picker_item_size"
             android:src="@drawable/fod_icon_sun_metro"
@@ -293,4 +283,33 @@
             android:background="@drawable/fod_picker_item_background"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/fodicon21_button"
+            android:layout_width="@dimen/fod_picker_item_size"
+            android:layout_height="@dimen/fod_picker_item_size"
+            android:src="@drawable/fod_icon_arc_reactor"
+            android:scaleType="centerInside"
+            android:padding="@dimen/fod_picker_item_padding"
+            android:layout_margin="@dimen/fod_picker_item_margin"
+            android:background="@drawable/fod_picker_item_background"/>
+
+        <ImageButton
+            android:id="@+id/fodicon22_button"
+            android:layout_width="@dimen/fod_picker_item_size"
+            android:layout_height="@dimen/fod_picker_item_size"
+            android:src="@drawable/fod_icon_default_6"
+            android:scaleType="centerInside"
+            android:padding="@dimen/fod_picker_item_padding"
+            android:layout_margin="@dimen/fod_picker_item_margin"
+            android:background="@drawable/fod_picker_item_background"/>
+
+    </LinearLayout>
+
 </LinearLayout>
