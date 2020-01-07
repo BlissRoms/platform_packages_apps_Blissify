@@ -995,4 +995,19 @@
     <string name="fod_wallpaper_color">Use wallpaper color for FOD icon</string>
     <string name="fod_wallpaper_color_summary">Uses adjusted primary wallpaper color for FOD icon\nNOTE: might look good only with some wallpapers</string>
 
+    <!-- Lockscreen clock styles -->
+    <string name="lockscreen_clock_title">Clock style</string>
+    <string name="lockscreen_clock_dialog_title">Select clock style</string>
+    <string name="lockscreen_clock_selection_hidden">Hidden</string>
+    <string name="lockscreen_clock_selection_digital">Default</string>
+    <string name="lockscreen_clock_selection_digital_bold">Bold (digital)</string>
+    <string name="lockscreen_clock_selection_digital_small">Small (digital)</string>
+    <string name="lockscreen_clock_selection_digital_accent">Full accent (digital)</string>
+    <string name="lockscreen_clock_selection_digital_accent_min">Accent minutes (digital)</string>
+    <string name="lockscreen_clock_selection_digital_accent_hour">Accent hours (digital)</string>
+    <string name="lockscreen_clock_selection_sammy">Sammy</string>
+    <string name="lockscreen_clock_selection_sammy_bold">Sammy (bold)</string>
+    <string name="lockscreen_clock_selection_sammy_accent">Sammy accent</string>
+    <string name="lockscreen_clock_selection_sammy_accent_alt">Sammy accent(darker hour)</string>
+
 </resources>
