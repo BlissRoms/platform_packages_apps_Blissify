@@ -18,6 +18,8 @@ package com.blissroms.blissify.fragments.notifications;
 
 import com.android.internal.logging.nano.MetricsProto;
 
+import android.app.WallpaperColors;
+import android.app.WallpaperManager;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
@@ -26,10 +28,14 @@ import android.content.pm.ResolveInfo;
 import android.os.UserHandle;
 import android.content.ContentResolver;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.provider.Settings;
 import com.android.settings.R;
 import android.net.ConnectivityManager;
 
+import androidx.palette.graphics.Palette;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -69,6 +75,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
+    private static final String PULSE_AMBIENT_AUTO_COLOR = "pulse_ambient_auto_color";
     private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
     private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
     private static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
@@ -85,6 +92,8 @@ public class Notifications extends SettingsPreferenceFragment implements
     private ColorPickerPreference mEdgeLightColorPreference;
     private SystemSettingSeekBarPreference mEdgeLightDurationPreference;
     private ListPreference mFlashlightOnCall;
+    private SwitchPreference mEdgeLightAutoColor;
+    private WallpaperManager mWallManager;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -92,6 +101,7 @@ public class Notifications extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.blissify_notifications);
         PreferenceScreen prefSet = getPreferenceScreen();
+        Context mContext = getContext();
 
         final ContentResolver resolver = getActivity().getContentResolver();
 
@@ -165,6 +175,8 @@ public class Notifications extends SettingsPreferenceFragment implements
         int duration = Settings.System.getInt(getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2);
         mEdgeLightDurationPreference.setValue(duration);
+
+        mEdgeLightAutoColor = (SwitchPreference) findPreference(PULSE_AMBIENT_AUTO_COLOR);
     }
 
     @Override
@@ -207,6 +219,21 @@ public class Notifications extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver,
                     Settings.System.PULSE_AMBIENT_LIGHT_COLOR, intHex);
             return true;
+        } else if (preference == mEdgeLightAutoColor) {
+            try {
+                WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
+                Drawable wallpaperDrawable = wallpaperManager.getDrawable();
+                Bitmap bitmap = ((BitmapDrawable)wallpaperDrawable).getBitmap();
+                if (bitmap != null) {
+                        Palette p = Palette.from(bitmap).generate();
+                        int wallColor = p.getDominantColor(color);
+                        if (color != wallColor)
+                        color = wallColor;
+                }
+            } catch (Exception e) {
+                // Nothing to do
+            }
+            AmbientLightSettingsPreview.setAmbientLightPreviewColor(wallColor);
         } else if (preference == mEdgeLightDurationPreference) {
             int value = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
