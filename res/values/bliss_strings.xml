@@ -1042,4 +1042,7 @@
     <string name="font_notoserif_bold_italic">NotoSerif Bold Italic</string>
     <string name="font_size_title">Font size</string>
 
+    <!-- Lockscreen clock font size -->
+    <string name="clock_font_size_title">Clock font size</string>
+
 </resources>
