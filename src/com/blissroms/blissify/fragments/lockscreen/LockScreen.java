@@ -130,6 +130,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 Settings.System.LOCK_CLOCK_FONT_STYLE, 4, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.LOCK_DATE_FONT_STYLE, 14, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCK_CLOCK_FONT_SIZE , 54, UserHandle.USER_CURRENT);
     }
 
     @Override

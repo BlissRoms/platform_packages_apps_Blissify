@@ -197,6 +197,14 @@
             android:entryValues="@array/font_style_values"
             android:defaultValue="14" />
 
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="clock_font_size"
+            android:title="@string/clock_font_size_title"
+            android:max="101"
+            android:min="54"
+            settings:units="dp"
+            android:defaultValue="54" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
