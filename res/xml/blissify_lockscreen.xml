@@ -46,6 +46,14 @@
         android:entryValues="@array/font_style_values"
         android:defaultValue="4" />
 
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="lock_clock_font_size"
+        android:title="@string/clock_font_size_title"
+        android:max="108"
+        settings:min="54"
+        settings:units="dp"
+        android:defaultValue="58" />
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_date_hide"
         android:title="@string/lockscreen_date_hide_title"
