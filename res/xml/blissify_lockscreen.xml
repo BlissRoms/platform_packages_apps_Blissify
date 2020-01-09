@@ -36,13 +36,33 @@
         android:summary="@string/lockscreen_lock_icon_summary"
         android:defaultValue="true" />
 
-    <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="lockscreen_clock_selection"
-        android:title="@string/lockscreen_clock_title"
-        android:dialogTitle="@string/lockscreen_clock_dialog_title"
-        android:entries="@array/lockscreen_clock_selection_entries"
-        android:entryValues="@array/lockscreen_clock_selection_values"
-        android:defaultValue="2" />
+    <PreferenceCategory
+        android:key="lockscreen_clock_category"
+        android:title="@string/lockscreen_clockdate_category">
+
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="lockscreen_clock_selection"
+            android:title="@string/lockscreen_clock_title"
+            android:dialogTitle="@string/lockscreen_clock_dialog_title"
+            android:entries="@array/lockscreen_clock_selection_entries"
+            android:entryValues="@array/lockscreen_clock_selection_values"
+            android:defaultValue="2" />
+
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="lock_clock_font_style"
+            android:title="@string/clock_font_style_title"
+            android:entries="@array/font_style_entries"
+            android:entryValues="@array/font_style_values"
+            android:defaultValue="4" />
+
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="lock_date_font_style"
+            android:title="@string/date_font_style_title"
+            android:entries="@array/font_style_entries"
+            android:entryValues="@array/font_style_values"
+            android:defaultValue="14" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="lockscreen_shortcuts_category"
@@ -176,26 +196,6 @@
         android:title="@string/music_visualizer_title"
         android:summary="@string/music_visualizer_summary"
         android:fragment="com.blissroms.blissify.fragments.lockscreen.LockScreenVisualizer" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="lockscreen_clock_category"
-        android:title="@string/lockscreen_clockdate_category">
-
-        <com.bliss.support.preferences.SystemSettingListPreference
-            android:key="lock_clock_font_style"
-            android:title="@string/clock_font_style_title"
-            android:entries="@array/font_style_entries"
-            android:entryValues="@array/font_style_values"
-            android:defaultValue="4" />
-
-        <com.bliss.support.preferences.SystemSettingListPreference
-            android:key="lock_date_font_style"
-            android:title="@string/date_font_style_title"
-            android:entries="@array/font_style_entries"
-            android:entryValues="@array/font_style_values"
-            android:defaultValue="14" />
 
     </PreferenceCategory>
 
