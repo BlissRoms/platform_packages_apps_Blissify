@@ -54,6 +54,7 @@ import java.util.Collections;
 
 import lineageos.providers.LineageSettings;
 import lineageos.preference.LineageSystemSettingListPreference;
+import com.bliss.support.colorpicker.ColorPickerPreference;
 
 import com.bliss.support.preferences.SystemSettingEditTextPreference;
 
@@ -62,14 +63,18 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
     private static final String BLISS_FOOTER_TEXT_STRING = "footer_text_string";
+    private static final String QS_PANEL_COLOR = "qs_panel_color";
+    static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
 
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
 
+
     private LineageSystemSettingListPreference mQuickPulldown;
 
     private SystemSettingEditTextPreference mFooterString;
+    private ColorPickerPreference mQsPanelColor;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -84,6 +89,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
+
+        mQsPanelColor = (ColorPickerPreference) findPreference(QS_PANEL_COLOR);
+        mQsPanelColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.QS_PANEL_BG_COLOR, DEFAULT_QS_PANEL_COLOR, UserHandle.USER_CURRENT);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQsPanelColor.setSummary(hexColor);
+        mQsPanelColor.setNewPreviewColor(intColor);
 
         mFooterString = (SystemSettingEditTextPreference) findPreference(BLISS_FOOTER_TEXT_STRING);
         mFooterString.setOnPreferenceChangeListener(this);
@@ -117,6 +130,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             case STATUS_BAR_QUICK_QS_PULLDOWN:
                 int value = Integer.parseInt((String) newValue);
                 updateQuickPulldownSummary(value);
+                break;
+            case QS_PANEL_COLOR:
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_PANEL_BG_COLOR, intHex, UserHandle.USER_CURRENT);
                 break;
             case BLISS_FOOTER_TEXT_STRING:
             String text = (String) newValue;
