@@ -76,6 +76,10 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="qs_category"
+        android:title="@string/qs_themes_category_title" >
+
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="qs_panel_bg_alpha"
             android:title="@string/qs_panel_alpha_title"
@@ -84,6 +88,36 @@
             settings:min="0"
             android:defaultValue="255"
             settings:units="%" />
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_fw"
+            android:title="@string/qs_bg_use_fw"
+            android:summary="@string/qs_bg_use_fw_summary"
+            android:defaultValue="true"
+            android:disableDependentsState="true" />
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_wall"
+            android:title="@string/qs_bg_wall_title"
+            android:summary="@string/qs_bg_wall_summary"
+            android:defaultValue="false"
+            android:dependency="qs_panel_bg_use_fw" />
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_accent"
+            android:title="@string/qs_bg_accent_title"
+            android:summary="@string/qs_bg_accent_summary"
+            android:defaultValue="false"
+            android:dependency="qs_panel_bg_use_fw" />
+
+        <com.bliss.support.colorpicker.ColorPickerPreference
+            android:key="qs_panel_color"
+            android:title="@string/qs_panel_color_title"
+            android:defaultValue="0xffffff"
+            android:persistent="false"
+            android:dependency="qs_panel_bg_use_fw" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/tile_options"
