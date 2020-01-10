@@ -997,6 +997,19 @@
         <item>@string/font_notoserif_italic</item>
         <item>@string/font_notoserif_bold</item>
         <item>@string/font_notoserif_bold_italic</item>
+        <item>@string/font_aclonica</item>
+        <item>@string/font_amarante</item>
+        <item>@string/font_bariol</item>
+        <item>@string/font_cagliostro</item>
+        <item>@string/font_coolstory</item>
+        <item>@string/font_lgsmartgothic</item>
+        <item>@string/font_rosemary</item>
+        <item>@string/font_sonysketch</item>
+        <item>@string/font_surfer</item>
+        <item>@string/font_comicsans</item>
+        <item>@string/font_googlesans</item>
+        <item>@string/font_oneplusslate</item>
+        <item>@string/font_samsungone</item>
     </string-array>
 
     <string-array name="font_style_values" translatable="false">
@@ -1025,6 +1038,19 @@
         <item>22</item>
         <item>23</item>
         <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
     </string-array>
 
 </resources>

@@ -1040,6 +1040,19 @@
     <string name="font_notoserif_italic">NotoSerif Italic</string>
     <string name="font_notoserif_bold">NotoSerif Bold</string>
     <string name="font_notoserif_bold_italic">NotoSerif Bold Italic</string>
+    <string name="font_aclonica">Aclonica</string>
+    <string name="font_amarante">Amarante</string>
+    <string name="font_bariol">Bariol</string>
+    <string name="font_cagliostro">Cagliostro</string>
+    <string name="font_coolstory">CoolStory</string>
+    <string name="font_lgsmartgothic">LGSmartGothic</string>
+    <string name="font_rosemary">Rosemary</string>
+    <string name="font_sonysketch">SonySketch</string>
+    <string name="font_surfer">Surfer</string>
+    <string name="font_comicsans">ComicSans</string>
+    <string name="font_googlesans">GoogleSans</string>
+    <string name="font_oneplusslate">OneplusSlate</string>
+    <string name="font_samsungone">SamsungOne</string>
     <string name="font_size_title">Font size</string>
 
 </resources>
