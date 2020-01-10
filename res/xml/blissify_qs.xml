@@ -43,6 +43,14 @@
         android:title="@string/qs_columns_rows_category_title" >
 
         <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_columns_quickbar"
+            android:title="@string/sysui_qqs_count_title"
+            android:max="8"
+            android:min="5"
+            android:defaultValue="6"
+            settings:units="" />
+
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="qs_rows_portrait"
             android:title="@string/qs_rows_portrait_title"
             android:max="5"
