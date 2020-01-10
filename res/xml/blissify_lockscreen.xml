@@ -36,7 +36,7 @@
         android:summary="@string/lockscreen_lock_icon_summary"
         android:defaultValue="true" />
 
-    <com.bliss.support.preferences.SecureSettingListPreference
+    <com.bliss.support.preferences.SystemSettingListPreference
         android:key="lockscreen_clock_selection"
         android:title="@string/lockscreen_clock_title"
         android:dialogTitle="@string/lockscreen_clock_dialog_title"
