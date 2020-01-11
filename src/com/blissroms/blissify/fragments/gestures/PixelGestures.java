@@ -56,6 +56,7 @@ import java.util.Collections;
 public class PixelGestures extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String ACTIVE_EDGE_CATEGORY = "active_edge_category";
     private static final String AWARE_CATEGORY = "aware_settings";
 
     @Override
@@ -64,6 +65,16 @@ public class PixelGestures extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.blissify_pixel_gestures);
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        Preference ActiveEdge = findPreference(ACTIVE_EDGE_CATEGORY);
+        if (!getResources().getBoolean(R.bool.has_active_edge)) {
+            getPreferenceScreen().removePreference(ActiveEdge);
+        } else {
+            if (!getContext().getPackageManager().hasSystemFeature(
+                    "android.hardware.sensor.assist")) {
+                getPreferenceScreen().removePreference(ActiveEdge);
+            }
+        }
 
         Preference Aware = findPreference(AWARE_CATEGORY);
         if (!getResources().getBoolean(R.bool.has_aware)) {
