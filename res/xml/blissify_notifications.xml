@@ -161,6 +161,11 @@
         android:defaultValue="3000"
         settings:units="@string/unit_milliseconds" />
 
+    <Preference
+        android:key="ticker_warning"
+        android:selectable="false"
+        android:summary="@string/ticker_screen_footer" />
+
     </PreferenceCategory>
 
     <!-- Lockscreen Notificatios -->

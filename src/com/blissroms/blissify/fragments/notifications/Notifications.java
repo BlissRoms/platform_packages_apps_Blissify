@@ -66,6 +66,8 @@ import com.bliss.support.preferences.CustomSeekBarPreference;
 import com.bliss.support.preferences.SystemSettingListPreference;
 import com.bliss.support.preferences.GlobalSettingMasterSwitchPreference;
 
+import com.blissroms.blissify.utils.DeviceUtils;
+
 @SearchIndexable
 public class Notifications extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
@@ -85,6 +87,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
     private static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
     private static final String VIBRATE_ON_DISCONNECT = "vibrate_on_disconnect";
+    private static final String TICKER_SETTINGS = "status_bar_ticker";
 
     private PreferenceCategory mAlertSlider;
     private SwitchPreference mSmsBreath;
@@ -101,6 +104,8 @@ public class Notifications extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mPulseTimeout;
     private SystemSettingSeekBarPreference mEdgeLightRepeatCountPreference;
     private ListPreference mFlashlightOnCall;
+    private PreferenceCategory mTickerSettings;
+    private Context mContext;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -111,6 +116,10 @@ public class Notifications extends SettingsPreferenceFragment implements
 
         final ContentResolver resolver = getActivity().getContentResolver();
         final Resources res = getResources();
+
+        mTickerSettings = (Preference) prefScreen.findPreference(TICKER_SETTINGS);
+        if (DeviceUtils.hasNotch(mContext))
+            prefScreen.removePreference(mTickerSettings);
 
         mHeadsUpEnabled = (GlobalSettingMasterSwitchPreference) findPreference(HEADS_UP_NOTIFICATIONS_ENABLED);
         mHeadsUpEnabled.setOnPreferenceChangeListener(this);
@@ -350,6 +359,9 @@ public class Notifications extends SettingsPreferenceFragment implements
                             com.android.internal.R.bool.config_hasAlertSlider);
                     if (mAlertSliderAvailable)
                         keys.add(ALERT_SLIDER_PREF_CATEGORY);
+
+                    if (DeviceUtils.hasNotch(context))
+                        keys.add(TICKER_SETTINGS);
 
                     return keys;
                 }
