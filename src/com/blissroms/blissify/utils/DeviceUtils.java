@@ -162,5 +162,10 @@ public class DeviceUtils {
         }
         return false;
     }
+
+    public static boolean hasNotch(Context context) {
+        return context.getResources().getBoolean(
+                org.lineageos.platform.internal.R.bool.config_haveNotch);
+    }
 }
 
