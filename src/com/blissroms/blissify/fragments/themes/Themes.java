@@ -18,14 +18,21 @@ package com.blissroms.blissify.fragments.themes;
 
 import com.android.internal.logging.nano.MetricsProto;
 
+import static android.os.UserHandle.USER_SYSTEM;
+
+import android.app.UiModeManager;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.content.ContentResolver;
 import android.content.res.Resources;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import com.android.settings.R;
@@ -38,6 +45,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceManager;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 
@@ -61,8 +69,11 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.Collections;
 
+import com.android.internal.util.bliss.ThemesUtils;
+import com.android.internal.util.bliss.BlissUtils;
 import com.bliss.support.colorpicker.ColorPickerPreference;
 import com.blissroms.blissify.utils.DeviceUtils;
 
@@ -74,11 +85,15 @@ public class Themes extends DashboardFragment  implements
     private static final String ACCENT_COLOR = "accent_color";
     private static final String ACCENT_PRESET = "accent_preset";
     private static final String GRADIENT_COLOR = "gradient_color";
+    private static final String PREF_THEME_SWITCH = "theme_switch";
     static final int DEFAULT_ACCENT_COLOR = 0xff1a73e8;
 
     private ColorPickerPreference mAccentColor;
     private ColorPickerPreference mGradientColor;
     private ListPreference mAccentPreset;
+    private UiModeManager mUiModeManager;
+    private IOverlayManager mOverlayService;
+    private ListPreference mThemeSwitch;
 
     @Override
     protected int getPreferenceScreenResId() {
@@ -94,6 +109,11 @@ public class Themes extends DashboardFragment  implements
         super.onCreate(icicle);
 
         final ContentResolver resolver = getActivity().getContentResolver();
+
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
+
+        mUiModeManager = getContext().getSystemService(UiModeManager.class);
 
         mThemeBrowse = findPreference(CUSTOM_THEME_BROWSE);
         mThemeBrowse.setEnabled(isBrowseThemesAvailable());
@@ -129,6 +149,8 @@ public class Themes extends DashboardFragment  implements
         } else {
             mAccentPreset.setSummary(hexColor);
         }
+
+        setupThemeSwitchPref();
     }
 
     @Override
@@ -207,8 +229,55 @@ public class Themes extends DashboardFragment  implements
             Settings.System.putIntForUser(resolver,
                     Settings.System.ACCENT_COLOR, color, UserHandle.USER_CURRENT);
             return true;
+        } else if (preference == mThemeSwitch) {
+            String theme_switch = (String) newValue;
+            final Context context = getContext();
+            switch (theme_switch) {
+                case "1":
+                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.SOLARIZED_DARK);
+                    break;
+                case "2":
+                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
+                    break;
+                case "3":
+                    handleBackgrounds(true, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
+                    break;
+            }
+            try {
+                 mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
         }
         return false;
+    }
+
+    private void setupThemeSwitchPref() {
+        mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
+        mThemeSwitch.setOnPreferenceChangeListener(this);
+        if (BlissUtils.isThemeEnabled("com.android.theme.solarizeddark.system")) {
+            mThemeSwitch.setValue("3");
+        } else if (mUiModeManager.getNightMode() == UiModeManager.MODE_NIGHT_YES) {
+            mThemeSwitch.setValue("2");
+        } else {
+            mThemeSwitch.setValue("1");
+        }
+    }
+
+    private void handleBackgrounds(Boolean state, Context context, int mode, String[] overlays) {
+        if (context != null) {
+            Objects.requireNonNull(context.getSystemService(UiModeManager.class))
+                    .setNightMode(mode);
+        }
+        for (int i = 0; i < overlays.length; i++) {
+            String background = overlays[i];
+            try {
+                mOverlayService.setEnabled(background, state, USER_SYSTEM);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override

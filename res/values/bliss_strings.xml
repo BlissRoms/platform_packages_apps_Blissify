@@ -1586,4 +1586,11 @@
     <!-- One ui actionbar -->
     <string name="enable_oneui">OneUI</string>
     <string name="enable_oneui_summary">Show spacer above settings actionbar for easier use with one hand\nNOTE: restart settings app to see effect</string>
+
+    <!-- Themes -->
+    <string name="theme_type_title">System theme</string>
+    <string name="theme_type_summary">Select theme</string>
+    <string name="theme_type_light">Light</string>
+    <string name="theme_type_pitch_black">Pitch black</string>
+    <string name="theme_type_solarized_dark">Solarized dark</string>
 </resources>
