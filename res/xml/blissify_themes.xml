@@ -76,6 +76,13 @@
             android:key="android.theme.customization.icon_pack.android"
             android:title="@string/theme_customization_sysui_icon_title"/>
 
+    <ListPreference
+        android:key="system_theme"
+        android:title="@string/theme_type_title"
+        android:persistent="false"
+        android:entries="@array/theme_type_titles"
+        android:entryValues="@array/theme_type_values" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
