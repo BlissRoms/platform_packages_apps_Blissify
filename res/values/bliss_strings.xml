@@ -1462,4 +1462,8 @@
     <string name="slim_recents_enter_exit_animation_title">Animation</string>
     <string name="slim_recents_enter_exit_animation_translate">Translate</string>
     <string name="slim_recents_enter_exit_animation_fade">Fade</string>
+
+    <!-- QS data usage -->
+    <string name="qs_datausage_title">Show data usage in qs header</string>
+    <string name="qs_datausage_subtitle">Shows data usage in quick settings header of sim used for data</string>
 </resources>
