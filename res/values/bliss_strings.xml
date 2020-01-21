@@ -1309,4 +1309,8 @@
     <string name="fod_recog_animation_bluefirework">Blue Fireworks</string>
     <string name="fod_recog_animation_coloros7_1">ColorOS7 1</string>
     <string name="fod_recog_animation_coloros7_2">ColorOS7 2</string>
+
+    <!-- Rgb Accenter -->
+    <string name="rgb_accenter_title">Rgb Accenter</string>
+
 </resources>

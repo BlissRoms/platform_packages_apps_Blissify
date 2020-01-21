@@ -13,6 +13,7 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="themes_category"
     android:title="@string/blissify_themes_title">
 
@@ -40,6 +41,12 @@
     <PreferenceCategory
         android:key="aosp_themeing"
         android:title="@string/aosp_themeing_title">
+
+        <com.bliss.support.colorpicker.ColorPickerPreference
+            android:key="accent_color"
+            android:title="@string/rgb_accenter_title"
+            settings:defaultColorValue="0xff1a73e8"
+            android:persistent="false" />
 
         <ListPreference
             android:key="android.theme.customization.accent_color"
