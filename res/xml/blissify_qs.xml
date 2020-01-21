@@ -74,6 +74,14 @@
         android:defaultValue="0"
         android:summary="%s" />
 
+    <!-- QS data usage  -->
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="qs_datausage"
+        android:title="@string/qs_datausage_title"
+        android:icon="@drawable/ic_network_monitor"
+        android:summary="@string/qs_datausage_subtitle"
+        android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <!-- QS brightness -->
