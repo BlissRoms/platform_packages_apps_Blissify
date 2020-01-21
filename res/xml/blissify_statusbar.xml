@@ -128,6 +128,18 @@
          android:title="@string/battery_light_settings" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+
+        android:title="@string/statusbar_icons_category_title">
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference 
+            android:key="show_fourg"
+            android:title="@string/show_fourg_title"
+            android:summary="@string/show_fourg_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
     <Preference
         android:key="statusbar_battery"
         android:title="@string/battery_percent_title"
