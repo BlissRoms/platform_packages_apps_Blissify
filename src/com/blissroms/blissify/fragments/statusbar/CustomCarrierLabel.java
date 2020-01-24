@@ -18,6 +18,7 @@ package com.blissroms.blissify.fragments.statusbar;
 
 import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
@@ -155,6 +156,18 @@ public class CustomCarrierLabel extends SettingsPreferenceFragment
         } else {
             mCustomCarrierLabel.setSummary(mCustomCarrierLabelText);
         }
+    }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_SHOW_CARRIER, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, 14, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_CARRIER_COLOR, 0xFFFFFFFF, UserHandle.USER_CURRENT);
+        Settings.System.putString(resolver, Settings.System.CUSTOM_CARRIER_LABEL, "");
     }
 
     @Override
