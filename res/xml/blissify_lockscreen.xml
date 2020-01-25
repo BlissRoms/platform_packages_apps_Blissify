@@ -24,76 +24,88 @@
         android:key="bliss_header"
         android:layout="@layout/lockscreen_header" />
 
+    <!-- LockScreen Clocks -->
+    <PreferenceCategory
+        android:key="lockscreen_clock_category"
+        android:title="@string/lockscreen_clockdate_category">
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="lockscreen_clock_selection"
+        android:icon="@drawable/ic_clock"
+        android:title="@string/lockscreen_clock_title"
+        android:dialogTitle="@string/lockscreen_clock_dialog_title"
+        android:entries="@array/lockscreen_clock_selection_entries"
+        android:entryValues="@array/lockscreen_clock_selection_values"
+        android:defaultValue="2" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="lock_clock_font_style"
+        android:icon="@drawable/ic_clock"
+        android:title="@string/clock_font_style_title"
+        android:entries="@array/font_style_entries"
+        android:entryValues="@array/font_style_values"
+        android:defaultValue="4" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="lock_date_font_style"
+        android:icon="@drawable/ic_clock"
+        android:title="@string/date_font_style_title"
+        android:entries="@array/font_style_entries"
+        android:entryValues="@array/font_style_values"
+        android:defaultValue="14" />
+
+    </PreferenceCategory>
+
+    <!-- LockScreen Items -->
+    <PreferenceCategory
+        android:key="lockscreen_items_category"
+        android:title="@string/lockscreen_items_category" >
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_show_status_bar"
+        android:icon="@drawable/ic_statusbar_icons"
         android:title="@string/lockscreen_show_status_bar_title"
         android:summary="@string/lockscreen_show_status_bar_summary"
         android:defaultValue="true" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_lock_icon"
+        android:icon="@drawable/ic_prevent_accidental_wakeup"
         android:title="@string/lockscreen_lock_icon_title"
         android:summary="@string/lockscreen_lock_icon_summary"
         android:defaultValue="true" />
 
-    <PreferenceCategory
-        android:key="lockscreen_clock_category"
-        android:title="@string/lockscreen_clockdate_category">
-
-        <com.bliss.support.preferences.SystemSettingListPreference
-            android:key="lockscreen_clock_selection"
-            android:title="@string/lockscreen_clock_title"
-            android:dialogTitle="@string/lockscreen_clock_dialog_title"
-            android:entries="@array/lockscreen_clock_selection_entries"
-            android:entryValues="@array/lockscreen_clock_selection_values"
-            android:defaultValue="2" />
-
-        <com.bliss.support.preferences.SystemSettingListPreference
-            android:key="lock_clock_font_style"
-            android:title="@string/clock_font_style_title"
-            android:entries="@array/font_style_entries"
-            android:entryValues="@array/font_style_values"
-            android:defaultValue="4" />
-
-        <com.bliss.support.preferences.SystemSettingListPreference
-            android:key="lock_date_font_style"
-            android:title="@string/date_font_style_title"
-            android:entries="@array/font_style_entries"
-            android:entryValues="@array/font_style_values"
-            android:defaultValue="14" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="lockscreen_shortcuts_category"
-        android:title="@string/lockscreen_shortcuts_category" >
-
     <Preference
          android:title="@string/lockscreen_shortcuts_title"
+         android:icon="@drawable/ic_hafr"
          android:summary="@string/lockscreen_shortcuts_summary">
-        <intent android:action="com.android.settings.action.LOCK_SCREEN_TUNER" />
+         <intent android:action="com.android.settings.action.LOCK_SCREEN_TUNER" />
     </Preference>
 
     </PreferenceCategory>
 
+    <!-- FOD icon picker -->
     <PreferenceCategory
         android:key="fod_icon_picker"
         android:title="@string/fod_icon_picker_title" >
 
-        <!-- FOD icon picker -->
-        <Preference
-            android:key="fod_icon_picker_category"
-            android:title="@string/fod_icon_picker_title"
-            android:summary="@string/fod_icon_picker_summary"
-            android:fragment="com.blissroms.blissify.fragments.lockscreen.FODIconPickerFragment" />
+    <Preference
+        android:key="fod_icon_picker_category"
+        android:icon="@drawable/ic_force_fp_authentication"
+        android:title="@string/fod_icon_picker_title"
+        android:summary="@string/fod_icon_picker_summary"
+        android:fragment="com.blissroms.blissify.fragments.lockscreen.FODIconPickerFragment" />
 
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="fod_icon_wallpaper_color"
-            android:title="@string/fod_wallpaper_color"
-            android:summary="@string/fod_wallpaper_color_summary"
-            android:defaultValue="false" />
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="fod_icon_wallpaper_color"
+        android:icon="@drawable/ic_force_fp_authentication"
+        android:title="@string/fod_wallpaper_color"
+        android:summary="@string/fod_wallpaper_color_summary"
+        android:defaultValue="false" />
+
     </PreferenceCategory>
 
+    <!-- Lockscreen Charging -->
     <PreferenceCategory
         android:key="lockscreen_charging_category"
         android:title="@string/lockscreen_charging_category" >
@@ -121,6 +133,7 @@
 
     </PreferenceCategory>
 
+    <!-- Lockscreen Wake -->
     <PreferenceCategory
         android:key="lockscreen_wake_category"
         android:title="@string/lockscreen_wake_category" >
@@ -138,7 +151,6 @@
         android:summary="@string/wake_when_plugged_or_unplugged_summary"
         android:defaultValue="@*android:bool/config_unplugTurnsOnScreen" />
 
-    <!-- Prevent accidental wake-up -->
     <lineageos.preference.LineageSystemSettingSwitchPreference
         android:key="proximity_on_wake"
         android:icon="@drawable/ic_prevent_accidental_wakeup"
@@ -156,6 +168,7 @@
 
     </PreferenceCategory>
 
+    <!-- Lockscreen Media -->
     <PreferenceCategory
         android:key="lockscreen_media_category"
         android:title="@string/lockscreen_media_category" >
@@ -186,6 +199,7 @@
         android:persistent="false" />
     </PreferenceCategory>
 
+    <!-- Lockscreen Visualizer -->
     <PreferenceCategory
         android:key="lockscreen_visualizer_category"
         android:title="@string/lockscreen_visualizer_category" >
@@ -199,16 +213,17 @@
 
     </PreferenceCategory>
 
+    <!-- Lockscreen Weather -->
     <PreferenceCategory
         android:key="lockscreen_weather_category"
-        android:icon="@drawable/ic_weather"
         android:title="@string/lock_screen_weather_category" >
 
-        <PreferenceScreen
-            android:key="weather_option"
-            android:title="@string/weather_title"
-            android:summary="@string/weather_config_title"
-            android:fragment="com.blissroms.blissify.fragments.lockscreen.Weather" />
+    <PreferenceScreen
+        android:key="weather_option"
+        android:icon="@drawable/ic_weather"
+        android:title="@string/weather_title"
+        android:summary="@string/weather_config_title"
+        android:fragment="com.blissroms.blissify.fragments.lockscreen.Weather" />
 
     </PreferenceCategory>
 

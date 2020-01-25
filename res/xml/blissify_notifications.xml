@@ -24,61 +24,11 @@
         android:key="bliss_header"
         android:layout="@layout/notifications_header" />
 
-    <com.bliss.support.preferences.GlobalSettingMasterSwitchPreference 
-        android:key="heads_up_notifications_enabled"
-        android:fragment="com.blissroms.blissify.fragments.notifications.HeadsUp"
-        android:icon="@drawable/ic_headsup"
-        android:title="@string/heads_up_notifications"
-        android:summary="@string/heads_up_notifications_summary"
-        android:defaultValue="true" />
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="force_expanded_notifications"
-        android:title="@string/force_expanded_notifications_title"
-        android:summary="@string/force_expanded_notifications_summary"
-        android:defaultValue="false" />
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="hide_smart_replies"
-        android:title="@string/hide_smart_replies_title"
-        android:summary="@string/hide_smart_replies_summary"
-        android:defaultValue="false"/>
-
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="notification_guts_kill_app_button"
-        android:title="@string/notification_guts_kill_app_button_title"
-        android:summary="@string/notification_guts_kill_app_button_summary"
-        android:defaultValue="false" />
-
-    <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="status_bar_show_ticker"
-        android:title="@string/ticker_screen_title"
-        android:entries="@array/ticker_mode_entries"
-        android:entryValues="@array/ticker_mode_values"
-        android:defaultValue="0" />
-
-    <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="status_bar_ticker_animation_mode"
-        android:title="@string/ticker_animation_mode_title"
-        android:entries="@array/ticker_animation_mode_entries"
-        android:entryValues="@array/ticker_animation_mode_values"
-        android:defaultValue="1" />
-
-    <com.bliss.support.preferences.SystemSettingSeekBarPreference
-        android:key="status_bar_ticker_tick_duration"
-        android:title="@string/ticker_tick_duration_title"
-        settings:min="500"
-        settings:interval="100"
-        android:max="10000"
-        android:defaultValue="3000"
-        settings:units="@string/unit_milliseconds" />
-
+    <!-- Edge Light -->
     <PreferenceCategory
         android:key="notification_screen"
         android:title="@string/notification_screen_title" >
 
-        <!-- Preview -->
         <com.blissroms.blissify.fragments.notifications.AmbientLightSettingsPreview
             android:key="ambientlight_preview"
             android:layout="@layout/ambient_light"
@@ -116,6 +66,69 @@
             settings:interval="1"
             android:dependency="pulse_ambient_light" />
     </PreferenceCategory>
+
+    <!-- Heads Up -->
+    <PreferenceCategory
+        android:key="heads_up_category"
+        android:title="@string/heads_up_notifications" >
+
+    <com.bliss.support.preferences.GlobalSettingMasterSwitchPreference 
+        android:key="heads_up_notifications_enabled"
+        android:fragment="com.blissroms.blissify.fragments.notifications.HeadsUp"
+        android:icon="@drawable/ic_headsup"
+        android:title="@string/heads_up_notifications"
+        android:summary="@string/heads_up_notifications_summary"
+        android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- Ticker -->
+    <PreferenceCategory
+        android:key="status_bar_ticker"
+        android:title="@string/ticker_screen_title" >
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="status_bar_show_ticker"
+        android:title="@string/ticker_screen_title"
+        android:entries="@array/ticker_mode_entries"
+        android:entryValues="@array/ticker_mode_values"
+        android:defaultValue="0" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="status_bar_ticker_animation_mode"
+        android:title="@string/ticker_animation_mode_title"
+        android:entries="@array/ticker_animation_mode_entries"
+        android:entryValues="@array/ticker_animation_mode_values"
+        android:defaultValue="1" />
+
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="status_bar_ticker_tick_duration"
+        android:title="@string/ticker_tick_duration_title"
+        settings:min="500"
+        settings:interval="100"
+        android:max="10000"
+        android:defaultValue="3000"
+        settings:units="@string/unit_milliseconds" />
+
+    </PreferenceCategory>
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="force_expanded_notifications"
+        android:title="@string/force_expanded_notifications_title"
+        android:summary="@string/force_expanded_notifications_summary"
+        android:defaultValue="false" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="hide_smart_replies"
+        android:title="@string/hide_smart_replies_title"
+        android:summary="@string/hide_smart_replies_summary"
+        android:defaultValue="false"/>
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="notification_guts_kill_app_button"
+        android:title="@string/notification_guts_kill_app_button_title"
+        android:summary="@string/notification_guts_kill_app_button_summary"
+        android:defaultValue="false" />
 
     <PreferenceCategory
         android:key="lockscreen_notifications_category"
