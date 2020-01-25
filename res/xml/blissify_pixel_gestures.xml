@@ -12,20 +12,24 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="gestures_settings"
     android:title="@string/blissify_pixel_gestures_title">
-
-    <com.google.android.settings.aware.AwareSettingsDialogPreference
-        android:key="aware_settings"
-        android:icon="@drawable/ic_bliss_aware"
-        android:title="@string/aware_settings_title"
-        android:summary="@string/aware_settings_summary" />
 
     <Preference
         android:key="active_edge_category"
         android:icon="@drawable/ic_bliss_active_edge"
         android:title="@string/active_edge_title"
         android:summary="@string/active_edge_summary"
-        android:fragment="com.blissroms.blissify.fragments.gestures.ActiveEdge" />
+        android:fragment="com.blissroms.blissify.fragments.gestures.ActiveEdge"
+        settings:controller="com.blissroms.blissify.helpers.ActiveEdgeSettingsPreferenceHelper" />
+
+    <Preference
+        android:key="aware_settings"
+        android:icon="@drawable/ic_bliss_aware"
+        android:title="@string/aware_settings_title"
+        android:summary="@string/aware_settings_summary"
+        android:fragment="com.google.android.settings.aware.AwareSettings"
+        settings:controller="com.blissroms.blissify.helpers.MotionSensePreferenceHelper" />
 
 </PreferenceScreen>
