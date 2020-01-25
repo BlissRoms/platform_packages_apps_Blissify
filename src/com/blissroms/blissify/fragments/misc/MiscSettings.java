@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.UserHandle;
+import android.provider.SearchIndexableResource;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.provider.Settings;
@@ -44,6 +45,9 @@ import android.view.View;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settingslib.search.SearchIndexable;
 import android.util.Log;
 import android.hardware.fingerprint.FingerprintManager;
 
@@ -53,8 +57,9 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+@SearchIndexable
 public class MiscSettings extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        OnPreferenceChangeListener, Indexable {
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String FP_ERROR_VIBRATE = "fp_error_vibrate";
@@ -152,4 +157,24 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         return MetricsProto.MetricsEvent.BLISSIFY;
     }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.blissify_misc;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = super.getNonIndexableKeys(context);
+                    return keys;
+                }
+    };
 }
