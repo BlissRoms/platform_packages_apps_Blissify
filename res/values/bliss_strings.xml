@@ -49,6 +49,8 @@
     <string name="status_bar_logo_category">Status Bar Logo</string>
     <string name="status_bar_weather_category">Status Bar Weather</string>
     <string name="system_icons_category">System Icons</string>
+    <string name="fp_misc_title">Fingerprint</string>
+    <string name="qs_header_category">Quick Settings</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
