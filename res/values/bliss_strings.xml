@@ -49,6 +49,9 @@
     <string name="status_bar_logo_category">Status Bar Logo</string>
     <string name="status_bar_weather_category">Status Bar Weather</string>
     <string name="system_icons_category">System Icons</string>
+    <string name="fp_misc_title">Fingerprint</string>
+    <string name="qs_header_category">Quick Settings</string>
+    <string name="lockscreen_items_category">Lockscreen Items</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
@@ -451,7 +454,7 @@
 
     <!--statusbar advanced system icons -->
     <string name="statusbar_advanced_icons">Advanced System Icons</string>
-    <string name="statusbar_advanced_icons_summary">Logo, Weather, volte, 4g, data, bt</string> 
+    <string name="statusbar_advanced_icons_summary">Logo, Volte Icon, Weather Icon, 4g Icon\n Data Indicator, Bluetooth Indicator</string>
 
     <string name="volte_icon_title">VoLTE icon</string>
     <string name="status_bar_volte_disabled">Disabled</string>
@@ -575,7 +578,6 @@
     <string name="dialog_delete_message">Remove selected item?</string>
 
     <!-- Lockscreen icons -->
-    <string name="lockscreen_shortcuts_category">Lockscreen Shortcuts</string>
     <string name="lockscreen_shortcuts_title">Shortcuts</string>
     <string name="lockscreen_shortcuts_summary">Configure shortcuts on bottom of the screen</string>
 
