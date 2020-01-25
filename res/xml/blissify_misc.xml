@@ -22,6 +22,55 @@
         android:key="bliss_header"
         android:layout="@layout/more_header" />
 
+    <!-- Agressive battery -->
+    <PreferenceCategory
+        android:key="aggressive_battery"
+        android:icon="@drawable/ic_battery_bar"
+        android:title="@string/aggressive_battery_title">
+
+    <com.bliss.support.preferences.GlobalSettingSwitchPreference
+        android:key="aggressive_idle_enabled"
+        android:title="@string/aggressive_idle_title"
+        android:summary="@string/aggressive_idle_summary"
+        android:defaultValue="false"
+        android:dependency="aggressive_battery_saver" />
+
+    <com.bliss.support.preferences.GlobalSettingSwitchPreference
+        android:key="aggressive_standby_enabled"
+        android:title="@string/aggressive_standby_title"
+        android:summary="@string/aggressive_standby_summary"
+        android:defaultValue="false"
+        android:dependency="aggressive_battery_saver" />
+
+    <com.bliss.support.preferences.GlobalSettingSwitchPreference
+        android:key="aggressive_battery_saver"
+        android:title="@string/aggressive_battery_saver_title"
+        android:summary="@string/aggressive_battery_saver_summary"
+        android:defaultValue="true"
+        android:disableDependentsState="true" />
+
+    </PreferenceCategory>
+
+    <!-- Fingerprint options -->
+    <PreferenceCategory
+        android:key="fp_misc_category"
+        android:icon="@drawable/ic_fingerprint_vibration"
+        android:title="@string/fp_misc_title" >
+
+    <SwitchPreference
+        android:key="fingerprint_success_vib"
+        android:title="@string/fprint_sucess_vib_title"
+        android:summary="@string/fprint_sucess_vib_summary"
+        android:persistent="false" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="fp_error_vibrate"
+        android:title="@string/fp_error_vibrate_title"
+        android:summary="@string/fp_error_vibrate_summary"
+        android:defaultValue="true" />
+
+    </PreferenceCategory>
+
     <!-- Gaming Mode -->
     <PreferenceCategory
         android:key="gaming_mode_category"
@@ -35,12 +84,13 @@
 
     </PreferenceCategory>
 
+    <!-- HAFR -->
     <PreferenceCategory
         android:key="hafr_category"
+        android:icon="@drawable/ic_hafr"
         android:title="@string/hafr_category_title" >
 
     <Preference
-        android:icon="@drawable/ic_hafr"
         android:title="@string/hide_apps_from_recents_title"
         android:summary="@string/hide_apps_from_recents_summary" >
         <intent android:action="android.intent.action.MAIN"
@@ -50,9 +100,110 @@
 
     </PreferenceCategory>
 
+    <!-- Rounded Corners -->
+    <PreferenceCategory
+        android:key="rounded_corners_category"
+        android:icon="@drawable/ic_rounded_corners"
+        android:title="@string/corners_title" >
+
+    <PreferenceScreen
+        android:key="rounded_corners"
+        android:title="@string/corners_title"
+        android:summary="@string/corners_summary"
+        android:fragment="com.blissroms.blissify.fragments.misc.RoundedCorners" />
+
+    </PreferenceCategory>
+
+    <!-- Dashboard -->
+    <PreferenceCategory
+        android:key="dashboard_settings_category"
+        android:icon="@drawable/ic_dashboard"
+        android:title="@string/dashboard_settings_category" >
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="enable_suggestions"
+        android:title="@string/dashboard_suggestions_title"
+        android:summaryOn="@string/summary_dashboard_suggestions_enabled"
+        android:summaryOff="@string/summary_dashboard_suggestions_disabled"
+        android:defaultValue="true" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="enable_conditions"
+        android:title="@string/dashboard_conditions_title"
+        android:summaryOn="@string/summary_dashboard_conditions_enabled"
+        android:summaryOff="@string/summary_dashboard_conditions_disabled"
+        android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- Show CPU Info overlay -->
+    <PreferenceCategory
+        android:key="cpu_info"
+        android:icon="@drawable/ic_cpu_info"
+        android:title="@string/cpu_info">
+
+    <SwitchPreference
+        android:key="show_cpu_info"
+        android:title="@string/show_cpu_info"
+        android:summary="@string/show_cpu_info_summary"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <!-- Toast -->
+    <PreferenceCategory
+        android:key="toast"
+        android:icon="@drawable/ic_toast_icon"
+        android:title="@string/toast">
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="toast_icon" 
+        android:title="@string/toast_icon_title" 
+        android:summary="@string/toast_icon_summary" 
+        android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- Notifications -->
+    <PreferenceCategory
+        android:key="notification_messages"
+        android:icon="@drawable/ic_force_close_notifications"
+        android:title="@string/notification_messages">
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="enable_fc_notifications" 
+        android:title="@string/enable_fc_notifications_title" 
+        android:summary="@string/enable_fc_notifications_summary" 
+        android:defaultValue="true" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="screenshot_type"
+        android:title="@string/screenshot_type_title"
+        android:entries="@array/screenshot_type_entries"
+        android:entryValues="@array/screenshot_type_values"
+        android:defaultValue="0" />
+
+    </PreferenceCategory>
+
+    <!-- Smart pixels -->
+    <PreferenceCategory
+        android:key="smart_pixels"
+        android:icon="@drawable/ic_smart_pixels"
+        android:title="@string/smart_pixels">
+
+    <com.bliss.support.preferences.SystemSettingMasterSwitchPreference
+        android:key="smart_pixels_enable"
+        android:fragment="com.blissroms.blissify.fragments.misc.SmartPixels"
+        android:title="@string/smart_pixels_title"
+        android:summary="@string/smart_pixels_summary"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
+
     <!-- Wakelock blocker -->
     <PreferenceCategory
         android:key="wakelock_blocker_category"
+        android:icon="@drawable/ic_prevent_accidental_wakeup"
         android:title="@string/wakelock_blocker_title" >
 
     <Preference
@@ -69,150 +220,16 @@
 
     </PreferenceCategory>
 
-    <SwitchPreference
-        android:key="fingerprint_success_vib"
-        android:icon="@drawable/ic_fingerprint_vibration"
-        android:title="@string/fprint_sucess_vib_title"
-        android:summary="@string/fprint_sucess_vib_summary"
-        android:persistent="false" />
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="fp_error_vibrate"
-        android:title="@string/fp_error_vibrate_title"
-        android:summary="@string/fp_error_vibrate_summary"
-        android:defaultValue="true" />
-
-    <PreferenceCategory
-        android:key="rounded_corners_category"
-        android:title="@string/corners_title" >
-
-    <!-- Rounded Corners -->
-    <PreferenceScreen
-        android:key="rounded_corners"
-        android:icon="@drawable/ic_rounded_corners"
-        android:title="@string/corners_title"
-        android:summary="@string/corners_summary"
-        android:fragment="com.blissroms.blissify.fragments.misc.RoundedCorners" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="dashboard_settings_category"
-        android:title="@string/dashboard_settings_category" >
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="enable_suggestions"
-        android:icon="@drawable/ic_dashboard"
-        android:title="@string/dashboard_suggestions_title"
-        android:summaryOn="@string/summary_dashboard_suggestions_enabled"
-        android:summaryOff="@string/summary_dashboard_suggestions_disabled"
-        android:defaultValue="true" />
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="enable_conditions"
-        android:icon="@drawable/ic_dashboard"
-        android:title="@string/dashboard_conditions_title"
-        android:summaryOn="@string/summary_dashboard_conditions_enabled"
-        android:summaryOff="@string/summary_dashboard_conditions_disabled"
-        android:defaultValue="true" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="cpu_info"
-        android:title="@string/cpu_info">
-
-    <!-- Show CPU Info overlay -->
-    <SwitchPreference
-        android:key="show_cpu_info"
-        android:icon="@drawable/ic_cpu_info"
-        android:title="@string/show_cpu_info"
-        android:summary="@string/show_cpu_info_summary"
-        android:defaultValue="false" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="toast"
-        android:title="@string/toast">
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="toast_icon" 
-        android:icon="@drawable/ic_toast_icon"
-        android:title="@string/toast_icon_title" 
-        android:summary="@string/toast_icon_summary" 
-        android:defaultValue="true" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="notification_messages"
-        android:title="@string/notification_messages">
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="enable_fc_notifications" 
-        android:icon="@drawable/ic_force_close_notifications"
-        android:title="@string/enable_fc_notifications_title" 
-        android:summary="@string/enable_fc_notifications_summary" 
-        android:defaultValue="true" />
-
-    <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="screenshot_type"
-        android:title="@string/screenshot_type_title"
-        android:entries="@array/screenshot_type_entries"
-        android:entryValues="@array/screenshot_type_values"
-        android:defaultValue="0" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="smart_pixels"
-        android:title="@string/smart_pixels">
-
-    <com.bliss.support.preferences.SystemSettingMasterSwitchPreference
-        android:key="smart_pixels_enable"
-        android:icon="@drawable/ic_smart_pixels"
-        android:fragment="com.blissroms.blissify.fragments.misc.SmartPixels"
-        android:title="@string/smart_pixels_title"
-        android:summary="@string/smart_pixels_summary"
-        android:defaultValue="false" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="aggressive_battery"
-        android:title="@string/aggressive_battery_title">
-
-    <com.bliss.support.preferences.GlobalSettingSwitchPreference
-            android:key="aggressive_idle_enabled"
-            android:title="@string/aggressive_idle_title"
-            android:summary="@string/aggressive_idle_summary"
-            android:defaultValue="false"
-            android:dependency="aggressive_battery_saver" />
-
-    <com.bliss.support.preferences.GlobalSettingSwitchPreference
-            android:key="aggressive_standby_enabled"
-            android:title="@string/aggressive_standby_title"
-            android:summary="@string/aggressive_standby_summary"
-            android:defaultValue="false"
-            android:dependency="aggressive_battery_saver" />
-
-    <com.bliss.support.preferences.GlobalSettingSwitchPreference
-            android:key="aggressive_battery_saver"
-            android:title="@string/aggressive_battery_saver_title"
-            android:summary="@string/aggressive_battery_saver_summary"
-            android:defaultValue="true"
-            android:disableDependentsState="true" />
-    </PreferenceCategory>
-
+    <!-- Misc -->
     <PreferenceCategory
         android:key="misc"
         android:title="@string/misc_category_title">
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
-           android:key="sensor_block" 
-           android:title="@string/sensor_block_title"
-           android:summary="@string/sensor_block_summary"
-           android:defaultValue="false" />
+        android:key="sensor_block" 
+        android:title="@string/sensor_block_title"
+        android:summary="@string/sensor_block_summary"
+        android:defaultValue="false" />
 
     <com.bliss.support.preferences.GlobalSettingSwitchPreference
         android:key="allow_signature_fake"
