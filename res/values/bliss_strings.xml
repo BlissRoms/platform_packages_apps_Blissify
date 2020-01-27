@@ -764,6 +764,11 @@
     <string name="qs_rows_landscape_title">Tiles rows on landscape</string>
     <string name="qs_columns_portrait_title">Tiles columns on portrait</string>
     <string name="qs_columns_landscape_title">Tiles columns on landscape</string>
+    <string name="sysui_qqs_count_title">Columns (Quickbar)</string>
+    <string name="qs_quickbar_auto">Auto</string>
+    <string name="qs_quickbar_six">6 tiles</string>
+    <string name="qs_quickbar_seven">7 tiles</string>
+    <string name="qs_quickbar_eight">8 tiles</string>
 
     <!-- Gaming mode -->
     <string name="gaming_mode_title">Gaming mode</string>
