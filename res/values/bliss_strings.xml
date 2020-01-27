@@ -1097,4 +1097,8 @@
     <string name="ticker_animation_mode_scroll">Scroll</string>
     <string name="ticker_tick_duration_title">Ticker duration</string>
 
+    <!-- QS blur -->
+    <string name="blur_quicksettings">Blur behind quick settings</string>
+    <string name="blur_quicksettings_subtitle">blurs darkened background behind quick settings</string>
+
 </resources>
