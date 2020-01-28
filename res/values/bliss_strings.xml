@@ -890,7 +890,7 @@
     <!-- Ambient edge lighting -->
     <string name="notification_screen_title">Screen</string>
     <string name="pulse_ambient_light_title">Edge lighting</string>
-    <string name="pulse_ambient_light_summary">Light up the side edges of the screen on notification pulse</string>
+    <string name="pulse_ambient_light_summary">Show edge lighting on new notification</string>
     <string name="pulse_ambient_light_color_title">Edge light color</string>
     <string name="pulse_ambient_auto_color_title">Auto color</string>
     <string name="pulse_ambient_auto_color_summary">Sets edge light color to the primary color of wallpaper</string>
@@ -898,6 +898,11 @@
     <string name="pulse_ambient_light_duration_summary">Sets the ambient light animation duration</string>
     <string name="ambient_notification_light_enabled_title">Show edge lighting on AoD</string>
     <string name="ambient_notification_light_enabled_summary">Show edge lighting on AoD on new notification</string>
+    <string name="ambient_notification_light_hide_aod_title">Hide AoD content</string>
+    <string name="ambient_notification_light_hide_aod_summary">Hide other AoD content while edge lighting is shown</string>
+    <string name="ambient_notification_light_accent_title">Use accent color for whatever</string>
+    <string name="ambient_notification_light_accent_summary">Follow system accent color instead of the user defined edge light color</string>
+    <string name="pulse_ambient_light_note">Wake screen on receiving new notifications must be turned on</string>
 
     <!-- Hide Apps from Recents -->
     <string name="hafr_category_title">HAFR</string>

@@ -48,6 +48,13 @@
             android:dependency="pulse_ambient_light"
             android:defaultValue="false" />
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="ambient_notification_light_hide_aod"
+            android:title="@string/ambient_notification_light_hide_aod_title"
+            android:summary="@string/ambient_notification_light_hide_aod_summary"
+            android:dependency="ambient_notification_light_enabled"
+            android:defaultValue="false" />
+
         <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="pulse_ambient_light_color"
             android:title="@string/pulse_ambient_light_color_title"
@@ -73,6 +80,13 @@
             settings:units="sec"
             settings:interval="1"
             android:dependency="pulse_ambient_light" />
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="ambient_notification_light_accent"
+            android:title="@string/ambient_notification_light_accent_title"
+            android:summary="@string/ambient_notification_light_accent_summary"
+            android:dependency="pulse_ambient_light"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <!-- Heads Up -->
