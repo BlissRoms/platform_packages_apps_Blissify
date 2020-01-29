@@ -68,6 +68,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private static final String SMS_BREATH = "sms_breath";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
+    private static final String PULSE_AMBIENT_LIGHT = "pulse_ambient_light";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
     private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
     private static final String AMBIENT_NOTIFICATION_LIGHT_ACCENT = "ambient_notification_light_accent";
@@ -83,6 +84,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private SwitchPreference mVibOnConnect;
     private SwitchPreference mVibOnWait;
     private SwitchPreference mVibOnDisconnect;
+    private SwitchPreference mEdgeLightPreference;
     private SwitchPreference mEdgeLightAccentColorPreference;
     private GlobalSettingMasterSwitchPreference mHeadsUpEnabled;
     private ColorPickerPreference mEdgeLightColorPreference;
@@ -150,6 +152,12 @@ public class Notifications extends SettingsPreferenceFragment implements
             prefSet.removePreference(FlashOnCall);
         }
 
+        mEdgeLightPreference = (SwitchPreference) findPreference(PULSE_AMBIENT_LIGHT);
+        boolean mEdgeLightOn = Settings.System.getInt(getContentResolver(),
+                Settings.System.PULSE_AMBIENT_LIGHT, 0) == 1;
+        mEdgeLightPreference.setChecked(mEdgeLightOn);
+        mEdgeLightPreference.setOnPreferenceChangeListener(this);
+
         mEdgeLightColorPreference = (ColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
@@ -212,6 +220,11 @@ public class Notifications extends SettingsPreferenceFragment implements
         } else if (preference == mVoicemailBreath) {
                 boolean value = (Boolean) newValue;
                 Settings.System.putInt(resolver, VOICEMAIL_BREATH, value ? 1 : 0);
+                return true;
+        } else if (preference == mEdgeLightPreference) {
+            boolean isOn = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.PULSE_AMBIENT_LIGHT, isOn ? 1 : 0);
                 return true;
         } else if (preference == mEdgeLightAccentColorPreference) {
             boolean isOn = (Boolean) newValue;
