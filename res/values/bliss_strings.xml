@@ -1110,4 +1110,10 @@
     <string name="fod_pressed_state_icon_white">Icon (White)</string>
     <string name="fod_pressed_state_solid_color">Solid color (usually Green)</string>
 
+    <string name="lockscreen_clock_show_title">Show clock</string>
+    <string name="lockscreen_clock_summary_on">Clock displayed</string>
+    <string name="lockscreen_clock_summary_off">Clock hidden</string>
+    <string name="lockscreen_info_title">Date widget</string>
+    <string name="lockscreen_info_summary">Show the date, weather, alarms and zen on the lockscreen</string>
+
 </resources>
