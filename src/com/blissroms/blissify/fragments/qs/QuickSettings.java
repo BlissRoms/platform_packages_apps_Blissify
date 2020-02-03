@@ -69,6 +69,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
     private static final String BLISS_FOOTER_TEXT_STRING = "footer_text_string";
     private static final String QS_PANEL_COLOR = "qs_panel_color";
+    private static final String QS_BLUR_INTENSITY = "qs_blur_intensity";
     static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
 
     private static final int PULLDOWN_DIR_NONE = 0;
@@ -80,6 +81,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     private SystemSettingEditTextPreference mFooterString;
     private ColorPickerPreference mQsPanelColor;
+    private SystemSettingSeekBarPreference mQsBlurIntensity;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -114,6 +116,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putString(getActivity().getContentResolver(),
                     Settings.System.BLISS_FOOTER_TEXT_STRING, "#BlissRoms");
         }
+
+        mQsBlurIntensity = (SystemSettingSeekBarPreference) screen.findPreference(QS_BLUR_INTENSITY);
+        int qsBlurIntensity = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.QS_BLUR_INTENSITY, 100);
+        mQsBlurIntensity.setValue(qsBlurIntensity);
+        mQsBlurIntensity.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -143,6 +151,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 int intHex = ColorPickerPreference.convertToColorInt(hex);
                 Settings.System.putIntForUser(getContentResolver(),
                         Settings.System.QS_PANEL_BG_COLOR, intHex, UserHandle.USER_CURRENT);
+                break;
+            case QS_BLUR_INTENSITY:
+                int value = (Integer) newValue;
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.QS_BLUR_INTENSITY, value);
                 break;
             case BLISS_FOOTER_TEXT_STRING:
             String text = (String) newValue;
