@@ -903,6 +903,8 @@
     <string name="ambient_notification_light_accent_title">Use accent color for whatever</string>
     <string name="ambient_notification_light_accent_summary">Follow system accent color instead of the user defined edge light color</string>
     <string name="pulse_ambient_light_note">Wake screen on receiving new notifications must be turned on</string>
+    <string name="pulse_ambient_light_repeat_count_title">Repeat count</string>
+    <string name="pulse_ambient_light_repeat_count_summary">Set max repeat count. 0 for infinite</string>
 
     <!-- Hide Apps from Recents -->
     <string name="hafr_category_title">HAFR</string>
