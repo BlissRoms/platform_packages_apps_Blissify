@@ -71,6 +71,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
     private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
     private static final String AMBIENT_NOTIFICATION_LIGHT_ACCENT = "ambient_notification_light_accent";
+    private static final String PULSE_AMBIENT_LIGHT_REPEAT_COUNT = "pulse_ambient_light_repeat_count";
     private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
     private static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
     private static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
@@ -86,6 +87,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private GlobalSettingMasterSwitchPreference mHeadsUpEnabled;
     private ColorPickerPreference mEdgeLightColorPreference;
     private SystemSettingSeekBarPreference mEdgeLightDurationPreference;
+    private SystemSettingSeekBarPreference mEdgeLightRepeatCountPreference;
     private ListPreference mFlashlightOnCall;
 
     @Override
@@ -176,6 +178,12 @@ public class Notifications extends SettingsPreferenceFragment implements
         int duration = Settings.System.getInt(getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2);
         mEdgeLightDurationPreference.setValue(duration);
+
+        mEdgeLightRepeatCountPreference = (SystemSettingSeekBarPreference) findPreference(PULSE_AMBIENT_LIGHT_REPEAT_COUNT);
+        mEdgeLightRepeatCountPreference.setOnPreferenceChangeListener(this);
+        int rCount = Settings.System.getInt(getContentResolver(),
+                Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, 0);
+        mEdgeLightRepeatCountPreference.setValue(rCount);
     }
 
     @Override
@@ -229,6 +237,11 @@ public class Notifications extends SettingsPreferenceFragment implements
             int value = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.PULSE_AMBIENT_LIGHT_DURATION, value);
+            return true;
+        } else if (preference == mEdgeLightRepeatCountPreference) {
+            int value = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, value);
             return true;
         } else if (preference == mFlashlightOnCall) {
             int flashlightValue = Integer.parseInt(((String) newValue).toString());
