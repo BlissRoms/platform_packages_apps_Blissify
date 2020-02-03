@@ -918,6 +918,8 @@
     <string name="pulse_ambient_light_note">Wake screen on receiving new notifications must be turned on</string>
     <string name="pulse_ambient_light_pulse_for_all_title">Pulse for all doze events</string>
     <string name="pulse_ambient_light_pulse_for_all_summary">Pulses for all doze events and not just for notifications</string>
+    <string name="pulse_ambient_light_repeat_count_title">Repeat count</string>
+    <string name="pulse_ambient_light_repeat_count_summary">Set max repeat count. 0 for infinite</string>
 
     <!-- Hide Apps from Recents -->
     <string name="hafr_category_title">HAFR</string>
