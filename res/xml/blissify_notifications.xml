@@ -81,10 +81,11 @@
             settings:interval="1"
             android:dependency="pulse_ambient_light" />
 
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
+        <SwitchPreference
             android:key="ambient_notification_light_accent"
             android:title="@string/ambient_notification_light_accent_title"
             android:summary="@string/ambient_notification_light_accent_summary"
+            android:persistent="false"
             android:dependency="pulse_ambient_light"
             android:defaultValue="false" />
     </PreferenceCategory>
