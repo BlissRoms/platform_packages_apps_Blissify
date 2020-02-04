@@ -68,7 +68,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private static final String SMS_BREATH = "sms_breath";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
-    private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
+    private static final String NOTIFICATION_PULSE_COLOR = "ambient_notification_light_color";
     private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
     private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
     private static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
@@ -146,9 +146,9 @@ public class Notifications extends SettingsPreferenceFragment implements
             prefSet.removePreference(FlashOnCall);
         }
 
-        mEdgeLightColorPreference = (ColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
+        mEdgeLightColorPreference = (ColorPickerPreference) findPreference(NOTIFICATION_PULSE_COLOR);
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
+                Settings.System.NOTIFICATION_PULSE_COLOR, 0xFF3980FF);
         AmbientLightSettingsPreview.setAmbientLightPreviewColor(edgeLightColor);
         mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
         mEdgeLightColorPreference.setAlphaSliderEnabled(false);
@@ -205,7 +205,7 @@ public class Notifications extends SettingsPreferenceFragment implements
             AmbientLightSettingsPreview.setAmbientLightPreviewColor(Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
-                    Settings.System.PULSE_AMBIENT_LIGHT_COLOR, intHex);
+                    Settings.System.NOTIFICATION_PULSE_COLOR, intHex);
             return true;
         } else if (preference == mEdgeLightDurationPreference) {
             int value = (Integer) newValue;
