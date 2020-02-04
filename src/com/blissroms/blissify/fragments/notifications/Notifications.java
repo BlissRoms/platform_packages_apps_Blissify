@@ -46,7 +46,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
+import com.android.settingslib.Utils;
 import com.android.internal.util.bliss.BlissUtils;
 import android.util.Log;
 
@@ -70,6 +70,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
     private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
+    private static final String AMBIENT_NOTIFICATION_LIGHT_ACCENT = "ambient_notification_light_accent";
     private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
     private static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
     private static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
@@ -81,6 +82,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private SwitchPreference mVibOnConnect;
     private SwitchPreference mVibOnWait;
     private SwitchPreference mVibOnDisconnect;
+    private SwitchPreference mEdgeLightAccentColorPreference;
     private GlobalSettingMasterSwitchPreference mHeadsUpEnabled;
     private ColorPickerPreference mEdgeLightColorPreference;
     private SystemSettingSeekBarPreference mEdgeLightDurationPreference;
@@ -149,8 +151,11 @@ public class Notifications extends SettingsPreferenceFragment implements
         mEdgeLightColorPreference = (ColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
-        AmbientLightSettingsPreview.setAmbientLightPreviewColor(edgeLightColor);
         mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
+
+        // Update the edge light preference and preview accordingly
+        updateEdgeLightColorPreferences(mEdgeLightAccentOn);
+
         mEdgeLightColorPreference.setAlphaSliderEnabled(false);
         String edgeLightColorHex = ColorPickerPreference.convertToRGB(edgeLightColor);
         if (edgeLightColorHex.equals("#3980ff")) {
@@ -165,6 +170,12 @@ public class Notifications extends SettingsPreferenceFragment implements
         int duration = Settings.System.getInt(getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2);
         mEdgeLightDurationPreference.setValue(duration);
+
+        mEdgeLightAccentColorPreference = (SwitchPreference) findPreference(AMBIENT_NOTIFICATION_LIGHT_ACCENT);
+        boolean mEdgeLightAccentOn = Settings.System.getInt(getContentResolver(),
+                Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACCENT, 0) == 1;
+        mEdgeLightAccentColorPreference.setChecked(mEdgeLightAccentOn);
+        mEdgeLightAccentColorPreference.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -194,6 +205,13 @@ public class Notifications extends SettingsPreferenceFragment implements
                 boolean value = (Boolean) newValue;
                 Settings.System.putInt(resolver, VOICEMAIL_BREATH, value ? 1 : 0);
                 return true;
+        } else if (preference == mEdgeLightAccentColorPreference) {
+            boolean isOn = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACCENT, isOn ? 1 : 0);
+            mEdgeLightAccentColorPreference.setChecked(isOn);
+            updateEdgeLightColorPreferences(isOn);
+            return true;
         } else if (preference == mEdgeLightColorPreference) {
             String hex = ColorPickerPreference.convertToRGB(
                     Integer.valueOf(String.valueOf(newValue)));
@@ -220,6 +238,17 @@ public class Notifications extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+    private void updateEdgeLightColorPreferences(boolean useAccentColor) {
+        mEdgeLightColorPreference.setEnabled(!useAccentColor);
+        if (useAccentColor) {
+            AmbientLightSettingsPreview.setAmbientLightPreviewColor(Utils.getColorAccentDefaultColor(getContext()));
+        } else {
+            int edgeLightColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
+            AmbientLightSettingsPreview.setAmbientLightPreviewColor(edgeLightColor);
+        }
     }
 
     public static void reset(Context mContext) {
