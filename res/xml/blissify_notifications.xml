@@ -41,6 +41,13 @@
             android:summary="@string/pulse_ambient_light_summary"
             android:defaultValue="false" />
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="ambient_notification_light_enabled"
+            android:title="@string/ambient_notification_light_enabled_title"
+            android:summary="@string/ambient_notification_light_enabled_summary"
+            android:dependency="pulse_ambient_light"
+            android:defaultValue="false" />
+
         <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="pulse_ambient_light_color"
             android:title="@string/pulse_ambient_light_color_title"
