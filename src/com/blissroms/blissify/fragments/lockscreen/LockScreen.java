@@ -66,15 +66,22 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
+    private static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
+    private static final String TEXT_CLOCK_ALIGNMENT = "text_clock_alignment";
+    private static final String TEXT_CLOCK_PADDING = "text_clock_padding";
 
     private CustomSeekBarPreference mLockscreenMediaBlur;
     private PreferenceCategory mFODIconPickerCategory;
+    private ListPreference mLockClockSelection;
+    private ListPreference mTextClockAlign;
+    private CustomSeekBarPreference mTextClockPadding;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.blissify_lockscreen);
+        ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
         Context mContext = getContext();
 
@@ -92,6 +99,25 @@ public class LockScreen extends SettingsPreferenceFragment implements
         if (mFODIconPickerCategory != null && !hasFod) {
             prefSet.removePreference(mFODIconPickerCategory);
         }
+
+        // Lockscreen Clock
+        mLockClockSelection = (ListPreference) findPreference(LOCKSCREEN_CLOCK_SELECTION);
+        boolean mClockSelection = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT) == 12
+                || Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT) == 13;
+        mLockClockSelection.setOnPreferenceChangeListener(this);
+
+        // Text Clock Alignment
+        mTextClockAlign = (ListPreference) findPreference(TEXT_CLOCK_ALIGNMENT);
+        mTextClockAlign.setEnabled(mClockSelection);
+        mTextClockAlign.setOnPreferenceChangeListener(this);
+
+        // Text Clock Padding
+        mTextClockPadding = (CustomSeekBarPreference) findPreference(TEXT_CLOCK_PADDING);
+        boolean mTextClockAlignx = Settings.System.getIntForUser(resolver,
+                    Settings.System.TEXT_CLOCK_ALIGNMENT, 0, UserHandle.USER_CURRENT) == 1;
+        mTextClockPadding.setEnabled(!mTextClockAlignx);
     }
 
     @Override
@@ -101,6 +127,15 @@ public class LockScreen extends SettingsPreferenceFragment implements
             int value = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_MEDIA_BLUR, value);
+            return true;
+        } else if (preference == mLockClockSelection) {
+            boolean val = Integer.valueOf((String) objValue) == 12
+                    || Integer.valueOf((String) objValue) == 13;
+            mTextClockAlign.setEnabled(val);
+            return true;
+        } else if (preference == mTextClockAlign) {
+            boolean val = Integer.valueOf((String) objValue) == 1;
+            mTextClockPadding.setEnabled(!val);
             return true;
         }
 
