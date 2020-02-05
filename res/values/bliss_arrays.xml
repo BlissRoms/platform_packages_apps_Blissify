@@ -938,6 +938,8 @@
         <item>@string/lockscreen_clock_selection_sammy_accent_hour</item>
         <item>@string/lockscreen_clock_selection_sammy_accent_min</item>
         <item>@string/lockscreen_clock_selection_sammy_accent_alt</item>
+        <item>@string/lockscreen_clock_selection_text</item>
+        <item>@string/lockscreen_clock_selection_text_alt</item>
     </string-array>
 
     <string-array name="lockscreen_clock_selection_values" translatable="false">
@@ -953,6 +955,8 @@
         <item>9</item>
         <item>10</item>
         <item>11</item>
+        <item>12</item>
+        <item>13</item>
     </string-array>
 
     <!-- Font style -->
@@ -1581,6 +1585,22 @@
     <string-array name="ringtone_focus_mode_values" translatable="false">
         <item>1</item>
         <item>0</item>
+    </string-array>
+
+    <!-- Text Clock Alignment -->
+    <string-array name="text_clock_entries">
+        <item>@string/text_clock_left</item>
+        <item>@string/text_clock_center</item>
+        <item>@string/text_clock_right</item>
+        <item>@string/text_clock_left_right</item>
+        <item>@string/text_clock_right_left</item>
+    </string-array>
+    <string-array name="text_clock_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 
 </resources>
