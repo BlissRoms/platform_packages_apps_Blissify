@@ -63,6 +63,7 @@ import java.util.Collections;
 import com.blissroms.blissify.fragments.notifications.AmbientLightSettingsPreview;
 import com.bliss.support.colorpicker.ColorPickerPreference;
 import com.bliss.support.preferences.CustomSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingListPreference;
 import com.bliss.support.preferences.GlobalSettingMasterSwitchPreference;
 
 @SearchIndexable
@@ -78,6 +79,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private static final String NOTIFICATION_PULSE_ACCENT = "ambient_notification_light_accent";
     private static final String PULSE_AMBIENT_LIGHT_REPEAT_COUNT = "pulse_ambient_light_repeat_count";
     private static final String NOTIFICATION_PULSE = "pulse_ambient_light";
+    private static final String AOD_NOTIFICATION_PULSE_TIMEOUT = "ambient_notification_light_timeout";
     private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
     private static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
     private static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
@@ -95,6 +97,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private ColorPickerPreference mEdgeLightColorPreference;
     private SystemSettingSeekBarPreference mEdgeLightDurationPreference;
     private SystemSettingSeekBarPreference mEdgeLightRepeatCountPreference;
+    private SystemSettingListPreference mPulseTimeout;
     private ListPreference mFlashlightOnCall;
 
     @Override
@@ -167,6 +170,14 @@ public class Notifications extends SettingsPreferenceFragment implements
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
         mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
+
+        mPulseTimeout = (SystemSettingListPreference) findPreference(AOD_NOTIFICATION_PULSE_TIMEOUT);
+        int value = Settings.System.getInt(getContentResolver(),
+                Settings.System.AOD_NOTIFICATION_PULSE_TIMEOUT, 0);
+
+        mPulseTimeout.setValue(Integer.toString(value));
+        mPulseTimeout.setSummary(mPulseTimeout.getEntry());
+        mPulseTimeout.setOnPreferenceChangeListener(this);
 
         mEdgeLightAccentColorPreference = (SwitchPreference) findPreference(NOTIFICATION_PULSE_ACCENT);
         boolean mEdgeLightAccentOn = Settings.System.getInt(getContentResolver(),
@@ -260,6 +271,13 @@ public class Notifications extends SettingsPreferenceFragment implements
             int value = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, value);
+            return true;
+        } else if (preference == mPulseTimeout) {
+            int value = Integer.valueOf((String) newValue);
+            int index = mPulseTimeout.findIndexOfValue((String) newValue);
+            mPulseTimeout.setSummary(mPulseTimeout.getEntries()[index]);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.AOD_NOTIFICATION_PULSE_TIMEOUT, value);
             return true;
         } else if (preference == mFlashlightOnCall) {
             int flashlightValue = Integer.parseInt(((String) newValue).toString());
