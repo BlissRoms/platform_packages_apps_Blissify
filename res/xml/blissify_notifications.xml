@@ -99,6 +99,14 @@
             settings:interval="1"
             android:dependency="pulse_ambient_light" />
 
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="ambient_notification_light_timeout"
+            android:title="@string/ambient_notification_light_timeout_title"
+            android:persistent="false"
+            android:entries="@array/ambient_notification_light_timeout_entries"
+            android:entryValues="@array/ambient_notification_light_timeout_values"
+            android:dependency="ambient_notification_light_enabled" />
+
         <SwitchPreference
             android:key="ambient_notification_light_accent"
             android:title="@string/ambient_notification_light_accent_title"
