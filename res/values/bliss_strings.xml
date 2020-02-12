@@ -1128,4 +1128,9 @@
     <string name="lockscreen_date_selection_str_gradient">Gradient</string>
     <string name="lockscreen_date_selection_str_border_accent">Dark with accented borders</string>
     <string name="lockscreen_date_selection_str_border_gradient">Dark with gradient borders</string>
+
+    <!-- Lockscreen Hide Date -->
+    <string name="lockscreen_date_hide_title">Hide Date Widget</string>
+    <string name="lockscreen_date_hide_summary">Enable to Hide Date and other items\n Music info on Ambient screen will be hidden as well</string>
+
 </resources>

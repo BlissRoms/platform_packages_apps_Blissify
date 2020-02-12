@@ -46,6 +46,12 @@
         android:entryValues="@array/font_style_values"
         android:defaultValue="4" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_date_hide"
+        android:title="@string/lockscreen_date_hide_title"
+        android:summary="@string/lockscreen_date_hide_summary"
+        android:defaultValue="false" />
+
     <com.bliss.support.preferences.SystemSettingListPreference
         android:key="lockscreen_date_selection"
         android:title="@string/lockscreen_date_selection_title"
