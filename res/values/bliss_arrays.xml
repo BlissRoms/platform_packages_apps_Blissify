@@ -892,6 +892,7 @@
         <item>@string/status_bar_volte_style_6</item>
         <item>@string/status_bar_volte_style_7</item>
         <item>@string/status_bar_volte_style_8</item>
+        <item>@string/status_bar_volte_style_9</item>
     </string-array>
 
     <string-array name="status_bar_volte_values" translatable="false">
@@ -904,6 +905,7 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
+        <item>9</item>
     </string-array>
 
     <!-- Lockscreen clock styles -->
