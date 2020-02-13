@@ -466,6 +466,7 @@
     <string name="status_bar_volte_style_6">Notch friendly</string>
     <string name="status_bar_volte_style_7">VoLIT Icon</string>
     <string name="status_bar_volte_style_8">VoLTE Asus Icon</string>
+    <string name="status_bar_volte_style_9">Miui 11 VoLTE</string>
 
     <!-- Data disabled indicator -->
     <string name="data_disabled_icon_title">Data disabled indicator</string>
