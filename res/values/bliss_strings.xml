@@ -1142,4 +1142,7 @@
     <string name="qs_system_info_gpu_clock">GPU frequency</string>
     <string name="qs_system_info_gpu_busy">GPU utilization</string>
 
+    <!-- Lockscreen clock font size -->
+    <string name="lock_date_font_size_title">Date font size</string>
+
 </resources>
