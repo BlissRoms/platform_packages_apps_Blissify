@@ -45,6 +45,7 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.Locale;
 import android.text.TextUtils;
 import android.view.View;
+import android.os.SystemProperties;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -61,6 +62,8 @@ import java.util.Collections;
 public class Gestures extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
+    private static final String PIXEL_CATEGORY = "pixel_gestures";
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -68,6 +71,10 @@ public class Gestures extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.blissify_gestures);
         PreferenceScreen prefSet = getPreferenceScreen();
 
+        Preference Pixel = findPreference(PIXEL_CATEGORY);
+        if (!getResources().getBoolean(R.bool.is_pixel_device)) {
+            getPreferenceScreen().removePreference(Pixel);
+        }
     }
 
     @Override
