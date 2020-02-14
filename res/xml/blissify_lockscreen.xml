@@ -68,6 +68,14 @@
         android:entryValues="@array/font_style_values"
         android:defaultValue="14" />
 
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="lock_date_font_size"
+        android:title="@string/lock_date_font_size_title"
+        android:max="25"
+        settings:min="10"
+        settings:units="dp"
+        android:defaultValue="18" />
+
     </PreferenceCategory>
 
     <!-- LockScreen Items -->
