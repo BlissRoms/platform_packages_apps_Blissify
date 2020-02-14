@@ -36,6 +36,7 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
+import android.os.SystemProperties;
 
 import java.util.Locale;
 import android.text.TextUtils;
