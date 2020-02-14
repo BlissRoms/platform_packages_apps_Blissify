@@ -46,4 +46,11 @@
         android:summary="@string/three_finger_gesture_summary"
         android:defaultValue="false" />
 
+      <!-- Pixel Gestures -->
+      <Preference
+          android:key="pixel_category"
+          android:title="@string/blissify_pixel_gestures_title"
+          android:fragment="com.blissroms.blissify.fragments.gestures.PixelGestures"
+          android:icon="@drawable/ic_blissify_gestures"/>
+
 </PreferenceScreen>
