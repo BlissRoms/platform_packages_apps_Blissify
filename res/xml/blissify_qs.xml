@@ -27,31 +27,44 @@
     <!-- Qs header -->
     <PreferenceCategory
         android:key="qs_header_category"
+        android:icon="@drawable/ic_items"
         android:title="@string/qs_header_category">
 
     <!-- Status Bar Custom Header -->
     <PreferenceScreen
         android:id="@+id/qs_header"
-        android:icon="@drawable/ic_statusbar_icons"
         android:title="@string/qs_header_title"
         android:summary="@string/qs_header_summary"
         android:fragment="com.blissroms.blissify.fragments.qs.QSHeaders"/>
 
     <lineageos.preference.LineageSystemSettingListPreference
         android:key="qs_quick_pulldown"
-        android:icon="@drawable/ic_blissify_qs"
         android:title="@string/status_bar_quick_qs_pulldown_title"
         android:entries="@array/status_bar_quick_qs_pulldown_entries"
         android:entryValues="@array/status_bar_quick_qs_pulldown_values"
         android:defaultValue="0" />
 
+    </PreferenceCategory>
+
     <!-- QS clock -->
+    <PreferenceCategory
+        android:key="show_qs_clock_category"
+        android:title="@string/qs_clock_title"
+        android:icon="@drawable/ic_clock">
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="show_qs_clock"
-        android:icon="@drawable/ic_clock"
         android:title="@string/qs_clock_title"
         android:summary="@string/qs_clock_summary"
         android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- QS brightness -->
+    <PreferenceCategory
+        android:key="qs_system_info_category"
+        android:title="@string/qs_system_info_title"
+        android:icon="@drawable/ic_system">
 
     <com.bliss.support.preferences.SystemSettingListPreference
         android:key="qs_system_info"
@@ -66,7 +79,7 @@
     <!-- QS brightness -->
     <PreferenceCategory
         android:title="@string/status_bar_brightness_category"
-        android:icon="@drawable/ic_blissify_misc">
+        android:icon="@drawable/ic_brightness_slider">
 
     <lineageos.preference.LineageSecureSettingListPreference
         android:key="qs_show_brightness_slider"
@@ -141,7 +154,7 @@
     <!-- QS Themes -->
     <PreferenceCategory
         android:key="qs_category"
-        android:icon="@drawable/ic_blissify_qs"
+        android:icon="@drawable/ic_panel"
         android:title="@string/qs_themes_category_title" >
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -230,14 +243,28 @@
 
     <!-- QS Footer -->
     <PreferenceCategory
-        android:key="qs_footer"
-        android:icon="@drawable/ic_toast_icon"
-        android:title="@string/qs_footer_title" >
+        android:key="oos_clear_all"
+        android:icon="@drawable/ic_clear_all"
+        android:title="@string/oos_clear_all_button" >
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="dismiss_all_button"
         android:title="@string/enable_clear_all_button"
         android:summary="@string/enable_clear_all_button_summary"
+        android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- QS Footer Edit-->
+    <PreferenceCategory
+        android:key="qs_footer"
+        android:icon="@drawable/ic_edit"
+        android:title="@string/qs_footer_title" >
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="qs_footer_show_edit"
+        android:title="@string/qs_footer_edit_title"
+        android:summary="@string/qs_footer_edit_summary"
         android:defaultValue="true" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -253,11 +280,27 @@
         android:dependency="footer_text_show"
         android:defaultValue="#BlissRoms" />
 
+    </PreferenceCategory>
+
+    <!-- QS Settings icon -->
+    <PreferenceCategory
+        android:key="qs_footer_settings"
+        android:icon="@drawable/ic_settings_icon"
+        android:title="@string/qs_footer_settings_title" >
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="qs_footer_show_settings"
         android:title="@string/qs_footer_settings_title"
         android:summary="@string/qs_footer_settings_summary"
         android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- QS Running services -->
+    <PreferenceCategory
+        android:key="qs_footer_services"
+        android:icon="@drawable/ic_running_services"
+        android:title="@string/qs_footer_services_title" >
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="qs_footer_show_services"
@@ -271,58 +314,69 @@
         android:summary="@string/qs_footer_user_summary"
         android:defaultValue="true" />
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="qs_footer_show_edit"
-        android:title="@string/qs_footer_edit_title"
-        android:summary="@string/qs_footer_edit_summary"
-        android:defaultValue="true" />
     </PreferenceCategory>
 
-    <!-- QS Battery -->
+    <!-- Battery styles -->
     <PreferenceCategory
         android:key="qs_battery_category"
+        android:icon="@drawable/ic_battery"
         android:title="@string/battery_options">
 
-    <!-- Battery styles -->
     <com.bliss.support.preferences.SystemSettingListPreference
         android:key="qs_battery_style"
-        android:icon="@drawable/ic_battery_bar"
         android:title="@string/status_bar_battery_style_title"
         android:dialogTitle="@string/status_bar_battery_style_title"
         android:entries="@array/qs_battery_style_entries"
         android:entryValues="@array/qs_battery_style_values"
         android:defaultValue="-1" />
 
-    <!-- Battery location -->
     <com.bliss.support.preferences.SystemSettingListPreference
         android:key="qs_battery_location"
-        android:icon="@drawable/ic_battery_bar"
         android:title="@string/qs_battery_location_title"
         android:dialogTitle="@string/qs_battery_location_title"
         android:entries="@array/qs_battery_location_entries"
         android:entryValues="@array/qs_battery_location_values"
         android:defaultValue="0" />
 
+    </PreferenceCategory>
+
     <!-- Battery percent -->
+    <PreferenceCategory
+        android:key="qs_battery_percent_category"
+        android:icon="@drawable/ic_battery_percentage"
+        android:title="@string/battery_percentage_title">
+
     <com.bliss.support.preferences.SystemSettingListPreference
         android:key="qs_show_battery_percent"
-        android:icon="@drawable/ic_battery_bar"
         android:title="@string/battery_percentage_title"
         android:entries="@array/battery_percentage_entries"
         android:entryValues="@array/battery_percentage_values"
         android:defaultValue="2" />
 
+    </PreferenceCategory>
+
+    <!-- Battery estimate -->
+    <PreferenceCategory
+        android:key="qs_battery_estimate_category"
+        android:icon="@drawable/ic_battery_estimate"
+        android:title="@string/battery_estimate_title">
+
     <!-- Battery estimate -->
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="qs_show_battery_estimate"
-        android:icon="@drawable/ic_timelapse"
         android:title="@string/battery_estimate_title"
         android:summary="@string/battery_estimate_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_bluetooth_battery"
+        android:icon="@drawable/ic_bluetooth_battery"
+        android:title="@string/bluetooth_battery_title">
 
     <!-- Qs bluetooth battery-->
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="bluetooth_qs_show_battery"
-        android:icon="@drawable/ic_battery_bar"
         android:title="@string/bluetooth_battery_title"
         android:summary="@string/bluetooth_battery_summary"
         android:defaultValue="true"/>

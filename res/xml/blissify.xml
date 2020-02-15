@@ -77,6 +77,6 @@
           android:key="misc_category"
           android:title="@string/blissify_misc_title"
           android:fragment="com.blissroms.blissify.fragments.misc.MiscSettings"
-          android:icon="@drawable/ic_blissify_misc"/>
+          android:icon="@drawable/ic_blissify_more"/>
 
 </PreferenceScreen>
