@@ -86,7 +86,7 @@
     <!-- Ticker -->
     <PreferenceCategory
         android:key="status_bar_ticker"
-        android:icon="@drawable/ic_headsup"
+        android:icon="@drawable/ic_notification_ticker"
         android:title="@string/ticker_screen_title" >
 
     <com.bliss.support.preferences.SystemSettingListPreference
@@ -117,7 +117,7 @@
     <!-- Lockscreen Notificatios -->
     <PreferenceCategory
         android:key="lockscreen_notifications_category"
-        android:icon="@drawable/ic_statusbar_icons"
+        android:icon="@drawable/ic_lockscreen_notifications"
         android:title="@string/lockscreen_notifications_category" >
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -140,7 +140,7 @@
     <!-- Breathing Notifications -->
     <PreferenceCategory
         android:title="@string/breathing_notifications_category"
-        android:icon="@drawable/ic_force_close_notifications">
+        android:icon="@drawable/ic_breathing_missed_call">
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="sms_breath"
@@ -165,7 +165,7 @@
     <!-- Notification options -->
     <PreferenceCategory
         android:title="@string/notifications_vib_category" 
-        android:icon="@drawable/ic_force_close_notifications">
+        android:icon="@drawable/ic_notification_count">
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="vibrate_on_notifications"
@@ -202,7 +202,7 @@
     <!-- Incall vib -->
     <PreferenceCategory
         android:key="incall_vib_options"
-        android:icon="@drawable/ic_call_options"
+        android:icon="@drawable/ic_vibrate_connect"
         android:title="@string/incall_noti_category" >
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -225,7 +225,7 @@
     <!-- Flashlight on call -->
     <PreferenceCategory
         android:key="notification_flash"
-        android:icon="@drawable/ic_call_options"
+        android:icon="@drawable/ic_flashlight"
         android:title="@string/notification_flash_title" >
 
         <ListPreference
