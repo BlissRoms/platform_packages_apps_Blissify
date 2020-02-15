@@ -52,6 +52,10 @@
     <string name="fp_misc_title">Fingerprint</string>
     <string name="qs_header_category">Quick Settings</string>
     <string name="lockscreen_items_category">Lockscreen Items</string>
+    <string name="lockscreen_shortcuts_category_title">Lockscreen Shortcuts</string>
+    <string name="lockscreen_media_blur_category">Lockscreen Media Blur</string>
+    <string name="lockscreen_wake_fp_category">Wake Options</string>
+    <string name="volume_options_title">Volume Options</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
@@ -987,6 +991,7 @@
 
     <!-- QS category -->
     <string name="qs_category">Quick settings</string>
+    <string name="oos_clear_all_button">OOS Clear All</string>
     <string name="enable_clear_all_button">Replace clear all text with nice button</string>
     <string name="enable_clear_all_button_summary">Show clear all notifications button in quick settings instead of default text one</string>
 
@@ -1019,7 +1024,8 @@
     <string name="lockscreen_clock_selection_sammy_accent_alt">Sammy accent(darker hour)</string>
 
     <!-- lockscreen clock and date font style -->
-    <string name="lockscreen_clockdate_category">Clock &amp; date</string>
+    <string name="lockscreen_clock_category">Clock Options</string>
+    <string name="lockscreen_clockdate_category">Date Options</string>
     <string name="clock_font_style_title">Clock font style</string>
     <string name="date_font_style_title">Date font style</string>
     <string name="font_style_title">Font style</string>

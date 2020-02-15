@@ -23,7 +23,7 @@
 
     <PreferenceCategory
         android:title="@string/system_anim"
-        android:icon="@drawable/ic_blissify_animation">
+        android:icon="@drawable/ic_animation">
 
         <PreferenceScreen
             android:key="system_animation"
@@ -58,7 +58,7 @@
 
     <PreferenceCategory
         android:title="@string/tile_anim"
-        android:icon="@drawable/ic_blissify_qs">
+        android:icon="@drawable/ic_qs_tile">
 
         <com.bliss.support.preferences.SystemSettingListPreference
             android:key="anim_tile_style"
@@ -87,8 +87,8 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/misc_anim"
-        android:icon="@drawable/ic_blissify_misc">
+        android:title="@string/pref_scrollingcache_title"
+        android:icon="@drawable/ic_scrolling_cache">
 
         <ListPreference
             android:key="pref_scrollingcache"
@@ -97,6 +97,12 @@
             android:entries="@array/entries_scrollingcache"
             android:entryValues="@array/values_scrollingcache"
             android:defaultValue="1" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/screen_off_animation_title"
+        android:icon="@drawable/ic_screen_off">
 
         <ListPreference
             android:key="screen_off_animation"
