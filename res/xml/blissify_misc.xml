@@ -75,7 +75,7 @@
     <PreferenceCategory
         android:key="gaming_mode_category"
         android:title="@string/gaming_mode_title"
-        android:icon="@drawable/ic_blissify_animation">
+        android:icon="@drawable/ic_gaming_mode">
 
     <Preference
         android:key="gaming_mode"
