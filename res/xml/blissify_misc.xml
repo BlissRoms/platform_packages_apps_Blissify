@@ -25,7 +25,7 @@
     <!-- Agressive battery -->
     <PreferenceCategory
         android:key="aggressive_battery"
-        android:icon="@drawable/ic_battery_bar"
+        android:icon="@drawable/ic_battery"
         android:title="@string/aggressive_battery_title">
 
     <com.bliss.support.preferences.GlobalSettingSwitchPreference
@@ -75,7 +75,7 @@
     <PreferenceCategory
         android:key="gaming_mode_category"
         android:title="@string/gaming_mode_title"
-        android:icon="@drawable/ic_blissify_animation">
+        android:icon="@drawable/ic_gaming_mode">
 
     <Preference
         android:key="gaming_mode"
@@ -88,7 +88,7 @@
     <!-- HAFR -->
     <PreferenceCategory
         android:key="hafr_category"
-        android:icon="@drawable/ic_hafr"
+        android:icon="@drawable/ic_shortcuts"
         android:title="@string/hafr_category_title" >
 
     <Preference
@@ -118,7 +118,7 @@
     <!-- Dashboard -->
     <PreferenceCategory
         android:key="dashboard_settings_category"
-        android:icon="@drawable/ic_dashboard"
+        android:icon="@drawable/ic_settings_icon"
         android:title="@string/dashboard_settings_category" >
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -204,7 +204,7 @@
     <!-- Wakelock blocker -->
     <PreferenceCategory
         android:key="wakelock_blocker_category"
-        android:icon="@drawable/ic_prevent_accidental_wakeup"
+        android:icon="@drawable/ic_system_wakelock"
         android:title="@string/wakelock_blocker_title" >
 
     <Preference
@@ -221,24 +221,39 @@
 
     </PreferenceCategory>
 
-    <!-- Misc -->
-    <PreferenceCategory
-        android:key="misc"
-        android:title="@string/misc_category_title"
-        android:icon="@drawable/ic_blissify_misc">
-
     <!-- Launch music player when headset is connected -->
+    <PreferenceCategory
+        android:key="launch_music"
+        android:title="@string/headset_connect_player_title"
+        android:icon="@drawable/ic_music">
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="headset_connect_player"
         android:title="@string/headset_connect_player_title"
         android:summary="@string/headset_connect_player_summary"
         android:defaultValue="false" />
 
+    </PreferenceCategory>
+
+    <!-- Sensor Block -->
+    <PreferenceCategory
+        android:key="sensor_block_category"
+        android:title="@string/sensor_block_title"
+        android:icon="@drawable/ic_sensor_block">
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="sensor_block" 
         android:title="@string/sensor_block_title"
         android:summary="@string/sensor_block_summary"
         android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <!-- Signature spoofing -->
+    <PreferenceCategory
+        android:key="signature_spoofing"
+        android:title="@string/allow_signature_fake"
+        android:icon="@drawable/ic_allow_signature_spoofing">
 
     <com.bliss.support.preferences.GlobalSettingSwitchPreference
         android:key="allow_signature_fake"
