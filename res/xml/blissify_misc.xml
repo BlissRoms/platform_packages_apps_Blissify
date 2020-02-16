@@ -263,4 +263,17 @@
 
     </PreferenceCategory>
 
+    <!-- Disable device identifier restrictions -->
+    <PreferenceCategory
+        android:key="priv_identifier_key"
+        android:title="@string/device_identifier_access_restrictions_title"
+        android:icon="@drawable/ic_system">
+
+    <com.bliss.support.preferences.GlobalSettingSwitchPreference
+        android:key="privileged_device_identifier_check_relaxed"
+        android:title="@string/device_identifier_access_restrictions_title"
+        android:summary="@string/device_identifier_access_restrictions_summary" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

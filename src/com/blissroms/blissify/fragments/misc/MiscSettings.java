@@ -152,6 +152,12 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         return false;
     }
 
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.Global.putInt(resolver,
+                Settings.Global.PRIVILEGED_DEVICE_IDENTIFIER_CHECK_RELAXED, 0);
+    }
+
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.BLISSIFY;
@@ -178,3 +184,4 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                 }
     };
 }
+
