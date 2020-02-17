@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b25ba7c5_dea4af52",
+        "filename": "src/com/blissroms/blissify/fragments/gestures/PixelGestures.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2020-02-17T13:30:05Z",
+      "side": 1,
+      "message": "Just move this to previous commit 😊",
+      "revId": "69d2f6da5c1abc027951c35abae9c157a95ae21d",
+      "serverId": "b7386340-edb3-408c-9cac-98e148952b30",
+      "unresolved": true
+    }
+  ]
+}
