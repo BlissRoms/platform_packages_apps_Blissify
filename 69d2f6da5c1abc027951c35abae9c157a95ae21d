@@ -16,6 +16,24 @@
       "revId": "69d2f6da5c1abc027951c35abae9c157a95ae21d",
       "serverId": "b7386340-edb3-408c-9cac-98e148952b30",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49ace1cf_7c6888ab",
+        "filename": "src/com/blissroms/blissify/fragments/gestures/PixelGestures.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2020-02-17T14:08:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b25ba7c5_dea4af52",
+      "revId": "69d2f6da5c1abc027951c35abae9c157a95ae21d",
+      "serverId": "b7386340-edb3-408c-9cac-98e148952b30",
+      "unresolved": false
     }
   ]
 }
