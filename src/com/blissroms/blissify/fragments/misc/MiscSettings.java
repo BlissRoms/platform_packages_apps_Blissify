@@ -64,14 +64,13 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String FP_ERROR_VIBRATE = "fp_error_vibrate";
     private static final String SMART_PIXELS_ENABLED = "smart_pixels_enable";
-
+    private static final String SMART_PIXELS = "smart_pixels";
 
     private SystemSettingMasterSwitchPreference mSmartPixelsEnabled;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mFingerprintVibErr;
     private SwitchPreference mShowCpuInfo;
-
 
     private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
 
@@ -95,8 +94,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mFingerprintVib.setOnPreferenceChangeListener(this);
         }
 
-
-
         mShowCpuInfo = (SwitchPreference) findPreference(SHOW_CPU_INFO_KEY);
         mShowCpuInfo.setChecked(Settings.Global.getInt(getActivity().getContentResolver(),
                 Settings.Global.SHOW_CPU_OVERLAY, 0) == 1);
@@ -108,8 +105,10 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                 SMART_PIXELS_ENABLED, 0);
         mSmartPixelsEnabled.setChecked(smartPixelsEnabled != 0);
 
+        mSmartPixelsCategory = (PreferenceCategory) findPreference(SMART_PIXELS);
+
         if (!getResources().getBoolean(com.android.internal.R.bool.config_enableSmartPixels)) {
-            getPreferenceScreen().removePreference(mSmartPixelsEnabled);
+            getPreferenceScreen().removePreference(mSmartPixelsCategory);
         }
     }
 
