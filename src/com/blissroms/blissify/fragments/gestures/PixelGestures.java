@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The BlissRoms Project
+ * Copyright (C) 2019-2020 The BlissRoms Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.UserHandle;
-import android.provider.SearchIndexableResource;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.provider.Settings;
@@ -37,10 +36,7 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
-
-import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
-import com.android.settingslib.search.SearchIndexable;
+import android.os.SystemProperties;
 
 import java.util.Locale;
 import android.text.TextUtils;
@@ -57,23 +53,39 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
-@SearchIndexable
-public class Gestures extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener, Indexable {
+public class PixelGestures extends SettingsPreferenceFragment implements
+        OnPreferenceChangeListener {
 
-    private static final String PIXEL_CATEGORY = "pixel_category";
+    private static final String ACTIVE_EDGE_CATEGORY = "active_edge_category";
+    private static final String AWARE_CATEGORY = "aware_settings";
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        addPreferencesFromResource(R.xml.blissify_gestures);
+        addPreferencesFromResource(R.xml.blissify_pixel_gestures);
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        Preference Pixel = findPreference(PIXEL_CATEGORY);
-        if (!getResources().getBoolean(R.bool.is_pixel_device)) {
-            getPreferenceScreen().removePreference(Pixel);
+        Preference ActiveEdge = findPreference(ACTIVE_EDGE_CATEGORY);
+        if (!getResources().getBoolean(R.bool.has_active_edge)) {
+            getPreferenceScreen().removePreference(ActiveEdge);
+        } else {
+            if (!getContext().getPackageManager().hasSystemFeature(
+                    "android.hardware.sensor.assist")) {
+                getPreferenceScreen().removePreference(ActiveEdge);
+            }
         }
+
+        Preference Aware = findPreference(AWARE_CATEGORY);
+        if (!getResources().getBoolean(R.bool.has_aware)) {
+            getPreferenceScreen().removePreference(Aware);
+        } else {
+            if (!SystemProperties.getBoolean(
+                    "ro.vendor.aware_available", false)) {
+                getPreferenceScreen().removePreference(Aware);
+            }
+        }
+
     }
 
     @Override
@@ -85,26 +97,5 @@ public class Gestures extends SettingsPreferenceFragment implements
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.BLISSIFY;
     }
-
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.blissify_gestures;
-                    result.add(sir);
-                    return result;
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
-    };
 
 }
