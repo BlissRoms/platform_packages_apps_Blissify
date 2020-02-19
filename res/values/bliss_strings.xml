@@ -1069,6 +1069,19 @@
     <string name="font_googlesans">GoogleSans</string>
     <string name="font_oneplusslate">OneplusSlate</string>
     <string name="font_samsungone">SamsungOne</string>
+    <string name="font_comfortaa">Comfortaa</string>
+    <string name="font_exotwo">Exotwo</string>
+    <string name="font_storopia">Storopia</string>
+    <string name="font_ubuntu">Ubuntu</string>
+    <string name="font_nokiapure">Nokia Pure</string>
+    <string name="font_fifa2018">Fifa 2018</string>
+    <string name="font_roadrage">Road Rage</string>
+    <string name="font_20seven">20Seven</string>
+    <string name="font_cocon">Cocon</string>
+    <string name="font_quando">Quando</string>
+    <string name="font_grandhotel">Grand Hotel</string>
+    <string name="font_redressed">Redressed</string>
+    <string name="font_sanfransisco">San Fransisco</string>
     <string name="font_size_title">Font size</string>
 
     <!-- QS themes -->
