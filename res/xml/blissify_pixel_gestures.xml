@@ -18,7 +18,7 @@
 
     <Preference
         android:key="active_edge_category"
-        android:icon="@drawable/ic_bliss_active_edge"
+        android:icon="@drawable/ic_activeedge"
         android:title="@string/active_edge_title"
         android:summary="@string/active_edge_summary"
         android:fragment="com.blissroms.blissify.fragments.gestures.ActiveEdge"
@@ -26,7 +26,7 @@
 
     <Preference
         android:key="aware_settings"
-        android:icon="@drawable/ic_bliss_aware"
+        android:icon="@drawable/ic_aware"
         android:title="@string/aware_settings_title"
         android:summary="@string/aware_settings_summary"
         android:fragment="com.google.android.settings.aware.AwareSettings"
