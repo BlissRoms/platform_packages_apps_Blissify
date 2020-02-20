@@ -56,6 +56,7 @@ import com.android.internal.util.hwkeys.ActionConstants;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.blissroms.blissify.ui.ActionFragment;
 import com.bliss.support.preferences.CustomSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -71,6 +72,7 @@ public class NavigationSettings extends ActionFragment implements
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
     private static final String KEY_NAVIGATION_BAR_ENABLED = "force_show_navbar";
     private static final String KEY_LAYOUT_SETTINGS = "layout_settings";
+    private static final String KEY_NAVIGATION_BAR_ARROWS = "navigation_bar_menu_arrow_keys";
 
     // category keys
     private static final String CATEGORY_HWKEY = "hardware_keys";
@@ -100,6 +102,8 @@ public class NavigationSettings extends ActionFragment implements
     private CustomSeekBarPreference mManualButtonBrightness;
     private PreferenceCategory mButtonBackLightCategory;
     private SwitchPreference mNavigationBar;
+    private Preference mLayoutSettings;
+    private SystemSettingSwitchPreference mNavigationArrows;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -122,7 +126,9 @@ public class NavigationSettings extends ActionFragment implements
                 defaultToNavigationBar ? 1 : 0) == 1));
         mNavigationBar.setOnPreferenceChangeListener(this);
 
-        Preference mLayoutSettings = (Preference) findPreference(KEY_LAYOUT_SETTINGS);
+        mLayoutSettings = (Preference) findPreference(KEY_LAYOUT_SETTINGS);
+
+        mNavigationArrows = (SystemSettingSwitchPreference) findPreference(KEY_NAVIGATION_BAR_ARROWS);
 
         final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());
         final PreferenceCategory hwkeyCat = (PreferenceCategory) prefScreen
