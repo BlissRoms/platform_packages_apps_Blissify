@@ -51,6 +51,6 @@
           android:key="pixel_category"
           android:title="@string/blissify_pixel_gestures_title"
           android:fragment="com.blissroms.blissify.fragments.gestures.PixelGestures"
-          android:icon="@drawable/ic_blissify_gestures"/>
+          android:icon="@drawable/ic_pixelgestures"/>
 
 </PreferenceScreen>
