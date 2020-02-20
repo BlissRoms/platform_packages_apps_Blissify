@@ -69,6 +69,7 @@ public class NavigationSettings extends ActionFragment implements
 
     private static final String NAVIGATION_CATEGORY = "navigation_category";
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
+    private static final String KEY_NAVIGATION_BAR_ENABLED = "force_show_navbar";
 
     // category keys
     private static final String CATEGORY_HWKEY = "hardware_keys";
@@ -97,6 +98,7 @@ public class NavigationSettings extends ActionFragment implements
     private CustomSeekBarPreference mButtonTimoutBar;
     private CustomSeekBarPreference mManualButtonBrightness;
     private PreferenceCategory mButtonBackLightCategory;
+    private SwitchPreference mNavigationBar;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -105,8 +107,19 @@ public class NavigationSettings extends ActionFragment implements
         final ContentResolver resolver = getActivity().getContentResolver();
         addPreferencesFromResource(R.xml.blissify_navigation);
         setRetainInstance(true);
-
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        final boolean defaultToNavigationBar = getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+        final boolean navigationBarEnabled = Settings.System.getIntForUser(
+                resolver, Settings.System.FORCE_SHOW_NAVBAR,
+                defaultToNavigationBar ? 1 : 0, UserHandle.USER_CURRENT) != 0;
+
+        mNavigationBar = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_ENABLED);
+        mNavigationBar.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.FORCE_SHOW_NAVBAR,
+                defaultToNavigationBar ? 1 : 0) == 1));
+        mNavigationBar.setOnPreferenceChangeListener(this);
 
         final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());
         final PreferenceCategory hwkeyCat = (PreferenceCategory) prefScreen
@@ -213,7 +226,12 @@ public class NavigationSettings extends ActionFragment implements
             int buttonBrightness = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.CUSTOM_BUTTON_BRIGHTNESS, buttonBrightness);
-        } else {
+        } else if (preference == mNavigationBar) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.FORCE_SHOW_NAVBAR, value ? 1 : 0);
+            return true;
+		} else {
             return false;
 		}
         return true;

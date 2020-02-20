@@ -25,6 +25,11 @@
         android:key="bliss_header"
         android:layout="@layout/buttons_header" /> -->
 
+    <SwitchPreference
+        android:key="force_show_navbar"
+        android:title="@string/navigation_bar_title"
+        android:summary="@string/navigation_bar_summary" />
+
     <PreferenceCategory 
 		android:key="hardware_keys"
 		android:title="@string/hardware_keys_category">
