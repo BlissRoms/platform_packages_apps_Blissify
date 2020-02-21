@@ -1248,4 +1248,8 @@
     <string name="theming_title">Styles &amp; Wallpapers</string>
     <string name="theme_select_title">Themes</string>
     <string name="theme_select_summary">Browse and select installed themes</string>
+
+    <!-- QS Panel MIUI style brightness slider -->
+    <string name="brightness_slider_qs_unexpanded">MIUI style brightness slider (testing)</string>
+    <string name="brightness_slider_qs_unexpanded_summary">Shows brightness slider below qs panel</string>
 </resources>
