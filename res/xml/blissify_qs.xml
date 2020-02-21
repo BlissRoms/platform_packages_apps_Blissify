@@ -101,6 +101,12 @@
         android:summary="@string/qs_show_brightness_buttons_summary"
         android:defaultValue="true" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="brightness_slider_qs_unexpanded"
+        android:title="@string/brightness_slider_qs_unexpanded"
+        android:summary="@string/brightness_slider_qs_unexpanded_summary"
+        android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <!-- QS Rows/COls -->
