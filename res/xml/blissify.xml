@@ -79,4 +79,11 @@
           android:fragment="com.blissroms.blissify.fragments.misc.MiscSettings"
           android:icon="@drawable/ic_blissify_more"/>
 
+      <!-- Themes -->
+      <com.blissroms.blissify.ui.BlissPreference
+          android:key="themes_category"
+          android:title="@string/blissify_themes_title"
+          android:fragment="com.blissroms.blissify.fragments.themes.Themes"
+          android:icon="@drawable/ic_blissify_themes"/>
+
 </PreferenceScreen>
