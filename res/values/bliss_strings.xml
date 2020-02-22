@@ -30,6 +30,7 @@
     <string name="blissify_gestures_title">Gestures</string>
     <string name="blissify_pixel_gestures_title">Pixel Gestures</string>
     <string name="blissify_notifications_title">Notifications</string>
+    <string name="blissify_themes_title">Themes</string>
     <string name="system_animation_category">System</string>
     <string name="misc_animation_title">Misc</string>
     <string name="toast_animation_category">Toast Animations</string>
