@@ -596,4 +596,13 @@
     <string name="qstile_squircle">Squircle</string>
     <string name="qstile_teardrop">Teardrop</string>
 
+    <!-- Themes -->
+    <string name="aosp_themeing_title">Aosp Themeing</string>
+    <string name="theme_customization_category">Theming</string>
+    <string name="theme_customization_accent_color_title">Accent color</string>
+    <string name="theme_customization_primary_color_title">Primary color</string>
+    <string name="theme_customization_font_title">Headline / Body font</string>
+    <string name="theme_customization_icon_shape_title">Icon shape</string>
+    <string name="theme_customization_sysui_icon_title">Statusbar Icon</string>
+    <string name="theme_customization_device_default">Device default</string>
 </resources>
