@@ -73,11 +73,11 @@ public class Notifications extends SettingsPreferenceFragment implements
     private static final String SMS_BREATH = "sms_breath";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
-    private static final String PULSE_AMBIENT_LIGHT = "pulse_ambient_light";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
     private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
-    private static final String AMBIENT_NOTIFICATION_LIGHT_ACCENT = "ambient_notification_light_accent";
+    private static final String NOTIFICATION_PULSE_ACCENT = "ambient_notification_light_accent";
     private static final String PULSE_AMBIENT_LIGHT_REPEAT_COUNT = "pulse_ambient_light_repeat_count";
+    private static final String NOTIFICATION_PULSE = "pulse_ambient_light";
     private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
     private static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
     private static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
@@ -157,9 +157,9 @@ public class Notifications extends SettingsPreferenceFragment implements
             prefSet.removePreference(FlashOnCall);
         }
 
-        mEdgeLightPreference = (SwitchPreference) findPreference(PULSE_AMBIENT_LIGHT);
+        mEdgeLightPreference = (SwitchPreference) findPreference(NOTIFICATION_PULSE);
         boolean mEdgeLightOn = Settings.System.getInt(getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT, 0) == 1;
+                Settings.System.NOTIFICATION_PULSE, 0) == 1;
         mEdgeLightPreference.setChecked(mEdgeLightOn);
         mEdgeLightPreference.setOnPreferenceChangeListener(this);
 
@@ -168,9 +168,9 @@ public class Notifications extends SettingsPreferenceFragment implements
                 Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
         mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
 
-        mEdgeLightAccentColorPreference = (SwitchPreference) findPreference(AMBIENT_NOTIFICATION_LIGHT_ACCENT);
+        mEdgeLightAccentColorPreference = (SwitchPreference) findPreference(NOTIFICATION_PULSE_ACCENT);
         boolean mEdgeLightAccentOn = Settings.System.getInt(getContentResolver(),
-                Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACCENT, 0) == 1;
+                Settings.System.NOTIFICATION_PULSE_ACCENT, 0) == 1;
         mEdgeLightAccentColorPreference.setChecked(mEdgeLightAccentOn);
         mEdgeLightAccentColorPreference.setOnPreferenceChangeListener(this);
 
@@ -229,12 +229,12 @@ public class Notifications extends SettingsPreferenceFragment implements
         } else if (preference == mEdgeLightPreference) {
             boolean isOn = (Boolean) newValue;
             Settings.System.putInt(resolver,
-                    Settings.System.PULSE_AMBIENT_LIGHT, isOn ? 1 : 0);
+                    Settings.System.NOTIFICATION_PULSE, isOn ? 1 : 0);
                 return true;
         } else if (preference == mEdgeLightAccentColorPreference) {
             boolean isOn = (Boolean) newValue;
             Settings.System.putInt(resolver,
-                    Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACCENT, isOn ? 1 : 0);
+                    Settings.System.NOTIFICATION_PULSE_ACCENT, isOn ? 1 : 0);
             mEdgeLightAccentColorPreference.setChecked(isOn);
             updateEdgeLightColorPreferences(isOn);
             return true;
