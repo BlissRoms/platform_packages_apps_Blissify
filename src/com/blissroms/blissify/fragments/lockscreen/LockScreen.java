@@ -57,7 +57,6 @@ import java.util.HashMap;
 import java.util.Collections;
 
 import com.bliss.support.preferences.CustomSeekBarPreference;
-import com.bliss.support.preferences.SecureSettingListPreference;
 
 import lineageos.app.LineageContextConstants;
 
@@ -66,11 +65,9 @@ public class LockScreen extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
     private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
-    private static final String KEY_LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
 
     private CustomSeekBarPreference mLockscreenMediaBlur;
-    private SecureSettingListPreference mLockscreenAlbumArt;
     private PreferenceCategory mFODIconPickerCategory;
 
     @Override
@@ -87,9 +84,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_MEDIA_BLUR, defaultBlur);
         mLockscreenMediaBlur.setValue(value);
         mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
-
-        mLockscreenAlbumArt = (SecureSettingListPreference) findPreference(KEY_LOCKSCREEN_ALBUMART_FILTER);
-        mLockscreenAlbumArt.setOnPreferenceChangeListener(this);
 
         PackageManager packageManager = mContext.getPackageManager();
         boolean hasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
@@ -108,14 +102,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_MEDIA_BLUR, value);
             return true;
-        } else if (preference == mLockscreenAlbumArt) {
-          int val = Integer.parseInt((String) objValue);
-          if (val == 3) {
-              mLockscreenMediaBlur.setEnabled(true);
-          } else {
-              mLockscreenMediaBlur.setEnabled(false);
-          }
-          return true;
         }
 
         return false;
