@@ -1738,6 +1738,6 @@
     <string name="theme_type_title">System theme</string>
     <string name="theme_type_summary">Select theme</string>
     <string name="theme_type_default">Stock theme</string>
-    <string name="theme_type_pitch_black">Pitch black</string>
     <string name="theme_type_solarized_dark">Solarized dark</string>
+    <string name="theme_type_pitchblack">Pitch black</string>
 </resources>
