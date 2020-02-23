@@ -39,7 +39,7 @@
         android:persistent="false" />
 
     <PreferenceCategory
-        android:key="navigation_bar_category"
+        android:key="navigation_bar_arrow_keys"
         android:icon="@drawable/ic_nav_buttons"
         android:title="@string/navigation_bar_category" >
 
@@ -64,7 +64,7 @@
      </PreferenceCategory>
 
      <PreferenceCategory
-        android:key="nav_bar_button_actions"
+        android:key="navigation_bar_category"
         android:icon="@drawable/ic_nav_buttons"
         android:title="@string/navigation_bar_options_category" >
 
