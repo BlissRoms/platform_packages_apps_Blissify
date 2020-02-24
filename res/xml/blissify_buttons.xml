@@ -26,6 +26,11 @@
         android:key="bliss_header"
         android:layout="@layout/buttons_header" />
 
+    <SwitchPreference
+        android:key="navbar_visibility"
+        android:title="@string/navbar_visibility"
+        android:summary="@string/navbar_visibility_summary" />
+
     <com.bliss.support.preferences.SecureSettingSwitchPreference
         android:key="hardware_keys_disable"
         android:title="@string/hwkeys_disabled_title"
