@@ -105,6 +105,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private static final String KEY_CAMERA_SLEEP_ON_RELEASE = "camera_sleep_on_release";
     private static final String KEY_CAMERA_LAUNCH = "camera_launch";
     private static final String KEY_ADDITIONAL_BUTTONS = "additional_buttons";
+    private static final String NAVBAR_VISIBILITY = "navbar_visibility";
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
@@ -140,12 +141,18 @@ public class Buttons extends SettingsPreferenceFragment implements
     private SwitchPreference mTorchLongPressPowerGesture;
     private ListPreference mTorchLongPressPowerTimeout;
     private ButtonBacklightBrightness backlight;
+    private SwitchPreference mNavbarVisibility;
+
+    private boolean mIsNavSwitchingMode = false;
+    private Handler mHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.blissify_buttons);
+
+        mHandler = new Handler();
 
         final Resources res = getResources();
         final ContentResolver resolver = getActivity().getContentResolver();
@@ -414,6 +421,14 @@ public class Buttons extends SettingsPreferenceFragment implements
                 mVolumeWakeScreen.setDisableDependentsState(true);
             }
         }
+
+        mNavbarVisibility = (SwitchPreference) findPreference(NAVBAR_VISIBILITY);
+
+        boolean showing = LineageSettings.System.getIntForUser(resolver,
+                LineageSettings.System.FORCE_SHOW_NAVBAR,
+                Utils.hasNavbarByDefault(getActivity()) ? 1 : 0, UserHandle.USER_CURRENT) != 0;
+        mNavbarVisibility.setChecked(showing);
+        mNavbarVisibility.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -523,6 +538,19 @@ public class Buttons extends SettingsPreferenceFragment implements
             handleListChange(mTorchLongPressPowerTimeout, newValue,
                     LineageSettings.System.TORCH_LONG_PRESS_POWER_TIMEOUT);
             return true;
+        } else if (preference == mNavbarVisibility) {
+            mIsNavSwitchingMode = true;
+            boolean showing = ((Boolean)newValue);
+            LineageSettings.System.putIntForUser(resolver, LineageSettings.System.FORCE_SHOW_NAVBAR,
+                    showing ? 1 : 0, UserHandle.USER_CURRENT);
+            mNavbarVisibility.setChecked(showing);
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mIsNavSwitchingMode = false;
+                }
+            }, 1500);
+            return true;
         }
         return false;
     }
@@ -583,6 +611,8 @@ public class Buttons extends SettingsPreferenceFragment implements
                 Settings.Secure.HARDWARE_KEYS_DISABLE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.ANBI_ENABLED, 0, UserHandle.USER_CURRENT);
+        LineageSettings.System.putIntForUser(resolver, LineageSettings.System.FORCE_SHOW_NAVBAR,
+             Utils.hasNavbarByDefault(mContext) ? 1 : 0, UserHandle.USER_CURRENT);
     }
 
     @Override
