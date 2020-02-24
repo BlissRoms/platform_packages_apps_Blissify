@@ -923,6 +923,9 @@
     <string name="pulse_ambient_light_pulse_for_all_summary">Pulses for all doze events and not just for notifications</string>
     <string name="pulse_ambient_light_repeat_count_title">Repeat count</string>
     <string name="pulse_ambient_light_repeat_count_summary">Set max repeat count. 0 for infinite</string>
+    <string name="pulse_ambient_light_layout_title">Edge Light View</string>
+    <string name="pulse_ambient_light_layout_solid">Solid</string>
+    <string name="pulse_ambient_light_layout_faded">Faded</string>
 
     <!-- Hide Apps from Recents -->
     <string name="hafr_category_title">HAFR</string>
