@@ -1147,6 +1147,7 @@
     <string name="fod_pressed_state_vivo_cyan_shadow_et713">Vivo Cyan (Shadow alt)</string>
     <string name="fod_pressed_state_vivo_green">Vivo Green</string>
     <string name="fod_pressed_state_vivo_yellow_shadow">Vivo Yellow (Shadow)</string>
+    <string name="fod_pressed_state_accent">System accent color</string>
 
     <!-- Launch music player when headset is connected -->
     <string name="headset_connect_player_title">Launch music app on headset connection</string>
