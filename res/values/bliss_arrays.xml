@@ -1125,6 +1125,7 @@
         <item>@string/fod_pressed_state_vivo_cyan_shadow_et713</item>
         <item>@string/fod_pressed_state_vivo_green</item>
         <item>@string/fod_pressed_state_vivo_yellow_shadow</item>
+        <item>@string/fod_pressed_state_accent</item>
     </string-array>
 
     <string-array name="fod_pressed_state_values" translatable="false">
@@ -1135,6 +1136,7 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
+        <item>7</item>
     </string-array>
 
      <!-- Lockscreen date styles -->
