@@ -157,6 +157,16 @@
         android:defaultValue="false" />
 
     <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="fod_anim"
+        android:title="@string/fod_recog_animation_picker"
+        android:summary="@string/fod_recog_animation_picker_summary"
+        android:dialogTitle="@string/fod_recog_animation_picker"
+        android:entries="@array/fod_recog_animation_entries"
+        android:entryValues="@array/fod_recog_animation_values"
+        android:defaultValue="0"
+        android:dependency="fod_recognizing_animation" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
         android:key="fod_pressed_state"
         android:dialogTitle="@string/fod_pressed_state_title"
         android:title="@string/fod_pressed_state_title"
