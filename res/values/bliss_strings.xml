@@ -1252,4 +1252,13 @@
     <!-- FOD animations -->
     <string name="fod_recog_animation">FOD recognizing animation</string>
     <string name="fod_recog_animation_summary">Shows an animation while reading your finger</string>
+    <string name="fod_recog_animation_picker_title">FOD recognizing animation picker</string>
+    <string name="fod_recog_animation_picker_summary">Choose your favorite recognizing animation</string>
+    <string name="fod_recog_animation_normal">Normal</string>
+    <string name="fod_recog_animation_aod">AOD</string>
+    <string name="fod_recog_animation_light">Light</string>
+    <string name="fod_recog_animation_pop">Pop</string>
+    <string name="fod_recog_animation_pulse">Pulse</string>
+    <string name="fod_recog_animation_pulse_white">Pulse (White)</string>
+    <string name="fod_recog_animation_rhythm">Rhythm</string>
 </resources>
