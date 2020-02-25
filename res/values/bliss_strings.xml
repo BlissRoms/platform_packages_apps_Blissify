@@ -59,6 +59,8 @@
     <string name="lockscreen_wake_fp_category">Wake Options</string>
     <string name="volume_options_title">Volume Options</string>
     <string name="navigation_bar_options_category">Nav Bar Options</string>
+    <string name="navigation_title">Navigation</string>
+
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
@@ -1256,4 +1258,8 @@
     <!-- ANBI -->
     <string name="anbi_title">Accidental touch</string>
     <string name="anbi_summary">Prevent interaction with navigation buttons while the screen is being touched</string>
+
+    <!-- Navbar -->
+    <string name="navbar_visibility">Navigation bar</string>
+    <string name="navbar_visibility_summary">Toggle navigation bar visibility</string>
 </resources>
