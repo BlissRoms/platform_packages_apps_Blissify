@@ -26,6 +26,7 @@ import android.content.pm.ResolveInfo;
 import android.os.UserHandle;
 import android.content.ContentResolver;
 import android.content.res.Resources;
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import com.android.settings.R;
 import android.net.ConnectivityManager;
@@ -46,6 +47,9 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.Utils;
 import com.android.internal.util.bliss.BlissUtils;
 import android.util.Log;
@@ -61,8 +65,9 @@ import com.bliss.support.colorpicker.ColorPickerPreference;
 import com.bliss.support.preferences.CustomSeekBarPreference;
 import com.bliss.support.preferences.GlobalSettingMasterSwitchPreference;
 
+@SearchIndexable
 public class Notifications extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        OnPreferenceChangeListener, Indexable {
 
     private static final String HEADS_UP_NOTIFICATIONS_ENABLED = "heads_up_notifications_enabled";
     private static final String SMS_BREATH = "sms_breath";
@@ -293,4 +298,24 @@ public class Notifications extends SettingsPreferenceFragment implements
         return MetricsProto.MetricsEvent.BLISSIFY;
     }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.blissify_notifications;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = super.getNonIndexableKeys(context);
+                    return keys;
+                }
+    };
 }
