@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87817eb1_c72d3d99",
+        "filename": "res/xml/blissify_lockscreen.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2020-02-26T06:48:16Z",
+      "side": 1,
+      "message": "string not there , i guess it should be \"@string/fod_recog_animation_picker\"",
+      "revId": "97d6b0802d7d264484ecdf229a0ade8ec5a9cbc1",
+      "serverId": "b7386340-edb3-408c-9cac-98e148952b30",
+      "unresolved": true
+    }
+  ]
+}
