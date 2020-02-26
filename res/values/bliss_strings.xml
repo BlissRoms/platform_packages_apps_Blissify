@@ -1167,7 +1167,7 @@
 
     <!-- Lockscreen Hide Date -->
     <string name="lockscreen_date_hide_title">Hide Date Widget</string>
-    <string name="lockscreen_date_hide_summary">Enable to Hide Date and other items\n Music info on Ambient screen will be hidden as well</string>
+    <string name="lockscreen_date_hide_summary">Enable to Hide Date Widget and other items</string>
 
     <!-- QS SystemInfo -->
     <string name="qs_system_info_title">System Info</string>
