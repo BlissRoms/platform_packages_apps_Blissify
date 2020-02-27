@@ -70,6 +70,7 @@ import com.bliss.support.preferences.GlobalSettingMasterSwitchPreference;
 public class Notifications extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
+    private static final String ALERT_SLIDER_PREF = "alert_slider_notifications";
     private static final String HEADS_UP_NOTIFICATIONS_ENABLED = "heads_up_notifications_enabled";
     private static final String SMS_BREATH = "sms_breath";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
@@ -84,6 +85,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
     private static final String VIBRATE_ON_DISCONNECT = "vibrate_on_disconnect";
 
+    private SystemSettingSwitchPreference mAlertSlider;
     private SwitchPreference mSmsBreath;
     private SwitchPreference mMissedCallBreath;
     private SwitchPreference mVoicemailBreath;
@@ -106,6 +108,7 @@ public class Notifications extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
 
         final ContentResolver resolver = getActivity().getContentResolver();
+        final Resources res = getResources();
 
         mHeadsUpEnabled = (GlobalSettingMasterSwitchPreference) findPreference(HEADS_UP_NOTIFICATIONS_ENABLED);
         mHeadsUpEnabled.setOnPreferenceChangeListener(this);
@@ -200,6 +203,12 @@ public class Notifications extends SettingsPreferenceFragment implements
         int duration = Settings.System.getInt(getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2);
         mEdgeLightDurationPreference.setValue(duration);
+
+        mAlertSlider = (SystemSettingSwitchPreference) prefSet.findPreference(ALERT_SLIDER_PREF);
+        boolean mAlertSliderAvailable = res.getBoolean(
+                com.android.internal.R.bool.config_hasAlertSlider);
+        if (!mAlertSliderAvailable)
+            prefSet.removePreference(mAlertSlider);
     }
 
     @Override
@@ -291,6 +300,8 @@ public class Notifications extends SettingsPreferenceFragment implements
         ContentResolver resolver = mContext.getContentResolver();
 
         Settings.System.putIntForUser(resolver,
+                Settings.System.ALERT_SLIDER_NOTIFICATIONS, 1, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_SHOW_TICKER, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE, 1, UserHandle.USER_CURRENT);
@@ -320,6 +331,13 @@ public class Notifications extends SettingsPreferenceFragment implements
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
+                    final Resources res = context.getResources();
+
+                    boolean mAlertSliderAvailable = res.getBoolean(
+                            com.android.internal.R.bool.config_hasAlertSlider);
+                    if (mAlertSliderAvailable)
+                        keys.add(ALERT_SLIDER_PREF);
+
                     return keys;
                 }
     };

@@ -1274,4 +1274,8 @@
     <string name="entry_fifteen_minute">15 minutes</string>
     <string name="entry_thirty_minute">30 minutes</string>
     <string name="entry_sixty_minute">60 minutes</string>
+
+    <!-- Alert Slider Notifications (OnePlus devices) -->
+    <string name="alert_slider_notifications_title">Alert slider notifications</string>
+    <string name="alert_slider_notifications_summary">Display notification when changing alert slider position</string>
 </resources>
