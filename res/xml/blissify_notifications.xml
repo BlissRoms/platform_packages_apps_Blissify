@@ -192,6 +192,20 @@
     
     </PreferenceCategory>
 
+    <!-- Alert Slider Notifications -->
+    <PreferenceCategory
+        android:key="alert_slider_category"
+        android:title="@string/alert_slider_notifications_title"
+        android:icon="@drawable/ic_notification_count">
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="alert_slider_notifications"
+        android:title="@string/alert_slider_notifications_title"
+        android:summary="@string/alert_slider_notifications_summary"
+        android:defaultValue="true" />
+
+    </PreferenceCategory>
+
     <!-- Notification options -->
     <PreferenceCategory
         android:title="@string/notifications_vib_category" 
