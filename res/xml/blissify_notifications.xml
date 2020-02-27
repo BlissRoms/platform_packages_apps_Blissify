@@ -197,6 +197,13 @@
         android:title="@string/notifications_vib_category" 
         android:icon="@drawable/ic_notification_count">
 
+    <!-- Alert Slider Notifications -->
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="alert_slider_notifications"
+        android:title="@string/alert_slider_notifications_title"
+        android:summary="@string/alert_slider_notifications_summary"
+        android:defaultValue="true" />
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="vibrate_on_notifications"
         android:title="@string/vibrate_on_notifications_title"
