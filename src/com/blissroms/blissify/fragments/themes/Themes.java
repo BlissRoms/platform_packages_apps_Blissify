@@ -57,6 +57,7 @@ import com.android.settingslib.core.lifecycle.Lifecycle;
 import android.util.Log;
 
 import java.util.List;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
@@ -70,9 +71,11 @@ public class Themes extends DashboardFragment  implements
 
     private static final String TAG = "Themes";
     private static final String ACCENT_COLOR = "accent_color";
+    private static final String ACCENT_PRESET = "accent_preset";
     static final int DEFAULT_ACCENT_COLOR = 0xff1a73e8;
 
     private ColorPickerPreference mAccentColor;
+    private ListPreference mAccentPreset;
 
     @Override
     protected int getPreferenceScreenResId() {
@@ -103,6 +106,10 @@ public class Themes extends DashboardFragment  implements
             mAccentColor.setSummary(hexColor);
         }
         mAccentColor.setNewPreviewColor(intColor);
+
+        mAccentPreset = (ListPreference) findPreference(ACCENT_PRESET);
+        mAccentPreset.setOnPreferenceChangeListener(this);
+        checkColorPreset(DEFAULT_ACCENT_COLORl);
     }
 
     @Override
@@ -144,6 +151,7 @@ public class Themes extends DashboardFragment  implements
         final ContentResolver resolver = getActivity().getContentResolver();
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
+            checkColorPreset(hex);
             if (hex.equals("#ff1a73e8")) {
                 mAccentColor.setSummary(R.string.default_string);
             } else {
@@ -153,8 +161,28 @@ public class Themes extends DashboardFragment  implements
             Settings.System.putIntForUser(resolver,
                     Settings.System.ACCENT_COLOR, intHex, UserHandle.USER_CURRENT);
             return true;
+        } else if (preference == mAccentPreset) {
+            String value = (String) newValue;
+            int index = mAccentPreset.findIndexOfValue(value);
+            mAccentPreset.setSummary(mAccentPreset.getEntries()[index]);
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.ACCENT_COLOR, value, UserHandle.USER_CURRENT);
+            return true;
         }
         return false;
+    }
+
+    private void checkColorPreset(String colorValue) {
+        List<String> colorPresets = Arrays.asList(
+                getResources().getStringArray(R.array.accent_presets_values));
+        if (colorPresets.contains(colorValue)) {
+            mAccentPreset.setValue(colorValue);
+            int index = mAccentPreset.findIndexOfValue(colorValue);
+            mAccentPreset.setSummary(mAccentPreset.getEntries()[index]);
+        }
+        else {
+            mAccentPreset.setSummary(R.string.default_string);
+        }
     }
 
     @Override
