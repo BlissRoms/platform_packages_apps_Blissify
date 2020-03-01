@@ -1307,4 +1307,47 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
+    <string-array name="accent_presets_entries" translatable="false">
+        <item>@string/default_string</item>
+        <item>@string/accent_preset_0</item>
+        <item>@string/accent_preset_1</item>
+        <item>@string/accent_preset_2</item>
+        <item>@string/accent_preset_3</item>
+        <item>@string/accent_preset_4</item>
+        <item>@string/accent_preset_5</item>
+        <item>@string/accent_preset_6</item>
+        <item>@string/accent_preset_7</item>
+        <item>@string/accent_preset_8</item>
+        <item>@string/accent_preset_9</item>
+        <item>@string/accent_preset_10</item>
+        <item>@string/accent_preset_11</item>
+        <item>@string/accent_preset_12</item>
+        <item>@string/accent_preset_13</item>
+        <item>@string/accent_preset_14</item>
+        <item>@string/accent_preset_15</item>
+        <item>@string/accent_preset_16</item>
+        <item>@string/accent_preset_17</item>
+        <item>@string/accent_preset_18</item>
+        <item>@string/accent_preset_19</item>
+        <item>@string/accent_preset_20</item>
+        <item>@string/accent_preset_21</item>
+        <item>@string/accent_preset_22</item>
+        <item>@string/accent_preset_23</item>
+        <item>@string/accent_preset_24</item>
+        <item>@string/accent_preset_25</item>
+        <item>@string/accent_preset_26</item>
+        <item>@string/accent_preset_27</item>
+        <item>@string/accent_preset_28</item>
+        <item>@string/accent_preset_29</item>
+        <item>@string/accent_preset_30</item>
+        <item>@string/accent_preset_31</item>
+        <item>@string/accent_preset_32</item>
+        <item>@string/accent_preset_33</item>
+        <item>@string/accent_preset_34</item>
+        <item>@string/accent_preset_35</item>
+        <item>@string/accent_preset_36</item>
+        <item>@string/accent_preset_37</item>
+    </string-array>
+
 </resources>
