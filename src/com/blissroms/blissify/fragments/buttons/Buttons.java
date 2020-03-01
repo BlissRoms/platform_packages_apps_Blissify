@@ -73,6 +73,7 @@ public class Buttons extends SettingsPreferenceFragment implements
 
     private static final String HWKEYS_DISABLED = "hardware_keys_disable";
     private static final String KEY_ANBI = "anbi_enabled";
+    private static final String FORCE_NAVBAR = "";
     private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
     private static final String KEY_HOME_LONG_PRESS = "hardware_keys_home_long_press";
     private static final String KEY_HOME_DOUBLE_TAP = "hardware_keys_home_double_tap";
@@ -117,6 +118,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private static final String CATEGORY_BACKLIGHT = "key_backlight";
 
     private SwitchPreference mHardwareKeysDisable;
+    private Preference FORCE_NAVBAR;
     private SwitchPreference mAnbi;
     private ListPreference mHomeLongPressAction;
     private ListPreference mHomeDoubleTapAction;
@@ -192,11 +194,13 @@ public class Buttons extends SettingsPreferenceFragment implements
 
         LineageHardwareManager mLineageHardware = LineageHardwareManager.getInstance(getActivity());
         mHardwareKeysDisable = (SwitchPreference) findPreference(HWKEYS_DISABLED);
+        mForceNavbar = (Preference) findPreference(FORCE_NAVBAR);
 
         if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
             mHardwareKeysDisable.setOnPreferenceChangeListener(this);
         } else {
             prefScreen.removePreference(mHardwareKeysDisable);
+            prefScreen.removePreference(mForceNavbar);
         }
 
         mAnbi = (SwitchPreference) findPreference(KEY_ANBI);
