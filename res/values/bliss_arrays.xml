@@ -1253,6 +1253,7 @@
         <item>@string/fod_recog_animation_miui_rhythm</item>
         <item>@string/fod_recog_animation_op_cosmos</item>
         <item>@string/fod_recog_animation_op_mclaren</item>
+        <item>@string/fod_recog_animation_op_ripple</item>
         <item>@string/fod_recog_animation_op_stripe</item>
         <item>@string/fod_recog_animation_op_wave</item>
         <item>@string/fod_recog_animation_pureview_dna</item>
@@ -1283,5 +1284,6 @@
         <item>15</item>
         <item>16</item>
         <item>17</item>
+        <item>18</item>
     </string-array>
 </resources>
