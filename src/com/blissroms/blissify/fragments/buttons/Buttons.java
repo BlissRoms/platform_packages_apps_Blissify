@@ -91,6 +91,10 @@ public class Buttons extends SettingsPreferenceFragment implements
     private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
     private static final String KEY_VOLUME_PANEL_ON_LEFT = "volume_panel_on_left";
+    private static final String KEY_NAVIGATION_HOME_LONG_PRESS = "navigation_home_long_press";
+    private static final String KEY_NAVIGATION_HOME_DOUBLE_TAP = "navigation_home_double_tap";
+    private static final String KEY_NAVIGATION_APP_SWITCH_LONG_PRESS =
+            "navigation_app_switch_long_press";
     private static final String KEY_POWER_MENU = "power_menu";
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_WAKE_SCREEN = "home_wake_screen";
@@ -137,6 +141,9 @@ public class Buttons extends SettingsPreferenceFragment implements
     private SwitchPreference mVolumeMusicControls;
     private SwitchPreference mSwapVolumeButtons;
     private SwitchPreference mVolumePanelOnLeft;
+    private ListPreference mNavigationHomeLongPressAction;
+    private ListPreference mNavigationHomeDoubleTapAction;
+    private ListPreference mNavigationAppSwitchLongPressAction;
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
     private SwitchPreference mTorchLongPressPowerGesture;
@@ -223,18 +230,34 @@ public class Buttons extends SettingsPreferenceFragment implements
                 org.lineageos.platform.internal.R.integer.config_longPressOnHomeBehavior));
         Action defaultHomeDoubleTapAction = Action.fromIntSafe(res.getInteger(
                 org.lineageos.platform.internal.R.integer.config_doubleTapOnHomeBehavior));
+        Action defaultAppSwitchLongPressAction = Action.fromIntSafe(res.getInteger(
+                org.lineageos.platform.internal.R.integer.config_longPressOnAppSwitchBehavior));
         Action homeLongPressAction = Action.fromSettings(resolver,
                 LineageSettings.System.KEY_HOME_LONG_PRESS_ACTION,
                 defaultHomeLongPressAction);
         Action homeDoubleTapAction = Action.fromSettings(resolver,
                 LineageSettings.System.KEY_HOME_DOUBLE_TAP_ACTION,
                 defaultHomeDoubleTapAction);
-
+        Action appSwitchLongPressAction = Action.fromSettings(resolver,
+                LineageSettings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION,
+                defaultAppSwitchLongPressAction);
         Action defaultBackLongPressAction = Action.fromIntSafe(res.getInteger(
                 org.lineageos.platform.internal.R.integer.config_longPressOnBackBehavior));
         Action backLongPressAction = Action.fromSettings(resolver,
                 LineageSettings.System.KEY_BACK_LONG_PRESS_ACTION,
                 defaultBackLongPressAction);
+
+        // Navigation bar home long press
+        mNavigationHomeLongPressAction = initList(KEY_NAVIGATION_HOME_LONG_PRESS,
+                homeLongPressAction);
+
+        // Navigation bar home double tap
+        mNavigationHomeDoubleTapAction = initList(KEY_NAVIGATION_HOME_DOUBLE_TAP,
+                homeDoubleTapAction);
+
+        // Navigation bar app switch long press
+        mNavigationAppSwitchLongPressAction = initList(KEY_NAVIGATION_APP_SWITCH_LONG_PRESS,
+                appSwitchLongPressAction);
 
         backlight = (ButtonBacklightBrightness) findPreference(KEY_BUTTON_BACKLIGHT);
         if (!backlight.isButtonSupported() /*&& !backlight.isKeyboardSupported()*/) {
@@ -418,6 +441,53 @@ public class Buttons extends SettingsPreferenceFragment implements
                 mVolumeWakeScreen.setDisableDependentsState(true);
             }
         }
+
+        // Override key actions on Go devices in order to hide any unsupported features
+        if (ActivityManager.isLowRamDeviceStatic()) {
+            String[] actionEntriesGo = res.getStringArray(R.array.hardware_keys_action_entries_go);
+            String[] actionValuesGo = res.getStringArray(R.array.hardware_keys_action_values_go);
+
+            if (hasHomeKey) {
+                mHomeLongPressAction.setEntries(actionEntriesGo);
+                mHomeLongPressAction.setEntryValues(actionValuesGo);
+
+                mHomeDoubleTapAction.setEntries(actionEntriesGo);
+                mHomeDoubleTapAction.setEntryValues(actionValuesGo);
+            }
+
+            if (hasMenuKey) {
+                mMenuPressAction.setEntries(actionEntriesGo);
+                mMenuPressAction.setEntryValues(actionValuesGo);
+
+                mMenuLongPressAction.setEntries(actionEntriesGo);
+                mMenuLongPressAction.setEntryValues(actionValuesGo);
+            }
+
+            if (hasAssistKey) {
+                mAssistPressAction.setEntries(actionEntriesGo);
+                mAssistPressAction.setEntryValues(actionValuesGo);
+
+                mAssistLongPressAction.setEntries(actionEntriesGo);
+                mAssistLongPressAction.setEntryValues(actionValuesGo);
+            }
+
+            if (hasAppSwitchKey) {
+                mAppSwitchPressAction.setEntries(actionEntriesGo);
+                mAppSwitchPressAction.setEntryValues(actionValuesGo);
+
+                mAppSwitchLongPressAction.setEntries(actionEntriesGo);
+                mAppSwitchLongPressAction.setEntryValues(actionValuesGo);
+            }
+
+            mNavigationHomeLongPressAction.setEntries(actionEntriesGo);
+            mNavigationHomeLongPressAction.setEntryValues(actionValuesGo);
+
+            mNavigationHomeDoubleTapAction.setEntries(actionEntriesGo);
+            mNavigationHomeDoubleTapAction.setEntryValues(actionValuesGo);
+
+            mNavigationAppSwitchLongPressAction.setEntries(actionEntriesGo);
+            mNavigationAppSwitchLongPressAction.setEntryValues(actionValuesGo);
+        }
     }
 
     @Override
@@ -483,11 +553,13 @@ public class Buttons extends SettingsPreferenceFragment implements
                 backlight.setEnabled(!value);
             }
             return true;
-        } else if (preference == mHomeLongPressAction) {
+        } else if (preference == mHomeLongPressAction ||
+                preference == mNavigationHomeLongPressAction) {
             handleListChange((ListPreference) preference, newValue,
                     LineageSettings.System.KEY_HOME_LONG_PRESS_ACTION);
             return true;
-        } else if (preference == mHomeDoubleTapAction) {
+        } else if (preference == mHomeDoubleTapAction ||
+                preference == mNavigationHomeDoubleTapAction) {
             handleListChange((ListPreference) preference, newValue,
                     LineageSettings.System.KEY_HOME_DOUBLE_TAP_ACTION);
             return true;
@@ -515,8 +587,9 @@ public class Buttons extends SettingsPreferenceFragment implements
             handleListChange(mAppSwitchPressAction, newValue,
                     LineageSettings.System.KEY_APP_SWITCH_ACTION);
             return true;
-        } else if (preference == mAppSwitchLongPressAction) {
-            handleListChange(mAppSwitchLongPressAction, newValue,
+        } else if (preference == mAppSwitchLongPressAction ||
+                preference == mNavigationAppSwitchLongPressAction) {
+            handleListChange((ListPreference) preference, newValue,
                     LineageSettings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION);
             return true;
         } else if (preference == mVolumeKeyCursorControl) {
