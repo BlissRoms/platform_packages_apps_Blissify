@@ -174,4 +174,17 @@
         android:defaultValue="0" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:icon="@drawable/ic_bliss_themes"
+        android:title="@string/navbar_style_title">
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="navbar_style"
+        android:title="@string/navbar_style_title"
+        android:dialogTitle="@string/navbar_style_title"
+        android:entries="@array/navbar_style_entries"
+        android:entryValues="@array/navbar_style_values"
+        android:defaultValue="0" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
