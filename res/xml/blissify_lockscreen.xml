@@ -180,8 +180,8 @@
         android:icon="@drawable/ic_lockscreen_charging_info"
         android:title="@string/lockscreen_charging_category" >
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="lockscreen_charging_animation"
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="lockscreen_charging_animation_style"
         android:title="@string/lockscreen_charging_animation_title"
         android:summary="@string/lockscreen_charging_animation_summary"
         android:defaultValue="false" />
@@ -189,8 +189,9 @@
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
         android:title="@string/lockscreen_battery_info_title"
-        android:summary="@string/lockscreen_battery_info_summary"
-        android:defaultValue="true" />
+        android:entries="@array/lockscreen_charging_animation_entries"
+        android:entryValues="@array/lockscreen_charging_animation_values"
+        android:defaultValue="1" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="wireless_charging_animation"
