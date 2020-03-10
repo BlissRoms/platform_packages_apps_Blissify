@@ -96,6 +96,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private static final String KEY_NAVIGATION_HOME_DOUBLE_TAP = "navigation_home_double_tap";
     private static final String KEY_NAVIGATION_APP_SWITCH_LONG_PRESS =
             "navigation_app_switch_long_press";
+    private static final String KEY_EDGE_LONG_SWIPE = "navigation_bar_edge_long_swipe";
     private static final String KEY_POWER_MENU = "power_menu";
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_WAKE_SCREEN = "home_wake_screen";
@@ -145,6 +146,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private ListPreference mNavigationHomeLongPressAction;
     private ListPreference mNavigationHomeDoubleTapAction;
     private ListPreference mNavigationAppSwitchLongPressAction;
+    private ListPreference mEdgeLongSwipeAction;
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
     private SwitchPreference mTorchLongPressPowerGesture;
@@ -242,6 +244,9 @@ public class Buttons extends SettingsPreferenceFragment implements
         Action appSwitchLongPressAction = Action.fromSettings(resolver,
                 LineageSettings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION,
                 defaultAppSwitchLongPressAction);
+        Action edgeLongSwipeAction = Action.fromSettings(resolver,
+                LineageSettings.System.KEY_EDGE_LONG_SWIPE_ACTION,
+                Action.NOTHING);
         Action defaultBackLongPressAction = Action.fromIntSafe(res.getInteger(
                 org.lineageos.platform.internal.R.integer.config_longPressOnBackBehavior));
         Action backLongPressAction = Action.fromSettings(resolver,
@@ -259,6 +264,9 @@ public class Buttons extends SettingsPreferenceFragment implements
         // Navigation bar app switch long press
         mNavigationAppSwitchLongPressAction = initList(KEY_NAVIGATION_APP_SWITCH_LONG_PRESS,
                 appSwitchLongPressAction);
+
+        // Edge long swipe gesture
+        mEdgeLongSwipeAction = initList(KEY_EDGE_LONG_SWIPE, edgeLongSwipeAction);
 
         backlight = (ButtonBacklightBrightness) findPreference(KEY_BUTTON_BACKLIGHT);
         if (!backlight.isButtonSupported() /*&& !backlight.isKeyboardSupported()*/) {
@@ -488,6 +496,9 @@ public class Buttons extends SettingsPreferenceFragment implements
 
             mNavigationAppSwitchLongPressAction.setEntries(actionEntriesGo);
             mNavigationAppSwitchLongPressAction.setEntryValues(actionValuesGo);
+
+            mEdgeLongSwipeAction.setEntries(actionEntriesGo);
+            mEdgeLongSwipeAction.setEntryValues(actionValuesGo);
         }
     }
 
@@ -600,6 +611,10 @@ public class Buttons extends SettingsPreferenceFragment implements
         } else if (preference == mTorchLongPressPowerTimeout) {
             handleListChange(mTorchLongPressPowerTimeout, newValue,
                     LineageSettings.System.TORCH_LONG_PRESS_POWER_TIMEOUT);
+            return true;
+        } else if (preference == mEdgeLongSwipeAction) {
+            handleListChange(mEdgeLongSwipeAction, newValue,
+                    LineageSettings.System.KEY_EDGE_LONG_SWIPE_ACTION);
             return true;
         }
         return false;
