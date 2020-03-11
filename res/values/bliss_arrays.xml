@@ -934,6 +934,7 @@
         <item>@string/lockscreen_clock_selection_sammy</item>
         <item>@string/lockscreen_clock_selection_sammy_bold</item>
         <item>@string/lockscreen_clock_selection_sammy_accent</item>
+        <item>@string/lockscreen_clock_selection_sammy_accent_hour</item>
         <item>@string/lockscreen_clock_selection_sammy_accent_alt</item>
     </string-array>
 
@@ -949,6 +950,7 @@
         <item>9</item>
         <item>10</item>
         <item>11</item>
+        <item>12</item>
     </string-array>
 
     <!-- Font style -->
