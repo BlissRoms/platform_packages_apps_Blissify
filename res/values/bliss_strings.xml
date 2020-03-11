@@ -1040,7 +1040,8 @@
     <string name="lockscreen_clock_selection_digital_accent_hour">Accent hours (digital)</string>
     <string name="lockscreen_clock_selection_sammy">Sammy</string>
     <string name="lockscreen_clock_selection_sammy_bold">Sammy (bold)</string>
-    <string name="lockscreen_clock_selection_sammy_accent">Sammy accent</string>
+    <string name="lockscreen_clock_selection_sammy_accent">>Sammy accent</string>
+    <string name="lockscreen_clock_selection_sammy_accent_hour">Sammy accent hour</string>
     <string name="lockscreen_clock_selection_sammy_accent_alt">Sammy accent(darker hour)</string>
 
     <!-- lockscreen clock and date font style -->
