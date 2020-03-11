@@ -122,6 +122,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private static final String CATEGORY_CAMERA = "camera_key";
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String CATEGORY_BACKLIGHT = "key_backlight";
+    private static final String CATEGORY_NAVBAR = "navigation_bar_category";
 
     private SwitchPreference mHardwareKeysDisable;
     private Preference mForceNavbar;
@@ -152,6 +153,8 @@ public class Buttons extends SettingsPreferenceFragment implements
     private SwitchPreference mTorchLongPressPowerGesture;
     private ListPreference mTorchLongPressPowerTimeout;
     private ButtonBacklightBrightness backlight;
+
+    private PreferenceCategory mNavigationPreferencesCat;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -201,6 +204,8 @@ public class Buttons extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_VOLUME);
         final PreferenceCategory cameraCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_CAMERA);
+
+        mNavigationPreferencesCat = findPreference(CATEGORY_NAVBAR);
 
         LineageHardwareManager mLineageHardware = LineageHardwareManager.getInstance(getActivity());
         mHardwareKeysDisable = (SwitchPreference) findPreference(HWKEYS_DISABLED);
@@ -666,6 +671,26 @@ public class Buttons extends SettingsPreferenceFragment implements
                 LineageSettings.Secure.RING_HOME_BUTTON_BEHAVIOR, (mHomeAnswerCall.isChecked()
                         ? LineageSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER
                         : LineageSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING), UserHandle.USER_CURRENT);
+    }
+
+    if (DeviceUtils.isEdgeToEdgeEnabled(getContext())) {
+        mNavigationPreferencesCat.addPreference(mEdgeLongSwipeAction);
+
+        mNavigationPreferencesCat.removePreference(mNavigationHomeLongPressAction);
+        mNavigationPreferencesCat.removePreference(mNavigationHomeDoubleTapAction);
+        mNavigationPreferencesCat.removePreference(mNavigationAppSwitchLongPressAction);
+    } else if (DeviceUtils.isSwipeUpEnabled(getContext())) {
+        mNavigationPreferencesCat.addPreference(mNavigationHomeLongPressAction);
+        mNavigationPreferencesCat.addPreference(mNavigationHomeDoubleTapAction);
+
+        mNavigationPreferencesCat.removePreference(mNavigationAppSwitchLongPressAction);
+        mNavigationPreferencesCat.removePreference(mEdgeLongSwipeAction);
+    } else {
+        mNavigationPreferencesCat.addPreference(mNavigationHomeLongPressAction);
+        mNavigationPreferencesCat.addPreference(mNavigationHomeDoubleTapAction);
+        mNavigationPreferencesCat.addPreference(mNavigationAppSwitchLongPressAction);
+
+        mNavigationPreferencesCat.removePreference(mEdgeLongSwipeAction);
     }
 
     public static void reset(Context mContext) {
