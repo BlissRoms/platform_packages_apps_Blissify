@@ -122,6 +122,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private static final String CATEGORY_CAMERA = "camera_key";
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String CATEGORY_BACKLIGHT = "key_backlight";
+    private static final String CATEGORY_NAVBAR = "navigation_bar_category";
 
     private SwitchPreference mHardwareKeysDisable;
     private Preference mForceNavbar;
@@ -152,6 +153,8 @@ public class Buttons extends SettingsPreferenceFragment implements
     private SwitchPreference mTorchLongPressPowerGesture;
     private ListPreference mTorchLongPressPowerTimeout;
     private ButtonBacklightBrightness backlight;
+
+    private PreferenceCategory mNavigationPreferencesCat;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -201,6 +204,8 @@ public class Buttons extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_VOLUME);
         final PreferenceCategory cameraCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_CAMERA);
+
+        mNavigationPreferencesCat = findPreference(CATEGORY_NAVBAR);
 
         LineageHardwareManager mLineageHardware = LineageHardwareManager.getInstance(getActivity());
         mHardwareKeysDisable = (SwitchPreference) findPreference(HWKEYS_DISABLED);
@@ -650,8 +655,33 @@ public class Buttons extends SettingsPreferenceFragment implements
             handleToggleHomeButtonAnswersCallPreferenceClick();
             return true;
         }
+        updatePreferences();
 
         return super.onPreferenceTreeClick(preference);
+    }
+
+    private void updatePreferences() {
+        if (mNavigationPreferencesCat != null) {
+            if (DeviceUtils.isEdgeToEdgeEnabled(getContext())) {
+                    mNavigationPreferencesCat.addPreference(mEdgeLongSwipeAction);
+
+                mNavigationPreferencesCat.removePreference(mNavigationHomeLongPressAction);
+                mNavigationPreferencesCat.removePreference(mNavigationHomeDoubleTapAction);
+                mNavigationPreferencesCat.removePreference(mNavigationAppSwitchLongPressAction);
+            } else if (DeviceUtils.isSwipeUpEnabled(getContext())) {
+                mNavigationPreferencesCat.addPreference(mNavigationHomeLongPressAction);
+                mNavigationPreferencesCat.addPreference(mNavigationHomeDoubleTapAction);
+
+                mNavigationPreferencesCat.removePreference(mNavigationAppSwitchLongPressAction);
+                mNavigationPreferencesCat.removePreference(mEdgeLongSwipeAction);
+            } else {
+                mNavigationPreferencesCat.addPreference(mNavigationHomeLongPressAction);
+                mNavigationPreferencesCat.addPreference(mNavigationHomeDoubleTapAction);
+                mNavigationPreferencesCat.addPreference(mNavigationAppSwitchLongPressAction);
+
+                mNavigationPreferencesCat.removePreference(mEdgeLongSwipeAction);
+            }
+        }
     }
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {
@@ -706,28 +736,15 @@ public class Buttons extends SettingsPreferenceFragment implements
 
                     final Resources res = context.getResources();
 
-                    final int deviceKeys = res.getInteger(
-                            org.lineageos.platform.internal.R.integer.config_deviceHardwareKeys);
-                    final int deviceWakeKeys = res.getInteger(
-                            org.lineageos.platform.internal.R.integer.config_deviceHardwareWakeKeys);
-
-                    final boolean hasPowerKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_POWER);
-                    final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
-                    final boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
-                    final boolean hasMenuKey = (deviceKeys & KEY_MASK_MENU) != 0;
-                    final boolean hasAssistKey = (deviceKeys & KEY_MASK_ASSIST) != 0;
-                    final boolean hasAppSwitchKey = (deviceKeys & KEY_MASK_APP_SWITCH) != 0;
-                    final boolean hasCameraKey = (deviceKeys & KEY_MASK_CAMERA) != 0;
-
                     LineageHardwareManager mLineageHardware = LineageHardwareManager.getInstance(context);
 
                     if (!mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE))
                         keys.add(HWKEYS_DISABLED);
 
-                    if (!hasHomeKey && !hasBackKey && !hasMenuKey && !hasAssistKey && !hasAppSwitchKey)
+                    if (!DeviceUtils.hasHomeKey(context) && !DeviceUtils.hasBackKey(context) && !DeviceUtils.hasMenuKey(context) && !DeviceUtils.hasAssistKey(context) && !DeviceUtils.hasAppSwitchKey(context))
                         keys.add(KEY_ANBI);
 
-                    if (!hasPowerKey) {
+                    if (!DeviceUtils.hasPowerKey(context)) {
                         keys.add(KEY_POWER_MENU);
                         keys.add(KEY_POWER_END_CALL);
                         keys.add(KEY_TORCH_LONG_PRESS_POWER_GESTURE);
@@ -746,7 +763,7 @@ public class Buttons extends SettingsPreferenceFragment implements
                     keys.add(KEY_HOME_LONG_PRESS);
                     keys.add(KEY_HOME_DOUBLE_TAP);
 
-                    if (!hasHomeKey || !TelephonyUtils.isVoiceCapable(context)) {
+                    if (!DeviceUtils.hasHomeKey(context) || !TelephonyUtils.isVoiceCapable(context)) {
                         keys.add(KEY_HOME_ANSWER_CALL);
                     }
 
@@ -764,14 +781,14 @@ public class Buttons extends SettingsPreferenceFragment implements
                     keys.add(KEY_APP_SWITCH_LONG_PRESS);
                     keys.add(KEY_CAMERA_WAKE_SCREEN);
 
-                    if (!hasCameraKey) {
+                    if (!DeviceUtils.hasCameraKey(context)) {
                         keys.add(KEY_CAMERA_SLEEP_ON_RELEASE);
                         keys.add(KEY_CAMERA_LAUNCH);
                     }
 
                     keys.add(KEY_VOLUME_WAKE_SCREEN);
 
-                    if (!DeviceUtils.hasVolumeRocker(context)) {
+                    if (!DeviceUtils.hasVolumeKeys(context)) {
                         keys.add(KEY_VOLUME_ANSWER_CALL);
                         keys.add(KEY_VOLUME_MUSIC_CONTROLS);
                         keys.add(KEY_VOLUME_KEY_CURSOR_CONTROL);
