@@ -980,4 +980,9 @@
     <!-- Quick Settings Footer Page Indicator -->
     <string name="qs_footer_page_indicator_title">Page Indicator</string>
     <string name="qs_footer_page_indicator_summary">Show page indicator in quick settings footer</string>
+
+    <!-- RGB Accent Picker -->
+    <string name="themes_summary">accent theming</string>
+    <string name="rgb_accent_picker_title">RGB accent picker</string>
+    <string name="rgb_accent_picker_summary">Choose the accent color yourself</string>
 </resources>
