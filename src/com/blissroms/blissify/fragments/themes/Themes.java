@@ -29,6 +29,17 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.provider.Settings;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.ContentResolver;
+import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.content.om.OverlayInfo;
+import android.graphics.Color;
+import android.os.SystemProperties;
+import android.os.UserHandle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -46,6 +57,7 @@ import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settingslib.search.SearchIndexable;
 import com.blissroms.blissify.fragments.themes.SystemThemePreferenceController;
+import com.bliss.support.colorpicker.ColorPickerPreference;
 
 import com.android.internal.util.bliss.BlissUtils;
 import com.android.internal.util.bliss.ThemesUtils;
@@ -69,6 +81,10 @@ public class Themes extends DashboardFragment  implements
     private IOverlayManager mOverlayService;
 
     private ListPreference mNavbarPicker;
+
+    private static final String PREF_RGB_ACCENT_PICKER = "rgb_accent_picker";
+
+    private ColorPickerPreference rgbAccentPicker;
 
     private IntentFilter mIntentFilter;
     private static FontPickerPreferenceController mFontPickerPreference;
@@ -103,6 +119,15 @@ public class Themes extends DashboardFragment  implements
         }
         mNavbarPicker.setSummary(mNavbarPicker.getEntry());
         mNavbarPicker.setOnPreferenceChangeListener(this);
+
+        rgbAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_ACCENT_PICKER);
+        String colorVal = Settings.Secure.getStringForUser(mContext.getContentResolver(),
+                Settings.Secure.ACCENT_COLOR, UserHandle.USER_CURRENT);
+        int color = (colorVal == null)
+                ? Color.WHITE
+                : Color.parseColor("#" + colorVal);
+        rgbAccentPicker.setNewPreviewColor(color);
+        rgbAccentPicker.setOnPreferenceChangeListener(this);
     }
 
     private int getOverlayPosition(String[] overlays) {
@@ -149,6 +174,17 @@ public class Themes extends DashboardFragment  implements
                             true, mOverlayManager);
             }
             mNavbarPicker.setSummary(mNavbarPicker.getEntry());
+	    } else if (preference == rgbAccentPicker) {
+            int color = (Integer) newValue;
+            String hexColor = String.format("%08X", (0xFFFFFFFF & color));
+            Settings.Secure.putStringForUser(mContext.getContentResolver(),
+                        Settings.Secure.ACCENT_COLOR,
+                        hexColor, UserHandle.USER_CURRENT);
+            try {
+                 mOverlayManager.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayManager.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
             return true;
         }
         return false;

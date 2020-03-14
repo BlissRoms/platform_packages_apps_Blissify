@@ -119,6 +119,12 @@
         android:defaultValue="0"
         android:icon="@drawable/ic_blissify_qspanel" />
 
+    <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="rgb_accent_picker"
+        android:title="@string/rgb_accent_picker_title"
+        android:summary="@string/rgb_accent_picker_summary"
+        android:persistent="false" />
+
     </PreferenceCategory>
 
     <!-- Gvisual mod -->
