@@ -20,10 +20,15 @@ import com.android.internal.logging.nano.MetricsProto;
 
 import static android.os.UserHandle.USER_SYSTEM;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.UiModeManager;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.RemoteException;
@@ -35,6 +40,9 @@ import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MenuInflater;
 import com.android.settings.R;
 
 import androidx.fragment.app.Fragment;
@@ -86,6 +94,7 @@ public class Themes extends DashboardFragment  implements
     private static final String ACCENT_PRESET = "accent_preset";
     private static final String GRADIENT_COLOR = "gradient_color";
     private static final String PREF_THEME_SWITCH = "theme_switch";
+    private static final int MENU_RESET = Menu.FIRST;
     static final int DEFAULT_ACCENT_COLOR = 0xff1a73e8;
 
     private ColorPickerPreference mAccentColor;
@@ -151,6 +160,7 @@ public class Themes extends DashboardFragment  implements
         }
 
         setupThemeSwitchPref();
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -297,6 +307,52 @@ public class Themes extends DashboardFragment  implements
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(R.drawable.ic_menu_reset)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_RESET:
+                resetToDefault();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+    private void resetToDefault() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        alertDialog.setTitle(R.string.theme_option_reset_title);
+        alertDialog.setMessage(R.string.theme_option_reset_message);
+        alertDialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                resetValues();
+            }
+        });
+        alertDialog.setNegativeButton(R.string.cancel, null);
+        alertDialog.create().show();
+    }
+
+    private void resetValues() {
+        final Context context = getContext();
+        mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
+        handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.SOLARIZED_DARK);
+        handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.PITCH_BLACK);
+        handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.DARK_GREY);
+        setupThemeSwitchPref();
+        try {
+             mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
+             mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+        } catch (RemoteException ignored) {
         }
     }
 
