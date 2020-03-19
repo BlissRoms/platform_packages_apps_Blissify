@@ -24,6 +24,7 @@
 
     <PreferenceCategory
         android:key="category_theming"
+        android:icon="@drawable/ic_bliss_themes"
         android:title="@string/theming_title">
 
         <Preference
@@ -40,6 +41,7 @@
 
     <PreferenceCategory
         android:key="aosp_themeing"
+        android:icon="@drawable/ic_bliss_themes"
         android:title="@string/aosp_themeing_title">
 
         <ListPreference

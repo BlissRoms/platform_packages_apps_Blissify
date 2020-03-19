@@ -27,7 +27,7 @@
     <!-- Edge Light -->
     <PreferenceCategory
         android:key="notification_screen"
-        android:icon="@drawable/ic_settings_leds"
+        android:icon="@drawable/ic_screen"
         android:title="@string/notification_screen_title" >
 
         <com.blissroms.blissify.fragments.notifications.AmbientLightSettingsPreview

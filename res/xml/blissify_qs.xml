@@ -27,7 +27,7 @@
     <!-- Qs header -->
     <PreferenceCategory
         android:key="qs_header_category"
-        android:icon="@drawable/ic_items"
+        android:icon="@drawable/ic_quicksettings"
         android:title="@string/qs_header_category">
 
     <!-- Status Bar Custom Header -->
