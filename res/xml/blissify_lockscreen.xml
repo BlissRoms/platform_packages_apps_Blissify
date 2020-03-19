@@ -258,7 +258,7 @@
 
     <!-- Lockscreen Media Blur -->
     <PreferenceCategory
-        android:key="lockscreen_media_category"
+        android:key="lockscreen_media_blur_category"
         android:icon="@drawable/ic_media_art_blur"
         android:title="@string/lockscreen_media_blur_category" >
 
