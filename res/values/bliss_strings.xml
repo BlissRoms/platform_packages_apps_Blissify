@@ -1741,4 +1741,5 @@
     <string name="theme_type_pitch_black">Google Dark</string>
     <string name="theme_type_solarized_dark">Solarized dark</string>
     <string name="theme_type_pitchblack">Pitch black</string>
+    <string name="theme_type_dark_grey">Dark Grey</string>
 </resources>
