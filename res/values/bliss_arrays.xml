@@ -1867,12 +1867,14 @@
         <item>@string/theme_type_default</item>
         <item>@string/theme_type_solarized_dark</item>
         <item>@string/theme_type_pitchblack</item>
+        <item>@string/theme_type_dark_grey</item>
     </string-array>
 
     <string-array name="theme_type_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
 </resources>
