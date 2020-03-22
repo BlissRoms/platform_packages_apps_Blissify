@@ -410,6 +410,7 @@
         <item>@string/hardware_keys_action_close_app</item>
         <item>@string/hardware_keys_action_torch</item>
         <item>@string/hardware_keys_action_screenshot</item>
+        <item>@string/hardware_keys_action_volume_panel</item>
         <!--
         <item>@string/hardware_keys_action_single_handed_left</item>
         <item>@string/hardware_keys_action_single_handed_right</item>
@@ -453,6 +454,7 @@
         <item>12</item>
         <item>13</item>
         <item>14</item>
+        <item>15</item>
     </string-array>
 
     <string-array name="hardware_keys_action_values_go" translatable="false">
