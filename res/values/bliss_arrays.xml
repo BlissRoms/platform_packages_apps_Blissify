@@ -415,6 +415,8 @@
         <item>@string/hardware_keys_action_notifications_panel</item>
         <item>@string/hardware_keys_action_toggle_qs_panel</item>
         <item>@string/hardware_keys_action_ringer_modes</item>
+        <item>@string/hardware_keys_action_next_song</item>
+        <item>@string/hardware_keys_action_previous_song</item>
         <!--
         <item>@string/hardware_keys_action_single_handed_left</item>
         <item>@string/hardware_keys_action_single_handed_right</item>
@@ -463,6 +465,8 @@
         <item>17</item>
         <item>18</item>
         <item>19</item>
+        <item>20</item>
+        <item>21</item>
     </string-array>
 
     <string-array name="hardware_keys_action_values_go" translatable="false">
