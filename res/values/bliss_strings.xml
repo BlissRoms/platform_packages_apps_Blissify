@@ -1251,6 +1251,10 @@
     <string name="action_volume_panel">Volume panel</string>  
     <string name="action_screen_off">Screen off</string>
     <string name="action_screenshot">Screenshot</string>
+    <string name="action_qs_panel">QS panel</string>
+    <string name="action_notifications">Notifications</string>
+    <string name="action_clear_notifications">Clear notifications</string>
+    <string name="action_ringer_modes">Ringer modes</string>
 
     <!-- Title for the new device identifier access restrictions -->
     <string name="device_identifier_access_restrictions_title">Disable device identifier restrictions</string>
