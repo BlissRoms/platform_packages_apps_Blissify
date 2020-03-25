@@ -38,6 +38,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import com.bliss.support.preferences.SystemSettingMasterSwitchPreference;
+import com.bliss.support.preferences.MasterSwitchPreference;
 
 import java.util.Locale;
 import android.text.TextUtils;
@@ -133,7 +134,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         };
         for (int i = 0; i < mAlternativeRecentsCategory.getPreferenceCount(); i++) {
             Preference preference = mAlternativeRecentsCategory.getPreference(i);
-            if (preference instanceof SystemSettingMasterSwitchPreference) {
+            if (preference instanceof MasterSwitchPreference) {
                 preference.setOnPreferenceChangeListener(alternativeRecentsChangeListener);
             }
         }
@@ -176,8 +177,8 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                     // Already used newValue
                     continue;
                 }
-                if (preference instanceof SystemSettingMasterSwitchPreference
-                        && ((SystemSettingMasterSwitchPreference) preference).isChecked()) {
+                if (preference instanceof MasterSwitchPreference
+                        && ((MasterSwitchPreference) preference).isChecked()) {
                     alternativeRecentsEnabled = true;
                     break;
                 }
