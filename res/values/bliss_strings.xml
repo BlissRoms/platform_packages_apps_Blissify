@@ -1584,4 +1584,8 @@
     <!-- One ui actionbar -->
     <string name="enable_oneui">OneUI</string>
     <string name="enable_oneui_summary">Show spacer above settings actionbar for easier use with one hand\nNOTE: restart settings app to see effect</string>
+
+    <!-- Music Heads Up -->
+    <string name="show_media_heads_up_title">Mostra heads up multimediali</string>
+    <string name="show_media_heads_up_summary">Mostra le heads up multimediali quando una nuova traccia viene riprodotta, se il player non è già in primo piano</string>
 </resources>
