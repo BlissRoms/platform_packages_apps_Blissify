@@ -250,9 +250,11 @@ public class QSHeaders extends SettingsPreferenceFragment implements
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
         Settings.System.putIntForUser(resolver,
-                Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER, 1, UserHandle.USER_CURRENT);
+                Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_HEIGHT, 25, UserHandle.USER_CURRENT);
     }
 
     @Override
