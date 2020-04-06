@@ -1324,6 +1324,8 @@
 
     <!-- Rgb Accenter -->
     <string name="rgb_accenter_title">Rgb Accenter</string>
+    <string name="gradient_color">Gradient picker</string>
+    <string name="gradient_summary">Gradient effect maker</string>
 
     <!-- Accent presets -->
     <string name="accent_preset_0">Bliss</string>
