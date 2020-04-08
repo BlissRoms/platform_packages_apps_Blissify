@@ -1869,6 +1869,7 @@
         <item>@string/theme_type_pitchblack</item>
         <item>@string/theme_type_dark_grey</item>
         <item>@string/theme_type_xtended_clear</item>
+        <item>@string/theme_type_material_ocean</item>
     </string-array>
 
     <string-array name="theme_type_values">
@@ -1877,6 +1878,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
 </resources>
