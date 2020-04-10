@@ -1473,4 +1473,9 @@
     <!-- QS data usage -->
     <string name="qs_datausage_title">Show data usage in qs header</string>
     <string name="qs_datausage_subtitle">Shows data usage in quick settings header of sim used for data</string>
+
+    <!-- LS OwnerInfo Font & Size -->
+    <string name="owner_info_category">Owner Info Options</string>
+    <string name="lock_ownerinfo_font_title">Owner Info font options</string>
+    <string name="lockowner_font_size_title">Owner info font size</string>
 </resources>
