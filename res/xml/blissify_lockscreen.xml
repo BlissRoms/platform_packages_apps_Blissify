@@ -59,9 +59,9 @@
         android:key="lock_clock_font_size"
         android:title="@string/clock_font_size_title"
         android:max="108"
-        settings:min="54"
+        settings:min="20"
         settings:units="dp"
-        android:defaultValue="58" />
+        android:defaultValue="50" />
 
     </PreferenceCategory>
 
