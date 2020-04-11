@@ -63,6 +63,11 @@
         settings:units="dp"
         android:defaultValue="50" />
 
+    <Preference
+        android:key="clock_font_size_warning"
+        android:selectable="false"
+        android:summary="@string/clock_font_size_warning_summary" />
+
     </PreferenceCategory>
 
     <!-- LockScreen Date -->
