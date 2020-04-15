@@ -77,5 +77,6 @@
             android:summary="@string/advanced_reboot_secured_summary"
             android:dependency="advanced_reboot"
             android:defaultValue="true" />
+
     </PreferenceCategory>
 </PreferenceScreen>

@@ -148,6 +148,13 @@
         android:summary="@string/lockscreen_enable_power_menu_summary"
         android:defaultValue="true" />
 
+    <com.bliss.support.preferences.GlobalSettingSwitchPreference
+        android:key="lockscreen_powermenu_secure"
+        android:title="@string/lockscreen_secure_power_menu_title"
+        android:summary="@string/lockscreen_secure_power_menu_summary"
+        android:dependency="lockscreen_enable_power_menu"
+        android:defaultValue="false" />
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_show_status_bar"
         android:title="@string/lockscreen_show_status_bar_title"
