@@ -1489,4 +1489,8 @@
     <string name="owner_info_category">Owner Info Options</string>
     <string name="lock_ownerinfo_font_title">Owner Info font options</string>
     <string name="lockowner_font_size_title">Owner info font size</string>
+
+    <!-- R Notification headers -->
+    <string name="notification_headers_title">Show notification headers</string>
+    <string name="notification_headers_summary">Whether to show R style notification headers (Requires a SystemUI restart)</string>
 </resources>
