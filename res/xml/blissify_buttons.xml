@@ -49,19 +49,6 @@
         android:summary="@string/anbi_summary"
         android:defaultValue="false" />
 
-    <PreferenceCategory
-        android:key="navigation_bar_arrow_keys"
-        android:icon="@drawable/ic_nav_buttons"
-        android:title="@string/navigation_bar_category" >
-
-        <lineageos.preference.LineageSystemSettingSwitchPreference
-            android:key="navigation_bar_menu_arrow_keys"
-            android:title="@string/navigation_bar_arrow_keys_title"
-            android:summary="@string/navigation_bar_arrow_keys_summary"
-            android:defaultValue="false" />
-
-     </PreferenceCategory>
-
      <PreferenceCategory
         android:key="invert_layout_category"
         android:icon="@drawable/ic_invert"
@@ -78,6 +65,12 @@
         android:key="navigation_bar_category"
         android:icon="@drawable/ic_nav_buttons"
         android:title="@string/navigation_bar_options_category" >
+
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="navigation_bar_menu_arrow_keys"
+            android:title="@string/navigation_bar_arrow_keys_title"
+            android:summary="@string/navigation_bar_arrow_keys_summary"
+            android:defaultValue="false" />
 
         <ListPreference
             android:key="navigation_home_long_press"

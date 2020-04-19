@@ -92,6 +92,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
     private static final String KEY_VOLUME_PANEL_ON_LEFT = "volume_panel_on_left";
+    private static final String KEY_NAVIGATION_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
     private static final String KEY_NAVIGATION_HOME_LONG_PRESS = "navigation_home_long_press";
     private static final String KEY_NAVIGATION_HOME_DOUBLE_TAP = "navigation_home_double_tap";
     private static final String KEY_NAVIGATION_APP_SWITCH_LONG_PRESS =
@@ -144,6 +145,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private SwitchPreference mVolumeMusicControls;
     private SwitchPreference mSwapVolumeButtons;
     private SwitchPreference mVolumePanelOnLeft;
+    private SwitchPreference mNavigationArrowKeys;
     private ListPreference mNavigationHomeLongPressAction;
     private ListPreference mNavigationHomeDoubleTapAction;
     private ListPreference mNavigationAppSwitchLongPressAction;
@@ -257,6 +259,9 @@ public class Buttons extends SettingsPreferenceFragment implements
         Action backLongPressAction = Action.fromSettings(resolver,
                 LineageSettings.System.KEY_BACK_LONG_PRESS_ACTION,
                 defaultBackLongPressAction);
+
+        // Navigation bar arrow keys while typing
+        mNavigationArrowKeys = (SwitchPreference) findPreference(KEY_NAVIGATION_ARROW_KEYS);
 
         // Navigation bar home long press
         mNavigationHomeLongPressAction = initList(KEY_NAVIGATION_HOME_LONG_PRESS,
@@ -676,6 +681,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     if (DeviceUtils.isEdgeToEdgeEnabled(getContext())) {
         mNavigationPreferencesCat.addPreference(mEdgeLongSwipeAction);
 
+        mNavigationPreferencesCat.removePreference(mNavigationArrowKeys);
         mNavigationPreferencesCat.removePreference(mNavigationHomeLongPressAction);
         mNavigationPreferencesCat.removePreference(mNavigationHomeDoubleTapAction);
         mNavigationPreferencesCat.removePreference(mNavigationAppSwitchLongPressAction);
