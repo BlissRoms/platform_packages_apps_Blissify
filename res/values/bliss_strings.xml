@@ -1485,8 +1485,4 @@
     <string name="owner_info_category">Owner Info Options</string>
     <string name="lock_ownerinfo_font_title">Owner Info font options</string>
     <string name="lockowner_font_size_title">Owner info font size</string>
-
-    <!-- Fingerprint unlock without bouncer -->
-    <string name="unlock_without_bouncer_title">Use fingerprint unlock to view notification</string>
-    <string name="unlock_without_bouncer_summary">Allows to unlock device with fingerprint on notification double tap without need to input pin/password/pattern</string>
 </resources>

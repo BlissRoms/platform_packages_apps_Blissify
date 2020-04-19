@@ -57,15 +57,12 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
-import lineageos.app.LineageContextConstants;
-
 @SearchIndexable
 public class MiscSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String FP_ERROR_VIBRATE = "fp_error_vibrate";
-    private static final String UNLOCK_WITHOUT_BOUNCER = "unlock_without_bouncer";
     private static final String SMART_PIXELS_ENABLED = "smart_pixels_enable";
     private static final String SMART_PIXELS = "smart_pixels";
     private static final String PREF_STOCK_RECENTS_CATEGORY = "stock_recents_category";
@@ -76,7 +73,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mFingerprintVibErr;
-    private Preference mUnlockWithoutBouncer;
     private SwitchPreference mShowCpuInfo;
     private PreferenceCategory mSmartPixelsCategory;
     private PreferenceCategory mStockRecentsCategory;
@@ -92,27 +88,17 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.blissify_misc);
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
-        Context mContext = getContext();
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_VIB);
-        mUnlockWithoutBouncer = (Preference) findPreference(UNLOCK_WITHOUT_BOUNCER);
         mFingerprintVibErr = (SwitchPreference) findPreference(FP_ERROR_VIBRATE);
         if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected()){
             prefSet.removePreference(mFingerprintVib);
             prefSet.removePreference(mFingerprintVibErr);
-            prefSet.removePreference(mUnlockWithoutBouncer);
         } else {
         mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
         mFingerprintVib.setOnPreferenceChangeListener(this);
-        }
-
-        PackageManager packageManager = mContext.getPackageManager();
-        boolean hasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
-
-        if (mUnlockWithoutBouncer != null && !hasFod) {
-            prefSet.removePreference(mUnlockWithoutBouncer);
         }
 
         mShowCpuInfo = (SwitchPreference) findPreference(SHOW_CPU_INFO_KEY);
@@ -245,8 +231,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = mContext.getContentResolver();
         Settings.Global.putInt(resolver,
                 Settings.Global.PRIVILEGED_DEVICE_IDENTIFIER_CHECK_RELAXED, 0);
-        Settings.System.putIntForUser(resolver,
-                Settings.Secure.UNLOCK_WITHOUT_BOUNCER, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
