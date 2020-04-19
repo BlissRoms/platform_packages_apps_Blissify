@@ -85,18 +85,11 @@ public class Themes extends DashboardFragment  implements
         return R.xml.blissify_themes;
     }
 
-    private static final String CUSTOM_THEME_BROWSE = "theme_select_activity";
-
-    private Preference mThemeBrowse;
-
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         final ContentResolver resolver = getActivity().getContentResolver();
-
-        mThemeBrowse = findPreference(CUSTOM_THEME_BROWSE);
-        mThemeBrowse.setEnabled(isBrowseThemesAvailable());
 
         mAccentColor = (ColorPickerPreference) findPreference(ACCENT_COLOR);
         mAccentColor.setOnPreferenceChangeListener(this);
@@ -134,13 +127,6 @@ public class Themes extends DashboardFragment  implements
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    private boolean isBrowseThemesAvailable() {
-        PackageManager pm = getPackageManager();
-        Intent browse = new Intent();
-        browse.setClassName("com.android.customization", "com.android.customization.picker.CustomizationPickerActivity");
-        return pm.resolveActivity(browse, 0) != null;
     }
 
     @Override
