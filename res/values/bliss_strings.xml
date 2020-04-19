@@ -1045,6 +1045,7 @@
     <string name="lockscreen_clock_selection_sammy_accent">Sammy accent</string>
     <string name="lockscreen_clock_selection_sammy_accent_hour">Sammy accent hour</string>
     <string name="lockscreen_clock_selection_sammy_accent_alt">Sammy accent(darker hour)</string>
+    <string name="lockscreen_clock_selection_shishu_nerves_clock">Shishu Nerves Clock</string>
 
     <!-- lockscreen clock and date font style -->
     <string name="lockscreen_clock_category">Clock Options</string>
