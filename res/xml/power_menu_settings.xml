@@ -69,7 +69,7 @@
             android:key="advanced_reboot"
             android:title="@string/advanced_reboot_title"
             android:summary="@string/advanced_reboot_summary"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
 
         <lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="advanced_reboot_secured"
