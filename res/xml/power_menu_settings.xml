@@ -59,7 +59,7 @@
     <com.bliss.support.preferences.GlobalSettingSwitchPreference
         android:key="power_menu_emergency_affordance"
         android:title="@string/power_menu_emergency_title"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
 
     <PreferenceCategory
         android:key="advanced_reboot_key"
