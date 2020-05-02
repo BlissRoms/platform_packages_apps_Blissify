@@ -4,44 +4,42 @@
     android:title="@string/screen_state_toggles_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <com.bliss.support.preferences.CustomSeekBarPreference
+    <com.bliss.support.preferences.GlobalSettingSeekBarPreference
         android:key="screen_state_off_delay"
         android:title="@string/screen_state_off_delay_title"
         android:max="180"
         settings:min="0"
         settings:interval="5"
-        android:defaultValue="0"
         settings:units="sec"
-        android:persistent="false" />
+        android:defaultValue="5" />
 
-    <com.bliss.support.preferences.CustomSeekBarPreference
+    <com.bliss.support.preferences.GlobalSettingSeekBarPreference
         android:key="screen_state_on_delay"
         android:title="@string/screen_state_on_delay_title"
         android:max="180"
         settings:min="0"
         settings:interval="5"
-        android:defaultValue="0"
         settings:units="sec"
-        android:persistent="false" />
+        android:defaultValue="5" />
 
     <PreferenceCategory
         android:key="screen_state_toggles_mobile_key"
         android:title="@string/screen_state_toggles_mobile_title">
 
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="screen_state_toggles_twog"
+        <com.bliss.support.preferences.SystemSettingMasterSwitchPreference
+            android:key="screen_state_twog"
             android:title="@string/screen_state_toggles_twog"
             android:summary="@string/screen_state_toggles_twog_summary"
             android:defaultValue="false"/>
 
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="screen_state_toggles_threeg"
+        <com.bliss.support.preferences.SystemSettingMasterSwitchPreference
+            android:key="screen_state_threeg"
             android:title="@string/screen_state_toggles_threeg"
             android:summary="@string/screen_state_toggles_threeg_summary"
             android:defaultValue="false"/>
 
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="screen_state_toggles_mobile_data"
+        <com.bliss.support.preferences.SystemSettingMasterSwitchPreference
+            android:key="screen_state_mobile_data"
             android:title="@string/screen_state_toggles_mobile_data"
             android:summary="@string/screen_state_toggles_mobile_data_summary"
             android:defaultValue="false"/>
@@ -52,7 +50,7 @@
         android:title="@string/screen_state_toggles_location_title">
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="screen_state_toggles_gps"
+            android:key="screen_state_gps"
             android:title="@string/screen_state_toggles_gps"
             android:summary="@string/screen_state_toggles_gps_summary"
             android:defaultValue="false"/>
