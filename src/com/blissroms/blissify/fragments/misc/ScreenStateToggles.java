@@ -70,7 +70,7 @@ public class ScreenStateToggles extends SettingsPreferenceFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+/*
         mContext = (Context) getActivity();
 
         addPreferencesFromResource(R.xml.screen_state_toggles);
@@ -144,10 +144,12 @@ public class ScreenStateToggles extends SettingsPreferenceFragment
                 Settings.System.SCREEN_STATE_GPS, 0, UserHandle.USER_CURRENT) == 1));
             mEnableScreenStateTogglesGps.setOnPreferenceChangeListener(this);
         }
+*/
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+/*
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mEnableScreenStateTogglesTwoG) {
             boolean value = (Boolean) newValue;
@@ -193,6 +195,7 @@ public class ScreenStateToggles extends SettingsPreferenceFragment
                     Settings.System.SCREEN_STATE_ON_DELAY, delay, UserHandle.USER_CURRENT);
             return true;
         }
+*/
         return false;
     }
 
