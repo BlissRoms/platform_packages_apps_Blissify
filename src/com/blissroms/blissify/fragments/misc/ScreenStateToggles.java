@@ -47,10 +47,10 @@ public class ScreenStateToggles extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "ScreenStateToggles";
-    private static final String SCREEN_STATE_TOGGLES_TWOG = "screen_state_toggles_twog";
-    private static final String SCREEN_STATE_TOGGLES_THREEG = "screen_state_toggles_threeg";
-    private static final String SCREEN_STATE_TOGGLES_GPS = "screen_state_toggles_gps";
-    private static final String SCREEN_STATE_TOGGLES_MOBILE_DATA = "screen_state_toggles_mobile_data";
+    private static final String SCREEN_STATE_TWOG = "screen_state_twog";
+    private static final String SCREEN_STATE_THREEG = "screen_state_threeg";
+    private static final String SCREEN_STATE_GPS = "screen_state_gps";
+    private static final String SCREEN_STATE_MOBILE_DATA = "screen_state_mobile_data";
     private static final String SCREEN_STATE_ON_DELAY = "screen_state_on_delay";
     private static final String SCREEN_STATE_OFF_DELAY = "screen_state_off_delay";
     private static final String SCREEN_STATE_CATGEGORY_LOCATION = "screen_state_toggles_location_key";
@@ -94,10 +94,10 @@ public class ScreenStateToggles extends SettingsPreferenceFragment
                 SCREEN_STATE_CATGEGORY_LOCATION);
 
         mEnableScreenStateTogglesTwoG = (SwitchPreference) findPreference(
-                SCREEN_STATE_TOGGLES_TWOG);
+                SCREEN_STATE_TWOG);
 
         mEnableScreenStateTogglesThreeG = (SwitchPreference) findPreference(
-                SCREEN_STATE_TOGGLES_THREEG);
+                SCREEN_STATE_THREEG);
 
         ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -115,7 +115,7 @@ public class ScreenStateToggles extends SettingsPreferenceFragment
         }
 
         mEnableScreenStateTogglesMobileData = (SwitchPreference) findPreference(
-                SCREEN_STATE_TOGGLES_MOBILE_DATA);
+                SCREEN_STATE_MOBILE_DATA);
 
         if (!cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)){
             getPreferenceScreen().removePreference(mEnableScreenStateTogglesMobileData);
@@ -133,7 +133,7 @@ public class ScreenStateToggles extends SettingsPreferenceFragment
 
         // TODO: check if gps is available on this device?
         mEnableScreenStateTogglesGps = (SwitchPreference) findPreference(
-                SCREEN_STATE_TOGGLES_GPS);
+                SCREEN_STATE_GPS);
 
         if (!isLocationChangeAllowed){
             getPreferenceScreen().removePreference(mEnableScreenStateTogglesGps);
