@@ -61,6 +61,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements OnPref
 
     private CustomSeekBarPreference mThreshold;
     private ListPreference mNetTrafficType;
+    private ListPreference mNetTrafficLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,6 +83,13 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements OnPref
                 Settings.System.NETWORK_TRAFFIC_TYPE, 0, UserHandle.USER_CURRENT);
         mNetTrafficType.setValue(String.valueOf(type));
         mNetTrafficType.setOnPreferenceChangeListener(this);
+
+        mNetTrafficLayout = (ListPreference) findPreference("network_traffic_layout");
+        int netlayout = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_LAYOUT, 0, UserHandle.USER_CURRENT);
+        mNetTrafficLayout.setValue(String.valueOf(netlayout));
+        mNetTrafficLayout.setSummary(mNetTrafficLayout.getEntry());
+        mNetTrafficLayout.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -109,6 +117,14 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements OnPref
                     UserHandle.USER_CURRENT);
             int index = mNetTrafficType.findIndexOfValue((String) objValue);
             mNetTrafficType.setSummary(mNetTrafficType.getEntries()[index]);
+            return true;
+        } else if (preference == mNetTrafficLayout) {
+            int val = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_LAYOUT, val,
+                    UserHandle.USER_CURRENT);
+            int index = mNetTrafficLayout.findIndexOfValue((String) objValue);
+            mNetTrafficLayout.setSummary(mNetTrafficLayout.getEntries()[index]);
             return true;
         }
         return false;
