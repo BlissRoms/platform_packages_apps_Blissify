@@ -247,6 +247,9 @@
     <string name="show_network_traffic_down">Download</string>
     <string name="show_network_traffic_all">Both</string>
     <string name="nettraf_font_size">Single net font size</string>
+    <string name="network_traffic_layout">Activity layout</string>
+    <string name="network_traffic_layout_h">Horizontal</string>
+    <string name="network_traffic_layout_v">Vertical</string>
 
     <!-- Status bar - icons -->
     <string name="status_bar_icons_title">Status bar icons</string>
