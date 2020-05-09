@@ -40,6 +40,12 @@
             android:targetClass="com.android.customization.picker.LockClockPickerActivity" />
         </Preference>
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_show_clock"
+        android:title="@string/lockscreen_show_clock_title"
+        android:summary="@string/lockscreen_show_clock_summary"
+        android:defaultValue="false" />
+
     <com.bliss.support.preferences.SystemSettingListPreference
         android:key="lockscreen_clock_selection"
         android:title="@string/lockscreen_clock_title"
