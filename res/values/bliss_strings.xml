@@ -1038,8 +1038,9 @@
 
     <!-- Lockscreen clock styles -->
     <string name="lockscreen_clock_title">Clock style</string>
+    <string name="lockscreen_hide_clock_title">Hide Lockscreen Clock</string>
+    <string name="lockscreen_hide_clock_summary">hide/show default clock on lockscreen</string>
     <string name="lockscreen_clock_dialog_title">Select clock style</string>
-    <string name="lockscreen_clock_selection_hidden">Hidden</string>
     <string name="lockscreen_clock_selection_digital">Default</string>
     <string name="lockscreen_clock_selection_digital_bold">Bold (digital)</string>
     <string name="lockscreen_clock_selection_digital_small">Small (digital)</string>
@@ -1049,6 +1050,7 @@
     <string name="lockscreen_clock_selection_sammy">Sammy</string>
     <string name="lockscreen_clock_selection_sammy_bold">Sammy (bold)</string>
     <string name="lockscreen_clock_selection_sammy_accent">Sammy accent</string>
+    <string name="lockscreen_clock_selection_sammy_accent_min">Sammy accent minute</string>
     <string name="lockscreen_clock_selection_sammy_accent_hour">Sammy accent hour</string>
     <string name="lockscreen_clock_selection_sammy_accent_alt">Sammy accent(darker hour)</string>
     <string name="lockscreen_clock_selection_shishu_nerves_clock">Shishu Nerves Clock</string>
