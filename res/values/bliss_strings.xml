@@ -1112,6 +1112,36 @@
     <string name="font_grandhotel">Grand Hotel</string>
     <string name="font_redressed">Redressed</string>
     <string name="font_sanfransisco">San Fransisco</string>
+    <string name="font_bignoodle-italic">Bignoodle-italic</string>
+    <string name="font_bignoodle-regular">bignoodle-regular</string>
+    <string name="font_hanken">hanken</string>
+    <string name="font_mittelschrift">mittelschrift</string>
+    <string name="font_reemkufi">reemkufi</string>
+    <string name="font_comic-neue-bold">comic-neue-bold</string>
+    <string name="font_comic-neue">comic-neue</string>
+    <string name="font_exo2-regular">exo2-regular</string>
+    <string name="font_exo2-semibold">exo2-semibold</string>
+    <string name="font_finlandica">finlandica</string>
+    <string name="font_goodlight">goodlight</string>
+    <string name="font_gravity-regular">gravity-regular</string>
+    <string name="font_inter-regular">inter-regular</string>
+    <string name="font_inter-medium-italic">inter-medium-italic</string>
+    <string name="font_league-mono-n-regular">league-mono-n-regular</string>
+    <string name="font_league-mono-n-medium">league-mono-n-medium</string>
+    <string name="font_league-mono-n-bold">league-mono-n-bold</string>
+    <string name="font_league-mono-n-semibold">league-mono-n-semibold</string>
+    <string name="font_leonsans-regular">leonsans-regular</string>
+    <string name="font_mescla-regular">mescla-regular</string>
+    <string name="font_odibee-sans">odibee-sans</string>
+    <string name="font_panamericana">panamericana</string>
+    <string name="font_pt-sans">pt-sans</string>
+    <string name="font_pt-mono">pt-mono</string>
+    <string name="font_rounded-gothic-narrow">rounded-gothic-narrow</string>
+    <string name="font_rounded-gothic-narrow-half-italic">rounded-gothic-narrow-half-italic</string>
+    <string name="font_sofia-sans-regular">sofia-sans-regular</string>
+    <string name="font_sofia-sans-medium">sofia-sans-medium</string>
+    <string name="font_sofia-semicondensed-regular">sofia-semicondensed-regular</string>
+    <string name="font_sofia-semicondensed-medium">sofia-semicondensed-medium</string>
     <string name="font_size_title">Font size</string>
 
     <!-- QS themes -->
