@@ -939,7 +939,6 @@
         <item>@string/lockscreen_clock_selection_sammy_accent_hour</item>
         <item>@string/lockscreen_clock_selection_sammy_accent_min</item>
         <item>@string/lockscreen_clock_selection_sammy_accent_alt</item>
-        <item>@string/lockscreen_clock_selection_shishu_nerves_clock</item>
     </string-array>
 
     <string-array name="lockscreen_clock_selection_values" translatable="false">
@@ -955,7 +954,6 @@
         <item>9</item>
         <item>10</item>
         <item>11</item>
-        <item>12</item>
     </string-array>
 
     <!-- Font style -->
