@@ -232,6 +232,8 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         Settings.Global.putInt(resolver,
                 Settings.Global.PRIVILEGED_DEVICE_IDENTIFIER_CHECK_RELAXED, 0);
         Settings.Global.putInt(resolver, Settings.Global.RINGTONE_FOCUS_MODE, 1);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.USE_SLIM_RECENTS, 1, UserHandle.USER_CURRENT);
     }
 
     @Override
