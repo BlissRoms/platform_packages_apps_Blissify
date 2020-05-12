@@ -98,6 +98,9 @@ public class QSHeaders extends SettingsPreferenceFragment implements
         mHeaderBrowse = findPreference(CUSTOM_HEADER_BROWSE);
 
         mHeaderEnabled = (SwitchPreference) findPreference(STATUS_BAR_CUSTOM_HEADER);
+        int qsHeader = Settings.System.getInt(resolver,
+                Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER, 0);
+        mHeaderEnabled.setChecked(qsHeader != 0);
         mHeaderEnabled.setOnPreferenceChangeListener(this);
 
         mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
@@ -158,6 +161,11 @@ public class QSHeaders extends SettingsPreferenceFragment implements
                     Settings.System.OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK, value);
             int valueIndex = mDaylightHeaderPack.findIndexOfValue(value);
             mDaylightHeaderPack.setSummary(mDaylightHeaderPack.getEntries()[valueIndex]);
+        } else if (preference == mHeaderEnabled) {
+            boolean header = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER, header ? 1 : 0);
+            return true;
         } else if (preference == mHeaderShadow) {
             Integer headerShadow = (Integer) newValue;
             int realHeaderValue = (int) (((double) headerShadow / 100) * 255);
@@ -249,8 +257,6 @@ public class QSHeaders extends SettingsPreferenceFragment implements
 
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
-        Settings.System.putIntForUser(resolver,
-                Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER, 1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW, 0, UserHandle.USER_CURRENT);
     }
