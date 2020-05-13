@@ -48,6 +48,7 @@ public class ScreenStateToggles extends SettingsPreferenceFragment
 
     private static final String TAG = "ScreenStateToggles";
     private static final String SCREEN_STATE_TOGGLES_TWOG = "screen_state_toggles_twog";
+    private static final String SCREEN_STATE_TOGGLES_THREEG = "screen_state_toggles_threeg";
     private static final String SCREEN_STATE_TOGGLES_GPS = "screen_state_toggles_gps";
     private static final String SCREEN_STATE_TOGGLES_MOBILE_DATA = "screen_state_toggles_mobile_data";
     private static final String SCREEN_STATE_ON_DELAY = "screen_state_on_delay";
@@ -58,6 +59,7 @@ public class ScreenStateToggles extends SettingsPreferenceFragment
     private Context mContext;
 
     private SwitchPreference mEnableScreenStateTogglesTwoG;
+    private SwitchPreference mEnableScreenStateTogglesThreeG;
     private SwitchPreference mEnableScreenStateTogglesGps;
     private SwitchPreference mEnableScreenStateTogglesMobileData;
     private CustomSeekBarPreference mSecondsOffDelay;
@@ -94,6 +96,9 @@ public class ScreenStateToggles extends SettingsPreferenceFragment
         mEnableScreenStateTogglesTwoG = (SwitchPreference) findPreference(
                 SCREEN_STATE_TOGGLES_TWOG);
 
+        mEnableScreenStateTogglesThreeG = (SwitchPreference) findPreference(
+                SCREEN_STATE_TOGGLES_THREEG);
+
         ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (!cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)){
@@ -103,6 +108,10 @@ public class ScreenStateToggles extends SettingsPreferenceFragment
                 Settings.System.getIntForUser(resolver,
                 Settings.System.SCREEN_STATE_TWOG, 0, UserHandle.USER_CURRENT) == 1));
             mEnableScreenStateTogglesTwoG.setOnPreferenceChangeListener(this);
+            mEnableScreenStateTogglesThreeG.setChecked((
+                Settings.System.getIntForUser(resolver,
+                Settings.System.SCREEN_STATE_THREEG, 0, UserHandle.USER_CURRENT) == 1));
+            mEnableScreenStateTogglesThreeG.setOnPreferenceChangeListener(this);
         }
 
         mEnableScreenStateTogglesMobileData = (SwitchPreference) findPreference(
@@ -144,6 +153,14 @@ public class ScreenStateToggles extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putIntForUser(resolver,
                     Settings.System.SCREEN_STATE_TWOG, value ? 1 : 0, UserHandle.USER_CURRENT);
+
+            Intent intent = new Intent("android.intent.action.SCREEN_STATE_SERVICE_UPDATE");
+            mContext.sendBroadcast(intent);
+            return true;
+        } else if (preference == mEnableScreenStateTogglesThreeG) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.SCREEN_STATE_THREEG, value ? 1 : 0, UserHandle.USER_CURRENT);
 
             Intent intent = new Intent("android.intent.action.SCREEN_STATE_SERVICE_UPDATE");
             mContext.sendBroadcast(intent);
