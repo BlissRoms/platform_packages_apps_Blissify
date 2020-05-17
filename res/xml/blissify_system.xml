@@ -16,7 +16,8 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:key="system_settings"
-    android:title="@string/blissify_system_category">
+    android:title="@string/blissify_system_category"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
 	<!-- UI Customizations -->
     <PreferenceCategory
@@ -130,7 +131,12 @@
             android:summary="@string/three_finger_gesture_summary"
             android:defaultValue="false" />
 
-    </PreferenceCategory>
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="click_partial_screenshot"
+            android:title="@string/click_partial_screenshot_title"
+            android:summary="@string/click_partial_screenshot_summary"
+            android:defaultValue="false" /> 
+   </PreferenceCategory>
 
 	<!-- Battery Saving -->
     <PreferenceCategory
