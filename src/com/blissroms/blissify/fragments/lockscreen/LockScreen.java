@@ -57,6 +57,7 @@ import java.util.HashMap;
 import java.util.Collections;
 
 import com.bliss.support.preferences.CustomSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingListPreference;
 
 import lineageos.app.LineageContextConstants;
 
@@ -72,7 +73,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private CustomSeekBarPreference mLockscreenMediaBlur;
     private PreferenceCategory mFODIconPickerCategory;
-    private ListPreference mLockClockSelection;
+    private SystemSettingListPreference mLockClockSelection;
     private ListPreference mTextClockAlign;
     private CustomSeekBarPreference mTextClockPadding;
 
@@ -101,11 +102,15 @@ public class LockScreen extends SettingsPreferenceFragment implements
         }
 
         // Lockscreen Clock
-        mLockClockSelection = (ListPreference) findPreference(LOCKSCREEN_CLOCK_SELECTION);
+        mLockClockSelection = (SystemSettingListPreference) findPreference(LOCKSCREEN_CLOCK_SELECTION);
         boolean mClockSelection = Settings.System.getIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT) == 12
                 || Settings.System.getIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT) == 13;
+        if (mLockClockSelection == null) {
+            Settings.System.putIntForUser(resolver,
+                Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
+        }
         mLockClockSelection.setOnPreferenceChangeListener(this);
 
         // Text Clock Alignment
@@ -118,6 +123,22 @@ public class LockScreen extends SettingsPreferenceFragment implements
         boolean mTextClockAlignx = Settings.System.getIntForUser(resolver,
                     Settings.System.TEXT_CLOCK_ALIGNMENT, 0, UserHandle.USER_CURRENT) == 1;
         mTextClockPadding.setEnabled(!mTextClockAlignx);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateClock();
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mLockClockSelection) {
+            updateClock();
+        }
+
+        return super.onPreferenceTreeClick(preference);
     }
 
     @Override
@@ -174,6 +195,27 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 Settings.System.LOCK_OWNERINFO_FONTS, 4, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKOWNER_FONT_SIZE, 18, UserHandle.USER_CURRENT);
+    }
+
+    private void updateClock() {
+        ContentResolver resolver = getActivity().getContentResolver();
+        String currentClock = Settings.Secure.getString(
+            resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
+        final boolean mIsDefaultClock = currentClock.contains("DefaultClock") ? true : false;
+        String[] defaultClock = getResources().getStringArray(R.array.lockscreen_clock_selection_entries);
+        String[] defaultClockValues = getResources().getStringArray(R.array.lockscreen_clock_selection_values);
+        String[] pluginClock = getResources().getStringArray(R.array.lockscreen_clock_plugin_entries);
+        String[] pluginClockValues = getResources().getStringArray(R.array.lockscreen_clock_plugin_values);
+        if (mIsDefaultClock) {
+            mLockClockSelection.setEntries(defaultClock);
+            mLockClockSelection.setEntryValues(defaultClockValues);
+        } else {
+            mLockClockSelection.setEntries(pluginClock);
+            mLockClockSelection.setEntryValues(pluginClockValues);
+            Settings.System.putIntForUser(resolver,
+                Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
+        }
+        mLockClockSelection.setSummary(mLockClockSelection.getEntry());
     }
 
     @Override
