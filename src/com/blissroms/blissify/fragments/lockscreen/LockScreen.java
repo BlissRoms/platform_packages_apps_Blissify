@@ -57,6 +57,7 @@ import java.util.HashMap;
 import java.util.Collections;
 
 import com.bliss.support.preferences.CustomSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingListPreference;
 
 import lineageos.app.LineageContextConstants;
 
@@ -72,7 +73,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private CustomSeekBarPreference mLockscreenMediaBlur;
     private PreferenceCategory mFODIconPickerCategory;
-    private ListPreference mLockClockSelection;
+    private SystemSettingListPreference mLockClockSelection;
     private ListPreference mTextClockAlign;
     private CustomSeekBarPreference mTextClockPadding;
 
@@ -101,11 +102,26 @@ public class LockScreen extends SettingsPreferenceFragment implements
         }
 
         // Lockscreen Clock
-        mLockClockSelection = (ListPreference) findPreference(LOCKSCREEN_CLOCK_SELECTION);
+        mLockClockSelection = (SystemSettingListPreference) findPreference(LOCKSCREEN_CLOCK_SELECTION);
         boolean mClockSelection = Settings.System.getIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT) == 12
                 || Settings.System.getIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT) == 13;
+        String currentClock = Settings.Secure.getString(
+            resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
+        final boolean mIsDefaultClock = currentClock == null ? true : false;
+        String[] defaultClock = getResources().getStringArray(R.array.lockscreen_clock_selection_entries);
+        String[] defaultClockValues = getResources().getStringArray(R.array.lockscreen_clock_selection_values);
+        String[] pluginClock = getResources().getStringArray(R.array.lockscreen_clock_plugin_entries);
+        String[] pluginClockValues = getResources().getStringArray(R.array.lockscreen_clock_plugin_values);
+        if (mIsDefaultClock) {
+            mLockClockSelection.setEntries(defaultClock);
+            mLockClockSelection.setEntryValues(defaultClockValues);
+        } else {
+            mLockClockSelection.setEntries(pluginClock);
+            mLockClockSelection.setEntryValues(pluginClockValues);
+        }
+        mLockClockSelection.setSummary(mLockClockSelection.getEntry());
         mLockClockSelection.setOnPreferenceChangeListener(this);
 
         // Text Clock Alignment
