@@ -1187,6 +1187,9 @@
     <string name="qs_bg_accent_summary">Set QS background color from System Accent</string>
     <string name="qs_bg_use_new_tint">New tint style</string>
     <string name="qs_bg_use_new_tint_summary">Enable the new QS tint style</string>
+    <string name="qs_tint_off">Tint Off</string>
+    <string name="qs_tint_random">Random Color</string>
+    <string name="qs_tint_accent">Accent Color</string>
 
     <!-- QS battery -->
     <string name="qs_use_status_bar_battery_style">Follow status bar style</string>
