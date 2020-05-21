@@ -1797,12 +1797,14 @@
         <item>@string/qs_tint_off</item>
         <item>@string/qs_tint_random</item>
         <item>@string/qs_tint_accent</item>
+        <item>@string/qs_disco_mode</item>
     </string-array>
 
     <string-array name="qs_tint_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
 </resources>
