@@ -477,7 +477,7 @@
 
     <!--statusbar advanced system icons -->
     <string name="statusbar_advanced_icons">Advanced System Icons</string>
-    <string name="statusbar_advanced_icons_summary">Logo, Volte Icon, Weather Icon, 4g Icon\n Data Indicator, Bluetooth Indicator</string>
+    <string name="statusbar_advanced_icons_summary">Logo, Volte Icon, Weather Icon, 4g Icon,Data Indicator, Bluetooth Indicator</string>
 
     <string name="volte_icon_title">VoLTE icon</string>
     <string name="status_bar_volte_disabled">Disabled</string>
@@ -1457,7 +1457,7 @@
 
     <!-- Slim recents -->
     <string name="ok">OK</string>
-    <string name="alternative_recents_category">Alternative recents</string>
+    <string name="alternative_recents_category">Slim Recents</string>
     <string name="alternative_recents_swipe_up_enabled_warning_summary">When using swipe up home navigation to open recents, only stock recents are supported</string>
     <string name="slim_recents_title">Slim Recents</string>
     <string name="slim_recents_summary">Enable to use an alternative recents screen</string>
