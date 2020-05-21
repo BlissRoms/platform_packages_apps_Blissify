@@ -24,6 +24,7 @@
 
     <PreferenceCategory
         android:key="alternative_recents_category"
+        android:icon="@drawable/ic_style"
         android:title="@string/alternative_recents_category">
 
     <Preference
