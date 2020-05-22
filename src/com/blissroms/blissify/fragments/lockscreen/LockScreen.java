@@ -132,16 +132,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mLockClockSelection) {
-            updateClock();
-        }
-
-        return super.onPreferenceTreeClick(preference);
-    }
-
-    @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
 
         if (preference == mLockscreenMediaBlur) {
@@ -152,6 +142,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         } else if (preference == mLockClockSelection) {
             boolean val = Integer.valueOf((String) objValue) == 12
                     || Integer.valueOf((String) objValue) == 13;
+            mLockClockSelection.setSummary(mLockClockSelection.getEntry());
             mTextClockAlign.setEnabled(val);
             return true;
         } else if (preference == mTextClockAlign) {
@@ -161,6 +152,16 @@ public class LockScreen extends SettingsPreferenceFragment implements
         }
 
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mLockClockSelection) {
+            updateClock();
+        }
+
+        return super.onPreferenceTreeClick(preference);
     }
 
     public static void reset(Context mContext) {
