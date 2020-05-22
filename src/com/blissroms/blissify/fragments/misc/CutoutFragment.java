@@ -18,6 +18,7 @@ package com.blissroms.blissify.fragments.misc;
 
 import android.os.Bundle;
 import android.content.Context;
+import android.content.ContentResolver;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
@@ -36,6 +37,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import lineageos.providers.LineageSettings;
+
 public class CutoutFragment extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
@@ -44,11 +47,16 @@ public class CutoutFragment extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        final ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mCutoutStyle) {
             String value = (String) newValue;
-            Settings.System.putInt(getContentResolver(), Settings.System.DISPLAY_CUTOUT_MODE, Integer.valueOf(value));
+            Settings.System.putInt(resolver, Settings.System.DISPLAY_CUTOUT_MODE, Integer.valueOf(value));
             int valueIndex = mCutoutStyle.findIndexOfValue(value);
             mCutoutStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+            if (valueIndex == 0)
+            LineageSettings.System.putInt(resolver, STATUS_BAR_CLOCK_STYLE, 2);
+            Settings.System.putIntForUser(resolver,
+                Settings.System.STATUSBAR_BATTERY_BAR, 0, UserHandle.USER_CURRENT);
             mCutoutStyle.setSummary(mCutoutStyle.getEntries()[valueIndex]);
         }
         return false;
