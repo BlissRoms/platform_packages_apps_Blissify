@@ -152,6 +152,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         } else if (preference == mLockClockSelection) {
             boolean val = Integer.valueOf((String) objValue) == 12
                     || Integer.valueOf((String) objValue) == 13;
+            mLockClockSelection.setSummary(mLockClockSelection.getEntry());
             mTextClockAlign.setEnabled(val);
             return true;
         } else if (preference == mTextClockAlign) {
