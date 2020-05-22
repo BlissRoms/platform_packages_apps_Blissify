@@ -201,7 +201,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         String currentClock = Settings.Secure.getString(
             resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
-        final boolean mIsDefaultClock = currentClock.contains("DefaultClock") ? true : false;
+        final boolean mIsDefaultClock = currentClock != null && currentClock.contains("DefaultClock") ? true : false;
         String[] defaultClock = getResources().getStringArray(R.array.lockscreen_clock_selection_entries);
         String[] defaultClockValues = getResources().getStringArray(R.array.lockscreen_clock_selection_values);
         String[] pluginClock = getResources().getStringArray(R.array.lockscreen_clock_plugin_entries);
