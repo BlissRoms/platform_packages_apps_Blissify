@@ -134,6 +134,9 @@ public class StatusBar extends SettingsPreferenceFragment
 
         if (BlissUtils.hasNotch(getContext())) {
             getPreferenceScreen().removePreference(mBatteryBarCategory);
+            Settings.System.putIntForUser(resolver,
+                Settings.System.STATUSBAR_BATTERY_BAR, 0, UserHandle.USER_CURRENT);
+
         } else {
             getPreferenceScreen().addPreference(mBatteryBarCategory);
         }
@@ -146,6 +149,8 @@ public class StatusBar extends SettingsPreferenceFragment
             } else {
                 mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_rtl);
                 mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_rtl);
+                LineageSettings.System.putInt(getActivity().getContentResolver(),
+                STATUS_BAR_CLOCK_STYLE, 2);
             }
         } else if (BlissUtils.hasNotch(getContext())) {
             mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch);
@@ -153,6 +158,8 @@ public class StatusBar extends SettingsPreferenceFragment
         } else {
             mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries);
             mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values);
+            LineageSettings.System.putInt(getActivity().getContentResolver(),
+            STATUS_BAR_CLOCK_STYLE, 2);
         }
 
     }
