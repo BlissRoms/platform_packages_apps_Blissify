@@ -150,6 +150,10 @@ public class LockScreen extends SettingsPreferenceFragment implements
                     Settings.System.LOCKSCREEN_MEDIA_BLUR, value);
             return true;
         } else if (preference == mLockClockSelection) {
+            int value = Integer.parseInt((String) objValue);
+            String[] defaultClock = getResources().getStringArray(R.array.lockscreen_clock_selection_entries);
+            String summary = defaultClock[value];
+            mLockClockSelection.setSummary(summary);
             boolean val = Integer.valueOf((String) objValue) == 12
                     || Integer.valueOf((String) objValue) == 13;
             mTextClockAlign.setEnabled(val);
@@ -215,7 +219,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
         }
-        mLockClockSelection.setSummary(mLockClockSelection.getEntry());
     }
 
     @Override
