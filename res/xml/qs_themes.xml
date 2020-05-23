@@ -26,6 +26,12 @@
         android:icon="@drawable/ic_panel"
         android:title="@string/qs_themes_category_title" >
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="qs_new_bg_enabled"
+        android:title="@string/qs_new_bg_title"
+        android:summary="@string/qs_new_bg_summary"
+        android:defaultValue="false" />
+
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
         android:key="qs_panel_bg_alpha"
         android:title="@string/qs_panel_alpha_title"

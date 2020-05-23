@@ -1827,4 +1827,8 @@
     <string name="ime_fullscreen_summary">Allow keyboard to take up entire screen in landscape</string>
     <string name="ime_show_enter_key_title">Show enter key</string>
     <string name="ime_show_enter_key_summary">Force keyboard to show enter instead of emoticon key</string>
+
+    <!-- Gradient Panel QS Bg -->
+    <string name="qs_new_bg_title">Gradient Qs Background</string>
+    <string name="qs_new_bg_summary">Whether to enable gradient based qs panel background</string>
 </resources>
