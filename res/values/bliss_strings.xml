@@ -1526,8 +1526,10 @@
     <string name="lockscreen_enable_qs_summary">Allow accessing quick settings on secure lockscreen</string>
 
     <!-- QS data usage -->
-    <string name="qs_datausage_title">Show data usage in qs header</string>
-    <string name="qs_datausage_subtitle">Shows data usage in quick settings header of sim used for data</string>
+    <string name="qs_datausage_title">Data usage in QS Header</string>
+    <string name="qs_datausage_disabled">Disabled</string>
+    <string name="qs_datausage_daily">Daily usage</string>
+    <string name="qs_datausage_monthly">Monthly usage</string>
 
     <!-- LS OwnerInfo Font & Size -->
     <string name="owner_info_category">Owner Info Options</string>
