@@ -199,6 +199,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private void updateClock() {
         ContentResolver resolver = getActivity().getContentResolver();
+        //PreferenceScreen prefSet = getPreferenceScreen();
+
         String currentClock = Settings.Secure.getString(
             resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
         final boolean mIsDefaultClock = currentClock != null && currentClock.contains("DefaultClock") ? true : false;
@@ -214,6 +216,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
             mLockClockSelection.setEntryValues(pluginClockValues);
             Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
+            prefSet.removePreference(mTextClockPadding);
+            prefSet.removePreference(mTextClockAlign);
         }
         mLockClockSelection.setSummary(mLockClockSelection.getEntry());
     }
