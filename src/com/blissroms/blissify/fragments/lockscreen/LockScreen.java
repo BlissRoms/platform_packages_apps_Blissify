@@ -68,6 +68,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
+    private static final String TEXT_CLOCK_CATEGORY = "text_clock_customizations";
     private static final String TEXT_CLOCK_ALIGNMENT = "text_clock_alignment";
     private static final String TEXT_CLOCK_PADDING = "text_clock_padding";
 
@@ -76,6 +77,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mLockClockSelection;
     private ListPreference mTextClockAlign;
     private CustomSeekBarPreference mTextClockPadding;
+    private PreferenceCategory mTextClockCategory;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -199,6 +201,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private void updateClock() {
         ContentResolver resolver = getActivity().getContentResolver();
+        PreferenceScreen prefSet = getPreferenceScreen();
+
         String currentClock = Settings.Secure.getString(
             resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
         final boolean mIsDefaultClock = currentClock != null && currentClock.contains("DefaultClock") ? true : false;
@@ -214,6 +218,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
             mLockClockSelection.setEntryValues(pluginClockValues);
             Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
+            prefSet.removePreference(mTextClockCategory);
         }
         mLockClockSelection.setSummary(mLockClockSelection.getEntry());
     }
