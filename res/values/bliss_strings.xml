@@ -1588,4 +1588,10 @@
     <!-- Music Heads Up -->
     <string name="show_media_heads_up_title">Show media heads up</string>
     <string name="show_media_heads_up_summary">Show media heads up when a new track is played, if the player is not already in foreground</string>
+
+    <!-- QS Label Tint -->
+    <string name="qs_label_use_new_tint">QS Label Tint</string>
+    <string name="qs_label_tint_off">Default</string>
+    <string name="qs_label_tint_accent">Accent Color Tint</string>
+    <string name="qs_label_tint_gradient">Gradient Color Tint</string>
 </resources>
