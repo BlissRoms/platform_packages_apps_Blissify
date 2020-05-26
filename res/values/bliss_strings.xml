@@ -507,6 +507,7 @@
     <string name="qs_brightness_slider_hide">Hide</string>
     <string name="qs_brightness_slider_top">Top</string>
     <string name="qs_brightness_slider_bottom">Bottom</string>
+    <string name="qs_brightness_slider_show_expanded">Show when expanded</string>
 
     <!-- Quick settings brightness icon -->
     <string name="brightness_icon_title">Auto brightness</string>
