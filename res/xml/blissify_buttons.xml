@@ -57,6 +57,7 @@
         <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="navbar_inverse_layout"
             android:title="@string/navigation_bar_invert_layout_title"
+            android:summary="@string/navigation_bar_invert_layout_summary"
             android:defaultValue="false" />
 
      </PreferenceCategory>
