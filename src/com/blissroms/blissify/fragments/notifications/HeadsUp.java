@@ -32,17 +32,21 @@ import androidx.preference.PreferenceViewHolder;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup; 
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.Switch;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.bliss.support.preferences.PackageListAdapter;
 import com.bliss.support.preferences.PackageListAdapter.PackageItem;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import android.provider.Settings;
+import com.android.settings.widget.SwitchBar;
+import com.android.settings.SettingsActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,12 +54,14 @@ import java.util.List;
 import java.util.Map;
 
 public class HeadsUp extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
+        implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener,
+                SwitchBar.OnSwitchChangeListener {
 
     private static final int DIALOG_STOPLIST_APPS = 0;
     private static final int DIALOG_BLACKLIST_APPS = 1;
     private static final String PREF_HEADS_UP_TIME_OUT = "heads_up_time_out";
     private static final String PREF_HEADS_UP_SNOOZE_TIME = "heads_up_snooze_time";
+    private static final String PREF_LESS_BORING_HEADS_UP = "less_boring_heads_up";
 
     private PackageListAdapter mPackageAdapter;
     private PackageManager mPackageManager;
@@ -65,11 +71,36 @@ public class HeadsUp extends SettingsPreferenceFragment
     private Preference mAddBlacklistPref;
     private ListPreference mHeadsUpTimeOut;
     private ListPreference mHeadsUpSnoozeTime;
+    private SystemSettingSwitchPreference mLessBoringHeadsUp;
 
     private String mStoplistPackageList;
     private String mBlacklistPackageList;
     private Map<String, Package> mStoplistPackages;
     private Map<String, Package> mBlacklistPackages;
+
+    private SwitchBar mSwitchBar;
+
+    @Override
+    public void onActivityCreated(Bundle icicle) {
+        super.onActivityCreated(icicle);
+
+        final boolean isChecked = Settings.Global.getInt(getActivity().getContentResolver(),
+                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 1) != 0;
+        mSwitchBar = ((SettingsActivity) getActivity()).getSwitchBar();
+        mSwitchBar.addOnSwitchChangeListener(this);
+        mSwitchBar.setChecked(isChecked);
+        mSwitchBar.show();
+    }
+
+    @Override
+    public void onSwitchChanged(Switch switchView, boolean isChecked) {
+        if (switchView != mSwitchBar.getSwitch()) {
+            return;
+        }
+        Settings.Global.putInt(getActivity().getContentResolver(),
+                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, isChecked ? 1 : 0);
+        updatePreferences();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -118,6 +149,9 @@ public class HeadsUp extends SettingsPreferenceFragment
                 Settings.System.HEADS_UP_NOTIFICATION_SNOOZE, defaultSnooze);
         mHeadsUpSnoozeTime.setValue(String.valueOf(headsUpSnooze));
         updateHeadsUpSnoozeTimeSummary(headsUpSnooze);
+
+        mLessBoringHeadsUp = (SystemSettingSwitchPreference) findPreference(PREF_LESS_BORING_HEADS_UP);
+        updatePreferences();
     }
 
     @Override
@@ -146,6 +180,16 @@ public class HeadsUp extends SettingsPreferenceFragment
         mHeadsUpTimeOut.setSummary(summary);
     }
 
+    private void updatePreferences() {
+        boolean isChecked = Settings.Global.getInt(getActivity().getContentResolver(),
+                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 1) != 0;
+
+        mHeadsUpSnoozeTime.setEnabled(isChecked);
+        mLessBoringHeadsUp.setEnabled(isChecked);
+        mStoplistPrefList.setEnabled(isChecked);
+        mBlacklistPrefList.setEnabled(isChecked);
+    }
+
     private void updateHeadsUpSnoozeTimeSummary(int value) {
         if (value == 0) {
             mHeadsUpSnoozeTime.setSummary(getResources().getString(R.string.heads_up_snooze_disabled_summary));
@@ -158,9 +202,18 @@ public class HeadsUp extends SettingsPreferenceFragment
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+
+        refreshCustomApplicationPrefs();
+        updatePreferences();
+    }
+    @Override
     public void onResume() {
         super.onResume();
+
         refreshCustomApplicationPrefs();
+        updatePreferences();
     }
 
     @Override

@@ -16,10 +16,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/heads_up_notifications">
 
-    <!-- Bliss Logo Header -->
+    <!-- Bliss Logo Header
     <Preference 
         android:key="bliss_logo"
-        android:layout="@layout/bliss_logo" />
+        android:layout="@layout/bliss_logo" /> -->
 
     <ListPreference
         android:key="heads_up_time_out"

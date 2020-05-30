@@ -252,7 +252,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         String currentClock = Settings.Secure.getString(
             resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
         String[] analogClocks = {"Analogue", "Bliss", "Custom", "Dot", "OP", "Sneeky", "Spectrum", "Spidey"};
-        boolean isAnalogClock = currentClock != null && Arrays.asList(analogClocks).contains(currentClock);
+        boolean isAnalogClock = currentClock != null && Arrays.stream(analogClocks).anyMatch(currentClock::equals);
 
         if (isAnalogClock) {
            mLockClockCategory.removePreference(mLockClockSelection);
