@@ -307,8 +307,7 @@ public class Clock extends SettingsPreferenceFragment
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_CLOCK_SIZE, 14, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
-                Settings.System.STATUS_BAR_CLOCK_FONT_STYLE, 28, UserHandle.USER_CURRENT);
-
+                Settings.System.STATUS_BAR_CLOCK_FONT_STYLE, 36, UserHandle.USER_CURRENT);
         LineageSettings.System.putIntForUser(resolver,
                 LineageSettings.System.STATUS_BAR_AM_PM, 0, UserHandle.USER_CURRENT);
     }

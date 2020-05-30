@@ -184,9 +184,9 @@ public class LockScreen extends SettingsPreferenceFragment implements
         Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK_SELECTION, 2, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
-                Settings.System.LOCK_CLOCK_FONT_STYLE, 4, UserHandle.USER_CURRENT);
+                Settings.System.LOCK_CLOCK_FONT_STYLE, 36, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
-                Settings.System.LOCK_DATE_FONT_STYLE, 14, UserHandle.USER_CURRENT);
+                Settings.System.LOCK_DATE_FONT_STYLE, 36, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKSCREEN_DATE_SELECTION, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
@@ -196,7 +196,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         Settings.System.putIntForUser(resolver,
                 Settings.System.LOCK_CLOCK_FONT_SIZE , 50, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
-                Settings.System.LOCK_OWNERINFO_FONTS, 4, UserHandle.USER_CURRENT);
+                Settings.System.LOCK_OWNERINFO_FONTS, 36, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKOWNER_FONT_SIZE, 18, UserHandle.USER_CURRENT);
     }

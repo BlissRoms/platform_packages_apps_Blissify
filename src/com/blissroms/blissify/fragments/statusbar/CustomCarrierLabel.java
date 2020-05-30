@@ -195,7 +195,7 @@ public class CustomCarrierLabel extends SettingsPreferenceFragment
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_SHOW_CARRIER, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
-                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, 14, UserHandle.USER_CURRENT);
+                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, 36, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_CARRIER_COLOR, 0xFFFFFFFF, UserHandle.USER_CURRENT);
         Settings.System.putString(resolver, Settings.System.CUSTOM_CARRIER_LABEL, "");

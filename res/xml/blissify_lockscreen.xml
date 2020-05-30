@@ -57,7 +57,7 @@
         android:title="@string/clock_font_style_title"
         android:entries="@array/font_style_entries"
         android:entryValues="@array/font_style_values"
-        android:defaultValue="4" />
+        android:defaultValue="36" />
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
         android:key="lock_clock_font_size"
@@ -122,7 +122,7 @@
         android:title="@string/date_font_style_title"
         android:entries="@array/font_style_entries"
         android:entryValues="@array/font_style_values"
-        android:defaultValue="14" />
+        android:defaultValue="36" />
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
         android:key="lock_date_font_size"
@@ -145,7 +145,7 @@
         android:title="@string/lock_ownerinfo_font_title"
         android:entries="@array/font_style_entries"
         android:entryValues="@array/font_style_values"
-        android:defaultValue="4" />
+        android:defaultValue="36" />
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
         android:key="lockowner_font_size"
