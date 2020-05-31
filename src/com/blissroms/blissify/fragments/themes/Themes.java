@@ -78,12 +78,14 @@ public class Themes extends DashboardFragment  implements
     private static final String ACCENT_PRESET = "accent_preset";
     private static final String GRADIENT_COLOR = "gradient_color";
     private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accentcolor";
+    private static final String QS_HEADER_STYLE = "qs_header_style";
     static final int DEFAULT_ACCENT_COLOR = 0xff1a73e8;
 
     private ColorPickerPreference mAccentColor;
     private ColorPickerPreference mGradientColor;
     private ListPreference mAccentPreset;
     private int mAccentIndex;
+    private ListPreference mQsHeaderStyle;
 
     @Override
     protected int getPreferenceScreenResId() {
@@ -131,6 +133,14 @@ public class Themes extends DashboardFragment  implements
         mAccentPreset.setOnPreferenceChangeListener(this);
         String colorVal = SystemProperties.get(ACCENT_COLOR_PROP, "-1");
         checkColorPreset(colorVal);
+
+        mQsHeaderStyle = (ListPreference) findPreference(QS_HEADER_STYLE);
+        int qsHeaderStyle = Settings.System.getInt(resolver,
+                Settings.System.QS_HEADER_STYLE, 0);
+        int valueIndex = mQsHeaderStyle.findIndexOfValue(String.valueOf(qsHeaderStyle));
+        mQsHeaderStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+        mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntry());
+        mQsHeaderStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -209,6 +219,13 @@ public class Themes extends DashboardFragment  implements
             int color = DeviceUtils.convertToColorInt(colorPresets.get(mAccentIndex));
             Settings.System.putIntForUser(resolver,
                     Settings.System.ACCENT_COLOR, color, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mQsHeaderStyle) {
+            String value = (String) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+			    Settings.System.QS_HEADER_STYLE, Integer.valueOf(value));
+            int newIndex = mQsHeaderStyle.findIndexOfValue(value);
+            mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntries()[newIndex]);
             return true;
         }
         return false;
