@@ -94,12 +94,16 @@ public class Themes extends DashboardFragment  implements
     private static final String ACCENT_PRESET = "accent_preset";
     private static final String GRADIENT_COLOR = "gradient_color";
     private static final String PREF_THEME_SWITCH = "theme_switch";
+    private static final String PREF_PRIMARY_COLOR = "android.theme.customization.primary_color";
+    private static final String THEMES_PREF_CAT = "aosp_themeing";
     private static final int MENU_RESET = Menu.FIRST;
     static final int DEFAULT_ACCENT_COLOR = 0xff1a73e8;
 
     private ColorPickerPreference mAccentColor;
     private ColorPickerPreference mGradientColor;
     private ListPreference mAccentPreset;
+    private ListPreference mPrimaryColor;
+    private PreferenceCategory mThemesCat;
     private UiModeManager mUiModeManager;
     private IOverlayManager mOverlayService;
     private ListPreference mThemeSwitch;
@@ -280,6 +284,8 @@ public class Themes extends DashboardFragment  implements
     }
 
     private void setupThemeSwitchPref() {
+        mThemesCat = (PreferenceCategory) findPreference(THEMES_PREF_CAT);
+        mPrimaryColor = (ListPreference) findPreference(PREF_PRIMARY_COLOR);
         mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
         mThemeSwitch.setOnPreferenceChangeListener(this);
         if (BlissUtils.isThemeEnabled("com.android.theme.darkgrey.system")) {
@@ -293,6 +299,7 @@ public class Themes extends DashboardFragment  implements
         } else {
             mThemeSwitch.setValue("1");
         }
+        mThemesCat.removePreference(mPrimaryColor);
     }
 
     private void handleBackgrounds(Boolean state, Context context, int mode, String[] overlays) {
