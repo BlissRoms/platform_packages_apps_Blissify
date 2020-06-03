@@ -355,3 +355,4 @@ public class StatusBar extends SettingsPreferenceFragment
                 }
     };
 }
+
