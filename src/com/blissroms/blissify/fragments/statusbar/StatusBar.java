@@ -18,6 +18,7 @@ package com.blissroms.blissify.fragments.statusbar;
 import com.android.internal.logging.nano.MetricsProto;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.content.Intent;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -68,6 +69,7 @@ import com.android.internal.util.bliss.BlissUtils;
 import com.blissroms.blissify.utils.DeviceUtils;
 import com.blissroms.blissify.utils.TelephonyUtils;
 import com.bliss.support.colorpicker.ColorPickerPreference;
+import com.bliss.support.preferences.SystemSettingMasterSwitchPreference;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class StatusBar extends SettingsPreferenceFragment
@@ -76,16 +78,21 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final String CATEGORY_BATTERY = "status_bar_battery_key";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+    private static final String BATTERY_BAR = "statusbar_battery_bar";
 
     private LineageSystemSettingListPreference mStatusBarBattery;
     private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
     private PreferenceCategory mStatusBarBatteryCategory;
+    private SystemSettingMasterSwitchPreference mBatteryBar;
 
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 2;
 
     private static final String CATEGORY_CLOCK = "status_bar_clock_key";
 
     private static final String ICON_BLACKLIST = "icon_blacklist";
+
+    private boolean mIsBarSwitchingMode = false;
+    private Handler mHandler;
 /*
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
 
@@ -130,6 +137,8 @@ public class StatusBar extends SettingsPreferenceFragment
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
         Context mContext = getActivity().getApplicationContext();
+
+        mHandler = new Handler();
 
         mStatusBarBatteryCategory =
                 (PreferenceCategory) prefSet.findPreference(CATEGORY_BATTERY);
@@ -207,6 +216,11 @@ public class StatusBar extends SettingsPreferenceFragment
             prefScreen.removePreference(mStatusbarFooter);
         }
 */
+
+        mBatteryBar = (SystemSettingMasterSwitchPreference) findPreference(BATTERY_BAR);
+        mBatteryBar.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUSBAR_BATTERY_BAR, 0) == 1));
+        mBatteryBar.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -276,6 +290,22 @@ public class StatusBar extends SettingsPreferenceFragment
         switch (key) {
             case STATUS_BAR_BATTERY_STYLE:
                 enableStatusBarBatteryDependents(value);
+                break;
+            case BATTERY_BAR:
+                if (mIsBarSwitchingMode) {
+                    return false;
+                }
+                mIsBarSwitchingMode = true;
+                boolean showing = (Boolean) newValue;
+                Settings.System.putIntForUser(getActivity().getContentResolver(), Settings.System.STATUSBAR_BATTERY_BAR,
+                        showing ? 1 : 0, UserHandle.USER_CURRENT);
+                mBatteryBar.setChecked(showing);
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mIsBarSwitchingMode = false;
+                    }
+                }, 1500);
                 break;
         }
         return true;
