@@ -87,19 +87,20 @@
 
     </PreferenceCategory>
 
-    <!-- BatteryBar
+    <!-- BatteryBar-->
     <PreferenceCategory
         android:key="batterybar_key"
         android:icon="@drawable/ic_battery_bar"
         android:title="@string/battery_bar_title">
 
         <Preference
-            android:key="batterybar_settings"
+            android:key="statusbar_battery_bar"
+            android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryBar"
             android:title="@string/battery_bar_title"
             android:summary="@string/battery_bar_summary"
-            android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryBar" />
+            android:defaultValue="false" />
 
-    </PreferenceCategory> -->
+    </PreferenceCategory>
 
     <!-- System Icons -->
     <PreferenceCategory
