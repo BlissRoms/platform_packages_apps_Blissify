@@ -59,6 +59,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+import com.blissroms.blissify.fragments.buttons.Buttons;
 import lineageos.providers.LineageSettings;
 
 @SearchIndexable
@@ -145,6 +146,10 @@ public class Navigation extends SettingsPreferenceFragment implements
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
+
+                    if (!Buttons.isKeyDisablerSupported(context)) {
+                        result.add(NAVBAR_VISIBILITY);
+                    }
                     return keys;
                 }
     };
