@@ -203,11 +203,10 @@ public class Buttons extends SettingsPreferenceFragment implements
 
         mNavigationPreferencesCat = findPreference(CATEGORY_NAVBAR);
 
-        LineageHardwareManager mLineageHardware = LineageHardwareManager.getInstance(getActivity());
         mHardwareKeysDisable = (SwitchPreference) findPreference(HWKEYS_DISABLED);
         mForceNavbar = (Preference) findPreference(FORCE_NAVBAR);
 
-        if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
+        if (isKeyDisablerSupported(getActivity())) {
             mHardwareKeysDisable.setOnPreferenceChangeListener(this);
         } else {
             prefScreen.removePreference(mHardwareKeysDisable);
@@ -276,7 +275,7 @@ public class Buttons extends SettingsPreferenceFragment implements
         if (!backlight.isButtonSupported() /*&& !backlight.isKeyboardSupported()*/) {
             prefScreen.removePreference(backlight);
             backlight = null;
-        } else if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
+        } else if (isKeyDisablerSupported(getActivity())) {
             backlight.setEnabled(!(Settings.Secure.getIntForUser(resolver,
                     Settings.Secure.HARDWARE_KEYS_DISABLE, 0,
                     UserHandle.USER_CURRENT) == 1));
@@ -285,7 +284,7 @@ public class Buttons extends SettingsPreferenceFragment implements
         if (!hasHomeKey && !hasBackKey && !hasMenuKey && !hasAssistKey && !hasAppSwitchKey) {
             prefScreen.removePreference(mAnbi);
             mAnbi = null;
-        } else if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
+        } else if (isKeyDisablerSupported(getActivity())) {
             mAnbi.setEnabled(!(Settings.Secure.getIntForUser(resolver,
                     Settings.Secure.HARDWARE_KEYS_DISABLE, 0,
                     UserHandle.USER_CURRENT) == 1));
@@ -438,6 +437,12 @@ public class Buttons extends SettingsPreferenceFragment implements
             prefScreen.removePreference(volumeCategory);
         }
 
+        // Only show the navigation bar category on devices that have a navigation bar
+        // or support disabling the hardware keys
+        if (!hasNavigationBar() && !isKeyDisablerSupported(getActivity())) {
+            prefScreen.removePreference(mNavigationPreferencesCat);
+        }
+
         if (mCameraWakeScreen != null) {
             if (mCameraSleepOnRelease != null && !getResources().getBoolean(
                     org.lineageos.platform.internal.R.bool.config_singleStageCameraKey)) {
@@ -558,6 +563,22 @@ public class Buttons extends SettingsPreferenceFragment implements
         int index = pref.findIndexOfValue(value);
         pref.setSummary(pref.getEntries()[index]);
         Settings.System.putIntForUser(getContentResolver(), setting, Integer.valueOf(value), UserHandle.USER_CURRENT);
+    }
+
+    private static boolean hasNavigationBar() {
+        boolean hasNavigationBar = false;
+        try {
+            IWindowManager windowManager = WindowManagerGlobal.getWindowManagerService();
+            hasNavigationBar = windowManager.hasNavigationBar(Display.DEFAULT_DISPLAY);
+        } catch (RemoteException e) {
+            Log.e(TAG, "Error getting navigation bar status");
+        }
+        return hasNavigationBar;
+    }
+
+    public static boolean isKeyDisablerSupported(Context context) {
+        final LineageHardwareManager hardware = LineageHardwareManager.getInstance(context);
+        return hardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE);
     }
 
     @Override
@@ -739,7 +760,7 @@ public class Buttons extends SettingsPreferenceFragment implements
 
                     LineageHardwareManager mLineageHardware = LineageHardwareManager.getInstance(context);
 
-                    if (!mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE))
+                    if (!isKeyDisablerSupported(context))
                         keys.add(HWKEYS_DISABLED);
 
                     if (!DeviceUtils.hasHomeKey(context) && !DeviceUtils.hasBackKey(context) && !DeviceUtils.hasMenuKey(context) && !DeviceUtils.hasAssistKey(context) && !DeviceUtils.hasAppSwitchKey(context))
@@ -797,6 +818,20 @@ public class Buttons extends SettingsPreferenceFragment implements
                     } else {
                         if (!TelephonyUtils.isVoiceCapable(context)) {
                             keys.add(KEY_VOLUME_ANSWER_CALL);
+                        }
+                    }
+
+                    if (hasNavigationBar()) {
+                        if (DeviceUtils.isEdgeToEdgeEnabled(context)) {
+                            keys.add(KEY_NAVIGATION_ARROW_KEYS);
+                            keys.add(KEY_NAVIGATION_HOME_LONG_PRESS);
+                            keys.add(KEY_NAVIGATION_HOME_DOUBLE_TAP);
+                            keys.add(KEY_NAVIGATION_APP_SWITCH_LONG_PRESS);
+                        } else if (DeviceUtils.isSwipeUpEnabled(context)) {
+                            keys.add(KEY_NAVIGATION_APP_SWITCH_LONG_PRESS);
+                            keys.add(KEY_EDGE_LONG_SWIPE);
+                        } else {
+                            keys.add(KEY_EDGE_LONG_SWIPE);
                         }
                     }
 
