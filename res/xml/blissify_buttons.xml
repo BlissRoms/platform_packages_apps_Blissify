@@ -103,6 +103,12 @@
             android:entries="@array/hardware_keys_action_entries"
             android:entryValues="@array/hardware_keys_action_values"
             android:persistent="false" />
+
+        <Preference
+            android:key="pulse"
+            android:title="@string/pulse_settings"
+            android:summary="@string/pulse_settings_summary"
+            android:fragment="com.blissroms.blissify.fragments.buttons.PulseSettings" />
     </PreferenceCategory>
 
     <PreferenceCategory
