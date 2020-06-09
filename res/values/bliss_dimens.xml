@@ -30,4 +30,5 @@
 
     <!-- Shortcut picker -->
     <dimen name="shortcut_picker_left_padding">70dip</dimen>
+    <dimen name="bliss_cat_icon_image_inset">6dp</dimen>
 </resources>

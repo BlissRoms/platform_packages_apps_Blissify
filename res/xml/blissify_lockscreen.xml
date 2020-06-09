@@ -52,4 +52,10 @@
         android:summary="@string/lockscreen_battery_info_summary"
         android:defaultValue="true" />
 
+	<Preference
+		 android:key="pulse_category"
+         android:icon="@drawable/ic_pulse_background"
+         android:title="@string/pulse_settings"
+         android:summary="@string/pulse_settings_summary"
+		 android:fragment="com.blissroms.blissify.fragments.lockscreen.PulseSettings"/>
 </PreferenceScreen>
