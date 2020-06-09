@@ -179,6 +179,12 @@
         android:entryValues="@array/volume_key_cursor_control_values"
         android:defaultValue="0" />
 
+    <Preference
+        android:key="pulse_category"
+        android:fragment="com.blissroms.blissify.fragments.lockscreen.PulseSettings"
+        android:title="@string/pulse_settings"
+        android:summary="@string/pulse_settings_summary" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
