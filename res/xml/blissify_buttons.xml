@@ -341,6 +341,13 @@
             android:summary="@string/volume_steps_summary"
             android:fragment="com.blissroms.blissify.fragments.buttons.VolumeSteps" />
 
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="screenshot_type"
+            android:title="@string/screenshot_type_title"
+            android:entries="@array/screenshot_type_entries"
+            android:entryValues="@array/screenshot_type_values"
+            android:defaultValue="0" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

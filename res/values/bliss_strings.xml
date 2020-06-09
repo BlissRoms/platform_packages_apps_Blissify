@@ -975,7 +975,7 @@
     <string name="force_expanded_notifications_summary">Force apps that support expanded notifications</string>
 
     <!-- Screenshot -->
-    <string name="screenshot_type_title">Screenshot type</string>
+    <string name="screenshot_type_title">Volume Button Screenshot type</string>
     <string name="screenshot_type_fullscreen">Full</string>
     <string name="screenshot_type_partial">Partial</string>
     <string name="screenshot_type_long">Take fullscreen &amp; extended screenshots</string>
