@@ -1217,22 +1217,6 @@
         <item>1</item>
     </string-array>
 
-    <!-- QS battery style  -->
-    <string-array name="qs_quickbar_layout_entries" translatable="false">
-        <item>@string/qs_quickbar_auto</item>
-        <item>@string/qs_quickbar_six</item>
-        <item>@string/qs_quickbar_seven</item>
-        <item>@string/qs_quickbar_eight</item>
-    </string-array>
-
-    <string-array name="qs_quickbar_layout_values" translatable="false">
-        <item>-1</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-    </string-array>
-
-
     <!-- FOD pressed state options -->
     <string-array name="fod_pressed_state_entries" translatable="false">
         <item>@string/fod_pressed_state_miui_cyan</item>
