@@ -256,7 +256,8 @@
         android:entries="@array/qs__label_tint_entries"
         android:entryValues="@array/qs_label_tint_values"
         android:summary="%s"
-        android:defaultValue="1" />
+        android:defaultValue="1"
+        android:dependency="qs_panel_bg_use_new_tint" />
 
     <com.bliss.support.preferences.SecureSettingSwitchPreference
         android:key="quick_settings_vibrate"
