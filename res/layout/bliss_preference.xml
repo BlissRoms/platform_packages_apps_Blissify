@@ -62,7 +62,7 @@
         android:ellipsize="marquee"
         android:marqueeRepeatLimit="marquee_forever"
         android:scrollHorizontally="true"
-        android:textStyle="bold"
+        android:fontFamily="@*android:string/config_bodyFontFamily"
         android:textSize="14sp"
         android:textColor="?android:attr/colorAccent"/>
 
