@@ -342,14 +342,14 @@ public class FODIconPicker extends LayoutPreference {
             @Override
             public void onClick(View view) {
                 updateSettings(22, context);
-                updateHighlightedItem(Button21, context);
+                updateHighlightedItem(Button22, context);
             }
         });
         Button23.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updateSettings(23, context);
-                updateHighlightedItem(Button21, context);
+                updateHighlightedItem(Button23, context);
             }
         });
     }
