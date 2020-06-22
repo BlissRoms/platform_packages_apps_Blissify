@@ -1603,4 +1603,7 @@
     <string name="qs_label_tint_off">Default</string>
     <string name="qs_label_tint_accent">Accent Color Tint</string>
     <string name="qs_label_tint_gradient">Gradient Color Tint</string>
+
+    <string name="lockscreen_clock_color_title">Use accent color for clock</string>
+    <string name="lockscreen_clock_color_summary">disabled will use wallpaper color , enabled accent</string>
 </resources>
