@@ -493,6 +493,7 @@
     <string name="status_bar_volte_style_7">VoLIT Icon</string>
     <string name="status_bar_volte_style_8">VoLTE Asus Icon</string>
     <string name="status_bar_volte_style_9">Miui 11 VoLTE</string>
+    <string name="status_bar_volte_style_10">EMUI</string>
 
     <!-- VoWiFi icon -->
     <string name="vowifi_icon_style_title">VoWiFi icon style</string>
