@@ -76,7 +76,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
-
+    private static final int PULLDOWN_DIR_ALWAYS = 3;
 
     private LineageSystemSettingListPreference mQuickPulldown;
 
@@ -182,7 +182,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 summary = getResources().getString(
                     R.string.status_bar_quick_qs_pulldown_off);
                 break;
-
+            case PULLDOWN_DIR_ALWAYS:
+                summary = getResources().getString(
+                    R.string.status_bar_quick_qs_pulldown_always);
             case PULLDOWN_DIR_LEFT:
             case PULLDOWN_DIR_RIGHT:
                 summary = getResources().getString(
