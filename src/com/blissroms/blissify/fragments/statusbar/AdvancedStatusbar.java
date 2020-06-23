@@ -46,6 +46,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import android.util.Log;
 import android.hardware.fingerprint.FingerprintManager;
+
 import com.bliss.support.colorpicker.ColorPickerPreference;
 
 import java.util.List;
@@ -63,6 +64,7 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
     private static final String KEY_SHOW_FOURG = "show_fourg_icon";
     private static final String KEY_OLD_MOBILETYPE = "use_old_mobiletype";
     private static final String BLISS_LOGO_COLOR = "status_bar_logo_color";
+    private static final String KEY_VOWIFI_ICON_STYLE = "vowifi_icon_style";
 
     private ListPreference mShowVolte;
     private SwitchPreference mDataDisabled;
@@ -70,6 +72,7 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
     private SwitchPreference mShowFourg;
     private ColorPickerPreference mBlissLogoColor;
     private SwitchPreference mOldMobileType;
+    private ListPreference mVowifiIconStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -86,12 +89,14 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
         mDataDisabled = (SwitchPreference) findPreference(KEY_SHOW_DATA_DISABLED);
         mShowRoaming = (SwitchPreference) findPreference(KEY_SHOW_ROAMING);
         mShowFourg = (SwitchPreference) findPreference(KEY_SHOW_FOURG);
+        mVowifiIconStyle = (ListPreference) findPreference(KEY_VOWIFI_ICON_STYLE);
 
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
             prefScreen.removePreference(mDataDisabled);
             prefScreen.removePreference(mShowVolte);
             prefScreen.removePreference(mShowRoaming);
             prefScreen.removePreference(mShowFourg);
+            prefScreen.removePreference(mVowifiIconStyle);
         }
 
         mBlissLogoColor =
@@ -145,6 +150,8 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
 
         Settings.System.putIntForUser(resolver,
                 Settings.System.VOLTE_ICON_STYLE, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.VOWIFI_ICON_STYLE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.DATA_DISABLED_ICON, 1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
