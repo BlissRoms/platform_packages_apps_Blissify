@@ -915,6 +915,7 @@
         <item>@string/status_bar_volte_style_7</item>
         <item>@string/status_bar_volte_style_8</item>
         <item>@string/status_bar_volte_style_9</item>
+        <item>@string/status_bar_volte_style_10</item>
     </string-array>
 
     <string-array name="status_bar_volte_values" translatable="false">
@@ -928,6 +929,7 @@
         <item>7</item>
         <item>8</item>
         <item>9</item>
+        <item>10</item>
     </string-array>
 
     <!-- VoWiFi icon style -->
