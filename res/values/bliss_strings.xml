@@ -494,6 +494,14 @@
     <string name="status_bar_volte_style_8">VoLTE Asus Icon</string>
     <string name="status_bar_volte_style_9">Miui 11 VoLTE</string>
 
+    <!-- VoWiFi icon -->
+    <string name="vowifi_icon_style_title">VoWiFi icon style</string>
+    <string name="vowifi_icon_default">Default</string>
+    <string name="vowifi_icon_asus">Asus</string>
+    <string name="vowifi_icon_emui">EMUI</string>
+    <string name="vowifi_icon_moto">Motorola</string>
+    <string name="vowifi_icon_oneplus">OOS</string>
+
     <!-- Data disabled indicator -->
     <string name="data_disabled_icon_title">Data disabled indicator</string>
     <string name="data_disabled_icon_summary">Display the cross sign next to signal icon when data is disabled</string>
