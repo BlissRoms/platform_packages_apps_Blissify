@@ -57,6 +57,7 @@
     <string name="volume_options_title">Možnosti hlasitosti</string>
     <string name="navigation_bar_options_category">Možnosti navigačního panelu</string>
     <string name="navigation_title">Navigace</string>
+    <string name="music_options">Možnosti hudby</string>
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animace</string>
     <string name="system_animation_summary">Přizpůsobit vlastní animace každého okna v systému</string>
@@ -159,6 +160,7 @@
     <string name="status_bar_quick_qs_pulldown_off">Vyp.</string>
     <string name="status_bar_quick_qs_pulldown_left">Levý</string>
     <string name="status_bar_quick_qs_pulldown_right">Pravý</string>
+    <string name="status_bar_quick_qs_pulldown_always">Vždy zcela rozbalit Rychlé nastavení při stažení stavového řádku z\u00a0jakékoliv strany</string>
     <string name="status_bar_double_tap_to_sleep_title">Uspat dvojitým poklepáním</string>
     <string name="status_bar_double_tap_to_sleep_summary">Dvojitým poklepáním na stavový řádek vypnout obrazovku</string>
     <!-- Status bar - icons -->
@@ -204,6 +206,10 @@
     <string name="clock_date_position">Umístění data</string>
     <string name="clock_date_right">Napravo od hodin</string>
     <string name="clock_date_left">Nalevo od hodin</string>
+    <!-- Statusbar Clock Font Style, Size & Color -->
+    <string name="status_bar_clock_font_style_title">Styl písma hodin</string>
+    <string name="status_bar_clock_font_size_title">Velikost písma hodin</string>
+    <string name="status_bar_clock_color_title">Barva písma hodin</string>
     <!-- Status bar - Battery -->
     <string name="status_bar_battery_title">Indikátor stavu baterie</string>
     <string name="status_bar_battery_style_title">Styl baterie</string>
@@ -254,7 +260,8 @@
     <string name="network_traffic_mode_all">Příchozí a odchozí data</string>
     <string name="network_traffic_autohide">Automatické skrytí</string>
     <string name="network_traffic_autohide_summary">Skrýt indikátor síťového provozu při neaktivitě sítě</string>
-    <string name="network_traffic_autohide_kilobits">kb/s</string>
+    <string name="network_traffic_autohide_kilobits">Kb/s</string>
+    <string name="network_traffic_autohide_kilobytes">KB/s</string>
     <string name="network_traffic_autohide_threshold">Práh neaktivity</string>
     <string name="network_traffic_show_units">Zobrazit jednotky</string>
     <string name="network_traffic_show_units_summary">Zobrazení jednotek měření síť. provozu</string>
@@ -347,6 +354,7 @@
     <!-- Navigation Bar -->
     <string name="navigation_bar_category">Navigační panel</string>
     <string name="navigation_bar_invert_layout_title">Převrátit rozložení</string>
+    <string name="navigation_bar_invert_layout_summary">Převrátí rozložení navigačního panelu a dalších položek, jako např. přepínače metody vstupu (IME)</string>
     <string name="navigation_bar_left_summary">Při natočení na šířku umístit navigační panel na levé straně obrazovky</string>
     <string name="navigation_bar_arrow_keys_title">Zobrazit navigační šipky při psaní</string>
     <string name="navigation_bar_arrow_keys_summary">Zobrazit při psaní levé a pravé kurzorové tlačítko. Potlačí nastavení voliče metody vstupu (IME).</string>
@@ -372,6 +380,7 @@
     <string name="torch_long_press_power_gesture_desc">Dlouhým stiskem tlačítka napájení při vypnuté obrazovce zapnout svítilnu</string>
     <string name="torch_long_press_power_timeout_title">Automatické vypnutí svítilny</string>
     <string name="torch_long_press_power_timeout_never">Nikdy</string>
+    <string name="torch_long_press_power_timeout_30sec">30 sekund</string>
     <string name="torch_long_press_power_timeout_1min">1 minuta</string>
     <string name="torch_long_press_power_timeout_2min">2 minuty</string>
     <string name="torch_long_press_power_timeout_5min">5 minut</string>
@@ -431,7 +440,7 @@
     <string name="toast_icon_summary">Zobrazit ikonu aplikace, která vytváří zprávu Toast</string>
     <!--statusbar advanced system icons -->
     <string name="statusbar_advanced_icons">Rozšířené ikony systému</string>
-    <string name="statusbar_advanced_icons_summary">Logo, ikona VoLTE, ikona počasí, ikona 4G\n indikátor datového provozu, indikátor bluetooth</string>
+    <string name="statusbar_advanced_icons_summary">Logo, ikona VoLTE, ikona počasí, ikona 4G, indikátor datového provozu, indikátor bluetooth</string>
     <string name="volte_icon_title">Ikona VoLTE</string>
     <string name="status_bar_volte_disabled">Vypnuto</string>
     <string name="status_bar_volte_style_1">Styl Bliss</string>
@@ -456,6 +465,8 @@
     <string name="qs_brightness_slider_hide">Skrýt</string>
     <string name="qs_brightness_slider_top">Nahoře</string>
     <string name="qs_brightness_slider_bottom">Dole</string>
+    <string name="qs_brightness_slider_always_top">Rychlá nastavení (nahoře)</string>
+    <string name="qs_brightness_slider_always_bottom">Rychlá nastavení (dole)</string>
     <!-- Quick settings brightness icon -->
     <string name="brightness_icon_title">Automatický jas</string>
     <string name="brightness_icon_summary">Zobrazit přepínač pro automatický jas poblíž posuvníku</string>
@@ -585,6 +596,8 @@
     <!-- Power menu on secure lockscreen -->
     <string name="lockscreen_enable_power_menu_title">Menu napájení</string>
     <string name="lockscreen_enable_power_menu_summary">Umožnit přístup do Menu napájení na zabezpečené obrazovce uzamčení</string>
+    <string name="lockscreen_secure_power_menu_title">Zabezpečené menu napájení</string>
+    <string name="lockscreen_secure_power_menu_summary">Povolit vstup do menu napájení pouze po ověření</string>
     <!-- Wakelock blocker -->
     <string name="wakelock_blocker_title">Blokování wakelocků</string>
     <string name="wakelock_blocker_summary">Umožnit blokování systémových wakelocků</string>
@@ -781,6 +794,7 @@
     <string name="file_header_select_title">Vyberte místní obrázek</string>
     <string name="file_header_select_summary">Vyberte obrázek z úložiště</string>
     <string name="file_header_provider_title">Jeden obrázek</string>
+    <string name="status_bar_custom_header_height_title">Odsazení výšky obrázku</string>
     <!-- Quick Settings -->
     <string name="qs_panel_alpha_title">Průhlednost panelu rychlého nastavení</string>
     <string name="qs_panel_alpha_summary">Nastavení průhlednosti panelu rychlého nastavení</string>
@@ -826,6 +840,9 @@
     <string name="pulse_ambient_light_pulse_for_all_summary">Blikat pro všechny události doze a nejen pro oznámení</string>
     <string name="pulse_ambient_light_repeat_count_title">Počet opakování</string>
     <string name="pulse_ambient_light_repeat_count_summary">Nastavte maximální počet opakování. 0 pro nekonečno</string>
+    <string name="pulse_ambient_light_layout_title">Vzhled nasvícení okrajů</string>
+    <string name="pulse_ambient_light_layout_solid">Celistvý</string>
+    <string name="pulse_ambient_light_layout_faded">Tlumený</string>
     <!-- Hide Apps from Recents -->
     <string name="hafr_category_title">HAFR</string>
     <string name="hide_apps_from_recents_title">Skrytí aplikací ze zobrazení nedávných</string>
@@ -860,9 +877,10 @@
     <string name="force_expanded_notifications_title">Vynutit rozšířená oznámení</string>
     <string name="force_expanded_notifications_summary">K dispozici pouze pro aplikace, které podporují rozšířené oznámení</string>
     <!-- Screenshot -->
-    <string name="screenshot_type_title">Typ snímku obrazovky</string>
+    <string name="screenshot_type_title">Typ snímku obrazovky pomocí tlačítek hlasitosti</string>
     <string name="screenshot_type_fullscreen">Celý</string>
     <string name="screenshot_type_partial">Částečný</string>
+    <string name="screenshot_type_long">Zhotovení snímku celé obrazovky &amp; rozšířené snímky obrazovky</string>
     <!-- Sensor block per-package -->
     <string name="sensor_block_title">Blokování senzorů dle aplikací</string>
     <string name="sensor_block_summary">Zamezení přístupu k některým senzorům pro některé aplikace za účelem úspory energie</string>
@@ -919,9 +937,10 @@
     <string name="fod_icon_picker_summary">Vyberte si svou oblíbenou ikonu čtečky otisku prstu v displeji</string>
     <string name="fod_icon_picker_footer">Chcete‑li přidat vlastní ikonu, vyberte levou horní ikonu a použijte aplikaci OnePlus 6T FP Customizer pro výběr požadované ikony.</string>
     <!-- Lockscreen clock styles -->
-    <string name="lockscreen_clock_title">Styl hodin</string>
+    <string name="lockscreen_clock_title">Výchozí styly hodin</string>
+    <string name="lockscreen_hide_clock_title">Skrýt hodiny na zamykací obrazovce</string>
+    <string name="lockscreen_hide_clock_summary">Skrýt/zobrazit výchozí hodiny na zamykací obrazovce</string>
     <string name="lockscreen_clock_dialog_title">Vyberte styl hodin</string>
-    <string name="lockscreen_clock_selection_hidden">Skryté</string>
     <string name="lockscreen_clock_selection_digital">Výchozí</string>
     <string name="lockscreen_clock_selection_digital_bold">Tučné (digitální)</string>
     <string name="lockscreen_clock_selection_digital_small">Malé (digitální)</string>
@@ -931,8 +950,11 @@
     <string name="lockscreen_clock_selection_sammy">Sammy</string>
     <string name="lockscreen_clock_selection_sammy_bold">Sammy (tučné)</string>
     <string name="lockscreen_clock_selection_sammy_accent">Sammy (zvýrazněné)</string>
+    <string name="lockscreen_clock_selection_sammy_accent_min">Sammy (zvýrazněné minuty)</string>
     <string name="lockscreen_clock_selection_sammy_accent_hour">Sammy (zvýrazněné hodiny)</string>
     <string name="lockscreen_clock_selection_sammy_accent_alt">Sammy (tmavší zvýrazněné hodiny)</string>
+    <string name="lockscreen_clock_selection_text">Text (Android 9)</string>
+    <string name="lockscreen_clock_selection_text_alt">Text (Android 10)</string>
     <!-- lockscreen clock and date font style -->
     <string name="lockscreen_clock_category">Možnosti hodin</string>
     <string name="lockscreen_clockdate_category">Možnosti data</string>
@@ -990,6 +1012,36 @@
     <string name="font_grandhotel">Grand Hotel</string>
     <string name="font_redressed">Redressed</string>
     <string name="font_sanfransisco">San Fransisco</string>
+    <string name="font_bignoodle-italic">Bignoodle-italic</string>
+    <string name="font_bignoodle-regular">Bignoodle-regular</string>
+    <string name="font_hanken">Hanken</string>
+    <string name="font_mittelschrift">Mittelschrift</string>
+    <string name="font_reemkufi">Reemkufi</string>
+    <string name="font_comic-neue-bold">Comic-neue-bold</string>
+    <string name="font_comic-neue">Comic-neue</string>
+    <string name="font_exo2-regular">Exo2-regular</string>
+    <string name="font_exo2-semibold">Exo2-semibold</string>
+    <string name="font_finlandica">Finlandica</string>
+    <string name="font_goodlight">Goodlight</string>
+    <string name="font_gravity-regular">Gravity-regular</string>
+    <string name="font_inter-regular">Inter-regular</string>
+    <string name="font_inter-medium-italic">Inter-medium-italic</string>
+    <string name="font_league-mono-n-regular">League-mono-n-regular</string>
+    <string name="font_league-mono-n-medium">League-mono-n-medium</string>
+    <string name="font_league-mono-n-bold">League-mono-n-bold</string>
+    <string name="font_league-mono-n-semibold">League-mono-n-semibold</string>
+    <string name="font_leonsans-regular">Leonsans-regular</string>
+    <string name="font_mescla-regular">Mescla-regular</string>
+    <string name="font_odibee-sans">Odibee-sans</string>
+    <string name="font_panamericana">Panamericana</string>
+    <string name="font_pt-sans">Pt-sans</string>
+    <string name="font_pt-mono">Pt-mono</string>
+    <string name="font_rounded-gothic-narrow">Rounded-gothic-narrow</string>
+    <string name="font_rounded-gothic-narrow-half-italic">Rounded-gothic-narrow-half-italic</string>
+    <string name="font_sofia-sans-regular">Sofia-sans-regular</string>
+    <string name="font_sofia-sans-medium">Sofia-sans-medium</string>
+    <string name="font_sofia-semicondensed-regular">Sofia-semicondensed-regular</string>
+    <string name="font_sofia-semicondensed-medium">Sofia-semicondensed-medium</string>
     <string name="font_size_title">Velikost písma</string>
     <!-- QS themes -->
     <string name="qs_themes_category_title">Motivy QS</string>
@@ -1003,13 +1055,11 @@
     <string name="qs_bg_use_new_tint">Nový styl odstínu</string>
     <string name="qs_bg_use_new_tint_summary">Zapnout nový styl odstínu QS</string>
     <!-- QS battery -->
-    <string name="qs_battery_location_title">Umístění ikony baterie</string>
-    <string name="qs_battery_location_qs_panel">Panel QS</string>
-    <string name="qs_battery_location_qs_statusbar">Rychlý stavový řádek</string>
     <string name="qs_use_status_bar_battery_style">Použít styl stavového řádku</string>
     <!-- Status Bar Ticker -->
     <string name="ticker_screen_title">Ticker</string>
     <string name="ticker_screen_summary">Zobrazit text oznámení na stavovém řádku</string>
+    <string name="ticker_screen_footer">Text oznámení je viditelný pouze pokud není zobrazeno plovoucí oznámení</string>
     <string name="ticker_title">Text oznámení stavového řádku</string>
     <string name="ticker_summary">Povolit text oznámení ve stavovém řádku</string>
     <string name="ticker_restore_defaults_title">Obnovit výchozí</string>
@@ -1071,6 +1121,9 @@
     <!-- Lockscreen clock font size -->
     <string name="lock_date_font_size_title">Velikost písma data</string>
     <string name="clock_font_size_title">Velikost písma hodin</string>
+    <string name="clock_font_size_warning_summary">Při použití textových hodin použijte velikosti od 20 do 60, nad velikost 60 jsou hodiny příliš velké</string>
+    <!-- Pixel Gestures -->
+    <string name="pixelgestures_summary">Nastavení možností pro gesta Pixel</string>
     <!-- Motion Sense -->
     <string name="aware_settings_title">Motion Sense</string>
     <string name="aware_settings_summary">Konfigurovat možnosti Motion Sense</string>
@@ -1264,11 +1317,11 @@
     <string name="accent_preset_68">XiaomiOrange</string>
     <string name="accent_preset_title">Nastavení odstínu</string>
     <!-- Clock style -->
-    <string name="clock_style_title">Styl hodin</string>
+    <string name="clock_style_title">Styly hodin na zamykací obrazovce</string>
     <string name="clock_style_summary">Vyberte mezi výchozími a analogovými hodinami</string>
     <!-- Slim recents -->
     <string name="ok">OK</string>
-    <string name="alternative_recents_category">Alternativní nedávné</string>
+    <string name="alternative_recents_category">Slim přepínač aplikací</string>
     <string name="alternative_recents_swipe_up_enabled_warning_summary">Pokud bylo gesto potáhnutím nastaveno tak, aby zobrazovalo nedávné, můžou být nedávné zobrazeny pouze ve standardním formátu</string>
     <string name="slim_recents_title">Slim přepínač aplikací</string>
     <string name="slim_recents_summary">Povolit používat alternativní obrazovku nedávných aplikací</string>
@@ -1328,6 +1381,73 @@
     <string name="lockscreen_enable_qs_title">Rychlá nastavení</string>
     <string name="lockscreen_enable_qs_summary">Povolit přístup do Rychlého nastavení na zabezpečené obrazovce uzamčení</string>
     <!-- QS data usage -->
-    <string name="qs_datausage_title">Zobrazit využití dat v záhlaví QS</string>
-    <string name="qs_datausage_subtitle">Zobrazí využití dat v záhlaví Rychlého nastavení SIM karty používané pro data</string>
+    <string name="qs_datausage_title">Zobrazení využití dat v záhlaví QS</string>
+    <string name="qs_datausage_disabled">Vypnuto</string>
+    <string name="qs_datausage_daily">Denní využití</string>
+    <string name="qs_datausage_monthly">Měsíční využití</string>
+    <!-- LS OwnerInfo Font & Size -->
+    <string name="owner_info_category">Možnosti informací o vlastníkovi</string>
+    <string name="lock_ownerinfo_font_title">Možnosti písma vlastníka</string>
+    <string name="lockowner_font_size_title">Velikost písma vlastníka</string>
+    <!-- R Notification headers -->
+    <string name="notification_headers_title">Zobrazit záhlaví oznámení</string>
+    <string name="notification_headers_summary">Zobrazit záhlaví oznámení ve stylu Android R (vyžaduje restart SystemUI)</string>
+    <!-- Headset ringtone audio focus -->
+    <string name="ringtone_focus_mode_title">V případě připojených sluchátek se příchozí hovory přehrají</string>
+    <string name="ringtone_focus_mode_dynamic">Pouze pomocí sluchátek, přehrává‑li se hudba</string>
+    <string name="ringtone_focus_mode_stock">Z reproduktoru i sluchátek</string>
+    <!-- Dashboard -->
+    <string name="dashboard_conditions_title">Podmínky hlavního panelu</string>
+    <string name="summary_dashboard_conditions_enabled">Podmínky hlavního panelu jsou povoleny</string>
+    <string name="summary_dashboard_conditions_disabled">Podmínky hlavního panelu jsou zakázány</string>
+    <string name="dashboard_suggestions_title">Návrhy hlavního panelu</string>
+    <string name="summary_dashboard_suggestions_enabled">Návrhy hlavního panelu jsou povoleny</string>
+    <string name="summary_dashboard_suggestions_disabled">Návrhy hlavního panelu jsou zakázány</string>
+    <!-- Text Clock -->
+    <string name="text_clock_customizations">Textové hodiny</string>
+    <string name="text_clock_alignment">Zarovnání</string>
+    <string name="text_clock_left">Vlevo</string>
+    <string name="text_clock_center">Uprostřed</string>
+    <string name="text_clock_right">Vpravo</string>
+    <string name="text_clock_left_right">Levá - Pravá</string>
+    <string name="text_clock_right_left">Pravá-Levá</string>
+    <string name="text_clock_padding">Odsazení rohů</string>
+    <!-- Screen state service -->
+    <string name="screen_state_toggles_title">Akce po zhasnutí obrazovky</string>
+    <string name="screen_state_toggles_summary">Akce provedené po vypnutí obrazovky</string>
+    <string name="screen_state_toggles_mobile_title">Mobilní síť</string>
+    <string name="screen_state_toggles_location_title">Poloha</string>
+    <string name="screen_state_toggles_twog">Přepnout na 2G</string>
+    <string name="screen_state_toggles_twog_summary">Po vypnutí obrazovky se mobilní síť přepne do režimu 2G</string>
+    <string name="screen_state_toggles_threeg">Přepnout na 3G</string>
+    <string name="screen_state_toggles_threeg_summary">Po vypnutí obrazovky se mobilní síť přepne do režimu 3G</string>
+    <string name="screen_state_toggles_gps">Vypnout GPS</string>
+    <string name="screen_state_toggles_gps_summary">Po vypnutí obrazovky bude služba určování polohy GPS vypnuta</string>
+    <string name="screen_state_toggles_mobile_data">Vypnout mobilní data</string>
+    <string name="screen_state_toggles_mobile_data_summary">Po vypnutí obrazovky budou mobilní data vypnuta</string>
+    <string name="screen_state_off_delay_title">Zpoždění akcí po vypnutí obrazovky</string>
+    <string name="screen_state_on_delay_title">Zpoždění akcí po zapnutí obrazovky</string>
+    <!-- Display cutout options -->
+    <string name="cutout_main">Nastavení zobrazení výřezu</string>
+    <string name="cutout_main_summary">Dvakrát měř, jednou řež</string>
+    <string name="display_cutout_style_title">Vzhled výřezu</string>
+    <string name="display_cutout_style_normal">Normální</string>
+    <string name="display_cutout_style_immerse">Vnořený</string>
+    <string name="display_cutout_style_hide">Skrytý</string>
+    <string name="stock_statusbar_in_hide">Výchozí výška stavového řádku</string>
+    <string name="stock_statusbar_in_hide_summary">Použít výchozí výšku stavového řádku při použití stylu Skrytý</string>
+    <!-- One ui actionbar -->
+    <string name="enable_oneui">OneUI</string>
+    <string name="enable_oneui_summary">Zobrazit mezeru nad nastavením panelu akcí pro snazší použití jednou rukou\nPOZNÁMKA: vyžaduje restart</string>
+    <!-- Music Heads Up -->
+    <string name="show_media_heads_up_title">Zobrazit plovoucí oznámení médií</string>
+    <string name="show_media_heads_up_summary">Zobrazit plovoucí oznámení médií při přehrávání nové skladby, pokud již není přehrávač v popředí</string>
+    <!-- QS Label Tint -->
+    <string name="qs_label_use_new_tint">Odstín názvů QS</string>
+    <string name="qs_label_tint_off">Výchozí</string>
+    <string name="qs_label_tint_accent">Odstín barvy zvýraznění</string>
+    <string name="qs_label_tint_gradient">Odstín barvy přechodu</string>
+    <!-- Pocket judge -->
+    <string name="pocket_judge_title">Detekce uložení v kapse</string>
+    <string name="pocket_judge_summary">Blokovat obrazovku a hardwarová tlačítka, když je zařízení v kapse</string>
 </resources>
