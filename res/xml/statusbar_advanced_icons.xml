@@ -33,6 +33,12 @@
             android:summary="%s"
             android:defaultValue="0"/>
 
+       <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="volte_vowifi_override"
+            android:title="@string/volte_vowifi_override_title"
+            android:summary="@string/volte_vowifi_override_summary"
+            android:defaultValue="true"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
