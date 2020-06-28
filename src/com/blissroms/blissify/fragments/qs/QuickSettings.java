@@ -185,6 +185,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             case PULLDOWN_DIR_ALWAYS:
                 summary = getResources().getString(
                     R.string.status_bar_quick_qs_pulldown_always);
+                break;
             case PULLDOWN_DIR_LEFT:
             case PULLDOWN_DIR_RIGHT:
                 summary = getResources().getString(
