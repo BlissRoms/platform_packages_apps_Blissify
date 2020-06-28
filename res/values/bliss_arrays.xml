@@ -1681,6 +1681,13 @@
         <item>@string/qstile_inkdrop</item>
         <item>@string/qstile_cookie</item>
         <item>@string/qstile_circleoutline</item>
+        <item>@string/qstile_neonlike</item>
+        <item>@string/qstile_oos</item>
+        <item>@string/qstile_triangles</item>
+        <item>@string/qstile_divided</item>
+        <item>@string/qstile_cosmos</item>
+        <item>@string/qstile_squircle</item>
+        <item>@string/qstile_teardrop</item>
     </string-array>
 
     <string-array name="qs_selector_values" translatable="false">
@@ -1697,6 +1704,13 @@
         <item>10</item>
         <item>11</item>
         <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
     </string-array>
 
     <!-- Switch styles -->
