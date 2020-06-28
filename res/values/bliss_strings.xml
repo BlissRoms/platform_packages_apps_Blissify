@@ -1155,6 +1155,14 @@
     <string name="font_sofia-sans-medium">Sofia-sans-medium</string>
     <string name="font_sofia-semicondensed-regular">Sofia-semicondensed-regular</string>
     <string name="font_sofia-semicondensed-medium">Sofia-semicondensed-medium</string>
+    <string name="font_samsung">Samsung</string>
+    <string name="font_mexcellent">Mexecellent</string>
+    <string name="font_burnstown">Burnstown</string>
+    <string name="font_dumbledor">Dumbledor</string>
+    <string name="font_phantombold">Phantom Bold</string>
+    <string name="font_snowstorm">SnowStorm</string>
+    <string name="font_neoneon">NeonNeon</string>
+    <string name="font_circularstd">CirculaStd</string>
     <string name="font_size_title">Font size</string>
 
     <!-- QS themes -->

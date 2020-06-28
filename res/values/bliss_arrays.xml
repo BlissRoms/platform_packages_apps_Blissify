@@ -1079,6 +1079,14 @@
         <item>@string/font_sofia-sans-medium</item>
         <item>@string/font_sofia-semicondensed-regular</item>
         <item>@string/font_sofia-semicondensed-medium</item>
+        <item>@string/font_samsung</item>
+        <item>@string/font_mexcellent</item>
+        <item>@string/font_burnstown</item>
+        <item>@string/font_dumbledor</item>
+        <item>@string/font_phantombold</item>
+        <item>@string/font_snowstorm</item>
+        <item>@string/font_neoneon</item>
+        <item>@string/font_circularstd</item>
     </string-array>
 
     <string-array name="font_style_values" translatable="false">
@@ -1163,6 +1171,14 @@
         <item>78</item>
         <item>79</item>
         <item>80</item>
+        <item>81</item>
+        <item>82</item>
+        <item>83</item>
+        <item>84</item>
+        <item>85</item>
+        <item>86</item>
+        <item>87</item>
+        <item>88</item>
     </string-array>
 
     <!-- QS battery style  -->
