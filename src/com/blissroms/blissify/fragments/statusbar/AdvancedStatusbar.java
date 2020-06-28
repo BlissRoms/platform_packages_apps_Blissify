@@ -66,6 +66,7 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
     private static final String KEY_OLD_MOBILETYPE = "use_old_mobiletype";
     private static final String BLISS_LOGO_COLOR = "status_bar_logo_color";
     private static final String KEY_VOWIFI_ICON_STYLE = "vowifi_icon_style";
+    private static final String KEY_VOLTE_VOWIFI_OVERRIDE = "volte_vowifi_override";
 
     private SwitchPreference mDataDisabled;
     private SwitchPreference mShowRoaming;
@@ -74,6 +75,7 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
     private SwitchPreference mOldMobileType;
     private SystemSettingSeekBarPreference mVolteIconStyle;
     private SystemSettingSeekBarPreference mVowifiIconStyle;
+    private SwitchPreference mOverride;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -91,6 +93,7 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
         mShowFourg = (SwitchPreference) findPreference(KEY_SHOW_FOURG);
         mVolteIconStyle = (SystemSettingSeekBarPreference) findPreference(KEY_VOLTE_ICON_STYLE);
         mVowifiIconStyle = (SystemSettingSeekBarPreference) findPreference(KEY_VOWIFI_ICON_STYLE);
+        mOverride = (SwitchPreference) findPreference(KEY_VOLTE_VOWIFI_OVERRIDE);
 
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
             prefScreen.removePreference(mDataDisabled);
@@ -98,6 +101,7 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
             prefScreen.removePreference(mShowFourg);
             prefScreen.removePreference(mVolteIconStyle);
             prefScreen.removePreference(mVowifiIconStyle);
+            prefScreen.removePreference(mOverride);
         }
 
         mBlissLogoColor =
@@ -154,6 +158,8 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
         Settings.System.putIntForUser(resolver,
                 Settings.System.VOWIFI_ICON_STYLE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
+                Settings.System.VOLTE_VOWIFI_OVERRIDE, 1, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
                 Settings.System.DATA_DISABLED_ICON, 1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.ROAMING_INDICATOR_ICON, 1, UserHandle.USER_CURRENT);
@@ -177,5 +183,4 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.BLISSIFY;
     }
-
 }
