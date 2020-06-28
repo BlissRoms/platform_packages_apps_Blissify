@@ -46,7 +46,9 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import android.util.Log;
 import android.hardware.fingerprint.FingerprintManager;
+
 import com.bliss.support.colorpicker.ColorPickerPreference;
+import com.bliss.support.preferences.SystemSettingSeekBarPreference;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -57,19 +59,21 @@ import java.util.Collections;
 public class AdvancedStatusbar extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-    private static final String KEY_SHOW_VOLTE = "volte_icon_style";
+    private static final String KEY_VOLTE_ICON_STYLE = "volte_icon_style";
     private static final String KEY_SHOW_DATA_DISABLED = "data_disabled_icon";
     private static final String KEY_SHOW_ROAMING = "roaming_indicator_icon";
     private static final String KEY_SHOW_FOURG = "show_fourg_icon";
     private static final String KEY_OLD_MOBILETYPE = "use_old_mobiletype";
     private static final String BLISS_LOGO_COLOR = "status_bar_logo_color";
+    private static final String KEY_VOWIFI_ICON_STYLE = "vowifi_icon_style";
 
-    private ListPreference mShowVolte;
     private SwitchPreference mDataDisabled;
     private SwitchPreference mShowRoaming;
     private SwitchPreference mShowFourg;
     private ColorPickerPreference mBlissLogoColor;
     private SwitchPreference mOldMobileType;
+    private SystemSettingSeekBarPreference mVolteIconStyle;
+    private SystemSettingSeekBarPreference mVowifiIconStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -82,16 +86,18 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
         final ContentResolver resolver = getActivity().getContentResolver();
         Context mContext = getActivity().getApplicationContext();
 
-        mShowVolte = (ListPreference) findPreference(KEY_SHOW_VOLTE);
         mDataDisabled = (SwitchPreference) findPreference(KEY_SHOW_DATA_DISABLED);
         mShowRoaming = (SwitchPreference) findPreference(KEY_SHOW_ROAMING);
         mShowFourg = (SwitchPreference) findPreference(KEY_SHOW_FOURG);
+        mVolteIconStyle = (SystemSettingSeekBarPreference) findPreference(KEY_VOLTE_ICON_STYLE);
+        mVowifiIconStyle = (SystemSettingSeekBarPreference) findPreference(KEY_VOWIFI_ICON_STYLE);
 
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
             prefScreen.removePreference(mDataDisabled);
-            prefScreen.removePreference(mShowVolte);
             prefScreen.removePreference(mShowRoaming);
             prefScreen.removePreference(mShowFourg);
+            prefScreen.removePreference(mVolteIconStyle);
+            prefScreen.removePreference(mVowifiIconStyle);
         }
 
         mBlissLogoColor =
@@ -145,6 +151,8 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
 
         Settings.System.putIntForUser(resolver,
                 Settings.System.VOLTE_ICON_STYLE, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.VOWIFI_ICON_STYLE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.DATA_DISABLED_ICON, 1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
