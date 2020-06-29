@@ -44,9 +44,11 @@ public class CutoutFragment extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String KEY_DISPLAY_CUTOUT_STYLE = "display_cutout_style";
+    private static final String KEY_DUAL_NOTCH_PILL_HIDE = "dual_notch_pill_hide";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
 
     private ListPreference mCutoutStyle;
+    private SwitchPreference mPillHide;
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -61,6 +63,10 @@ public class CutoutFragment extends SettingsPreferenceFragment
             Settings.System.putIntForUser(resolver,
                 Settings.System.STATUSBAR_BATTERY_BAR, 0, UserHandle.USER_CURRENT);
             mCutoutStyle.setSummary(mCutoutStyle.getEntries()[valueIndex]);
+        } else if (preference == mPillHide) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(resolver,
+                Settings.System.DUAL_NOTCH_PILL_HIDE, value ? 1 : 0, UserHandle.USER_CURRENT);
         }
         return false;
     }
@@ -76,6 +82,9 @@ public class CutoutFragment extends SettingsPreferenceFragment
         mCutoutStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
         mCutoutStyle.setSummary(mCutoutStyle.getEntry());
         mCutoutStyle.setOnPreferenceChangeListener(this);
+
+        mPillHide = (SwitchPreference) findPreference(KEY_DUAL_NOTCH_PILL_HIDE);
+        mPillHide.setOnPreferenceChangeListener(this);
     }
 
     @Override
