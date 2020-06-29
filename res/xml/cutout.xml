@@ -34,4 +34,10 @@
         android:summary="@string/stock_statusbar_in_hide_summary"
         android:defaultValue="true" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="dual_notch_pill_hide"
+        android:title="@string/dual_notch_pill_hide_title"
+        android:summary="@string/dual_notch_pill_hide_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>

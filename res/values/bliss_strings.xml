@@ -1649,4 +1649,7 @@
     <string name="switch_narrow">Narrow</string>
     <string name="switch_contained">Contained</string>
     <string name="switch_telegram">Telegram</string>
+
+    <string name="dual_notch_pill_hide_title">Pill-style Notch</string>
+    <string name="dual_notch_pill_hide_summary">enable to hide pill style notch</string>
 </resources>
