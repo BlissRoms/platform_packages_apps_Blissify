@@ -264,5 +264,10 @@ public class DeviceUtils {
         return NAV_BAR_MODE_GESTURAL == context.getResources().getInteger(
                 com.android.internal.R.integer.config_navBarInteractionMode);
     }
+
+    public static boolean isVowifiAvailable(Context context) {
+        return context.getResources().getBoolean(
+                com.android.internal.R.bool.config_display_vowifi);
+    }
 }
 
