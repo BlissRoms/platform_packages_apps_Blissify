@@ -47,6 +47,7 @@ import com.android.settings.Utils;
 import android.util.Log;
 import android.hardware.fingerprint.FingerprintManager;
 
+import com.blissroms.blissify.utils.DeviceUtils;
 import com.bliss.support.colorpicker.ColorPickerPreference;
 
 import java.util.List;
@@ -66,6 +67,7 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
     private static final String BLISS_LOGO_COLOR = "status_bar_logo_color";
     private static final String KEY_VOWIFI_ICON_STYLE = "vowifi_icon_style";
     private static final String KEY_VOLTE_VOWIFI_OVERRIDE = "volte_vowifi_override";
+    private static final String KEY_VOLTE_CATEGORY = "volte_icon_category";
 
     private ListPreference mShowVolte;
     private SwitchPreference mDataDisabled;
@@ -75,7 +77,7 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
     private SwitchPreference mOldMobileType;
     private ListPreference mVowifiIconStyle;
     private SwitchPreference mOverride;
-
+    private PreferenceCategory mVolteCategory;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -126,6 +128,16 @@ public class AdvancedStatusbar extends SettingsPreferenceFragment implements
                 Settings.System.USE_OLD_MOBILETYPE,
                 mConfigUseOldMobileType ? 1 : 0, UserHandle.USER_CURRENT) != 0;
         mOldMobileType.setChecked(showing);
+
+        mVolteCategory = (PreferenceCategory) findPreference(KEY_VOLTE_CATEGORY);
+
+        if (!DeviceUtils.isVowifiAvailable(mContext)) {
+            mVolteCategory.removePreference(mVowifiIconStyle);
+            mVolteCategory.removePreference(mOverride);
+        } else {
+            mVolteCategory.addPreference(mVowifiIconStyle);
+            mVolteCategory.addPreference(mOverride);
+        }
     }
 
     @Override
