@@ -260,12 +260,6 @@
         android:defaultValue="true" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="force_expanded_notifications"
-        android:title="@string/force_expanded_notifications_title"
-        android:summary="@string/force_expanded_notifications_summary"
-        android:defaultValue="false" />
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="hide_smart_replies"
         android:title="@string/hide_smart_replies_title"
         android:summary="@string/hide_smart_replies_summary"
