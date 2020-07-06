@@ -1708,4 +1708,9 @@
     <string name="pulse_custom_div">Bar spacing</string>
     <string name="pulse_filled_block_size">Block size</string>
     <string name="pulse_empty_block_size">Block spacing</string>
+
+    <!-- QS statusbar background -->
+    <string name="qs_header_background_title">Statusbar background</string>
+    <string name="qs_header_background_black">Black</string>
+    <string name="qs_header_background_transparent">Transparent</string>
 </resources>
