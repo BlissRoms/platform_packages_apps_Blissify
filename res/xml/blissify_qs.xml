@@ -84,6 +84,13 @@
         android:defaultValue="true"
         android:disableDependentsState="true" />
 
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="qs_header_background"
+        android:title="@string/qs_header_background_title"
+        android:entries="@array/qs_header_background_entries"
+        android:entryValues="@array/qs_header_background_values"
+        android:defaultValue="0" />
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="qs_panel_bg_use_wall"
         android:title="@string/qs_bg_wall_title"
