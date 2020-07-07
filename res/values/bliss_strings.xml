@@ -1663,6 +1663,7 @@
     <string name="qstile_cosmos">Cosmos</string>
     <string name="qstile_squircle">Squircle</string>
     <string name="qstile_teardrop">Teardrop</string>
+    <string name="qstile_justicons">Icons without circle</string>
 
     <!-- Switch styles -->
     <string name="switch_style_title">Switch Styles</string>

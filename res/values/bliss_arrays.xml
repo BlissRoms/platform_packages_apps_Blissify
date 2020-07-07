@@ -1755,6 +1755,7 @@
         <item>@string/qstile_cosmos</item>
         <item>@string/qstile_squircle</item>
         <item>@string/qstile_teardrop</item>
+        <item>@string/qstile_justicons</item>
     </string-array>
 
     <string-array name="qs_selector_values" translatable="false">
@@ -1778,6 +1779,7 @@
         <item>17</item>
         <item>18</item>
         <item>19</item>
+        <item>20</item>
     </string-array>
 
     <!-- Switch styles -->
