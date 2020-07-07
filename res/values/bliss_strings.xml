@@ -923,6 +923,9 @@
     <string name="lockscreen_charging_animation_drop">Drop</string>
     <string name="lockscreen_charging_animation_explosion">Explosion</string>
     <string name="lockscreen_charging_animation_water">Water</string>
+    <string name="lockscreen_charging_animation_phone">Phone</string>
+    <string name="lockscreen_charging_animation_stack">Stack</string>
+    <string name="lockscreen_charging_animation_wavy">Wavy</string>
 
     <!-- Old mobile type icons -->
     <string name="use_old_mobiletype_title">Small mobile type icon</string>
