@@ -72,8 +72,10 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private static final String PREF_SWIPE_UP_ENABLED = "swipe_up_enabled_warning";
     private static final String SCREEN_STATE_TOGGLES_ENABLE = "screen_state_toggles_enable_key";
     private static final String DISPLAY_CUTOUT_SETTINGS = "display_cutout_settings";
+    private static final String PREF_SLIM_RECENTS = "use_slim_recents";
 
     private SystemSettingMasterSwitchPreference mSmartPixelsEnabled;
+    private SystemSettingMasterSwitchPreference mSlimRecents;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mFingerprintVibErr;
@@ -128,6 +130,10 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mStockRecentsCategory = (PreferenceCategory) findPreference(PREF_STOCK_RECENTS_CATEGORY);
         mAlternativeRecentsCategory =
                 (PreferenceCategory) findPreference(PREF_ALTERNATIVE_RECENTS_CATEGORY);
+
+        mSlimRecents = (SystemSettingMasterSwitchPreference) findPreference(PREF_SLIM_RECENTS);
+        mSlimRecents.setChecked(Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.USE_SLIM_RECENTS, 0, UserHandle.USER_CURRENT) == 1);
 
         // Alternative recents en-/disabling
         Preference.OnPreferenceChangeListener alternativeRecentsChangeListener =
