@@ -80,6 +80,7 @@ public class Themes extends DashboardFragment  implements
     private ColorPickerPreference mAccentColor;
     private ColorPickerPreference mGradientColor;
     private ListPreference mAccentPreset;
+    private int mAccentIndex;
 
     @Override
     protected int getPreferenceScreenResId() {
@@ -125,11 +126,12 @@ public class Themes extends DashboardFragment  implements
 
         mAccentPreset = (ListPreference) findPreference(ACCENT_PRESET);
         mAccentPreset.setOnPreferenceChangeListener(this);
-        if (hexColor.equals("#ff1a73e8")) {
-            mAccentPreset.setSummary(R.string.default_string);
-        } else {
-            mAccentPreset.setSummary(hexColor);
-        }
+        List<String> accentPresets = Arrays.asList(
+                getResources().getStringArray(R.array.accent_presets_entries));
+        List<String> accentPresetsValues = Arrays.asList(
+                getResources().getStringArray(R.array.accent_presets_values));
+        mAccentPreset.setValue(accentPresetsValues.get(mAccentIndex));
+        mAccentPreset.setSummary(accentPresets.get(mAccentIndex).toString());
     }
 
     @Override
@@ -199,13 +201,11 @@ public class Themes extends DashboardFragment  implements
             String value = (String) newValue;
             List<String> colorPresets = Arrays.asList(
                     getResources().getStringArray(R.array.accent_presets_values));
-            int index = mAccentPreset.findIndexOfValue(value);
-            int color = DeviceUtils.convertToColorInt(colorPresets.get(index));
-            if (colorPresets.get(index).equals("ff1a73e8")) {
-                mAccentPreset.setSummary(R.string.default_string);
-            } else {
-                mAccentPreset.setSummary(mAccentPreset.getEntries()[index]);
-            }
+            List<String> accentPresets = Arrays.asList(
+                    getResources().getStringArray(R.array.accent_presets_entries));
+            mAccentIndex = mAccentPreset.findIndexOfValue(value);
+            int color = DeviceUtils.convertToColorInt(colorPresets.get(mAccentIndex));
+            mAccentPreset.setSummary(accentPresets.get(mAccentIndex).toString());
             Settings.System.putIntForUser(resolver,
                     Settings.System.ACCENT_COLOR, color, UserHandle.USER_CURRENT);
             return true;
