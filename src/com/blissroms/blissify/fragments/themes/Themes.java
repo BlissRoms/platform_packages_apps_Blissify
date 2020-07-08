@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -75,11 +76,13 @@ public class Themes extends DashboardFragment  implements
     private static final String ACCENT_COLOR = "accent_color";
     private static final String ACCENT_PRESET = "accent_preset";
     private static final String GRADIENT_COLOR = "gradient_color";
+    private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accentcolor";
     static final int DEFAULT_ACCENT_COLOR = 0xff1a73e8;
 
     private ColorPickerPreference mAccentColor;
     private ColorPickerPreference mGradientColor;
     private ListPreference mAccentPreset;
+    private int mAccentIndex;
 
     @Override
     protected int getPreferenceScreenResId() {
@@ -125,11 +128,8 @@ public class Themes extends DashboardFragment  implements
 
         mAccentPreset = (ListPreference) findPreference(ACCENT_PRESET);
         mAccentPreset.setOnPreferenceChangeListener(this);
-        if (hexColor.equals("#ff1a73e8")) {
-            mAccentPreset.setSummary(R.string.default_string);
-        } else {
-            mAccentPreset.setSummary(hexColor);
-        }
+        String colorVal = SystemProperties.get(ACCENT_COLOR_PROP, "-1");
+        checkColorPreset(colorVal);
     }
 
     @Override
@@ -199,18 +199,26 @@ public class Themes extends DashboardFragment  implements
             String value = (String) newValue;
             List<String> colorPresets = Arrays.asList(
                     getResources().getStringArray(R.array.accent_presets_values));
-            int index = mAccentPreset.findIndexOfValue(value);
-            int color = DeviceUtils.convertToColorInt(colorPresets.get(index));
-            if (colorPresets.get(index).equals("ff1a73e8")) {
-                mAccentPreset.setSummary(R.string.default_string);
-            } else {
-                mAccentPreset.setSummary(mAccentPreset.getEntries()[index]);
-            }
+            mAccentIndex = mAccentPreset.findIndexOfValue(value);
+            int color = DeviceUtils.convertToColorInt(colorPresets.get(mAccentIndex));
             Settings.System.putIntForUser(resolver,
                     Settings.System.ACCENT_COLOR, color, UserHandle.USER_CURRENT);
             return true;
         }
         return false;
+    }
+
+    private void checkColorPreset(String colorValue) {
+        List<String> colorPresets = Arrays.asList(
+                getResources().getStringArray(R.array.accent_presets_values));
+        if (colorPresets.contains(colorValue)) {
+            mAccentPreset.setValue(colorValue);
+            int index = mAccentPreset.findIndexOfValue(colorValue);
+            mAccentPreset.setSummary(mAccentPreset.getEntries()[index]);
+        }
+        else {
+            mAccentPreset.setSummary(R.string.default_string);
+        }
     }
 
     @Override
