@@ -452,6 +452,17 @@
     <string name="status_bar_volte_style_7">Ikona VoLIT</string>
     <string name="status_bar_volte_style_8">Ikona VoLTE Asus</string>
     <string name="status_bar_volte_style_9">Ikona Miui 11 VoLTE</string>
+    <string name="status_bar_volte_style_10">Caf HD</string>
+    <string name="status_bar_volte_style_11">EMUI</string>
+    <!-- VoWiFi icon -->
+    <string name="vowifi_icon_style_title">Styl ikony VoWiFi</string>
+    <string name="vowifi_icon_default">Výchozí</string>
+    <string name="vowifi_icon_asus">Asus</string>
+    <string name="vowifi_icon_emui">EMUI</string>
+    <string name="vowifi_icon_moto">Motorola</string>
+    <string name="vowifi_icon_oneplus">OOS</string>
+    <string name="volte_vowifi_override_title">Upřednostnit VoWiFi</string>
+    <string name="volte_vowifi_override_summary">Skrýt VoLTE, je‑li k dispozici VoWiFi. Toto také nahradí starý styl ikony signálu VoWiFi.</string>
     <!-- Data disabled indicator -->
     <string name="data_disabled_icon_title">Indikátor vypnutých mobilních dat</string>
     <string name="data_disabled_icon_summary">Zobrazit křížek na ikoně signálu sítě, když jsou mobilní data vypnuta</string>
@@ -819,6 +830,9 @@
     <string name="lockscreen_charging_animation_drop">Kapka</string>
     <string name="lockscreen_charging_animation_explosion">Exploze</string>
     <string name="lockscreen_charging_animation_water">Voda</string>
+    <string name="lockscreen_charging_animation_phone">Telefon</string>
+    <string name="lockscreen_charging_animation_stack">Vrstvy</string>
+    <string name="lockscreen_charging_animation_wavy">Wavy</string>
     <!-- Old mobile type icons -->
     <string name="use_old_mobiletype_title">Malý typ ikony mobilní sítě</string>
     <string name="use_old_mobiletype_summary">Zobrazit typ ikony mobilní sítě v horní části indikátoru signálu</string>
@@ -873,9 +887,6 @@
     <string name="lock_screen_custom_notif_summary">Přepnutím povolíte nastavení maximálního počtu oznámení na zamykací obrazovce</string>
     <string name="lockscreen_max_notif_config_title">Maximální počet oznámení</string>
     <string name="lockscreen_max_notif_config_summary">Určete maximální počet rozšířených oznámení, která se mají zobrazit na zamykací obrazovce</string>
-    <!-- Force expanded notifications -->
-    <string name="force_expanded_notifications_title">Vynutit rozšířená oznámení</string>
-    <string name="force_expanded_notifications_summary">K dispozici pouze pro aplikace, které podporují rozšířené oznámení</string>
     <!-- Screenshot -->
     <string name="screenshot_type_title">Typ snímku obrazovky pomocí tlačítek hlasitosti</string>
     <string name="screenshot_type_fullscreen">Celý</string>
@@ -1042,6 +1053,14 @@
     <string name="font_sofia-sans-medium">Sofia-sans-medium</string>
     <string name="font_sofia-semicondensed-regular">Sofia-semicondensed-regular</string>
     <string name="font_sofia-semicondensed-medium">Sofia-semicondensed-medium</string>
+    <string name="font_samsung">Samsung</string>
+    <string name="font_mexcellent">Mexecellent</string>
+    <string name="font_burnstown">Burnstown</string>
+    <string name="font_dumbledor">Dumbledor</string>
+    <string name="font_phantombold">Phantom Bold</string>
+    <string name="font_snowstorm">SnowStorm</string>
+    <string name="font_neoneon">NeonNeon</string>
+    <string name="font_circularstd">CirculaStd</string>
     <string name="font_size_title">Velikost písma</string>
     <!-- QS themes -->
     <string name="qs_themes_category_title">Motivy QS</string>
@@ -1225,12 +1244,14 @@
     <string name="fod_recog_animation_effect_title">Animace rozpoznávání otisku prstu</string>
     <string name="fod_recog_animation_miui_normal">MIUI - výchozí</string>
     <string name="fod_recog_animation_miui_aod">AOD</string>
+    <string name="fod_recog_animation_miui_aurora">Aurora</string>
     <string name="fod_recog_animation_miui_light">Světlo</string>
     <string name="fod_recog_animation_miui_pop">Pop</string>
     <string name="fod_recog_animation_miui_pulse">Pulzování</string>
     <string name="fod_recog_animation_miui_pulse_white">Pulzování (bílé)</string>
     <string name="fod_recog_animation_miui_rhythm">Rytmus</string>
     <string name="fod_recog_animation_op_cosmos">Kosmos</string>
+    <string name="fod_recog_animation_op_energy">Energie</string>
     <string name="fod_recog_animation_op_mclaren">McLaren</string>
     <string name="fod_recog_animation_op_ripple">Vlnka</string>
     <string name="fod_recog_animation_op_stripe">Proužek</string>
@@ -1450,4 +1471,39 @@
     <!-- Pocket judge -->
     <string name="pocket_judge_title">Detekce uložení v kapse</string>
     <string name="pocket_judge_summary">Blokovat obrazovku a hardwarová tlačítka, když je zařízení v kapse</string>
+    <!-- QS tile styles -->
+    <string name="qs_tile_style_title">Styl QS dlaždic</string>
+    <string name="qstile_default">Výchozí</string>
+    <string name="qstile_circle_trim">Kruh s lemováním</string>
+    <string name="qstile_dual_tone_circle">Dvoubarevný kruh</string>
+    <string name="qstile_squircle_trim">Superelipsa s lemováním</string>
+    <string name="qstile_wavey">Zvlněný kruh</string>
+    <string name="qstile_pokesign">Pokesign</string>
+    <string name="qstile_ninja">Ninja</string>
+    <string name="qstile_dottedcircle">Přerušovaný kruh</string>
+    <string name="qstile_attemptmountain">An attempt of a mountain</string>
+    <string name="qstile_squaremedo">The Squaremedo</string>
+    <string name="qstile_inkdrop">Inkoust</string>
+    <string name="qstile_cookie">Sušenka</string>
+    <string name="qstile_circleoutline">Obrys kruhu</string>
+    <string name="qstile_neonlike">Neon</string>
+    <string name="qstile_oos">OOS</string>
+    <string name="qstile_triangles">Trojúhelník</string>
+    <string name="qstile_divided">Rozdělený kruh</string>
+    <string name="qstile_cosmos">Kosmos</string>
+    <string name="qstile_squircle">Superelipsa</string>
+    <string name="qstile_teardrop">Slza</string>
+    <!-- Switch styles -->
+    <string name="switch_style_title">Styly přepínačů</string>
+    <string name="switch_default">Výchozí</string>
+    <string name="switch_oneplus">OnePlus</string>
+    <string name="switch_narrow">Úzký</string>
+    <string name="switch_contained">Obsažený</string>
+    <string name="switch_telegram">Telegram</string>
+    <!-- Settings dashboard icon style -->
+    <string name="theming_settings_dashboard_icons_title">Nastavení ikon hlavního panelu</string>
+    <string name="theming_settings_dashboard_icons_default">Kruhové (výchozí)</string>
+    <string name="theming_settings_dashboard_icons_default_accent">Kruhové se zvýrazněním</string>
+    <string name="theming_settings_dashboard_icons_plain">Klasické</string>
+    <string name="theming_settings_dashboard_icons_plain_accent">Klasické se zvýrazněním</string>
 </resources>

@@ -57,6 +57,7 @@
     <string name="volume_options_title">Опции громкости</string>
     <string name="navigation_bar_options_category">Панель навигации</string>
     <string name="navigation_title">Навигация</string>
+    <string name="music_options">Настройки музыки</string>
     <!-- AOKP custom system animations -->
     <string name="animation_title">Анимации</string>
     <string name="system_animation_summary">Настроить анимации каждого окна в системе</string>
@@ -159,6 +160,7 @@
     <string name="status_bar_quick_qs_pulldown_off">Выкл.</string>
     <string name="status_bar_quick_qs_pulldown_left">Лево</string>
     <string name="status_bar_quick_qs_pulldown_right">Право</string>
+    <string name="status_bar_quick_qs_pulldown_always">Быстрые настройки открываются из любого места строки состояния</string>
     <string name="status_bar_double_tap_to_sleep_title">Дважды нажать для сна (строка состояния)</string>
     <string name="status_bar_double_tap_to_sleep_summary">Дважды нажать по строке состояния для сна</string>
     <!-- Status bar - icons -->
@@ -204,6 +206,10 @@
     <string name="clock_date_position">Позиция даты</string>
     <string name="clock_date_right">Справа от времени</string>
     <string name="clock_date_left">Слева от времени</string>
+    <!-- Statusbar Clock Font Style, Size & Color -->
+    <string name="status_bar_clock_font_style_title">Стиль шрифта часов</string>
+    <string name="status_bar_clock_font_size_title">Размер шрифта часов</string>
+    <string name="status_bar_clock_color_title">Цвет шрифта часов</string>
     <!-- Status bar - Battery -->
     <string name="status_bar_battery_title">Индикатор батареи</string>
     <string name="status_bar_battery_style_title">Стиль батареи</string>
@@ -254,7 +260,8 @@
     <string name="network_traffic_mode_all">Входящий и исходящий</string>
     <string name="network_traffic_autohide">Авто скрытие</string>
     <string name="network_traffic_autohide_summary">Скрывать сетевой трафик когда не активен</string>
-    <string name="network_traffic_autohide_kilobits">kb/s</string>
+    <string name="network_traffic_autohide_kilobits">Кб/с</string>
+    <string name="network_traffic_autohide_kilobytes">КБ/с</string>
     <string name="network_traffic_autohide_threshold">Порог неактивности</string>
     <string name="network_traffic_show_units">Показать единицы</string>
     <string name="network_traffic_show_units_summary">Показывать ли единицы измерения трафика</string>
@@ -347,6 +354,7 @@
     <!-- Navigation Bar -->
     <string name="navigation_bar_category">Панель навигации</string>
     <string name="navigation_bar_invert_layout_title">Поменять местами кнопки</string>
+    <string name="navigation_bar_invert_layout_summary">Инвертирует расположение элементов панели навигации и другие элементы, такие как кнопка смены метода ввода</string>
     <string name="navigation_bar_left_summary">Отображать панель навигации слева в альбомной ориентации экрана</string>
     <string name="navigation_bar_arrow_keys_title">Показывать клавиши со стрелками при наборе</string>
     <string name="navigation_bar_arrow_keys_summary">Показывать слева и справа стрелки курсора при вводе. Перекрывает IME переключатель.</string>
@@ -372,6 +380,7 @@
     <string name="torch_long_press_power_gesture_desc">Долгое нажатие на кнопку включения, при выключенном экране, включает фонарик</string>
     <string name="torch_long_press_power_timeout_title">Автоматическое выключение фонарика</string>
     <string name="torch_long_press_power_timeout_never">Никогда</string>
+    <string name="torch_long_press_power_timeout_30sec">30 секунд</string>
     <string name="torch_long_press_power_timeout_1min">1 минута</string>
     <string name="torch_long_press_power_timeout_2min">2 минуты</string>
     <string name="torch_long_press_power_timeout_5min">5 минут</string>
@@ -391,7 +400,7 @@
     <!-- Lockscreen battery info indicator  -->
     <string name="lockscreen_charging_category">Зарядка на экране блокировки</string>
     <string name="lockscreen_battery_info_title">Информация о зарядке</string>
-    <string name="lockscreen_battery_info_summary">Отображать максимальное значение зарядки, напряжение и температуру при зарядке</string>
+    <string name="lockscreen_battery_info_summary">Отображать максимальный ток зарядного устройства, напряжение и температуру батареи на экране блокировки во время зарядки</string>
     <!-- Wireless charging animation -->
     <string name="wireless_charging_animation_title">Анимация зарядки</string>
     <string name="wireless_charging_animation_summary">Показывать анимацию при подключении зарядки к устройству</string>
@@ -431,7 +440,7 @@
     <string name="toast_icon_summary">Отображать значок активности, генерирующей тост-сообщение</string>
     <!--statusbar advanced system icons -->
     <string name="statusbar_advanced_icons">Расширеные системные иконки</string>
-    <string name="statusbar_advanced_icons_summary">Логотип, Volte иконка, Иконка погоды, 4g индикатор, Bluetooth индикатор</string>
+    <string name="statusbar_advanced_icons_summary">Логотип, иконка VoLte, иконка погоды, иконка 4G, индикатор траффика, иконка Bluetooth</string>
     <string name="volte_icon_title">VoLTE значок</string>
     <string name="status_bar_volte_disabled">Отключено</string>
     <string name="status_bar_volte_style_1">Bliss стиль</string>
@@ -443,6 +452,17 @@
     <string name="status_bar_volte_style_7">VoLIT</string>
     <string name="status_bar_volte_style_8">VoLTE Asus</string>
     <string name="status_bar_volte_style_9">Miui 11 VoLTE</string>
+    <string name="status_bar_volte_style_10">Caf HD</string>
+    <string name="status_bar_volte_style_11">EMUI</string>
+    <!-- VoWiFi icon -->
+    <string name="vowifi_icon_style_title">Стиль иконки VoWiFi</string>
+    <string name="vowifi_icon_default">По умолчанию</string>
+    <string name="vowifi_icon_asus">Asus</string>
+    <string name="vowifi_icon_emui">EMUI</string>
+    <string name="vowifi_icon_moto">Motorola</string>
+    <string name="vowifi_icon_oneplus">OOS</string>
+    <string name="volte_vowifi_override_title">Переопределять VoWIFi</string>
+    <string name="volte_vowifi_override_summary">Скрывать VoLTE, когда доступен VoWiFi. Это также изменяет значок сигнала старого стиля для VoWiFi.</string>
     <!-- Data disabled indicator -->
     <string name="data_disabled_icon_title">Отключённая передача данных</string>
     <string name="data_disabled_icon_summary">Крест в нижнем углу значка сети, когда передача данных отключена</string>
@@ -456,6 +476,8 @@
     <string name="qs_brightness_slider_hide">Спрятать</string>
     <string name="qs_brightness_slider_top">Сверху</string>
     <string name="qs_brightness_slider_bottom">Снизу</string>
+    <string name="qs_brightness_slider_always_top">Quick Qs (сверху)</string>
+    <string name="qs_brightness_slider_always_bottom">Quick Qs (снизу)</string>
     <!-- Quick settings brightness icon -->
     <string name="brightness_icon_title">Значок автояркости</string>
     <string name="brightness_icon_summary">Показать значок для переключения автояркости</string>
@@ -585,6 +607,8 @@
     <!-- Power menu on secure lockscreen -->
     <string name="lockscreen_enable_power_menu_title">Меню питания</string>
     <string name="lockscreen_enable_power_menu_summary">Показывать меню питания на экране блокировки</string>
+    <string name="lockscreen_secure_power_menu_title">Защищенное меню кнопки питания</string>
+    <string name="lockscreen_secure_power_menu_summary">Отображать меню питания только после разблокировки</string>
     <!-- Wakelock blocker -->
     <string name="wakelock_blocker_title">Блокировщик *wakelocks*</string>
     <string name="wakelock_blocker_summary">Блокировать пробуждения системы</string>
@@ -781,6 +805,7 @@
     <string name="file_header_select_title">Выбрать локальный фон</string>
     <string name="file_header_select_summary">Выбрать изображение из памяти</string>
     <string name="file_header_provider_title">Одно изображение</string>
+    <string name="status_bar_custom_header_height_title">Смещение высоты изображения</string>
     <!-- Quick Settings -->
     <string name="qs_panel_alpha_title">Прозрачность панели быстрых настроек</string>
     <string name="qs_panel_alpha_summary">Настроить затенение фона</string>
@@ -805,6 +830,9 @@
     <string name="lockscreen_charging_animation_drop">Отбросить</string>
     <string name="lockscreen_charging_animation_explosion">Взрывной</string>
     <string name="lockscreen_charging_animation_water">Вода</string>
+    <string name="lockscreen_charging_animation_phone">Телефон</string>
+    <string name="lockscreen_charging_animation_stack">Слои</string>
+    <string name="lockscreen_charging_animation_wavy">Волна</string>
     <!-- Old mobile type icons -->
     <string name="use_old_mobiletype_title">Использовать старый стиль значка мобильной сети</string>
     <string name="use_old_mobiletype_summary">Стиль значка мобильной сети как в Oreo</string>
@@ -826,6 +854,9 @@
     <string name="pulse_ambient_light_pulse_for_all_summary">Пульсировать для всего содержимого \"Ambien Display\", а не только для уведомлений</string>
     <string name="pulse_ambient_light_repeat_count_title">Количество повторений</string>
     <string name="pulse_ambient_light_repeat_count_summary">Установить максимальное количество повторений (0 для бесконечности)</string>
+    <string name="pulse_ambient_light_layout_title">Подсветка Краёв Экрана</string>
+    <string name="pulse_ambient_light_layout_solid">Твердый</string>
+    <string name="pulse_ambient_light_layout_faded">Потухший</string>
     <!-- Hide Apps from Recents -->
     <string name="hafr_category_title">HAFR</string>
     <string name="hide_apps_from_recents_title">Черный список приложений</string>
@@ -856,13 +887,11 @@
     <string name="lock_screen_custom_notif_summary">Включить максимальное значение количества уведомлений на экране блокировки</string>
     <string name="lockscreen_max_notif_config_title">Максимальное количество уведомлений</string>
     <string name="lockscreen_max_notif_config_summary">Контролировать максимальное количество раскрытых уведомлений на экране блокировки</string>
-    <!-- Force expanded notifications -->
-    <string name="force_expanded_notifications_title">Принудительно расширенные уведомления</string>
-    <string name="force_expanded_notifications_summary">Принудительно использовать приложения, поддерживающие расширенные уведомления</string>
     <!-- Screenshot -->
-    <string name="screenshot_type_title">Тип скриншота</string>
+    <string name="screenshot_type_title">Тип скриншота панели громкости</string>
     <string name="screenshot_type_fullscreen">Полный</string>
     <string name="screenshot_type_partial">Определённая область</string>
+    <string name="screenshot_type_long">Полный скриншот &amp; расширенный скриншот</string>
     <!-- Sensor block per-package -->
     <string name="sensor_block_title">Блокировка сенсоров по-пакетно</string>
     <string name="sensor_block_summary">Запретить доступ к датчикам для некоторых приложений для экономии энергии</string>
@@ -919,9 +948,10 @@
     <string name="fod_icon_picker_summary">Выбери свою любимую иконку</string>
     <string name="fod_icon_picker_footer">Чтобы добавить свою собственную иконку, выбери иконку сверху слева и воспользуйся OnePlus 6T FP Customizer приложением чтобы выбрать нужную иконку</string>
     <!-- Lockscreen clock styles -->
-    <string name="lockscreen_clock_title">Виджет часов</string>
+    <string name="lockscreen_clock_title">Стиль часов по умолчанию</string>
+    <string name="lockscreen_hide_clock_title">Скрыть часы на экране блокировки</string>
+    <string name="lockscreen_hide_clock_summary">скрывать/показать часы по умолчанию на экране блокировки</string>
     <string name="lockscreen_clock_dialog_title">Выбрать стиль часов</string>
-    <string name="lockscreen_clock_selection_hidden">Скрыты</string>
     <string name="lockscreen_clock_selection_digital">Стандартный</string>
     <string name="lockscreen_clock_selection_digital_bold">Цифровые (жирный)</string>
     <string name="lockscreen_clock_selection_digital_small">Маленькие (цифровые)</string>
@@ -931,8 +961,11 @@
     <string name="lockscreen_clock_selection_sammy">Вертикальные</string>
     <string name="lockscreen_clock_selection_sammy_bold">Вертикальные (жирные)</string>
     <string name="lockscreen_clock_selection_sammy_accent">Вертикальные (Акцент)</string>
+    <string name="lockscreen_clock_selection_sammy_accent_min">Вертикальные, цветные минуты</string>
     <string name="lockscreen_clock_selection_sammy_accent_hour">Вертикальные (Цветные часы)</string>
     <string name="lockscreen_clock_selection_sammy_accent_alt">Системный цвет (часы темнее)</string>
+    <string name="lockscreen_clock_selection_text">Текстовые (Android 9)</string>
+    <string name="lockscreen_clock_selection_text_alt">Текстовые (Android 10)</string>
     <!-- lockscreen clock and date font style -->
     <string name="lockscreen_clock_category">Опции часов</string>
     <string name="lockscreen_clockdate_category">Опции даты</string>
@@ -990,6 +1023,44 @@
     <string name="font_grandhotel">Grand Hotel</string>
     <string name="font_redressed">Redressed</string>
     <string name="font_sanfransisco">San Fransisco</string>
+    <string name="font_bignoodle-italic">Bignoodle-курсивный</string>
+    <string name="font_bignoodle-regular">Bignoodle-обычный</string>
+    <string name="font_hanken">Hanken</string>
+    <string name="font_mittelschrift">Mittelschrift</string>
+    <string name="font_reemkufi">Реемкуфи</string>
+    <string name="font_comic-neue-bold">Космический-неуе-рельефный</string>
+    <string name="font_comic-neue">Космический-неуе</string>
+    <string name="font_exo2-regular">Exo2-обычный</string>
+    <string name="font_exo2-semibold">Exo2-полужирный</string>
+    <string name="font_finlandica">Финляндия</string>
+    <string name="font_goodlight">Хороший свет</string>
+    <string name="font_gravity-regular">Гравитационный-обычный</string>
+    <string name="font_inter-regular">Межрегулярный</string>
+    <string name="font_inter-medium-italic">Межрегулярный-среднежирный</string>
+    <string name="font_league-mono-n-regular">League-моно-н-обычный</string>
+    <string name="font_league-mono-n-medium">League-моно-н-средний</string>
+    <string name="font_league-mono-n-bold">League-моно-н-рельефный</string>
+    <string name="font_league-mono-n-semibold">League-моно-н-полужирный</string>
+    <string name="font_leonsans-regular">Леонсанс-обычный</string>
+    <string name="font_mescla-regular">Мескла-обычный</string>
+    <string name="font_odibee-sans">Одибе-sans</string>
+    <string name="font_panamericana">Панамерикана</string>
+    <string name="font_pt-sans">Пт-sans</string>
+    <string name="font_pt-mono">Пт-моно</string>
+    <string name="font_rounded-gothic-narrow">Скругленный готик-узкий</string>
+    <string name="font_rounded-gothic-narrow-half-italic">Скругленный готик-узкий-курсивный</string>
+    <string name="font_sofia-sans-regular">София-sans-обычный</string>
+    <string name="font_sofia-sans-medium">Софиа-sans-средний</string>
+    <string name="font_sofia-semicondensed-regular">Софиа-полупроводниковая-обынчый</string>
+    <string name="font_sofia-semicondensed-medium">Софиа-полупроводниковая-средний</string>
+    <string name="font_samsung">Samsung</string>
+    <string name="font_mexcellent">Mexecellent</string>
+    <string name="font_burnstown">Burnstown</string>
+    <string name="font_dumbledor">Dumbledor</string>
+    <string name="font_phantombold">Фантомный жирный</string>
+    <string name="font_snowstorm">Снежный шторм</string>
+    <string name="font_neoneon">Неоновый</string>
+    <string name="font_circularstd">CirculaStd</string>
     <string name="font_size_title">Размер шрифта</string>
     <!-- QS themes -->
     <string name="qs_themes_category_title">Тема быстрых настроек</string>
@@ -1003,13 +1074,11 @@
     <string name="qs_bg_use_new_tint">Новый стиль окраски</string>
     <string name="qs_bg_use_new_tint_summary">Включить новый стиль окраски</string>
     <!-- QS battery -->
-    <string name="qs_battery_location_title">Расположение батареи</string>
-    <string name="qs_battery_location_qs_panel">Быстрые настройки</string>
-    <string name="qs_battery_location_qs_statusbar">Быстрая строка состояния</string>
     <string name="qs_use_status_bar_battery_style">Использовать стиль строки состояния</string>
     <!-- Status Bar Ticker -->
     <string name="ticker_screen_title">Тикер</string>
     <string name="ticker_screen_summary">Показывать тикающие уведомления в строке состояния</string>
+    <string name="ticker_screen_footer">Бегущая строка видна только когда всплывающее уведомление не показываются</string>
     <string name="ticker_title">Тикер строки состояния</string>
     <string name="ticker_summary">Включить Тикер строки состояния</string>
     <string name="ticker_restore_defaults_title">Сбросить по умолчанию</string>
@@ -1071,6 +1140,9 @@
     <!-- Lockscreen clock font size -->
     <string name="lock_date_font_size_title">Размер шрифта даты</string>
     <string name="clock_font_size_title">Размер шрифта часов</string>
+    <string name="clock_font_size_warning_summary">При использовании стиля часов Typeclock диапозон - от 20 до 60, более 60 слишком велико для этого стиля</string>
+    <!-- Pixel Gestures -->
+    <string name="pixelgestures_summary">Настроить жесты Pixel</string>
     <!-- Motion Sense -->
     <string name="aware_settings_title">Motion Sense</string>
     <string name="aware_settings_summary">Настроить Motion Sense</string>
@@ -1172,12 +1244,14 @@
     <string name="fod_recog_animation_effect_title">Анимация распознавания отпечатка</string>
     <string name="fod_recog_animation_miui_normal">MIUI по умолчанию</string>
     <string name="fod_recog_animation_miui_aod">Всегда включённый дисплей</string>
+    <string name="fod_recog_animation_miui_aurora">Aurora</string>
     <string name="fod_recog_animation_miui_light">Светлая</string>
     <string name="fod_recog_animation_miui_pop">Поп</string>
     <string name="fod_recog_animation_miui_pulse">Пульс</string>
     <string name="fod_recog_animation_miui_pulse_white">Пульс (белый)</string>
     <string name="fod_recog_animation_miui_rhythm">Ритм</string>
     <string name="fod_recog_animation_op_cosmos">Космос</string>
+    <string name="fod_recog_animation_op_energy">Энергия</string>
     <string name="fod_recog_animation_op_mclaren">McLaren</string>
     <string name="fod_recog_animation_op_ripple">Пульсация</string>
     <string name="fod_recog_animation_op_stripe">Магнитная полоса</string>
@@ -1264,11 +1338,11 @@
     <string name="accent_preset_68">XiaomiOrange</string>
     <string name="accent_preset_title">Предустановленные акценты</string>
     <!-- Clock style -->
-    <string name="clock_style_title">Стиль часов</string>
+    <string name="clock_style_title">Стили часов на экране блокировки</string>
     <string name="clock_style_summary">Выбор по умолчанию &amp; Аналоговые часы</string>
     <!-- Slim recents -->
     <string name="ok">OK</string>
-    <string name="alternative_recents_category">Альтернативная панель недавних</string>
+    <string name="alternative_recents_category">Меню недавних приложений в тонком стиле</string>
     <string name="alternative_recents_swipe_up_enabled_warning_summary">При использовании свайпа вверх по кнопке \"Домой\" для открытия недавних поддерживается только стоковое отображение недавних приложений</string>
     <string name="slim_recents_title">Меню недавних приложений в тонком стиле</string>
     <string name="slim_recents_summary">Позволяет использовать альтернативное меню недавних приложений</string>
@@ -1328,6 +1402,108 @@
     <string name="lockscreen_enable_qs_title">Быстрые настройки</string>
     <string name="lockscreen_enable_qs_summary">Отображать меню кнопки питания на защищенном экране блокировки</string>
     <!-- QS data usage -->
-    <string name="qs_datausage_title">Показать трафик в заголовке быстрых настроек</string>
-    <string name="qs_datausage_subtitle">Показывает трафик в заголовке быстрых настроек sim, используемых для передачи данных</string>
+    <string name="qs_datausage_title">Использование трафика в панели Быстрых Настроек</string>
+    <string name="qs_datausage_disabled">Отключено</string>
+    <string name="qs_datausage_daily">Ежедневное использование</string>
+    <string name="qs_datausage_monthly">Месячное использование</string>
+    <!-- LS OwnerInfo Font & Size -->
+    <string name="owner_info_category">Настройка информации о владельце</string>
+    <string name="lock_ownerinfo_font_title">Настройки шрифта информации о владельце</string>
+    <string name="lockowner_font_size_title">Размер шрифта информации о владельце</string>
+    <!-- R Notification headers -->
+    <string name="notification_headers_title">Показывать заголовки уведомлений</string>
+    <string name="notification_headers_summary">Показывать заголовки уведомлений в стиле Android R(Необходима перезагрузка интерфейса системы)</string>
+    <!-- Headset ringtone audio focus -->
+    <string name="ringtone_focus_mode_title">При подключённой гарнитуре, входящий вызов воспроизводить через нее</string>
+    <string name="ringtone_focus_mode_dynamic">Гарнитура активна только при включенной музыке</string>
+    <string name="ringtone_focus_mode_stock">Оба динамик и гарнитуру</string>
+    <!-- Dashboard -->
+    <string name="dashboard_conditions_title">Состояния меню настроек</string>
+    <string name="summary_dashboard_conditions_enabled">Состояния меню настроек включено</string>
+    <string name="summary_dashboard_conditions_disabled">Состояние меню настроек выключено</string>
+    <string name="dashboard_suggestions_title">Подсказки в меню настроек</string>
+    <string name="summary_dashboard_suggestions_enabled">Подсказки в меню настроек включены</string>
+    <string name="summary_dashboard_suggestions_disabled">Подсказки в меню настроек выключены</string>
+    <!-- Text Clock -->
+    <string name="text_clock_customizations">Текстовые часы</string>
+    <string name="text_clock_alignment">Выравнивание</string>
+    <string name="text_clock_left">Слева</string>
+    <string name="text_clock_center">По центру</string>
+    <string name="text_clock_right">Справа</string>
+    <string name="text_clock_left_right">Влево-вправо</string>
+    <string name="text_clock_right_left">Вправо-влево</string>
+    <string name="text_clock_padding">Отступы от краев</string>
+    <!-- Screen state service -->
+    <string name="screen_state_toggles_title">Действия при выключении экрана</string>
+    <string name="screen_state_toggles_summary">Процессы будут остановлены при выключении экрана</string>
+    <string name="screen_state_toggles_mobile_title">Мобильная сеть</string>
+    <string name="screen_state_toggles_location_title">Местоположение</string>
+    <string name="screen_state_toggles_twog">Переключение на 2G</string>
+    <string name="screen_state_toggles_twog_summary">Мобильная сеть будет переключена на 2G при выключении экрана</string>
+    <string name="screen_state_toggles_threeg">Переключение на 3G</string>
+    <string name="screen_state_toggles_threeg_summary">Мобильная сеть будет переключена на 3G при выключении экрана</string>
+    <string name="screen_state_toggles_gps">Выключить GPS</string>
+    <string name="screen_state_toggles_gps_summary">Геолокация основанная на GPS будет отключена если экран выключен</string>
+    <string name="screen_state_toggles_mobile_data">Отключить мобильный интернет</string>
+    <string name="screen_state_toggles_mobile_data_summary">Отключать мобильный интернет когда экран выключен</string>
+    <string name="screen_state_off_delay_title">Задержка действий при включении экрана</string>
+    <string name="screen_state_on_delay_title">Задержка действий при включении экрана</string>
+    <!-- Display cutout options -->
+    <string name="cutout_main">Настройка выреза</string>
+    <string name="cutout_main_summary">Они действительно срезали углы</string>
+    <string name="display_cutout_style_title">Стиль выреза</string>
+    <string name="display_cutout_style_normal">Обычный</string>
+    <string name="display_cutout_style_immerse">Полноэкранный режим</string>
+    <string name="display_cutout_style_hide">Скрытый</string>
+    <string name="stock_statusbar_in_hide">Высота строки состояния по-умолчанию</string>
+    <string name="stock_statusbar_in_hide_summary">Использовать высоту строки состояния по-умолчанию при скрытии</string>
+    <!-- One ui actionbar -->
+    <string name="enable_oneui">OneUI</string>
+    <string name="enable_oneui_summary">Показывать пустое пространство над настройками панели действий для более легкого использования одной рукой \nПРИМЕЧАНИЕ: перезапустите настройки, чтобы применить эффект</string>
+    <!-- Music Heads Up -->
+    <string name="show_media_heads_up_title">Отображать всплывающие уведомления медиа</string>
+    <string name="show_media_heads_up_summary">Показывать всплывающие уведомления при воспроизведении нового трека, если проигрыватель не открыт</string>
+    <!-- QS Label Tint -->
+    <string name="qs_label_use_new_tint">Оттенок ярлыка быстрых настроек</string>
+    <string name="qs_label_tint_off">По-умолчанию</string>
+    <string name="qs_label_tint_accent">Оттенок цвета акцента</string>
+    <string name="qs_label_tint_gradient">Оттенок цвета градиента</string>
+    <!-- Pocket judge -->
+    <string name="pocket_judge_title">Режим \"В кармане\"</string>
+    <string name="pocket_judge_summary">Блокировать экран и кнопки, когда устройство находится в кармане</string>
+    <!-- QS tile styles -->
+    <string name="qs_tile_style_title">Стиль плиток быстрых настроек</string>
+    <string name="qstile_default">По умолчанию</string>
+    <string name="qstile_circle_trim">Круг c пунктиром</string>
+    <string name="qstile_dual_tone_circle">Двух-тоновый круг</string>
+    <string name="qstile_squircle_trim">Эллипс c пунктиром</string>
+    <string name="qstile_wavey">Волна</string>
+    <string name="qstile_pokesign">Мяч в стиле покеболла</string>
+    <string name="qstile_ninja">Ниндзя</string>
+    <string name="qstile_dottedcircle">Пунктирный круг</string>
+    <string name="qstile_attemptmountain">Горы</string>
+    <string name="qstile_squaremedo">Квадратный ромб</string>
+    <string name="qstile_inkdrop">Чернила</string>
+    <string name="qstile_cookie">Печенье</string>
+    <string name="qstile_circleoutline">Контурный круг</string>
+    <string name="qstile_neonlike">Neonlike</string>
+    <string name="qstile_oos">OOS</string>
+    <string name="qstile_triangles">Треугольник</string>
+    <string name="qstile_divided">Разделенный круг</string>
+    <string name="qstile_cosmos">Космос</string>
+    <string name="qstile_squircle">Округлый квадрат</string>
+    <string name="qstile_teardrop">Капля</string>
+    <!-- Switch styles -->
+    <string name="switch_style_title">Переключение Стилей</string>
+    <string name="switch_default">По умолчанию</string>
+    <string name="switch_oneplus">OnePlus</string>
+    <string name="switch_narrow">Суженный</string>
+    <string name="switch_contained">Запущено в контейнере</string>
+    <string name="switch_telegram">Telegram</string>
+    <!-- Settings dashboard icon style -->
+    <string name="theming_settings_dashboard_icons_title">Иконки панели настроек</string>
+    <string name="theming_settings_dashboard_icons_default">Круглые (по умолчанию)</string>
+    <string name="theming_settings_dashboard_icons_default_accent">Круглые с акцентом</string>
+    <string name="theming_settings_dashboard_icons_plain">Обычный</string>
+    <string name="theming_settings_dashboard_icons_plain_accent">Обычные с акцентом</string>
 </resources>
