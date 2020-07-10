@@ -271,6 +271,12 @@
         android:summary="@string/notification_guts_kill_app_button_summary"
         android:defaultValue="false" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="status_bar_notif_count"
+        android:title="@string/notif_count_title"
+        android:summary="@string/notif_count_summary"
+        android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <!-- Incall vib -->
