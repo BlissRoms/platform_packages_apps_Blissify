@@ -1657,6 +1657,8 @@
     <string name="switch_narrow">Narrow</string>
     <string name="switch_contained">Contained</string>
     <string name="switch_telegram">Telegram</string>
+    <string name="switch_retro">Retro</string>
+    <string name="switch_md2">Material Design 2</string>
 
     <!-- Settings dashboard icon style -->
     <string name="theming_settings_dashboard_icons_title">Settings dashboard icons</string>
