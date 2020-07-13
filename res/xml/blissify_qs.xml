@@ -146,7 +146,7 @@
         android:title="@string/qs_rows_landscape_title"
         android:max="5"
         android:min="1"
-        android:defaultValue="1"
+        android:defaultValue="2"
         settings:units="" />
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
