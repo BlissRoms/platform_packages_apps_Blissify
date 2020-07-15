@@ -39,14 +39,14 @@
     <com.bliss.support.colorpicker.ColorPickerPreference
         android:key="recent_app_sidebar_text_color"
         android:title="@string/recent_app_sidebar_label_color_title"
-        settings:defaultColorValue="0xffffffff"
+        android:defaultValue="0xffffffff"
         alphaSlider="false"
         android:dependency="recent_app_sidebar_disable_labels" />
 
     <com.bliss.support.colorpicker.ColorPickerPreference
         android:key="recent_app_sidebar_bg_color"
         android:title="@string/recent_app_sidebar_bg_color_title"
-        settings:defaultColorValue="0x00ffffff"
+        android:defaultValue="0x00ffffff"
         alphaSlider="true" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference

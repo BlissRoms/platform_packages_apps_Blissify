@@ -68,13 +68,13 @@
         <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="accent_color"
             android:title="@string/rgb_accenter_title"
-            settings:defaultColorValue="0xff1a73e8"
+            android:defaultValue="0xff1a73e8"
             android:persistent="false" />
 
         <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="gradient_color"
             android:title="@string/gradient_color"
-            settings:defaultColorValue="0xff1a73e8"
+            android:defaultValue="0xff1a73e8"
             android:persistent="false" />
 
         <ListPreference

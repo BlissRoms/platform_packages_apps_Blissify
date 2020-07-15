@@ -82,17 +82,17 @@
      <com.bliss.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_weather_temp_color"
         android:title="@string/lockscreen_weather_temp_color"
-        settings:defaultColorValue="0xffffffff" />
+        android:defaultValue="0xffffffff" />
 
      <com.bliss.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_weather_city_color"
         android:title="@string/lockscreen_weather_city_color"
-        settings:defaultColorValue="0xffffffff" />
+        android:defaultValue="0xffffffff" />
 
     <com.bliss.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_weather_icon_color"
         android:title="@string/lockscreen_weather_icon_color"
-        settings:defaultColorValue="0xffffffff" />
+        android:defaultValue="0xffffffff" />
 
     </PreferenceCategory>
 
