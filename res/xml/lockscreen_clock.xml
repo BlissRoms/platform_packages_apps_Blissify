@@ -64,7 +64,7 @@
      <com.bliss.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_clock_color"
         android:title="@string/lockscreen_clock_color"
-        settings:defaultColorValue="0xffffffff"
+        android:defaultValue="0xffffffff"
         android:dependency="lockscreen_clock_type" />
 
     <Preference
@@ -135,7 +135,7 @@
      <com.bliss.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_date_color"
         android:title="@string/lockscreen_clock_date_color"
-        settings:defaultColorValue="0xffffffff" />
+        android:defaultValue="0xffffffff" />
 
     </PreferenceCategory>
 
@@ -163,7 +163,7 @@
     <com.bliss.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_owner_info_color"
         android:title="@string/lockscreen_owner_info_color"
-        settings:defaultColorValue="0xffffffff" />
+        android:defaultValue="0xffffffff" />
 
     </PreferenceCategory>
 

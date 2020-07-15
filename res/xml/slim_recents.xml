@@ -33,13 +33,13 @@
     <com.bliss.support.colorpicker.ColorPickerPreference
         android:key="recent_panel_bg_color"
         android:title="@string/recent_panel_bg_color_title"
-        settings:defaultColorValue="0x00ffffff"
+        android:defaultValue="0x00ffffff"
         alphaSlider="true" />
 
     <com.bliss.support.colorpicker.ColorPickerPreference
         android:key="recent_card_bg_color"
         android:title="@string/recent_card_bg_color_title"
-        settings:defaultColorValue="0x00ffffff"
+        android:defaultValue="0x00ffffff"
         alphaSlider="true" />
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -137,13 +137,13 @@
         <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="slim_mem_bar_color"
             android:title="@string/slim_recents_mem_display_color"
-            settings:defaultColorValue="0xffffffff"
+            android:defaultValue="0xffffffff"
             android:dependency="slim_recents_mem_display"/>
 
         <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="slim_mem_text_color"
             android:title="@string/slim_recents_mem_display_text_color"
-            settings:defaultColorValue="0xffffffff"
+            android:defaultValue="0xffffffff"
             android:dependency="slim_recents_mem_display"/>
 
     </PreferenceCategory>
