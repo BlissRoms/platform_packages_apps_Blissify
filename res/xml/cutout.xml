@@ -21,12 +21,18 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="cutout_settings">
 
-    <ListPreference
-        android:key="display_cutout_style"
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="display_cutout_mode"
         android:title="@string/display_cutout_style_title"
-        android:persistent="false"
         android:entries="@array/display_cutout_style_entries"
-        android:entryValues="@array/display_cutout_style_values" />
+        android:entryValues="@array/display_cutout_style_values"
+        android:defaultValue="0" />
+
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
+        android:key="sysui_display_cutout"
+        android:title="@string/sysui_display_cutout_title"
+        android:summary="@string/sysui_display_cutout_summary"
+        android:defaultValue="true"/>
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="stock_statusbar_in_hide"

@@ -75,7 +75,7 @@
         android:key="cutout_settings"
         android:title="@string/cutout_main"
         android:summary="@string/cutout_main_summary"
-        android:fragment="com.blissroms.blissify.fragments.misc.CutoutFragment" />
+        android:fragment="com.blissroms.blissify.fragments.misc.CutoutSettings" />
 
     </PreferenceCategory>
 

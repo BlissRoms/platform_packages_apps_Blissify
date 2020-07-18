@@ -1673,4 +1673,8 @@
     <!-- StatusBar notification count -->
     <string name="notif_count_title">Notification count</string>
     <string name="notif_count_summary">Show notification count near notfication icons</string>
+
+    <!-- Display cutout -->
+    <string name="sysui_display_cutout_title">Display cutout</string>
+    <string name="sysui_display_cutout_summary">Force the display cutout area to black</string>
 </resources>
