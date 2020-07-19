@@ -111,6 +111,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private static final String KEY_CAMERA_SLEEP_ON_RELEASE = "camera_sleep_on_release";
     private static final String KEY_CAMERA_LAUNCH = "camera_launch";
     private static final String KEY_ADDITIONAL_BUTTONS = "additional_buttons";
+    private static final String KEY_NAVBAR_PULSE = "pulse";
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
@@ -125,6 +126,7 @@ public class Buttons extends SettingsPreferenceFragment implements
 
     private SwitchPreference mHardwareKeysDisable;
     private Preference mForceNavbar;
+    private Preference mPulse;
     private SwitchPreference mAnbi;
     private ListPreference mHomeLongPressAction;
     private ListPreference mHomeDoubleTapAction;
@@ -202,6 +204,8 @@ public class Buttons extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_CAMERA);
 
         mNavigationPreferencesCat = findPreference(CATEGORY_NAVBAR);
+
+        mPulse = (Preference) findPreference(KEY_NAVBAR_PULSE);
 
         mHardwareKeysDisable = (SwitchPreference) findPreference(HWKEYS_DISABLED);
         mForceNavbar = (Preference) findPreference(FORCE_NAVBAR);
@@ -684,15 +688,17 @@ public class Buttons extends SettingsPreferenceFragment implements
     private void updatePreferences() {
         if (mNavigationPreferencesCat != null) {
             if (DeviceUtils.isEdgeToEdgeEnabled(getContext())) {
-                    mNavigationPreferencesCat.addPreference(mEdgeLongSwipeAction);
+                mNavigationPreferencesCat.addPreference(mEdgeLongSwipeAction);
 
                 mNavigationPreferencesCat.removePreference(mNavigationArrowKeys);
                 mNavigationPreferencesCat.removePreference(mNavigationHomeLongPressAction);
                 mNavigationPreferencesCat.removePreference(mNavigationHomeDoubleTapAction);
                 mNavigationPreferencesCat.removePreference(mNavigationAppSwitchLongPressAction);
+                mNavigationPreferencesCat.removePreference(mPulse);
             } else if (DeviceUtils.isSwipeUpEnabled(getContext())) {
                 mNavigationPreferencesCat.addPreference(mNavigationHomeLongPressAction);
                 mNavigationPreferencesCat.addPreference(mNavigationHomeDoubleTapAction);
+                mNavigationPreferencesCat.addPreference(mPulse);
 
                 mNavigationPreferencesCat.removePreference(mNavigationAppSwitchLongPressAction);
                 mNavigationPreferencesCat.removePreference(mEdgeLongSwipeAction);
@@ -700,6 +706,7 @@ public class Buttons extends SettingsPreferenceFragment implements
                 mNavigationPreferencesCat.addPreference(mNavigationHomeLongPressAction);
                 mNavigationPreferencesCat.addPreference(mNavigationHomeDoubleTapAction);
                 mNavigationPreferencesCat.addPreference(mNavigationAppSwitchLongPressAction);
+                mNavigationPreferencesCat.addPreference(mPulse);
 
                 mNavigationPreferencesCat.removePreference(mEdgeLongSwipeAction);
             }
