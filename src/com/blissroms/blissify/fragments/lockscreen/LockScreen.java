@@ -58,6 +58,7 @@ import java.util.Collections;
 
 import com.bliss.support.preferences.CustomSeekBarPreference;
 import com.bliss.support.preferences.SystemSettingListPreference;
+import com.bliss.support.preferences.SystemSettingSeekBarPreference;
 
 import lineageos.app.LineageContextConstants;
 
@@ -70,12 +71,18 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
     private static final String TEXT_CLOCK_ALIGNMENT = "text_clock_alignment";
     private static final String TEXT_CLOCK_PADDING = "text_clock_padding";
+    private static final String KEY_LOCKSCREEN_CLOCK_CATEGORY = "lockscreen_clock_category";
+    private static final String KEY_LOCKSCREEN_FONT_STYLE = "lock_clock_font_style";
+    private static final String KEY_LOCKSCREEN_FONT_SIZE = "lock_clock_font_size";
 
     private CustomSeekBarPreference mLockscreenMediaBlur;
     private PreferenceCategory mFODIconPickerCategory;
     private SystemSettingListPreference mLockClockSelection;
     private ListPreference mTextClockAlign;
     private CustomSeekBarPreference mTextClockPadding;
+    private PreferenceCategory mLockClockCategory;
+    private SystemSettingSeekBarPreference mFontStyle;
+    private SystemSettingSeekBarPreference mFontSize;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -101,6 +108,10 @@ public class LockScreen extends SettingsPreferenceFragment implements
             prefSet.removePreference(mFODIconPickerCategory);
         }
 
+        mLockClockCategory = (PreferenceCategory) findPreference(KEY_LOCKSCREEN_CLOCK_CATEGORY);
+        mFontStyle = (SystemSettingListPreference) findPreference(KEY_LOCKSCREEN_FONT_STYLE);
+        mFontSize = (SystemSettingSeekBarPreference) findPreference(KEY_LOCKSCREEN_FONT_SIZE);
+
         // Lockscreen Clock
         mLockClockSelection = (SystemSettingListPreference) findPreference(LOCKSCREEN_CLOCK_SELECTION);
         boolean mClockSelection = Settings.System.getIntForUser(resolver,
@@ -123,6 +134,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
         boolean mTextClockAlignx = Settings.System.getIntForUser(resolver,
                     Settings.System.TEXT_CLOCK_ALIGNMENT, 0, UserHandle.USER_CURRENT) == 1;
         mTextClockPadding.setEnabled(!mTextClockAlignx);
+
+        updatePreferences();
     }
 
     @Override
@@ -220,6 +233,23 @@ public class LockScreen extends SettingsPreferenceFragment implements
             mLockClockSelection.setEntryValues(pluginClockValues);
             Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
+        }
+    }
+
+    private void updatePreferences() {
+        String currentClock = Settings.Secure.getString(
+            resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
+        String[] analogClocks = {"Analogue", "Bliss", "Custom", "Dot", "OP", "Sneeky", "Spectrum", "Spidey"};
+        boolean isAnalogClock = currentClock != null && Arrays.asList(analogClocks).contains(currentClock);
+
+        if (isAnalogClock) {
+           mLockClockCategory.removePreference(mLockClockSelection);
+           mLockClockCategory.removePreference(mFontStyle);
+           mLockClockCategory.removePreference(mFontSize);
+        } else {
+           mLockClockCategory.addPreference(mLockClockSelection);
+           mLockClockCategory.addPreference(mFontStyle);
+           mLockClockCategory.addPreference(mFontSize);
         }
     }
 
