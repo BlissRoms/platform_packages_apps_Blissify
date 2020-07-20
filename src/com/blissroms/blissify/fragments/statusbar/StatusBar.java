@@ -80,6 +80,15 @@ public class StatusBar extends SettingsPreferenceFragment
 
     private static final String TEXT_CHARGING_SYMBOL = "text_charging_symbol";
     private static final String CATEGORY_BATTERY_BAR = "batterybar_key";
+    private static final String KEY_SHOW_VOLTE = "volte_icon_style";
+    private static final String KEY_SHOW_DATA_DISABLED = "data_disabled_icon";
+    private static final String KEY_SHOW_ROAMING = "roaming_indicator_icon";
+    private static final String KEY_SHOW_FOURG = "show_fourg_icon";
+    private static final String KEY_OLD_MOBILETYPE = "use_old_mobiletype";
+    private static final String BLISS_LOGO_COLOR = "status_bar_logo_color";
+    private static final String KEY_VOWIFI_ICON_STYLE = "vowifi_icon_style";
+    private static final String KEY_VOLTE_VOWIFI_OVERRIDE = "volte_vowifi_override";
+    private static final String KEY_VOLTE_CATEGORY = "volte_icon_category";
 
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
@@ -91,26 +100,89 @@ public class StatusBar extends SettingsPreferenceFragment
     private PreferenceCategory mStatusBarClockCategory;
     private PreferenceScreen mNetworkTrafficPref;
     private PreferenceCategory mBatteryBarCategory;
+    private ListPreference mShowVolte;
+    private SwitchPreference mDataDisabled;
+    private SwitchPreference mShowRoaming;
+    private SwitchPreference mShowFourg;
+    private ColorPickerPreference mBlissLogoColor;
+    private SwitchPreference mOldMobileType;
+    private ListPreference mVowifiIconStyle;
+    private SwitchPreference mOverride;
+    private PreferenceCategory mVolteCategory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.blissify_statusbar);
 
+        PreferenceScreen prefSet = getPreferenceScreen();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final ContentResolver resolver = getActivity().getContentResolver();
+        Context mContext = getActivity().getApplicationContext();
+
         mStatusBarClock =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
         mStatusBarClock.setOnPreferenceChangeListener(this);
 
         mStatusBarClockCategory =
-                (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_CLOCK);
+                (PreferenceCategory) prefSet.findPreference(CATEGORY_CLOCK);
 
         mStatusBarBatteryCategory =
-                (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_BATTERY);
+                (PreferenceCategory) prefSet.findPreference(CATEGORY_BATTERY);
 
         mBatteryBarCategory =
-                (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_BATTERY_BAR);
+                (PreferenceCategory) prefSet.findPreference(CATEGORY_BATTERY_BAR);
 
         mTextChargingSymbol = (ListPreference) findPreference(TEXT_CHARGING_SYMBOL);
+
+        mShowVolte = (ListPreference) findPreference(KEY_SHOW_VOLTE);
+        mDataDisabled = (SwitchPreference) findPreference(KEY_SHOW_DATA_DISABLED);
+        mShowRoaming = (SwitchPreference) findPreference(KEY_SHOW_ROAMING);
+        mShowFourg = (SwitchPreference) findPreference(KEY_SHOW_FOURG);
+        mVowifiIconStyle = (ListPreference) findPreference(KEY_VOWIFI_ICON_STYLE);
+        mOverride = (SwitchPreference) findPreference(KEY_VOLTE_VOWIFI_OVERRIDE);
+
+        if (!TelephonyUtils.isVoiceCapable(getActivity())) {
+            prefScreen.removePreference(mDataDisabled);
+            prefScreen.removePreference(mShowVolte);
+            prefScreen.removePreference(mShowRoaming);
+            prefScreen.removePreference(mShowFourg);
+            prefScreen.removePreference(mVowifiIconStyle);
+            prefScreen.removePreference(mOverride);
+        }
+
+        mBlissLogoColor =
+                (ColorPickerPreference) findPreference(BLISS_LOGO_COLOR);
+        int intColor = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_COLOR, 0xFFFFFFFF,
+                UserHandle.USER_CURRENT);
+        String hexColor = ColorPickerPreference.convertToARGB(intColor);
+        mBlissLogoColor.setNewPreviewColor(intColor);
+        if (intColor != 0xFFFFFFFF) {
+            mBlissLogoColor.setSummary(hexColor);
+        } else {
+            mBlissLogoColor.setSummary(R.string.default_string);
+        }
+        mBlissLogoColor.setOnPreferenceChangeListener(this);
+
+        mOldMobileType = (SwitchPreference) findPreference(KEY_OLD_MOBILETYPE);
+        boolean mConfigUseOldMobileType = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_useOldMobileIcons);
+
+        boolean showing = Settings.System.getIntForUser(resolver,
+                Settings.System.USE_OLD_MOBILETYPE,
+                mConfigUseOldMobileType ? 1 : 0, UserHandle.USER_CURRENT) != 0;
+        mOldMobileType.setChecked(showing);
+
+        mVolteCategory = (PreferenceCategory) findPreference(KEY_VOLTE_CATEGORY);
+
+        if (!DeviceUtils.isVowifiAvailable(mContext)) {
+            mVolteCategory.removePreference(mVowifiIconStyle);
+            mVolteCategory.removePreference(mOverride);
+        } else {
+            mVolteCategory.addPreference(mVowifiIconStyle);
+            mVolteCategory.addPreference(mOverride);
+        }
     }
 
     @Override
@@ -159,7 +231,22 @@ public class StatusBar extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return true;
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mBlissLogoColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                Integer.parseInt(String.valueOf(newValue)));
+            int value = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_COLOR, value,
+                UserHandle.USER_CURRENT);
+            if (value != 0xFFFFFFFF) {
+                mBlissLogoColor.setSummary(hex);
+            } else {
+                mBlissLogoColor.setSummary(R.string.default_string);
+            }
+            return true;
+        }
+        return false;
     }
 
     private int getClockPosition() {
@@ -169,8 +256,10 @@ public class StatusBar extends SettingsPreferenceFragment
 
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
+        boolean mConfigUseOldMobileType = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_useOldMobileIcons);
 
-     Settings.System.putIntForUser(resolver,
+        Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_BATTERY_STYLE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING, 1, UserHandle.USER_CURRENT);
@@ -178,6 +267,30 @@ public class StatusBar extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.TEXT_CHARGING_SYMBOL, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.VOLTE_ICON_STYLE, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.VOWIFI_ICON_STYLE, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.VOLTE_VOWIFI_OVERRIDE, 1, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.DATA_DISABLED_ICON, 1, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.ROAMING_INDICATOR_ICON, 1, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.BLUETOOTH_SHOW_BATTERY, 1, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.SHOW_FOURG_ICON, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_COLOR, 0xFFFFFFFF, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_POSITION, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_STYLE, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.USE_OLD_MOBILETYPE, mConfigUseOldMobileType ? 1 : 0, UserHandle.USER_CURRENT);
     }
 
     @Override
