@@ -24,146 +24,41 @@
         android:key="bliss_header"
         android:layout="@layout/qs_header" />
 
-    <!-- Qs header -->
+    <!-- QS Themes -->
     <PreferenceCategory
-        android:key="qs_header_category"
-        android:icon="@drawable/ic_quicksettings"
-        android:title="@string/qs_header_category">
-
-    <!-- Status Bar Custom Header -->
-    <PreferenceScreen
-        android:id="@+id/qs_header"
-        android:title="@string/qs_header_title"
-        android:summary="@string/qs_header_summary"
-        android:fragment="com.blissroms.blissify.fragments.qs.QSHeaders"/>
-
-    <lineageos.preference.LineageSystemSettingListPreference
-        android:key="qs_quick_pulldown"
-        android:title="@string/status_bar_quick_qs_pulldown_title"
-        android:entries="@array/status_bar_quick_qs_pulldown_entries"
-        android:entryValues="@array/status_bar_quick_qs_pulldown_values"
-        android:defaultValue="0" />
-
-    </PreferenceCategory>
-
-    <!-- QS clock -->
-    <PreferenceCategory
-        android:key="show_qs_clock_category"
-        android:title="@string/qs_clock_title"
-        android:icon="@drawable/ic_clock">
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="show_qs_clock"
-        android:title="@string/qs_clock_title"
-        android:summary="@string/qs_clock_summary"
-        android:defaultValue="true" />
-
-    </PreferenceCategory>
-
-    <!-- QS brightness -->
-    <PreferenceCategory
-        android:key="qs_system_info_category"
-        android:title="@string/qs_system_info_title"
-        android:icon="@drawable/ic_system">
+        android:title="@string/tile_options"
+        android:icon="@drawable/ic_blissify_qs">
 
     <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="qs_system_info"
-        android:title="@string/qs_system_info_title"
-        android:entries="@array/qs_system_info_entries"
-        android:entryValues="@array/qs_system_info_values"
-        android:defaultValue="0"
-        android:summary="%s" />
-
-    </PreferenceCategory>
-
-    <!-- QS data usage  -->
-    <PreferenceCategory
-        android:key="qs_datausage_category"
-        android:title="@string/qs_datausage_title"
-        android:icon="@drawable/ic_network_monitor">
-
-    <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="qs_datausage"
-        android:title="@string/qs_datausage_title"
-        android:entries="@array/qs_datausage_entries"
-        android:entryValues="@array/qs_datausage_values"
-        android:defaultValue="0" />
-    </PreferenceCategory>
-
-    <!-- QS brightness -->
-    <PreferenceCategory
-        android:title="@string/status_bar_brightness_category"
-        android:icon="@drawable/ic_brightness_slider">
-
-    <lineageos.preference.LineageSecureSettingListPreference
-        android:key="qs_show_brightness_slider"
-        android:title="@string/qs_brightness_slider_title"
-        android:entries="@array/qs_brightness_slider_entries"
-        android:entryValues="@array/qs_brightness_slider_values"
+        android:key="qs_panel_bg_use_new_tint"
+        android:title="@string/qs_bg_use_new_tint"
+        android:dialogTitle="@string/qs_bg_use_new_tint"
+        android:entries="@array/qs_tint_entries"
+        android:entryValues="@array/qs_tint_values"
         android:summary="%s"
-        android:dialogTitle="@string/status_bar_brightness_slider_title"
         android:defaultValue="1" />
 
-    <lineageos.preference.LineageSecureSettingSwitchPreference
-        android:key="qs_show_auto_brightness"
-        android:title="@string/brightness_icon_title"
-        android:summary="@string/brightness_icon_summary"
-        lineage:requiresConfig="@*android:bool/config_automatic_brightness_available"
-        android:defaultValue="true" />
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="qs_label_use_new_tint"
+        android:title="@string/qs_label_use_new_tint"
+        android:dialogTitle="@string/qs_label_use_new_tint"
+        android:entries="@array/qs_label_tint_entries"
+        android:entryValues="@array/qs_label_tint_values"
+        android:summary="%s"
+        android:defaultValue="1"
+        android:dependency="qs_panel_bg_use_new_tint" />
 
     <com.bliss.support.preferences.SecureSettingSwitchPreference
-        android:key="qs_show_brightness_buttons"
-        android:title="@string/qs_show_brightness_buttons_title"
-        android:summary="@string/qs_show_brightness_buttons_summary"
+        android:key="quick_settings_vibrate"
+        android:title="@string/quick_settings_vibrate_title"
+        android:summary="@string/quick_settings_vibrate_summary"
+        android:defaultValue="false"/>
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="qs_tile_title_visibility"
+        android:title="@string/qs_tile_title_visibility_title"
+        android:summary="@string/qs_tile_title_visibility_summary"
         android:defaultValue="true" />
-
-    </PreferenceCategory>
-
-    <!-- QS Rows/COls -->
-    <PreferenceCategory
-        android:key="qs_columns_rows_category"
-        android:icon="@drawable/ic_statusbar_icons"
-        android:title="@string/qs_columns_rows_category_title" >
-
-    <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="qs_quickbar_columns"
-        android:title="@string/sysui_qqs_count_title"
-        android:dialogTitle="@string/sysui_qqs_count_title"
-        android:entries="@array/qs_quickbar_layout_entries"
-        android:entryValues="@array/qs_quickbar_layout_values"
-        android:defaultValue="6" />
-
-    <com.bliss.support.preferences.SystemSettingSeekBarPreference
-        android:key="qs_rows_portrait"
-        android:title="@string/qs_rows_portrait_title"
-        android:max="5"
-        android:min="1"
-        android:defaultValue="3"
-        settings:units="" />
-
-    <com.bliss.support.preferences.SystemSettingSeekBarPreference
-        android:key="qs_rows_landscape"
-        android:title="@string/qs_rows_landscape_title"
-        android:max="5"
-        android:min="1"
-        android:defaultValue="2"
-        settings:units="" />
-
-    <com.bliss.support.preferences.SystemSettingSeekBarPreference
-        android:key="qs_columns_portrait"
-        android:title="@string/qs_columns_portrait_title"
-        android:max="7"
-        android:min="1"
-        android:defaultValue="4"
-        settings:units="" />
-
-    <com.bliss.support.preferences.SystemSettingSeekBarPreference
-        android:key="qs_columns_landscape"
-        android:title="@string/qs_columns_landscape_title"
-        android:max="9"
-        android:min="1"
-        android:defaultValue="4"
-        settings:units="" />
 
     </PreferenceCategory>
 
@@ -238,42 +133,147 @@
 
     </PreferenceCategory>
 
-    <!-- QS Themes -->
+    <!-- QS Rows/COls -->
     <PreferenceCategory
-        android:title="@string/tile_options"
-        android:icon="@drawable/ic_blissify_qs">
+        android:key="qs_columns_rows_category"
+        android:icon="@drawable/ic_statusbar_icons"
+        android:title="@string/qs_columns_rows_category_title" >
 
     <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="qs_panel_bg_use_new_tint"
-        android:title="@string/qs_bg_use_new_tint"
-        android:dialogTitle="@string/qs_bg_use_new_tint"
-        android:entries="@array/qs_tint_entries"
-        android:entryValues="@array/qs_tint_values"
+        android:key="qs_quickbar_columns"
+        android:title="@string/sysui_qqs_count_title"
+        android:dialogTitle="@string/sysui_qqs_count_title"
+        android:entries="@array/qs_quickbar_layout_entries"
+        android:entryValues="@array/qs_quickbar_layout_values"
+        android:defaultValue="6" />
+
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="qs_rows_portrait"
+        android:title="@string/qs_rows_portrait_title"
+        android:max="5"
+        android:min="1"
+        android:defaultValue="3"
+        settings:units="" />
+
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="qs_rows_landscape"
+        android:title="@string/qs_rows_landscape_title"
+        android:max="5"
+        android:min="1"
+        android:defaultValue="2"
+        settings:units="" />
+
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="qs_columns_portrait"
+        android:title="@string/qs_columns_portrait_title"
+        android:max="7"
+        android:min="1"
+        android:defaultValue="4"
+        settings:units="" />
+
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="qs_columns_landscape"
+        android:title="@string/qs_columns_landscape_title"
+        android:max="9"
+        android:min="1"
+        android:defaultValue="4"
+        settings:units="" />
+
+    </PreferenceCategory>
+
+    <!-- Qs header -->
+    <PreferenceCategory
+        android:key="qs_header_category"
+        android:icon="@drawable/ic_quicksettings"
+        android:title="@string/qs_header_category">
+
+    <!-- Status Bar Custom Header -->
+    <PreferenceScreen
+        android:id="@+id/qs_header"
+        android:title="@string/qs_header_title"
+        android:summary="@string/qs_header_summary"
+        android:fragment="com.blissroms.blissify.fragments.qs.QSHeaders"/>
+
+    <lineageos.preference.LineageSystemSettingListPreference
+        android:key="qs_quick_pulldown"
+        android:title="@string/status_bar_quick_qs_pulldown_title"
+        android:entries="@array/status_bar_quick_qs_pulldown_entries"
+        android:entryValues="@array/status_bar_quick_qs_pulldown_values"
+        android:defaultValue="0" />
+
+    </PreferenceCategory>
+
+    <!-- QS brightness -->
+    <PreferenceCategory
+        android:title="@string/status_bar_brightness_category"
+        android:icon="@drawable/ic_brightness_slider">
+
+    <lineageos.preference.LineageSecureSettingListPreference
+        android:key="qs_show_brightness_slider"
+        android:title="@string/qs_brightness_slider_title"
+        android:entries="@array/qs_brightness_slider_entries"
+        android:entryValues="@array/qs_brightness_slider_values"
         android:summary="%s"
+        android:dialogTitle="@string/status_bar_brightness_slider_title"
         android:defaultValue="1" />
 
-    <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="qs_label_use_new_tint"
-        android:title="@string/qs_label_use_new_tint"
-        android:dialogTitle="@string/qs_label_use_new_tint"
-        android:entries="@array/qs_label_tint_entries"
-        android:entryValues="@array/qs_label_tint_values"
-        android:summary="%s"
-        android:defaultValue="1"
-        android:dependency="qs_panel_bg_use_new_tint" />
-
-    <com.bliss.support.preferences.SecureSettingSwitchPreference
-        android:key="quick_settings_vibrate"
-        android:title="@string/quick_settings_vibrate_title"
-        android:summary="@string/quick_settings_vibrate_summary"
-        android:defaultValue="false"/>
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="qs_tile_title_visibility"
-        android:title="@string/qs_tile_title_visibility_title"
-        android:summary="@string/qs_tile_title_visibility_summary"
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+        android:key="qs_show_auto_brightness"
+        android:title="@string/brightness_icon_title"
+        android:summary="@string/brightness_icon_summary"
+        lineage:requiresConfig="@*android:bool/config_automatic_brightness_available"
         android:defaultValue="true" />
 
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
+        android:key="qs_show_brightness_buttons"
+        android:title="@string/qs_show_brightness_buttons_title"
+        android:summary="@string/qs_show_brightness_buttons_summary"
+        android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- QS clock -->
+    <PreferenceCategory
+        android:key="show_qs_clock_category"
+        android:title="@string/qs_clock_title"
+        android:icon="@drawable/ic_clock">
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="show_qs_clock"
+        android:title="@string/qs_clock_title"
+        android:summary="@string/qs_clock_summary"
+        android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- QS brightness -->
+    <PreferenceCategory
+        android:key="qs_system_info_category"
+        android:title="@string/qs_system_info_title"
+        android:icon="@drawable/ic_system">
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="qs_system_info"
+        android:title="@string/qs_system_info_title"
+        android:entries="@array/qs_system_info_entries"
+        android:entryValues="@array/qs_system_info_values"
+        android:defaultValue="0"
+        android:summary="%s" />
+
+    </PreferenceCategory>
+
+    <!-- QS data usage  -->
+    <PreferenceCategory
+        android:key="qs_datausage_category"
+        android:title="@string/qs_datausage_title"
+        android:icon="@drawable/ic_network_monitor">
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="qs_datausage"
+        android:title="@string/qs_datausage_title"
+        android:entries="@array/qs_datausage_entries"
+        android:entryValues="@array/qs_datausage_values"
+        android:defaultValue="0" />
     </PreferenceCategory>
 
     <!-- QS Footer -->
