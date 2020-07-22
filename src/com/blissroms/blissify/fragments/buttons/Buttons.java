@@ -91,6 +91,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
     private static final String KEY_VOLUME_PANEL_ON_LEFT = "volume_panel_on_left";
     private static final String KEY_NAVIGATION_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
+    private static final String KEY_NAVBAR_LAYOUT_VIEWS = "navbar_layout_views";
     private static final String KEY_NAVIGATION_HOME_LONG_PRESS = "navigation_home_long_press";
     private static final String KEY_NAVIGATION_HOME_DOUBLE_TAP = "navigation_home_double_tap";
     private static final String KEY_NAVIGATION_APP_SWITCH_LONG_PRESS =
@@ -153,6 +154,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private SwitchPreference mTorchLongPressPowerGesture;
     private ListPreference mTorchLongPressPowerTimeout;
     private ButtonBacklightBrightness backlight;
+    private ListPreference mNavbarLayoutViews;
 
     private PreferenceCategory mNavigationPreferencesCat;
 
@@ -255,6 +257,9 @@ public class Buttons extends SettingsPreferenceFragment implements
 
         // Navigation bar arrow keys while typing
         mNavigationArrowKeys = (SwitchPreference) findPreference(KEY_NAVIGATION_ARROW_KEYS);
+
+        // Stock Navbar settings
+        mNavbarLayoutViews = (ListPreference) findPreference(KEY_NAVBAR_LAYOUT_VIEWS);
 
         // Navigation bar home long press
         mNavigationHomeLongPressAction = initList(KEY_NAVIGATION_HOME_LONG_PRESS,
@@ -684,15 +689,17 @@ public class Buttons extends SettingsPreferenceFragment implements
     private void updatePreferences() {
         if (mNavigationPreferencesCat != null) {
             if (DeviceUtils.isEdgeToEdgeEnabled(getContext())) {
-                    mNavigationPreferencesCat.addPreference(mEdgeLongSwipeAction);
+                mNavigationPreferencesCat.addPreference(mEdgeLongSwipeAction);
 
                 mNavigationPreferencesCat.removePreference(mNavigationArrowKeys);
                 mNavigationPreferencesCat.removePreference(mNavigationHomeLongPressAction);
                 mNavigationPreferencesCat.removePreference(mNavigationHomeDoubleTapAction);
                 mNavigationPreferencesCat.removePreference(mNavigationAppSwitchLongPressAction);
+                mNavigationPreferencesCat.removePreference(mNavbarLayoutViews);
             } else if (DeviceUtils.isSwipeUpEnabled(getContext())) {
                 mNavigationPreferencesCat.addPreference(mNavigationHomeLongPressAction);
                 mNavigationPreferencesCat.addPreference(mNavigationHomeDoubleTapAction);
+                mNavigationPreferencesCat.addPreference(mNavbarLayoutViews);
 
                 mNavigationPreferencesCat.removePreference(mNavigationAppSwitchLongPressAction);
                 mNavigationPreferencesCat.removePreference(mEdgeLongSwipeAction);
@@ -700,6 +707,7 @@ public class Buttons extends SettingsPreferenceFragment implements
                 mNavigationPreferencesCat.addPreference(mNavigationHomeLongPressAction);
                 mNavigationPreferencesCat.addPreference(mNavigationHomeDoubleTapAction);
                 mNavigationPreferencesCat.addPreference(mNavigationAppSwitchLongPressAction);
+                mNavigationPreferencesCat.addPreference(mNavbarLayoutViews);
 
                 mNavigationPreferencesCat.removePreference(mEdgeLongSwipeAction);
             }
@@ -829,6 +837,7 @@ public class Buttons extends SettingsPreferenceFragment implements
                             keys.add(KEY_NAVIGATION_HOME_LONG_PRESS);
                             keys.add(KEY_NAVIGATION_HOME_DOUBLE_TAP);
                             keys.add(KEY_NAVIGATION_APP_SWITCH_LONG_PRESS);
+                            keys.add(KEY_NAVBAR_LAYOUT_VIEWS);
                         } else if (DeviceUtils.isSwipeUpEnabled(context)) {
                             keys.add(KEY_NAVIGATION_APP_SWITCH_LONG_PRESS);
                             keys.add(KEY_EDGE_LONG_SWIPE);
