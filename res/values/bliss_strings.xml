@@ -1747,4 +1747,8 @@
     <!-- Lockscreen clock -->
     <string name="lockscreen_clock_pref_title">Lockscreen Clock Options</string>
     <string name="lockscreen_clock_pref_summary">change default clock style, date styles, clock and date size, owner info font and size</string>
+
+    <!-- GVM -->
+    <string name="theme_customization_statusbar_height_title">Statusbar Height</string>
+    <string name="theme_customization_ui_radius_title">UI Radius</string>
 </resources>
