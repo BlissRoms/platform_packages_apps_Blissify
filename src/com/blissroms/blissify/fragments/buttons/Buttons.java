@@ -696,6 +696,7 @@ public class Buttons extends SettingsPreferenceFragment implements
                 mNavigationPreferencesCat.removePreference(mNavigationHomeDoubleTapAction);
                 mNavigationPreferencesCat.removePreference(mNavigationAppSwitchLongPressAction);
                 mNavigationPreferencesCat.removePreference(mNavbarLayoutViews);
+                resetPreferences();
             } else if (DeviceUtils.isSwipeUpEnabled(getContext())) {
                 mNavigationPreferencesCat.addPreference(mNavigationHomeLongPressAction);
                 mNavigationPreferencesCat.addPreference(mNavigationHomeDoubleTapAction);
@@ -712,6 +713,12 @@ public class Buttons extends SettingsPreferenceFragment implements
                 mNavigationPreferencesCat.removePreference(mEdgeLongSwipeAction);
             }
         }
+    }
+
+    private void resetPreferences() {
+        final ContentResolver resolver = getActivity().getContentResolver();
+        Settings.Secure.putStringForUser(resolver,
+                Settings.Secure.NAVBAR_LAYOUT_VIEWS, "default", UserHandle.USER_CURRENT);
     }
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {
