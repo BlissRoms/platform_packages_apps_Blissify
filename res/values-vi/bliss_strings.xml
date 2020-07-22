@@ -18,7 +18,7 @@
     <!-- Blissify -->
     <string name="blissify_title">Blissify</string>
     <!-- Categories -->
-    <string name="blissify_statusbar_title">Thanh Trạng Thái</string>
+    <string name="blissify_statusbar_title">Thanh trạng thái</string>
     <string name="blissify_qs_title">Cài đặt nhanh</string>
     <string name="blissify_animation_title">Hiệu ứng</string>
     <string name="blissify_buttons_title">Phím</string>
@@ -33,7 +33,7 @@
     <string name="toast_animation_category">Hiệu ứng thông báo nhanh</string>
     <string name="network_traffic_category">Tốc độ mạng</string>
     <string name="lockscreen_media_category">Đa phương tiện</string>
-    <string name="lockscreen_visualizer_category">Trình hiển thị</string>
+    <string name="lockscreen_visualizer_category">Sóng âm nhạc</string>
     <string name="lockscreen_wake_category">Đánh thức</string>
     <string name="dashboard_settings_category">Bảng điều khiển</string>
     <string name="cpu_info">Thông tin CPU</string>
@@ -252,7 +252,7 @@
     <string name="network_traffic_settings_summary">Hiển thị và tùy biến mức lưu lượng mạng hiện tại</string>
     <string name="network_traffic_location_title">Vị trí</string>
     <string name="network_traffic_location_disable">Tắt</string>
-    <string name="network_traffic_location_statusbar">Thanh Trạng Thái</string>
+    <string name="network_traffic_location_statusbar">Thanh trạng thái</string>
     <string name="network_traffic_location_quick_statusbar">Thanh trạng thái nhanh</string>
     <string name="network_traffic_mode_title">Chế độ hiển thị</string>
     <string name="network_traffic_mode_up">Chỉ tải lên</string>
@@ -283,7 +283,7 @@
     <!-- Button settings -->
     <string name="button_pref_title">Phím</string>
     <string name="hardware_keys_power_key_title">Phím nguồn</string>
-    <string name="hardware_keys_home_key_title">Phím Trang chủ</string>
+    <string name="hardware_keys_home_key_title">Phím Home</string>
     <string name="hardware_keys_back_key_title">Phím Quay lại</string>
     <string name="hardware_keys_menu_key_title">Phím Menu</string>
     <string name="hardware_keys_assist_key_title">Phím tìm kiếm</string>
@@ -333,7 +333,7 @@
     <string name="volume_answer_call_title">Trả lời cuộc gọi</string>
     <string name="volume_answer_call_summary">Trả lời cuộc gọi đến bằng cách nhấn nút âm lượng</string>
     <string name="home_answer_call_title">Trả lời cuộc gọi</string>
-    <string name="home_answer_call_summary">Trả lời cuộc gọi đến bằng cách nhấn nút trang chủ</string>
+    <string name="home_answer_call_summary">Trả lời cuộc gọi bằng phím Home</string>
     <string name="extras_title">Bổ sung</string>
     <string name="additional_buttons_title">Các nút bổ sung</string>
     <!-- Key backlight -->
@@ -358,7 +358,7 @@
     <string name="navigation_bar_left_summary">Thanh điều hướng sẽ hiển thị ở cạnh trái màn hình khi xoay ngang thiết bị</string>
     <string name="navigation_bar_arrow_keys_title">Hiển thị phím mũi tên trong khi nhập liệu</string>
     <string name="navigation_bar_arrow_keys_summary">Hiển thị các nút con trỏ bên trái và bên phải khi nhập liệu. Ghi đè bộ chuyển IME.</string>
-    <string name="navigation_bar_home_long_press_title">Hành động khi nhấn giữ phím Trang chính</string>
+    <string name="navigation_bar_home_long_press_title">Thao tác nhấn giữ phím home</string>
     <string name="navigation_bar_home_double_tap_title">Hành động nhấn phím Trang chính hai lần</string>
     <string name="navigation_bar_app_switch_long_press_title">Hành động bấm giữ phím Gần đây</string>
     <string name="navigation_bar_edge_long_swipe_title">Hành động khi thao tác trượt dài từ cạnh</string>
@@ -419,7 +419,7 @@
     <string name="battery_bar_animate_title">Hiệu ứng khi sạc</string>
     <string name="battery_bar_animate_summary">Các hoạt ảnh khi sạc có thể dẫn đến một trải nghiệm không tốt cho người dùng. Bật tính năng theo ý riêng của bạn.</string>
     <string name="battery_bar_hide">Ẩn</string>
-    <string name="battery_bar_statusbar">Thanh Trạng Thái</string>
+    <string name="battery_bar_statusbar">Thanh trạng thái</string>
     <string name="battery_bar_topnav">Phía trên thanh điều hướng</string>
     <string name="battery_bar_bottomnav">Phía dưới thanh điều hướng</string>
     <string name="battery_bar_reg">Bình thường</string>
@@ -452,6 +452,17 @@
     <string name="status_bar_volte_style_7">Biểu tượng VoLIT</string>
     <string name="status_bar_volte_style_8">Biểu tượng VoLTE Asus</string>
     <string name="status_bar_volte_style_9">Miui 11 VoLTE</string>
+    <string name="status_bar_volte_style_10">Caf HD</string>
+    <string name="status_bar_volte_style_11">EMUI</string>
+    <!-- VoWiFi icon -->
+    <string name="vowifi_icon_style_title">Kiểu biểu tượng VoWiFi</string>
+    <string name="vowifi_icon_default">Mặc định</string>
+    <string name="vowifi_icon_asus">Asus</string>
+    <string name="vowifi_icon_emui">EMUI</string>
+    <string name="vowifi_icon_moto">Motorola</string>
+    <string name="vowifi_icon_oneplus">OOS</string>
+    <string name="volte_vowifi_override_title">Ghi đè VoWiFi</string>
+    <string name="volte_vowifi_override_summary">Ẩn VoLTE khi VoWiFi có sẵn. Điều này cũng ghi đè biểu tượng tín hiệu kiểu cũ cho VoWiFi.</string>
     <!-- Data disabled indicator -->
     <string name="data_disabled_icon_title">Hiển thị biểu tượng khi dữ liệu di động không được kích hoạt</string>
     <string name="data_disabled_icon_summary">Hiển thị các dấu hiệu chéo bên cạnh thanh tín hiệu khi dữ liệu bị vô hiệu hóa</string>
@@ -533,7 +544,7 @@
     <string name="aggressive_battery_saver_title">Tự động bật khi bật Tiết kiệm pin</string>
     <string name="aggressive_battery_saver_summary">Tự động bật Pin tích cực khi sử dụng trình tiết kiệm pin</string>
     <!-- Heads up -->
-    <string name="notification_stat">Thanh Trạng Thái</string>
+    <string name="notification_stat">Thanh trạng thái</string>
     <string name="heads_up_notifications">Thông báo nổi</string>
     <string name="heads_up_notifications_summary">Thông báo trên thanh trạng thái</string>
     <string name="add_heads_up_package">Thêm ứng dụng</string>
@@ -569,7 +580,7 @@
     <string name="double_tap_sleep_anywhere_title">Chạm để tắt màn hình</string>
     <string name="double_tap_sleep_anywhere_summary">Chạm đúp vào bất kì đâu trên màn hình khóa để tắt màn hình</string>
     <!-- Music Visualizer -->
-    <string name="music_visualizer_title">Trình hiển thị nhạc</string>
+    <string name="music_visualizer_title">Sóng âm nhạc</string>
     <string name="music_visualizer_summary">Hiện trình hiển thị nhạc khi có sẵn</string>
     <!-- Lockscreen Visualizer -->
     <string name="lockscreen_autocolor_title">Màu sắc tự động</string>
@@ -599,13 +610,13 @@
     <string name="lockscreen_secure_power_menu_title">Menu nguồn an toàn</string>
     <string name="lockscreen_secure_power_menu_summary">Chỉ cho phép hành động menu nguồn sau khi xác thực</string>
     <!-- Wakelock blocker -->
-    <string name="wakelock_blocker_title">Trình chặn wakelock</string>
+    <string name="wakelock_blocker_title">Chặn đánh thức màn hình</string>
     <string name="wakelock_blocker_summary">Chặn đánh thức hệ thống</string>
     <string name="wakelock_blocker_save">Lưu lại</string>
-    <string name="wakelock_list_header">Wakelock có sẵn</string>
+    <string name="wakelock_list_header">Đánh thức màn hình có sẵn</string>
     <string name="wakelock_blocker_reload">Tải lại</string>
     <string name="wakelock_blocker_warning_title">Cẩn thận khi tiến hành</string>
-    <string name="wakelock_blocker_warning">Chặn các wakelock có khả năng gây mất ổn định, dừng đột ngột hoặc mất dữ liệu</string>
+    <string name="wakelock_blocker_warning">Chặn đánh thức màn hình có khả năng gây mất ổn định, dừng đột ngột hoặc mất dữ liệu</string>
     <!-- Alarm blocker -->
     <string name="alarm_blocker_title">Chặn báo thức</string>
     <string name="alarm_blocker_summary">Chặn báo thức khi màn hình tắt</string>
@@ -819,6 +830,9 @@
     <string name="lockscreen_charging_animation_drop">Cắt bỏ</string>
     <string name="lockscreen_charging_animation_explosion">Nổ</string>
     <string name="lockscreen_charging_animation_water">Nước</string>
+    <string name="lockscreen_charging_animation_phone">Điện thoại</string>
+    <string name="lockscreen_charging_animation_stack">Xếp chồng</string>
+    <string name="lockscreen_charging_animation_wavy">Wavy</string>
     <!-- Old mobile type icons -->
     <string name="use_old_mobiletype_title">Biểu tượng di động cỡ nhỏ</string>
     <string name="use_old_mobiletype_summary">Hiển thị biểu tượng loại di động trên đầu chỉ báo tín hiệu</string>
@@ -873,9 +887,6 @@
     <string name="lock_screen_custom_notif_summary">Chuyển đổi để bật cài đặt thông báo tối đa trên màn hình khóa</string>
     <string name="lockscreen_max_notif_config_title">Số lượng thông báo cho phép tối đa</string>
     <string name="lockscreen_max_notif_config_summary">Kiểm soát số lượng thông báo mở rộng tối đa để hiển thị trên màn hình khóa</string>
-    <!-- Force expanded notifications -->
-    <string name="force_expanded_notifications_title">Buộc mở rộng thông báo</string>
-    <string name="force_expanded_notifications_summary">Bắc buộc các ứng dụng hỗ trợ mở rộng thông báo</string>
     <!-- Screenshot -->
     <string name="screenshot_type_title">Nút âm lượng Kiểu ảnh chụp màn hình</string>
     <string name="screenshot_type_fullscreen">Đầy đủ</string>
@@ -1042,6 +1053,14 @@
     <string name="font_sofia-sans-medium">Sofia-sans-medium</string>
     <string name="font_sofia-semicondensed-regular">Sofia-semicondensed-regular</string>
     <string name="font_sofia-semicondensed-medium">Sofia-semicondensed-medium</string>
+    <string name="font_samsung">Samsung</string>
+    <string name="font_mexcellent">Mexecellent</string>
+    <string name="font_burnstown">Burnstown</string>
+    <string name="font_dumbledor">Dumbledor</string>
+    <string name="font_phantombold">Phantom Bold</string>
+    <string name="font_snowstorm">Bão tuyết</string>
+    <string name="font_neoneon">NeonNeon</string>
+    <string name="font_circularstd">CirculaStd</string>
     <string name="font_size_title">Kích thước phông chữ</string>
     <!-- QS themes -->
     <string name="qs_themes_category_title">Chủ đề cài đặt nhanh</string>
@@ -1225,12 +1244,14 @@
     <string name="fod_recog_animation_effect_title">Hiệu ứng hoạt ảnh cho vân tay dưới màn hình</string>
     <string name="fod_recog_animation_miui_normal">MIUI mặc định</string>
     <string name="fod_recog_animation_miui_aod">Màn hình luôn bật</string>
+    <string name="fod_recog_animation_miui_aurora">Cực quang</string>
     <string name="fod_recog_animation_miui_light">Sáng</string>
     <string name="fod_recog_animation_miui_pop">Nhạc trẻ</string>
     <string name="fod_recog_animation_miui_pulse">Pulse</string>
     <string name="fod_recog_animation_miui_pulse_white">Pulse (Trắng)</string>
     <string name="fod_recog_animation_miui_rhythm">Rhythm</string>
     <string name="fod_recog_animation_op_cosmos">Cosmos</string>
+    <string name="fod_recog_animation_op_energy">Năng lượng</string>
     <string name="fod_recog_animation_op_mclaren">McLaren</string>
     <string name="fod_recog_animation_op_ripple">Ripple</string>
     <string name="fod_recog_animation_op_stripe">Stripe</string>
@@ -1450,4 +1471,39 @@
     <!-- Pocket judge -->
     <string name="pocket_judge_title">Phát hiện khi ở trong túi</string>
     <string name="pocket_judge_summary">Chặn bật màn hình và các nút bấm khi thiết bị ở trong túi</string>
+    <!-- QS tile styles -->
+    <string name="qs_tile_style_title">Kiểu ô cài đặt nhanh</string>
+    <string name="qstile_default">Mặc định</string>
+    <string name="qstile_circle_trim">Vòng tròn có viền</string>
+    <string name="qstile_dual_tone_circle">Vòng tròn có viền hai tông màu</string>
+    <string name="qstile_squircle_trim">Hình vuông bo tròn có viền</string>
+    <string name="qstile_wavey">Sóng</string>
+    <string name="qstile_pokesign">Pokesign</string>
+    <string name="qstile_ninja">Ninja</string>
+    <string name="qstile_dottedcircle">Vòng tròn chấm</string>
+    <string name="qstile_attemptmountain">Ngọn núi hùng vĩ</string>
+    <string name="qstile_squaremedo">Hình vuông chéo nhau</string>
+    <string name="qstile_inkdrop">Mực</string>
+    <string name="qstile_cookie">Bánh</string>
+    <string name="qstile_circleoutline">Circle Outline</string>
+    <string name="qstile_neonlike">Neonlike</string>
+    <string name="qstile_oos">OOS</string>
+    <string name="qstile_triangles">Hình tam giác</string>
+    <string name="qstile_divided">Divided circle</string>
+    <string name="qstile_cosmos">Cosmos</string>
+    <string name="qstile_squircle">Hình vuông bo tròn</string>
+    <string name="qstile_teardrop">Hình giọt nước</string>
+    <!-- Switch styles -->
+    <string name="switch_style_title">Chuyển đổi phong cách</string>
+    <string name="switch_default">Mặc định</string>
+    <string name="switch_oneplus">OnePlus</string>
+    <string name="switch_narrow">Hẹp</string>
+    <string name="switch_contained">Container</string>
+    <string name="switch_telegram">PushBullet/Telegram</string>
+    <!-- Settings dashboard icon style -->
+    <string name="theming_settings_dashboard_icons_title">Cài đặt biểu tượng bảng điều khiển</string>
+    <string name="theming_settings_dashboard_icons_default">Vòng (mặc định)</string>
+    <string name="theming_settings_dashboard_icons_default_accent">Giọng tròn</string>
+    <string name="theming_settings_dashboard_icons_plain">Plain</string>
+    <string name="theming_settings_dashboard_icons_plain_accent">Giọng đồng bằng</string>
 </resources>
