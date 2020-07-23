@@ -1729,4 +1729,8 @@
     <string name="qs_header_background_title">Statusbar background</string>
     <string name="qs_header_background_black">Black</string>
     <string name="qs_header_background_transparent">Transparent</string>
+
+    <!-- Rotation button -->
+    <string name="show_rotation_button_title">Rotation button</string>
+    <string name="show_rotation_button_summary">Display rotation button on navigation bar when available</string>
 </resources>
