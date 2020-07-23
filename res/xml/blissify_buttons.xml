@@ -75,6 +75,12 @@
             android:entryValues="@array/navbar_layout_values"
             android:defaultValue="default" />
 
+        <com.bliss.support.preferences.GlobalSettingSwitchPreference
+            android:key="show_rotation_button"
+            android:title="@string/show_rotation_button_title"
+            android:summary="@string/show_rotation_button_summary"
+            android:defaultValue="true" />
+
         <lineageos.preference.LineageSystemSettingSwitchPreference
             android:key="navigation_bar_menu_arrow_keys"
             android:title="@string/navigation_bar_arrow_keys_title"

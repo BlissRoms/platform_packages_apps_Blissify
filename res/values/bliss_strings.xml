@@ -1743,4 +1743,8 @@
     <!-- Theme Reset Option -->
     <string name="theme_option_reset_title">Reset Theme Options</string>
     <string name="theme_option_reset_message">Are you sure you want to reset themes-accent to default?</string>
+
+    <!-- Rotation button -->
+    <string name="show_rotation_button_title">Rotation button</string>
+    <string name="show_rotation_button_summary">Display rotation button on navigation bar when available</string>
 </resources>
