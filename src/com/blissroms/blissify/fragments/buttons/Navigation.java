@@ -60,6 +60,7 @@ import java.util.HashMap;
 import java.util.Collections;
 
 import lineageos.providers.LineageSettings;
+import lineageos.hardware.LineageHardwareManager;
 
 @SearchIndexable
 public class Navigation extends SettingsPreferenceFragment implements
@@ -116,6 +117,11 @@ public class Navigation extends SettingsPreferenceFragment implements
 
     }
 
+    private static boolean isKeyDisablerSupported(Context context) {
+        final LineageHardwareManager hardware = LineageHardwareManager.getInstance(context);
+        return hardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE);
+    }
+
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
 
@@ -145,6 +151,9 @@ public class Navigation extends SettingsPreferenceFragment implements
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
+
+                    if (!isKeyDisablerSupported(context))
+                        keys.add(NAVBAR_VISIBILITY);
                     return keys;
                 }
     };
