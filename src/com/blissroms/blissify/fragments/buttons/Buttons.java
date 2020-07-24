@@ -781,6 +781,7 @@ public class Buttons extends SettingsPreferenceFragment implements
 
                     if (!isKeyDisablerSupported(context))
                         keys.add(HWKEYS_DISABLED);
+                        keys.add(FORCE_NAVBAR);
 
                     if (!DeviceUtils.hasHomeKey(context) && !DeviceUtils.hasBackKey(context) && !DeviceUtils.hasMenuKey(context) && !DeviceUtils.hasAssistKey(context) && !DeviceUtils.hasAppSwitchKey(context))
                         keys.add(KEY_ANBI);
