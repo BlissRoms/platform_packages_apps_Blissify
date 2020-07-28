@@ -1744,4 +1744,9 @@
     <string name="theme_type_xtended_clear">Clear Theme</string>
     <string name="theme_type_material_ocean">Material Ocean</string>
 
+    <string name="pin_wheel">pin wheel</string>
+    <string name="keyguard_clock_flow_title">Keyguard clock flow</string>
+    <string name="floral">floral</string>
+    <string name="wavy">wavy</string>
+    <string name="circle">circle</string>
 </resources>
