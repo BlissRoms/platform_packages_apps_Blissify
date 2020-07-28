@@ -47,6 +47,13 @@
         android:defaultValue="false" />
 
     <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="keyguard_clock_flow"
+        android:title="@string/keyguard_clock_flow_title"
+        android:entries="@array/clock_flow_entries"
+        android:entryValues="@array/clock_flow_values"
+        android:defaultValue="0" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
         android:key="lockscreen_clock_selection"
         android:title="@string/lockscreen_clock_title"
         android:dialogTitle="@string/lockscreen_clock_dialog_title"
