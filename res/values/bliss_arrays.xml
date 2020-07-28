@@ -1881,4 +1881,15 @@
         <item>5</item>
     </string-array>
 
+    <!-- Clock Flow -->
+    <string-array name="clock_flow_entries">
+        <item>@string/disabled</item>
+        <item>@string/pin_wheel</item>
+    </string-array>
+
+    <string-array name="clock_flow_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
 </resources>
