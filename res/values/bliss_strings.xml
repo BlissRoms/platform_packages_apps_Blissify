@@ -1779,4 +1779,10 @@
     <string name="lock_clock_color_accent">Accent</string>
     <string name="aosp_weather">Aosp Weather</string>
     <string name="omni_weather">Omni Weather</string>
+
+    <!-- Lockscreen Clock Animation -->
+    <string name="keyguard_clock_animation_title">Keyguard Clock Animation</string>
+    <string name="floral">floral</string>
+    <string name="wavy">wavy</string>
+    <string name="circle">circle</string>
 </resources>
