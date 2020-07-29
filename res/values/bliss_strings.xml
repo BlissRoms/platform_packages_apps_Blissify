@@ -1744,4 +1744,7 @@
     <string name="theme_type_xtended_clear">Clear Theme</string>
     <string name="theme_type_material_ocean">Material Ocean</string>
 
+    <!-- Lockscreen clock -->
+    <string name="lockscreen_clock_pref_title">Lockscreen Clock Options</string>
+    <string name="lockscreen_clock_pref_summary">change default clock style, date styles, clock and date size, owner info font and size</string>
 </resources>
