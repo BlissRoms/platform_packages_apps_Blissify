@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2019 BlissRoms Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="lockscreen_clock_fragment"
+    android:title="@string/lockscreen_clock_category">
+
+    <!-- LockScreen Clocks -->
+    <PreferenceCategory
+        android:key="lockscreen_clock_category"
+        android:icon="@drawable/ic_clock"
+        android:title="@string/lockscreen_clock_category">
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_hide_clock"
+        android:title="@string/lockscreen_hide_clock_title"
+        android:summary="@string/lockscreen_hide_clock_summary"
+        android:defaultValue="false" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="lockscreen_clock_selection"
+        android:title="@string/lockscreen_clock_title"
+        android:dialogTitle="@string/lockscreen_clock_dialog_title"
+        android:defaultValue="2" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="lock_clock_font_style"
+        android:title="@string/clock_font_style_title"
+        android:entries="@array/font_style_entries"
+        android:entryValues="@array/font_style_values"
+        android:defaultValue="36" />
+
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="lock_clock_font_size"
+        android:title="@string/clock_font_size_title"
+        android:max="108"
+        settings:min="20"
+        settings:units="dp"
+        android:defaultValue="50" />
+
+    <Preference
+        android:key="clock_font_size_warning"
+        android:selectable="false"
+        android:summary="@string/clock_font_size_warning_summary" />
+
+    </PreferenceCategory>
+
+    <!-- Text clock customization -->
+    <PreferenceCategory
+        android:key="text_clock_customizations"
+        android:title="@string/text_clock_customizations" >
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="text_clock_alignment"
+        android:title="@string/text_clock_alignment"
+        android:dialogTitle="@string/text_clock_alignment"
+        android:entries="@array/text_clock_entries"
+        android:entryValues="@array/text_clock_values"
+        android:defaultValue="0" />
+
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="text_clock_padding"
+        android:title="@string/text_clock_padding"
+        android:max="100"
+        android:min="0"
+        android:dependency="text_clock_alignment"
+        settings:units="dp"
+        android:defaultValue="50" />
+    </PreferenceCategory>
+
+    <!-- LockScreen Date -->
+    <PreferenceCategory
+        android:key="lockscreen_date_category"
+        android:icon="@drawable/ic_clock"
+        android:title="@string/lockscreen_clockdate_category">
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_date_hide"
+        android:title="@string/lockscreen_date_hide_title"
+        android:summary="@string/lockscreen_date_hide_summary"
+        android:defaultValue="false" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="lockscreen_date_selection"
+        android:title="@string/lockscreen_date_selection_title"
+        android:dialogTitle="@string/lockscreen_date_dialog_title"
+        android:entries="@array/lockscreen_date_selection_entries"
+        android:entryValues="@array/lockscreen_date_selection_values"
+        android:defaultValue="0" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="lock_date_font_style"
+        android:title="@string/date_font_style_title"
+        android:entries="@array/font_style_entries"
+        android:entryValues="@array/font_style_values"
+        android:defaultValue="36" />
+
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="lock_date_font_size"
+        android:title="@string/lock_date_font_size_title"
+        android:max="25"
+        settings:min="10"
+        settings:units="dp"
+        android:defaultValue="18" />
+
+    </PreferenceCategory>
+
+    <!-- LockScreen Date -->
+    <PreferenceCategory
+        android:key="owner_info_category"
+        android:icon="@drawable/ic_clock"
+        android:title="@string/owner_info_category">
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="lock_ownerinfo_fonts"
+        android:title="@string/lock_ownerinfo_font_title"
+        android:entries="@array/font_style_entries"
+        android:entryValues="@array/font_style_values"
+        android:defaultValue="36" />
+
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="lockowner_font_size"
+        android:title="@string/lockowner_font_size_title"
+        android:max="25"
+        settings:min="10"
+        settings:units="dp"
+        android:defaultValue="18" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
