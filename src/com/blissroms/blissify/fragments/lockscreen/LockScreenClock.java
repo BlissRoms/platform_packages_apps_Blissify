@@ -69,10 +69,18 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
     private static final String TEXT_CLOCK_ALIGNMENT = "text_clock_alignment";
     private static final String TEXT_CLOCK_PADDING = "text_clock_padding";
+    private static final String KEY_LOCKSCREEN_CLOCK_CATEGORY = "lockscreen_clock_category";
+    private static final String KEY_LOCKSCREEN_FONT_STYLE = "lock_clock_font_style";
+    private static final String KEY_LOCKSCREEN_FONT_SIZE = "lock_clock_font_size";
+    private static final String KEY_TEXT_CLOCK_CATEGORY = "text_clock_customizations";
 
     private SystemSettingListPreference mLockClockSelection;
     private ListPreference mTextClockAlign;
     private CustomSeekBarPreference mTextClockPadding;
+    private PreferenceCategory mLockClockCategory;
+    private PreferenceCategory mTextClockCategory;
+    private ListPreference mFontStyle;
+    private SystemSettingSeekBarPreference mFontSize;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -82,6 +90,10 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
         Context mContext = getContext();
+
+        mLockClockCategory = (PreferenceCategory) findPreference(KEY_LOCKSCREEN_CLOCK_CATEGORY);
+        mFontStyle = (ListPreference) findPreference(KEY_LOCKSCREEN_FONT_STYLE);
+        mFontSize = (SystemSettingSeekBarPreference) findPreference(KEY_LOCKSCREEN_FONT_SIZE);
 
         // Lockscreen Clock
         mLockClockSelection = (SystemSettingListPreference) findPreference(LOCKSCREEN_CLOCK_SELECTION);
@@ -96,6 +108,7 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
         mLockClockSelection.setOnPreferenceChangeListener(this);
 
         // Text Clock Alignment
+        mTextClockCategory = (PreferenceCategory) findPreference(KEY_TEXT_CLOCK_CATEGORY);
         mTextClockAlign = (ListPreference) findPreference(TEXT_CLOCK_ALIGNMENT);
         mTextClockAlign.setEnabled(mClockSelection);
         mTextClockAlign.setOnPreferenceChangeListener(this);
@@ -105,6 +118,8 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
         boolean mTextClockAlignx = Settings.System.getIntForUser(resolver,
                     Settings.System.TEXT_CLOCK_ALIGNMENT, 0, UserHandle.USER_CURRENT) == 1;
         mTextClockPadding.setEnabled(!mTextClockAlignx);
+
+        updatePreferences();
     }
 
     @Override
@@ -158,6 +173,43 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
             mLockClockSelection.setEntryValues(pluginClockValues);
             Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
+        }
+    }
+
+    private void updatePreferences() {
+        ContentResolver resolver = getActivity().getContentResolver();
+        PreferenceScreen prefSet = getPreferenceScreen();
+
+        final String currentClock = Settings.Secure.getString(
+            resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
+        final boolean mIsAnalogeClock = currentClock != null &&
+                         currentClock.contains("AnalogClockController") ||
+                         currentClock.contains("BlissClockController") ||
+                         currentClock.contains("CustomNumClockController") ||
+                         currentClock.contains("DotClockController") ||
+                         currentClock.contains("SneekyClockControllerk") ||
+                         currentClock.contains("SpectrumClockController") ||
+                         currentClock.contains("SpideyClockController") ||
+                         currentClock.contains("OP") ? true : false;
+
+        final boolean mIsDefaultClock = currentClock != null &&
+                         currentClock.contains("DefaultClock") ? true : false;
+
+        if (mIsAnalogeClock) {
+            mLockClockCategory.removePreference(mLockClockSelection);
+            mLockClockCategory.removePreference(mFontStyle);
+            mLockClockCategory.removePreference(mFontSize);
+            mTextClockCategory.removePreference(mTextClockPadding);
+            mTextClockCategory.removePreference(mTextClockAlign);
+        } else if (!mIsDefaultClock) {
+            mTextClockCategory.removePreference(mTextClockPadding);
+            mTextClockCategory.removePreference(mTextClockAlign);
+        } else {
+            mLockClockCategory.addPreference(mLockClockSelection);
+            mLockClockCategory.addPreference(mFontStyle);
+            mLockClockCategory.addPreference(mFontSize);
+            mTextClockCategory.addPreference(mTextClockPadding);
+            mTextClockCategory.addPreference(mTextClockAlign);
         }
     }
 
