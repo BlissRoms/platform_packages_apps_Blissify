@@ -77,7 +77,7 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
     private ListPreference mTextClockAlign;
     private CustomSeekBarPreference mTextClockPadding;
     private PreferenceCategory mLockClockCategory;
-    private SystemSettingListPreference mFontStyle;
+    private ListPreference mFontStyle;
     private SystemSettingSeekBarPreference mFontSize;
 
     @Override
@@ -90,7 +90,7 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
         Context mContext = getContext();
 
         mLockClockCategory = (PreferenceCategory) findPreference(KEY_LOCKSCREEN_CLOCK_CATEGORY);
-        mFontStyle = (SystemSettingListPreference) findPreference(KEY_LOCKSCREEN_FONT_STYLE);
+        mFontStyle = (ListPreference) findPreference(KEY_LOCKSCREEN_FONT_STYLE);
         mFontSize = (SystemSettingSeekBarPreference) findPreference(KEY_LOCKSCREEN_FONT_SIZE);
 
         // Lockscreen Clock
@@ -179,13 +179,25 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
 
         final String currentClock = Settings.Secure.getString(
             resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
-        String[] analogClocks = {"AnalogueClock", "BlissClock", "CustomNumClock", "DotClock", "OP", "SneekyClock", "SpectrumClock", "SpideyClock"};
-        boolean isAnalogClock = currentClock != null && Arrays.asList(analogClocks).contains(currentClock);
+        String[] analogClocks = {"AnalogueClock", "BlissClock", "CustomNumClock",
+                                    "DotClock", "OP", "SneekyClock", "SpectrumClock", "SpideyClock"};
+        boolean isAnalogClock = false;
+        for (int i = 0; i < analogClocks.length; i++) {
+            if (currentClock != null &&
+                    currentClock.contains(analogClocks[i])) {
+                isAnalogClock = true;
+            }
+            break;
+        }
 
         if (isAnalogClock) {
-           prefSet.removePreference(mLockClockSelection);
-           prefSet.removePreference(mFontStyle);
-           prefSet.removePreference(mFontSize);
+           mLockClockCategory.removePreference(mLockClockSelection);
+           mLockClockCategory.removePreference(mFontStyle);
+           mLockClockCategory.removePreference(mFontSize);
+        } else {
+           mLockClockCategory.addPreference(mLockClockSelection);
+           mLockClockCategory.addPreference(mFontStyle);
+           mLockClockCategory.addPreference(mFontSize);
         }
     }
 
