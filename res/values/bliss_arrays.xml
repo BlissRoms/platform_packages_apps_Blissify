@@ -1898,4 +1898,14 @@
         <item>4</item>
     </string-array>
 
+    <string-array name="analog_clocks">
+        <item>AnalogClockController</item>
+        <item>BlissClockController</item>
+        <item>CustomNumClockController</item>
+        <item>DotClockController</item>
+        <item>SneekyClockController</item>
+        <item>SpectrumClockController</item>
+        <item>SpideyClockController</item>
+    </string-array>
+
 </resources>
