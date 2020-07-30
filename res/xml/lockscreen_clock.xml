@@ -16,6 +16,11 @@
     android:key="lockscreen_clock_fragment"
     android:title="@string/lockscreen_clock_category">
 
+    <!-- Bliss Logo Header -->
+    <Preference
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
     <!-- LockScreen Clocks -->
     <PreferenceCategory
         android:key="lockscreen_clock_category"
