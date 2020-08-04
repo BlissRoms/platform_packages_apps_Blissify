@@ -495,7 +495,7 @@
     <string name="status_bar_volte_style_7">VoLIT Icon</string>
     <string name="status_bar_volte_style_8">VoLTE Asus Icon</string>
     <string name="status_bar_volte_style_9">Miui 11 VoLTE</string>
-    <string name="status_bar_volte_style_10">Caf HD</string>
+    <string name="status_bar_volte_style_10">Default</string>
     <string name="status_bar_volte_style_11">EMUI</string>
 
     <!-- VoWiFi icon -->

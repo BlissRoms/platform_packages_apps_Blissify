@@ -907,6 +907,7 @@
     <!-- StatusBar volte settings -->
     <string-array name="status_bar_volte_entries" translatable="false">
         <item>@string/status_bar_volte_disabled</item>
+        <item>@string/status_bar_volte_style_10</item>
         <item>@string/status_bar_volte_style_1</item>
         <item>@string/status_bar_volte_style_2</item>
         <item>@string/status_bar_volte_style_3</item>
@@ -916,12 +917,12 @@
         <item>@string/status_bar_volte_style_7</item>
         <item>@string/status_bar_volte_style_8</item>
         <item>@string/status_bar_volte_style_9</item>
-        <item>@string/status_bar_volte_style_10</item>
         <item>@string/status_bar_volte_style_11</item>
     </string-array>
 
     <string-array name="status_bar_volte_values" translatable="false">
         <item>0</item>
+        <item>10</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -931,7 +932,6 @@
         <item>7</item>
         <item>8</item>
         <item>9</item>
-        <item>10</item>
         <item>11</item>
     </string-array>
 
