@@ -112,6 +112,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private static final String KEY_CAMERA_SLEEP_ON_RELEASE = "camera_sleep_on_release";
     private static final String KEY_CAMERA_LAUNCH = "camera_launch";
     private static final String KEY_ADDITIONAL_BUTTONS = "additional_buttons";
+    private static final String KEY_PIXEL_NAV_ANIMATION = "pixel_nav_animation";
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
@@ -155,6 +156,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private ListPreference mTorchLongPressPowerTimeout;
     private ButtonBacklightBrightness backlight;
     private ListPreference mNavbarLayoutViews;
+    private SwitchPreference mPixelNavAnimation;
 
     private PreferenceCategory mNavigationPreferencesCat;
 
@@ -204,6 +206,8 @@ public class Buttons extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_CAMERA);
 
         mNavigationPreferencesCat = findPreference(CATEGORY_NAVBAR);
+
+        mPixelNavAnimation = (SwitchPreference) findPreference(KEY_PIXEL_NAV_ANIMATION);
 
         mHardwareKeysDisable = (SwitchPreference) findPreference(HWKEYS_DISABLED);
         mForceNavbar = (Preference) findPreference(FORCE_NAVBAR);
@@ -696,11 +700,13 @@ public class Buttons extends SettingsPreferenceFragment implements
                 mNavigationPreferencesCat.removePreference(mNavigationHomeDoubleTapAction);
                 mNavigationPreferencesCat.removePreference(mNavigationAppSwitchLongPressAction);
                 mNavigationPreferencesCat.removePreference(mNavbarLayoutViews);
+                mNavigationPreferencesCat.removePreference(mPixelNavAnimation);
                 resetPreferences();
             } else if (DeviceUtils.isSwipeUpEnabled(getContext())) {
                 mNavigationPreferencesCat.addPreference(mNavigationHomeLongPressAction);
                 mNavigationPreferencesCat.addPreference(mNavigationHomeDoubleTapAction);
                 mNavigationPreferencesCat.addPreference(mNavbarLayoutViews);
+                mNavigationPreferencesCat.addPreference(mPixelNavAnimation);
 
                 mNavigationPreferencesCat.removePreference(mNavigationAppSwitchLongPressAction);
                 mNavigationPreferencesCat.removePreference(mEdgeLongSwipeAction);
@@ -709,6 +715,7 @@ public class Buttons extends SettingsPreferenceFragment implements
                 mNavigationPreferencesCat.addPreference(mNavigationHomeDoubleTapAction);
                 mNavigationPreferencesCat.addPreference(mNavigationAppSwitchLongPressAction);
                 mNavigationPreferencesCat.addPreference(mNavbarLayoutViews);
+                mNavigationPreferencesCat.addPreference(mPixelNavAnimation);
 
                 mNavigationPreferencesCat.removePreference(mEdgeLongSwipeAction);
             }
