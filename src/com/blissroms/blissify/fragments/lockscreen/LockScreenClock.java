@@ -74,6 +74,7 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
     private static final String KEY_LOCKSCREEN_FONT_STYLE = "lock_clock_font_style";
     private static final String KEY_LOCKSCREEN_FONT_SIZE = "lock_clock_font_size";
     private static final String KEY_TEXT_CLOCK_CATEGORY = "text_clock_customizations";
+    private static final String LOCKSCREEN_CLOCK_COLOR_TYPE = "lockscreen_clock_type";
     private static final String LOCKSCREEN_CLOCK_COLOR = "lockscreen_clock_color";
     private static final String LOCKSCREEN_DATE_COLOR = "lockscreen_date_color";
     private static final String LOCKSCREEN_OWNER_INFO_COLOR = "lockscreen_owner_info_color";
@@ -85,6 +86,7 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
     private PreferenceCategory mTextClockCategory;
     private ListPreference mFontStyle;
     private SystemSettingSeekBarPreference mFontSize;
+    private SystemSettingListPreference mLockClockColorType;
 
     static final int DEFAULT = 0xffffffff;
 
@@ -132,6 +134,11 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
         int intColor;
         String hexColor;
 
+        mLockClockColorType = (SystemSettingListPreference) findPreference(LOCKSCREEN_CLOCK_COLOR_TYPE);
+        boolean mClockColorSelection = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_CLOCK_TYPE, 0 ,UserHandle.USER_CURRENT) == 0;
+        mLockClockColorType.setOnPreferenceChangeListener(this);
+
         mLockscreenClockColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_CLOCK_COLOR);
         mLockscreenClockColorPicker.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
@@ -139,6 +146,7 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mLockscreenClockColorPicker.setSummary(hexColor);
         mLockscreenClockColorPicker.setNewPreviewColor(intColor);
+        mLockscreenClockColorPicker.setEnabled(mClockColorSelection);
 
         mLockscreenClockDateColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_DATE_COLOR);
         mLockscreenClockDateColorPicker.setOnPreferenceChangeListener(this);
@@ -187,6 +195,10 @@ public class LockScreenClock extends SettingsPreferenceFragment implements
         } else if (preference == mTextClockAlign) {
             boolean val = Integer.valueOf((String) objValue) == 1;
             mTextClockPadding.setEnabled(!val);
+            return true;
+        } else if (preference == mLockClockColorType) {
+            boolean val = Integer.valueOf((String) objValue) == 0;
+            mLockscreenClockColorPicker.setEnabled(val);
             return true;
         } else if (preference == mLockscreenClockColorPicker) {
             String hex = ColorPickerPreference.convertToARGB(

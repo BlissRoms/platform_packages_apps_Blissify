@@ -54,6 +54,13 @@
         settings:units="dp"
         android:defaultValue="50" />
 
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="lockscreen_clock_type"
+        android:title="@string/lockscreen_clock_color_type"
+        android:entries="@array/lock_clock_color_entries"
+        android:entryValues="@array/lock_clock_color_values"
+        android:defaultValue="0" />
+
      <com.bliss.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_clock_color"
         android:title="@string/lockscreen_clock_color"
