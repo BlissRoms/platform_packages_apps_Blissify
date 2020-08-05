@@ -1774,4 +1774,7 @@
     <string name="lockscreen_weather_temp_color">Weather Temp Color</string>
     <string name="lockscreen_weather_city_color">Weather City Color</string>
     <string name="lockscreen_weather_icon_color">Weather Icon Color</string>
+    <string name="lockscreen_clock_color_type">LockScreen Clock Color Type</string>
+    <string name="lock_clock_color_picker">Color Picker</string>
+    <string name="lock_clock_color_accent">Accent</string>
 </resources>
