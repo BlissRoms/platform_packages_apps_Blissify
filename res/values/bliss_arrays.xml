@@ -1881,4 +1881,15 @@
         <item>5</item>
     </string-array>
 
+    <!-- Lock Clock Color types -->
+    <string-array name="lock_clock_color_entries">
+        <item>@string/lock_clock_color_picker</item>
+        <item>@string/lock_clock_color_accent</item>
+    </string-array>
+
+    <string-array name="lock_clock_color_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
 </resources>
