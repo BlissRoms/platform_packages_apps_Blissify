@@ -53,6 +53,7 @@ public class Weather extends SettingsPreferenceFragment
     private static final String LOCKSCREEN_WEATHER_TEMP_COLOR = "lockscreen_weather_temp_color";
     private static final String LOCKSCREEN_WEATHER_CITY_COLOR = "lockscreen_weather_city_color";
     private static final String LOCKSCREEN_WEATHER_ICON_COLOR = "lockscreen_weather_icon_color";
+    private static final String LOCKSCREEN_WEATHER_STYLE = "lockscreen_weather_style";
 
     static final int DEFAULT = 0xffffffff;
     static final int TRANSPARENT = 0x99FFFFFF;
@@ -61,6 +62,7 @@ public class Weather extends SettingsPreferenceFragment
     private ColorPickerPreference mWeatherRightTextColorPicker;
     private ColorPickerPreference mWeatherLeftTextColorPicker;
     private ColorPickerPreference mWeatherIconColorPicker;
+    private ListPreference mWeatherStyle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -95,6 +97,11 @@ public class Weather extends SettingsPreferenceFragment
         mWeatherIconPack.setSummary(mWeatherIconPack.getEntry());
         mWeatherIconPack.setOnPreferenceChangeListener(this);
 
+        mWeatherStyle = (ListPreference) findPreference(LOCKSCREEN_WEATHER_STYLE);
+        mWeatherStyle.setOnPreferenceChangeListener(this);
+        boolean weatherStyle = Settings.System.getInt(getContentResolver(),
+                     Settings.System.LOCKSCREEN_WEATHER_STYLE, 0) == 0;
+
         int intColor;
         String hexColor;
 
@@ -104,6 +111,7 @@ public class Weather extends SettingsPreferenceFragment
                      Settings.System.LOCK_SCREEN_WEATHER_TEMP_COLOR, DEFAULT);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mWeatherRightTextColorPicker.setSummary(hexColor);
+        mWeatherRightTextColorPicker.setEnabled(weatherStyle);
         mWeatherRightTextColorPicker.setNewPreviewColor(intColor);
 
         mWeatherLeftTextColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_WEATHER_CITY_COLOR);
@@ -112,6 +120,7 @@ public class Weather extends SettingsPreferenceFragment
                     Settings.System.LOCK_SCREEN_WEATHER_CITY_COLOR, DEFAULT);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mWeatherLeftTextColorPicker.setSummary(hexColor);
+        mWeatherLeftTextColorPicker.setEnabled(weatherStyle);
         mWeatherLeftTextColorPicker.setNewPreviewColor(intColor);
 
         mWeatherIconColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_WEATHER_ICON_COLOR);
@@ -120,6 +129,7 @@ public class Weather extends SettingsPreferenceFragment
                      Settings.System.LOCK_SCREEN_WEATHER_ICON_COLOR, TRANSPARENT);
         hexColor = String.format("#%08x", (0x99FFFFFF & intColor));
         mWeatherIconColorPicker.setSummary(hexColor);
+        mWeatherIconColorPicker.setEnabled(weatherStyle);
         mWeatherIconColorPicker.setNewPreviewColor(intColor);
     }
 
@@ -133,6 +143,12 @@ public class Weather extends SettingsPreferenceFragment
                     Settings.System.OMNIJAWS_WEATHER_ICON_PACK, value);
             int valueIndex = mWeatherIconPack.findIndexOfValue(value);
             mWeatherIconPack.setSummary(mWeatherIconPack.getEntries()[valueIndex]);
+        } else if (preference == mWeatherStyle) {
+            boolean val = Integer.valueOf((String) newValue) == 1;
+            mWeatherRightTextColorPicker.setEnabled(!val);
+            mWeatherLeftTextColorPicker.setEnabled(!val);
+            mWeatherIconColorPicker.setEnabled(!val);
+            return true;
         } else if (preference == mWeatherRightTextColorPicker) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));

@@ -1892,4 +1892,14 @@
         <item>1</item>
     </string-array>
 
+    <string-array name="weather_style_entries">
+        <item>@string/omni_weather</item>
+        <item>@string/aosp_weather</item>
+    </string-array>
+
+    <string-array name="weather_style_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
 </resources>

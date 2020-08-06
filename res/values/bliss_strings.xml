@@ -1777,4 +1777,6 @@
     <string name="lockscreen_clock_color_type">LockScreen Clock Color Type</string>
     <string name="lock_clock_color_picker">Color Picker</string>
     <string name="lock_clock_color_accent">Accent</string>
+    <string name="aosp_weather">Aosp Weather</string>
+    <string name="omni_weather">Omni Weather</string>
 </resources>
