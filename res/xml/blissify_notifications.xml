@@ -174,29 +174,6 @@
 
     </PreferenceCategory>
 
-    <!-- Lockscreen Notificatios -->
-    <PreferenceCategory
-        android:key="lockscreen_notifications_category"
-        android:icon="@drawable/ic_lockscreen_notifications"
-        android:title="@string/lockscreen_notifications_category" >
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="lock_screen_custom_notif"
-        android:title="@string/lock_screen_custom_notif_title"
-        android:summary="@string/lock_screen_custom_notif_summary"
-        android:defaultValue="false" />
-
-    <com.bliss.support.preferences.SystemSettingSeekBarPreference
-        android:key="lockscreen_max_notif_config"
-        android:title="@string/lockscreen_max_notif_config_title"
-        android:summary="@string/lockscreen_max_notif_config_summary"
-        android:max="3"
-        android:min="1"
-        android:defaultValue="3"
-        android:dependency="lock_screen_custom_notif" />
-
-    </PreferenceCategory>
-
     <!-- Breathing Notifications -->
     <PreferenceCategory
         android:title="@string/breathing_notifications_category"
