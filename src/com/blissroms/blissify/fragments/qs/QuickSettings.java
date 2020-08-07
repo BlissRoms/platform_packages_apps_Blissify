@@ -218,6 +218,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 Settings.System.QS_BATTERY_STYLE, -1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.QS_DATAUSAGE, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.QS_DATAUSAGE_LOCATION, 0, UserHandle.USER_CURRENT);
     }
 
     @Override

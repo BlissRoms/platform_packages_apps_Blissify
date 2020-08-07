@@ -1780,4 +1780,9 @@
     <string name="lock_clock_color_accent">Accent</string>
     <string name="aosp_weather">Aosp Weather</string>
     <string name="omni_weather">Omni Weather</string>
+
+    <!-- QS data usage location -->
+    <string name="qs_data_usage_location_title">Qs Data Usage Location</string>
+    <string name="qs_data_usage_location_qs_panel">QS Panel</string>
+    <string name="qs_data_usage_location_qs_statusbar">Quick Statusbar</string>
 </resources>
