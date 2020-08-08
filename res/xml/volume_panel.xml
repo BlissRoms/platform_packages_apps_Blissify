@@ -28,6 +28,12 @@
         android:title="@string/audio_panel_view_title"
         android:icon="@drawable/ic_volume">
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="music_volume_panel_dialog"
+        android:title="@string/volume_panel_musiccard_title"
+        android:summary="@string/volume_panel_musiccard_summary"
+        android:defaultValue="true" />
+
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
         android:key="audio_panel_view_timeout"
         android:title="@string/audio_panel_view_timeout_title"

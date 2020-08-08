@@ -1831,4 +1831,8 @@
     <!-- Gradient Panel QS Bg -->
     <string name="qs_new_bg_title">Gradient Qs Background</string>
     <string name="qs_new_bg_summary">Whether to enable gradient based qs panel background</string>
+
+    <!-- MusicCard -->
+    <string name="volume_panel_musiccard_title">Music Card</string>
+    <string name="volume_panel_musiccard_summary">Enable cusic card in volume panels</string>
 </resources>
