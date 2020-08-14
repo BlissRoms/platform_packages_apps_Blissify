@@ -215,6 +215,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         Settings.System.putInt(resolver,
                 Settings.System.BLUETOOTH_QS_SHOW_BATTERY, 1);
         Settings.System.putIntForUser(resolver,
+                Settings.System.QS_BATTERY_LOCATION, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
                 Settings.System.QS_BATTERY_STYLE, -1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.QS_DATAUSAGE, 0, UserHandle.USER_CURRENT);
