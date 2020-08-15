@@ -1796,4 +1796,9 @@
     <string name="qs_settings_disable">Disable</string>
     <string name="qs_settings_expanded_panel">Show in expanded qs panel</string>
     <string name="qs_settings_always">Show always</string>
+
+    <!-- QS Clock Style-->
+    <string name="qs_clock_style_title">Qs Clock Size</string>
+    <string name="qs_clock_static">Static</string>
+    <string name="qs_clock_dynamic">Dynamic (same as statusbar clock)</string>
 </resources>
