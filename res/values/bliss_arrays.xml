@@ -1932,4 +1932,16 @@
         <item>4</item>
     </string-array>
 
+    <string-array name="qs_footer_settings_entries">
+        <item>@string/qs_settings_disable</item>
+        <item>@string/qs_settings_expanded_panel</item>
+        <item>@string/qs_settings_always</item>
+    </string-array>
+
+    <string-array name="qs_footer_settings_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

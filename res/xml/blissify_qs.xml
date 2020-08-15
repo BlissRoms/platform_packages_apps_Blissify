@@ -332,11 +332,12 @@
         android:icon="@drawable/ic_settings_icon"
         android:title="@string/qs_footer_settings_title" >
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
+    <com.bliss.support.preferences.SystemSettingListPreference
         android:key="qs_footer_show_settings"
         android:title="@string/qs_footer_settings_title"
-        android:summary="@string/qs_footer_settings_summary"
-        android:defaultValue="true" />
+        android:entries="@array/qs_footer_settings_entries"
+        android:entryValues="@array/qs_footer_settings_values"
+        android:defaultValue="1" />
 
     </PreferenceCategory>
 
