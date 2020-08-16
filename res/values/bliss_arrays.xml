@@ -918,6 +918,7 @@
         <item>@string/status_bar_volte_style_8</item>
         <item>@string/status_bar_volte_style_9</item>
         <item>@string/status_bar_volte_style_11</item>
+        <item>@string/status_bar_volte_style_12</item>
     </string-array>
 
     <string-array name="status_bar_volte_values" translatable="false">
@@ -933,6 +934,7 @@
         <item>8</item>
         <item>9</item>
         <item>11</item>
+        <item>12</item>
     </string-array>
 
     <!-- VoWiFi icon style -->
@@ -942,6 +944,7 @@
         <item>@string/vowifi_icon_moto</item>
         <item>@string/vowifi_icon_asus</item>
         <item>@string/vowifi_icon_emui</item>
+        <item>@string/vowifi_icon_oneplus_compat</item>
     </string-array>
 
     <string-array name="vowifi_icon_style_values" translatable="false">
@@ -950,6 +953,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
     <!-- Lockscreen clock styles -->

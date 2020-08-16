@@ -497,6 +497,7 @@
     <string name="status_bar_volte_style_9">Miui 11 VoLTE</string>
     <string name="status_bar_volte_style_10">Default</string>
     <string name="status_bar_volte_style_11">EMUI</string>
+    <string name="status_bar_volte_style_12">Oneplus Compat</string>
 
     <!-- VoWiFi icon -->
     <string name="vowifi_icon_style_title">VoWiFi icon style</string>
@@ -505,6 +506,7 @@
     <string name="vowifi_icon_emui">EMUI</string>
     <string name="vowifi_icon_moto">Motorola</string>
     <string name="vowifi_icon_oneplus">OOS</string>
+    <string name="vowifi_icon_oneplus_compat">Oneplus Compat</string>
     <string name="volte_vowifi_override_title">VoWiFi override</string>
     <string name="volte_vowifi_override_summary">Hide VoLTE when VoWiFi is available. This also overrides old style signal icon for VoWiFi.</string>
 
