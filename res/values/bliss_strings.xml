@@ -28,6 +28,7 @@
     <string name="blissify_misc_title">More</string>
     <string name="blissify_lockscreen_title">Lockscreen</string>
     <string name="blissify_gestures_title">Gestures</string>
+    <string name="blissify_biometrics_title">Biometrics</string>
     <string name="blissify_pixel_gestures_title">Pixel Gestures</string>
     <string name="blissify_notifications_title">Notifications</string>
     <string name="blissify_themes_title">Themes</string>
@@ -61,6 +62,8 @@
     <string name="navigation_bar_options_category">Nav Bar Options</string>
     <string name="navigation_title">Navigation</string>
     <string name="music_options">Music Options</string>
+    <string name="qs_rows_cols_title">QS Rows/Columns</string>
+    <string name="qs_columns_rows_summary">change number of qs rows and columns</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
@@ -1757,6 +1760,7 @@
     <string name="lockscreen_clock_pref_summary">change default clock style, date styles, clock and date size, owner info font and size</string>
 
     <!-- GVM -->
+    <string name="ui_options_title">UI Options</string>
     <string name="theme_customization_statusbar_height_title">Statusbar Height</string>
     <string name="theme_customization_ui_radius_title">UI Radius</string>
 

@@ -19,22 +19,40 @@ package com.blissroms.blissify;
 import com.android.internal.logging.nano.MetricsProto;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.content.ContentResolver;
 import android.os.Bundle;
 import android.view.Surface;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
 import com.android.settings.R;
 
 import com.android.settings.SettingsPreferenceFragment;
 
 public class Blissify extends SettingsPreferenceFragment {
 
+    private static final String KEY_BIOMETRICS_CATEGORY = "biometrics_category";
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.blissify);
+        PreferenceScreen prefSet = getPreferenceScreen();
+
+        mBiometrics = (BlissPreference) findPreference(KEY_BIOMETRICS_CATEGORY);
+
+        PackageManager packageManager = mContext.getPackageManager();
+        boolean hasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
+
+        if (!hasFod) {
+            prefSet.removePreference(mBiometrics);
+        }
     }
 
     @Override
