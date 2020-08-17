@@ -65,6 +65,13 @@
           android:fragment="com.blissroms.blissify.fragments.gestures.Gestures"
           android:icon="@drawable/ic_blissify_gestures"/>
 
+      <!-- Biometrics -->
+      <com.blissroms.blissify.ui.BlissPreference
+          android:key="biometrics_category"
+          android:title="@string/blissify_biometrics_title"
+          android:fragment="com.blissroms.blissify.fragments.biometrics.Biometrics"
+          android:icon="@drawable/ic_blissify_biometrics"/>
+
       <!-- Notifications -->
       <com.blissroms.blissify.ui.BlissPreference
           android:key="notifications_category"
