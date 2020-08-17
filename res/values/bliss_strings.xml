@@ -1664,6 +1664,12 @@
     <string name="qstile_squircle">Squircle</string>
     <string name="qstile_teardrop">Teardrop</string>
     <string name="qstile_justicons">Icons without circle</string>
+    <string name="qstile_diamond">Diamond</string>
+    <string name="qstile_hexagon">Hexagon</string>
+    <string name="qstile_star">Star</string>
+    <string name="qstile_gear">Gear</string>
+    <string name="qstile_badge">Badge</string>
+    <string name="qstile_badgetwo">Badge two</string>
 
     <!-- Switch styles -->
     <string name="switch_style_title">Switch Styles</string>
