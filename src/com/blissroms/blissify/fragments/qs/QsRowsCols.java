@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package com.blissroms.blissify.fragments.lockscreen;
+package com.blissroms.blissify.fragments.qs;
 
 import com.android.internal.logging.nano.MetricsProto;
 
 import android.os.Bundle;
-import android.content.Context;
 import android.content.Intent;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.UserHandle;
@@ -30,6 +29,9 @@ import android.content.res.Resources;
 import android.provider.Settings;
 import com.android.settings.R;
 
+import android.text.format.DateFormat;
+import android.util.ArraySet;
+
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -37,6 +39,11 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
+import androidx.preference.DropDownPreference;
+
+import lineageos.preference.LineageSystemSettingListPreference;
+import lineageos.preference.LineageSecureSettingSwitchPreference;
+import lineageos.providers.LineageSettings;
 
 import java.util.Locale;
 import android.text.TextUtils;
@@ -48,71 +55,35 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 import android.util.Log;
-import android.hardware.fingerprint.FingerprintManager;
+
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.Set;
 
-import com.bliss.support.preferences.CustomSeekBarPreference;
-import com.bliss.support.preferences.SystemSettingListPreference;
-
-import lineageos.app.LineageContextConstants;
+import com.android.internal.util.bliss.BlissUtils;
+import com.blissroms.blissify.utils.DeviceUtils;
+import com.blissroms.blissify.utils.TelephonyUtils;
+import com.bliss.support.colorpicker.ColorPickerPreference;
 
 @SearchIndexable
-public class LockScreen extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener, Indexable {
-
-    private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
-
-    private CustomSeekBarPreference mLockscreenMediaBlur;
+public class QsRowsCols extends SettingsPreferenceFragment
+        implements Preference.OnPreferenceChangeListener, Indexable {
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.qs_rows_cols);
 
-        addPreferencesFromResource(R.xml.blissify_lockscreen);
-        ContentResolver resolver = getActivity().getContentResolver();
-        PreferenceScreen prefSet = getPreferenceScreen();
-        Context mContext = getContext();
-
-        int defaultBlur = 25;
-        mLockscreenMediaBlur = (CustomSeekBarPreference) findPreference(KEY_LOCKSCREEN_MEDIA_BLUR);
-        int value = Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_MEDIA_BLUR, defaultBlur);
-        mLockscreenMediaBlur.setValue(value);
-        mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-
-        if (preference == mLockscreenMediaBlur) {
-            int value = (Integer) objValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_MEDIA_BLUR, value);
-            return true;
-        }
-
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
         return false;
-    }
-
-    public static void reset(Context mContext) {
-        ContentResolver resolver = mContext.getContentResolver();
-        Settings.Global.putInt(resolver,
-                Settings.Global.LOCKSCREEN_ENABLE_POWER_MENU, 1);
-        Settings.Global.putInt(resolver,
-                Settings.Global.LOCKSCREEN_POWERMENU_SECURE, 0);
-        Settings.Global.putInt(resolver,
-                Settings.Global.LOCKSCREEN_ENABLE_QS, 1);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.LOCKSCREEN_CHARGING_ANIMATION_STYLE, 1, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.LOCKSCREEN_LOCK_ICON, 1, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.POCKET_JUDGE, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
@@ -129,7 +100,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.blissify_lockscreen;
+                    sir.xmlResId = R.xml.qs_rows_cols;
                     result.add(sir);
                     return result;
                 }
