@@ -69,8 +69,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
     private static final String BLISS_FOOTER_TEXT_STRING = "footer_text_string";
-    private static final String QS_PANEL_COLOR = "qs_panel_color";
-    private static final String QS_BLUR_INTENSITY = "qs_blur_intensity";
     static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
 
     private static final int PULLDOWN_DIR_NONE = 0;
@@ -81,8 +79,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private LineageSystemSettingListPreference mQuickPulldown;
 
     private SystemSettingEditTextPreference mFooterString;
-    private ColorPickerPreference mQsPanelColor;
-    private SystemSettingSeekBarPreference mQsBlurIntensity;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -99,14 +95,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
 
-        mQsPanelColor = (ColorPickerPreference) findPreference(QS_PANEL_COLOR);
-        mQsPanelColor.setOnPreferenceChangeListener(this);
-        int intColor = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.QS_PANEL_BG_COLOR, DEFAULT_QS_PANEL_COLOR, UserHandle.USER_CURRENT);
-        String hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mQsPanelColor.setSummary(hexColor);
-        mQsPanelColor.setNewPreviewColor(intColor);
-
         mFooterString = (SystemSettingEditTextPreference) findPreference(BLISS_FOOTER_TEXT_STRING);
         mFooterString.setOnPreferenceChangeListener(this);
         String footerString = Settings.System.getString(getContentResolver(),
@@ -118,12 +106,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putString(getActivity().getContentResolver(),
                     Settings.System.BLISS_FOOTER_TEXT_STRING, "#BlissRoms");
         }
-
-        mQsBlurIntensity = (SystemSettingSeekBarPreference) findPreference(QS_BLUR_INTENSITY);
-        int qsBlurIntensity = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.QS_BLUR_INTENSITY, 100);
-        mQsBlurIntensity.setValue(qsBlurIntensity);
-        mQsBlurIntensity.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -145,20 +127,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             case STATUS_BAR_QUICK_QS_PULLDOWN:
                 int value = Integer.parseInt((String) newValue);
                 updateQuickPulldownSummary(value);
-                break;
-            case QS_PANEL_COLOR:
-                String hex = ColorPickerPreference.convertToARGB(
-                        Integer.valueOf(String.valueOf(newValue)));
-                preference.setSummary(hex);
-                int intHex = ColorPickerPreference.convertToColorInt(hex);
-                Settings.System.putIntForUser(getContentResolver(),
-                        Settings.System.QS_PANEL_BG_COLOR, intHex, UserHandle.USER_CURRENT);
-                break;
-            case QS_BLUR_INTENSITY:
-                Context mContext = getContext();
-                int val = (Integer) newValue;
-                Settings.System.putInt(mContext.getContentResolver(),
-                        Settings.System.QS_BLUR_INTENSITY, val);
                 break;
             case BLISS_FOOTER_TEXT_STRING:
             String text = (String) newValue;

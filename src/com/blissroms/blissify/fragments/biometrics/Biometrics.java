@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.blissroms.blissify.fragments.lockscreen;
+package com.blissroms.blissify.fragments.biometrics;
 
 import com.android.internal.logging.nano.MetricsProto;
 
@@ -56,78 +56,23 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
-import com.bliss.support.preferences.CustomSeekBarPreference;
-import com.bliss.support.preferences.SystemSettingListPreference;
-
-import lineageos.app.LineageContextConstants;
-
 @SearchIndexable
-public class LockScreen extends SettingsPreferenceFragment implements
+public class Biometrics extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
-
-    private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
-    private static final String KEY_FINGERPRINT_WAKE_CATEGORY = "lockscreen_fp_unlock";
-    private static final String KEY_FINGERPRINT_FORCE_UNLOCK = "fp_unlock_keystore";
-
-    private CustomSeekBarPreference mLockscreenMediaBlur;
-    private PreferenceCategory mFpWakeCategory;
-    private SwitchPreference mForceFpUnlock;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        addPreferencesFromResource(R.xml.blissify_lockscreen);
+        addPreferencesFromResource(R.xml.blissify_biometrics);
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
         Context mContext = getContext();
-
-        int defaultBlur = 25;
-        mLockscreenMediaBlur = (CustomSeekBarPreference) findPreference(KEY_LOCKSCREEN_MEDIA_BLUR);
-        int value = Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_MEDIA_BLUR, defaultBlur);
-        mLockscreenMediaBlur.setValue(value);
-        mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
-
-        PackageManager packageManager = mContext.getPackageManager();
-        boolean hasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
-
-        mFpWakeCategory = (PreferenceCategory) findPreference(KEY_FINGERPRINT_WAKE_CATEGORY);
-        mForceFpUnlock = (SwitchPreference) findPreference(KEY_FINGERPRINT_FORCE_UNLOCK);
-        if (!hasFod) {
-            mFpWakeCategory.removePreference(mForceFpUnlock);
-        } else {
-            mFpWakeCategory.addPreference(mForceFpUnlock);
-        }
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-
-        if (preference == mLockscreenMediaBlur) {
-            int value = (Integer) objValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_MEDIA_BLUR, value);
-            return true;
-        }
-
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
         return false;
-    }
-
-    public static void reset(Context mContext) {
-        ContentResolver resolver = mContext.getContentResolver();
-        Settings.Global.putInt(resolver,
-                Settings.Global.LOCKSCREEN_ENABLE_POWER_MENU, 1);
-        Settings.Global.putInt(resolver,
-                Settings.Global.LOCKSCREEN_POWERMENU_SECURE, 0);
-        Settings.Global.putInt(resolver,
-                Settings.Global.LOCKSCREEN_ENABLE_QS, 1);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.LOCKSCREEN_CHARGING_ANIMATION_STYLE, 1, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.LOCKSCREEN_LOCK_ICON, 1, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.POCKET_JUDGE, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
@@ -144,7 +89,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.blissify_lockscreen;
+                    sir.xmlResId = R.xml.blissify_biometrics;
                     result.add(sir);
                     return result;
                 }
