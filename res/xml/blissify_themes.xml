@@ -90,13 +90,20 @@
             android:key="android.theme.customization.icon_pack.android"
             android:title="@string/theme_customization_sysui_icon_title"/>
 
-    <ListPreference
-        android:key="android.theme.customization.statusbar_height"
-        android:title="@string/theme_customization_statusbar_height_title"/>
+    </PreferenceCategory>
 
-    <ListPreference
-        android:key="android.theme.customization.ui_radius"
-        android:title="@string/theme_customization_ui_radius_title"/>
+    <PreferenceCategory
+        android:key="ui_options_categorry"
+        android:icon="@drawable/ic_bliss_themes"
+        android:title="@string/ui_options_title">
+
+        <ListPreference
+            android:key="android.theme.customization.statusbar_height"
+            android:title="@string/theme_customization_statusbar_height_title"/>
+
+        <ListPreference
+            android:key="android.theme.customization.ui_radius"
+            android:title="@string/theme_customization_ui_radius_title"/>
     </PreferenceCategory>
 
     <PreferenceCategory
