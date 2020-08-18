@@ -278,4 +278,9 @@
 
     </PreferenceCategory>
 
+    <Preference
+        android:key="statusbar_footer_pref"
+        android:title="@string/statusbar_footer_title"
+        android:fragment="com.blissroms.blissify.fragments.misc.CutoutSettings" />
+
 </PreferenceScreen>

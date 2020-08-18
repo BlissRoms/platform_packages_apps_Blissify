@@ -24,6 +24,10 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
+    <PreferenceCategory
+        android:title="@string/gaming_mode_title"
+        android:icon="@drawable/ic_gaming_mode">
+
     <!-- Master switch -->
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_enabled"
@@ -86,6 +90,8 @@
         android:summary="@string/gaming_mode_dynamic_summary"
         android:dependency="gaming_mode_enabled"
         android:defaultValue="false" />
+
+    </PreferenceCategory>
 
     <!-- App picker activity for gaming mode -->
     <PreferenceCategory

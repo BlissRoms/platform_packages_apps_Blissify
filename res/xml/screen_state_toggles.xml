@@ -4,6 +4,15 @@
     android:title="@string/screen_state_toggles_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <!-- Bliss Logo Header -->
+    <Preference
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
+    <PreferenceCategory
+        android:icon="@drawable/ic_screen_off"
+        android:title="@string/screen_state_toggles_title">
+
     <com.bliss.support.preferences.CustomSeekBarPreference
         android:key="screen_state_off_delay"
         android:title="@string/screen_state_off_delay_title"
@@ -21,6 +30,8 @@
         settings:interval="5"
         settings:units="sec"
         android:defaultValue="5" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="screen_state_toggles_mobile_key"
