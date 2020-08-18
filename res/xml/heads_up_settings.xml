@@ -21,6 +21,11 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
+    <!-- Heads Up -->
+    <PreferenceCategory
+        android:icon="@drawable/ic_headsup"
+        android:title="@string/heads_up_notifications" >
+
     <ListPreference
         android:key="heads_up_time_out"
         android:title="@string/heads_up_time_out_title"
@@ -40,6 +45,8 @@
         android:title="@string/less_boring_heads_up_title"
         android:summary="@string/less_boring_heads_up_summary"
         android:defaultValue="false" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
             android:title="@string/heads_up_stoplist_title"

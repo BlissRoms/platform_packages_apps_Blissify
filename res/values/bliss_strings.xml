@@ -64,6 +64,8 @@
     <string name="music_options">Music Options</string>
     <string name="qs_rows_cols_title">QS Rows/Columns</string>
     <string name="qs_columns_rows_summary">change number of qs rows and columns</string>
+    <string name="clock_customisations_title">Clock Customisations</string>
+    <string name="clock_font_and_color_title">Clock Font And Color</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
@@ -177,6 +179,7 @@
     <string name="status_bar_quick_qs_pulldown_always">Always show quick settings on status bar pull down</string>
     <string name="status_bar_double_tap_to_sleep_title">Double-tap to sleep</string>
     <string name="status_bar_double_tap_to_sleep_summary">Double-tap on the status bar to turn off the display</string>
+    <string name="statusbar_footer_title">To enable battery bar &amp; centre statusbar clock. enable notch hide, click me to go to notch settings</string>
 
     <!-- Status bar - icons -->
     <string name="status_bar_icons_title">Status bar icons</string>
@@ -397,6 +400,7 @@
 
     <!-- Power menu -->
     <string name="power_menu_title">Power menu</string>
+    <string name="power_menu_toggles_title">Power Menu Options</string>
     <string name="power_menu_screenshot_title">Screenshot</string>
     <string name="power_menu_screenshot_summary">Long-press for partial screenshot</string>
     <string name="power_menu_screenrecord_title">Screenrecord</string>
@@ -922,6 +926,7 @@
     <string name="show_carrier_keyguard">Lockscreen</string>
     <string name="show_carrier_statusbar">Statusbar</string>
     <string name="show_carrier_enabled">Both</string>
+    <string name="carrier_label_footer_title">Hide notch to enable carrier label in statusbar, CLICK ME to open cutout settings</string
 
     <!-- Charging animation -->
     <string name="lockscreen_charging_animation_title">LockScreen Charging animation</string>
@@ -1012,6 +1017,7 @@
     <!-- StatusBar weather settings -->
     <string name="sb_weather_title">StatusBar Weather</string>
     <string name="sb_weather_summary">config statusBar and qs weather</string>
+    <string name="weather_pref_title">Click me to open omni weather settings</string>
     <string name="status_bar_weather_location_title">Weather Placement</string>
     <string name="statusbar_weather_title">Status bar weather</string>
     <string name="statusbar_weather_summary">Configure from QS settings/Weather</string>

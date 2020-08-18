@@ -92,6 +92,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final String KEY_VOWIFI_ICON_STYLE = "vowifi_icon_style";
     private static final String KEY_VOLTE_VOWIFI_OVERRIDE = "volte_vowifi_override";
     private static final String KEY_VOLTE_CATEGORY = "volte_icon_category";
+    private static final String KEY_STATUSBAR_FOOTER = "statusbar_footer_pref";
 
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
@@ -112,6 +113,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private ListPreference mVowifiIconStyle;
     private SwitchPreference mOverride;
     private PreferenceCategory mVolteCategory;
+    private Preference mStatusbarFooter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -184,6 +186,12 @@ public class StatusBar extends SettingsPreferenceFragment
         } else {
             mVolteCategory.addPreference(mVowifiIconStyle);
             mVolteCategory.addPreference(mOverride);
+        }
+
+        mStatusbarFooter = (Preference) findPreference(KEY_STATUSBAR_FOOTER);
+
+        if (!DeviceUtils.hasNotch(mContext)) {
+            prefScreen.removePreference(mStatusbarFooter);
         }
     }
 
