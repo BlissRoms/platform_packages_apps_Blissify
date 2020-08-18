@@ -64,6 +64,8 @@
     <string name="music_options">Music Options</string>
     <string name="qs_rows_cols_title">QS Rows/Columns</string>
     <string name="qs_columns_rows_summary">change number of qs rows and columns</string>
+    <string name="clock_customisations_title">Clock Customisations</string>
+    <string name="clock_font_and_color_title">Clock Font And Color</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animations</string>
