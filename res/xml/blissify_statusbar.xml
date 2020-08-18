@@ -225,6 +225,11 @@
             android:summary="%s"
             android:defaultValue="0" />
 
+       <Preference
+            android:icon="@drawable/ic_info"
+            android:title="@string/weather_pref_title"
+            android:fragment="com.blissroms.blissify.fragments.lockscreen.Weather" />
+
     </PreferenceCategory>
 
     <!-- Carrier Label -->
@@ -277,5 +282,11 @@
             android:defaultValue="true"/>
 
     </PreferenceCategory>
+
+    <Preference
+        android:key="statusbar_footer_pref"
+        android:icon="@drawable/ic_info"
+        android:title="@string/statusbar_footer_title"
+        android:fragment="com.blissroms.blissify.fragments.misc.CutoutSettings" />
 
 </PreferenceScreen>
