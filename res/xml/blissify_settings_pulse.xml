@@ -19,6 +19,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/pulse_settings" >
 
+    <!-- Bliss Logo Header -->
+    <Preference
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
+     <PreferenceCategory
+        android:icon="@drawable/ic_nav_buttons"
+        android:title="@string/navigation_bar_options_category" >
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="navbar_pulse_enabled"
         android:title="@string/show_pulse_title"
@@ -39,6 +48,8 @@
         android:summary="@string/smoothing_enabled_summary"
         android:defaultValue="false"
         android:dependency="navbar_pulse_enabled" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="pulse_color_category"

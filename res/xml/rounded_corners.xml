@@ -22,6 +22,11 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
+    <!-- Rounded Corners -->
+    <PreferenceCategory
+        android:icon="@drawable/ic_rounded_corners"
+        android:title="@string/corners_title" >
+
     <com.bliss.support.preferences.SecureSettingSwitchPreference
        android:key="sysui_rounded_fwvals"
        android:title="@string/corner_fwvals"
@@ -54,4 +59,7 @@
         settings:units="dp"
         android:persistent="false"
         android:dependency="sysui_rounded_fwvals" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
