@@ -24,6 +24,10 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
+    <PreferenceCategory
+        android:title="@string/audio_panel_view_title"
+        android:icon="@drawable/ic_volume">
+
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
         android:key="audio_panel_view_timeout"
         android:title="@string/audio_panel_view_timeout_title"
@@ -61,4 +65,7 @@
         android:key="audio_panel_view_bt_sco"
         android:title="@string/audio_panel_view_bt_sco_title"
         android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

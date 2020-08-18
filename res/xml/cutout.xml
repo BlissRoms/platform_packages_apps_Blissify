@@ -21,6 +21,15 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="cutout_settings">
 
+    <!-- Bliss Logo Header -->
+    <Preference
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
+    <PreferenceCategory
+        android:icon="@drawable/ic_items"
+        android:title="@string/cutout_main">
+
     <com.bliss.support.preferences.SystemSettingListPreference
         android:key="display_cutout_mode"
         android:title="@string/display_cutout_style_title"
@@ -39,5 +48,7 @@
         android:title="@string/stock_statusbar_in_hide"
         android:summary="@string/stock_statusbar_in_hide_summary"
         android:defaultValue="true" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
