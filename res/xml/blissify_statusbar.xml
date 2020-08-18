@@ -278,4 +278,8 @@
 
     </PreferenceCategory>
 
+    <Preference
+        android:key="statusbar_footer_pref"
+        android:title="@string/statusbar_footer_title" />
+
 </PreferenceScreen>

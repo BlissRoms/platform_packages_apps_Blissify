@@ -72,7 +72,7 @@ import com.bliss.support.colorpicker.ColorPickerPreference;
 
 @SearchIndexable
 public class StatusBar extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener, Indexable {
+        implements Preference.OnPreferenceChangeListener, Indexable, Preference.OnPreferenceClickListener {
 
     private static final String CATEGORY_BATTERY = "status_bar_battery_key";
     private static final String CATEGORY_CLOCK = "status_bar_clock_key";
@@ -92,6 +92,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final String KEY_VOWIFI_ICON_STYLE = "vowifi_icon_style";
     private static final String KEY_VOLTE_VOWIFI_OVERRIDE = "volte_vowifi_override";
     private static final String KEY_VOLTE_CATEGORY = "volte_icon_category";
+    private static final String KEY_REDIRECT_PREFERENCE = "statusbar_footer_pref";
 
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
@@ -112,6 +113,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private ListPreference mVowifiIconStyle;
     private SwitchPreference mOverride;
     private PreferenceCategory mVolteCategory;
+    private Preference mFooterPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -185,6 +187,9 @@ public class StatusBar extends SettingsPreferenceFragment
             mVolteCategory.addPreference(mVowifiIconStyle);
             mVolteCategory.addPreference(mOverride);
         }
+
+        mFooterPref = (Preference) findPreference(KEY_REDIRECT_PREFERENCE);
+        mFooterPref.setOnPreferenceClickListener(this);
     }
 
     @Override
@@ -249,6 +254,14 @@ public class StatusBar extends SettingsPreferenceFragment
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+        if (preference == mFooterPref) {
+            Intent cutoutIntent = new Intent();
+            cutoutIntent.setClassName("com.blissroms.blissify", "com.blissroms.blissify.fragments.misc.CutoutSettings");
+        }
     }
 
     private int getClockPosition() {

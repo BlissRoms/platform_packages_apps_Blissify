@@ -25,6 +25,10 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
+    <PreferenceCategory
+        android:title="@string/network_traffic_settings_title"
+        android:icon="@drawable/ic_network_monitor">
+
     <lineageos.preference.LineageSecureSettingListPreference
         android:key="network_traffic_location"
         android:title="@string/network_traffic_location_title"
@@ -84,5 +88,7 @@
         android:key="network_traffic_hidearrow"
         android:title="@string/network_traffic_hidearrow"
         android:summary="@string/network_traffic_hidearrow_summary" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
