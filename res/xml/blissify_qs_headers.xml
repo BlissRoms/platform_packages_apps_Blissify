@@ -24,6 +24,10 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
+    <PreferenceCategory
+        android:icon="@drawable/ic_quicksettings"
+        android:title="@string/qs_header_category">
+
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="status_bar_custom_header"
             android:title="@string/status_bar_custom_header_title"
@@ -79,5 +83,7 @@
             android:defaultValue="25"
             settings:units="dp"
             android:dependency="status_bar_custom_header" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
