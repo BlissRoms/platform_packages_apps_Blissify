@@ -1023,7 +1023,7 @@
     <string name="status_bar_temperature_hide_scale_hide_image">Show temp without scale</string>
     <string name="status_bar_show_image">Show image</string>
     <string name="sb_weather_statusbar">Status bar</string>
-    <string name="sb_weather_header">Expanded header</string>
+    <string name="sb_weather_qspanel">QS Panel</string>
 
     <!-- QS footer icons -->
     <string name="qs_footer_title">Footer</string>
