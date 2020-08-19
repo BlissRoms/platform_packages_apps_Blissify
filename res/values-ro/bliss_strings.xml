@@ -20,7 +20,7 @@
     <!-- Categories -->
     <string name="blissify_statusbar_title">Bară de stare</string>
     <string name="blissify_qs_title">Setări Rapide</string>
-    <string name="blissify_animation_title">Animaţie</string>
+    <string name="blissify_animation_title">Animaţii</string>
     <string name="blissify_buttons_title">Butoane</string>
     <string name="blissify_misc_title">Extra</string>
     <string name="blissify_lockscreen_title">Ecran de blocare</string>
@@ -57,6 +57,7 @@
     <string name="volume_options_title">Opțiuni volum</string>
     <string name="navigation_bar_options_category">Opțiuni bară navigare</string>
     <string name="navigation_title">Navigare</string>
+    <string name="music_options">Opţiuni Muzică</string>
     <!-- AOKP custom system animations -->
     <string name="animation_title">Animații</string>
     <string name="system_animation_summary">Personalizați animaţiile din fiecare fereastră în sistem</string>
@@ -159,6 +160,7 @@
     <string name="status_bar_quick_qs_pulldown_off">Dezactivat</string>
     <string name="status_bar_quick_qs_pulldown_left">Stânga</string>
     <string name="status_bar_quick_qs_pulldown_right">Dreapta</string>
+    <string name="status_bar_quick_qs_pulldown_always">Arată intotdeauna setările rapide pe bara de stare cand se culiseaza în jos</string>
     <string name="status_bar_double_tap_to_sleep_title">Dublă-atingere pentru oprire ecran</string>
     <string name="status_bar_double_tap_to_sleep_summary">Atingeți de două ori bara de stare pentru a opri ecranul</string>
     <!-- Status bar - icons -->
@@ -204,6 +206,10 @@
     <string name="clock_date_position">Poziţie Dată</string>
     <string name="clock_date_right">În dreptul timpului</string>
     <string name="clock_date_left">În stânga ceasului</string>
+    <!-- Statusbar Clock Font Style, Size & Color -->
+    <string name="status_bar_clock_font_style_title">Mărime font ceas</string>
+    <string name="status_bar_clock_font_size_title">Mărime font ceas</string>
+    <string name="status_bar_clock_color_title">Culoare font ceas</string>
     <!-- Status bar - Battery -->
     <string name="status_bar_battery_title">Indicator baterie</string>
     <string name="status_bar_battery_style_title">Stil baterie</string>
@@ -254,7 +260,8 @@
     <string name="network_traffic_mode_all">Încărcare și descărcare</string>
     <string name="network_traffic_autohide">Ascundere automată</string>
     <string name="network_traffic_autohide_summary">Ascunde monitorul de trafic, atunci când nu există nici o activitate</string>
-    <string name="network_traffic_autohide_kilobits">kb/s</string>
+    <string name="network_traffic_autohide_kilobits">Kb/s</string>
+    <string name="network_traffic_autohide_kilobytes">KB/s</string>
     <string name="network_traffic_autohide_threshold">Pragul de inactivitate</string>
     <string name="network_traffic_show_units">Arată unitățile</string>
     <string name="network_traffic_show_units_summary">Afișarea unităților de măsurare ale traficului în bara de stare</string>
@@ -299,6 +306,8 @@
     <string name="hardware_keys_action_close_app">Închide forțat aplicația</string>
     <string name="hardware_keys_action_torch">Lanternă</string>
     <string name="hardware_keys_action_screenshot">Captură ecran</string>
+    <string name="hardware_keys_action_screenshot_partial">Captură de ecran parțială</string>
+    <string name="hardware_keys_action_screenshot_long">Captură ecran lungă</string>
     <string name="hardware_keys_action_volume_panel">Comută panoul de volum</string>
     <string name="hardware_keys_action_clear_all_notifications">Ștergeți toate notificările.</string>
     <string name="hardware_keys_action_notifications_panel">opreste notificările</string>
@@ -347,6 +356,7 @@
     <!-- Navigation Bar -->
     <string name="navigation_bar_category">Bară de navigare</string>
     <string name="navigation_bar_invert_layout_title">Inversare aspect</string>
+    <string name="navigation_bar_invert_layout_summary">Inversează aspectul barei de navigare și alte elemente, cum ar fi comutatorul IME</string>
     <string name="navigation_bar_left_summary">Pune bara de navigare în partea stângă a ecranului în modul peisaj</string>
     <string name="navigation_bar_arrow_keys_title">Arată butoanele de direcţie în timp ce tastaţi</string>
     <string name="navigation_bar_arrow_keys_summary">Arată butoanele de cursor stânga şi dreapta în timp ce tastaţi. Înlocuieşte comutatorul IME.</string>
@@ -372,6 +382,7 @@
     <string name="torch_long_press_power_gesture_desc">Activați lanterna prin apăsarea lungă a butonului pornire în timp ce ecranul este oprit</string>
     <string name="torch_long_press_power_timeout_title">Oprire automată lanternă</string>
     <string name="torch_long_press_power_timeout_never">Niciodată</string>
+    <string name="torch_long_press_power_timeout_30sec">30 secunde</string>
     <string name="torch_long_press_power_timeout_1min">1 minut</string>
     <string name="torch_long_press_power_timeout_2min">2 minute</string>
     <string name="torch_long_press_power_timeout_5min">5 minute</string>
@@ -391,7 +402,7 @@
     <!-- Lockscreen battery info indicator  -->
     <string name="lockscreen_charging_category">Informații despre încărcare pe ecranul de blocare</string>
     <string name="lockscreen_battery_info_title">Informații despre încărcare pe ecranul de blocare</string>
-    <string name="lockscreen_battery_info_summary">Afișează curentul, tensiunea și temperatura bateriei în timpul încărcării pe ecranul de blocare</string>
+    <string name="lockscreen_battery_info_summary">Afișează curentul maxim al încărcătorului și voltajul și temperatura bateriei pe ecranul de blocare în timpul încărcării</string>
     <!-- Wireless charging animation -->
     <string name="wireless_charging_animation_title">Animaţie la încărcare</string>
     <string name="wireless_charging_animation_summary">Se afișează o animație atunci când dispozitivul este conectat la încărcător</string>
@@ -431,7 +442,7 @@
     <string name="toast_icon_summary">Afişează icon aplicație corespunzător cu Toast</string>
     <!--statusbar advanced system icons -->
     <string name="statusbar_advanced_icons">Iconițe de sistem avansate</string>
-    <string name="statusbar_advanced_icons_summary">Logo, pictogramă de voluntariat, pictogramă meteo, pictogramă 4g\n Indicator de date, Indicator Bluetooth</string>
+    <string name="statusbar_advanced_icons_summary">Logo, pictogramă de voluntariat, pictogramă meteo, pictogramă 4g Indicator de date, Indicator Bluetooth</string>
     <string name="volte_icon_title">Pictograma VoLTE</string>
     <string name="status_bar_volte_disabled">Dezactivat</string>
     <string name="status_bar_volte_style_1">Stil Bliss</string>
@@ -443,6 +454,17 @@
     <string name="status_bar_volte_style_7">Pictograma VoLTE</string>
     <string name="status_bar_volte_style_8">VoLTE Asus Icon</string>
     <string name="status_bar_volte_style_9">Miui 11 VoLTE</string>
+    <string name="status_bar_volte_style_10">Caf HD</string>
+    <string name="status_bar_volte_style_11">EMUI</string>
+    <!-- VoWiFi icon -->
+    <string name="vowifi_icon_style_title">Stil pictogramă VoWiFi</string>
+    <string name="vowifi_icon_default">Prestabilit</string>
+    <string name="vowifi_icon_asus">Asus</string>
+    <string name="vowifi_icon_emui">EMUI</string>
+    <string name="vowifi_icon_moto">Motorola</string>
+    <string name="vowifi_icon_oneplus">OOS</string>
+    <string name="volte_vowifi_override_title">Suprascriere VoWiFi</string>
+    <string name="volte_vowifi_override_summary">Ascunde VoLTE când este disponibil VoWiFi. Acest lucru suprascrie stilul vechi al pictogramei de semnal pentru VoWiFi.</string>
     <!-- Data disabled indicator -->
     <string name="data_disabled_icon_title">Indicator date mobile dezactivat</string>
     <string name="data_disabled_icon_summary">Afișarea semnului x lângă bara de semnal atunci când datele sunt dezactivate</string>
@@ -456,6 +478,8 @@
     <string name="qs_brightness_slider_hide">Ascunde</string>
     <string name="qs_brightness_slider_top">Deasupra</string>
     <string name="qs_brightness_slider_bottom">Jos</string>
+    <string name="qs_brightness_slider_always_top">Q-uri rapide (sus)</string>
+    <string name="qs_brightness_slider_always_bottom">Q-uri rapide (jos)</string>
     <!-- Quick settings brightness icon -->
     <string name="brightness_icon_title">Luminozitate automată</string>
     <string name="brightness_icon_summary">Afișează comutator pentru luminozitate adaptivă lângă glisor</string>
@@ -585,6 +609,8 @@
     <!-- Power menu on secure lockscreen -->
     <string name="lockscreen_enable_power_menu_title">Meniu de pornire</string>
     <string name="lockscreen_enable_power_menu_summary">Afișează minimul de putere pe ecranul de blocare</string>
+    <string name="lockscreen_secure_power_menu_title">Meniul de alimentare securizat</string>
+    <string name="lockscreen_secure_power_menu_summary">Permiteți acțiunea din meniul de alimentare numai după autentificare</string>
     <!-- Wakelock blocker -->
     <string name="wakelock_blocker_title">Blocare Wakelock</string>
     <string name="wakelock_blocker_summary">Blocare Wakelock-uri de sistem</string>
@@ -781,6 +807,7 @@
     <string name="file_header_select_title">Selectare imagine locală</string>
     <string name="file_header_select_summary">Alegeți imaginea din memorie</string>
     <string name="file_header_provider_title">O singură imagine</string>
+    <string name="status_bar_custom_header_height_title">Decalaj înălțime imagine</string>
     <!-- Quick Settings -->
     <string name="qs_panel_alpha_title">Setări rapide opacitate</string>
     <string name="qs_panel_alpha_summary">Configurați opacitatea fundalului</string>
@@ -805,6 +832,9 @@
     <string name="lockscreen_charging_animation_drop">Şterge</string>
     <string name="lockscreen_charging_animation_explosion">Explozie</string>
     <string name="lockscreen_charging_animation_water">Apă</string>
+    <string name="lockscreen_charging_animation_phone">Telefon</string>
+    <string name="lockscreen_charging_animation_stack">Stivă</string>
+    <string name="lockscreen_charging_animation_wavy">Wal</string>
     <!-- Old mobile type icons -->
     <string name="use_old_mobiletype_title">Pictograme mici pentru rețele mobile</string>
     <string name="use_old_mobiletype_summary">Se afișează pictograma tipului de rețea mobilă deasupra indicatorului de semnal</string>
@@ -826,6 +856,9 @@
     <string name="pulse_ambient_light_pulse_for_all_summary">Pulsuri pentru toate evenimentele dozatoare și nu doar pentru notificări</string>
     <string name="pulse_ambient_light_repeat_count_title">Numărul de repetări</string>
     <string name="pulse_ambient_light_repeat_count_summary">Setați numărul maxim de repetări. 0 pentru infinit</string>
+    <string name="pulse_ambient_light_layout_title">Vedere Lumină margine</string>
+    <string name="pulse_ambient_light_layout_solid">Solid</string>
+    <string name="pulse_ambient_light_layout_faded">Diminuează</string>
     <!-- Hide Apps from Recents -->
     <string name="hafr_category_title">HAFR</string>
     <string name="hide_apps_from_recents_title">Ascundeți aplicațiile din recente</string>
@@ -856,13 +889,11 @@
     <string name="lock_screen_custom_notif_summary">Comută pentru a activa setarea notificărilor maxime pe ecranul de blocare</string>
     <string name="lockscreen_max_notif_config_title">Număr maxim de conexiuni</string>
     <string name="lockscreen_max_notif_config_summary">Controlează numărul maxim de notificări extinse pentru a fi afișate pe ecranul de blocare</string>
-    <!-- Force expanded notifications -->
-    <string name="force_expanded_notifications_title">Forţează notificări extinse</string>
-    <string name="force_expanded_notifications_summary">Forţează aplicaţii sa folosească notificări extinse</string>
     <!-- Screenshot -->
-    <string name="screenshot_type_title">Tip captură de ecran</string>
+    <string name="screenshot_type_title">Tip captură buton volum</string>
     <string name="screenshot_type_fullscreen">Complet</string>
     <string name="screenshot_type_partial">Parțială</string>
+    <string name="screenshot_type_long">Ecran complet cu capturi de ecran extinse</string>
     <!-- Sensor block per-package -->
     <string name="sensor_block_title">Blocare senzor per pachet</string>
     <string name="sensor_block_summary">Blocați accesul unor aplicații la anumiţi senzori pentru a economisi bateria</string>
@@ -919,9 +950,10 @@
     <string name="fod_icon_picker_summary">Alegeți pictograma preferată</string>
     <string name="fod_icon_picker_footer">Pentru a adăuga propria pictogramă, selectați pictograma din stânga sus și utilizați aplicația OnePlus 6T FP Customizer pentru a selecta pictograma dorită.</string>
     <!-- Lockscreen clock styles -->
-    <string name="lockscreen_clock_title">Stil ceas</string>
+    <string name="lockscreen_clock_title">Stiluri de ceas implicite</string>
+    <string name="lockscreen_hide_clock_title">Ascunde Lockscreen Ceas</string>
+    <string name="lockscreen_hide_clock_summary">ascunde/arată ceasul implicit pe ecranul de blocare</string>
     <string name="lockscreen_clock_dialog_title">Selectaţi stil pictograma</string>
-    <string name="lockscreen_clock_selection_hidden">Ascuns</string>
     <string name="lockscreen_clock_selection_digital">Prestabilit</string>
     <string name="lockscreen_clock_selection_digital_bold">Îngroșat (digital)</string>
     <string name="lockscreen_clock_selection_digital_small">Digital mic</string>
@@ -931,8 +963,11 @@
     <string name="lockscreen_clock_selection_sammy">Sammy</string>
     <string name="lockscreen_clock_selection_sammy_bold">Sammy (îngroșat)</string>
     <string name="lockscreen_clock_selection_sammy_accent">Sammy Accent</string>
+    <string name="lockscreen_clock_selection_sammy_accent_min">Sammy (minute accentuate)</string>
     <string name="lockscreen_clock_selection_sammy_accent_hour">Sammy (oră accentuată)</string>
     <string name="lockscreen_clock_selection_sammy_accent_alt">Sammy accent(oră mai închisă)</string>
+    <string name="lockscreen_clock_selection_text">Text (Android 9)</string>
+    <string name="lockscreen_clock_selection_text_alt">Text (Android 10)</string>
     <!-- lockscreen clock and date font style -->
     <string name="lockscreen_clock_category">Opţiuni ceas</string>
     <string name="lockscreen_clockdate_category">Opțiuni font dată</string>
@@ -990,6 +1025,44 @@
     <string name="font_grandhotel">Hotel Mare</string>
     <string name="font_redressed">Refuzat</string>
     <string name="font_sanfransisco">San Fransisco</string>
+    <string name="font_bignoodle-italic">Bignoodle-italic</string>
+    <string name="font_bignoodle-regular">Bignoodle-regular</string>
+    <string name="font_hanken">Hanken</string>
+    <string name="font_mittelschrift">Mittelschrift</string>
+    <string name="font_reemkufi">Revizualizare</string>
+    <string name="font_comic-neue-bold">Comic-neue-bold</string>
+    <string name="font_comic-neue">Comic-neue</string>
+    <string name="font_exo2-regular">Exo2-regulat</string>
+    <string name="font_exo2-semibold">Exo2-semibold</string>
+    <string name="font_finlandica">Finlandica</string>
+    <string name="font_goodlight">Lumină bună</string>
+    <string name="font_gravity-regular">Gravitație regulară</string>
+    <string name="font_inter-regular">Interregulate</string>
+    <string name="font_inter-medium-italic">Inter-mediu italic</string>
+    <string name="font_league-mono-n-regular">League-mono-n-regular</string>
+    <string name="font_league-mono-n-medium">Ligă-mono-mediu</string>
+    <string name="font_league-mono-n-bold">Ligă-mono-n-îndrăzneață</string>
+    <string name="font_league-mono-n-semibold">Ligă-mono-n semibold</string>
+    <string name="font_leonsans-regular">Leonsans-regular</string>
+    <string name="font_mescla-regular">Reguli de plasă</string>
+    <string name="font_odibee-sans">Odibei-sani</string>
+    <string name="font_panamericana">Panamericana</string>
+    <string name="font_pt-sans">Ptsani</string>
+    <string name="font_pt-mono">Pt-mono</string>
+    <string name="font_rounded-gothic-narrow">Rounded-gotică-îngustă</string>
+    <string name="font_rounded-gothic-narrow-half-italic">Semi-italic-acoperiş-gotic îngust-îngust</string>
+    <string name="font_sofia-sans-regular">Normal Sofia-sans-</string>
+    <string name="font_sofia-sans-medium">Sofia-mediul sans-mediu</string>
+    <string name="font_sofia-semicondensed-regular">Sofia-semicondensată regulată</string>
+    <string name="font_sofia-semicondensed-medium">Sofia-mediu semicondensat</string>
+    <string name="font_samsung">Samsung</string>
+    <string name="font_mexcellent">Mexecellent</string>
+    <string name="font_burnstown">Burnstown</string>
+    <string name="font_dumbledor">Dumbledor</string>
+    <string name="font_phantombold">Bold Phantom</string>
+    <string name="font_snowstorm">SnowStorm</string>
+    <string name="font_neoneon">NeonNeon</string>
+    <string name="font_circularstd">CirculaStd</string>
     <string name="font_size_title">Dimensiuni font</string>
     <!-- QS themes -->
     <string name="qs_themes_category_title">Teme setări rapide</string>
@@ -1000,16 +1073,18 @@
     <string name="qs_bg_use_fw_summary">Se dezactivează stilurile setărilor rapide personalizate pentru motoarele tematice externe</string>
     <string name="qs_bg_accent_title">Nuanță culoare</string>
     <string name="qs_bg_accent_summary">Setează culoarea de fundal a setărilor rapide din imaginea de fundal</string>
-    <string name="qs_bg_use_new_tint">Stil nuanță nouă</string>
+    <string name="qs_bg_use_new_tint">Mod nuanţare QS</string>
     <string name="qs_bg_use_new_tint_summary">Se activează noul stil de nuanță</string>
+    <string name="qs_tint_off">Tint Off</string>
+    <string name="qs_tint_random">Tint de culoare aleatoriu</string>
+    <string name="qs_tint_accent">Tint culoare accent</string>
+    <string name="qs_disco_mode">Mod Disco Qs</string>
     <!-- QS battery -->
-    <string name="qs_battery_location_title">Locația bateriei</string>
-    <string name="qs_battery_location_qs_panel">Panou de setări rapide</string>
-    <string name="qs_battery_location_qs_statusbar">Bara de stare rapidă</string>
     <string name="qs_use_status_bar_battery_style">Urmați stilul barei de stare</string>
     <!-- Status Bar Ticker -->
     <string name="ticker_screen_title">Selector</string>
     <string name="ticker_screen_summary">Afişează ticker-stil al notificărilor din bara de stare</string>
+    <string name="ticker_screen_footer">Tickerul este vizibil numai atunci când notifiăriile de tip heads-up nu sunt afișate</string>
     <string name="ticker_title">Derulare text în bara de stare</string>
     <string name="ticker_summary">Activaţi stilul vechi al derulării textului în bara de stare</string>
     <string name="ticker_restore_defaults_title">Restabiliți valorile implicite</string>
@@ -1071,6 +1146,9 @@
     <!-- Lockscreen clock font size -->
     <string name="lock_date_font_size_title">Mărime font dată</string>
     <string name="clock_font_size_title">Mărime font ceas</string>
+    <string name="clock_font_size_warning_summary">Când se utilizează stilul Typeclock, se folosesc mărimi cuprinse între 20 și 60, peste 60 este prea mari pentru tipul de lacăt.</string>
+    <!-- Pixel Gestures -->
+    <string name="pixelgestures_summary">Configurați opțiunile Gesturilor Pixel</string>
     <!-- Motion Sense -->
     <string name="aware_settings_title">Senzație de mișcare</string>
     <string name="aware_settings_summary">Configurați opțiunile de simțire a mișcării</string>
@@ -1127,6 +1205,8 @@
     <string name="action_volume_panel">Panou de volum</string>
     <string name="action_screen_off">Oprire ecran</string>
     <string name="action_screenshot">Captură ecran</string>
+    <string name="action_screenshot_partial">Captură de ecran parțială</string>
+    <string name="action_screenshot_long">Captură ecran lungă</string>
     <string name="action_qs_panel">Panoul SR</string>
     <string name="action_notifications">Notificări</string>
     <string name="action_clear_notifications">Ștergeți notificările</string>
@@ -1172,12 +1252,14 @@
     <string name="fod_recog_animation_effect_title">Efect animație de recunoaştere</string>
     <string name="fod_recog_animation_miui_normal">Implicit MIUI</string>
     <string name="fod_recog_animation_miui_aod">AOD</string>
+    <string name="fod_recog_animation_miui_aurora">Aurora</string>
     <string name="fod_recog_animation_miui_light">Ușor</string>
     <string name="fod_recog_animation_miui_pop">Pop</string>
     <string name="fod_recog_animation_miui_pulse">Puls</string>
     <string name="fod_recog_animation_miui_pulse_white">Puls (alb)</string>
     <string name="fod_recog_animation_miui_rhythm">Ritm</string>
     <string name="fod_recog_animation_op_cosmos">Cosmos</string>
+    <string name="fod_recog_animation_op_energy">Energie</string>
     <string name="fod_recog_animation_op_mclaren">McLaren</string>
     <string name="fod_recog_animation_op_ripple">Undă</string>
     <string name="fod_recog_animation_op_stripe">Platǎ stripe</string>
@@ -1264,11 +1346,11 @@
     <string name="accent_preset_68">XiaomiOrange</string>
     <string name="accent_preset_title">Accent preset</string>
     <!-- Clock style -->
-    <string name="clock_style_title">Stil ceas</string>
+    <string name="clock_style_title">Stiluri ceas blocare</string>
     <string name="clock_style_summary">Alegeți între Ceasurile implicite &amp; Analogice</string>
     <!-- Slim recents -->
     <string name="ok">OK</string>
-    <string name="alternative_recents_category">Alternative recente</string>
+    <string name="alternative_recents_category">Recente Slim</string>
     <string name="alternative_recents_swipe_up_enabled_warning_summary">Când glisezi în sus, navigarea de acasă deschide recentele, numai recentele implicite sunt suportate</string>
     <string name="slim_recents_title">Recente Slim</string>
     <string name="slim_recents_summary">Permite utilizarea unui ecran alternativ cu aplicatii recente</string>
@@ -1328,6 +1410,175 @@
     <string name="lockscreen_enable_qs_title">Setări rapide</string>
     <string name="lockscreen_enable_qs_summary">Activare acces la setări rapide atunci când ecranul este blocat</string>
     <!-- QS data usage -->
-    <string name="qs_datausage_title">Arată utilizarea datelor în antetul qs</string>
-    <string name="qs_datausage_subtitle">Afișează utilizarea datelor în antetul setări rapide</string>
+    <string name="qs_datausage_title">Utilizarea datelor în Antet QS</string>
+    <string name="qs_datausage_disabled">Dezactivat</string>
+    <string name="qs_datausage_daily">Utilizare zilnică</string>
+    <string name="qs_datausage_monthly">Utilizare lunară</string>
+    <!-- LS OwnerInfo Font & Size -->
+    <string name="owner_info_category">Opțiuni font proprietar</string>
+    <string name="lock_ownerinfo_font_title">Opțiuni font informații proprietar</string>
+    <string name="lockowner_font_size_title">Dimensiune font info proprietar</string>
+    <!-- R Notification headers -->
+    <string name="notification_headers_title">Se afișează antetul notificărilor</string>
+    <string name="notification_headers_summary">Dacă se afișează antetul notificărilor în stil R (Necesită o repornire a interfeței sistemului)</string>
+    <!-- Headset ringtone audio focus -->
+    <string name="ringtone_focus_mode_title">Când setul cu cască este conectat, apelul de intrare se execută</string>
+    <string name="ringtone_focus_mode_dynamic">Cască doar dacă muzica este activă</string>
+    <string name="ringtone_focus_mode_stock">Atât difuzorul, cât şi căştile</string>
+    <!-- Dashboard -->
+    <string name="dashboard_conditions_title">Editor panou de comandă</string>
+    <string name="summary_dashboard_conditions_enabled">Sugestiile tabloului de bord sunt activate</string>
+    <string name="summary_dashboard_conditions_disabled">Sugestiile tabloului de bord sunt dezactivate</string>
+    <string name="dashboard_suggestions_title">Sugestii tablou de bord</string>
+    <string name="summary_dashboard_suggestions_enabled">Sugestiile tabloului de bord sunt activate</string>
+    <string name="summary_dashboard_suggestions_disabled">Sugestiile tabloului de bord sunt dezactivate</string>
+    <!-- Text Clock -->
+    <string name="text_clock_customizations">Ceas de tip text</string>
+    <string name="text_clock_alignment">Aliniament</string>
+    <string name="text_clock_left">Stânga</string>
+    <string name="text_clock_center">Centru</string>
+    <string name="text_clock_right">Dreapta</string>
+    <string name="text_clock_left_right">Stânga-dreapta</string>
+    <string name="text_clock_right_left">Dreapta Stînga</string>
+    <string name="text_clock_padding">Umplere margini</string>
+    <!-- Screen state service -->
+    <string name="screen_state_toggles_title">Suspendarea acţiunilor</string>
+    <string name="screen_state_toggles_summary">Acțiuni executate când ecranul este oprit</string>
+    <string name="screen_state_toggles_mobile_title">Rețea mobilă</string>
+    <string name="screen_state_toggles_location_title">Locatie</string>
+    <string name="screen_state_toggles_twog">Comutare la 2G</string>
+    <string name="screen_state_toggles_twog_summary">Modul de rețea va fi comutat la 2G când ecranul este oprit</string>
+    <string name="screen_state_toggles_threeg">Comutare la 2G</string>
+    <string name="screen_state_toggles_threeg_summary">Modul de rețea va fi comutat la 2G când ecranul este oprit</string>
+    <string name="screen_state_toggles_gps">Dezactivare GPS</string>
+    <string name="screen_state_toggles_gps_summary">Serviciul de localizare bazat pe GPS va fi dezactivat când ecranul este oprit</string>
+    <string name="screen_state_toggles_mobile_data">Dezactivare date mobile</string>
+    <string name="screen_state_toggles_mobile_data_summary">Date mobile vor fi dezactivate când ecranul este oprit</string>
+    <string name="screen_state_off_delay_title">Întârziere acţiuni când ecranul este oprit</string>
+    <string name="screen_state_on_delay_title">Întârziere acţiuni când ecranul este pornit</string>
+    <!-- Display cutout options -->
+    <string name="cutout_main">Afişează setările cutout</string>
+    <string name="cutout_main_summary">Acestea taie într-adevăr colţuri cu acesta</string>
+    <string name="display_cutout_style_title">Stil decupaj</string>
+    <string name="display_cutout_style_normal">Obișnuită</string>
+    <string name="display_cutout_style_immerse">Imersiv</string>
+    <string name="display_cutout_style_hide">Ascunde</string>
+    <string name="stock_statusbar_in_hide">Înălţime bară de stare stoc</string>
+    <string name="stock_statusbar_in_hide_summary">Utilizaţi înălţime implicită pentru bara de stare</string>
+    <!-- One ui actionbar -->
+    <string name="enable_oneui">OneUI</string>
+    <string name="enable_oneui_summary">Arată spațiu deasupra actionbarei de setări pentru o utilizare mai ușoară\nNOTĂ: reporniți aplicația de setări pentru a vedea efectul</string>
+    <!-- Music Heads Up -->
+    <string name="show_media_heads_up_title">Afișare atenționări media</string>
+    <string name="show_media_heads_up_summary">Afișare atenționări media atunci când este redată o piesă nouă, dacă aplicația nu este deja în prim-plan</string>
+    <!-- QS Label Tint -->
+    <string name="qs_label_use_new_tint">Tint etichetă QS</string>
+    <string name="qs_label_tint_off">Prestabilit</string>
+    <string name="qs_label_tint_random">Tint de culoare aleatoriu</string>
+    <string name="qs_label_tint_accent">Tint culoare accent</string>
+    <string name="qs_label_tint_gradient">Tintă de culoare Gradient</string>
+    <!-- Pocket judge -->
+    <string name="pocket_judge_title">Detectarea de buzunar</string>
+    <string name="pocket_judge_summary">Blocare ecran și butoane atunci când dispozitivul este în buzunar</string>
+    <!-- QS tile styles -->
+    <string name="qs_tile_style_title">Stil Setări rapide</string>
+    <string name="qstile_default">Prestabilit</string>
+    <string name="qstile_circle_trim">Cerc cu taieturi</string>
+    <string name="qstile_dual_tone_circle">Cerc cu tonuri duble</string>
+    <string name="qstile_squircle_trim">Squircle with trim</string>
+    <string name="qstile_wavey">Ondulat</string>
+    <string name="qstile_pokesign">Pokesign</string>
+    <string name="qstile_ninja">Ninja</string>
+    <string name="qstile_dottedcircle">Cerc punctat</string>
+    <string name="qstile_attemptmountain">O încercare de munte</string>
+    <string name="qstile_squaremedo">Pătratul</string>
+    <string name="qstile_inkdrop">Cerneală</string>
+    <string name="qstile_cookie">Cookie</string>
+    <string name="qstile_circleoutline">Contur cerc</string>
+    <string name="qstile_neonlike">Neonlike</string>
+    <string name="qstile_oos">OOS</string>
+    <string name="qstile_triangles">Triunghi</string>
+    <string name="qstile_divided">Cerc divizat</string>
+    <string name="qstile_cosmos">Cosmos</string>
+    <string name="qstile_squircle">Pătrat cu colțuri rotunjite</string>
+    <string name="qstile_teardrop">Lacrimă</string>
+    <!-- Switch styles -->
+    <string name="switch_style_title">Comutare stiluri</string>
+    <string name="switch_default">Prestabilit</string>
+    <string name="switch_oneplus">OnePlus</string>
+    <string name="switch_narrow">Îngust</string>
+    <string name="switch_contained">Conţinut</string>
+    <string name="switch_telegram">Telegram</string>
+    <!-- Settings dashboard icon style -->
+    <string name="theming_settings_dashboard_icons_title">Setări pictograme tablou</string>
+    <string name="theming_settings_dashboard_icons_default">Rotunjire (implicit)</string>
+    <string name="theming_settings_dashboard_icons_default_accent">Accent rotunjit</string>
+    <string name="theming_settings_dashboard_icons_plain">Simplu</string>
+    <string name="theming_settings_dashboard_icons_plain_accent">Accent simplu</string>
+    <!-- StatusBar notification count -->
+    <string name="notif_count_title">Numărul de notificări</string>
+    <string name="notif_count_summary">Arată numărul de notificări lângă pictogramele de notficare</string>
+    <!-- Display cutout -->
+    <string name="sysui_display_cutout_title">Decupajul ecranului</string>
+    <string name="sysui_display_cutout_summary">Forţează zona de decupare a afişării la negru</string>
+    <!-- Pulse -->
+    <string name="pulse_help_policy_notice_summary">Pulsul nu funcționează cu unele surse audio atunci când ascultați la difuzorul dispozitivului</string>
+    <string name="pulse_settings">Puls</string>
+    <string name="pulse_settings_summary">Egalizator grafic audio pe bara de navigare</string>
+    <string name="show_pulse_title">Arată Pulse</string>
+    <string name="show_pulse_summary">Arată egalizatorul grafic audio pe bara de navigare</string>
+    <string name="pulse_render_mode_title">Modul de randare</string>
+    <string name="pulse_render_mode_fading_bars">Decolorare blocuri</string>
+    <string name="pulse_render_mode_solid_lines">Linii solide</string>
+    <string name="pulse_color">Culoare</string>
+    <string name="pulse_color_mode">Mod culoare</string>
+    <string name="pulse_color_accent">Accent</string>
+    <string name="pulse_color_custom">Personalizat</string>
+    <string name="pulse_color_lava_lamp">Lampa cu lavă</string>
+    <string name="pulse_color_auto">Coperta de album</string>
+    <string name="pulse_color_chooser">Alege culoare</string>
+    <string name="smoothing_enabled_title">Porniți netezirea</string>
+    <string name="smoothing_enabled_summary">Fiecare bara este animată mai ușor</string>
+    <string name="pulse_advanced_category">Avansat</string>
+    <string name="pulse_legacy_mode_advanced_category">Setări pentru modul decolorare blocuri</string>
+    <string name="pulse_custom_fudge_factor">Nivel echilibrat</string>
+    <string name="lavamp_speed_title">Viteză Lava Lamp</string>
+    <string name="pulse_solid_units_count">Numărul de linii solide</string>
+    <string name="pulse_solid_lines_count">Numărul de linii solide</string>
+    <string name="pulse_solid_units_opacity">Opacitate linii solide</string>
+    <string name="pulse_solid_dimen_category">Setările modului linii solide</string>
+    <string name="pulse_custom_dimen">Lățime bară</string>
+    <string name="pulse_custom_div">Spațiere bară</string>
+    <string name="pulse_filled_block_size">Mărimea blocului</string>
+    <string name="pulse_empty_block_size">Spațiere bloc</string>
+    <!-- Stock navbar -->
+    <string name="navbar_settings_title">Setările de stoc bara navigatie</string>
+    <string name="navbar_settings_summary">Particularizări pentru bara de navigare stoc</string>
+    <string name="navbar_layout_title">Aspect</string>
+    <string name="navbar_layout_normal">Obișnuită</string>
+    <string name="navbar_layout_compact">Compact</string>
+    <string name="navbar_layout_leftleaning">Înclinat spre stânga</string>
+    <string name="navbar_layout_rightleaning">Înclinat spre dreapta</string>
+    <string name="navbar_invert_layout_title">Inversare aspect</string>
+    <string name="navbar_tuner_title">Tuner Navbar</string>
+    <string name="navbar_tuner_summary">Personalizați butoanele și aspectul</string>
+    <!-- QS statusbar background -->
+    <string name="qs_header_background_title">Fundal Bară de stare</string>
+    <string name="qs_header_background_black">Negru</string>
+    <string name="qs_header_background_transparent">Transparent</string>
+    <!-- Rotation button -->
+    <string name="show_rotation_button_title">Buton de rotație</string>
+    <string name="show_rotation_button_summary">Afișează butonul de rotație în bara de navigare când este disponibil</string>
+    <!-- Themes -->
+    <string name="theme_type_title">Temă de sistem</string>
+    <string name="theme_type_summary">Selectaţi tema</string>
+    <string name="theme_type_default">Tema stoc</string>
+    <string name="theme_type_solarized_dark">Solarized dark</string>
+    <string name="theme_type_pitchblack">Pitch black</string>
+    <string name="theme_type_dark_grey">Gri închis</string>
+    <string name="theme_type_xtended_clear">Curăță tema</string>
+    <string name="theme_type_material_ocean">Material Ocean</string>
+    <!-- Lockscreen clock -->
+    <string name="lockscreen_clock_pref_title">Opțiuni ceas ecran blocare</string>
+    <string name="lockscreen_clock_pref_summary">schimbă stil de ceas implicit, stiluri de date, ceas și data dimensiunii, fontul informațiilor proprietarului și dimensiunea</string>
 </resources>

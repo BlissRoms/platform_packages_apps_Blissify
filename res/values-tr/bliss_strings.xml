@@ -180,11 +180,11 @@
     <string name="status_bar_clock_position_center">Orta</string>
     <string name="status_bar_clock_position_hidden">Gizli</string>
     <string name="status_bar_clock_auto_hide_title">Otomatik gizle</string>
-    <string name="status_bar_clock_auto_hide_summary">Durum çubuğu alanından tasarruf etmek için saati düzenli aralıklarla gizleyin ve görüntüleyin</string>
-    <string name="status_bar_clock_auto_hide_hdur_title">Gizleme süresi</string>
-    <string name="status_bar_clock_auto_hide_hdur_summary">Saati gizlemek için saniye sayısı</string>
-    <string name="status_bar_clock_auto_hide_sdur_title">Gösterme süresi</string>
-    <string name="status_bar_clock_auto_hide_sdur_summary">Saati gizlemeden önce beklenecek saniye sayısı</string>
+    <string name="status_bar_clock_auto_hide_summary">Durum çubuğu alanından tasarruf etmek için saat düzenli aralıklarla gizlenir veya görüntülenir</string>
+    <string name="status_bar_clock_auto_hide_hdur_title">Gizlenme süresi</string>
+    <string name="status_bar_clock_auto_hide_hdur_summary">Saatin gizlenmesi için gereken saniye süresi</string>
+    <string name="status_bar_clock_auto_hide_sdur_title">Görünme süresi</string>
+    <string name="status_bar_clock_auto_hide_sdur_summary">Saatin gizlenmeden önceki beklenmesi gereken saniye süresi</string>
     <string name="status_bar_am_pm_title">ÖÖ/ÖS biçimi</string>
     <string name="status_bar_am_pm_info">24 saat biçimi etkin</string>
     <string name="status_bar_am_pm_normal">Normal</string>
@@ -306,6 +306,8 @@
     <string name="hardware_keys_action_close_app">Uygulamayı sonlandır</string>
     <string name="hardware_keys_action_torch">El feneri</string>
     <string name="hardware_keys_action_screenshot">Ekran görüntüsü</string>
+    <string name="hardware_keys_action_screenshot_partial">Kısmi Ekran Görüntüsü</string>
+    <string name="hardware_keys_action_screenshot_long">Uzun Ekran Görüntüsü</string>
     <string name="hardware_keys_action_volume_panel">Ses panelini aç/kapat</string>
     <string name="hardware_keys_action_clear_all_notifications">Tüm bildirimleri temizle</string>
     <string name="hardware_keys_action_notifications_panel">Bildirim panelini aç/kapat</string>
@@ -1071,8 +1073,12 @@
     <string name="qs_bg_use_fw_summary">Harici tema motorları için özel hızlı ayarlar stillerini devre dışı bırak</string>
     <string name="qs_bg_accent_title">Vurgu rengini kullan</string>
     <string name="qs_bg_accent_summary">Hızlı ayarlar arka plan rengini sistem vurgu rengi ile ayarlar</string>
-    <string name="qs_bg_use_new_tint">Yeni renk stili</string>
+    <string name="qs_bg_use_new_tint">Hızlı Ayarlar Renk Tonu Modu</string>
     <string name="qs_bg_use_new_tint_summary">Yeni hızlı ayarlar renk tonu stilini etkinleştir</string>
+    <string name="qs_tint_off">Renk Tonu Kapalı</string>
+    <string name="qs_tint_random">Rastgele Renk Tonu</string>
+    <string name="qs_tint_accent">Vurgu Renk Tonu</string>
+    <string name="qs_disco_mode">Hızlı Ayarlar Disko Modu</string>
     <!-- QS battery -->
     <string name="qs_use_status_bar_battery_style">Durum çubuğunu takip et</string>
     <!-- Status Bar Ticker -->
@@ -1199,6 +1205,8 @@
     <string name="action_volume_panel">Ses paneli</string>
     <string name="action_screen_off">Ekran kapalı</string>
     <string name="action_screenshot">Ekran görüntüsü</string>
+    <string name="action_screenshot_partial">Kısmi Ekran Görüntüsü</string>
+    <string name="action_screenshot_long">Uzun Ekran Görüntüsü</string>
     <string name="action_qs_panel">Hızlı ayarlar paneli</string>
     <string name="action_notifications">Bildirimler</string>
     <string name="action_clear_notifications">Bildirimleri temizle</string>
@@ -1466,6 +1474,7 @@
     <!-- QS Label Tint -->
     <string name="qs_label_use_new_tint">Hızlı Ayarlar Etiket Tonu</string>
     <string name="qs_label_tint_off">Varsayılan</string>
+    <string name="qs_label_tint_random">Rastgele Renk Tonu</string>
     <string name="qs_label_tint_accent">Vurgu Renk Tonu</string>
     <string name="qs_label_tint_gradient">Gradyan Renk Tonu</string>
     <!-- Pocket judge -->
@@ -1506,4 +1515,70 @@
     <string name="theming_settings_dashboard_icons_default_accent">Yuvarlak vurgu rengi</string>
     <string name="theming_settings_dashboard_icons_plain">Düz</string>
     <string name="theming_settings_dashboard_icons_plain_accent">Düz vurgu rengi</string>
+    <!-- StatusBar notification count -->
+    <string name="notif_count_title">Bildirim sayısı</string>
+    <string name="notif_count_summary">Bildirim simgelerinde bildirim sayısı gösterilir</string>
+    <!-- Display cutout -->
+    <string name="sysui_display_cutout_title">Görüntü kesme</string>
+    <string name="sysui_display_cutout_summary">Ekran kesme alanı siyah renge zorlanır</string>
+    <!-- Pulse -->
+    <string name="pulse_help_policy_notice_summary">Pulse cihaz hoparlörünü dinlerken bazı ses kaynakları ile çalışmayabilir</string>
+    <string name="pulse_settings">Pulse</string>
+    <string name="pulse_settings_summary">Gezinme çubuğunda ses görselleştirme</string>
+    <string name="show_pulse_title">Pulse\'u göster</string>
+    <string name="show_pulse_summary">Gezinme çubuğunda ses görselleştirmesini gösterir</string>
+    <string name="pulse_render_mode_title">İşleme modu</string>
+    <string name="pulse_render_mode_fading_bars">Solan bloklar</string>
+    <string name="pulse_render_mode_solid_lines">Düz çizgiler</string>
+    <string name="pulse_color">Renk</string>
+    <string name="pulse_color_mode">Renk modu</string>
+    <string name="pulse_color_accent">Vurgu rengi</string>
+    <string name="pulse_color_custom">Özel</string>
+    <string name="pulse_color_lava_lamp">Lav lambası</string>
+    <string name="pulse_color_auto">Albüm kapağı</string>
+    <string name="pulse_color_chooser">Renk seçin</string>
+    <string name="smoothing_enabled_title">Pürüzsüzlüğü aç</string>
+    <string name="smoothing_enabled_summary">Her çubuk daha pürüzsüz animasyonlu</string>
+    <string name="pulse_advanced_category">Gelişmiş</string>
+    <string name="pulse_legacy_mode_advanced_category">Solan bloklar modu ayarları</string>
+    <string name="pulse_custom_fudge_factor">Davranış seviyesi</string>
+    <string name="lavamp_speed_title">Lav lambası hızı</string>
+    <string name="pulse_solid_units_count">Düz çizgi sayısı</string>
+    <string name="pulse_solid_lines_count">Düz çizgi sayısı</string>
+    <string name="pulse_solid_units_opacity">Solid lines opacity</string>
+    <string name="pulse_solid_dimen_category">Düz çizgiler modu ayarları</string>
+    <string name="pulse_custom_dimen">Çubuk genişliği</string>
+    <string name="pulse_custom_div">Çubuk aralığı</string>
+    <string name="pulse_filled_block_size">Blok boyutu</string>
+    <string name="pulse_empty_block_size">Blok aralığı</string>
+    <!-- Stock navbar -->
+    <string name="navbar_settings_title">Varsayılan gezinme çubuğu ayarları</string>
+    <string name="navbar_settings_summary">Varsayılan gezinme çubuğu için özelleştirmeler</string>
+    <string name="navbar_layout_title">Düzen</string>
+    <string name="navbar_layout_normal">Normal</string>
+    <string name="navbar_layout_compact">Kompakt</string>
+    <string name="navbar_layout_leftleaning">Sola yaslanmış</string>
+    <string name="navbar_layout_rightleaning">Sağa yaslanmış</string>
+    <string name="navbar_invert_layout_title">Düzeni tersine çevir</string>
+    <string name="navbar_tuner_title">Gezinme çubuğu düzenleyicisi</string>
+    <string name="navbar_tuner_summary">Tuşları ve düzeni özelleştirme</string>
+    <!-- QS statusbar background -->
+    <string name="qs_header_background_title">Durum çubuğu arka planı</string>
+    <string name="qs_header_background_black">Siyah</string>
+    <string name="qs_header_background_transparent">Saydam</string>
+    <!-- Rotation button -->
+    <string name="show_rotation_button_title">Döndürme butonu</string>
+    <string name="show_rotation_button_summary">Mümkün olduğunda gezinme çubuğunda döndürme butonunu görüntüle</string>
+    <!-- Themes -->
+    <string name="theme_type_title">Sistem teması</string>
+    <string name="theme_type_summary">Tema seçin</string>
+    <string name="theme_type_default">Varsayılan tema</string>
+    <string name="theme_type_solarized_dark">Solarize edilmiş karanlık</string>
+    <string name="theme_type_pitchblack">Zifiri karanlık</string>
+    <string name="theme_type_dark_grey">Koyu Gri</string>
+    <string name="theme_type_xtended_clear">Açık Tema</string>
+    <string name="theme_type_material_ocean">Materyal Okyanus</string>
+    <!-- Lockscreen clock -->
+    <string name="lockscreen_clock_pref_title">Kilit Ekranı Saat Seçenekleri</string>
+    <string name="lockscreen_clock_pref_summary">varsayılan saat ve tarih stillerini, saat ve tarih boyutunu, sahip bilgisinin yazı tipini ve boyutunu değiştirmenize imkân sağlar</string>
 </resources>

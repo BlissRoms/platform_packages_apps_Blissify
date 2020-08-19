@@ -306,6 +306,8 @@
     <string name="hardware_keys_action_close_app">Ukončit aplikaci</string>
     <string name="hardware_keys_action_torch">Svítilna</string>
     <string name="hardware_keys_action_screenshot">Snímek obrazovky</string>
+    <string name="hardware_keys_action_screenshot_partial">Částečný snímek obrazovky</string>
+    <string name="hardware_keys_action_screenshot_long">Dlouhý snímek obrazovky</string>
     <string name="hardware_keys_action_volume_panel">Přepínač Panelu hlasitosti</string>
     <string name="hardware_keys_action_clear_all_notifications">Smazat všechna oznámení</string>
     <string name="hardware_keys_action_notifications_panel">Přepínač Panelu oznámení</string>
@@ -1071,8 +1073,12 @@
     <string name="qs_bg_use_fw_summary">Zakázat vlastní styly QS pro externí správce motivů</string>
     <string name="qs_bg_accent_title">Použít barvu zvýraznění</string>
     <string name="qs_bg_accent_summary">Nastavit barvu pozadí QS ze zvýraznění systému</string>
-    <string name="qs_bg_use_new_tint">Nový styl odstínu</string>
+    <string name="qs_bg_use_new_tint">Odstín QS</string>
     <string name="qs_bg_use_new_tint_summary">Zapnout nový styl odstínu QS</string>
+    <string name="qs_tint_off">Odstín vyp.</string>
+    <string name="qs_tint_random">Náhodná barva odstínu</string>
+    <string name="qs_tint_accent">Odstín barvy zvýraznění</string>
+    <string name="qs_disco_mode">Disco režim QS</string>
     <!-- QS battery -->
     <string name="qs_use_status_bar_battery_style">Použít styl stavového řádku</string>
     <!-- Status Bar Ticker -->
@@ -1199,6 +1205,8 @@
     <string name="action_volume_panel">Panel hlasitosti</string>
     <string name="action_screen_off">Vypnout obrazovku</string>
     <string name="action_screenshot">Snímek obrazovky</string>
+    <string name="action_screenshot_partial">Částečný snímek obrazovky</string>
+    <string name="action_screenshot_long">Dlouhý snímek obrazovky</string>
     <string name="action_qs_panel">Panel QS</string>
     <string name="action_notifications">Oznámení</string>
     <string name="action_clear_notifications">Vymazat oznámení</string>
@@ -1466,6 +1474,7 @@
     <!-- QS Label Tint -->
     <string name="qs_label_use_new_tint">Odstín názvů QS</string>
     <string name="qs_label_tint_off">Výchozí</string>
+    <string name="qs_label_tint_random">Náhodná barva odstínu</string>
     <string name="qs_label_tint_accent">Odstín barvy zvýraznění</string>
     <string name="qs_label_tint_gradient">Odstín barvy přechodu</string>
     <!-- Pocket judge -->
@@ -1506,4 +1515,70 @@
     <string name="theming_settings_dashboard_icons_default_accent">Kruhové se zvýrazněním</string>
     <string name="theming_settings_dashboard_icons_plain">Klasické</string>
     <string name="theming_settings_dashboard_icons_plain_accent">Klasické se zvýrazněním</string>
+    <!-- StatusBar notification count -->
+    <string name="notif_count_title">Počet oznámení</string>
+    <string name="notif_count_summary">Zobrazit počet oznámení poblíž ikon oznámení</string>
+    <!-- Display cutout -->
+    <string name="sysui_display_cutout_title">Výřez displeje</string>
+    <string name="sysui_display_cutout_summary">Vynutit černé zbarvení oblasti výřezu displeje</string>
+    <!-- Pulse -->
+    <string name="pulse_help_policy_notice_summary">Pulse nefunguje s některými zdroji zvuku při poslechu z reproduktoru zařízení</string>
+    <string name="pulse_settings">Pulse</string>
+    <string name="pulse_settings_summary">Grafický ekvalizér na navigačním panelu</string>
+    <string name="show_pulse_title">Zobrazit Pulse</string>
+    <string name="show_pulse_summary">Zvukový ekvalizér na navigačním panelu</string>
+    <string name="pulse_render_mode_title">Režim vykreslení</string>
+    <string name="pulse_render_mode_fading_bars">Vyblednutí sloupců</string>
+    <string name="pulse_render_mode_solid_lines">Sloupce</string>
+    <string name="pulse_color">Barva</string>
+    <string name="pulse_color_mode">Barevný režim</string>
+    <string name="pulse_color_accent">Odstín</string>
+    <string name="pulse_color_custom">Vlastní</string>
+    <string name="pulse_color_lava_lamp">Lávová lampa</string>
+    <string name="pulse_color_auto">Obal interpreta</string>
+    <string name="pulse_color_chooser">Vybrat barvu</string>
+    <string name="smoothing_enabled_title">Zapnout vyhlazování</string>
+    <string name="smoothing_enabled_summary">Animace sloupců je mnohem hladší</string>
+    <string name="pulse_advanced_category">Pokročilé</string>
+    <string name="pulse_legacy_mode_advanced_category">Nastavení režimu zahalujících se bloků</string>
+    <string name="pulse_custom_fudge_factor">Úroveň výkonu</string>
+    <string name="lavamp_speed_title">Rychlost lávové lampy</string>
+    <string name="pulse_solid_units_count">Počet sloupců</string>
+    <string name="pulse_solid_lines_count">Počet sloupců</string>
+    <string name="pulse_solid_units_opacity">Průhlednost sloupců</string>
+    <string name="pulse_solid_dimen_category">Nastavení režimu sloupců</string>
+    <string name="pulse_custom_dimen">Šířka sloupce</string>
+    <string name="pulse_custom_div">Mezera mezi sloupci</string>
+    <string name="pulse_filled_block_size">Výška bloku</string>
+    <string name="pulse_empty_block_size">Mezera mezi bloky</string>
+    <!-- Stock navbar -->
+    <string name="navbar_settings_title">Nastavení navigačního panelu Stock</string>
+    <string name="navbar_settings_summary">Přizpůsobení výchozího navigačního panelu</string>
+    <string name="navbar_layout_title">Rozložení</string>
+    <string name="navbar_layout_normal">Normální</string>
+    <string name="navbar_layout_compact">Kompaktní</string>
+    <string name="navbar_layout_leftleaning">Přichyceno vlevo</string>
+    <string name="navbar_layout_rightleaning">Přichyceno vpravo</string>
+    <string name="navbar_invert_layout_title">Převrátit rozložení</string>
+    <string name="navbar_tuner_title">Přizpůsobení navigačního panelu</string>
+    <string name="navbar_tuner_summary">Přizpůsobit určení, rozvržení a rozložení tlačítek</string>
+    <!-- QS statusbar background -->
+    <string name="qs_header_background_title">Pozadí stavového řádku</string>
+    <string name="qs_header_background_black">Černé</string>
+    <string name="qs_header_background_transparent">Průhledné</string>
+    <!-- Rotation button -->
+    <string name="show_rotation_button_title">Tlačítko otočení</string>
+    <string name="show_rotation_button_summary">Zobrazit v navigačním panelu tlačítko otočení, je‑li k dispozici</string>
+    <!-- Themes -->
+    <string name="theme_type_title">Motiv systému</string>
+    <string name="theme_type_summary">Vyberte motiv</string>
+    <string name="theme_type_default">Základní motiv</string>
+    <string name="theme_type_solarized_dark">Tmavý –⁠ Solarized</string>
+    <string name="theme_type_pitchblack">Pitch Black</string>
+    <string name="theme_type_dark_grey">Tmavě šedý</string>
+    <string name="theme_type_xtended_clear">Čistý motiv</string>
+    <string name="theme_type_material_ocean">Material Ocean</string>
+    <!-- Lockscreen clock -->
+    <string name="lockscreen_clock_pref_title">Možnosti hodin na zamykací obrazovce</string>
+    <string name="lockscreen_clock_pref_summary">Změna výchozího stylu hodin, stylů data, velikosti data a času, velikosti písma a informací o vlastníkovi</string>
 </resources>

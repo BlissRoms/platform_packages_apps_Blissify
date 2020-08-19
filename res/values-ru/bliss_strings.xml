@@ -306,6 +306,8 @@
     <string name="hardware_keys_action_close_app">Убить приложение</string>
     <string name="hardware_keys_action_torch">Фонарик</string>
     <string name="hardware_keys_action_screenshot">Скриншот</string>
+    <string name="hardware_keys_action_screenshot_partial">Частичный скриншот</string>
+    <string name="hardware_keys_action_screenshot_long">Длинный скриншот</string>
     <string name="hardware_keys_action_volume_panel">Переключить панель громкости</string>
     <string name="hardware_keys_action_clear_all_notifications">Очистить все уведомления</string>
     <string name="hardware_keys_action_notifications_panel">Переключить панель уведомлений</string>
@@ -1071,8 +1073,12 @@
     <string name="qs_bg_use_fw_summary">Отключить пользовательские цвета для панели</string>
     <string name="qs_bg_accent_title">Использовать системный цвет</string>
     <string name="qs_bg_accent_summary">Использовать системный цвет для Быстрых настроек</string>
-    <string name="qs_bg_use_new_tint">Новый стиль окраски</string>
+    <string name="qs_bg_use_new_tint">Оттенок в быстрых настройках</string>
     <string name="qs_bg_use_new_tint_summary">Включить новый стиль окраски</string>
+    <string name="qs_tint_off">Оттенок выкл</string>
+    <string name="qs_tint_random">Случайные цвета</string>
+    <string name="qs_tint_accent">Цвет акцента</string>
+    <string name="qs_disco_mode">Режим Диско</string>
     <!-- QS battery -->
     <string name="qs_use_status_bar_battery_style">Использовать стиль строки состояния</string>
     <!-- Status Bar Ticker -->
@@ -1199,6 +1205,8 @@
     <string name="action_volume_panel">Панель громкости</string>
     <string name="action_screen_off">Выключить дисплей</string>
     <string name="action_screenshot">Скриншот</string>
+    <string name="action_screenshot_partial">Частичный скриншот</string>
+    <string name="action_screenshot_long">Длинный скриншот</string>
     <string name="action_qs_panel">Панель быстрых настроек</string>
     <string name="action_notifications">Уведомления</string>
     <string name="action_clear_notifications">Очистить уведомления</string>
@@ -1466,6 +1474,7 @@
     <!-- QS Label Tint -->
     <string name="qs_label_use_new_tint">Оттенок ярлыка быстрых настроек</string>
     <string name="qs_label_tint_off">По-умолчанию</string>
+    <string name="qs_label_tint_random">Случайные цвета</string>
     <string name="qs_label_tint_accent">Оттенок цвета акцента</string>
     <string name="qs_label_tint_gradient">Оттенок цвета градиента</string>
     <!-- Pocket judge -->
@@ -1506,4 +1515,70 @@
     <string name="theming_settings_dashboard_icons_default_accent">Круглые с акцентом</string>
     <string name="theming_settings_dashboard_icons_plain">Обычный</string>
     <string name="theming_settings_dashboard_icons_plain_accent">Обычные с акцентом</string>
+    <!-- StatusBar notification count -->
+    <string name="notif_count_title">Счётчик уведомлений</string>
+    <string name="notif_count_summary">Показывать счётчик уведомлений рядом со значком уведомления</string>
+    <!-- Display cutout -->
+    <string name="sysui_display_cutout_title">Вырез на экране</string>
+    <string name="sysui_display_cutout_summary">Перекрасить область выреза в чёрный цвет</string>
+    <!-- Pulse -->
+    <string name="pulse_help_policy_notice_summary">Pulse не работает с некоторыми источниками звука во время прослушивания через динамик устройства</string>
+    <string name="pulse_settings">Пульс</string>
+    <string name="pulse_settings_summary">Аудиовизуализация панели навигации</string>
+    <string name="show_pulse_title">Включить Пульс</string>
+    <string name="show_pulse_summary">Включить аудиовизуализацию в панели навигации</string>
+    <string name="pulse_render_mode_title">Режим аудиовизуализации</string>
+    <string name="pulse_render_mode_fading_bars">Затухающие блоки</string>
+    <string name="pulse_render_mode_solid_lines">Сплошные линии</string>
+    <string name="pulse_color">Цвет</string>
+    <string name="pulse_color_mode">Цветовой режим</string>
+    <string name="pulse_color_accent">Акцент</string>
+    <string name="pulse_color_custom">Другой</string>
+    <string name="pulse_color_lava_lamp">Лавовая лампа</string>
+    <string name="pulse_color_auto">Обложка альбома</string>
+    <string name="pulse_color_chooser">Выбрать цвет</string>
+    <string name="smoothing_enabled_title">Включить сглаживание</string>
+    <string name="smoothing_enabled_summary">Каждая полоса анимируется более гладко</string>
+    <string name="pulse_advanced_category">Дополнительные параметры</string>
+    <string name="pulse_legacy_mode_advanced_category">Настройки режима затухающих блоков</string>
+    <string name="pulse_custom_fudge_factor">Уровень чувствительности</string>
+    <string name="lavamp_speed_title">Скорость Лавовой лампы</string>
+    <string name="pulse_solid_units_count">Количество сплошных линий</string>
+    <string name="pulse_solid_lines_count">Количество сплошных линий</string>
+    <string name="pulse_solid_units_opacity">Прозрачность сплошных линий</string>
+    <string name="pulse_solid_dimen_category">Настройки режима сплошных линий</string>
+    <string name="pulse_custom_dimen">Ширина</string>
+    <string name="pulse_custom_div">Интервал</string>
+    <string name="pulse_filled_block_size">Размер блока</string>
+    <string name="pulse_empty_block_size">Интервал блока</string>
+    <!-- Stock navbar -->
+    <string name="navbar_settings_title">Настройки панели навигации</string>
+    <string name="navbar_settings_summary">Настройки стоковой панели навигации</string>
+    <string name="navbar_layout_title">Размещение</string>
+    <string name="navbar_layout_normal">Нормальный</string>
+    <string name="navbar_layout_compact">Компактно</string>
+    <string name="navbar_layout_leftleaning">Со сдвигом влево</string>
+    <string name="navbar_layout_rightleaning">Со сдвигом вправо</string>
+    <string name="navbar_invert_layout_title">Инвертировать расположение</string>
+    <string name="navbar_tuner_title">Настройка панели навигации</string>
+    <string name="navbar_tuner_summary">Настройка и расположение кнопок</string>
+    <!-- QS statusbar background -->
+    <string name="qs_header_background_title">Фон строки состояния</string>
+    <string name="qs_header_background_black">Черный</string>
+    <string name="qs_header_background_transparent">Прозрачный</string>
+    <!-- Rotation button -->
+    <string name="show_rotation_button_title">Показать кнопку автоповорота</string>
+    <string name="show_rotation_button_summary">Отображать кнопку поворота на панели навигации когда это возможно</string>
+    <!-- Themes -->
+    <string name="theme_type_title">Тема системы</string>
+    <string name="theme_type_summary">Выберите тему</string>
+    <string name="theme_type_default">Стандартная тема</string>
+    <string name="theme_type_solarized_dark">Solarized dark</string>
+    <string name="theme_type_pitchblack">Глубокий черный</string>
+    <string name="theme_type_dark_grey">Тёмно-серый</string>
+    <string name="theme_type_xtended_clear">Прозрачная тема</string>
+    <string name="theme_type_material_ocean">Тёмно-синяя</string>
+    <!-- Lockscreen clock -->
+    <string name="lockscreen_clock_pref_title">Настройки часов на экране блокировки</string>
+    <string name="lockscreen_clock_pref_summary">изменить стиль часов по умолчанию, стили даты, размер часов и даты, шрифт и размер информации о владельце</string>
 </resources>
