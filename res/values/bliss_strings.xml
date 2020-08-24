@@ -1041,6 +1041,8 @@
     <string name="qs_footer_user_summary">Display Multi-user switcher icon in quick settings footer</string>
     <string name="qs_footer_edit_title">Edit icon</string>
     <string name="qs_footer_edit_summary">Display the tile edit icon in quick settings footer</string>
+    <string name="qs_footer_carrier_title">Carrier Group</string>
+    <string name="qs_footer_carrier_summary">Display the Carrier Group in quick settings footer</string>
 
     <!-- Notification Vibration -->
     <string name="notifications_vib_category">Notification Options</string>
