@@ -59,7 +59,7 @@ import java.util.Collections;
 import com.bliss.support.preferences.CustomSeekBarPreference;
 import com.bliss.support.preferences.SystemSettingListPreference;
 
-import lineageos.app.LineageContextConstants;
+import com.blissroms.blissify.utils.DeviceUtils;
 
 @SearchIndexable
 public class LockScreen extends SettingsPreferenceFragment implements
@@ -89,12 +89,9 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mLockscreenMediaBlur.setValue(value);
         mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
 
-        PackageManager packageManager = mContext.getPackageManager();
-        boolean hasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
-
         mFpWakeCategory = (PreferenceCategory) findPreference(KEY_FINGERPRINT_WAKE_CATEGORY);
         mForceFpUnlock = (SwitchPreference) findPreference(KEY_FINGERPRINT_FORCE_UNLOCK);
-        if (!hasFod) {
+        if (DeviceUtils.hasFod(mContext)) {
             mFpWakeCategory.removePreference(mForceFpUnlock);
         } else {
             mFpWakeCategory.addPreference(mForceFpUnlock);

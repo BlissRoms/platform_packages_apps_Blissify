@@ -56,9 +56,23 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+import com.blissroms.blissify.utils.DeviceUtils;
+
 @SearchIndexable
 public class Biometrics extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
+
+    private static final String KEY_FOD_ICON_PICKER_CATEGORY = "fod_icon_picker_category";
+    private static final String KEY_FOD_ICON_PICKER = "fod_icon_picker";
+    private static final String KEY_FOD_RECOGNIZING_ANIMATION = "fod_recognizing_animation";
+    private static final String KEY_FOD_ANIM = "fod_anim";
+    private static final String KEY_FOD_PRESSED_STATE = "fod_pressed_state";
+
+    private PreferenceCategory mFodIconPickerCat;
+    private Preference mFodIconPicker;
+    private SwitchPreference mFodRecogAnim;
+    private ListPreference mFodAnim;
+    private ListPreference mFodPressedState;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -68,6 +82,12 @@ public class Biometrics extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
         Context mContext = getContext();
+
+        mFodIconPickerCat = (PreferenceCategory) findPreference(KEY_FOD_ICON_PICKER_CATEGORY);
+        mFodIconPicker = (Preference) findPreference(KEY_FOD_ICON_PICKER);
+        mFodRecogAnim = (SwitchPreference) findPreference(KEY_FOD_RECOGNIZING_ANIMATION);
+        mFodAnim = (ListPreference) findPreference(KEY_FOD_ANIM);
+        mFodPressedState = (ListPreference) findPreference(KEY_FOD_PRESSED_STATE);
     }
 
     @Override
@@ -97,6 +117,14 @@ public class Biometrics extends SettingsPreferenceFragment implements
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
+
+                    if (DeviceUtils.hasFod(mContext)) {
+                        keys.add(KEY_FOD_ICON_PICKER_CATEGORY);
+                        keys.add(KEY_FOD_ICON_PICKER);
+                        keys.add(KEY_FOD_RECOGNIZING_ANIMATION);
+                        keys.add(KEY_FOD_ANIM);
+                        keys.add(KEY_FOD_PRESSED_STATE);
+                    }
                     return keys;
                 }
     };

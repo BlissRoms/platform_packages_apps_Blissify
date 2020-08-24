@@ -36,7 +36,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.blissroms.blissify.ui.BlissPreference;
 
-import lineageos.app.LineageContextConstants;
+import com.blissroms.blissify.utils.DeviceUtils;
 
 public class Blissify extends SettingsPreferenceFragment {
 
@@ -55,10 +55,7 @@ public class Blissify extends SettingsPreferenceFragment {
 
         mBiometrics = (BlissPreference) findPreference(KEY_BIOMETRICS_CATEGORY);
 
-        PackageManager packageManager = mContext.getPackageManager();
-        boolean hasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
-
-        if (!hasFod) {
+        if (!DeviceUtils.hasFod(mContext)) {
             prefSet.removePreference(mBiometrics);
         }
     }
