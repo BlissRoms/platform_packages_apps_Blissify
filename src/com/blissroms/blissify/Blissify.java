@@ -27,17 +27,25 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.ContentResolver;
 import android.os.Bundle;
+import android.provider.SearchIndexableResource;
 import android.view.Surface;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import com.android.settings.R;
 
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settingslib.search.SearchIndexable;
 
 import com.blissroms.blissify.ui.BlissPreference;
 
-import lineageos.app.LineageContextConstants;
+import com.blissroms.blissify.utils.DeviceUtils;
 
+import java.util.List;
+import java.util.ArrayList;
+
+@SearchIndexable
 public class Blissify extends SettingsPreferenceFragment {
 
     private static final String KEY_BIOMETRICS_CATEGORY = "biometrics_category";
@@ -55,10 +63,7 @@ public class Blissify extends SettingsPreferenceFragment {
 
         mBiometrics = (BlissPreference) findPreference(KEY_BIOMETRICS_CATEGORY);
 
-        PackageManager packageManager = mContext.getPackageManager();
-        boolean hasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
-
-        if (!hasFod) {
+        if (!DeviceUtils.hasFod(mContext)) {
             prefSet.removePreference(mBiometrics);
         }
     }
@@ -96,4 +101,30 @@ public class Blissify extends SettingsPreferenceFragment {
         }
         activity.setRequestedOrientation(frozenRotation);
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.custom_carrier_label;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = super.getNonIndexableKeys(context);
+
+                    if (!DeviceUtils.hasFod(context)) {
+                        keys.add(KEY_BIOMETRICS_CATEGORY);
+                    }
+
+                    return keys;
+                }
+    };
 }

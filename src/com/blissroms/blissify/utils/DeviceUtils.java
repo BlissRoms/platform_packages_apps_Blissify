@@ -41,6 +41,8 @@ import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.Surface;
 
+import lineageos.app.LineageContextConstants;
+
 import static org.lineageos.internal.util.DeviceKeysConstants.*;
 
 public class DeviceUtils {
@@ -268,6 +270,12 @@ public class DeviceUtils {
     public static boolean isVowifiAvailable(Context context) {
         return context.getResources().getBoolean(
                 com.android.internal.R.bool.config_hasVowifi);
+    }
+
+    public static boolean hasFod(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        boolean hasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
+        return hasFod;
     }
 }
 
