@@ -585,12 +585,6 @@
     <string name="enable_fc_notifications_title">Force close notifications</string>
     <string name="enable_fc_notifications_summary">Show a dialog when an application crashes</string>
 
-    <!-- Screen off animation -->
-    <string name="screen_off_animation_fade">Simple fade</string>
-    <string name="screen_off_animation_crt">CRT</string>
-    <string name="screen_off_animation_scale">Scale</string>
-    <string name="screen_off_animation_title">Screen off animation</string>
-    
     <!-- Smart Pixels -->
     <string name="smart_pixels_title">Smart Pixels</string>
     <string name="smart_pixels_summary">Save battery by shutting off extra pixels</string>
@@ -1041,7 +1035,7 @@
     <string name="qs_footer_user_summary">Display Multi-user switcher icon in quick settings footer</string>
     <string name="qs_footer_edit_title">Edit icon</string>
     <string name="qs_footer_edit_summary">Display the tile edit icon in quick settings footer</string>
-    <string name="qs_footer_carrier_title">Carrier Group
+    <string name="qs_footer_carrier_title">Carrier Group</string>
     <string name="qs_footer_carrier_summary">Display the Carrier Group in quick settings footer</string>
 
     <!-- Notification Vibration -->
