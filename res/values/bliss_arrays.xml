@@ -583,19 +583,6 @@
         <item>5</item>
     </string-array>
 
-    <!-- Screen off animation -->
-    <string-array name="screen_off_animation_entries">
-        <item>@string/screen_off_animation_fade</item>
-        <item>@string/screen_off_animation_crt</item>
-        <item>@string/screen_off_animation_scale</item>
-    </string-array>
-
-    <string-array name="screen_off_animation_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
     <!-- Smart Pixels -->
     <string-array name="smart_pixels_percent_strings" translatable="false">
         <item>12</item>

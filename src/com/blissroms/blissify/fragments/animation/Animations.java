@@ -58,7 +58,6 @@ public class Animations extends SettingsPreferenceFragment
     private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
     private static final String SCROLLINGCACHE_DEFAULT = "1";
-    private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
 
     private ListPreference mToastAnimation;
     private ListPreference mListViewAnimation;
@@ -67,7 +66,6 @@ public class Animations extends SettingsPreferenceFragment
     private ListPreference mTileAnimationDuration;
     private ListPreference mTileAnimationInterpolator;
     private ListPreference mScrollingCachePref;
-    private ListPreference mScreenOffAnimation;
 
     Toast mToast;
 
@@ -121,13 +119,6 @@ public class Animations extends SettingsPreferenceFragment
             mToast.cancel();
             mToast = null;
         }
-
-        mScreenOffAnimation = (ListPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
-        int screenOffAnimation = Settings.System.getInt(getContentResolver(),
-                Settings.System.SCREEN_OFF_ANIMATION, 0);
-        mScreenOffAnimation.setValue(Integer.toString(screenOffAnimation));
-        mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntry());
-        mScreenOffAnimation.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -171,12 +162,6 @@ public class Animations extends SettingsPreferenceFragment
             int index = mScrollingCachePref.findIndexOfValue(value);
             SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, value);
             mScrollingCachePref.setSummary(mScrollingCachePref.getEntries()[index]);
-            return true;
-        } else if (preference == mScreenOffAnimation) {
-            int value = Integer.valueOf((String) newValue);
-            int index = mScreenOffAnimation.findIndexOfValue((String) newValue);
-            mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[index]);
-            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_ANIMATION, value);
             return true;
         }
         return false;
