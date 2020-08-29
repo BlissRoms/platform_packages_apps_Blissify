@@ -654,7 +654,7 @@
 
     <!-- Music Visualizer -->
     <string name="music_visualizer_title">Music visualizer</string>
-    <string name="music_visualizer_summary">Display music visualizer when available</string>
+    <string name="music_visualizer_summary">Enable visualiser for lockscreen in pulse settings</string>
 
     <!-- Ambient visualizer -->
     <string name="ambient_visualizer_title">Ambient visualizer</string>
@@ -1696,7 +1696,7 @@
     <!-- Pulse -->
     <string name="pulse_help_policy_notice_summary">Pulse does not work with some audio sources when listening on device speaker</string>
     <string name="pulse_settings">Pulse</string>
-    <string name="pulse_settings_summary">Navigation bar audio graphic equalizer</string>
+    <string name="pulse_settings_summary">Navigation bar/Lockscreen audio graphic equalizer</string>
     <string name="show_navbar_pulse_title">Navbar Pulse</string>
     <string name="show_navbar_pulse_summary">Audio graphic equalizer on the navigation bar area, also if bar is hidden</string>
     <string name="show_lockscreen_pulse_title">Lockscreen Pulse</string>

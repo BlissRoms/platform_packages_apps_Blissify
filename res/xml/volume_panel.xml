@@ -25,8 +25,22 @@
         android:layout="@layout/bliss_logo" />
 
     <PreferenceCategory
-        android:title="@string/audio_panel_view_title"
+        android:key="volume_panel_stuff"
+        android:title="@string/volume_panel"
         android:icon="@drawable/ic_volume">
+
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="systemui_plugin_volume"
+            android:title="@string/volume_panel"
+            android:entries="@array/volume_panel_entries"
+            android:entryValues="@array/volume_panel_values"
+            android:defaultValue="@string/volume_panel_aosp_val" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/volume_panel_musiccard_title"
+        android:icon="@drawable/ic_music">
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="music_volume_panel_dialog"
@@ -34,11 +48,23 @@
         android:summary="@string/volume_panel_musiccard_summary"
         android:defaultValue="true" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/volume_panel_show_ringer"
+        android:icon="@drawable/ic_force_close_notifications">
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="show_ringer_volume_panel"
         android:title="@string/volume_panel_show_ringer"
         android:summary="@string/volume_panel_show_ringer_summary"
         android:defaultValue="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/audio_panel_view_timeout_title"
+        android:icon="@drawable/ic_volume">
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
         android:key="audio_panel_view_timeout"
@@ -47,6 +73,12 @@
         android:max="10"
         settings:min="1"
         settings:interval="1" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/audio_panel_view_title"
+        android:icon="@drawable/ic_volume">
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="audio_panel_view_media"
@@ -77,19 +109,6 @@
         android:key="audio_panel_view_bt_sco"
         android:title="@string/audio_panel_view_bt_sco_title"
         android:defaultValue="false"/>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="volume_panel_stuff"
-        android:title="@string/volume_panel">
-
-        <com.bliss.support.preferences.SystemSettingListPreference
-            android:key="systemui_plugin_volume"
-            android:title="@string/volume_panel"
-            android:entries="@array/volume_panel_entries"
-            android:entryValues="@array/volume_panel_values"
-            android:defaultValue="@string/volume_panel_aosp_val" />
 
     </PreferenceCategory>
 

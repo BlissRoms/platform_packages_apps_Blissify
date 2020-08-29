@@ -220,4 +220,18 @@
 
     </PreferenceCategory>
 
+    <!-- Lockscreen Visualizer -->
+    <PreferenceCategory
+        android:key="lockscreen_visualizer_category"
+        android:icon="@drawable/ic_music_visualizer"
+        android:title="@string/lockscreen_visualizer_category" >
+
+    <Preference
+        android:key="lockscreen_visualizer"
+        android:title="@string/music_visualizer_title"
+        android:summary="@string/music_visualizer_summary"
+        android:fragment="com.blissroms.blissify.fragments.buttons.PulseSettings" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
