@@ -44,12 +44,28 @@
         android:icon="@drawable/ic_bliss_themes"
         android:title="@string/theme_type_title">
 
+        <com.android.settings.display.darkmode.DarkModePreference
+            android:key="dark_ui_mode"
+            android:title="@string/dark_ui_mode"
+            android:fragment="com.android.settings.display.darkmode.DarkModeSettingsFragment"
+            android:widgetLayout="@null"
+            settings:widgetLayout="@null"
+            settings:controller="com.android.settings.display.DarkUIPreferenceController"
+            settings:searchable="false"/>
+
+        <SwitchPreference
+            android:key="hwui_force_dark"
+            android:title="@string/hwui_force_dark_title"
+            android:summary="@string/hwui_force_dark_summary"
+            android:dependency="dark_ui_mode" />
+
         <ListPreference
             android:key="system_theme"
             android:title="@string/theme_type_title"
             android:persistent="false"
             android:entries="@array/theme_type_titles"
-            android:entryValues="@array/theme_type_values" />
+            android:entryValues="@array/theme_type_values"
+            android:dependency="dark_ui_mode" />
 
     </PreferenceCategory>
 

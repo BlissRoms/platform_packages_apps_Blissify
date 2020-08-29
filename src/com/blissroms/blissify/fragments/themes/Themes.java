@@ -26,6 +26,7 @@ import android.content.pm.ResolveInfo;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.content.ContentResolver;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
@@ -47,6 +48,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.android.settings.dashboard.DashboardFragment;
+import com.android.settings.display.darkmode.DarkModeObserver;
 import com.android.settings.display.OverlayCategoryPreferenceController;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -79,6 +81,8 @@ public class Themes extends DashboardFragment  implements
     private static final String GRADIENT_COLOR = "gradient_color";
     private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accentcolor";
     private static final String QS_HEADER_STYLE = "qs_header_style";
+    private static final String SYSTEM_THEMES = "system_theme";
+    private static final String FORCE_DARK_PREF = "hwui_force_dark";
     static final int DEFAULT_ACCENT_COLOR = 0xff1a73e8;
 
     private ColorPickerPreference mAccentColor;
@@ -86,6 +90,11 @@ public class Themes extends DashboardFragment  implements
     private ListPreference mAccentPreset;
     private int mAccentIndex;
     private ListPreference mQsHeaderStyle;
+    private boolean mEnabled;
+    private DarkModeObserver mDarkModeObserver;
+    private Runnable mCallback;
+    private ListPreference mThemeSwitch;
+    private SwitchPreference mForceDarkPref;
 
     @Override
     protected int getPreferenceScreenResId() {
@@ -101,6 +110,8 @@ public class Themes extends DashboardFragment  implements
         super.onCreate(icicle);
 
         final ContentResolver resolver = getActivity().getContentResolver();
+
+        Context mContext = getContext();
 
         mThemeBrowse = findPreference(CUSTOM_THEME_BROWSE);
         mThemeBrowse.setEnabled(isBrowseThemesAvailable());
@@ -141,11 +152,35 @@ public class Themes extends DashboardFragment  implements
         mQsHeaderStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
         mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntry());
         mQsHeaderStyle.setOnPreferenceChangeListener(this);
+
+        mThemeSwitch = (ListPreference) findPreference(SYSTEM_THEMES);
+        mForceDarkPref = (SwitchPreference) findPreference(FORCE_DARK_PREF);
+        mDarkModeObserver = new DarkModeObserver(mContext);
+        mCallback = () -> {
+            final boolean active = (getContext().getResources().getConfiguration().uiMode
+                    & Configuration.UI_MODE_NIGHT_YES) != 0;
+            if (active) {
+                mForceDarkPref.setEnabled(true);
+                mThemeSwitch.setEnabled(true);
+            } else {
+                mForceDarkPref.setEnabled(false);
+                mThemeSwitch.setEnabled(false);
+                mThemeSwitch.setSummary(R.string.dark_ui_warning);
+            }
+        };
+        mDarkModeObserver.subscribe(mCallback);
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        mDarkModeObserver.subscribe(mCallback);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mDarkModeObserver.unsubscribe();
     }
 
     private boolean isBrowseThemesAvailable() {
