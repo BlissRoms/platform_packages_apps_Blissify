@@ -1754,6 +1754,7 @@
     <string name="theme_type_dark_grey">Dark Grey</string>
     <string name="theme_type_xtended_clear">Clear Theme</string>
     <string name="theme_type_material_ocean">Material Ocean</string>
+    <string name="dark_ui_warning">Enable dark theme to set different themes</string>
 
     <!-- Lockscreen clock -->
     <string name="lockscreen_clock_pref_title">Lockscreen Clock Options</string>
