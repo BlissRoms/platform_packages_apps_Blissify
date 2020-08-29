@@ -24,6 +24,18 @@
         android:key="bliss_logo"
         android:layout="@layout/bliss_logo" />
 
+    <PreferenceCategory
+        android:key="lockscreen_visualizer_category"
+        android:icon="@drawable/ic_music_visualizer"
+        android:title="@string/lockscreen_visualizer_category" >
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_pulse_enabled"
+        android:title="@string/show_lockscreen_pulse_title"
+        android:summary="@string/show_lockscreen_pulse_summary"/>
+
+    </PreferenceCategory>
+
      <PreferenceCategory
         android:icon="@drawable/ic_nav_buttons"
         android:title="@string/navigation_bar_options_category" >
@@ -33,11 +45,6 @@
         android:title="@string/show_navbar_pulse_title"
         android:summary="@string/show_navbar_pulse_summary"
         android:defaultValue="false" />
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="lockscreen_pulse_enabled"
-        android:title="@string/show_lockscreen_pulse_title"
-        android:summary="@string/show_lockscreen_pulse_summary"/>
 
     <SwitchPreference
         android:key="ambient_pulse_enabled"

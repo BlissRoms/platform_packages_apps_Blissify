@@ -67,6 +67,12 @@
         android:icon="@drawable/ic_nav_buttons"
         android:title="@string/navigation_bar_options_category" >
 
+        <Preference
+            android:key="pulse"
+            android:title="@string/pulse_settings"
+            android:summary="@string/pulse_settings_summary"
+            android:fragment="com.blissroms.blissify.fragments.buttons.PulseSettings" />
+
         <com.bliss.support.preferences.SecureSettingListPreference
             android:key="navbar_layout_views"
             android:title="@string/navbar_layout_title"
@@ -124,11 +130,6 @@
             android:entryValues="@array/hardware_keys_action_values"
             android:persistent="false" />
 
-        <Preference
-            android:key="pulse"
-            android:title="@string/pulse_settings"
-            android:summary="@string/pulse_settings_summary"
-            android:fragment="com.blissroms.blissify.fragments.buttons.PulseSettings" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -352,11 +353,6 @@
             android:fragment="com.blissroms.blissify.fragments.buttons.VolumePanel" />
 
         <SwitchPreference
-            android:key="swap_volume_buttons"
-            android:title="@string/swap_volume_buttons_title"
-            android:summary="@string/swap_volume_buttons_summary" />
-
-        <SwitchPreference
             android:key="volume_panel_on_left"
             android:title="@string/volume_panel_on_left_title"
             android:summary="@string/volume_panel_on_left_summary" />
@@ -366,6 +362,11 @@
             android:title="@string/volume_steps_title"
             android:summary="@string/volume_steps_summary"
             android:fragment="com.blissroms.blissify.fragments.buttons.VolumeSteps" />
+
+        <SwitchPreference
+            android:key="swap_volume_buttons"
+            android:title="@string/swap_volume_buttons_title"
+            android:summary="@string/swap_volume_buttons_summary" />
 
         <com.bliss.support.preferences.SystemSettingListPreference
             android:key="screenshot_type"
