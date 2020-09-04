@@ -624,6 +624,14 @@
         <item>Gender Female</item>
         <item>Gender Male-Female</item>
         <item>Guitar Electric</item>
+        <item>Emoticon</item>
+        <item>Emoticon Neutral</item>
+        <item>Emoticon Happy</item>
+        <item>Emoticon Sad</item>
+        <item>Emoticon Tongue</item>
+        <item>Emoticon Dead</item>
+        <item>Emoticon Cool</item>
+        <item>Emoticon Devil</item>
     </string-array>
 
     <string-array name="status_bar_logo_style_values" translatable="false">
@@ -659,6 +667,14 @@
         <item>29</item>
         <item>30</item>
         <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
     </string-array>
 
 </resources>
