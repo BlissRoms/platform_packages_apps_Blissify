@@ -567,4 +567,8 @@
     <string name="volume_panel_oreo_val">co.potatoproject.plugin.volume.oreo</string>
     <string name="volume_panel_tiled_val">co.potatoproject.plugin.volume.tiled</string>
     <string name="volume_panel_miui_val" translatable="false">co.potatoproject.plugin.volume.miui</string>
+
+    <!-- Per-app volume -->
+    <string name="show_app_volume_title">Show app volume</string>
+    <string name="show_app_volume_summary">Show app volume in volume panel (Only works for Stock Volume panel)</string>
 </resources>
