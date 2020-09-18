@@ -512,4 +512,7 @@
     <!-- Roaming indicator icon -->
     <string name="roaming_indicator_icon_title">Roaming indicator</string>
     <string name="roaming_indicator_icon_summary">Display roaming indicator in signal icon when in roaming mode</string>
+
+    <string name="use_old_mobiletype_title">Old mobiletype</string>
+    <string name="use_old_mobiletype_summary">Use pre-p mobiletype icons for signal (Reboot required)</string>
 </resources>
