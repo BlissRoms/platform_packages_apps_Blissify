@@ -900,4 +900,13 @@
     <string name="lock_screen_custom_clock_face_category">Lockscreen Clock</string>
     <string name="clock_style_title">Clock style</string>
     <string name="clock_style_summary">Customize lockscreen clock</string>
+
+    <!-- Navbar Picker -->
+    <string name="theme_navbar_picker_title">Navbar style (for 3-button nav)</string>
+    <string name="theme_navbar_picker_summary">Select navbar style</string>
+    <string name="theme_navbar_picker_default">Default</string>
+    <string name="theme_navbar_picker_oneplus">OnePlus</string>
+    <string name="theme_navbar_picker_oneui">One UI</string>
+    <string name="theme_navbar_picker_tecno">Tecno Camon</string>
+    <string name="theme_navbar_picker_asus">ASUS</string>
 </resources>
