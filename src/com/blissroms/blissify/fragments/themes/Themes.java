@@ -17,13 +17,17 @@
 package com.blissroms.blissify.fragments.themes;
 
 import static android.os.UserHandle.USER_CURRENT;
+import static android.os.UserHandle.USER_SYSTEM;
 
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.om.IOverlayManager;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.provider.Settings;
 
 import androidx.fragment.app.Fragment;
@@ -43,6 +47,9 @@ import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settingslib.search.SearchIndexable;
 import com.blissroms.blissify.fragments.themes.SystemThemePreferenceController;
 
+import com.android.internal.util.bliss.BlissUtils;
+import com.android.internal.util.bliss.ThemesUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +62,13 @@ public class Themes extends DashboardFragment  implements
 
     public static final String TAG = "Themes";
 
+    private static final String PREF_NAVBAR_STYLE = "theme_navbar_style";
+
     private Context mContext;
+    private IOverlayManager mOverlayManager;
+    private IOverlayManager mOverlayService;
+
+    private ListPreference mNavbarPicker;
 
     private IntentFilter mIntentFilter;
     private static FontPickerPreferenceController mFontPickerPreference;
@@ -77,9 +90,67 @@ public class Themes extends DashboardFragment  implements
 
         mIntentFilter = new IntentFilter();
         mIntentFilter.addAction("com.android.server.ACTION_FONT_CHANGED");
+
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
+
+        mNavbarPicker = (ListPreference) findPreference(PREF_NAVBAR_STYLE);
+        int navbarStyleValues = getOverlayPosition(ThemesUtils.NAVBAR_STYLES);
+        if (navbarStyleValues != -1) {
+            mNavbarPicker.setValue(String.valueOf(navbarStyleValues + 2));
+        } else {
+            mNavbarPicker.setValue("1");
+        }
+        mNavbarPicker.setSummary(mNavbarPicker.getEntry());
+        mNavbarPicker.setOnPreferenceChangeListener(this);
+    }
+
+    private int getOverlayPosition(String[] overlays) {
+        int position = -1;
+        for (int i = 0; i < overlays.length; i++) {
+            String overlay = overlays[i];
+            if (BlissUtils.isThemeEnabled(overlay)) {
+                position = i;
+            }
+        }
+        return position;
+    }
+
+    private String getOverlayName(String[] overlays) {
+        String overlayName = null;
+        for (int i = 0; i < overlays.length; i++) {
+            String overlay = overlays[i];
+            if (BlissUtils.isThemeEnabled(overlay)) {
+                overlayName = overlay;
+            }
+        }
+        return overlayName;
+    }
+
+    public void handleOverlays(String packagename, Boolean state, IOverlayManager mOverlayManager) {
+        try {
+            mOverlayService.setEnabled(packagename, state, USER_SYSTEM);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mNavbarPicker) {
+            String navbarStyle = (String) newValue;
+            int navbarStyleValue = Integer.parseInt(navbarStyle);
+            mNavbarPicker.setValue(String.valueOf(navbarStyleValue));
+            String overlayName = getOverlayName(ThemesUtils.NAVBAR_STYLES);
+                if (overlayName != null) {
+                    handleOverlays(overlayName, false, mOverlayManager);
+                }
+                if (navbarStyleValue > 1) {
+                    handleOverlays(ThemesUtils.NAVBAR_STYLES[navbarStyleValue - 2],
+                            true, mOverlayManager);
+            }
+            mNavbarPicker.setSummary(mNavbarPicker.getEntry());
+            return true;
+        }
         return false;
     }
 
