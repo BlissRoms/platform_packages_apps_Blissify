@@ -128,6 +128,7 @@
     <string name="volte_icon_oos">OOS</string>
     <string name="volte_icon_hd">HD</string>
     <string name="volte_icon_hd2">HD CAF</string>
+    <string name="volte_icon_miui">MIUI 11</string>
 
     <!-- Volume swap buttons -->
     <string name="swap_volume_buttons_title">Reorient</string>
