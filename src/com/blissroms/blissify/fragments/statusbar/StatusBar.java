@@ -52,7 +52,6 @@ import android.view.View;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 import android.util.Log;
 
@@ -70,9 +69,9 @@ import com.blissroms.blissify.utils.DeviceUtils;
 import com.blissroms.blissify.utils.TelephonyUtils;
 import com.bliss.support.colorpicker.ColorPickerPreference;
 
-@SearchIndexable
+@SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class StatusBar extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener, Indexable {
+        implements Preference.OnPreferenceChangeListener {
 
     private static final String CATEGORY_BATTERY = "status_bar_battery_key";
 

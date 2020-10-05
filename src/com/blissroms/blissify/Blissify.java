@@ -35,7 +35,6 @@ import com.android.settings.R;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.blissroms.blissify.ui.BlissPreference;
@@ -45,7 +44,7 @@ import com.blissroms.blissify.utils.DeviceUtils;
 import java.util.List;
 import java.util.ArrayList;
 
-@SearchIndexable
+@SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Blissify extends SettingsPreferenceFragment {
 
     private static final String KEY_BIOMETRICS_CATEGORY = "biometrics_category";
@@ -61,11 +60,12 @@ public class Blissify extends SettingsPreferenceFragment {
 
         Context mContext = getContext();
 
-        mBiometrics = (BlissPreference) findPreference(KEY_BIOMETRICS_CATEGORY);
+/*        mBiometrics = (BlissPreference) findPreference(KEY_BIOMETRICS_CATEGORY);
 
         if (!DeviceUtils.hasFod(mContext)) {
             prefSet.removePreference(mBiometrics);
         }
+*/
     }
 
     @Override
@@ -120,10 +120,10 @@ public class Blissify extends SettingsPreferenceFragment {
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
 
-                    if (!DeviceUtils.hasFod(context)) {
+/*                    if (!DeviceUtils.hasFod(context)) {
                         keys.add(KEY_BIOMETRICS_CATEGORY);
                     }
-
+*/
                     return keys;
                 }
     };
