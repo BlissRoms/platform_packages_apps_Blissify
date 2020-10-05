@@ -6,10 +6,10 @@
     android:title="@string/gesture_skip_title"
     android:key="skip_gesture">
 
-    <com.android.settings.widget.VideoPreference
+<!--    <com.android.settings.widget.VideoPreference
         android:key="gesture_skip_video"
         app:animation="@raw/gesture_skip"
-        app:preview="@drawable/gesture_skip" />
+        app:preview="@drawable/gesture_skip" /> -->
 
     <SwitchPreference
         android:key="gesture_skip"

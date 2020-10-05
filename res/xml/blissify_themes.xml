@@ -93,7 +93,7 @@
             android:defaultValue="0xff1a73e8"
             android:persistent="false" />
 
-        <ListPreference
+<!--        <ListPreference
             android:key="android.theme.customization.primary_color"
             android:title="@string/theme_customization_primary_color_title"/>
         <ListPreference
@@ -104,7 +104,7 @@
             android:title="@string/theme_customization_icon_shape_title"/>
         <ListPreference
             android:key="android.theme.customization.icon_pack.android"
-            android:title="@string/theme_customization_sysui_icon_title"/>
+            android:title="@string/theme_customization_sysui_icon_title"/> -->
 
     </PreferenceCategory>
 

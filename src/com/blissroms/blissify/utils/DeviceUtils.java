@@ -267,11 +267,11 @@ public class DeviceUtils {
                 com.android.internal.R.integer.config_navBarInteractionMode);
     }
 
-    public static boolean isVowifiAvailable(Context context) {
+/*    public static boolean isVowifiAvailable(Context context) {
         return context.getResources().getBoolean(
                 com.android.internal.R.bool.config_hasVowifi);
     }
-
+*/
     public static boolean hasFod(Context context) {
         PackageManager packageManager = context.getPackageManager();
         boolean hasFod = packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);

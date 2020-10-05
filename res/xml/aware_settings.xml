@@ -5,12 +5,12 @@
     android:key="aware_settings_page"
     android:title="@string/aware_settings_title">
 
-    <com.android.settings.widget.VideoPreference
+<!--    <com.android.settings.widget.VideoPreference
         android:key="aware_settings_video"
         android:title="@string/summary_placeholder"
         settings:controller="com.android.settings.widget.VideoPreferenceController"
         settings:animation="@raw/aware_settings"
-        settings:preview="@drawable/aware_settings" />
+        settings:preview="@drawable/aware_settings" /> -->
 
     <SwitchPreference
         android:key="aware_toggle"

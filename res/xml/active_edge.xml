@@ -19,10 +19,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/active_edge_title" >
 
-    <com.android.settings.widget.VideoPreference
+<!--    <com.android.settings.widget.VideoPreference
         android:key="squeeze_video"
         app:animation="@raw/assist_gesture_settings_animation"
-        app:preview="@drawable/gesture_assist" />
+        app:preview="@drawable/gesture_assist" /> -->
 
     <ListPreference
         android:key="short_squeeze_selection"

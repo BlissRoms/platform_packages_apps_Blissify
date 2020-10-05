@@ -49,14 +49,14 @@
         android:defaultValue="0"
         android:dependency="fod_recognizing_animation" />
 
-    <com.bliss.support.preferences.SystemSettingListPreference
+<!--    <com.bliss.support.preferences.SystemSettingListPreference
         android:key="fod_pressed_state"
         android:dialogTitle="@string/fod_pressed_state_title"
         android:title="@string/fod_pressed_state_title"
         android:summary="@string/fod_pressed_state_summary"
         android:entries="@array/fod_pressed_state_entries"
         android:entryValues="@array/fod_pressed_state_values"
-        android:defaultValue="@*android:integer/config_pressed_fod_icon" />
+        android:defaultValue="@*android:integer/config_pressed_fod_icon" /> -->
 
     <Preference
         android:summary="@string/fod_pressed_state_footer" />
