@@ -75,6 +75,12 @@ public class StatusBar extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String CATEGORY_BATTERY = "status_bar_battery_key";
+
+    private LineageSystemSettingListPreference mStatusBarBattery;
+    private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
+    private PreferenceCategory mStatusBarBatteryCategory;
+
+/*
     private static final String CATEGORY_CLOCK = "status_bar_clock_key";
 
     private static final String ICON_BLACKLIST = "icon_blacklist";
@@ -96,11 +102,8 @@ public class StatusBar extends SettingsPreferenceFragment
 
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
-    private LineageSystemSettingListPreference mStatusBarBattery;
-    private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
     private ListPreference mTextChargingSymbol;
 
-    private PreferenceCategory mStatusBarBatteryCategory;
     private PreferenceCategory mStatusBarClockCategory;
     private PreferenceScreen mNetworkTrafficPref;
     private PreferenceCategory mBatteryBarCategory;
@@ -115,6 +118,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private PreferenceCategory mVolteCategory;
     private Preference mStatusbarFooter;
 
+*/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,14 +129,14 @@ public class StatusBar extends SettingsPreferenceFragment
         final ContentResolver resolver = getActivity().getContentResolver();
         Context mContext = getActivity().getApplicationContext();
 
+        mStatusBarBatteryCategory =
+                (PreferenceCategory) prefSet.findPreference(CATEGORY_BATTERY);
+/*
         mStatusBarClock =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
 
         mStatusBarClockCategory =
                 (PreferenceCategory) prefSet.findPreference(CATEGORY_CLOCK);
-
-        mStatusBarBatteryCategory =
-                (PreferenceCategory) prefSet.findPreference(CATEGORY_BATTERY);
 
         mBatteryBarCategory =
                 (PreferenceCategory) prefSet.findPreference(CATEGORY_BATTERY_BAR);
@@ -193,6 +197,7 @@ public class StatusBar extends SettingsPreferenceFragment
         if (!DeviceUtils.hasNotch(mContext)) {
             prefScreen.removePreference(mStatusbarFooter);
         }
+*/
     }
 
     @Override
@@ -202,16 +207,16 @@ public class StatusBar extends SettingsPreferenceFragment
         final String curIconBlacklist = Settings.Secure.getString(getContext().getContentResolver(),
                 ICON_BLACKLIST);
 
-        if (TextUtils.delimitedStringContains(curIconBlacklist, ',', "clock")) {
-            getPreferenceScreen().removePreference(mStatusBarClockCategory);
-        } else {
-            getPreferenceScreen().addPreference(mStatusBarClockCategory);
-        }
-
         if (TextUtils.delimitedStringContains(curIconBlacklist, ',', "battery")) {
             getPreferenceScreen().removePreference(mStatusBarBatteryCategory);
         } else {
             getPreferenceScreen().addPreference(mStatusBarBatteryCategory);
+        }
+/*
+        if (TextUtils.delimitedStringContains(curIconBlacklist, ',', "clock")) {
+            getPreferenceScreen().removePreference(mStatusBarClockCategory);
+        } else {
+            getPreferenceScreen().addPreference(mStatusBarClockCategory);
         }
 
         if (BlissUtils.hasNotch(getContext())) {
@@ -236,12 +241,12 @@ public class StatusBar extends SettingsPreferenceFragment
             mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries);
             mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values);
         }
-
+*/
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        ContentResolver resolver = getActivity().getContentResolver();
+/*        ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mBlissLogoColor) {
             String hex = ColorPickerPreference.convertToARGB(
                 Integer.parseInt(String.valueOf(newValue)));
@@ -256,10 +261,11 @@ public class StatusBar extends SettingsPreferenceFragment
             }
             return true;
         }
+*/
         return false;
     }
 
-    private int getClockPosition() {
+/*    private int getClockPosition() {
         return LineageSettings.System.getInt(getActivity().getContentResolver(),
                 STATUS_BAR_CLOCK_STYLE, 2);
     }
@@ -302,7 +308,7 @@ public class StatusBar extends SettingsPreferenceFragment
         Settings.System.putIntForUser(resolver,
                 Settings.System.USE_OLD_MOBILETYPE, mConfigUseOldMobileType ? 1 : 0, UserHandle.USER_CURRENT);
     }
-
+*/
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.BLISSIFY;

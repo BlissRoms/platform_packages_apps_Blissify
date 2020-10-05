@@ -30,67 +30,67 @@
           android:fragment="com.blissroms.blissify.fragments.statusbar.StatusBar"
           android:icon="@drawable/ic_blissify_statusbar"/>
 
-      <!-- Quick Settings -->
+      <!-- Quick Settings
       <com.blissroms.blissify.ui.BlissPreference
           android:key="qs_category"
           android:title="@string/blissify_qs_title"
           android:fragment="com.blissroms.blissify.fragments.qs.QuickSettings"
           android:icon="@drawable/ic_blissify_qs" />
 
-      <!-- Animation -->
+      <!-- Animation
       <com.blissroms.blissify.ui.BlissPreference
           android:key="animation_category"
           android:title="@string/blissify_animation_title"
           android:fragment="com.blissroms.blissify.fragments.animation.Animations"
           android:icon="@drawable/ic_blissify_animation"/>
 
-      <!-- Buttons -->
+      <!-- Buttons 
       <com.blissroms.blissify.ui.BlissPreference
           android:key="buttons_category"
           android:title="@string/blissify_buttons_title"
           android:fragment="com.blissroms.blissify.fragments.buttons.Buttons"
           android:icon="@drawable/ic_blissify_button"/>
 
-      <!-- LockScreen -->
+      <!-- LockScreen 
       <com.blissroms.blissify.ui.BlissPreference
           android:key="lockscreen_category"
           android:title="@string/blissify_lockscreen_title"
           android:fragment="com.blissroms.blissify.fragments.lockscreen.LockScreen"
           android:icon="@drawable/ic_blissify_lockscreen"/>
 
-      <!-- Gestures -->
+      <!-- Gestures 
       <com.blissroms.blissify.ui.BlissPreference
           android:key="gestures_category"
           android:title="@string/blissify_gestures_title"
           android:fragment="com.blissroms.blissify.fragments.gestures.Gestures"
           android:icon="@drawable/ic_blissify_gestures"/>
 
-      <!-- Biometrics -->
+      <!-- Biometrics 
       <com.blissroms.blissify.ui.BlissPreference
           android:key="biometrics_category"
           android:title="@string/blissify_biometrics_title"
           android:fragment="com.blissroms.blissify.fragments.biometrics.Biometrics"
           android:icon="@drawable/ic_blissify_biometrics"/>
 
-      <!-- Notifications -->
+      <!-- Notifications 
       <com.blissroms.blissify.ui.BlissPreference
           android:key="notifications_category"
           android:title="@string/blissify_notifications_title"
           android:fragment="com.blissroms.blissify.fragments.notifications.Notifications"
           android:icon="@drawable/ic_blissify_notification"/>
 
-      <!-- Themes -->
+      <!-- Themes 
       <com.blissroms.blissify.ui.BlissPreference
           android:key="themes_category"
           android:title="@string/blissify_themes_title"
           android:fragment="com.blissroms.blissify.fragments.themes.Themes"
           android:icon="@drawable/ic_blissify_themes"/>
 
-      <!-- Misc -->
+      <!-- Misc 
       <com.blissroms.blissify.ui.BlissPreference
           android:key="misc_category"
           android:title="@string/blissify_misc_title"
           android:fragment="com.blissroms.blissify.fragments.misc.MiscSettings"
-          android:icon="@drawable/ic_blissify_more"/>
+          android:icon="@drawable/ic_blissify_more"/> -->
 
 </PreferenceScreen>
