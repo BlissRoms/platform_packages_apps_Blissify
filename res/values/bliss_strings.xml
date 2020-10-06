@@ -919,4 +919,8 @@
 
     <!-- Custom Wi-Fi bar icons -->
     <string name="custom_wifi_bar_title">Wi-Fi icon</string>
+
+    <!-- Status Bar Lyric -->
+    <string name="status_bar_show_lyric_title">Status bar lyric</string>
+    <string name="status_bar_show_lyric_summary">Show lyric in status bar (need App support)</string>
 </resources>

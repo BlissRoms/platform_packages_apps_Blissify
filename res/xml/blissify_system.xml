@@ -112,6 +112,11 @@
                          android:summary="@string/ticker_screen_summary"
                          android:fragment="com.blissroms.blissify.fragments.system.Ticker" />
 
+                 <com.bliss.support.preferences.SystemSettingSwitchPreference
+                         android:key="status_bar_show_lyric"
+                         android:title="@string/status_bar_show_lyric_title"
+                         android:summary="@string/status_bar_show_lyric_summary"
+                         android:defaultValue="true" />
     </PreferenceCategory>
 
 	<!-- System Gestures -->
