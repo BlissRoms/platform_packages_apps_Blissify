@@ -139,6 +139,11 @@
 
     </PreferenceCategory>
 
+        <SwitchPreference
+            android:key="enable_blurs_on_windows"
+            android:title="@string/enable_blurs_on_windows_title"
+            android:summary="@string/enable_blurs_on_windows_summary" />
+
 <!--    <PreferenceCategory
         android:key="volte_icon_category"
         android:icon="@drawable/ic_volte"
