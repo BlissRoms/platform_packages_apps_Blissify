@@ -44,12 +44,12 @@
           android:fragment="com.blissroms.blissify.fragments.animation.Animations"
           android:icon="@drawable/ic_blissify_animation"/> -->
 
-      <!-- Buttons 
+      <!-- Buttons -->
       <com.blissroms.blissify.ui.BlissPreference
           android:key="buttons_category"
           android:title="@string/blissify_buttons_title"
-          android:fragment="com.blissroms.blissify.fragments.buttons.Buttons"
-          android:icon="@drawable/ic_blissify_button"/> -->
+          android:fragment="com.blissroms.blissify.fragments.buttons.ButtonSettings"
+          android:icon="@drawable/ic_blissify_button"/>
 
       <!-- LockScreen 
       <com.blissroms.blissify.ui.BlissPreference
