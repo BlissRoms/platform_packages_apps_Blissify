@@ -26,7 +26,7 @@
         android:key="bliss_header"
         android:layout="@layout/buttons_header" />
 
-    <Preference
+<!--    <Preference
         android:key="navigation_pref"
         android:title="@string/navigation_title"
         android:summary="@string/navbar_visibility_summary"
@@ -60,14 +60,20 @@
             android:summary="@string/navigation_bar_invert_layout_summary"
             android:defaultValue="false" />
 
-     </PreferenceCategory>
+     </PreferenceCategory> -->
 
      <PreferenceCategory
         android:key="navigation_bar_category"
         android:icon="@drawable/ic_nav_buttons"
         android:title="@string/navigation_bar_options_category" >
 
-        <Preference
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="navigation_bar_menu_arrow_keys"
+            android:title="@string/navigation_bar_arrow_keys_title"
+            android:summary="@string/navigation_bar_arrow_keys_summary"
+            android:defaultValue="false" />
+
+<!--        <Preference
             android:key="pulse"
             android:title="@string/pulse_settings"
             android:summary="@string/pulse_settings_summary"
@@ -92,12 +98,6 @@
             android:title="@string/show_rotation_button_title"
             android:summary="@string/show_rotation_button_summary"
             android:defaultValue="true" />
-
-        <lineageos.preference.LineageSystemSettingSwitchPreference
-            android:key="navigation_bar_menu_arrow_keys"
-            android:title="@string/navigation_bar_arrow_keys_title"
-            android:summary="@string/navigation_bar_arrow_keys_summary"
-            android:defaultValue="false" />
 
         <ListPreference
             android:key="navigation_home_long_press"
@@ -128,11 +128,11 @@
             android:title="@string/navigation_bar_edge_long_swipe_title"
             android:entries="@array/hardware_keys_action_entries"
             android:entryValues="@array/hardware_keys_action_values"
-            android:persistent="false" />
+            android:persistent="false" /> -->
 
     </PreferenceCategory>
 
-    <PreferenceCategory
+<!--    <PreferenceCategory
         android:key="power_key"
         android:icon="@drawable/ic_power"
         android:title="@string/hardware_keys_power_key_title" >
@@ -338,14 +338,14 @@
             android:summary="@string/camera_launch_summary"
             android:defaultValue="false" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
+    <!-- Audio Panel view
     <PreferenceCategory
         android:key="volume_keys"
         android:title="@string/hardware_keys_volume_keys_title"
         android:icon="@drawable/ic_volume">
 
-        <!-- Audio Panel view  -->
         <PreferenceScreen
             android:key="volume_panel"
             android:title="@string/audio_panel_view_title"
@@ -375,15 +375,15 @@
             android:entryValues="@array/screenshot_type_values"
             android:defaultValue="2" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
     <PreferenceCategory
         android:key="volume_wake"
         android:title="@string/button_wake_title"
         android:icon="@drawable/ic_prevent_accidental_wakeup">
 
-        <lineageos.preference.LineageSystemSettingSwitchPreference
-            android:key="volume_wake_screen"
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="volume_rocker_wake"
             android:title="@string/button_wake_title"
             android:defaultValue="false" />
     </PreferenceCategory>
@@ -405,8 +405,8 @@
         android:title="@string/volbtn_music_controls_title"
         android:icon="@drawable/ic_music_control">
 
-        <lineageos.preference.LineageSystemSettingSwitchPreference
-            android:key="volbtn_music_controls"
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="volume_button_music_control"
             android:title="@string/volbtn_music_controls_title"
             android:summary="@string/volbtn_music_controls_summary"
             android:defaultValue="true" />
@@ -427,7 +427,7 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
+<!--    <PreferenceCategory
         android:key="extras_category"
         android:title="@string/extras_title" >
 
@@ -439,6 +439,6 @@
                 android:action="org.lineageos.settings.device.ADDITIONAL_BUTTONS_SETTINGS" />
         </lineageos.preference.RemotePreference>
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
 </PreferenceScreen>
