@@ -179,7 +179,7 @@
     <string name="status_bar_quick_qs_pulldown_right">Right</string>
     <string name="status_bar_quick_qs_pulldown_always">Always show quick settings on status bar pull down</string>
     <string name="status_bar_double_tap_to_sleep_title">Double-tap to sleep</string>
-    <string name="status_bar_double_tap_to_sleep_summary">Double-tap on the status bar to turn off the display</string>
+    <string name="status_bar_double_tap_to_sleep_summary">Double-tap on the status bar &amp; lockscreen to turn off the display</string>
     <string name="statusbar_footer_title">To enable battery bar &amp; centre statusbar clock. enable notch hide, click me to go to notch settings</string>
 
     <!-- Status bar - icons -->
