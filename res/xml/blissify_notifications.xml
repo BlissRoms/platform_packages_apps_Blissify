@@ -38,6 +38,12 @@
         android:fragment="org.blissroms.blissify.fragments.EdgeLightningSettings"
         android:defaultValue="false" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="notification_headers"
+        android:title="@string/notification_headers_title"
+        android:summary="@string/notification_headers_summary"
+        android:defaultValue="true" />
+
     <PreferenceCategory
         android:key="led"
         android:title="@string/light_settings_header">
