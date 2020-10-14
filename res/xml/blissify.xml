@@ -72,12 +72,12 @@
           android:fragment="com.blissroms.blissify.fragments.biometrics.Biometrics"
           android:icon="@drawable/ic_blissify_biometrics"/> -->
 
-      <!-- Notifications 
+      <!-- Notifications -->
       <com.blissroms.blissify.ui.BlissPreference
           android:key="notifications_category"
           android:title="@string/blissify_notifications_title"
           android:fragment="com.blissroms.blissify.fragments.notifications.Notifications"
-          android:icon="@drawable/ic_blissify_notification"/> -->
+          android:icon="@drawable/ic_blissify_notification"/>
 
       <!-- Themes 
       <com.blissroms.blissify.ui.BlissPreference
