@@ -24,13 +24,25 @@
         android:key="bliss_header"
         android:layout="@layout/notifications_header" />
 
-    <!-- Edge Light -->
+    <!-- Edge Light-->
     <PreferenceCategory
         android:key="notification_screen"
         android:icon="@drawable/ic_screen"
-        android:title="@string/notification_screen_title" >
+        android:title="@string/notifications_light" >
 
-        <com.blissroms.blissify.fragments.notifications.AmbientLightSettingsPreview
+        <!-- Notification lights -->
+        <org.lineageos.internal.lineageparts.LineagePartsPreference
+            android:key="notification_lights"
+            lineage:requiresConfig="@*android:bool/config_intrusiveNotificationLed"
+            lineage:replacesKey="notification_pulse" />
+
+        <!-- Battery light -->
+        <org.lineageos.internal.lineageparts.LineagePartsPreference
+            android:key="battery_lights"
+            lineage:requiresConfig="@*lineageos.platform:integer/config_deviceLightCapabilities"
+            lineage:requiresConfigMask="64" />
+
+       <!-- <com.blissroms.blissify.fragments.notifications.AmbientLightSettingsPreview
             android:key="ambientlight_preview"
             android:layout="@layout/ambient_light"
             android:selectable="false"/>
@@ -115,9 +127,9 @@
             android:persistent="false"
             android:dependency="pulse_ambient_light"
             android:defaultValue="false" />
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
-    <!-- Heads Up -->
+    <!-- Heads Up 
     <PreferenceCategory
         android:key="heads_up_category"
         android:icon="@drawable/ic_headsup"
@@ -136,9 +148,9 @@
         android:summary="@string/show_media_heads_up_summary"
         android:defaultValue="false" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
-    <!-- Ticker -->
+    <!-- Ticker
     <PreferenceCategory
         android:key="status_bar_ticker"
         android:icon="@drawable/ic_notification_ticker"
@@ -172,9 +184,9 @@
         android:selectable="false"
         android:summary="@string/ticker_screen_footer" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
-    <!-- Lockscreen Notificatios -->
+    <!-- Lockscreen Notificatios
     <PreferenceCategory
         android:key="lockscreen_notifications_category"
         android:icon="@drawable/ic_lockscreen_notifications"
@@ -195,9 +207,9 @@
         android:defaultValue="3"
         android:dependency="lock_screen_custom_notif" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
-    <!-- Breathing Notifications -->
+    <!-- Breathing Notifications
     <PreferenceCategory
         android:title="@string/breathing_notifications_category"
         android:icon="@drawable/ic_breathing_missed_call">
@@ -219,10 +231,9 @@
         android:title="@string/voicemail_breath_title"
         android:summary="@string/voicemail_breath_summary"
         android:persistent="false"/>
-    
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
-    <!-- Alert Slider Notifications -->
+    <!-- Alert Slider Notifications
     <PreferenceCategory
         android:key="alert_slider_category"
         android:title="@string/alert_slider_notifications_title"
@@ -234,9 +245,9 @@
         android:summary="@string/alert_slider_notifications_summary"
         android:defaultValue="true" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
-    <!-- Notification options -->
+    <!-- Notification options 
     <PreferenceCategory
         android:title="@string/notifications_vib_category" 
         android:icon="@drawable/ic_notification_count">
@@ -284,9 +295,9 @@
         android:summary="@string/notif_count_summary"
         android:defaultValue="false" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
-    <!-- Incall vib -->
+    <!-- Incall vib
     <PreferenceCategory
         android:key="incall_vib_options"
         android:icon="@drawable/ic_vibrate_connect"
@@ -307,9 +318,9 @@
             android:title="@string/incall_vibrate_disconnect_title"
             android:defaultValue="true" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
-    <!-- Flashlight on call -->
+    <!-- Flashlight on call
     <PreferenceCategory
         android:key="notification_flash"
         android:icon="@drawable/ic_flashlight"
@@ -329,6 +340,6 @@
             android:summary="@string/flashlight_on_call_wait_summary"
             android:defaultValue="false" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 </PreferenceScreen>
 
