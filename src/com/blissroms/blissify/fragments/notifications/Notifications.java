@@ -42,8 +42,11 @@ import com.android.internal.util.bliss.BlissUtils;
 
 import com.blissroms.blissify.utils.DeviceUtils;
 
+import java.util.List;
+import java.util.ArrayList;
+
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
-public class ButtonSettings extends SettingsPreferenceFragment
+public class Notifications extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     @Override

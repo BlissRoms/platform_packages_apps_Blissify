@@ -126,8 +126,8 @@
             android:summary="@string/ambient_notification_light_accent_summary"
             android:persistent="false"
             android:dependency="pulse_ambient_light"
-            android:defaultValue="false" />
-    </PreferenceCategory> -->
+            android:defaultValue="false" /> -->
+    </PreferenceCategory>
 
     <!-- Heads Up 
     <PreferenceCategory
