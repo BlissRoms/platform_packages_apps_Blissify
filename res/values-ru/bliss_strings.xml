@@ -38,7 +38,7 @@
     <string name="dashboard_settings_category">DashBoard</string>
     <string name="cpu_info">Информация CPU</string>
     <string name="toast">Всплывающие уведомления</string>
-    <string name="smart_pixels">Smart Pixels</string>
+    <string name="smart_pixels">Умные пикслеи</string>
     <string name="battery_options">Опции батареи</string>
     <string name="tile_options">Опции плиток</string>
     <string name="system_anim">Система</string>
@@ -52,7 +52,7 @@
     <string name="qs_header_category">Быстрые настройки</string>
     <string name="lockscreen_items_category">Содержимое на экране блокировки</string>
     <string name="lockscreen_shortcuts_category_title">Ярлыки на экране блокировки</string>
-    <string name="lockscreen_media_blur_category">Blur эффект на экране блокировки</string>
+    <string name="lockscreen_media_blur_category">Эффект размытияна экране блокировки</string>
     <string name="lockscreen_wake_fp_category">Опции пробуждения</string>
     <string name="volume_options_title">Опции громкости</string>
     <string name="navigation_bar_options_category">Панель навигации</string>
@@ -76,7 +76,7 @@
     <string name="animation_duration_title">Длительность анимации</string>
     <string name="title_animation_no_override">Запретить переопределения приложений</string>
     <string name="summary_animation_no_override">Предотвратить переопределение переходов приложением</string>
-    <string name="animation_duration_default">Умол.</string>
+    <string name="animation_duration_default">По умолчанию/string>
     <string name="task_open_behind_title">Приложение, открытое на фоне анимации</string>
     <!-- Toast Animation -->
     <string name="toast_animation_title">Toast-анимация</string>
@@ -86,7 +86,7 @@
     <string name="toast_fade_animation">Затухание</string>
     <string name="toast_SlideRight_animation">Сдвиг вправо</string>
     <string name="toast_SlideLeft_animation">Сдвиг влево</string>
-    <string name="toast_Xylon_animation">Xylon</string>
+    <string name="toast_Xylon_animation">Ксилон</string>
     <string name="toast_Toko_animation">Токо</string>
     <string name="toast_Tn_animation">Tn</string>
     <string name="toast_Honami_animation">Honami</string>
@@ -131,9 +131,9 @@
     <string name="quick_settings_vibrate_summary">Вибрировать при касании плиток QS</string>
     <!-- Tiles animation style  -->
     <string name="qs_animation_title">QS плитки</string>
-    <string name="qs_tile_animation_style_title">Анимации плиток QS</string>
-    <string name="qs_tile_animation_duration_title">Длительность анимации плиток QS</string>
-    <string name="qs_tile_animation_interpolator_title">Длительность анимации плиток QS</string>
+    <string name="qs_tile_animation_style_title">Анимации плиток быстрых настроек</string>
+    <string name="qs_tile_animation_duration_title">Длительность анимации плиток быстрых настроек</string>
+    <string name="qs_tile_animation_interpolator_title">Длительность анимации плиток быстрых настроек</string>
     <string name="qs_tile_animation_style_off">Без анимации</string>
     <string name="qs_tile_animation_style_flip">Отразить</string>
     <string name="qs_tile_animation_style_rotate">Вращение</string>
@@ -373,8 +373,8 @@
     <string name="power_menu_users_title">Переключатель пользователя</string>
     <string name="power_menu_bug_report_title">Баг репорт</string>
     <string name="power_menu_bug_report_disabled">Баг репорты выключены в настройках разработчика</string>
-    <string name="power_menu_lockdown_title">Lockdown</string>
-    <string name="power_menu_emergency_title">Emergency</string>
+    <string name="power_menu_lockdown_title">Блокировка</string>
+    <string name="power_menu_emergency_title">Чрезвычайная ситуация</string>
     <string name="camera_double_tap_power_gesture_title">Нажать кнопку Питания дважды для запуска камеры</string>
     <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
     <string name="camera_double_tap_power_gesture_desc">Быстро открыть камеру без разблокировки экрана</string>
@@ -478,8 +478,8 @@
     <string name="qs_brightness_slider_hide">Спрятать</string>
     <string name="qs_brightness_slider_top">Сверху</string>
     <string name="qs_brightness_slider_bottom">Снизу</string>
-    <string name="qs_brightness_slider_always_top">Quick Qs (сверху)</string>
-    <string name="qs_brightness_slider_always_bottom">Quick Qs (снизу)</string>
+    <string name="qs_brightness_slider_always_top">Быстрый доступ (сверху)</string>
+    <string name="qs_brightness_slider_always_bottom">Быстрый доступ (снизу)</string>
     <!-- Quick settings brightness icon -->
     <string name="brightness_icon_title">Значок автояркости</string>
     <string name="brightness_icon_summary">Показать значок для переключения автояркости</string>
@@ -500,8 +500,8 @@
     <string name="three_finger_gesture">Свайп для создания скриншота</string>
     <string name="three_finger_gesture_summary">Проведите по экрану тремя пальцами, чтобы сделать снимок экрана</string>
     <!-- lock screen media blur -->
-    <string name="lockscreen_media_blur_title">Уровень эффекта blur на экране блокировки</string>
-    <string name="lockscreen_media_blur_summary">Уровень эффекта blur на экране блокировки во время проигрывания медиа</string>
+    <string name="lockscreen_media_blur_title">Уровень эффекта размытия на экране блокировки</string>
+    <string name="lockscreen_media_blur_summary">Уровень эффекта размытия на экране блокировки во время проигрывания медиа</string>
     <!-- Fingerprint unlock -->
     <string name="fp_unlock_keystore_title">Принудительная аутентификация отпечатком пальца</string>
     <string name="fp_unlock_keystore_summary">Разблокировать устройство с помощью отпечатка пальца после перезагрузки или включении устройства</string>
@@ -565,8 +565,8 @@
     <string name="lockscreen_albumart_filter_none">Ничего</string>
     <string name="lockscreen_albumart_filter_grayscale">Безцветные</string>
     <string name="lockscreen_albumart_filter_tint">Закрашены системным цветом</string>
-    <string name="lockscreen_albumart_filter_blur">Blur</string>
-    <string name="lockscreen_albumart_filter_grayblur">Безцветные с эффектом blur</string>
+    <string name="lockscreen_albumart_filter_blur">Размытие</string>
+    <string name="lockscreen_albumart_filter_grayblur">Серый с эффектом размытия</string>
     <!-- Bluetooth status -->
     <string name="bluetooth_battery_title">Уровень заряда Bluetooth</string>
     <string name="bluetooth_battery_summary">Показывать заряд батареи подключенных Bluetooth-устройств, если доступно</string>
@@ -587,8 +587,8 @@
     <!-- Lockscreen Visualizer -->
     <string name="lockscreen_autocolor_title">Автоматические цвета</string>
     <string name="lockscreen_autocolor_summary">Синхронизировать цвета с фоном</string>
-    <string name="lockscreen_autocolor_lavalamp">Нуждается в отключении lava lamp</string>
-    <string name="lockscreen_lavalamp_title">Lava lamp</string>
+    <string name="lockscreen_autocolor_lavalamp">Нуждается в отключении лавовая лампа</string>
+    <string name="lockscreen_lavalamp_title">Лавовая лампа</string>
     <string name="lockscreen_lavalamp_summary">Анимировать плавно lava lamp стиль смешанных цветов</string>
     <string name="lockscreen_lavalamp_speed_title">Lava lamp интервал смешивания цветов</string>
     <string name="lockscreen_solid_units_count_title">Количество сплошных линий</string>
@@ -721,13 +721,13 @@
     <string name="notification_guts_kill_app_button_summary">Показывать кнопку закрытия приложения при долгом нажатии на уведомление</string>
     <!-- QS rows and columns -->
     <string name="qs_column_rows_settings_title">Быстрые настройки</string>
-    <string name="qs_columns_rows_category_title">Колонны и ряды</string>
-    <string name="qs_rows_columns_title">Колонны и ряды</string>
+    <string name="qs_columns_rows_category_title">Столбцы и ряды</string>
+    <string name="qs_rows_columns_title">Столбцы и ряды</string>
     <string name="qs_rows_portrait_title">Ряды плиток в вертикальном положении</string>
     <string name="qs_rows_landscape_title">Ряды плиток в горизонтальном положении</string>
-    <string name="qs_columns_portrait_title">Колонны плиток в вертикальном положении</string>
-    <string name="qs_columns_landscape_title">Колонны плиток в горизонтальном положении</string>
-    <string name="sysui_qqs_count_title">Колонны (Quickbar)</string>
+    <string name="qs_columns_portrait_title">Столбы плиток в вертикальном положении</string>
+    <string name="qs_columns_landscape_title">Столбцы плиток в горизонтальном положении</string>
+    <string name="sysui_qqs_count_title">Столбцы (быстрый доступ)</string>
     <string name="qs_quickbar_auto">Авто</string>
     <string name="qs_quickbar_six">6 плиток</string>
     <string name="qs_quickbar_seven">7 плиток</string>
@@ -780,7 +780,7 @@
     <string name="lock_screen_weather_condition_icon_summaryOff">Не отображать иконку погоды на экране блокировки</string>
     <string name="lock_screen_weather_style_title">Стиль погоды</string>
     <string name="lock_screen_weather_style_summaryOff">Omni(с местоположением)</string>
-    <string name="lock_screen_weather_style_summaryOn">AOSP(без местоположения)</string>
+    <string name="lock_screen_weather_style_summaryOn">Google (без местоположения)</string>
     <string name="lockscreen_weather_show_city_title">Показывать название города</string>
     <string name="lockscreen_weather_show_city_summary">Показывать название города слева от иконки погоды</string>
     <string name="lockscreen_weather_show_temp_title">Показывать температуру</string>
@@ -840,15 +840,15 @@
     <string name="use_old_mobiletype_summary">Стиль значка мобильной сети как в Oreo</string>
     <!-- Ambient edge lighting -->
     <string name="notification_screen_title">Дисплей</string>
-    <string name="pulse_ambient_light_title">Edge lighting</string>
-    <string name="pulse_ambient_light_summary">Показывать Edge lighting для новых уведомлений</string>
-    <string name="pulse_ambient_light_color_title">Цвет Edge light</string>
+    <string name="pulse_ambient_light_title">Подсветка краев экрана</string>
+    <string name="pulse_ambient_light_summary">Использовать подсветку краев экрана для новых уведомлений</string>
+    <string name="pulse_ambient_light_color_title">Цвет подсветки краев</string>
     <string name="pulse_ambient_light_duration_title">Длительность</string>
     <string name="pulse_ambient_light_duration_summary">Устанавливает длительность анимации для ambient light</string>
-    <string name="ambient_notification_light_enabled_title">Показывать \"Edge lighting\" на AoD</string>
-    <string name="ambient_notification_light_enabled_summary">Показывать \"Edge lighting\" на AoD при новых уведомлениях</string>
+    <string name="ambient_notification_light_enabled_title">Использовать \"Подсветку краев\" на AoD</string>
+    <string name="ambient_notification_light_enabled_summary">Будет исспользоваться \"Подсветка краев\" на AoD при новых уведомлениях</string>
     <string name="ambient_notification_light_hide_aod_title">Прятать AoD содержимое</string>
-    <string name="ambient_notification_light_hide_aod_summary">Прятать AoD содержимое когда \"Edge lighting\" используется</string>
+    <string name="ambient_notification_light_hide_aod_summary">Прятать AoD содержимое когда \"Подсветка краев\" используется</string>
     <string name="ambient_notification_light_accent_title">Использовать системный цвет</string>
     <string name="ambient_notification_light_accent_summary">Использовать системный цвет вместо выставленного пользователем</string>
     <string name="pulse_ambient_light_note">Пробуждение при новых уведомлениях должно быть включено</string>
@@ -1100,12 +1100,12 @@
     <string name="ticker_animation_mode_scroll">Прокрутка</string>
     <string name="ticker_tick_duration_title">Время отображения бегущей строки</string>
     <!-- QS blur -->
-    <string name="blur_quicksettings">Blur в фоне за Быстрыми настройками</string>
-    <string name="blur_quicksettings_subtitle">Blur эффект на заднем фоне Быстрых настроек</string>
-    <string name="qs_blur_alpha_title">Blur прозрачность</string>
-    <string name="qs_blur_alpha_summary">Изменить blur прозрачность</string>
+    <string name="blur_quicksettings">Размытые в фоне за Быстрыми настройками</string>
+    <string name="blur_quicksettings_subtitle">Эффект размытия на заднем фоне Быстрых настроек</string>
+    <string name="qs_blur_alpha_title">Прозрачность размытия</string>
+    <string name="qs_blur_alpha_summary">Изменить прозрачность размытияч</string>
     <string name="qs_blur_intensity_title">Blur интенсивность</string>
-    <string name="qs_blur_intensity_summary">Изменить blur интенсивность/радиус</string>
+    <string name="qs_blur_intensity_summary">Изменить интенсивность/радиус размытия</string>
     <!-- FOD pressed state behavior -->
     <string name="fod_pressed_state_title">FOD поведение при нажатии</string>
     <string name="fod_pressed_state_summary">Выбрать поведение при нажатии для вашего устройства</string>
@@ -1127,7 +1127,7 @@
     <string name="lockscreen_date_selection_default">По умолчанию</string>
     <string name="lockscreen_date_selection_str_box">Полу-прозрачная коробка</string>
     <string name="lockscreen_date_selection_str_round">Полу-прозрачная коробка (закругленная)</string>
-    <string name="lockscreen_date_selection_qbeta_style">Pixel Q pill</string>
+    <string name="lockscreen_date_selection_qbeta_style">Android Q</string>
     <string name="lockscreen_date_selection_str_accent">Закругленные, простые и с акцентом</string>
     <string name="lockscreen_date_selection_str_accent_transparent">Закругленные, прозрачные и с акцентом</string>
     <string name="lockscreen_date_selection_str_gradient">Градиент</string>
@@ -1252,7 +1252,7 @@
     <string name="fod_recog_animation_effect_title">Анимация распознавания отпечатка</string>
     <string name="fod_recog_animation_miui_normal">MIUI по умолчанию</string>
     <string name="fod_recog_animation_miui_aod">Всегда включённый дисплей</string>
-    <string name="fod_recog_animation_miui_aurora">Aurora</string>
+    <string name="fod_recog_animation_miui_aurora">Аврора</string>
     <string name="fod_recog_animation_miui_light">Светлая</string>
     <string name="fod_recog_animation_miui_pop">Поп</string>
     <string name="fod_recog_animation_miui_pulse">Пульс</string>
@@ -1303,47 +1303,47 @@
     <string name="accent_preset_25">Коричневая мистика</string>
     <string name="accent_preset_26">Мятный</string>
     <string name="accent_preset_27">Новый оранжевый</string>
-    <string name="accent_preset_28">NotImpPurple</string>
-    <string name="accent_preset_29">ObfusBleu</string>
-    <string name="accent_preset_30">OrangeCoral</string>
-    <string name="accent_preset_31">Палесиний</string>
-    <string name="accent_preset_32">Палерид</string>
+    <string name="accent_preset_28">Светло-фиолетовый</string>
+    <string name="accent_preset_29">Темно-синий</string>
+    <string name="accent_preset_30">Оранжевый корал</string>
+    <string name="accent_preset_31">Бледно-синий</string>
+    <string name="accent_preset_32">Бледно-красный</string>
     <string name="accent_preset_33">Пиксель</string>
-    <string name="accent_preset_34">PureLust</string>
-    <string name="accent_preset_35">Quepal</string>
+    <string name="accent_preset_34">Чистая похоть</string>
+    <string name="accent_preset_35">Бирюзовый</string>
     <string name="accent_preset_36">Реттеноранжевый</string>
-    <string name="accent_preset_37">Морской Мятник</string>
+    <string name="accent_preset_37">Морская мята</string>
     <string name="accent_preset_38">Теневое Кольцо</string>
     <string name="accent_preset_39">Красный</string>
-    <string name="accent_preset_40">SluttyPink</string>
+    <string name="accent_preset_40">Распутный розовый</string>
     <string name="accent_preset_41">Смокинг-Зелёный</string>
     <string name="accent_preset_42">Фиолетовый</string>
     <string name="accent_preset_43">Возвышенное</string>
     <string name="accent_preset_44">Бирюзовый</string>
-    <string name="accent_preset_45">TruFilFilpink</string>
+    <string name="accent_preset_45">Темно-розовый</string>
     <string name="accent_preset_46">Теплооранжевый</string>
     <string name="accent_preset_47">Белый</string>
-    <string name="accent_preset_48">Цветная Мятка</string>
-    <string name="accent_preset_49">AndroidOneGreen</string>
-    <string name="accent_preset_50">АоспаЗелёный</string>
-    <string name="accent_preset_51">Коларед</string>
-    <string name="accent_preset_52">Discord Фиолетовый</string>
-    <string name="accent_preset_53">Синий FacebookBlue</string>
-    <string name="accent_preset_54">InstagramCerise</string>
-    <string name="accent_preset_55">JollibeeCrimson</string>
-    <string name="accent_preset_56">Зеленый Монстер-Энергия</string>
-    <string name="accent_preset_57">NextbitMint</string>
-    <string name="accent_preset_58">Одноплавный</string>
-    <string name="accent_preset_59">PepsiBlue</string>
-    <string name="accent_preset_60">Покофоножелтый</string>
-    <string name="accent_preset_61">RazerGreen</string>
-    <string name="accent_preset_62">SamsungBlue</string>
-    <string name="accent_preset_63">Зеленый SpotifyGreen</string>
-    <string name="accent_preset_64">Звезда-Зелёные</string>
-    <string name="accent_preset_65">Двуфиолетовый</string>
-    <string name="accent_preset_66">ТвиттеСиний</string>
-    <string name="accent_preset_67">Зеленый XboxGreen</string>
-    <string name="accent_preset_68">XiaomiOrange</string>
+    <string name="accent_preset_48">Цветная мята</string>
+    <string name="accent_preset_49">Android One Зеленый</string>
+    <string name="accent_preset_50">AOSPA Зелёный</string>
+    <string name="accent_preset_51">Кока-Кола Красный</string>
+    <string name="accent_preset_52">Фиолетовый раздор</string>
+    <string name="accent_preset_53">Facebook Синий</string>
+    <string name="accent_preset_54">Instagram Вишня</string>
+    <string name="accent_preset_55">Джоллиби Кримсон</string>
+    <string name="accent_preset_56">Monster Energy Зеленый</string>
+    <string name="accent_preset_57">Мятный Nextbit</string>
+    <string name="accent_preset_58">Oneplus Красный</string>
+    <string name="accent_preset_59">Pepsi Синий</string>
+    <string name="accent_preset_60">Pocophone желтый/string>
+    <string name="accent_preset_61">Razer Зеленый</string>
+    <string name="accent_preset_62">Samsung Синий</string>
+    <string name="accent_preset_63">Spotify Зеленый</string>
+    <string name="accent_preset_64">Starbucks Зеленый</string>
+    <string name="accent_preset_65">Twitch Фиолетовый</string>
+    <string name="accent_preset_66">Twitter Синий</string>
+    <string name="accent_preset_67">Xbox Зеленый</string>
+    <string name="accent_preset_68">Xiaomi Оранжевый</string>
     <string name="accent_preset_title">Предустановленные акценты</string>
     <!-- Clock style -->
     <string name="clock_style_title">Стили часов на экране блокировки</string>
