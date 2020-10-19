@@ -38,7 +38,7 @@
     <string name="dashboard_settings_category">DashBoard</string>
     <string name="cpu_info">Информация CPU</string>
     <string name="toast">Всплывающие уведомления</string>
-    <string name="smart_pixels">Умные пикслеи</string>
+    <string name="smart_pixels">Умные пиксели</string>
     <string name="battery_options">Опции батареи</string>
     <string name="tile_options">Опции плиток</string>
     <string name="system_anim">Система</string>
