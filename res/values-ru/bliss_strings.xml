@@ -163,6 +163,7 @@
     <string name="status_bar_quick_qs_pulldown_always">Быстрые настройки открываются из любого места строки состояния</string>
     <string name="status_bar_double_tap_to_sleep_title">Дважды нажать для сна (строка состояния)</string>
     <string name="status_bar_double_tap_to_sleep_summary">Дважды нажать по строке состояния для сна</string>
+    <string name="statusbar_footer_title">Чтобы включить индикатор батареи и часы в центре строки состояния включите скрытие выреза экрана, кликните чтобы перейти к настройкам выреза экранаs</string>
     <!-- Status bar - icons -->
     <string name="status_bar_icons_title">Иконки строки состояния</string>
     <string name="status_bar_notif_count_title">Количество уведомлений</string>
@@ -573,7 +574,7 @@
     <!-- Battery percent -->
     <string name="battery_percentage_title">Процент заряда батареи</string>
     <string name="battery_percentage_off">Отключено</string>
-    <string name="battery_percentage_next">Включено</string>
+    <string name="battery_percentage_next">Включено (рядом с иконкой)</string>
     <string name="battery_percentage_inside">Включено (внутри иконки)</string>
     <!-- Battery estimate -->
     <string name="battery_estimate_title">Остаток заряда</string>
@@ -903,6 +904,7 @@
     <!-- StatusBar weather settings -->
     <string name="sb_weather_title">Погода в строке состояния</string>
     <string name="sb_weather_summary">Настроить погоду</string>
+    <string name="weather_pref_title">Щелкните здесь, чтобы открыть настройки Omni погоды</string>
     <string name="status_bar_weather_location_title">Положение погоды</string>
     <string name="statusbar_weather_title">Погода строки состояния</string>
     <string name="statusbar_weather_summary">Настроить из \"Быстрые настройки\Погода\"</string>
@@ -915,6 +917,7 @@
     <string name="status_bar_show_image">Показать изображение</string>
     <string name="sb_weather_statusbar">Строка состояния</string>
     <string name="sb_weather_header">Раскрытая шапка</string>
+    <string name="sb_weather_qspanel">Панель быстрого доступа</string>
     <!-- QS footer icons -->
     <string name="qs_footer_title">Нижняя панель</string>
     <string name="qs_footer_settings_title">Иконка настроек</string>
@@ -1080,7 +1083,10 @@
     <string name="qs_tint_accent">Цвет акцента</string>
     <string name="qs_disco_mode">Режим Диско</string>
     <!-- QS battery -->
+    <string name="qs_battery_location_title">Расположение батареи</string>
+    <string name="qs_battery_location_qs_panel">Панель быстрого доступа</string>
     <string name="qs_use_status_bar_battery_style">Использовать стиль строки состояния</string>
+    <string name="qs_use_status_bar_battery_style">Использовать стиль строки состояния</</string>
     <!-- Status Bar Ticker -->
     <string name="ticker_screen_title">Тикер</string>
     <string name="ticker_screen_summary">Показывать тикающие уведомления в строке состояния</string>
@@ -1573,12 +1579,94 @@
     <string name="theme_type_title">Тема системы</string>
     <string name="theme_type_summary">Выберите тему</string>
     <string name="theme_type_default">Стандартная тема</string>
-    <string name="theme_type_solarized_dark">Solarized dark</string>
+    <string name="theme_type_solarized_dark">Светло-темная</string>
     <string name="theme_type_pitchblack">Глубокий черный</string>
     <string name="theme_type_dark_grey">Тёмно-серый</string>
     <string name="theme_type_xtended_clear">Прозрачная тема</string>
     <string name="theme_type_material_ocean">Тёмно-синяя</string>
+    <string name="dark_ui_warning">Включите темную тему, чтобы установить другие темы</string>
     <!-- Lockscreen clock -->
     <string name="lockscreen_clock_pref_title">Настройки часов на экране блокировки</string>
-    <string name="lockscreen_clock_pref_summary">изменить стиль часов по умолчанию, стили даты, размер часов и даты, шрифт и размер информации о владельце</string>
+    <string name="lockscreen_clock_pref_summary">Изменение стиля часов по умолчанию, стиля даты, размера часов и даты, шрифта и размера информации о владельце</string>
+    <!-- GVM -->
+    <string name="ui_options_title">Настройки пользовательского интерфейса</string>
+    <string name="theme_customization_statusbar_height_title">Высота статусбара</string>
+    <string name="theme_customization_ui_radius_title">Радиус скруглений</string>
+     <!-- Navbar Animation -->
+    <string name="pixel_navbar_anim_title">Pixel анимация</string>
+    <string name="pixel_navbar_anim_summary">Изменение анимации кнопки домой</string>
+    <!-- Lockscreen Colors -->
+    <string name="lockscreen_colors">Цвет экрана блокировки</string>
+    <string name="lockscreen_weather_colors">Цвет погоды на экране бокировки</string>
+    <string name="lockscreen_clock_color">Цвет часов на экране блокировки</string>
+    <string name="lockscreen_colors_summary">Изменить цвет виджетов на заблокированном экране</string>
+    <string name="lockscreen_clock_date_color">Цвет даты на экране блокировки</string>
+    <string name="lockscreen_colors_reset_title">Сброс цветов на экране бловкироки</string>
+    <string name="lockscreen_colors_reset_message">Вы уверены, что хотите сбросить эти цвета по умолчанию?</string>
+    <string name="lockscreen_colors_title">Цвет экрана блокировки</string>
+    <string name="lockscreen_owner_info_color">Цвет информации о владельце</string>
+    <string name="lockscreen_phone_icon_color">Ярлык внизу слева на экране блокировки</string>
+    <string name="lockscreen_lock_icon_color">Иконка замка на экране блокировки</string>
+    <string name="lockscreen_camera_icon_color">Ярлык внизу справа на экране блокировки</string>
+    <string name="ls_shortcut_icon_color">Ярлыки экрана блокировки</string>
+    <string name="lockscreen_indication_text_color">Текст индикации экрана блокировки</string>
+    <string name="lockscreen_weather_temp_color">Цвет температуры погоды</string>
+    <string name="lockscreen_weather_city_color">Цвет города погоды</string>
+    <string name="lockscreen_weather_icon_color">Цвет значка погоды</string>
+    <string name="lockscreen_clock_color_type">Тип цвета часов на экране бловкировки</string>
+    <string name="lock_clock_color_picker">Палитра цветов</string>
+    <string name="lock_clock_color_accent">Акцент</string>
+    <string name="aosp_weather">Google погода</string>
+    <string name="omni_weather">Omni Погода</string>
+    <!-- QS data usage location -->
+    <string name="qs_data_usage_location_title">Отображение израсходованного трафика</string>
+    <string name="qs_data_usage_location_qs_panel">Панель быстрого доступа</string>
+    <string name="qs_data_usage_location_qs_statusbar">Статус бар в быстром доступе</string>
+     <!-- QS header styles -->
+    <string name="qs_header_style_title">Стиль заголовка быстрого доступа</string>
+    <string name="qs_header_black">Черный</string>
+    <string name="qs_header_grey">Серый</string>
+    <string name="qs_header_lightgrey">Светло-серый</string>
+    <string name="qs_header_accent">Системный акцент</string>
+    <string name="qs_header_transparent">Прозрачный</string>
+    <!-- QS Settings button-->
+    <string name="qs_settings_disable">Отключена</string>
+    <string name="qs_settings_expanded_panel">Показывать в развернутой панели быстрого доступа</string>
+    <string name="qs_settings_always">Всегда показывать</string>
+    <!-- QS Clock Style-->
+    <string name="qs_clock_style_title">Размер часов в быстром доступе</string>
+    <string name="qs_clock_static">Статичный</string>
+    <string name="qs_clock_dynamic">Динамический (как часы в строке состояния)</string>
+    <!-- Keyboard and IME  -->
+    <string name="ime_settings_title">Настройки клавиатуры</string>
+    <string name="ime_settings_summary">Дополнительные настройки клавиатуры</string>
+    <string name="ime_switcher_notification_title">Уведомления селектора клавиатуры</string>
+    <string name="ime_switcher_notification_summary">Отображение селектора метода ввода в уведомлениях</string>
+    <string name="ime_fullscreen_title">Клавиутура на полный экран</string>
+    <string name="ime_fullscreen_summary">Разрешить клавиатуре занимать весь экран в альбомной ориентации</string>
+    <string name="ime_show_enter_key_title">Отображение кнопки ввода</string>
+    <string name="ime_show_enter_key_summary">Принудительное отображение на клавиатуре клавишы ввода вместо клавишы смайлика</string>
+    <!-- Gradient Panel QS Bg -->
+    <string name="qs_new_bg_title">Градиентный фон быстрых настроек</string>
+    <string name="qs_new_bg_summary">Активация градиентного фона в быстрых настройках</string>
+	<!-- MusicCard -->
+    <string name="volume_panel_musiccard_title">Музыкальный плеер</string>
+    <string name="volume_panel_musiccard_summary">Включить музыкальный плеер в панели громкости</string>
+	<!-- Center R Notification headers -->
+    <string name="center_notification_headers_title">Заголовки уведомлений по центру</string>
+    <string name="center_notification_headers_summary">Расположение заголовков уведомлений в стиле Андроид R по центру (Требуется перезапуск SystemUI)</string>
+	<!--  Volume Panel Plugin   -->
+    <string name="volume_panel">Стиль панели громкости</string>
+    <string name="volume_panel_stock">AOSPA</string>
+    <string name="volume_panel_aosp">AOSP</string>
+    <string name="volume_panel_compat">Compat</string>
+    <string name="volume_panel_oreo">Oreo</string>
+    <string name="volume_panel_tiled">Tiled</string>
+	<!-- Navbar styles -->
+    <string name="navbar_style_title">Стиль панели навигации</string>
+    <string name="navbar_default">По умолчанию</string>
+    <string name="navbar_asus">ASUS</string>
+    <string name="navbar_oneplus">OnePlus</string>
+    <string name="navbar_oneui">One UI</string>
+    <string name="navbar_tecno">Tecno Camon</string>    
 </resources>
