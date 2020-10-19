@@ -52,7 +52,7 @@
     <string name="qs_header_category">Быстрые настройки</string>
     <string name="lockscreen_items_category">Содержимое на экране блокировки</string>
     <string name="lockscreen_shortcuts_category_title">Ярлыки на экране блокировки</string>
-    <string name="lockscreen_media_blur_category">Эффект размытияна экране блокировки</string>
+    <string name="lockscreen_media_blur_category">Эффект размытия на экране блокировки</string>
     <string name="lockscreen_wake_fp_category">Опции пробуждения</string>
     <string name="volume_options_title">Опции громкости</string>
     <string name="navigation_bar_options_category">Панель навигации</string>
