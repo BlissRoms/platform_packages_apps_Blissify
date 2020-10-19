@@ -76,7 +76,7 @@
     <string name="animation_duration_title">Длительность анимации</string>
     <string name="title_animation_no_override">Запретить переопределения приложений</string>
     <string name="summary_animation_no_override">Предотвратить переопределение переходов приложением</string>
-    <string name="animation_duration_default">По умолчанию/string>
+    <string name="animation_duration_default">По умолчанию</string>
     <string name="task_open_behind_title">Приложение, открытое на фоне анимации</string>
     <!-- Toast Animation -->
     <string name="toast_animation_title">Toast-анимация</string>
