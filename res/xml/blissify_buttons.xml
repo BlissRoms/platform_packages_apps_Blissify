@@ -27,19 +27,13 @@
         android:key="bliss_header"
         android:layout="@layout/buttons_header" />
 
-<!--    <Preference
+    <Preference
         android:key="navigation_pref"
         android:title="@string/navigation_title"
         android:summary="@string/navbar_visibility_summary"
         android:fragment="com.blissroms.blissify.fragments.buttons.Navigation"/>
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="anbi_enabled"
-        android:title="@string/anbi_title"
-        android:summary="@string/anbi_summary"
-        android:defaultValue="false" />
-
-     <PreferenceCategory
+<!--     <PreferenceCategory
         android:key="invert_layout_category"
         android:icon="@drawable/ic_invert"
         android:title="@string/navigation_bar_invert_layout_title" >
