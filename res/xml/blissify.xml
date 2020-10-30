@@ -21,7 +21,7 @@
     <!-- Bliss Logo Header -->
     <Preference 
         android:key="bliss_logo"
-        android:layout="@layout/bliss_logo" />
+        android:layout="@layout/bliss_animation" />
 
       <!-- Status Bar -->
       <com.blissroms.blissify.ui.BlissPreference
