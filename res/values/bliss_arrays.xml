@@ -1337,11 +1337,13 @@
         <item>@string/fod_recog_animation_miui_normal</item>
         <item>@string/fod_recog_animation_miui_aod</item>
         <item>@string/fod_recog_animation_miui_aurora</item>
+        <item>@string/fod_recog_animation_miui_aurora_cas</item>
         <item>@string/fod_recog_animation_miui_light</item>
         <item>@string/fod_recog_animation_miui_pop</item>
         <item>@string/fod_recog_animation_miui_pulse</item>
         <item>@string/fod_recog_animation_miui_pulse_white</item>
         <item>@string/fod_recog_animation_miui_rhythm</item>
+        <item>@string/fod_recog_animation_miui_star_cas</item>
         <item>@string/fod_recog_animation_op_cosmos</item>
         <item>@string/fod_recog_animation_op_energy</item>
         <item>@string/fod_recog_animation_op_mclaren</item>
@@ -1352,9 +1354,9 @@
         <item>@string/fod_recog_animation_pureview_future</item>
         <item>@string/fod_recog_animation_pureview_halo_ring</item>
         <item>@string/fod_recog_animation_pureview_molecular</item>
-        <item>@string/fod_recog_animation_bluefirework</item>
-        <item>@string/fod_recog_animation_coloros7_1</item>
-        <item>@string/fod_recog_animation_coloros7_2</item>
+        <item>@string/fod_recog_animation_rog_fusion</item>
+        <item>@string/fod_recog_animation_rog_pulsar</item>
+        <item>@string/fod_recog_animation_rog_supernova</item>
     </string-array>
 
     <string-array name="fod_recog_animation_values" translatable="false">
@@ -1379,6 +1381,8 @@
         <item>18</item>
         <item>19</item>
         <item>20</item>
+        <item>21</item>
+        <item>22</item>
     </string-array>
 
     <!-- Lockscreen Charging Animation -->
