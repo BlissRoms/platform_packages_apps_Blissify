@@ -59,8 +59,8 @@ import java.util.List;
 @SearchIndexable
 public class NetworkTraffic extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-
     private CustomSeekBarPreference mThreshold;
+    private ListPreference mNetTrafficType;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,6 +76,12 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements OnPref
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 1, UserHandle.USER_CURRENT);
         mThreshold.setValue(trafvalue);
         mThreshold.setOnPreferenceChangeListener(this);
+
+        mNetTrafficType = (ListPreference) findPreference("network_traffic_type");
+        int type = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_TYPE, 0, UserHandle.USER_CURRENT);
+        mNetTrafficType.setValue(String.valueOf(type));
+        mNetTrafficType.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -95,6 +101,14 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements OnPref
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, val,
                     UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mNetTrafficType) {
+            int val = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_TYPE, val,
+                    UserHandle.USER_CURRENT);
+            int index = mNetTrafficType.findIndexOfValue((String) objValue);
+            mNetTrafficType.setSummary(mNetTrafficType.getEntries()[index]);
             return true;
         }
         return false;
