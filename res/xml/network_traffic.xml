@@ -23,12 +23,29 @@
         android:summary="@string/network_traffic_state_summary"
         android:defaultValue="false" />
 
+    <ListPreference
+        android:key="network_traffic_type"
+        android:title="@string/network_traffic_type"
+        android:entries="@array/show_network_traffic_type_entries"
+        android:entryValues="@array/show_network_traffic_type_values"
+        android:dependency="network_traffic_state"
+        android:summary="%s"
+        android:defaultValue="0"
+        android:persistent="false" />
+
     <com.bliss.support.preferences.CustomSeekBarPreference
         android:key="network_traffic_autohide_threshold"
         android:title="@string/network_traffic_autohide_threshold_title"
+        android:dependency="network_traffic_state"
         android:max="10"
         settings:min="0"
         settings:units=""
         android:defaultValue="0" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="network_traffic_arrow"
+        android:title="@string/network_traffic_hidearrow"
+        android:summary="@string/network_traffic_hidearrow_summary"
+        android:dependency="network_traffic_state"
+        android:defaultValue="false" />
 </PreferenceScreen>
