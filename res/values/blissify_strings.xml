@@ -372,4 +372,8 @@
     <string name="battery_percent_inside_summary">Show percent inside the icon</string>
     <string name="show_battery_percent_charging_title">Show percent when charging</string>
     <string name="show_battery_percent_charging_summary">Enforce showing the percent next to the icon when charging</string>
+
+    <!-- Lockscreen battery info indicator  -->
+    <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
+    <string name="lockscreen_battery_info_summary">Show charging current, voltage, wattage and battery temperature on lockscreen while charging</string>
 </resources>
