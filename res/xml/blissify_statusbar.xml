@@ -20,6 +20,13 @@
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
     </Preference>
 
+        <!--Network traffic -->
+        <Preference 
+            android:key="network_traffic"
+            android:fragment="org.blissroms.blissify.fragments.statusbar.NetworkTraffic"
+            android:title="@string/traffic_title"
+            android:summary="@string/traffic_summary" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
