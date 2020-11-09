@@ -24,7 +24,7 @@
         android:key="bliss_header"
         android:layout="@layout/qs_header" />-->
 
-	<com.bliss.support.preferences.SecureSettingSwitchPreference
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:title="@string/quick_settings_vibrate_title"
         android:summary="@string/quick_settings_vibrate_summary"
@@ -54,6 +54,12 @@
             android:title="@string/qs_edit_title"
             android:summary="@string/qs_edit_summary"
             android:defaultValue="true" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="notification_headers"
+        android:title="@string/notification_headers_title"
+        android:summary="@string/notification_headers_summary"
+        android:defaultValue="true" />
 
     <PreferenceCategory
         android:key="quick_settings_brighness_category"
