@@ -30,4 +30,6 @@
     <!-- FOD icon picker -->
     <color name="fod_item_background_stroke_color">#d6d6d6</color>
 
+    <!-- Previews -->
+    <color name="preview_container_border">#ECECEC</color>
 </resources>
