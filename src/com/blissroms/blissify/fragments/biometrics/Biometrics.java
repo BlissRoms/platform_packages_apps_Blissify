@@ -60,6 +60,9 @@ import com.blissroms.blissify.utils.DeviceUtils;
 public class Biometrics extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
+    private static final String FOD_ANIMATION_CATEGORY = "fod_animations";
+    private PreferenceCategory fodCat;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -67,6 +70,14 @@ public class Biometrics extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.blissify_biometrics);
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        final PreferenceCategory fodCat = (PreferenceCategory) prefScreen
+                .findPreference(FOD_ANIMATION_CATEGORY);
+        final boolean isFodAnimationResources = AncientUtils.isPackageInstalled(getContext(),
+                      getResources().getString(com.android.internal.R.string.config_fodAnimationPackage));
+        if (!isFodAnimationResources) {
+            prefSet.removePreference(fodCat);
+        }
     }
 
     @Override
