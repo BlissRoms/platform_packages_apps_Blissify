@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_blissify_statusbar"
+        android:title="@string/blissify_statusbar_title" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_blissify_button"
+        android:title="@string/blissify_buttons_title" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_blissify_lockscreen"
+        android:title="@string/blissify_lockscreen_title" />
+
+    <item
+        android:id="@+id/test1"
+        android:icon="@drawable/ic_blissify_notification"
+        android:title="@string/blissify_notifications_title" />
+
+    <item
+        android:id="@+id/test2"
+        android:icon="@drawable/ic_blissify_notification"
+        android:title="@string/blissify_misc_title" />
+
+</menu>

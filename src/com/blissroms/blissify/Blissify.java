@@ -16,115 +16,116 @@
 
 package com.blissroms.blissify;
 
-import com.android.internal.logging.nano.MetricsProto;
-
-import android.app.Activity;
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
-import android.content.ContentResolver;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.provider.SearchIndexableResource;
-import android.view.Surface;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.util.Log;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
-
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settingslib.search.SearchIndexable;
 
-import com.blissroms.blissify.ui.BlissPreference;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.blissroms.blissify.utils.DeviceUtils;
+import nl.joery.animatedbottombar.AnimatedBottomBar;
+
+import com.blissroms.blissify.fragments.statusbar.StatusBar;
+import com.blissroms.blissify.fragments.buttons.ButtonSettings;
+import com.blissroms.blissify.fragments.gestures.Gestures;
+import com.blissroms.blissify.fragments.notifications.Notifications;
 
 import java.util.List;
 import java.util.ArrayList;
 
-@SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Blissify extends SettingsPreferenceFragment {
 
-    private static final String KEY_BIOMETRICS_CATEGORY = "biometrics_category";
-
-    private Preference mBiometrics;
+    Context mContext;
+    View view;
+    AnimatedBottomBar animatedBottomBar;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        addPreferencesFromResource(R.xml.blissify);
-        PreferenceScreen prefSet = getPreferenceScreen();
+        super.onCreate(savedInstanceState);
+        mContext = getActivity();
+        Resources res = getResources();
+        
+        view = inflater.inflate(R.layout.blissify, container, false);
 
-        Context mContext = getContext();
-
-/*        mBiometrics = (BlissPreference) findPreference(KEY_BIOMETRICS_CATEGORY);
-
-        if (!DeviceUtils.hasFod(mContext)) {
-            prefSet.removePreference(mBiometrics);
+        ActionBar actionBar = getActivity().getActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(R.string.blissify_title);
         }
-*/
-    }
 
+        animatedBottomBar = (AnimatedBottomBar) view.findViewById(R.id.nav_view);
+        
+        if (savedInstanceState == null)
+        {
+            animatedBottomBar.selectTabById(R.id.navigation_home, true);
+            Fragment HomeFragment = new com.blissroms.blissify.fragments.statusbar.StatusBar();
+            launchFragment(HomeFragment);
+        }
+        
+        animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
+            @Override
+            public void onTabReselected(int i, AnimatedBottomBar.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabSelected(int lastIndex, AnimatedBottomBar.Tab lastTab, int newIndex, AnimatedBottomBar.Tab newTab) {
+                Fragment fragment = null;
+                int id = newTab.getId();
+                
+                if (id == R.id.navigation_home)
+                {
+                        fragment = new com.blissroms.blissify.fragments.statusbar.StatusBar();
+                } else if (id == R.id.navigation_dashboard) {
+                        fragment = new com.blissroms.blissify.fragments.buttons.ButtonSettings();
+                } else if (id == R.id.navigation_notifications) {
+                        fragment = new com.blissroms.blissify.fragments.gestures.Gestures();
+                } else if (id == R.id.test1) {
+                        fragment = new com.blissroms.blissify.fragments.notifications.Notifications();
+                } else if (id == R.id.test2) {
+                        fragment = new com.blissroms.blissify.fragments.statusbar.StatusBar();
+                }
+
+                if (fragment!=null){
+                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                        transaction.replace(R.id.fragmentContainer, fragment);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                } else{
+                    Log.e("TAG", "Error");
+                }
+            }
+        });
+        
+        return view;
+  }
+  
+    private void launchFragment(Fragment fragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentContainer, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+    
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.BLISSIFY;
     }
-
-    public static void lockCurrentOrientation(Activity activity) {
-        int currentRotation = activity.getWindowManager().getDefaultDisplay().getRotation();
-        int orientation = activity.getResources().getConfiguration().orientation;
-        int frozenRotation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
-        switch (currentRotation) {
-            case Surface.ROTATION_0:
-                frozenRotation = orientation == Configuration.ORIENTATION_LANDSCAPE
-                        ? ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                        : ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-                break;
-            case Surface.ROTATION_90:
-                frozenRotation = orientation == Configuration.ORIENTATION_PORTRAIT
-                        ? ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT
-                        : ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-                break;
-            case Surface.ROTATION_180:
-                frozenRotation = orientation == Configuration.ORIENTATION_LANDSCAPE
-                        ? ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
-                        : ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
-                break;
-            case Surface.ROTATION_270:
-                frozenRotation = orientation == Configuration.ORIENTATION_PORTRAIT
-                        ? ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                        : ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
-                break;
-        }
-        activity.setRequestedOrientation(frozenRotation);
-    }
-
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.custom_carrier_label;
-                    result.add(sir);
-                    return result;
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-
-/*                    if (!DeviceUtils.hasFod(context)) {
-                        keys.add(KEY_BIOMETRICS_CATEGORY);
-                    }
-*/
-                    return keys;
-                }
-    };
 }
