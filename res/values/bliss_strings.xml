@@ -815,4 +815,8 @@
     <string name="qs_datausage_disabled">Disabled</string>
     <string name="qs_datausage_daily">Daily usage</string>
     <string name="qs_datausage_monthly">Monthly usage</string>
+
+    <!-- Oneui -->
+    <string name="enable_oneui">OneUI Settings Actionbar</string>
+    <string name="enable_oneui_summary">Show spacer above settings actionbar for easier use with one hand\nNOTE: restart settings app to see effect</string>
 </resources>
