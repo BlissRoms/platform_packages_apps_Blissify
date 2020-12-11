@@ -515,4 +515,8 @@
 
     <string name="use_old_mobiletype_title">Old mobiletype</string>
     <string name="use_old_mobiletype_summary">Use pre-p mobiletype icons for signal (Reboot required)</string>
+
+    <!-- VoLTE switch -->
+    <string name="volte_switch_title">VoLTE icon</string>
+    <string name="volte_switch_summary">Display VoLTE icon</string>
 </resources>
