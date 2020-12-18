@@ -24,4 +24,11 @@
         android:key="bliss_header"
         android:layout="@layout/lockscreen_header" />
 
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="keyguard_clock_animation"
+        android:title="@string/keyguard_clock_animation_title"
+        android:entries="@array/keyguard_clock_animation_entries"
+        android:entryValues="@array/keyguard_clock_animation_values"
+        android:defaultValue="0" />
+
 </PreferenceScreen>

@@ -1834,4 +1834,11 @@
     <string name="navbar_oneplus">OnePlus</string>
     <string name="navbar_oneui">One UI</string>
     <string name="navbar_tecno">Tecno Camon</string>
+
+    <!--Keyguard clock animation -->
+    <string name="keyguard_clock_animation_title">Keyguard Clock Animation</string>
+    <string name="keyguard_clock_animation_hidden">Hidden</string>
+    <string name="keyguard_clock_animation_floral">FLoral</string>
+    <string name="keyguard_clock_animation_wavy">Wavy</string>
+    <string name="keyguard_clock_animation_circle">Circle</string>
 </resources>
