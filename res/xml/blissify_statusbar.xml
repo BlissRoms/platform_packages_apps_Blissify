@@ -246,7 +246,7 @@
 
     </PreferenceCategory> -->
 
-    <!-- Network Traffic
+    <!-- Network Traffic -->
     <PreferenceCategory
         android:title="@string/network_traffic_settings_title"
         android:icon="@drawable/ic_network_monitor">
@@ -257,7 +257,7 @@
           android:summary="@string/network_traffic_settings_summary"
           android:fragment="com.blissroms.blissify.fragments.statusbar.NetworkTrafficSettings" />
 
-    </PreferenceCategory> -->
+    </PreferenceCategory>
 
     <!-- Brightness -->
     <PreferenceCategory
