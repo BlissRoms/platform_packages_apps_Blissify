@@ -60,6 +60,19 @@
 
     </PreferenceCategory>
 
+    <!-- Gvisual mod -->
+    <PreferenceCategory
+
+        android:title="@string/gvisual_title">
+
+        <PreferenceScreen
+            android:key="gvisual"
+            android:title="@string/gvisual_title"
+            android:summary="@string/gvisual_summary"
+            android:fragment="com.blissroms.blissify.fragments.themes.GvisualSettings" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:title="@string/lock_screen_custom_clock_face_category">
 
