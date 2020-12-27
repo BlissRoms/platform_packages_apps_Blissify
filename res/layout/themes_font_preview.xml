@@ -23,18 +23,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/preview_background_container"
-        android:layout_gravity="center"
         android:layout_margin="20dp">
 
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/accents_tiles_preview"
             android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            tools:ignore="ContentDescription" />
+            android:text="BlissRoms Font Preview : Hey, How you doin'"
+            android:textSize="24dp"
+            android:textColor="?android:attr/colorAccent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"/>
 
     </FrameLayout>
 
-</LinearLayout>
+</LinearLayout> 

@@ -115,7 +115,7 @@
         android:icon="@drawable/ic_blissify_qspanel" />
 
        <ListPreference
-            android:layout="@layout/accents_shapes_base_preview"
+            android:layout="@layout/themes_accent_preview"
             android:selectable="false" />
 
     <com.bliss.support.colorpicker.ColorPickerPreference
@@ -125,11 +125,7 @@
         android:persistent="false" />
 
         <ListPreference
-            android:layout="@layout/settings_icons_preview"
-            android:selectable="false" />
-
-        <ListPreference
-            android:layout="@layout/fonts_base_preview"
+            android:layout="@layout/themes_font_preview"
             android:selectable="false" />
 
         <ListPreference

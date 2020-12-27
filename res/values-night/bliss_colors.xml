@@ -25,4 +25,7 @@
 
     <!-- Previews -->
     <color name="preview_container_border">#14FFFFFF</color>
+    <color name="preview_text">#ffffffff</color>
+    <color name="themes_preview_background">#0fffffff</color>
+    <color name="themes_preview_card">@*android:color/primary_dark_device_default_settings</color>
 </resources>

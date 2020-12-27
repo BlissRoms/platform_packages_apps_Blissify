@@ -1,0 +1,6 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <com.android.settingslib.widget.AdaptiveIconShapeDrawable android:height="48dp" android:width="48dp" android:color="@*com.android.settings:color/homepage_display_background"/>
+    </item>
+    <item android:gravity="center" android:height="32dp" android:width="32dp" android:drawable="@*com.android.settings:drawable/ic_settings_display_white"/>
+</layer-list>
