@@ -86,6 +86,9 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final String CATEGORY_CLOCK = "status_bar_clock_key";
 
     private static final String ICON_BLACKLIST = "icon_blacklist";
+    private static final String BLISS_LOGO_COLOR = "status_bar_logo_color";
+
+    private ColorPickerPreference mBlissLogoColor;
 /*
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
 
@@ -96,7 +99,6 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final String KEY_SHOW_ROAMING = "roaming_indicator_icon";
     private static final String KEY_SHOW_FOURG = "show_fourg_icon";
     private static final String KEY_OLD_MOBILETYPE = "use_old_mobiletype";
-    private static final String BLISS_LOGO_COLOR = "status_bar_logo_color";
     private static final String KEY_VOWIFI_ICON_STYLE = "vowifi_icon_style";
     private static final String KEY_VOLTE_VOWIFI_OVERRIDE = "volte_vowifi_override";
     private static final String KEY_VOLTE_CATEGORY = "volte_icon_category";
@@ -113,7 +115,6 @@ public class StatusBar extends SettingsPreferenceFragment
     private SwitchPreference mDataDisabled;
     private SwitchPreference mShowRoaming;
     private SwitchPreference mShowFourg;
-    private ColorPickerPreference mBlissLogoColor;
     private SwitchPreference mOldMobileType;
     private ListPreference mVowifiIconStyle;
     private SwitchPreference mOverride;
@@ -167,6 +168,7 @@ public class StatusBar extends SettingsPreferenceFragment
             prefScreen.removePreference(mVowifiIconStyle);
             prefScreen.removePreference(mOverride);
         }
+*/
 
         mBlissLogoColor =
                 (ColorPickerPreference) findPreference(BLISS_LOGO_COLOR);
@@ -182,6 +184,7 @@ public class StatusBar extends SettingsPreferenceFragment
         }
         mBlissLogoColor.setOnPreferenceChangeListener(this);
 
+/*
         mOldMobileType = (SwitchPreference) findPreference(KEY_OLD_MOBILETYPE);
         boolean mConfigUseOldMobileType = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_useOldMobileIcons);
@@ -255,7 +258,7 @@ public class StatusBar extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-/*        ContentResolver resolver = getActivity().getContentResolver();
+/*
         if (preference == mBlissLogoColor) {
             String hex = ColorPickerPreference.convertToARGB(
                 Integer.parseInt(String.valueOf(newValue)));
@@ -271,11 +274,26 @@ public class StatusBar extends SettingsPreferenceFragment
             return true;
         }
 */
-        int value = Integer.parseInt((String) newValue);
+        ContentResolver resolver = getActivity().getContentResolver();
+
         String key = preference.getKey();
         switch (key) {
             case STATUS_BAR_BATTERY_STYLE:
+	        int value = Integer.parseInt((String) newValue);
                 enableStatusBarBatteryDependents(value);
+                break;
+            case BLISS_LOGO_COLOR:
+                String hex = ColorPickerPreference.convertToARGB(
+                    Integer.parseInt(String.valueOf(newValue)));
+                int value = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putIntForUser(resolver,
+                    Settings.System.STATUS_BAR_LOGO_COLOR, value,
+                    UserHandle.USER_CURRENT);
+                if (value != 0xFFFFFFFF) {
+                    mBlissLogoColor.setSummary(hex);
+                } else {
+                    mBlissLogoColor.setSummary(R.string.default_string);
+                }
                 break;
         }
         return true;
@@ -289,9 +307,10 @@ public class StatusBar extends SettingsPreferenceFragment
         return LineageSettings.System.getInt(getActivity().getContentResolver(),
                 STATUS_BAR_CLOCK_STYLE, 2);
     }
-
+*/
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
+/*
         boolean mConfigUseOldMobileType = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_useOldMobileIcons);
 
@@ -318,6 +337,9 @@ public class StatusBar extends SettingsPreferenceFragment
         Settings.System.putIntForUser(resolver,
                 Settings.System.SHOW_FOURG_ICON, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
+                Settings.System.USE_OLD_MOBILETYPE, mConfigUseOldMobileType ? 1 : 0, UserHandle.USER_CURRENT);
+*/
+        Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_LOGO, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_LOGO_COLOR, 0xFFFFFFFF, UserHandle.USER_CURRENT);
@@ -325,10 +347,8 @@ public class StatusBar extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_LOGO_POSITION, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_LOGO_STYLE, 0, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.USE_OLD_MOBILETYPE, mConfigUseOldMobileType ? 1 : 0, UserHandle.USER_CURRENT);
     }
-*/
+
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.BLISSIFY;
