@@ -76,6 +76,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final String CATEGORY_BATTERY = "status_bar_battery_key";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+    private static final String BLISS_LOGO_COLOR = "status_bar_logo_color";
 
     private LineageSystemSettingListPreference mStatusBarBattery;
     private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
@@ -83,9 +84,8 @@ public class StatusBar extends SettingsPreferenceFragment
 
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 2;
 
-    private static final String CATEGORY_CLOCK = "status_bar_clock_key";
-
     private static final String ICON_BLACKLIST = "icon_blacklist";
+    private ColorPickerPreference mLogoColor;
 /*
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
 
@@ -96,7 +96,6 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final String KEY_SHOW_ROAMING = "roaming_indicator_icon";
     private static final String KEY_SHOW_FOURG = "show_fourg_icon";
     private static final String KEY_OLD_MOBILETYPE = "use_old_mobiletype";
-    private static final String BLISS_LOGO_COLOR = "status_bar_logo_color";
     private static final String KEY_VOWIFI_ICON_STYLE = "vowifi_icon_style";
     private static final String KEY_VOLTE_VOWIFI_OVERRIDE = "volte_vowifi_override";
     private static final String KEY_VOLTE_CATEGORY = "volte_icon_category";
@@ -113,7 +112,6 @@ public class StatusBar extends SettingsPreferenceFragment
     private SwitchPreference mDataDisabled;
     private SwitchPreference mShowRoaming;
     private SwitchPreference mShowFourg;
-    private ColorPickerPreference mBlissLogoColor;
     private SwitchPreference mOldMobileType;
     private ListPreference mVowifiIconStyle;
     private SwitchPreference mOverride;
@@ -140,6 +138,21 @@ public class StatusBar extends SettingsPreferenceFragment
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
         mStatusBarBattery.setOnPreferenceChangeListener(this);
         enableStatusBarBatteryDependents(mStatusBarBattery.getIntValue(2));
+
+        mLogoColor =
+                (ColorPickerPreference) findPreference(BLISS_LOGO_COLOR);
+        int intColor = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_COLOR, 0xFFFFFFFF,
+                UserHandle.USER_CURRENT);
+        String hexColor = ColorPickerPreference.convertToARGB(intColor);
+        mLogoColor.setNewPreviewColor(intColor);
+        if (intColor != 0xFFFFFFFF) {
+            mLogoColor.setSummary(hexColor);
+        } else {
+            mLogoColor.setSummary(R.string.default_string);
+        }
+        mLogoColor.setOnPreferenceChangeListener(this);
+
 /*
         mStatusBarClock =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
@@ -167,20 +180,6 @@ public class StatusBar extends SettingsPreferenceFragment
             prefScreen.removePreference(mVowifiIconStyle);
             prefScreen.removePreference(mOverride);
         }
-
-        mBlissLogoColor =
-                (ColorPickerPreference) findPreference(BLISS_LOGO_COLOR);
-        int intColor = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_LOGO_COLOR, 0xFFFFFFFF,
-                UserHandle.USER_CURRENT);
-        String hexColor = ColorPickerPreference.convertToARGB(intColor);
-        mBlissLogoColor.setNewPreviewColor(intColor);
-        if (intColor != 0xFFFFFFFF) {
-            mBlissLogoColor.setSummary(hexColor);
-        } else {
-            mBlissLogoColor.setSummary(R.string.default_string);
-        }
-        mBlissLogoColor.setOnPreferenceChangeListener(this);
 
         mOldMobileType = (SwitchPreference) findPreference(KEY_OLD_MOBILETYPE);
         boolean mConfigUseOldMobileType = mContext.getResources().getBoolean(
@@ -255,8 +254,8 @@ public class StatusBar extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-/*        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mBlissLogoColor) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mLogoColor) {
             String hex = ColorPickerPreference.convertToARGB(
                 Integer.parseInt(String.valueOf(newValue)));
             int value = ColorPickerPreference.convertToColorInt(hex);
@@ -264,13 +263,13 @@ public class StatusBar extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_LOGO_COLOR, value,
                 UserHandle.USER_CURRENT);
             if (value != 0xFFFFFFFF) {
-                mBlissLogoColor.setSummary(hex);
+                mLogoColor.setSummary(hex);
             } else {
-                mBlissLogoColor.setSummary(R.string.default_string);
+                mLogoColor.setSummary(R.string.default_string);
             }
             return true;
         }
-*/
+
         int value = Integer.parseInt((String) newValue);
         String key = preference.getKey();
         switch (key) {
@@ -284,6 +283,18 @@ public class StatusBar extends SettingsPreferenceFragment
     private void enableStatusBarBatteryDependents(int batteryIconStyle) {
         mStatusBarBatteryShowPercent.setEnabled(batteryIconStyle != STATUS_BAR_BATTERY_STYLE_TEXT);
     }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_COLOR, 0xFFFFFFFF, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_POSITION, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_STYLE, 0, UserHandle.USER_CURRENT);
+        }
 
 /*    private int getClockPosition() {
         return LineageSettings.System.getInt(getActivity().getContentResolver(),
