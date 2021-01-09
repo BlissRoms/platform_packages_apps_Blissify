@@ -83,8 +83,6 @@ public class StatusBar extends SettingsPreferenceFragment
 
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 2;
 
-    private static final String CATEGORY_CLOCK = "status_bar_clock_key";
-
     private static final String ICON_BLACKLIST = "icon_blacklist";
     private static final String BLISS_LOGO_COLOR = "status_bar_logo_color";
 
@@ -183,7 +181,6 @@ public class StatusBar extends SettingsPreferenceFragment
             mBlissLogoColor.setSummary(R.string.default_string);
         }
         mBlissLogoColor.setOnPreferenceChangeListener(this);
-
 /*
         mOldMobileType = (SwitchPreference) findPreference(KEY_OLD_MOBILETYPE);
         boolean mConfigUseOldMobileType = mContext.getResources().getBoolean(
