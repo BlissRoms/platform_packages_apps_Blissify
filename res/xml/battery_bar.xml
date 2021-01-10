@@ -69,7 +69,7 @@
             settings:previewBetweenText="@string/battery_blend_between"
             settings:previewEndText="@string/battery_blend_end" />
 
-        <com.bliss.support.colorpicker.ColorPickerPreference
+        <com.blissroms.blissify.colorpicker.ColorPickerPreference
             android:key="statusbar_battery_bar_charging_color"
             android:title="@string/battery_bar_charging_color_title"
             android:defaultValue="0xffffff00"
@@ -92,7 +92,7 @@
             settings:previewBetweenText="@string/battery_blend_between"
             settings:previewEndText="@string/battery_blend_end" />
 
-        <com.bliss.support.colorpicker.ColorPickerPreference
+        <com.blissroms.blissify.colorpicker.ColorPickerPreference
             android:key="statusbar_battery_bar_charging_dark_color"
             android:title="@string/battery_bar_charging_color_title"
             android:defaultValue="0xff0d47a1"

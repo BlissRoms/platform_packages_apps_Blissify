@@ -33,7 +33,7 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.bliss.support.colorpicker.ColorPickerPreference;
+import com.blissroms.blissify.colorpicker.ColorPickerPreference;
 import com.bliss.support.preferences.SystemSettingListPreference;
 import com.bliss.support.preferences.SystemSettingSeekBarPreference;
 import com.bliss.support.preferences.SystemSettingSwitchPreference;

@@ -19,11 +19,6 @@
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     android:title="@string/status_bar_clock_title" >
 
-    <!-- Bliss Header -->
-    <Preference 
-        android:key="bliss_header"
-        android:layout="@layout/statusbar_header" />
-
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="statusbar_clock"
             android:title="@string/status_bar_clock_show"

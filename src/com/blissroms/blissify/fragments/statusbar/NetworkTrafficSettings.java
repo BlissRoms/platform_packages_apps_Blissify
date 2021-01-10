@@ -38,7 +38,7 @@ import com.android.settingslib.search.SearchIndexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-import com.bliss.support.preferences.CustomSeekBarPreference;
+import com.blissroms.blissify.preferences.CustomSeekBarPreference;
 import com.bliss.support.preferences.SystemSettingSwitchPreference;
 
 import java.util.ArrayList;

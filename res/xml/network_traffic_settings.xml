@@ -47,7 +47,7 @@
         android:summary="@string/network_traffic_arrow_summary"
         android:defaultValue="true" />
 
-    <com.bliss.support.preferences.CustomSeekBarPreference
+    <com.blissroms.blissify.preferences.CustomSeekBarPreference
         android:key="network_traffic_autohide_threshold"
         android:title="@string/network_traffic_autohide_threshold_title"
         android:max="10"
@@ -55,7 +55,7 @@
         settings:defaultValue="0"
         settings:units="" />
 
-    <com.bliss.support.preferences.CustomSeekBarPreference
+    <com.blissroms.blissify.preferences.CustomSeekBarPreference
         android:key="network_traffic_font_size"
         android:title="@string/nettraf_font_size"
         android:max="46"
