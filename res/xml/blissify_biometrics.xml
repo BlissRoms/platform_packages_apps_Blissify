@@ -27,6 +27,16 @@
         android:icon="@drawable/ic_force_fp_authentication"
         android:title="@string/fod_icon_picker_title" >
 
+        <!-- FOD pressed color -->
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="fod_color"
+            android:dialogTitle="@string/fod_pressed_color_title"
+            android:title="@string/fod_pressed_color_title"
+            android:summary="%s"
+            android:entries="@array/fod_pressed_color_entries"
+            android:entryValues="@array/fod_pressed_color_values"
+            android:defaultValue="@*android:integer/config_fod_pressed_color" />
+
         <!-- FOD recognizing animation -->
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="fod_recognizing_animation"
