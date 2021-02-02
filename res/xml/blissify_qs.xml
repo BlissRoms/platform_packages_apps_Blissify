@@ -225,6 +225,18 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="media_category"
+        android:title="@string/media_category" >
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="artwork_media_background"
+            android:title="@string/artwork_media_background_title"
+            android:summary="@string/artwork_media_background_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
     <!-- QS footer page indicator -->
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="qs_footer_page_indicator"

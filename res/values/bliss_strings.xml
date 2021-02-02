@@ -1021,4 +1021,9 @@
     <string name="lockscreen_weather_pixel_style_title">Pixel style</string>
     <string name="lock_screen_weather_style_title">Show weather with Pixel style</string>
     <string name="lock_screen_weather_style_summary">Instead of using the big widget, it\'ll show next to the date</string>
+
+    <!-- Notification Media Options -->
+    <string name="media_category">Media Notification options</string>
+    <string name="artwork_media_background_title">Artwork media background</string>
+    <string name="artwork_media_background_summary">Set media artwork as notification media background</string>
 </resources>
