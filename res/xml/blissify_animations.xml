@@ -32,6 +32,7 @@
             android:title="@string/qs_tile_animation_style_title"
             android:entries="@array/qs_tile_animation_style_entries"
             android:entryValues="@array/qs_tile_animation_style_values"
+            settings:iconSpaceReserved="false"
             android:persistent="false" />
 
         <ListPreference
@@ -39,6 +40,7 @@
             android:title="@string/qs_tile_animation_duration_title"
             android:entries="@array/qs_tile_animation_duration_entries"
             android:entryValues="@array/qs_tile_animation_duration_values"
+            settings:iconSpaceReserved="false"
             android:persistent="false" />
 
         <ListPreference
@@ -46,6 +48,7 @@
             android:title="@string/qs_tile_animation_interpolator_title"
             android:entries="@array/qs_tile_animation_interpolator_entries"
             android:entryValues="@array/qs_tile_animation_interpolator_values"
+            settings:iconSpaceReserved="false"
             android:persistent="false" />
 
     </PreferenceCategory>
@@ -60,6 +63,7 @@
         android:entries="@array/screen_off_animation_entries"
         android:entryValues="@array/screen_off_animation_values"
         android:summary="%s"
+        settings:iconSpaceReserved="false"
         android:defaultValue="0" />
 
     <ListPreference
@@ -68,6 +72,7 @@
         android:title="@string/pref_scrollingcache_title"
         android:summary="%s"
         android:entries="@array/entries_scrollingcache"
+        settings:iconSpaceReserved="false"
         android:entryValues="@array/values_scrollingcache" />
     </PreferenceCategory>
 
@@ -81,6 +86,7 @@
             android:summary="%s"
             android:entries="@array/toast_animation_entries"
             android:entryValues="@array/toast_animation_values"
+            settings:iconSpaceReserved="false"
             android:persistent="false" />
 
     </PreferenceCategory>
@@ -96,6 +102,7 @@
             android:summary="%s"
             android:entries="@array/listview_animation_entries"
             android:entryValues="@array/listview_animation_values"
+            settings:iconSpaceReserved="false"
             android:defaultValue="0" />
 
         <ListPreference
@@ -105,6 +112,7 @@
             android:summary="%s"
             android:entries="@array/listview_interpolator_entries"
             android:entryValues="@array/listview_interpolator_values"
+            settings:iconSpaceReserved="false"
             android:defaultValue="0" />
 
     </PreferenceCategory>
@@ -120,67 +128,80 @@
              android:title="@string/animation_duration_title"
              settings:min="0"
              settings:units="ms"
+             settings:iconSpaceReserved="false"
              settings:interval="50"/>
 
         <com.bliss.support.preferences.GlobalSettingSwitchPreference
             android:key="disable_transition_animations"
             android:title="@string/disable_transition_animations_title"
             android:summary="@string/disable_transition_animations_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="false" />
 
         <ListPreference
             android:key="activity_open"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:title="@string/activity_open_title" />
 
         <ListPreference
             android:key="activity_close"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:title="@string/activity_close_title" />
 
         <ListPreference
             android:key="task_open"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:title="@string/task_open_title" />
 
         <ListPreference
             android:key="task_open_behind"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:title="@string/task_open_behind_title" />
 
         <ListPreference
             android:key="task_close"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:title="@string/task_close_title" />
 
         <ListPreference
             android:key="task_to_front"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:title="@string/task_move_to_front_title" />
 
         <ListPreference
             android:key="task_to_back"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:title="@string/task_move_to_back_title" />
 
         <ListPreference
             android:key="wallpaper_open"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:title="@string/wallpaper_open_title" />
 
         <ListPreference
             android:key="wallpaper_close"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:title="@string/wallpaper_close_title" />
 
         <ListPreference
             android:key="wallpaper_intra_open"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:title="@string/wallpaper_intra_open_title" />
 
         <ListPreference
             android:key="wallpaper_intra_close"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:title="@string/wallpaper_intra_close_title" />
 
     </PreferenceCategory>

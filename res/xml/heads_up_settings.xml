@@ -13,13 +13,16 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <com.bliss.support.preferences.GlobalSettingSwitchPreference
             android:key="heads_up_notifications_enabled"
             android:title="@string/heads_up_notifications"
             android:summaryOn="@string/summary_heads_up_enabled"
             android:summaryOff="@string/summary_heads_up_disabled"
+            settings:iconSpaceReserved="false"
             android:defaultValue="true" />
 
     <ListPreference
@@ -27,6 +30,7 @@
         android:title="@string/heads_up_time_out_title"
         android:entries="@array/heads_up_time_out_entries"
         android:entryValues="@array/heads_up_time_out_values"
+        settings:iconSpaceReserved="false"
         android:persistent="false" />
 
     <ListPreference
@@ -34,6 +38,7 @@
         android:title="@string/heads_up_snooze_title"
         android:entries="@array/heads_up_snooze_entries"
         android:entryValues="@array/heads_up_snooze_values"
+        settings:iconSpaceReserved="false"
         android:persistent="false" />
 
     <PreferenceCategory
@@ -44,6 +49,7 @@
             android:key="add_stoplist_packages"
             android:icon="@drawable/ic_menu_add_activated_tint"
             android:title="@string/add_heads_up_package"
+            settings:iconSpaceReserved="false"
             android:summary="@string/add_heads_up_stoplist_summary" />
     </PreferenceCategory>
 
@@ -55,6 +61,7 @@
             android:key="add_blacklist_packages"
             android:icon="@drawable/ic_menu_add_activated_tint"
             android:title="@string/add_heads_up_package"
+            settings:iconSpaceReserved="false"
             android:summary="@string/add_heads_up_blacklist_summary" />
     </PreferenceCategory>
 

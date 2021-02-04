@@ -29,20 +29,22 @@
             android:key="fod_icon_picker_category"
             android:title="@string/fod_icon_picker_title"
             android:summary="@string/fod_icon_picker_summary"
+            settings:iconSpaceReserved="false"
             android:fragment="com.blissroms.blissify.fragments.lockscreen.FODIconPickerFragment" />
 
     	<com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="fod_recognizing_animation"
             android:title="@string/fod_recog_animation"
             android:summary="@string/fod_recog_animation_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="false" />
 
         <Preference
-            settings:iconSpaceReserved="false"
             android:key="fod_anim_preview"
             android:title="@string/fod_recog_animation_effect_title"
             android:summary="@string/fod_recog_animation_effect_summary"
             android:fragment="com.blissroms.blissify.fragments.statusbar.FODAnimation"
+            settings:iconSpaceReserved="false"
             android:dependency="fod_recognizing_animation" />
 
         <!-- Animated FOD icon -->
@@ -50,6 +52,7 @@
             android:key="fod_icon_animation"
             android:title="@string/fod_icon_animation"
             android:summary="@string/fod_icon_animation_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="false" />
 
         <Preference
@@ -66,12 +69,14 @@
             android:summary="%s"
             android:entries="@array/fod_pressed_color_entries"
             android:entryValues="@array/fod_pressed_color_values"
+            settings:iconSpaceReserved="false"
             android:defaultValue="0" />
 
     	<com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="fod_gesture"
             android:title="@string/fod_gesture_title"
             android:summary="@string/fod_gesture_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="false" />
 
 </PreferenceScreen>

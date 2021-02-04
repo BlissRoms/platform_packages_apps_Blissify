@@ -25,6 +25,7 @@
         android:title="@string/aggressive_idle_title"
         android:summary="@string/aggressive_idle_summary"
         android:defaultValue="false"
+        settings:iconSpaceReserved="false"
         android:dependency="aggressive_battery_saver" />
 
     <SwitchPreference
@@ -32,6 +33,7 @@
         android:title="@string/aggressive_standby_title"
         android:summary="@string/aggressive_standby_summary"
         android:defaultValue="false"
+        settings:iconSpaceReserved="false"
         android:dependency="aggressive_battery_saver" />
 
     <SwitchPreference
@@ -39,11 +41,13 @@
         android:title="@string/aggressive_battery_saver_title"
         android:summary="@string/aggressive_battery_saver_summary"
         android:defaultValue="true"
+        settings:iconSpaceReserved="false"
         android:disableDependentsState="true" />
 
     <com.android.settingslib.widget.FooterPreference
         android:key="aggressive_battery_detail_footer"
         android:title="@string/aggressive_battery_warning_text"
         android:selectable="false"
+        settings:iconSpaceReserved="false"
         settings:searchable="false" />
 </PreferenceScreen>

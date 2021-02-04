@@ -34,6 +34,7 @@
             android:key="qs_show_brightness"
             android:title="@string/qs_brightness_slider_title"
             android:summary="@string/qs_brightness_slider_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="true"/>
 
     </PreferenceCategory>
@@ -47,6 +48,7 @@
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="qs_tile_title_visibility"
         android:title="@string/qs_tile_title_visibility_title"
+        settings:iconSpaceReserved="false"
         android:defaultValue="true" />
 
         <com.bliss.support.preferences.CustomSystemSeekBarPreference
@@ -55,6 +57,7 @@
             android:max="5"
             android:min="1"
             android:defaultValue="3"
+            settings:iconSpaceReserved="false"
             settings:units="" />
 
         <com.bliss.support.preferences.CustomSystemSeekBarPreference
@@ -63,6 +66,7 @@
             android:max="5"
             android:min="1"
             android:defaultValue="1"
+            settings:iconSpaceReserved="false"
             settings:units="" />
 
         <com.bliss.support.preferences.CustomSystemSeekBarPreference
@@ -71,6 +75,7 @@
             android:max="7"
             android:min="1"
             android:defaultValue="4"
+            settings:iconSpaceReserved="false"
             settings:units="" />
 
         <com.bliss.support.preferences.CustomSystemSeekBarPreference
@@ -79,15 +84,17 @@
             android:max="9"
             android:min="1"
             android:defaultValue="4"
+            settings:iconSpaceReserved="false"
             settings:units="" />
 
         <com.bliss.support.preferences.SystemSettingListPreference
             android:key="qs_panel_bg_use_new_tint"
             android:title="@string/qs_bg_use_new_tint"
-	    android:dialogTitle="@string/qs_bg_use_new_tint"
+	        android:dialogTitle="@string/qs_bg_use_new_tint"
             android:entries="@array/qs_tint_entries"
-	    android:entryValues="@array/qs_tint_values"
+	        android:entryValues="@array/qs_tint_values"
             android:summary="@string/qs_bg_use_new_tint_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="1" />
 
         </PreferenceCategory>
@@ -100,18 +107,21 @@
         <PreferenceScreen
             android:key="qsheader"
             android:title="@string/custom_header_title"
+            settings:iconSpaceReserved="false"
             android:fragment="com.blissroms.blissify.fragments.qs.QSHeader" />
 
     <com.bliss.support.preferences.SecureSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:title="@string/quick_settings_vibrate_title"
         android:summary="@string/quick_settings_vibrate_summary"
+        settings:iconSpaceReserved="false"
         android:defaultValue="false"/>
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="status_bar_locked_on_secure_keyguard"
             android:title="@string/lockscreen_qs_disabled_title"
             android:summary="@string/lockscreen_qs_disabled_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="false" />
 
    <!-- <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -126,6 +136,7 @@
         android:title="@string/qs_datausage_title"
         android:entries="@array/qs_datausage_entries"
         android:entryValues="@array/qs_datausage_values"
+        settings:iconSpaceReserved="false"
         android:defaultValue="0" />
 
     <com.bliss.support.preferences.SecureSettingListPreference
@@ -133,6 +144,7 @@
             android:title="@string/status_bar_quick_qs_pulldown"
             android:entries="@array/quick_pulldown_entries"
             android:entryValues="@array/quick_pulldown_values"
+            settings:iconSpaceReserved="false"
             android:defaultValue="0" />
 
    <!-- <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -146,6 +158,7 @@
         android:title="@string/battery_percentage_title"
         android:entries="@array/battery_percent_entries"
         android:entryValues="@array/battery_percent_values"
+        settings:iconSpaceReserved="false"
         android:defaultValue="2" />
 
     <!-- Battery estimate -->
@@ -153,6 +166,7 @@
         android:key="qs_show_battery_estimate"
         android:title="@string/battery_estimate_title"
         android:summary="@string/battery_estimate_summary"
+        settings:iconSpaceReserved="false"
         android:defaultValue="true" />
 
         <!-- QS status bar opacity -->
@@ -162,6 +176,7 @@
             android:defaultValue="255"
             android:max="255"
             settings:min="0"
+            settings:iconSpaceReserved="false"
             settings:units="" />
 
         <!-- QS panel opacity -->
@@ -171,6 +186,7 @@
             android:defaultValue="255"
             android:max="255"
             settings:min="0"
+            settings:iconSpaceReserved="false"
             settings:units="" />
 
        <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -179,6 +195,7 @@
            android:defaultValue="255"
            android:max="255"
            settings:min="0"
+           settings:iconSpaceReserved="false"
            settings:units="" />
     </PreferenceCategory>
 
@@ -190,6 +207,7 @@
             android:key="separators_notification_header"
             android:title="@string/separators_notification_header_title"
             android:summary="@string/separators_notification_header_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="false" />
 
         <com.bliss.support.preferences.SystemSettingListPreference
@@ -199,6 +217,7 @@
             android:entries="@array/gravity_lcr_entries"
             android:entryValues="@array/gravity_lcr_values"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:defaultValue="0" />
 
     </PreferenceCategory>
@@ -214,6 +233,7 @@
             android:entries="@array/gravity_lcr_entries"
             android:entryValues="@array/gravity_lcr_values"
             android:summary="%s"
+            settings:iconSpaceReserved="false"
             android:defaultValue="1" />
 
     </PreferenceCategory>
@@ -226,6 +246,7 @@
             android:key="artwork_media_background"
             android:title="@string/artwork_media_background_title"
             android:summary="@string/artwork_media_background_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="true" />
 
         <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -237,6 +258,7 @@
             settings:min="0"
             settings:units="%"
             settings:interval="5"
+            settings:iconSpaceReserved="false"
             android:defaultValue="30" />
 
     </PreferenceCategory>
@@ -246,5 +268,6 @@
         android:key="qs_footer_page_indicator"
         android:title="@string/qs_footer_page_indicator_title"
         android:summary="@string/qs_footer_page_indicator_summary"
+        settings:iconSpaceReserved="false"
         android:defaultValue="true" />
 </PreferenceScreen>

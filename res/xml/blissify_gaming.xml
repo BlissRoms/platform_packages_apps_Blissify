@@ -23,6 +23,7 @@
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_enabled"
         android:title="@string/gaming_mode_enabled_title"
+        settings:iconSpaceReserved="false"
         android:defaultValue="false" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -30,6 +31,7 @@
         android:title="@string/gaming_mode_dynamic_add_title"
         android:summary="@string/gaming_mode_dynamic_add_summary"
         android:defaultValue="true"
+        settings:iconSpaceReserved="false"
         android:dependency="gaming_mode_enabled" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -37,6 +39,7 @@
         android:title="@string/gaming_mode_disable_auto_brightness_title"
         android:summary="@string/gaming_mode_disable_auto_brightness_summary"
         android:defaultValue="true"
+        settings:iconSpaceReserved="false"
         android:dependency="gaming_mode_enabled" />
 
     <Preference
@@ -44,6 +47,7 @@
         android:title="@string/gaming_mode_notification_danmaku_title" 
         android:summary="@string/gaming_mode_notification_danmaku_summary"
         android:fragment="com.blissroms.blissify.fragments.system.DanmakuSettings"
+        settings:iconSpaceReserved="false"
         android:dependency="gaming_mode_enabled" />
 
     <Preference
@@ -51,6 +55,7 @@
         android:title="@string/gaming_mode_quick_start_apps_title" 
         android:summary="@string/gaming_mode_quick_start_apps_summary"
         android:fragment="com.blissroms.blissify.fragments.system.QuickStartAppSettings"
+        settings:iconSpaceReserved="false"
         android:dependency="gaming_mode_enabled" />
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -59,6 +64,7 @@
         android:max="100"
         settings:min="0"
         android:defaultValue="75"
+        settings:iconSpaceReserved="false"
         android:dependency="gaming_mode_enabled" />
 
     <PreferenceCategory
@@ -69,6 +75,7 @@
             android:title="@string/gaming_mode_use_game_driver_title"
             android:summary="@string/gaming_mode_use_game_driver_summary"
             android:defaultValue="true"
+            settings:iconSpaceReserved="false"
             android:dependency="gaming_mode_enabled" />
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -76,6 +83,7 @@
             android:title="@string/gaming_mode_change_performance_title"
             android:summary="@string/gaming_mode_change_performance_summary"
             android:defaultValue="true"
+            settings:iconSpaceReserved="false"
             android:dependency="gaming_mode_enabled" />
 
         <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -85,6 +93,7 @@
             android:max="6"
             settings:min="0"
             settings:units=""
+            settings:iconSpaceReserved="false"
             android:dependency="gaming_mode_change_performance_level" />
     </PreferenceCategory>
 
@@ -96,6 +105,7 @@
             android:title="@string/gaming_mode_disable_notification_alert_title"
             android:summary="@string/gaming_mode_disable_notification_alert_summary"
             android:defaultValue="true"
+            settings:iconSpaceReserved="false"
             android:dependency="gaming_mode_enabled" />
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -103,6 +113,7 @@
             android:title="@string/gaming_mode_disable_ringtone_title"
             android:summary="@string/gaming_mode_disable_ringtone_summary"
             android:defaultValue="false"
+            settings:iconSpaceReserved="false"
             android:dependency="gaming_mode_enabled" />
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -110,6 +121,7 @@
             android:title="@string/gaming_mode_auto_answer_call_title"
             android:summary="@string/gaming_mode_auto_answer_call_summary"
             android:defaultValue="false"
+            settings:iconSpaceReserved="false"
             android:dependency="gaming_mode_enabled" />
     </PreferenceCategory>
 
@@ -120,6 +132,7 @@
             android:key="gaming_mode_disable_gesture"
             android:title="@string/gaming_mode_disable_gesture_title"
             android:defaultValue="false"
+            settings:iconSpaceReserved="false"
             android:dependency="gaming_mode_enabled" />
 
     </PreferenceCategory>
@@ -127,6 +140,7 @@
     <com.blissroms.blissify.preferences.PackageListPreference
         android:key="gaming_mode_app_list"
         android:title="@string/gaming_mode_apps"
+        settings:iconSpaceReserved="false"
         android:dependency="gaming_mode_enabled" />
 
 </PreferenceScreen>

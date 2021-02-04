@@ -24,6 +24,7 @@
         android:key="sleep_mode"
         android:title="@string/sleep_mode_title"
         android:summary="@string/sleep_mode_title_summary"
+        settings:iconSpaceReserved="false"
         android:fragment="com.blissroms.blissify.fragments.system.SleepMode" />
 
 </PreferenceScreen>

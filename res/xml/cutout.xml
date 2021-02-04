@@ -26,12 +26,14 @@
         android:title="@string/display_cutout_style_title"
         android:persistent="false"
         android:entries="@array/display_cutout_style_entries"
+        settings:iconSpaceReserved="false"
         android:entryValues="@array/display_cutout_style_values" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="stock_statusbar_in_hide"
         android:title="@string/stock_statusbar_in_hide"
         android:summary="@string/stock_statusbar_in_hide_summary"
+        settings:iconSpaceReserved="false"
         android:defaultValue="true" />
 
 </PreferenceScreen>

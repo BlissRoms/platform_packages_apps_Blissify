@@ -24,54 +24,64 @@
         android:title="@string/night_display_auto_mode_title"
         android:entries="@array/sleep_mode_auto_mode_entries"
         android:entryValues="@array/sleep_mode_auto_mode_values"
+        settings:iconSpaceReserved="false"
         android:persistent="false" />
 
     <Preference
         android:key="sleep_mode_auto_since"
+        settings:iconSpaceReserved="false"
         android:title="@string/night_display_start_time_title" />
 
     <Preference
         android:key="sleep_mode_auto_till"
+        settings:iconSpaceReserved="false"
         android:title="@string/night_display_end_time_title" />
 
     <PreferenceCategory
         android:key="sleep_mode_toggles"
+        settings:iconSpaceReserved="false"
         android:title="@string/sleep_mode_toggles_title">
 
         <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="sleep_mode_wifi_toggle"
             android:title="@string/sleep_mode_wifi_toggle_title"
             android:summary="@string/sleep_mode_wifi_toggle_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="true" />
 
         <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="sleep_mode_bluetooth_toggle"
             android:title="@string/sleep_mode_bluetooth_toggle_title"
             android:summary="@string/sleep_mode_bluetooth_toggle_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="true" />
 
         <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="sleep_mode_cellular_toggle"
             android:title="@string/sleep_mode_cellular_toggle_title"
             android:summary="@string/sleep_mode_cellular_toggle_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="true" />
 
         <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="sleep_mode_location_toggle"
             android:title="@string/sleep_mode_location_toggle_title"
             android:summary="@string/sleep_mode_location_toggle_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="true" />
 
         <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="sleep_mode_sensors_toggle"
             android:title="@string/sleep_mode_sensors_toggle_title"
             android:summary="@string/sleep_mode_sensors_toggle_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="true" />
 
         <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="sleep_mode_aod_toggle"
             android:title="@string/sleep_mode_aod_toggle_title"
             android:summary="@string/sleep_mode_aod_toggle_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="true" />
 
         <com.bliss.support.preferences.SecureSettingListPreference
@@ -80,6 +90,7 @@
             android:entries="@array/sleep_mode_ringer_entries"
             android:entryValues="@array/sleep_mode_ringer_values"
             android:defaultValue="0"
+            settings:iconSpaceReserved="false"
             android:summary="%s" />
     </PreferenceCategory>
 
@@ -89,11 +100,13 @@
         android:selectable="false"
         android:layout="@layout/sleep_mode_activation_button"
         settings:allowDividerAbove="true"
+        settings:iconSpaceReserved="false"
         settings:allowDividerBelow="true" />
 
     <com.android.settingslib.widget.FooterPreference
         android:key="sleep_mode_footer"
         android:title="@string/sleep_mode_display_text"
         android:selectable="false"
+        settings:iconSpaceReserved="false"
         settings:searchable="false"/>
 </PreferenceScreen>

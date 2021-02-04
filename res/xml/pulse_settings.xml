@@ -21,16 +21,19 @@
     <SwitchPreference
         android:key="navbar_pulse_enabled"
         android:title="@string/show_navbar_pulse_title"
+        settings:iconSpaceReserved="false"
         android:summary="@string/show_navbar_pulse_summary"/>
 
     <SwitchPreference
         android:key="lockscreen_pulse_enabled"
         android:title="@string/show_lockscreen_pulse_title"
+        settings:iconSpaceReserved="false"
         android:summary="@string/show_lockscreen_pulse_summary"/>
 
     <SwitchPreference
         android:key="ambient_pulse_enabled"
         android:title="@string/show_ambient_pulse_title"
+        settings:iconSpaceReserved="false"
         android:summary="@string/show_ambient_pulse_summary"/>
 
     <com.bliss.support.preferences.SecureSettingListPreference
@@ -38,12 +41,14 @@
         android:title="@string/pulse_render_mode_title"
         android:entries="@array/pulse_render_mode_entries"
         android:entryValues="@array/pulse_render_mode_values"
+        settings:iconSpaceReserved="false"
         android:defaultValue="1"/>
 
     <com.bliss.support.preferences.SecureSettingSwitchPreference
         android:key="pulse_smoothing_enabled"
         android:title="@string/smoothing_enabled_title"
         android:summary="@string/smoothing_enabled_summary"
+        settings:iconSpaceReserved="false"
         android:defaultValue="false"/>
 
     <PreferenceCategory
@@ -55,11 +60,13 @@
             android:title="@string/pulse_color_mode"
             android:entries="@array/pulse_color_mode_entries"
             android:entryValues="@array/pulse_color_mode_values"
+            settings:iconSpaceReserved="false"
             android:defaultValue="2"/>
 
         <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="pulse_color_user"
             android:title="@string/pulse_color_chooser"
+            settings:iconSpaceReserved="false"
             android:defaultValue="0xffffffff"/>
 
         <com.bliss.support.preferences.SecureSettingSeekBarPreference
@@ -69,6 +76,7 @@
             android:defaultValue="10000"
             settings:min="200"
             settings:interval="200"
+            settings:iconSpaceReserved="false"
             settings:units="ms"/>
     </PreferenceCategory>
 
@@ -82,6 +90,7 @@
             android:max="30"
             android:defaultValue="14"
             settings:min="1"
+            settings:iconSpaceReserved="false"
             settings:units="dp"/>
 
         <com.bliss.support.preferences.SecureSettingSeekBarPreference
@@ -91,6 +100,7 @@
             android:defaultValue="16"
             settings:min="2"
             settings:interval="2"
+            settings:iconSpaceReserved="false"
             settings:units="dp"/>
 
         <com.bliss.support.preferences.SecureSettingSeekBarPreference
@@ -99,6 +109,7 @@
             android:max="8"
             android:defaultValue="4"
             settings:min="4"
+            settings:iconSpaceReserved="false"
             settings:units="dp"/>
 
         <com.bliss.support.preferences.SecureSettingSeekBarPreference
@@ -107,6 +118,7 @@
             android:max="4"
             android:defaultValue="1"
             settings:min="0"
+            settings:iconSpaceReserved="false"
             settings:units="dp"/>
 
         <com.bliss.support.preferences.SecureSettingSeekBarPreference
@@ -115,6 +127,7 @@
             android:max="6"
             android:defaultValue="4"
             settings:min="2"
+            settings:iconSpaceReserved="false"
             android:dependency="pulse_fading_bars_category"/>
 
     </PreferenceCategory>
@@ -127,6 +140,7 @@
             android:key="pulse_solid_units_rounded"
             android:title="@string/pulse_solid_units_rounded_title"
             android:summary="@string/pulse_solid_units_rounded_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="false"/>
 
         <com.bliss.support.preferences.SecureSettingSeekBarPreference
@@ -135,6 +149,7 @@
             android:max="255"
             android:defaultValue="200"
             settings:min="0"
+            settings:iconSpaceReserved="false"
             android:dependency="pulse_2"/>
 
         <com.bliss.support.preferences.SecureSettingSeekBarPreference
@@ -144,6 +159,7 @@
             android:max="128"
             settings:interval="16"
             settings:min="16"
+            settings:iconSpaceReserved="false"
             android:dependency="pulse_2"/>
 
         <com.bliss.support.preferences.SecureSettingSeekBarPreference
@@ -152,6 +168,7 @@
             android:max="6"
             android:defaultValue="4"
             settings:min="2"
+            settings:iconSpaceReserved="false"
             android:dependency="pulse_2"/>
     </PreferenceCategory>
 
@@ -160,6 +177,7 @@
         android:title="@string/pulse_help_policy_notice_summary"
         android:selectable="false"
         settings:searchable="false"
+        settings:iconSpaceReserved="false"
         settings:allowDividerAbove="true"/>
 
 </PreferenceScreen>

@@ -28,19 +28,22 @@
 		<Preference
 		   android:key="themes_category"
 		   android:title="@string/blissify_themes_title"
+		   settings:iconSpaceReserved="false"
 		   android:fragment="com.blissroms.blissify.fragments.themes.Themes"/>
 
         <!-- Animations -->
         <Preference
            android:key="animations_category"
            android:title="@string/blissify_animation_title"
+           settings:iconSpaceReserved="false"
            android:fragment="com.blissroms.blissify.fragments.animations.Animations"/>
 
     	<!-- OneUI like settings actionbar -->
     	<com.bliss.support.preferences.SystemSettingSwitchPreference 
             android:key="settings_spacer" 
             android:title="@string/enable_oneui" 
-            android:summary="@string/enable_oneui_summary" 
+            android:summary="@string/enable_oneui_summary"
+            settings:iconSpaceReserved="false"
             android:defaultValue="true" />
 
 		<!-- Volume Plugins -->
@@ -49,12 +52,14 @@
 		    android:title="@string/volume_panel"
 		    android:entries="@array/volume_panel_entries"
 		    android:entryValues="@array/volume_panel_values"
+		    settings:iconSpaceReserved="false"
 		    android:defaultValue="@string/volume_panel_stock_val" />
 
 		<com.bliss.support.preferences.SystemSettingSwitchPreference
 		        android:key="show_app_volume"
 		        android:title="@string/show_app_volume_title"
 		        android:summary="@string/show_app_volume_summary"
+		        settings:iconSpaceReserved="false"
 		        android:defaultValue="false" />
 
     </PreferenceCategory>
@@ -68,27 +73,32 @@
 		    android:key="heads_up_notifications"
 		    android:summary="@string/heads_up_notifications_summary"
 		    android:title="@string/heads_up_notifications"
+		    settings:iconSpaceReserved="false"
 		    android:fragment="com.blissroms.blissify.fragments.system.HeadsUpSettings"/>
 
 		<com.bliss.support.preferences.SystemSettingSwitchPreference
 		    android:key="less_boring_heads_up"
 		    android:title="@string/less_boring_heads_up_title"
 		    android:summary="@string/less_boring_heads_up_summary"
+		    settings:iconSpaceReserved="false"
 		    android:defaultValue="false" />
 
 		<com.bliss.support.preferences.SystemSettingSwitchPreference
 		        android:key="vibrate_on_connect"
 		        android:title="@string/incall_vibrate_connect_title"
+		        settings:iconSpaceReserved="false"
 		        android:defaultValue="false" />
 
 		<com.bliss.support.preferences.SystemSettingSwitchPreference
 		        android:key="vibrate_on_callwaiting"
 		        android:title="@string/incall_vibrate_call_wait_title"
+		        settings:iconSpaceReserved="false"
 		        android:defaultValue="false" />
 
 		<com.bliss.support.preferences.SystemSettingSwitchPreference
 		        android:key="vibrate_on_disconnect"
 		        android:title="@string/incall_vibrate_disconnect_title"
+		        settings:iconSpaceReserved="false"
 		        android:defaultValue="false" />
 
                  <!-- reTicker  -->
@@ -96,6 +106,7 @@
                          android:key="reticker_status"
                          android:title="@string/reticker_title"
                          android:summary="@string/reticker_summary"
+                         settings:iconSpaceReserved="false"
                          android:defaultValue="false" />
 
                  <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -103,6 +114,7 @@
                          android:key="reticker_colored"
                          android:title="@string/reticker_colored_title"
                          android:summary="@string/reticker_colored_summary"
+                         settings:iconSpaceReserved="false"
                          android:defaultValue="false" />
 
                  <!-- Statusbar Ticker -->
@@ -110,12 +122,14 @@
                          android:key="ticker_settings"
                          android:title="@string/ticker_screen_title"
                          android:summary="@string/ticker_screen_summary"
+                         settings:iconSpaceReserved="false"
                          android:fragment="com.blissroms.blissify.fragments.system.Ticker" />
 
                  <com.bliss.support.preferences.SystemSettingSwitchPreference
                          android:key="status_bar_show_lyric"
                          android:title="@string/status_bar_show_lyric_title"
                          android:summary="@string/status_bar_show_lyric_summary"
+                         settings:iconSpaceReserved="false"
                          android:defaultValue="true" />
     </PreferenceCategory>
 
@@ -128,6 +142,7 @@
          android:key="double_tap_sleep_gesture"
          android:title="@string/double_tap_sleep_gesture_title"
          android:summary="@string/double_tap_sleep_gesture_summary"
+         settings:iconSpaceReserved="false"
          android:defaultValue="false" />
 
     <!-- com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -140,6 +155,7 @@
          android:key="click_partial_screenshot"
          android:title="@string/click_partial_screenshot_title"
          android:summary="@string/click_partial_screenshot_summary"
+         settings:iconSpaceReserved="false"
          android:defaultValue="false" /> 
 
     <!-- Screenshot compression -->
@@ -150,6 +166,7 @@
          android:defaultValue="100"
          android:max="100"
          android:min="10"
+         settings:iconSpaceReserved="false"
          settings:units="%" />
 
    </PreferenceCategory>
@@ -163,12 +180,14 @@
 		    android:key="aggressive_battery"
 		    android:title="@string/aggressive_battery_title"
 		    android:summary="@string/aggressive_battery_summary"
+		    settings:iconSpaceReserved="false"
 		    android:fragment="com.blissroms.blissify.fragments.system.AggressiveBattery" />
 
                 <Preference
                     android:key="ps_cat"
                     android:title="@string/powersave_title" 
                     android:summary="@string/powersave_summary"
+                    settings:iconSpaceReserved="false"
                     android:fragment="com.blissroms.blissify.fragments.system.PowerSaving" />
 
     </PreferenceCategory>
@@ -182,13 +201,14 @@
             android:key="gaming_category"
             android:title="@string/gaming_title"
             android:fragment="com.blissroms.blissify.fragments.system.GamingModeSettings"
-            android:icon="@drawable/ic_gaming_background"
+            settings:iconSpaceReserved="false"
             android:summary="@string/gaming_title_summary" />
 
 		<com.bliss.support.preferences.SystemSettingSwitchPreference
 		        android:key="toast_icon"
 		        android:title="@string/toast_icon_title"
 		        android:summary="@string/toast_icon_summary"
+		        settings:iconSpaceReserved="false"
 		        android:defaultValue="false" />
 
                 <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -197,24 +217,28 @@
                         android:defaultValue="255"
                         android:max="255"
                         settings:min="0"
+                        settings:iconSpaceReserved="false"
                         settings:units="" />
 
 		<com.bliss.support.preferences.SystemSettingSwitchPreference
 		    android:key="fingerprint_success_vib"
 		    android:title="@string/fprint_sucess_vib_title"
 		    android:summary="@string/fprint_sucess_vib_summary"
+		    settings:iconSpaceReserved="false"
 		    android:persistent="true" />
 
 		<com.bliss.support.preferences.SystemSettingSwitchPreference
 		   android:key="notification_guts_kill_app_button"
 		   android:title="@string/notification_guts_kill_app_button_title"
 		   android:summary="@string/notification_guts_kill_app_button_summary"
+		   settings:iconSpaceReserved="false"
 		   android:defaultValue="false" />
 		      
                 <com.bliss.support.preferences.GlobalSettingSwitchPreference
                    android:key="allow_signature_fake"
             	   android:title="@string/allow_signature_fake"
             	   android:summary="@string/allow_signature_fake_summary"
+            	   settings:iconSpaceReserved="false"
             	   android:defaultValue="false" />
     </PreferenceCategory>
 </PreferenceScreen>

@@ -22,6 +22,7 @@
     <com.blissroms.blissify.ui.FODIconPicker
         android:key="fod_icon"
         android:layout="@layout/fod_picker_preference"
+        settings:iconSpaceReserved="false"
         android:selectable="false"/>
 
 </PreferenceScreen>

@@ -19,46 +19,54 @@
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="battery_light_enabled"
         android:title="@string/battery_light_enable"
+        settings:iconSpaceReserved="false"
         android:defaultValue="true"/>
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="battery_light_allow_on_dnd"
         android:title="@string/battery_light_allow_on_dnd_title"
         android:dependency="battery_light_enabled"
+        settings:iconSpaceReserved="false"
         android:defaultValue="false" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="battery_light_low_blinking"
         android:title="@string/battery_light_low_blinking_title"
         android:dependency="battery_light_enabled"
+        settings:iconSpaceReserved="false"
         android:defaultValue="false" />
 
     <PreferenceCategory
         android:key="battery_light_cat"
         android:title="@string/battery_light_cat"
         android:dependency="battery_light_enabled">
+
         <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="battery_light_low_color"
             android:title="@string/battery_light_low_color"
             ledPreview="true"
+            settings:iconSpaceReserved="false"
             settings:defaultColorValue="0xFFFF0000" />
 
         <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="battery_light_medium_color"
             android:title="@string/battery_light_medium_color"
             ledPreview="true"
+            settings:iconSpaceReserved="false"
             settings:defaultColorValue="0xFFFFFF00" />
 
         <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="battery_light_full_color"
             android:title="@string/battery_light_full_color"
             ledPreview="true"
+            settings:iconSpaceReserved="false"
             settings:defaultColorValue="0xFF00FF00" />
 
         <com.bliss.support.colorpicker.ColorPickerPreference
             android:key="battery_light_reallyfull_color"
             android:title="@string/battery_light_reallyfull_color"
             ledPreview="true"
+            settings:iconSpaceReserved="false"
             settings:defaultColorValue="0xFF00FF00" />
     </PreferenceCategory>
 

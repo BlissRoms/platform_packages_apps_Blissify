@@ -23,6 +23,7 @@
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_show_danmaku"
         android:title="@string/gaming_mode_show_danmaku_title"
+        settings:iconSpaceReserved="false"
         android:defaultValue="true" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
@@ -30,6 +31,7 @@
         android:title="@string/gaming_mode_danmaku_dynamic_notification_filter_title"
         android:summary="@string/gaming_mode_danmaku_dynamic_notification_filter_summary"
         android:defaultValue="true"
+        settings:iconSpaceReserved="false"
         android:dependency="gaming_mode_show_danmaku" />
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -39,6 +41,7 @@
         android:max="64"
         settings:min="12"
         settings:units="px"
+        settings:iconSpaceReserved="false"
         android:dependency="gaming_mode_show_danmaku" />
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -48,6 +51,7 @@
         android:max="64"
         settings:min="12"
         settings:units="px"
+        settings:iconSpaceReserved="false"
         android:dependency="gaming_mode_show_danmaku" />
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -57,6 +61,7 @@
         android:max="1000"
         settings:min="100"
         settings:units="px/s"
+        settings:iconSpaceReserved="false"
         android:dependency="gaming_mode_show_danmaku" />
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -66,10 +71,12 @@
         android:max="1000"
         settings:min="100"
         settings:units="px/s"
+        settings:iconSpaceReserved="false"
         android:dependency="gaming_mode_show_danmaku" />
 
     <com.blissroms.blissify.preferences.PackageListPreference
         android:title="@string/gaming_mode_danmaku_blacklist"
         android:key="gaming_mode_danmaku_app_blacklist"
+        settings:iconSpaceReserved="false"
         android:dependency="gaming_mode_show_danmaku" />
 </PreferenceScreen>

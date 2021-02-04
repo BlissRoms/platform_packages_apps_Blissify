@@ -25,6 +25,7 @@
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="statusbar_clock"
             android:title="@string/status_bar_clock_show"
+            settings:iconSpaceReserved="false"
             android:defaultValue="true" />
 
         <ListPreference
@@ -33,6 +34,7 @@
             android:dialogTitle="@string/status_bar_clock_style_title"
             android:entries="@array/status_bar_clock_style_entries"
             android:entryValues="@array/status_bar_clock_style_values"
+            settings:iconSpaceReserved="false"
             android:dependency="statusbar_clock" />
 
         <ListPreference
@@ -41,12 +43,14 @@
             android:dialogTitle="@string/status_bar_am_pm_title"
             android:entries="@array/status_bar_am_pm_entries"
             android:entryValues="@array/status_bar_am_pm_values"
+            settings:iconSpaceReserved="false"
             android:dependency="statusbar_clock" />
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="statusbar_clock_seconds"
             android:title="@string/clock_seconds_display"
             android:dependency="statusbar_clock"
+            settings:iconSpaceReserved="false"
             android:defaultValue="false" />
 
     </PreferenceCategory>
@@ -60,6 +64,7 @@
             android:summary="@string/clock_date_display_summary"
             android:entries="@array/clock_date_display_entries"
             android:entryValues="@array/clock_date_display_values"
+            settings:iconSpaceReserved="false"
             android:dependency="statusbar_clock" />
 
         <ListPreference
@@ -67,6 +72,7 @@
             android:title="@string/clock_date_style"
             android:entries="@array/clock_date_style_entries"
             android:entryValues="@array/clock_date_style_values"
+            settings:iconSpaceReserved="false"
             android:dependency="clock_date_display" />
 
         <ListPreference
@@ -74,6 +80,7 @@
             android:title="@string/clock_date_format"
             android:entries="@array/clock_date_format_entries_values"
             android:entryValues="@array/clock_date_format_entries_values"
+            settings:iconSpaceReserved="false"
             android:dependency="clock_date_display" />
 
         <ListPreference
@@ -81,6 +88,7 @@
             android:title="@string/clock_date_position"
             android:entries="@array/clock_date_position_entries"
             android:entryValues="@array/clock_date_position_values"
+            settings:iconSpaceReserved="false"
             android:dependency="clock_date_display" />
 
     </PreferenceCategory>

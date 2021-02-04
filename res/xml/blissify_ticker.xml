@@ -24,6 +24,7 @@
         android:title="@string/ticker_screen_title"
         android:entries="@array/ticker_mode_entries"
         android:entryValues="@array/ticker_mode_values"
+        settings:iconSpaceReserved="false"
         android:defaultValue="0" />
 
     <com.bliss.support.preferences.SystemSettingListPreference
@@ -31,6 +32,7 @@
         android:title="@string/ticker_animation_mode_title"
         android:entries="@array/ticker_animation_mode_entries"
         android:entryValues="@array/ticker_animation_mode_values"
+        settings:iconSpaceReserved="false"
         android:defaultValue="1" />
 
     <com.bliss.support.preferences.SystemSettingSeekBarPreference
@@ -40,10 +42,12 @@
         settings:interval="100"
         android:max="10000"
         android:defaultValue="3000"
+        settings:iconSpaceReserved="false"
         settings:units="@string/unit_milliseconds" />
 
     <com.android.settingslib.widget.FooterPreference
         android:key="statusbar_ticker_footer"
         android:selectable="false"
+        settings:iconSpaceReserved="false"
         settings:searchable="false" />
 </PreferenceScreen>

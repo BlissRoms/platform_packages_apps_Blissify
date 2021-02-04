@@ -22,7 +22,8 @@
 
         <PreferenceScreen
             android:title="@string/weather_config_title"
-            android:summary="@string/weather_config_summary" >
+            android:summary="@string/weather_config_summary" 
+            settings:iconSpaceReserved="false" >
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="org.omnirom.omnijaws"
                     android:targetClass="org.omnirom.omnijaws.SettingsActivityService" />
@@ -31,16 +32,19 @@
         <ListPreference
             android:key="weather_icon_pack"
             android:title="@string/weather_icon_pack_title"
+            settings:iconSpaceReserved="false"
             android:persistent="false" />
 
         <Preference
             android:icon="@drawable/ic_info_outline_24dp"
             android:persistent="false"
+            settings:iconSpaceReserved="false"
             android:summary="@string/weather_icon_pack_info_title" />
 
         <com.android.settingslib.widget.FooterPreference
             android:key="custom_weather_footer"
             android:selectable="false"
+            settings:iconSpaceReserved="false"
             settings:searchable="false" />
 
 </PreferenceScreen>

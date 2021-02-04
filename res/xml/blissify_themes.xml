@@ -117,11 +117,13 @@
             android:title="@string/slider_styles_title"
             android:entries="@array/slider_styles_entries"
             android:entryValues="@array/slider_styles_values"
+            settings:iconSpaceReserved="false"
             android:defaultValue="0" />
 
        <ListPreference
             android:layout="@layout/themes_accent_preview"
-            android:selectable="false" />
+            android:selectable="false"
+            settings:iconSpaceReserved="false" />
 
     <com.bliss.support.colorpicker.ColorPickerPreference
         android:key="rgb_accent_picker"
@@ -159,6 +161,7 @@
             android:title="@string/corner_fwvals"
             android:summary="@string/corner_fwvals_summary"
             android:defaultValue="true"
+            settings:iconSpaceReserved="false"
             android:disableDependentsState="true" />
 
         <com.bliss.support.preferences.CustomSeekBarPreference
@@ -168,6 +171,7 @@
             settings:min="0"
             settings:units="dp"
             android:persistent="false"
+            settings:iconSpaceReserved="false"
             android:dependency="sysui_rounded_fwvals" />
 
         <com.bliss.support.preferences.SystemSettingListPreference
@@ -176,6 +180,7 @@
             android:dialogTitle="@string/rounded_style_title"
             android:entries="@array/rounded_style_entries"
             android:entryValues="@array/rounded_style_values"
+            settings:iconSpaceReserved="false"
             android:defaultValue="0" />
     </PreferenceCategory>
 

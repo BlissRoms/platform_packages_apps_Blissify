@@ -21,6 +21,7 @@
     android:title="@string/gaming_mode_quick_start_apps_title" >
 
     <com.blissroms.blissify.preferences.PackageListPreference
-        android:key="gaming_mode_qs_app_list" />
+        android:key="gaming_mode_qs_app_list"
+        settings:iconSpaceReserved="false" />
 
 </PreferenceScreen>
