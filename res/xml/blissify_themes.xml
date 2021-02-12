@@ -65,6 +65,15 @@
         android:entryValues="@array/theming_settings_dashboard_icons_values"
         android:defaultValue="0" />
 
+     <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="switch_style"
+        android:title="@string/switch_style_title"
+        android:dialogTitle="@string/switch_style_title"
+        android:entries="@array/switch_style_entries"
+        android:entryValues="@array/switch_style_values"
+        android:summary="%s"
+        android:defaultValue="0" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

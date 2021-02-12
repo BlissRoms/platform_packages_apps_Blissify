@@ -901,4 +901,14 @@
     <!-- Screenshot compression  -->
     <string name="screenshot_compression_title">Screenshot quality</string>
     <string name="screenshot_compression_summary">Compress screenshot size with loss in image quality</string>
+
+    <!-- Switch Styles -->
+    <string name="switch_style_title">Switch Style</string>
+    <string name="switch_oneplus">OnePlus</string>
+    <string name="switch_aosp">AOSP</string>
+    <string name="switch_narrow">Narrow</string>
+    <string name="switch_contained">Contained</string>
+    <string name="switch_telegram">Telegram</string>
+    <string name="switch_md2">Material Design 2</string>
+    <string name="switch_retro">Retro</string>
 </resources>
