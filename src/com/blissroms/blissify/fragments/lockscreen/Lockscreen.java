@@ -30,6 +30,7 @@ import android.content.res.Resources;
 import android.provider.Settings;
 import com.android.settings.R;
 
+import android.os.SystemProperties;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -61,7 +62,8 @@ import java.util.Collections;
 public class Lockscreen extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
-    private static final String PIXEL_CATEGORY = "pixel_category";
+    private static final String LOCKSCREEN_CATEGORY = "lockscreen_category";
+    private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -69,6 +71,23 @@ public class Lockscreen extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.blissify_lockscreen);
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        PreferenceCategory overallPreferences = (PreferenceCategory) findPreference("fod_category");
+        mResolver = getActivity().getContentResolver();
+        Resources resources = getResources();
+
+       boolean enableScreenOffFOD = getContext().getResources().
+                getBoolean(com.android.internal.R.bool.config_supportScreenOffFod);
+        Preference ScreenOffFODPref = (Preference) findPreference("fod_gesture");
+
+        if (!enableScreenOffFOD){
+            overallPreferences.removePreference(ScreenOffFODPref);
+        }
+
+        if (!getResources().getBoolean(com.android.internal.R.bool.config_supportsInDisplayFingerprint)) {
+            prefScreen.removePreference(findPreference("fod_category"));
+        }
+
     }
 
     @Override
