@@ -28,6 +28,7 @@ import android.provider.SearchIndexableResource;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.provider.Settings;
+import com.android.internal.util.bliss.FodUtils;
 import com.android.settings.R;
 
 import android.os.SystemProperties;
@@ -75,6 +76,8 @@ public class Lockscreen extends SettingsPreferenceFragment implements
         PreferenceCategory overallPreferences = (PreferenceCategory) findPreference("fod_category");
         mResolver = getActivity().getContentResolver();
         Resources resources = getResources();
+        Context mContext = getContext();
+        final PackageManager mPm = getActivity().getPackageManager();
 
        boolean enableScreenOffFOD = getContext().getResources().
                 getBoolean(R.bool.config_supportScreenOffFod);
@@ -82,6 +85,14 @@ public class Lockscreen extends SettingsPreferenceFragment implements
 
         if (!enableScreenOffFOD){
             overallPreferences.removePreference(ScreenOffFODPref);
+        }
+
+        Preference AnimaTogglePref = (Preference) findPreference("fod_recognizing_animation");
+        Preference AnimaListPref = (Preference) findPreference("fod_recognizing_animation_list");
+
+        if (!com.android.internal.util.bliss.BlissUtils.isPackageInstalled(mContext,"com.bliss.fod.animations")) {
+            overallPreferences.removePreference(AnimaTogglePref);
+            overallPreferences.removePreference(AnimaListPref);
         }
 
         if (!getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) {
