@@ -432,7 +432,7 @@
     <string name="lockscreen_charging_animation_explosion">Explosion</string>
     <string name="lockscreen_charging_animation_water">Water</string>
 
-	<!-- Navbar visibility -->
+    <!-- Navbar visibility -->
     <string name="navbar_visibility">Enable navigation bar</string>
 
     <!-- Navbar Animation -->
@@ -446,4 +446,9 @@
     <string name="navbar_layout_leftleaning">Left-leaning</string>
     <string name="navbar_layout_rightleaning">Right-leaning</string>
     <string name="navbar_invert_layout_title">Invert layout</string>
+
+    <!-- Screen off fod -->
+    <string name="lockscreen_fod_category">Fingerprint On Display</string>
+    <string name="fod_gesture_title">Screen off FOD</string>
+    <string name="fod_gesture_summary">Allows unlocking the device without having to wake up the screen first</string>
 </resources>
