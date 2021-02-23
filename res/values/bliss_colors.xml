@@ -20,12 +20,14 @@
     <color name="blissify_logo_color">#3e93cc</color>
     <color name="ambient_light_screen_color">#111111</color>
     <color name="ambient_light_body_color">#323232</color>
-    <color name="fod_item_background_stroke_color">#d6d6d6</color>
     <color name="bottombar_bg">@*android:color/primary_material_settings_light</color>
     <color name="cardview_bg">@*android:color/background_device_default_light</color>
     <color name="bottombar_active">@*android:color/accent_device_default_light</color>
     <color name="bottombar_ripple">#1f000000</color>
     <color name="preference_background_color">@*android:color/accent_device_default_light</color>
     <color name="blissify_navbar_color">@*android:color/notification_material_background_color</color>
+
+    <!-- FOD icon picker -->
+    <color name="fod_item_background_stroke_color">#d6d6d6</color>
 
 </resources>
