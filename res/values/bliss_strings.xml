@@ -955,4 +955,10 @@
 
     <!-- Power menu background opacity -->
     <string name="power_menu_alpha_title">Power menu opacity</string>
+
+    <string name="header_default">Default</string>
+    <string name="header_large">Large</string>
+    <string name="header_xlarge">XLarge</string>
+    <string name="header_title">Header sizes</string>
+    <string name="header_dialog_title">Select size</string>
 </resources>
