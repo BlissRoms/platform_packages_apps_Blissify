@@ -44,9 +44,9 @@
          android:key="lockscreen_clock_pref"
          android:title="@string/lockscreen_clock_pref_title"
          android:summary="@string/lockscreen_clock_pref_summary"
-         android:fragment="com.blissroms.blissify.fragments.lockscreen.LockScreenClock" /> -->
+         android:fragment="com.blissroms.blissify.fragments.lockscreen.LockScreenClock" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
     <!-- LockScreen Items 
     <PreferenceCategory
@@ -200,7 +200,7 @@
         settings:units="dp"/>
     </PreferenceCategory>
 
-    <!-- Lockscreen Weather -->
+    <!-- Lockscreen Weather
     <PreferenceCategory
         android:key="lockscreen_weather_category"
         android:icon="@drawable/ic_weather"
@@ -212,9 +212,9 @@
         android:summary="@string/weather_config_title"
         android:fragment="com.blissroms.blissify.fragments.lockscreen.Weather" />
 
-    </PreferenceCategory>
+    </PreferenceCategory>  -->
 
-    <!-- Lockscreen Visualizer -->
+    <!-- Lockscreen Visualizer
     <PreferenceCategory
         android:key="lockscreen_visualizer_category"
         android:icon="@drawable/ic_music_visualizer"
@@ -226,6 +226,6 @@
         android:summary="@string/music_visualizer_summary"
         android:fragment="com.blissroms.blissify.fragments.buttons.PulseSettings" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
 </PreferenceScreen>

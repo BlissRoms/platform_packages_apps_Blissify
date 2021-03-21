@@ -170,10 +170,10 @@
     </string-array>
 
     <!-- Network Traffic -->
-    <string-array name="network_traffic_location_entries" translatable="false">
-        <item>@string/network_traffic_location_disable</item>
-        <item>@string/network_traffic_location_statusbar</item>
-        <item>@string/network_traffic_location_quick_statusbar</item>
+    <string-array name="network_traffic_location_entries">
+        <item>@string/traffic_disabled</item>
+        <item>@string/traffic_statusbar</item>
+        <item>@string/traffic_expanded_statusbar</item>
     </string-array>
 
     <string-array name="network_traffic_location_values" translatable="false">
@@ -182,32 +182,25 @@
         <item>2</item>
     </string-array>
 
-    <string-array name="network_traffic_mode_entries" translatable="false">
-        <item>@string/network_traffic_mode_all</item>
-        <item>@string/network_traffic_mode_up</item>
-        <item>@string/network_traffic_mode_down</item>
+   <!-- Network traffic type -->
+    <string-array name="show_network_traffic_type_entries" translatable="false">
+        <item>@string/show_network_traffic_all</item>
+        <item>@string/show_network_traffic_up</item>
+        <item>@string/show_network_traffic_down</item>
+        <item>@string/show_network_traffic_dynamic</item>
     </string-array>
 
-    <string-array name="network_traffic_mode_values" translatable="false">
+    <string-array name="show_network_traffic_type_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
-    </string-array>
-
-    <string-array name="network_traffic_units_entries" translatable="false">
-        <item>@string/network_traffic_units_bits</item>
-        <item>@string/network_traffic_units_bytes</item>
-    </string-array>
-
-    <string-array name="network_traffic_units_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="qs_clock_position_entries" translatable="false">
-        <item>@string/status_bar_clock_position_right</item>
-        <item>@string/status_bar_clock_position_left</item>
-        <item>@string/status_bar_clock_position_hidden</item>
+        <item>@string/status_bar_clock_style_right</item>
+        <item>@string/status_bar_clock_style_left</item>
+        <item>@string/status_bar_clock_style_hidden</item>
     </string-array>
 
     <string-array name="qs_clock_position_values" translatable="false">
@@ -216,107 +209,56 @@
         <item>3</item>
     </string-array>
 
-    <!-- Status bar -->
-    <string-array name="status_bar_clock_position_entries" translatable="false">
-        <item>@string/status_bar_clock_position_right</item>
-        <item>@string/status_bar_clock_position_center</item>
-        <item>@string/status_bar_clock_position_left</item>
-        <item>@string/status_bar_clock_position_hidden</item>
+    <!-- Statusbar Clock -->
+    <string-array name="status_bar_clock_style_entries" translatable="false">
+        <item>@string/status_bar_clock_style_left</item>
+        <item>@string/status_bar_clock_style_center</item>
+        <item>@string/status_bar_clock_style_right</item>
     </string-array>
 
-    <string-array name="status_bar_clock_position_entries_rtl" translatable="false">
-        <item>@string/status_bar_clock_position_left</item>
-        <item>@string/status_bar_clock_position_center</item>
-        <item>@string/status_bar_clock_position_right</item>
-        <item>@string/status_bar_clock_position_hidden</item>
-    </string-array>
-
-    <string-array name="status_bar_clock_position_values" translatable="false">
+    <string-array name="status_bar_clock_style_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="status_bar_clock_position_values_rtl" translatable="false">
-        <item>2</item>
-        <item>1</item>
-        <item>0</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="status_bar_clock_position_entries_notch" translatable="false">
-        <item>@string/status_bar_clock_position_right</item>
-        <item>@string/status_bar_clock_position_left</item>
-        <item>@string/status_bar_clock_position_hidden</item>
-    </string-array>
-
-    <string-array name="status_bar_clock_position_entries_notch_rtl" translatable="false">
-        <item>@string/status_bar_clock_position_left</item>
-        <item>@string/status_bar_clock_position_right</item>
-        <item>@string/status_bar_clock_position_hidden</item>
-    </string-array>
-
-    <string-array name="status_bar_clock_position_values_notch" translatable="false">
-        <item>0</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="status_bar_clock_position_values_notch_rtl" translatable="false">
-        <item>2</item>
-        <item>0</item>
-        <item>3</item>
     </string-array>
 
     <string-array name="status_bar_am_pm_entries" translatable="false">
         <item>@string/status_bar_am_pm_hidden</item>
-        <item>@string/status_bar_am_pm_normal</item>
         <item>@string/status_bar_am_pm_small</item>
+        <item>@string/status_bar_am_pm_normal</item>
     </string-array>
 
     <string-array name="status_bar_am_pm_values" translatable="false">
-        <item>2</item>
-        <item>0</item>
-        <item>1</item>
-    </string-array>
-
-    <string-array name="clock_date_position_entries" translatable="false">
-        <item>@string/clock_date_left</item>
-        <item>@string/clock_date_right</item>
-    </string-array>
-
-    <string-array name="clock_date_position_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-    </string-array>
-
-    <!-- Statusbar date -->
-    <string-array name="status_bar_date_entries">
-        <item>@string/status_bar_date_none</item>
-        <item>@string/status_bar_date_small</item>
-        <item>@string/status_bar_date_normal</item>
-    </string-array>
-
-    <string-array name="status_bar_date_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
 
-    <string-array name="status_bar_date_style_entries">
-        <item>@string/status_bar_date_style_normal</item>
-        <item>@string/status_bar_date_style_lowercase</item>
-        <item>@string/status_bar_date_style_uppercase</item>
+    <string-array name="clock_date_display_entries">
+        <item>@string/clock_date_display_none</item>
+        <item>@string/clock_date_display_small</item>
+        <item>@string/clock_date_display_normal</item>
     </string-array>
 
-    <string-array name="status_bar_date_style_values" translatable="false">
+    <string-array name="clock_date_display_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
 
-    <string-array name="status_bar_date_format_entries_values" translatable="false">
+    <string-array name="clock_date_style_entries">
+        <item>@string/clock_date_style_normal</item>
+        <item>@string/clock_date_style_lowercase</item>
+        <item>@string/clock_date_style_uppercase</item>
+    </string-array>
+
+    <string-array name="clock_date_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="clock_date_format_entries_values">
         <item>dd/MM/yy</item>
         <item>MM/dd/yy</item>
         <item>yyyy-MM-dd</item>
@@ -335,7 +277,17 @@
         <item>EEE MMMM dd</item>
         <item>EEEE dd/MM</item>
         <item>EEEE MM/dd</item>
-        <item>@string/status_bar_date_format_custom</item>
+        <item>@string/clock_date_format_custom</item>
+    </string-array>
+
+    <string-array name="clock_date_position_entries" translatable="false">
+        <item>@string/clock_date_left</item>
+        <item>@string/clock_date_right</item>
+    </string-array>
+
+    <string-array name="clock_date_position_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
     </string-array>
 
     <string-array name="status_bar_battery_style_entries" translatable="false">
@@ -511,45 +463,29 @@
         <item>2</item>
     </string-array>
 
-    <!-- Battery Bar -->
-    <string-array name="battery_bar_entries" translatable="false">
-        <item>@string/battery_bar_hide</item>
-        <item>@string/battery_bar_statusbar</item>
-        <item>@string/battery_bar_topnav</item>
-        <item>@string/battery_bar_bottomnav</item>
+    <!-- Battery bar -->
+    <string-array name="battery_bar_location_entries" translatable="false">
+        <item>@string/battery_bar_location_statusbar_top</item>
+        <item>@string/battery_bar_location_statusbar_bottom</item>
+        <item>@string/battery_bar_location_navbar_top</item>
+        <item>@string/battery_bar_location_navbar_bottom</item>
     </string-array>
-
-    <string-array name="battery_bar_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="battery_bar_style_entries" translatable="false">
-        <item>@string/battery_bar_reg</item>
-        <item>@string/battery_bar_center</item>
-        <item>@string/battery_bar_reversed</item>
-    </string-array>
-
-    <string-array name="battery_bar_style_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <string-array name="battery_bar_thickness_entries" translatable="false">
-        <item>1 dp</item>
-        <item>2 dp</item>
-        <item>3 dp</item>
-        <item>4 dp</item>
-    </string-array>
-
-    <string-array name="battery_bar_thickness_values" translatable="false">
+    <string-array name="battery_bar_location_values" translatable="false">
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+
+    <string-array name="battery_bar_style_entries" translatable="false">
+        <item>@string/battery_bar_style_regular</item>
+        <item>@string/battery_bar_style_center_mirrored</item>
+        <item>@string/battery_bar_style_reversed</item>
+    </string-array>
+    <string-array name="battery_bar_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
     <!-- QS Brightness Slider position -->
@@ -1989,4 +1925,18 @@
         <item>4</item>
     </string-array>
 
+    <!-- Screen off animation -->
+    <string-array name="screen_off_animation_entries">
+        <item>@string/screen_off_animation_default</item>
+        <item>@string/screen_off_animation_crt</item>
+        <item>@string/screen_off_animation_scale</item>
+    </string-array>
+
+    <string-array name="screen_off_animation_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>
+
