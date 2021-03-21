@@ -24,7 +24,7 @@
         android:key="bliss_header"
         android:layout="@layout/statusbar_header" />
 
-    <!-- Clock -->
+    <!-- Clock
     <PreferenceCategory
         android:key="status_bar_clock_key"
         android:icon="@drawable/ic_clock"
@@ -39,13 +39,13 @@
             android:entryValues="@array/status_bar_clock_position_values"
             android:defaultValue="2" />
 
-        <!--<Preference
+        <Preference
             android:key="clock"
             android:title="@string/status_bar_clock_title"
             android:summary="@string/status_bar_clock_summary"
-            android:fragment="com.blissroms.blissify.fragments.statusbar.Clock" /> -->
+            android:fragment="com.blissroms.blissify.fragments.statusbar.Clock" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
     <!-- Status bar Battery -->
     <PreferenceCategory
@@ -259,7 +259,7 @@
 
     </PreferenceCategory> -->
 
-    <!-- Brightness -->
+    <!-- Brightness 
     <PreferenceCategory
         android:title="@string/status_bar_brightness_category"
         android:icon="@drawable/ic_brightness_control">
@@ -271,7 +271,7 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
-   <!-- <PreferenceCategory
+    <PreferenceCategory
         android:key="bluetooth_battery_category"
         android:icon="@drawable/ic_bluetooth_battery"
         android:title="@string/bluetooth_battery_title" >
