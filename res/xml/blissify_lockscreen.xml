@@ -24,7 +24,7 @@
         android:key="bliss_header"
         android:layout="@layout/lockscreen_header" />
 
-    <!-- LockScreen Clocks -->
+    <!-- LockScreen Clocks 
     <PreferenceCategory
         android:key="lockscreen_clock_category"
         android:icon="@drawable/ic_clock"
@@ -44,11 +44,11 @@
          android:key="lockscreen_clock_pref"
          android:title="@string/lockscreen_clock_pref_title"
          android:summary="@string/lockscreen_clock_pref_summary"
-         android:fragment="com.blissroms.blissify.fragments.lockscreen.LockScreenClock" />
+         android:fragment="com.blissroms.blissify.fragments.lockscreen.LockScreenClock" /> -->
 
     </PreferenceCategory>
 
-    <!-- LockScreen Items -->
+    <!-- LockScreen Items 
     <PreferenceCategory
         android:key="lockscreen_items_category"
         android:icon="@drawable/ic_ui_options"
@@ -91,9 +91,9 @@
         android:summary="@string/lockscreen_lock_icon_summary"
         android:defaultValue="true" />
 
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
-    <!-- LockScreen Shortcuts -->
+    <!-- LockScreen Shortcuts 
     <PreferenceCategory
         android:key="lockscreen_shortcuts_category"
         android:icon="@drawable/ic_shortcuts"
@@ -105,9 +105,9 @@
          <intent android:action="com.android.settings.action.LOCK_SCREEN_TUNER" />
     </Preference>
 
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
-    <!-- Lockscreen Charging -->
+    <!-- Lockscreen Charging 
     <PreferenceCategory
         android:key="lockscreen_charging_category"
         android:icon="@drawable/ic_lockscreen_charging_info"
@@ -132,9 +132,9 @@
         android:summary="@string/wireless_charging_animation_summary"
         android:defaultValue="false" />
 
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
-    <!-- Lockscreen Wake -->
+    <!-- Lockscreen Wake 
     <PreferenceCategory
         android:key="lockscreen_wake_category"
         android:icon="@drawable/ic_wake_on_plug"
@@ -146,9 +146,9 @@
         android:summary="@string/wake_when_plugged_or_unplugged_summary"
         android:defaultValue="@*android:bool/config_unplugTurnsOnScreen" />
 
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
-    <!-- Lockscreen FP Wake -->
+    <!-- Lockscreen FP Wake 
     <PreferenceCategory
         android:key="lockscreen_fp_unlock"
         android:icon="@drawable/ic_force_fp_authentication"
@@ -167,7 +167,7 @@
         android:defaultValue="@*lineageos.platform:bool/config_proximityCheckOnWakeEnabledByDefault"
         lineage:requiresConfig="@*lineageos.platform:bool/config_proximityCheckOnWake" />
 
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
     <!-- Lockscreen Media -->
     <PreferenceCategory
@@ -175,18 +175,12 @@
         android:icon="@drawable/ic_display_media_cover_art"
         android:title="@string/lockscreen_media_category" >
 
-<!--    <lineageos.preference.LineageSecureSettingSwitchPreference
+     <com.bliss.support.preferences.SecureSettingListPreference
         android:key="lockscreen_media_metadata"
         android:title="@string/lockscreen_media_art_title"
-        android:defaultValue="true" /> -->
+        android:summary="@string/lockscreen_media_art_summary"
+        android:defaultValue="false" />
 
-     <com.bliss.support.preferences.SecureSettingListPreference
-        android:key="lockscreen_albumart_filter"
-        android:title="@string/lockscreen_albumart_filter_title"
-        android:entries="@array/lockscreen_albumart_filter_entries"
-        android:entryValues="@array/lockscreen_albumart_filter_values"
-        android:dependency="lockscreen_media_metadata"
-        android:defaultValue="0" />
     </PreferenceCategory>
 
     <!-- Lockscreen Media Blur -->
