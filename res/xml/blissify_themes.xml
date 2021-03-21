@@ -50,6 +50,13 @@
             android:entries="@array/theme_type_titles"
             android:entryValues="@array/theme_type_values" />
 
+    <com.bliss.support.preferences.SystemSettingIntListPreference
+        android:key="theming_settings_dashboard_icons"
+        android:title="@string/theming_settings_dashboard_icons_title"
+        android:entries="@array/theming_settings_dashboard_icons_entries"
+        android:entryValues="@array/theming_settings_dashboard_icons_values"
+        android:defaultValue="0" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
