@@ -40,8 +40,6 @@ import com.android.settingslib.search.SearchIndexable;
 
 import com.android.internal.util.bliss.BlissUtils;
 
-import com.blissroms.blissify.utils.DeviceUtils;
-
 import java.util.List;
 import java.util.ArrayList;
 

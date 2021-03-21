@@ -51,12 +51,12 @@
           android:fragment="com.blissroms.blissify.fragments.buttons.ButtonSettings"
           android:icon="@drawable/ic_blissify_button"/>
 
-      <!-- LockScreen 
+      <!-- LockScreen -->
       <com.blissroms.blissify.ui.BlissPreference
           android:key="lockscreen_category"
           android:title="@string/blissify_lockscreen_title"
-          android:fragment="com.blissroms.blissify.fragments.lockscreen.LockScreen"
-          android:icon="@drawable/ic_blissify_lockscreen"/> -->
+          android:fragment="com.blissroms.blissify.fragments.lockscreen.Lockscreen"
+          android:icon="@drawable/ic_blissify_lockscreen"/>
 
       <!-- Gestures -->
       <com.blissroms.blissify.ui.BlissPreference

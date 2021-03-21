@@ -24,34 +24,4 @@
         android:key="bliss_header"
         android:layout="@layout/gestures_header" />
 
-    <!-- Double tap to sleep -->
-    <lineageos.preference.LineageSystemSettingSwitchPreference
-        android:key="double_tap_sleep_gesture"
-        android:icon="@drawable/ic_doubletap"
-        android:title="@string/status_bar_double_tap_to_sleep_title"
-        android:summary="@string/status_bar_double_tap_to_sleep_summary"
-        android:defaultValue="true" />
-
-    <!--<com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="double_tap_sleep_lockscreen"
-        android:icon="@drawable/ic_doubletap"
-        android:title="@string/double_tap_sleep_anywhere_title"
-        android:summary="@string/double_tap_sleep_anywhere_summary"
-        android:defaultValue="true" /> -->
-
-    <!-- Pixel Gestures
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="three_finger_gesture"
-        android:icon="@drawable/ic_swipe_to_screenshot"
-        android:title="@string/three_finger_gesture"
-        android:summary="@string/three_finger_gesture_summary"
-        android:defaultValue="false" />
-
-    <Preference
-        android:key="pixel_category"
-        android:title="@string/blissify_pixel_gestures_title"
-        android:summary="@string/pixelgestures_summary"
-        android:fragment="com.blissroms.blissify.fragments.gestures.PixelGestures"
-        android:icon="@drawable/ic_pixelgestures"/> -->
-
 </PreferenceScreen>

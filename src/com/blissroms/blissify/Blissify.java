@@ -39,8 +39,6 @@ import com.android.settingslib.search.SearchIndexable;
 
 import com.blissroms.blissify.ui.BlissPreference;
 
-import com.blissroms.blissify.utils.DeviceUtils;
-
 import java.util.List;
 import java.util.ArrayList;
 
@@ -111,7 +109,7 @@ public class Blissify extends SettingsPreferenceFragment {
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.custom_carrier_label;
+                    sir.xmlResId = R.xml.blissify;
                     result.add(sir);
                     return result;
                 }

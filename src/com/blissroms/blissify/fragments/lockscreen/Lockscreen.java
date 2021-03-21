@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.blissroms.blissify.fragments.buttons;
+package com.blissroms.blissify.fragments.lockscreen;
 
 import com.android.internal.logging.nano.MetricsProto;
 
@@ -58,7 +58,7 @@ import java.util.HashMap;
 import java.util.Collections;
 
 @SearchIndexable
-public class ButtonSettings extends SettingsPreferenceFragment implements
+public class Lockscreen extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
     private static final String PIXEL_CATEGORY = "pixel_category";
@@ -67,7 +67,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        addPreferencesFromResource(R.xml.blissify_buttons);
+        addPreferencesFromResource(R.xml.blissify_lockscreen);
         PreferenceScreen prefSet = getPreferenceScreen();
     }
 
@@ -90,7 +90,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.blissify_buttons;
+                    sir.xmlResId = R.xml.blissify_lockscreen;
                     result.add(sir);
                     return result;
                 }

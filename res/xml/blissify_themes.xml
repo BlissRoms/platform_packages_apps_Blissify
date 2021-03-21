@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2020 The BlissRoms Project
+     Copyright (C) 2014-2021 BlissRoms Project
+
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
           http://www.apache.org/licenses/LICENSE-2.0
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,170 +23,5 @@
     <Preference
         android:key="bliss_header"
         android:layout="@layout/themes_header" />
-
-    <PreferenceCategory
-        android:key="category_theming"
-        android:icon="@drawable/ic_bliss_themes"
-        android:title="@string/theming_title">
-
-        <Preference
-            android:key="theme_select_activity"
-            android:title="@string/theme_select_title"
-            android:summary="@string/theme_select_summary"
-            android:persistent="false" >
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.android.customization"
-                    android:targetClass="com.android.customization.picker.CustomizationPickerActivity" />
-        </Preference>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="category_system_theming"
-        android:icon="@drawable/ic_bliss_themes"
-        android:title="@string/theme_type_title">
-
-        <com.android.settings.display.darkmode.DarkModePreference
-            android:key="dark_ui_mode"
-            android:title="@string/dark_ui_mode"
-            android:fragment="com.android.settings.display.darkmode.DarkModeSettingsFragment"
-            android:widgetLayout="@null"
-            settings:widgetLayout="@null"
-            settings:controller="com.android.settings.display.DarkUIPreferenceController"
-            settings:searchable="false"/>
-
-        <SwitchPreference
-            android:key="hwui_force_dark"
-            android:title="@string/hwui_force_dark_title"
-            android:summary="@string/hwui_force_dark_summary"
-            android:dependency="dark_ui_mode" />
-
-        <ListPreference
-            android:key="system_theme"
-            android:title="@string/theme_type_title"
-            android:persistent="false"
-            android:entries="@array/theme_type_titles"
-            android:entryValues="@array/theme_type_values"
-            android:dependency="dark_ui_mode" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="aosp_themeing"
-        android:icon="@drawable/ic_bliss_themes"
-        android:title="@string/aosp_themeing_title">
-
-        <ListPreference
-            android:key="accent_preset"
-            android:title="@string/accent_preset_title"
-            android:persistent="false"
-            android:entries="@array/accent_presets_entries"
-            android:entryValues="@array/accent_presets_values" />
-
-        <com.bliss.support.colorpicker.ColorPickerPreference
-            android:key="accent_color"
-            android:title="@string/rgb_accenter_title"
-            android:defaultValue="0xff1a73e8"
-            android:persistent="false" />
-
-        <com.bliss.support.colorpicker.ColorPickerPreference
-            android:key="gradient_color"
-            android:title="@string/gradient_color"
-            android:defaultValue="0xff1a73e8"
-            android:persistent="false" />
-
-<!--        <ListPreference
-            android:key="android.theme.customization.primary_color"
-            android:title="@string/theme_customization_primary_color_title"/>
-        <ListPreference
-            android:key="android.theme.customization.font"
-            android:title="@string/theme_customization_font_title"/>
-        <ListPreference
-            android:key="android.theme.customization.adaptive_icon_shape"
-            android:title="@string/theme_customization_icon_shape_title"/>
-        <ListPreference
-            android:key="android.theme.customization.icon_pack.android"
-            android:title="@string/theme_customization_sysui_icon_title"/> -->
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="ui_options_categorry"
-        android:icon="@drawable/ic_bliss_themes"
-        android:title="@string/ui_options_title">
-
-        <ListPreference
-            android:key="android.theme.customization.statusbar_height"
-            android:title="@string/theme_customization_statusbar_height_title"/>
-
-        <ListPreference
-            android:key="android.theme.customization.ui_radius"
-            android:title="@string/theme_customization_ui_radius_title"/>
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="qs_tile_theming"
-        android:icon="@drawable/ic_bliss_themes"
-        android:title="@string/qs_tile_style_title">
-
-        <ListPreference
-            android:key="qs_tile_style"
-            android:title="@string/qs_tile_style_title"
-            android:persistent="false"
-            android:entries="@array/qs_selector_entries"
-            android:entryValues="@array/qs_selector_values" />
-
-        <ListPreference
-            android:key="qs_header_style"
-            android:title="@string/qs_header_style_title"
-            android:persistent="false"
-            android:entries="@array/qs_header_style_entries"
-            android:entryValues="@array/qs_header_style_values" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="switches_category"
-        android:icon="@drawable/ic_bliss_themes"
-        android:title="@string/switch_style_title">
-
-    <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="switch_style"
-        android:title="@string/switch_style_title"
-        android:dialogTitle="@string/switch_style_title"
-        android:entries="@array/switch_style_entries"
-        android:entryValues="@array/switch_style_values"
-        android:summary="%s"
-        android:defaultValue="0" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="dashboard_icons"
-        android:icon="@drawable/ic_bliss_themes"
-        android:title="@string/theming_settings_dashboard_icons_title">
-
-    <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="theming_settings_dashboard_icons"
-        android:title="@string/theming_settings_dashboard_icons_title"
-        android:dialogTitle="@string/theming_settings_dashboard_icons_title"
-        android:entries="@array/theming_settings_dashboard_icons_entries"
-        android:entryValues="@array/theming_settings_dashboard_icons_values"
-        android:summary="%s"
-        android:defaultValue="0" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:icon="@drawable/ic_bliss_themes"
-        android:title="@string/navbar_style_title">
-
-    <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="navbar_style"
-        android:title="@string/navbar_style_title"
-        android:dialogTitle="@string/navbar_style_title"
-        android:entries="@array/navbar_style_entries"
-        android:entryValues="@array/navbar_style_values"
-        android:defaultValue="0" />
-    </PreferenceCategory>
 
 </PreferenceScreen>
