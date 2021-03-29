@@ -30,12 +30,12 @@
           android:fragment="com.blissroms.blissify.fragments.statusbar.StatusBar"
           android:icon="@drawable/ic_blissify_statusbar"/>
 
-      <!-- Quick Settings
+      <!-- Quick Settings -->
       <com.blissroms.blissify.ui.BlissPreference
           android:key="qs_category"
           android:title="@string/blissify_qs_title"
           android:fragment="com.blissroms.blissify.fragments.qs.QuickSettings"
-          android:icon="@drawable/ic_blissify_qs" /> -->
+          android:icon="@drawable/ic_blissify_qs" />
 
       <!-- Animation
       <com.blissroms.blissify.ui.BlissPreference
