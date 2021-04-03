@@ -37,12 +37,12 @@
           android:fragment="com.blissroms.blissify.fragments.qs.QuickSettings"
           android:icon="@drawable/ic_blissify_qs" />
 
-      <!-- Animation
+      <!-- Animation -->
       <com.blissroms.blissify.ui.BlissPreference
           android:key="animation_category"
           android:title="@string/blissify_animation_title"
           android:fragment="com.blissroms.blissify.fragments.animation.Animations"
-          android:icon="@drawable/ic_blissify_animation"/> -->
+          android:icon="@drawable/ic_blissify_animation"/>
 
       <!-- Buttons -->
       <com.blissroms.blissify.ui.BlissPreference
