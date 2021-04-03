@@ -190,8 +190,8 @@
     <string name="quick_pulldown_left">Pulldown statusbar from left side</string>
 
     <!-- Status bar clock and date options -->
-    <string name="status_bar_clock_title">Clock settings</string>
-    <string name="status_bar_clock">Clock &amp; Date</string>
+    <string name="status_bar_clock_title">Clock &amp; date</string>
+    <string name="status_bar_clock">Clock settings</string>
     <string name="clock_enabled">Enabled</string>
     <string name="clock_disabled">Disabled</string>
     <string name="status_bar_clock_style_reset">Reset color</string>
@@ -231,6 +231,7 @@
     <string name="bliss_logo_summary">Blissify your device!</string>
 
     <!-- Statusbar net monitor -->
+    <string name="network_traffic_settings_title">Network traffic monitor</string>
     <string name="network_traffic">Network traffic</string>
     <string name="network_traffic_state_title">Network traffic display</string>
     <string name="network_traffic_location">Traffic indicator placement</string>
@@ -247,4 +248,5 @@
     <string name="show_network_traffic_down">Download</string>
     <string name="show_network_traffic_all">Both</string>
     <string name="nettraf_font_size">Single net font size</string>
+
 </resources>
