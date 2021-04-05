@@ -30,4 +30,5 @@
     <color name="themes_preview_card">@*android:color/primary_dark_device_default_settings</color>
 
     <color name="option_border_default">#ffffff</color>
+    <color name="bliss_gaming_background">@*android:color/accent_device_default_dark</color>
 </resources>

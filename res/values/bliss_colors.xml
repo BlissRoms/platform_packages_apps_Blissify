@@ -39,4 +39,5 @@
     <color name="option_border_default">#5f6368</color>
 
     <color name="bliss_cutout_background">@*android:color/accent_device_default_light</color>
+    <color name="bliss_gaming_background">@*android:color/accent_device_default_light</color>
 </resources>
