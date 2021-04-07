@@ -150,7 +150,7 @@
             android:entries="@array/qs_tint_entries"
 	    android:entryValues="@array/qs_tint_values"
             android:summary="@string/qs_bg_use_new_tint_summary"
-            android:defaultValue="2" />
+            android:defaultValue="1" />
 
         </PreferenceCategory>
 </PreferenceScreen>
