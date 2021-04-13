@@ -897,4 +897,8 @@
     <!-- Partial Screenshot -->
     <string name="click_partial_screenshot_title">Click to partial screenshot</string>
     <string name="click_partial_screenshot_summary">Short click Volume Down and Power to take partial screenshot</string>
+
+    <!-- Screenshot compression  -->
+    <string name="screenshot_compression_title">Screenshot quality</string>
+    <string name="screenshot_compression_summary">Compress screenshot size with loss in image quality</string>
 </resources>

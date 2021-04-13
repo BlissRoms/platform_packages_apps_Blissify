@@ -131,11 +131,22 @@
             android:summary="@string/three_finger_gesture_summary"
             android:defaultValue="false" />
 
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="click_partial_screenshot"
-            android:title="@string/click_partial_screenshot_title"
-            android:summary="@string/click_partial_screenshot_summary"
-            android:defaultValue="false" /> 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+         android:key="click_partial_screenshot"
+         android:title="@string/click_partial_screenshot_title"
+         android:summary="@string/click_partial_screenshot_summary"
+         android:defaultValue="false" /> 
+
+    <!-- Screenshot compression -->
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+         android:key="screenshot_compression"
+         android:title="@string/screenshot_compression_title"
+         android:summary="@string/screenshot_compression_summary"
+         android:defaultValue="100"
+         android:max="100"
+         android:min="10"
+         settings:units="%" />
+
    </PreferenceCategory>
 
 	<!-- Battery Saving -->
