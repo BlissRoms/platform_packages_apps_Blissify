@@ -30,33 +30,6 @@
         android:summary="@string/quick_settings_vibrate_summary"
         android:defaultValue="false"/>
 
-    <PreferenceCategory
-        android:title="@string/tile_anim"
-        android:icon="@drawable/ic_qs_tile">
-
-        <ListPreference
-            android:key="qs_tile_animation_style"
-            android:title="@string/qs_tile_animation_style_title"
-            android:entries="@array/qs_tile_animation_style_entries"
-            android:entryValues="@array/qs_tile_animation_style_values"
-            android:persistent="false" />
-
-        <ListPreference
-            android:key="qs_tile_animation_duration"
-            android:title="@string/qs_tile_animation_duration_title"
-            android:entries="@array/qs_tile_animation_duration_entries"
-            android:entryValues="@array/qs_tile_animation_duration_values"
-            android:persistent="false" />
-
-        <ListPreference
-            android:key="qs_tile_animation_interpolator"
-            android:title="@string/qs_tile_animation_interpolator_title"
-            android:entries="@array/qs_tile_animation_interpolator_entries"
-            android:entryValues="@array/qs_tile_animation_interpolator_values"
-            android:persistent="false" />
-
-    </PreferenceCategory>
-
     <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="status_bar_locked_on_secure_keyguard"
             android:title="@string/lockscreen_qs_disabled_title"
