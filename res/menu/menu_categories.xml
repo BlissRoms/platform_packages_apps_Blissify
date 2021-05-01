@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/status_bar_category"
+            android:icon="@drawable/ic_blissify_statusbar"
+            android:title="@string/blissify_statusbar_title" />
+
+    <item
+            android:id="@+id/notifications_category"
+            android:icon="@drawable/ic_blissify_notification"
+            android:title="@string/blissify_notifications_title" />
+
+    <item
+            android:id="@+id/buttons_category"
+            android:icon="@drawable/ic_blissify_button"
+            android:title="@string/blissify_buttons_title" />
+
+<!--    <item
+            android:id="@+id/recents_category"
+            android:icon="@drawable/ic_recents_category"
+            android:title="@string/recents_category" /> -->
+
+    <item
+            android:id="@+id/lockscreen_category"
+            android:icon="@drawable/ic_blissify_lockscreen"
+            android:title="@string/blissify_lockscreen_title" />
+
+<!--    <item
+            android:id="@+id/system_category"
+            android:icon="@drawable/ic_system_category"
+            android:title="@string/system_category" /> -->                                            
+
+</menu>

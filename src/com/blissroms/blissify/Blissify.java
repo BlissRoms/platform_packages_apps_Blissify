@@ -29,6 +29,7 @@ import android.content.ContentResolver;
 import android.os.Bundle;
 import android.provider.SearchIndexableResource;
 import android.view.Surface;
+import androidx.core.content.ContextCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import com.android.settings.R;
@@ -36,6 +37,17 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
+
+import com.blissroms.blissify.fragments.statusbar.StatusBar;
+import com.blissroms.blissify.fragments.qs.QuickSettings;
+import com.blissroms.blissify.fragments.animation.Animations;
+import com.blissroms.blissify.fragments.buttons.ButtonSettings;
+import com.blissroms.blissify.fragments.lockscreen.Lockscreen;
+import com.blissroms.blissify.fragments.gestures.Gestures;
+import com.blissroms.blissify.fragments.notifications.Notifications;
+import com.blissroms.blissify.fragments.misc.MiscSettings;
 
 import com.blissroms.blissify.ui.BlissPreference;
 
@@ -50,10 +62,64 @@ public class Blissify extends SettingsPreferenceFragment {
     private Preference mBiometrics;
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.layout_extensions, container, false);
+
+        final BottomNavigationView bottomNavigation = (BottomNavigationView) view.findViewById(R.id.bottom_navigation);
+
+    bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+	  public boolean onNavigationItemSelected(MenuItem item) {
+
+             if (item.getItemId() == bottomNavigation.getSelectedItemId()) {
+
+               return false;
+
+             } else {
+
+		switch(item.getItemId()){
+                case R.id.statusbar_category:
+                switchFrag(new StatusBar());
+                break;
+                case R.id.notifications_category:
+                switchFrag(new Notifications());
+                break;
+                case R.id.buttons_category:
+                switchFrag(new ButtonSettings());
+                break;
+/*                case 3:
+                switchFrag(new Recents());
+                break; */
+                case R.id.lockscreen_category:
+                switchFrag(new Lockscreen());
+                break;
+/*                case R.id.system_category:
+                switchFrag(new System());
+                break; */
+               }
+            return true;
+            }
+	 }
+    });
+
+
+        setHasOptionsMenu(true);
+        bottomNavigation.setSelectedItemId(R.id.status_bar_category);
+        switchFrag(new StatusBar());
+        bottomNavigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_AUTO);
+        return view;
+    }
+
+    private void switchFrag(Fragment fragment) {
+        getFragmentManager().beginTransaction().replace(R.id.fragment_frame, fragment).commit();
+    }
+
+    @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        addPreferencesFromResource(R.xml.blissify);
+        setRetainInstance(true);
         PreferenceScreen prefSet = getPreferenceScreen();
 
         Context mContext = getContext();
