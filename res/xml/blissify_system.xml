@@ -15,13 +15,20 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="misc_settings"
-    android:title="@string/blissify_misc_title">
+    android:key="system_settings"
+    android:title="@string/blissify_system_title">
 
-    <!-- Bliss Header -->
-    <Preference 
-        android:key="bliss_header"
-        android:layout="@layout/more_header" />
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+         android:key="double_tap_sleep_gesture"
+         android:title="@string/double_tap_sleep_gesture_title"
+         android:summary="@string/double_tap_sleep_gesture_summary"
+         android:defaultValue="false" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="three_finger_gesture"
+            android:title="@string/three_finger_gesture"
+            android:summary="@string/three_finger_gesture_summary"
+            android:defaultValue="false" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="toast_icon"

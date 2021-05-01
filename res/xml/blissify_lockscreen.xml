@@ -23,6 +23,12 @@
         android:key="bliss_header"
         android:layout="@layout/lockscreen_header" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="double_tap_sleep_lockscreen"
+        android:title="@string/double_tap_sleep_lockscreen_title"
+        android:summary="@string/double_tap_sleep_lockscreen_summary"
+        android:defaultValue="false" />
+
     <!-- Lockscreen Media -->
     <PreferenceCategory
         android:key="lockscreen_media_category"
