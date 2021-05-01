@@ -21,16 +21,15 @@
     <string name="blissify_title">Blissify</string>
 
     <!-- Categories -->
-    <string name="blissify_statusbar_title">StatusBar</string>
-    <string name="blissify_qs_title">QS Panel</string>
+    <string name="blissify_statusbar_category">StatusBar</string>
+    <string name="blissify_qs_category">QS Panel</string>
+    <string name="blissify_navigation_category">Navigation</string>
+    <string name="blissify_lockscreen_category">Lockscreen</string>
+    <string name="blissify_system_category">System</string>
     <string name="blissify_animation_title">Animations</string>
-    <string name="blissify_buttons_title">Navigation</string>
-    <string name="blissify_misc_title">More</string>
-    <string name="blissify_lockscreen_title">Lockscreen</string>
     <string name="blissify_gestures_title">Gestures</string>
     <string name="blissify_biometrics_title">Biometrics</string>
     <string name="blissify_pixel_gestures_title">Pixel Gestures</string>
-    <string name="blissify_notifications_title">Notifications</string>
     <string name="blissify_themes_title">Themes</string>
     <string name="system_animation_category">System</string>
     <string name="misc_animation_title">Misc</string>

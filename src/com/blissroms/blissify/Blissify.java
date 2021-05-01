@@ -50,12 +50,9 @@ import com.android.settingslib.search.SearchIndexable;
 
 import com.blissroms.blissify.fragments.statusbar.StatusBar;
 import com.blissroms.blissify.fragments.qs.QuickSettings;
-import com.blissroms.blissify.fragments.animation.Animations;
-import com.blissroms.blissify.fragments.buttons.ButtonSettings;
+import com.blissroms.blissify.fragments.navigation.NavigationSettings;
 import com.blissroms.blissify.fragments.lockscreen.Lockscreen;
-import com.blissroms.blissify.fragments.gestures.Gestures;
-import com.blissroms.blissify.fragments.notifications.Notifications;
-import com.blissroms.blissify.fragments.misc.MiscSettings;
+import com.blissroms.blissify.fragments.system.SystemSettings;
 
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 
@@ -108,14 +105,15 @@ public class Blissify extends SettingsPreferenceFragment {
         animatedBottomBar = (AnimatedBottomBar) view.findViewById(R.id.bottom_navigation);
 
         Fragment lockscreen = new com.blissroms.blissify.fragments.lockscreen.Lockscreen();
-        Fragment navigation = new com.blissroms.blissify.fragments.buttons.ButtonSettings();
+        Fragment navsettings = new com.blissroms.blissify.fragments.navigation.NavigationSettings();
         Fragment qspanel = new com.blissroms.blissify.fragments.qs.QuickSettings();
         Fragment statusbar = new com.blissroms.blissify.fragments.statusbar.StatusBar();
+        Fragment system = new com.blissroms.blissify.fragments.system.SystemSettings();
 
         Fragment fragment = (Fragment) getFragmentManager().findFragmentById(R.id.fragmentContainer);
         if (fragment == null) {
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragmentContainer, navigation);
+            transaction.replace(R.id.fragmentContainer, navsettings);
             transaction.addToBackStack(null);
             transaction.commit();
         }
@@ -136,12 +134,15 @@ public class Blissify extends SettingsPreferenceFragment {
                 } else if (id == R.id.qspanel_category) 
 				{
                        switchFrag(qspanel);
-                } else if (id == R.id.buttons_category) 
+                } else if (id == R.id.navigation_category) 
 				{
-                       switchFrag(navigation);
+                       switchFrag(navsettings);
                 } else if (id == R.id.lockscreen_category) 
 				{
                        switchFrag(lockscreen);
+                } else if (id == R.id.system_category) 
+				{
+                       switchFrag(system);
                 }
             }
         });
