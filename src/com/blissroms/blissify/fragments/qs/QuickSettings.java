@@ -73,6 +73,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.blissify_qs);
+        setRetainInstance(true);
         final ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
 
