@@ -18,6 +18,7 @@ package com.blissroms.blissify;
 
 import com.android.internal.logging.nano.MetricsProto;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -29,41 +30,136 @@ import android.content.ContentResolver;
 import android.os.Bundle;
 import android.provider.SearchIndexableResource;
 import android.view.Surface;
+import androidx.core.content.ContextCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import com.android.settings.R;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.view.View;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
-import com.blissroms.blissify.ui.BlissPreference;
+import com.blissroms.blissify.fragments.statusbar.StatusBar;
+import com.blissroms.blissify.fragments.qs.QuickSettings;
+import com.blissroms.blissify.fragments.animation.Animations;
+import com.blissroms.blissify.fragments.buttons.ButtonSettings;
+import com.blissroms.blissify.fragments.lockscreen.Lockscreen;
+import com.blissroms.blissify.fragments.gestures.Gestures;
+import com.blissroms.blissify.fragments.notifications.Notifications;
+import com.blissroms.blissify.fragments.misc.MiscSettings;
+
+import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 import java.util.List;
 import java.util.ArrayList;
 
-@SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
+import android.app.ActionBar;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+
 public class Blissify extends SettingsPreferenceFragment {
 
-    private static final String KEY_BIOMETRICS_CATEGORY = "biometrics_category";
-
-    private Preference mBiometrics;
+    Context mContext;
+    View view;
+    AnimatedBottomBar animatedBottomBar;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.blissify);
-        PreferenceScreen prefSet = getPreferenceScreen();
+        mContext = getActivity();
+        Resources res = getResources();
+        Window win = getActivity().getWindow();
 
-        Context mContext = getContext();
+        win.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        win.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        win.setNavigationBarColor(res.getColor(R.color.bottombar_bg));
+        win.setNavigationBarDividerColor(res.getColor(R.color.bottombar_bg));
 
-/*        mBiometrics = (BlissPreference) findPreference(KEY_BIOMETRICS_CATEGORY);
+        view = inflater.inflate(R.layout.layout_blissify, container, false);
 
-        if (!DeviceUtils.hasFod(mContext)) {
-            prefSet.removePreference(mBiometrics);
+        ActionBar actionBar = getActivity().getActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(R.string.blissify_title);
         }
-*/
+
+        animatedBottomBar = (AnimatedBottomBar) view.findViewById(R.id.bottom_navigation);
+
+        Fragment lockscreen = new com.blissroms.blissify.fragments.lockscreen.Lockscreen();
+        Fragment navigation = new com.blissroms.blissify.fragments.buttons.ButtonSettings();
+        Fragment qspanel = new com.blissroms.blissify.fragments.qs.QuickSettings();
+        Fragment statusbar = new com.blissroms.blissify.fragments.statusbar.StatusBar();
+
+        Fragment fragment = (Fragment) getFragmentManager().findFragmentById(R.id.fragmentContainer);
+        if (fragment == null) {
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragmentContainer, navigation);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+
+        animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
+            @Override
+            public void onTabReselected(int i, AnimatedBottomBar.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabSelected(int lastIndex, AnimatedBottomBar.Tab lastTab, int newIndex, AnimatedBottomBar.Tab newTab) {
+                int id = newTab.getId();
+                
+                if (id == R.id.status_bar_category)
+                {
+                       switchFrag(statusbar);
+                } else if (id == R.id.qspanel_category) 
+				{
+                       switchFrag(qspanel);
+                } else if (id == R.id.buttons_category) 
+				{
+                       switchFrag(navigation);
+                } else if (id == R.id.lockscreen_category) 
+				{
+                       switchFrag(lockscreen);
+                }
+            }
+        });
+
+        setHasOptionsMenu(true);
+
+        return view;
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    }
+
+    private void switchFrag(Fragment fragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentContainer, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     @Override
@@ -71,58 +167,27 @@ public class Blissify extends SettingsPreferenceFragment {
         return MetricsProto.MetricsEvent.BLISSIFY;
     }
 
-    public static void lockCurrentOrientation(Activity activity) {
-        int currentRotation = activity.getWindowManager().getDefaultDisplay().getRotation();
-        int orientation = activity.getResources().getConfiguration().orientation;
-        int frozenRotation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
-        switch (currentRotation) {
-            case Surface.ROTATION_0:
-                frozenRotation = orientation == Configuration.ORIENTATION_LANDSCAPE
-                        ? ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                        : ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-                break;
-            case Surface.ROTATION_90:
-                frozenRotation = orientation == Configuration.ORIENTATION_PORTRAIT
-                        ? ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT
-                        : ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-                break;
-            case Surface.ROTATION_180:
-                frozenRotation = orientation == Configuration.ORIENTATION_LANDSCAPE
-                        ? ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
-                        : ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
-                break;
-            case Surface.ROTATION_270:
-                frozenRotation = orientation == Configuration.ORIENTATION_PORTRAIT
-                        ? ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                        : ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
-                break;
-        }
-        activity.setRequestedOrientation(frozenRotation);
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        view = getView();
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener((v, keyCode, event) -> {
+            if (event.getAction() == KeyEvent.ACTION_UP &&
+                    keyCode == KeyEvent.KEYCODE_BACK) {
+                getActivity().finish();
+                return true;
+            }
+            return false;
+        });
     }
 
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
+    public static int getThemeAccentColor (final Context context) {
+        final TypedValue value = new TypedValue ();
+        context.getTheme ().resolveAttribute (android.R.attr.colorAccent, value, true);
+        return value.data;
+    }
 
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.blissify;
-                    result.add(sir);
-                    return result;
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-
-/*                    if (!DeviceUtils.hasFod(context)) {
-                        keys.add(KEY_BIOMETRICS_CATEGORY);
-                    }
-*/
-                    return keys;
-                }
-    };
 }

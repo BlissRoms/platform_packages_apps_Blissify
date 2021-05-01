@@ -80,6 +80,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
 	final ContentResolver resolver = getActivity().getContentResolver();
         addPreferencesFromResource(R.xml.blissify_statusbar);
+        setRetainInstance(true);
         PreferenceScreen prefSet = getPreferenceScreen();
 
         int NetTrafficSize = Settings.System.getInt(resolver,
