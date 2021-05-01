@@ -16,12 +16,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="lockscreen_settings"
-    android:title="@string/blissify_lockscreen_title">
+    android:title="@string/blissify_lockscreen_category">
 
-    <!-- Bliss Header -->
+    <!-- Bliss Header
     <Preference 
         android:key="bliss_header"
-        android:layout="@layout/lockscreen_header" />
+        android:layout="@layout/lockscreen_header" /> -->
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="double_tap_sleep_lockscreen"
+        android:title="@string/double_tap_sleep_lockscreen_title"
+        android:summary="@string/double_tap_sleep_lockscreen_summary"
+        android:defaultValue="false" />
 
     <!-- Lockscreen Media -->
     <PreferenceCategory
@@ -63,5 +69,40 @@
             android:summary="@string/lockscreen_visualizer_enable_summary" />
 
     </PreferenceCategory>
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="volume_rocker_wake"
+        android:summary="@string/volume_rocker_wake_summary"
+        android:title="@string/volume_rocker_wake_title"
+        android:disableDependentsState="true"
+        android:defaultValue="false" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="volume_button_music_control"
+        android:summary="@string/volume_rocker_music_controls_summary"
+        android:title="@string/volume_rocker_music_controls_title"
+        android:defaultValue="false"
+        android:dependency="volume_rocker_wake" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="swap_volume_buttons"
+        android:title="@string/swap_volume_buttons_title"
+        android:summary="@string/swap_volume_buttons_summary"
+        android:defaultValue="false" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_power_menu_disabled"
+        android:title="@string/lockscreen_power_menu_disabled_title"
+        android:summary="@string/lockscreen_power_menu_disabled_summary"
+        android:defaultValue="true" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="volume_key_cursor_control"
+        android:summary="%s"
+        android:title="@string/volume_key_cursor_control_title"
+        android:dialogTitle="@string/volume_key_cursor_control_title"
+        android:entries="@array/volume_key_cursor_control_entries"
+        android:entryValues="@array/volume_key_cursor_control_values"
+        android:defaultValue="0" />
 
 </PreferenceScreen>

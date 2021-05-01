@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.blissroms.blissify.fragments.notifications;
+package com.blissroms.blissify.fragments.system;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

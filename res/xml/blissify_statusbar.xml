@@ -17,12 +17,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
-    android:title="@string/blissify_statusbar_title" >
+    android:title="@string/blissify_statusbar_category" >
 
-    <!-- Bliss Header -->
+    <!-- Bliss Header
     <Preference 
         android:key="bliss_header"
-        android:layout="@layout/statusbar_header" />
+        android:layout="@layout/statusbar_header" />  -->
 
     <!-- System Icons -->
     <PreferenceCategory
