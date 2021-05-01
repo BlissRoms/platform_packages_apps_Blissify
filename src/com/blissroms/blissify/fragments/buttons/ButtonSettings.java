@@ -104,6 +104,7 @@ public class ButtonSettings extends ActionFragment implements
 
         final ContentResolver resolver = getActivity().getContentResolver();
         addPreferencesFromResource(R.xml.blissify_buttons);
+        setRetainInstance(true);
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
         final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());

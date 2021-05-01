@@ -29,20 +29,37 @@ import android.content.ContentResolver;
 import android.os.Bundle;
 import android.provider.SearchIndexableResource;
 import android.view.Surface;
+import androidx.core.content.ContextCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import com.android.settings.R;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.view.View;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import android.view.MenuItem;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
+
+import com.blissroms.blissify.fragments.statusbar.StatusBar;
+import com.blissroms.blissify.fragments.qs.QuickSettings;
+import com.blissroms.blissify.fragments.animation.Animations;
+import com.blissroms.blissify.fragments.buttons.ButtonSettings;
+import com.blissroms.blissify.fragments.lockscreen.Lockscreen;
+import com.blissroms.blissify.fragments.gestures.Gestures;
+import com.blissroms.blissify.fragments.notifications.Notifications;
+import com.blissroms.blissify.fragments.misc.MiscSettings;
 
 import com.blissroms.blissify.ui.BlissPreference;
 
 import java.util.List;
 import java.util.ArrayList;
 
-@SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Blissify extends SettingsPreferenceFragment {
 
     private static final String KEY_BIOMETRICS_CATEGORY = "biometrics_category";
@@ -50,10 +67,53 @@ public class Blissify extends SettingsPreferenceFragment {
     private Preference mBiometrics;
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.layout_extensions, container, false);
+
+        final BottomNavigationView bottomNavigation = (BottomNavigationView) view.findViewById(R.id.bottom_navigation);
+
+    bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+	  public boolean onNavigationItemSelected(MenuItem item) {
+
+             if (item.getItemId() == bottomNavigation.getSelectedItemId()) {
+
+               return false;
+
+             } else {
+
+               if (item.getItemId() == R.id.statusbar_category) {
+                       switchFrag(new StatusBar());
+               } else if (item.getItemId() == R.id.notifications_category) {
+                       switchFrag(new Notifications());
+               } else if (item.getItemId() == R.id.buttons_category) {
+                       switchFrag(new ButtonSettings());
+               } else if (item.getItemId() == R.id.lockscreen_category) {
+                       switchFrag(new Lockscreen());
+               }
+            return true;
+            }
+	 }
+    });
+
+
+        setHasOptionsMenu(true);
+        bottomNavigation.setSelectedItemId(R.id.status_bar_category);
+        switchFrag(new StatusBar());
+        bottomNavigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_AUTO);
+        return view;
+    }
+
+    private void switchFrag(Fragment fragment) {
+        getFragmentManager().beginTransaction().replace(R.id.fragment_frame, fragment).commit();
+    }
+
+    @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        addPreferencesFromResource(R.xml.blissify);
+        setRetainInstance(true);
         PreferenceScreen prefSet = getPreferenceScreen();
 
         Context mContext = getContext();
@@ -100,6 +160,7 @@ public class Blissify extends SettingsPreferenceFragment {
         activity.setRequestedOrientation(frozenRotation);
     }
 
+/*
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override
@@ -118,11 +179,12 @@ public class Blissify extends SettingsPreferenceFragment {
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
 
-/*                    if (!DeviceUtils.hasFod(context)) {
+                    if (!DeviceUtils.hasFod(context)) {
                         keys.add(KEY_BIOMETRICS_CATEGORY);
                     }
-*/
+
                     return keys;
                 }
     };
+*/
 }
