@@ -58,6 +58,7 @@ public class Notifications extends SettingsPreferenceFragment
 
         final ContentResolver resolver = getActivity().getContentResolver();
         addPreferencesFromResource(R.xml.blissify_notifications);
+        setRetainInstance(true);
         final PreferenceScreen prefSet = getPreferenceScreen();
 
         PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);

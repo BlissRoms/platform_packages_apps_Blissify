@@ -82,6 +82,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
 	final ContentResolver resolver = getActivity().getContentResolver();
         addPreferencesFromResource(R.xml.blissify_statusbar);
+        setRetainInstance(true);
         PreferenceScreen prefSet = getPreferenceScreen();
 
         mLedsCategory = (PreferenceCategory) findPreference("light_category");
