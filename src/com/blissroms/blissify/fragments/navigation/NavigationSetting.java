@@ -64,10 +64,10 @@ import java.util.HashMap;
 import java.util.Collections;
 
 @SearchIndexable
-public class ButtonSettings extends ActionFragment implements
+public class NavigationSettings extends ActionFragment implements
         OnPreferenceChangeListener, Indexable {
 
-    private static final String BUTTONS_CATEGORY = "buttons_category";
+    private static final String NAVIGATION_CATEGORY = "navigation_category";
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
 
     // category keys
@@ -103,7 +103,7 @@ public class ButtonSettings extends ActionFragment implements
         super.onCreate(icicle);
 
         final ContentResolver resolver = getActivity().getContentResolver();
-        addPreferencesFromResource(R.xml.blissify_buttons);
+        addPreferencesFromResource(R.xml.blissify_navigation);
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
         final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());
@@ -241,7 +241,7 @@ public class ButtonSettings extends ActionFragment implements
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.blissify_buttons;
+                    sir.xmlResId = R.xml.blissify_navigation;
                     result.add(sir);
                     return result;
                 }
