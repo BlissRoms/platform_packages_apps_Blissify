@@ -68,6 +68,10 @@
     <string name="clock_font_and_color_title">Clock Font And Color</string>
     <string name="notifications_light">Lights</string>
 
+    <!-- Units -->
+    <string name="unit_milliseconds">milliseconds</string>
+    <string name="unit_seconds">seconds</string>
+
     <!-- Lock screen cover art -->
     <string name="lockscreen_media_art_title">Lockscreen media art</string>
     <string name="lockscreen_media_art_summary">Display media cover art when playing music</string>
@@ -864,4 +868,23 @@
     <string name="reticker_summary">Replace your notifications with a redesigned version of tickers! \nSlim and less invasive than a standard notification</string>
     <string name="reticker_colored_title">Use app colored background</string>
     <string name="reticker_colored_summary">Replace reTicker background color using notification app main color</string>
+
+    <!-- Status Bar Ticker -->
+    <string name="ticker_screen_title">Ticker</string>
+    <string name="ticker_screen_summary">Show notifications ticker-style in status bar</string>
+    <string name="ticker_screen_footer">Ticker is visible only when notification heads-up is not shown. Devices with center notch should hide cutout under Cutout options.</string>
+    <string name="ticker_title">Status bar ticker</string>
+    <string name="ticker_summary">Enable the status bar ticker</string>
+    <string name="ticker_restore_defaults_title">Restore defaults</string>
+    <string name="text_title">Text</string>
+    <string name="icon_title">Icon</string>
+    <string name="colors_title">Colors</string>
+    <string name="values_restored_title">Values restored</string>
+    <string name="ticker_disabled">No ticker</string>
+    <string name="ticker_enabled">Notification ticker</string>
+    <string name="ticker_media_enabled">Notifications and music ticker</string>
+    <string name="ticker_animation_mode_title">Ticker animation style</string>
+    <string name="ticker_animation_mode_alpha_fade">Fade</string>
+    <string name="ticker_animation_mode_scroll">Scroll</string>
+    <string name="ticker_tick_duration_title">Ticker duration</string>
 </resources>
