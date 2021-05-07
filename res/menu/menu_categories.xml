@@ -23,12 +23,12 @@
 
     <item
             android:id="@+id/qspanel_category"
-            android:icon="@drawable/ic_blissify_notification"
+            android:icon="@drawable/ic_blissify_qspanel"
             android:title="@string/blissify_qs_category" />
 
     <item
             android:id="@+id/navigation_category"
-            android:icon="@drawable/ic_blissify_button"
+            android:icon="@drawable/ic_blissify_navigation"
             android:title="@string/blissify_navigation_category" />
 
 <!--    <item
@@ -43,7 +43,7 @@
 
     <item
             android:id="@+id/system_category"
-            android:icon="@drawable/ic_blissify_misc"
+            android:icon="@drawable/ic_blissify_system"
             android:title="@string/blissify_system_category" />
 
 </menu>
