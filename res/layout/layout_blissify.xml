@@ -41,7 +41,7 @@
         app:abb_indicatorMargin="16dp"
         app:abb_rippleEnabled="true"
         app:abb_rippleColor="@color/bottombar_ripple"
-        app:abb_selectedIndex="1"
+        app:abb_selectedIndex="0"
         app:abb_selectedTabType="text"
         app:abb_tabAnimation="slide"
         app:abb_tabColor="#787C82"

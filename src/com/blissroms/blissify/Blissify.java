@@ -113,7 +113,7 @@ public class Blissify extends SettingsPreferenceFragment {
         Fragment fragment = (Fragment) getFragmentManager().findFragmentById(R.id.fragmentContainer);
         if (fragment == null) {
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragmentContainer, navsettings);
+            transaction.replace(R.id.fragmentContainer, statusbar);
             transaction.addToBackStack(null);
             transaction.commit();
         }
