@@ -48,7 +48,6 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 import android.util.Log;
 import android.hardware.fingerprint.FingerprintManager;
 
@@ -58,14 +57,20 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+import com.bliss.support.preferences.SystemSettingSeekBarPreference;
+import com.blissroms.blissify.utils.Utils;
+
 @SearchIndexable
 public class Lockscreen extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
     private static final String LOCKSCREEN_CATEGORY = "lockscreen_category";
     private static final String LOCKSCREEN_FOD_CATEGORY = "lockscreen_fod_category";
+    private static final String KEY_LOCKSCREEN_BLUR = "lockscreen_blur";
     private ContentResolver mResolver;
     private Preference FODSettings;
+    private Context mContext;
+    private SystemSettingSeekBarPreference mLockscreenBlur;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -79,6 +84,10 @@ public class Lockscreen extends SettingsPreferenceFragment implements
             prefScreen.removePreference(FODSettings);
         }
 
+        mLockscreenBlur = (SystemSettingSeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR);
+        if (!Utils.isBlurSupported()) {
+            prefScreen.removePreference(mLockscreenBlur);
+        }
     }
 
     @Override

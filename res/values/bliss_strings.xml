@@ -835,4 +835,7 @@
     <string name="settings_dashboard_icons_oos">Oxygen OS (A11)</string>
     <string name="settings_dashboard_icons_oos2">Oxygen OS (A10)</string>
     <string name="settings_dashboard_icons_stylish">Colorful</string>
+
+    <!-- Lockscreen blur -->
+    <string name="lockscreen_blur_title">Background blur</string>
 </resources>
