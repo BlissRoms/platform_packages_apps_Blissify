@@ -49,6 +49,12 @@
         android:summary="@string/fprint_sucess_vib_summary"
         android:persistent="true" />
 
+        <Preference
+            android:key="aggressive_battery"
+            android:title="@string/aggressive_battery_title"
+            android:summary="@string/aggressive_battery_summary"
+            android:fragment="com.blissroms.blissify.fragments.system.AggressiveBattery" />
+
     <PreferenceCategory
         android:key="headsup_notifications_category"
         android:title="@string/headsup_category">
