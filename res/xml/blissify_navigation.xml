@@ -29,6 +29,13 @@
         android:key="navbar_visibility"
         android:title="@string/navbar_visibility" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="pixel_nav_animation"
+        android:title="@string/pixel_navbar_anim_title"
+        android:summary="@string/pixel_navbar_anim_summary"
+        android:defaultValue="true"
+        android:dependency="navbar_visibility" />
+
     <PreferenceCategory 
 		android:key="hardware_keys"
 		android:title="@string/hardware_keys_category">

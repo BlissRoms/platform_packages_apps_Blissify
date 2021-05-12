@@ -34,13 +34,7 @@ import com.android.settings.R;
 import android.os.PowerManager;
 import android.os.ServiceManager;
 
-import androidx.preference.ListPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.PreferenceGroup;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.SwitchPreference;
+import androidx.preference.*;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
@@ -73,6 +67,7 @@ public class NavigationSettings extends ActionFragment implements
     private static final String NAVIGATION_CATEGORY = "navigation_category";
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
     private static final String NAVBAR_VISIBILITY = "navbar_visibility";
+    private static final String PIXEL_NAV_ANIMATION = "pixel_nav_animation";
 
     // category keys
     private static final String CATEGORY_HWKEY = "hardware_keys";
@@ -101,7 +96,8 @@ public class NavigationSettings extends ActionFragment implements
     private CustomSeekBarPreference mButtonTimoutBar;
     private CustomSeekBarPreference mManualButtonBrightness;
     private PreferenceCategory mButtonBackLightCategory;
-   private SwitchPreference mNavbarVisibility;
+    private SwitchPreference mNavbarVisibility;
+    private SwitchPreference mPixelNavAnimation;
 
     private boolean mIsNavSwitchingMode = false;
     private Handler mHandler;
@@ -215,6 +211,8 @@ public class NavigationSettings extends ActionFragment implements
         mNavbarVisibility.setOnPreferenceChangeListener(this);
 
         mHandler = new Handler();
+
+        mPixelNavAnimation = (SwitchPreference) findPreference(PIXEL_NAV_ANIMATION);
     }
 
     @Override
