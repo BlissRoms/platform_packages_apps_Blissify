@@ -36,6 +36,15 @@
         android:defaultValue="true"
         android:dependency="navbar_visibility" />
 
+    <com.bliss.support.preferences.SecureSettingListPreference
+        android:key="navbar_layout_views"
+        android:title="@string/navbar_layout_title"
+        android:summary="%s"
+        android:entries="@array/navbar_layout_entries"
+        android:entryValues="@array/navbar_layout_values"
+        android:defaultValue="default"
+        android:dependency="navbar_visibility" />
+
     <PreferenceCategory 
 		android:key="hardware_keys"
 		android:title="@string/hardware_keys_category">

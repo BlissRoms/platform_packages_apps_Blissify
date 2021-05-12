@@ -68,6 +68,7 @@ public class NavigationSettings extends ActionFragment implements
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
     private static final String NAVBAR_VISIBILITY = "navbar_visibility";
     private static final String PIXEL_NAV_ANIMATION = "pixel_nav_animation";
+    private static final String LAYOUT_SETTINGS = "navbar_layout_views";
 
     // category keys
     private static final String CATEGORY_HWKEY = "hardware_keys";
@@ -98,6 +99,7 @@ public class NavigationSettings extends ActionFragment implements
     private PreferenceCategory mButtonBackLightCategory;
     private SwitchPreference mNavbarVisibility;
     private SwitchPreference mPixelNavAnimation;
+    private Preference mLayoutSettings;
 
     private boolean mIsNavSwitchingMode = false;
     private Handler mHandler;
@@ -213,6 +215,12 @@ public class NavigationSettings extends ActionFragment implements
         mHandler = new Handler();
 
         mPixelNavAnimation = (SwitchPreference) findPreference(PIXEL_NAV_ANIMATION);
+
+        mLayoutSettings = (Preference) findPreference(LAYOUT_SETTINGS);
+
+        if (!BlissUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
+            prefScreen.removePreference(mLayoutSettings);
+        }
     }
 
     @Override
