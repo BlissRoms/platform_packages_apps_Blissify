@@ -45,6 +45,12 @@
         android:defaultValue="default"
         android:dependency="navbar_visibility" />
 
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
+        android:key="navbar_inverse_layout"
+        android:title="@string/navbar_invert_layout_title"
+        android:defaultValue="false"
+        android:dependency="navbar_visibility" />
+
     <PreferenceCategory 
 		android:key="hardware_keys"
 		android:title="@string/hardware_keys_category">

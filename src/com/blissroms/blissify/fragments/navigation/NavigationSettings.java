@@ -35,6 +35,7 @@ import android.os.PowerManager;
 import android.os.ServiceManager;
 
 import androidx.preference.*;
+import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
@@ -69,6 +70,7 @@ public class NavigationSettings extends ActionFragment implements
     private static final String NAVBAR_VISIBILITY = "navbar_visibility";
     private static final String PIXEL_NAV_ANIMATION = "pixel_nav_animation";
     private static final String LAYOUT_SETTINGS = "navbar_layout_views";
+    private static final String NAVIGATION_BAR_INVERSE = "navbar_inverse_layout";
 
     // category keys
     private static final String CATEGORY_HWKEY = "hardware_keys";
@@ -100,6 +102,7 @@ public class NavigationSettings extends ActionFragment implements
     private SwitchPreference mNavbarVisibility;
     private SwitchPreference mPixelNavAnimation;
     private Preference mLayoutSettings;
+    private SwitchPreference mSwapNavButtons;
 
     private boolean mIsNavSwitchingMode = false;
     private Handler mHandler;
@@ -217,6 +220,8 @@ public class NavigationSettings extends ActionFragment implements
         mPixelNavAnimation = (SwitchPreference) findPreference(PIXEL_NAV_ANIMATION);
 
         mLayoutSettings = (Preference) findPreference(LAYOUT_SETTINGS);
+
+        mSwapNavButtons = (SwitchPreference) findPreference(NAVIGATION_BAR_INVERSE);
 
         if (!BlissUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
             prefScreen.removePreference(mLayoutSettings);
