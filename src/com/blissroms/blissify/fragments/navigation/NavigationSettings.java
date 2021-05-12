@@ -18,7 +18,9 @@ package com.blissroms.blissify.fragments.navigation;
 
 import com.android.internal.logging.nano.MetricsProto;
 
+import android.content.ContentResolver;
 import android.os.Bundle;
+import android.os.Handler;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -54,6 +56,7 @@ import android.util.Log;
 import android.hardware.fingerprint.FingerprintManager;
 import com.android.internal.util.hwkeys.ActionConstants;
 import com.android.internal.util.hwkeys.ActionUtils;
+import com.android.internal.util.bliss.BlissUtils;
 import com.blissroms.blissify.ui.ActionFragment;
 import com.bliss.support.preferences.CustomSeekBarPreference;
 
@@ -69,6 +72,7 @@ public class NavigationSettings extends ActionFragment implements
 
     private static final String NAVIGATION_CATEGORY = "navigation_category";
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
+    private static final String NAVBAR_VISIBILITY = "navbar_visibility";
 
     // category keys
     private static final String CATEGORY_HWKEY = "hardware_keys";
@@ -97,6 +101,10 @@ public class NavigationSettings extends ActionFragment implements
     private CustomSeekBarPreference mButtonTimoutBar;
     private CustomSeekBarPreference mManualButtonBrightness;
     private PreferenceCategory mButtonBackLightCategory;
+   private SwitchPreference mNavbarVisibility;
+
+    private boolean mIsNavSwitchingMode = false;
+    private Handler mHandler;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -196,6 +204,17 @@ public class NavigationSettings extends ActionFragment implements
         if (!enableBacklightOptions) {
             prefScreen.removePreference(mButtonBackLightCategory);
         }
+
+        mNavbarVisibility = (SwitchPreference) findPreference(NAVBAR_VISIBILITY);
+        boolean defaultToNavigationBar = BlissUtils.deviceSupportNavigationBar(getActivity());
+        boolean showing = Settings.System.getInt(getContentResolver(),
+                Settings.System.FORCE_SHOW_NAVBAR,
+                defaultToNavigationBar ? 1 : 0) != 0;
+        updateBarVisibleAndUpdatePrefs(showing);
+
+        mNavbarVisibility.setOnPreferenceChangeListener(this);
+
+        mHandler = new Handler();
     }
 
     @Override
@@ -204,19 +223,40 @@ public class NavigationSettings extends ActionFragment implements
             int buttonTimeout = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.BUTTON_BACKLIGHT_TIMEOUT, buttonTimeout);
+			return true;
         } else if (preference == mHwKeyDisable) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(), Settings.System.HARDWARE_KEYS_DISABLE,
                     value ? 1 : 0);
             setActionPreferencesEnabled(!value);
+			return true;
         } else if (preference == mManualButtonBrightness) {
             int buttonBrightness = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.CUSTOM_BUTTON_BRIGHTNESS, buttonBrightness);
-        } else {
-            return false;
-		}
-        return true;
+			return true;
+        } else if (preference.equals(mNavbarVisibility)) {
+            if (mIsNavSwitchingMode) {
+                return false;
+            }
+            mIsNavSwitchingMode = true;
+            boolean showing = ((Boolean)objValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.FORCE_SHOW_NAVBAR,
+                    showing ? 1 : 0);
+            updateBarVisibleAndUpdatePrefs(showing);
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mIsNavSwitchingMode = false;
+                }
+            }, 1500);
+            return true;
+        }
+        return false;
+    }
+
+    private void updateBarVisibleAndUpdatePrefs(boolean showing) {
+        mNavbarVisibility.setChecked(showing);
     }
 
     @Override

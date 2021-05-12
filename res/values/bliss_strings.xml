@@ -431,4 +431,6 @@
     <string name="lockscreen_charging_animation_drop">Drop</string>
     <string name="lockscreen_charging_animation_explosion">Explosion</string>
     <string name="lockscreen_charging_animation_water">Water</string>
+
+    <string name="navbar_visibility">Enable navigation bar</string>
 </resources>
