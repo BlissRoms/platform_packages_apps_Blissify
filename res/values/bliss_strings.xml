@@ -492,6 +492,13 @@
     <string name="fod_recog_animation_coloros7_1">Oppo ColorOS7 1</string>
     <string name="fod_recog_animation_coloros7_2">Oppo ColorOS7 2</string>
 
+    <!-- FOD icon animation -->
+    <string name="fod_icon_animation">Animated FOD icon</string>
+    <string name="fod_icon_animation_effect_title">Select FOD icon animation effect</string>
+    <string name="fod_icon_animation_summary">Animate the FOD icon when turning on the screen</string>
+    <string name="fod_icon_animation_oneui1">OneUI 1</string>
+    <string name="fod_icon_animation_oneui2">OneUI 2</string>
+
     <!-- FOD pressed color -->
     <string name="fod_pressed_color_title">Fingerprint pressed color</string>
     <string name="fod_pressed_color_white">White / overlayed</string>
