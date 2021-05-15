@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The BlissRoms Project
+ * Copyright (C) 2021 BlissRoms Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,6 +48,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.android.settings.SettingsPreferenceFragment;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import com.android.settings.Utils;
 import android.util.Log;
 import android.hardware.fingerprint.FingerprintManager;
@@ -58,31 +59,29 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
-@SearchIndexable
-public class Lockscreen extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener, Indexable {
 
-    private static final String LOCKSCREEN_CATEGORY = "lockscreen_category";
-    private static final String LOCKSCREEN_FOD_CATEGORY = "lockscreen_fod_category";
+@SearchIndexable
+public class FODSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener, Indexable {
+
     private ContentResolver mResolver;
-    private Preference FODSettings;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-
-        addPreferencesFromResource(R.xml.blissify_lockscreen);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.fod_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
 
-        FODSettings = (Preference) findPreference(LOCKSCREEN_FOD_CATEGORY);
-        if (!getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) {
-            prefScreen.removePreference(FODSettings);
+       boolean enableScreenOffFOD = getContext().getResources().
+                getBoolean(com.android.internal.R.bool.config_needCustomFODView);
+        Preference ScreenOffFODPref = (Preference) findPreference("fod_gesture");
+
+        if (!enableScreenOffFOD){
+            prefScreen.removePreference(ScreenOffFODPref);
         }
+    }      
 
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
         return false;
     }
 
@@ -92,24 +91,21 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     }
 
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                    boolean enabled) {
+                final ArrayList<SearchIndexableResource> result = new ArrayList<>();
+                final SearchIndexableResource sir = new SearchIndexableResource(context);
+                sir.xmlResId = R.xml.fod_settings;
+                result.add(sir);
+                return result;
+            }
 
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.blissify_lockscreen;
-                    result.add(sir);
-                    return result;
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                final List<String> keys = super.getNonIndexableKeys(context);
+                return keys;
+            }
     };
-
 }
