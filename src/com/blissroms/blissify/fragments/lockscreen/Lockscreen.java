@@ -38,6 +38,13 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
+import com.bliss.support.preferences.CustomSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingListPreference;
+import com.bliss.support.preferences.SystemSettingSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.SecureSettingSwitchPreference;
+import com.bliss.support.colorpicker.ColorPickerPreference;
+
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
@@ -69,10 +76,18 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_CATEGORY = "lockscreen_category";
     private static final String LOCKSCREEN_FOD_CATEGORY = "lockscreen_fod_category";
     private static final String KEY_LOCKSCREEN_BLUR = "lockscreen_blur";
+    private static final String AMBIENT_LIGHT_COLOR = "ambient_notification_color_mode";
+    private static final String AMBIENT_LIGHT_CUSTOM_COLOR = "ambient_notification_light_color";
+    private static final String AMBIENT_LIGHT_DURATION = "ambient_notification_light_duration";
+    private static final String AMBIENT_LIGHT_REPEAT_COUNT = "ambient_notification_light_repeats";
     private ContentResolver mResolver;
     private Preference FODSettings;
     private Context mContext;
     private SystemSettingSeekBarPreference mLockscreenBlur;
+    private SystemSettingListPreference mEdgeLightColorMode;
+    private ColorPickerPreference mEdgeLightColor;
+    private CustomSeekBarPreference mEdgeLightDuration;
+    private CustomSeekBarPreference mEdgeLightRepeatCount;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -94,10 +109,79 @@ public class Lockscreen extends SettingsPreferenceFragment implements
             mLockscreenBlur.setEnabled(false);
             mLockscreenBlur.setSummary(getString(R.string.lockscreen_blur_disabled));
         }
+        mEdgeLightColorMode = (SystemSettingListPreference) findPreference(AMBIENT_LIGHT_COLOR);
+        int edgeLightColorMode = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.NOTIFICATION_PULSE_COLOR_MODE, 0, UserHandle.USER_CURRENT);
+        mEdgeLightColorMode.setValue(String.valueOf(edgeLightColorMode));
+        mEdgeLightColorMode.setSummary(mEdgeLightColorMode.getEntry());
+        mEdgeLightColorMode.setOnPreferenceChangeListener(this);
+
+        mEdgeLightColor = (ColorPickerPreference) findPreference(AMBIENT_LIGHT_CUSTOM_COLOR);
+        int edgeLightColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.NOTIFICATION_PULSE_COLOR, 0xFFFFFFFF);
+        mEdgeLightColor.setNewPreviewColor(edgeLightColor);
+        String edgeLightColorHex = String.format("#%08x", (0xFFFFFFFF & edgeLightColor));
+        if (edgeLightColorHex.equals("#ffffffff")) {
+            mEdgeLightColor.setSummary(R.string.default_string);
+        } else {
+            mEdgeLightColor.setSummary(edgeLightColorHex);
+        }
+        mEdgeLightColor.setOnPreferenceChangeListener(this);
+
+        mEdgeLightDuration = (CustomSeekBarPreference) findPreference(AMBIENT_LIGHT_DURATION);
+        int lightDuration = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.NOTIFICATION_PULSE_DURATION, 2, UserHandle.USER_CURRENT);
+        mEdgeLightDuration.setValue(lightDuration);
+        mEdgeLightDuration.setOnPreferenceChangeListener(this);
+
+        mEdgeLightRepeatCount = (CustomSeekBarPreference) findPreference(AMBIENT_LIGHT_REPEAT_COUNT);
+        int edgeLightRepeatCount = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.NOTIFICATION_PULSE_REPEATS, 0, UserHandle.USER_CURRENT);
+        mEdgeLightRepeatCount.setValue(edgeLightRepeatCount);
+        mEdgeLightRepeatCount.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+         Context context = getContext();
+         ContentResolver resolver = getActivity().getContentResolver();
+
+         if (preference == mEdgeLightColorMode) {
+            int edgeLightColorMode = Integer.valueOf((String) objValue);
+            int index = mEdgeLightColorMode.findIndexOfValue((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.NOTIFICATION_PULSE_COLOR_MODE, edgeLightColorMode, UserHandle.USER_CURRENT);
+            mEdgeLightColorMode.setSummary(mEdgeLightColorMode.getEntries()[index]);
+            if (edgeLightColorMode == 3) {
+                mEdgeLightColor.setEnabled(true);
+            } else {
+                mEdgeLightColor.setEnabled(false);
+            }
+            return true;
+        } else if (preference == mEdgeLightColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hex.equals("#ffffffff")) {
+                preference.setSummary(R.string.default_string);
+            } else {
+                preference.setSummary(hex);
+            }
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NOTIFICATION_PULSE_COLOR, intHex);
+            return true;
+        } else if (preference == mEdgeLightDuration) {
+            int value = (Integer) objValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.NOTIFICATION_PULSE_DURATION, value, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mEdgeLightRepeatCount) {
+            int value = (Integer) objValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.NOTIFICATION_PULSE_REPEATS, value, UserHandle.USER_CURRENT);
+            return true;
+         }
+
         return false;
     }
 
