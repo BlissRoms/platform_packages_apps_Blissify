@@ -128,6 +128,22 @@
          android:title="@string/battery_light_settings" />
     </PreferenceCategory>
 
+    <Preference
+        android:key="statusbar_battery"
+        android:title="@string/battery_percent_title"
+        android:summary="@string/battery_percent_summary"
+        android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryOptions"/>
+
+    <Preference
+        android:key="battery_bar_category"
+        android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryBar"
+        android:title="@string/battery_bar_title" />
+
+    <Preference
+        android:key="carrier_label"
+        android:fragment="com.blissroms.blissify.fragments.statusbar.CarrierLabel"
+        android:title="@string/carrier_label_settings_title" />
+	
     <PreferenceCategory
 
         android:title="@string/statusbar_icons_category_title">
@@ -151,21 +167,4 @@
             android:defaultValue="true" />
 
     </PreferenceCategory>
-
-    <Preference
-        android:key="statusbar_battery"
-        android:title="@string/battery_percent_title"
-        android:summary="@string/battery_percent_summary"
-        android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryOptions"/>
-
-    <Preference
-        android:key="battery_bar_category"
-        android:fragment="com.blissroms.blissify.fragments.statusbar.BatteryBar"
-        android:title="@string/battery_bar_title" />
-
-    <Preference
-        android:key="carrier_label"
-        android:fragment="com.blissroms.blissify.fragments.statusbar.CarrierLabel"
-        android:title="@string/carrier_label_settings_title" />
-
 </PreferenceScreen>
