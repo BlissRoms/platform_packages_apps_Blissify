@@ -498,6 +498,7 @@
     <string name="fod_icon_animation_summary">Animate the FOD icon when turning on the screen</string>
     <string name="fod_icon_animation_oneui1">OneUI 1</string>
     <string name="fod_icon_animation_oneui2">OneUI 2</string>
+    <string name="fod_icon_animation_oos">OOS 11</string>
 
     <!-- FOD pressed color -->
     <string name="fod_pressed_color_title">Fingerprint pressed color</string>
