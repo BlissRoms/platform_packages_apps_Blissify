@@ -904,4 +904,19 @@
         <item>300000</item>
         <item>600000</item>
     </string-array>
+
+    <!-- Settings dashboard icons -->
+    <string-array name="settings_dashboard_icons_entries" translatable="false">
+        <item>@string/settings_dashboard_icons_default</item>
+        <item>@string/settings_dashboard_icons_oos</item>
+        <item>@string/settings_dashboard_icons_oos2</item>
+        <item>@string/settings_dashboard_icons_stylish</item>
+    </string-array>
+
+    <string-array name="settings_dashboard_icons_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

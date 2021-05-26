@@ -38,6 +38,14 @@
             android:key="android.theme.customization.icon_pack.android"
             android:title="@string/theme_customization_sysui_icon_title"/>
 
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="settings_dashboard_icons"
+            android:title="@string/settings_dashboard_icons_title"
+            android:entries="@array/settings_dashboard_icons_entries"
+            android:entryValues="@array/settings_dashboard_icons_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
     <com.android.settings.display.FontDialogPreference
         android:key="custom_font"
         android:title="@string/font_picker_title"
