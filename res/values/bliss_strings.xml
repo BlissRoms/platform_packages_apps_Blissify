@@ -828,4 +828,11 @@
     <!-- Notification count -->
     <string name="status_bar_notif_count_title">Show notifications count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+
+    <!-- Cusom settings dashboard icons -->
+    <string name="settings_dashboard_icons_title">Settings dashboard icons</string>
+    <string name="settings_dashboard_icons_default">Default</string>
+    <string name="settings_dashboard_icons_oos">Oxygen OS (A11)</string>
+    <string name="settings_dashboard_icons_oos2">Oxygen OS (A10)</string>
+    <string name="settings_dashboard_icons_stylish">Colorful</string>
 </resources>
