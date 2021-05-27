@@ -605,4 +605,15 @@
     <string name="theme_customization_icon_shape_title">Icon shape</string>
     <string name="theme_customization_sysui_icon_title">Statusbar Icon</string>
     <string name="theme_customization_device_default">Device default</string>
+
+    <!-- Lockscreen Clocks -->
+    <string name="lock_screen_custom_clock_face_category">Lockscreen Clock</string>
+    <string name="lock_screen_custom_clock_face_title">Lockscreen clock style</string>
+    <string name="lock_screen_custom_clock_face_default">Default</string>
+    <string name="lock_screen_custom_clock_face_default_bold">Default (bold)</string>
+    <string name="lock_screen_custom_clock_face_analog">Analog</string>
+    <string name="lock_screen_custom_clock_face_bubble">Bubble</string>
+    <string name="lock_screen_custom_clock_face_samsung">Samsung</string>
+    <string name="lock_screen_custom_clock_face_samsung_bold">Samsung (bold)</string>
+    <string name="lock_screen_custom_clock_face_typographic">Typographic</string>
 </resources>

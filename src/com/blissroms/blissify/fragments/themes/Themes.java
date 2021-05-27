@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The BlissRoms Project
+ * Copyright (C) 2019-2021 The BlissRoms Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,73 +16,105 @@
 
 package com.blissroms.blissify.fragments.themes;
 
-import com.android.internal.logging.nano.MetricsProto;
+import static android.os.UserHandle.USER_CURRENT;
 
-import android.os.Bundle;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.os.UserHandle;
 import android.content.ContentResolver;
-import android.content.res.Resources;
-import android.provider.SearchIndexableResource;
+import android.content.Context;
+import android.os.Bundle;
 import android.provider.Settings;
-import com.android.settings.R;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
-import androidx.preference.ListPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.PreferenceGroup;
-import androidx.preference.PreferenceCategory;
+import androidx.preference.*;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.SwitchPreference;
 
-import java.util.Locale;
-import android.text.TextUtils;
-import android.view.View;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
+import com.android.settings.R;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.display.OverlayCategoryPreferenceController;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
+import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
-import android.util.Log;
-import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Collections;
+import java.util.List;
 
-@SearchIndexable
+import org.json.JSONException;
+import org.json.JSONObject;
+
+@SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Themes extends DashboardFragment  implements
-        OnPreferenceChangeListener, Indexable {
+        OnPreferenceChangeListener {
 
-    private static final String TAG = "Themes";
+    public static final String TAG = "Themes";
+
+    private static final String CUSTOM_CLOCK_FACE = Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE;
+    private static final String DEFAULT_CLOCK = "com.android.keyguard.clock.DefaultClockController";
+
+    private ListPreference mLockClockStyles;
+    private Context mContext;
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mContext = getActivity();
+
+        mLockClockStyles = (ListPreference) findPreference(CUSTOM_CLOCK_FACE);
+        String mLockClockStylesValue = getLockScreenCustomClockFace();
+        mLockClockStyles.setValue(mLockClockStylesValue);
+        mLockClockStyles.setSummary(mLockClockStyles.getEntry());
+        mLockClockStyles.setOnPreferenceChangeListener(this);
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mLockClockStyles) {
+            setLockScreenCustomClockFace((String) newValue);
+            int index = mLockClockStyles.findIndexOfValue((String) newValue);
+            mLockClockStyles.setSummary(mLockClockStyles.getEntries()[index]);
+            return true;
+        }
+        return false;
+    }
+
+    private String getLockScreenCustomClockFace() {
+        String value = Settings.Secure.getStringForUser(mContext.getContentResolver(),
+                CUSTOM_CLOCK_FACE, USER_CURRENT);
+
+        if (value == null || value.isEmpty()) value = DEFAULT_CLOCK;
+
+        try {
+            JSONObject json = new JSONObject(value);
+            return json.getString("clock");
+        } catch (JSONException ex) {
+        }
+        return value;
+    }
+
+    private void setLockScreenCustomClockFace(String value) {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("clock", value);
+            Settings.Secure.putStringForUser(mContext.getContentResolver(), CUSTOM_CLOCK_FACE,
+                    json.toString(), USER_CURRENT);
+        } catch (JSONException ex) {
+        }
+    }
+
+    @Override
+    public int getMetricsCategory() {
+        return MetricsEvent.BLISSIFY;
+    }
+
+    @Override
+    protected String getLogTag() {
+        return TAG;
+    }
 
     @Override
     protected int getPreferenceScreenResId() {
         return R.xml.blissify_themes;
-    }
-
-    @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-
-        final ContentResolver resolver = getActivity().getContentResolver();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
     }
 
     @Override
@@ -106,39 +138,11 @@ public class Themes extends DashboardFragment  implements
         return controllers;
     }
 
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return false;
-    }
+    /**
+     * For Search.
+     */
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BLISSIFY;
-    }
-
-    @Override
-    protected String getLogTag() {
-        return TAG;
-    }
-
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.blissify_themes;
-                    result.add(sir);
-                    return result;
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
-    };
+    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider(R.xml.blissify_themes);
 }
+
