@@ -18,6 +18,13 @@
     android:key="system_settings"
     android:title="@string/blissify_system_category">
 
+      <!-- Themes -->
+      <Preference
+          android:key="themes_category"
+          android:title="@string/blissify_themes_title"
+          android:fragment="com.blissroms.blissify.fragments.themes.Themes"
+          android:icon="@drawable/ic_blissify_themes"/>
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
          android:key="double_tap_sleep_gesture"
          android:title="@string/double_tap_sleep_gesture_title"
@@ -105,10 +112,4 @@
 
     </PreferenceCategory>
 
-      <!-- Themes -->
-      <Preference
-          android:key="themes_category"
-          android:title="@string/blissify_themes_title"
-          android:fragment="com.blissroms.blissify.fragments.themes.Themes"
-          android:icon="@drawable/ic_blissify_themes"/>
 </PreferenceScreen>
