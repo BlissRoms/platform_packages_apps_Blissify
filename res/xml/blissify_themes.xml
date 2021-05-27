@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2020 The BlissRoms Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="themes_category"
+    android:title="@string/blissify_themes_title">
+
+    <!-- Bliss Header -->
+    <Preference
+        android:key="bliss_header"
+        android:layout="@layout/themes_header" />
+
+    <PreferenceCategory
+        android:key="aosp_theming"
+        android:title="@string/aosp_theming_title">
+
+        <ListPreference
+            android:key="android.theme.customization.accent_color"
+            android:title="@string/theme_customization_accent_color_title"/>
+        <ListPreference
+            android:key="android.theme.customization.primary_color"
+            android:title="@string/theme_customization_primary_color_title"/>
+        <ListPreference
+            android:key="android.theme.customization.font"
+            android:title="@string/theme_customization_font_title"/>
+        <ListPreference
+            android:key="android.theme.customization.adaptive_icon_shape"
+            android:title="@string/theme_customization_icon_shape_title"/>
+        <ListPreference
+            android:key="android.theme.customization.icon_pack.android"
+            android:title="@string/theme_customization_sysui_icon_title"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_theming"
+        android:title="@string/qs_theming_title">
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="qs_tile_style"
+        android:title="@string/qs_tile_style_title"
+        android:dialogTitle="@string/qs_tile_style_pick"
+        android:entries="@array/qs_tile_style_entries"
+        android:entryValues="@array/qs_tile_style_values"
+        android:summary="%s"
+        android:defaultValue="0" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/lock_screen_custom_clock_face_category">
+
+        <ListPreference
+            android:key="lock_screen_custom_clock_face"
+            android:summary="%s"
+            android:title="@string/lock_screen_custom_clock_face_title"
+            android:entries="@array/lock_screen_custom_clock_face_entries"
+            android:entryValues="@array/lock_screen_custom_clock_face_values" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

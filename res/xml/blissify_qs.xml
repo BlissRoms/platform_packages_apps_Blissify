@@ -24,7 +24,7 @@
         android:key="bliss_header"
         android:layout="@layout/qs_header" />-->
 
-	<com.bliss.support.preferences.SecureSettingSwitchPreference
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:title="@string/quick_settings_vibrate_title"
         android:summary="@string/quick_settings_vibrate_summary"

@@ -534,4 +534,117 @@
         <item>@string/volume_panel_tiled_val</item>
         <item>@string/volume_panel_miui_val</item>
     </string-array>
+
+    <!-- QS Tile Styles -->
+    <string-array name="qs_tile_style_entries" translatable="false">
+        <item>@string/qstile_default</item>
+        <item>@string/qstile_circle_trim</item>
+        <item>@string/qstile_dual_tone_circle</item>
+        <item>@string/qstile_squircle_trim</item>
+        <item>@string/qstile_wavey</item>
+        <item>@string/qstile_pokesign</item>
+        <item>@string/qstile_ninja</item>
+        <item>@string/qstile_dottedcircle</item>
+        <item>@string/qstile_attemptmountain</item>
+        <item>@string/qstile_squaremedo</item>
+        <item>@string/qstile_inkdrop</item>
+        <item>@string/qstile_cookie</item>
+        <item>@string/qstile_circleoutline</item>
+        <item>@string/qstile_neonlike</item>
+        <item>@string/qstile_oos</item>
+        <item>@string/qstile_triangles</item>
+        <item>@string/qstile_divided</item>
+        <item>@string/qstile_cosmos</item>
+        <item>@string/qstile_squircle</item>
+        <item>@string/qstile_teardrop</item>
+    </string-array>
+
+    <string-array name="qs_tile_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+    </string-array>
+
+    <!-- Lockscreen Clock -->
+    <string-array name="lock_screen_custom_clock_face_entries" translatable="false">
+        <item>@string/lock_screen_custom_clock_face_analog</item>
+        <item>@string/lock_screen_custom_clock_face_binary</item>
+        <item>@string/lock_screen_custom_clock_face_bliss</item>
+        <item>@string/lock_screen_custom_clock_face_clockertino</item>
+        <item>@string/lock_screen_custom_clock_face_customnum</item>
+        <item>@string/lock_screen_custom_clock_face_default</item>
+        <item>@string/lock_screen_custom_clock_face_default_bold</item>
+        <item>@string/lock_screen_custom_clock_face_divided_lines</item>
+        <item>@string/lock_screen_custom_clock_face_dot</item>
+        <item>@string/lock_screen_custom_clock_face_fluid</item>
+        <item>@string/lock_screen_custom_clock_face_ide</item>
+        <item>@string/lock_screen_custom_clock_face_ide_java</item>
+        <item>@string/lock_screen_custom_clock_face_mnml_box</item>
+        <item>@string/lock_screen_custom_clock_face_mnml_minimal</item>
+        <item>@string/lock_screen_custom_clock_face_op_analog</item>
+        <item>@string/lock_screen_custom_clock_face_op_minimal</item>
+        <item>@string/lock_screen_custom_clock_face_op_minimalism</item>
+        <item>@string/lock_screen_custom_clock_face_op_numbers</item>
+        <item>@string/lock_screen_custom_clock_face_op_romanclock</item>
+        <item>@string/lock_screen_custom_clock_face_oronos</item>
+        <item>@string/lock_screen_custom_clock_face_oronos_reshaped</item>
+        <item>@string/lock_screen_custom_clock_face_samsung</item>
+        <item>@string/lock_screen_custom_clock_face_samsung_bold</item>
+        <item>@string/lock_screen_custom_clock_face_sfuny</item>
+        <item>@string/lock_screen_custom_clock_face_sneeky</item>
+        <item>@string/lock_screen_custom_clock_face_spectrum</item>
+        <item>@string/lock_screen_custom_clock_face_spidey</item>
+        <item>@string/lock_screen_custom_clock_face_sticker_tag</item>
+        <item>@string/lock_screen_custom_clock_face_type_alt</item>
+        <item>@string/lock_screen_custom_clock_face_typographic</item>
+    </string-array>
+    <string-array name="lock_screen_custom_clock_face_values" translatable="false">
+        <item>com.android.keyguard.clock.AnalogClockController</item>
+        <item>com.android.keyguard.clock.BinaryClockController</item>
+        <item>com.android.keyguard.clock.BlissClockController</item>
+        <item>com.android.keyguard.clock.ClockertinoClockController</item>
+        <item>com.android.keyguard.clock.CustomNumClockController</item>
+        <item>com.android.keyguard.clock.DefaultBoldClockController</item>
+        <item>com.android.keyguard.clock.DefaultClockController</item>
+        <item>com.android.keyguard.clock.DividedLinesClockController</item>
+        <item>com.android.keyguard.clock.DotClockController</item>
+        <item>com.android.keyguard.clock.FluidClockController</item>
+        <item>com.android.keyguard.clock.IDEClockController</item>
+        <item>com.android.keyguard.clock.IDEJavaClockController</item>
+        <item>com.android.keyguard.clock.MNMLBoxClockController</item>
+        <item>com.android.keyguard.clock.MNMLMinimalClockController</item>
+        <item>com.android.keyguard.clock.OPAnalogClockController</item>
+        <item>com.android.keyguard.clock.OPMinimalClockController</item>
+        <item>com.android.keyguard.clock.OPMinimalismClockController</item>
+        <item>com.android.keyguard.clock.OPNumbersClockController</item>
+        <item>com.android.keyguard.clock.OPRomanClockController</item>
+        <item>com.android.keyguard.clock.OronosClockController</item>
+        <item>com.android.keyguard.clock.OronosReshapedClockController</item>
+        <item>com.android.keyguard.clock.SamsungBoldClockController</item>
+        <item>com.android.keyguard.clock.SamsungClockController</item>
+        <item>com.android.keyguard.clock.SfunyClockController</item>
+        <item>com.android.keyguard.clock.SneekyClockController</item>
+        <item>com.android.keyguard.clock.SpectrumClockController</item>
+        <item>com.android.keyguard.clock.SpideyClockController</item>
+        <item>com.android.keyguard.clock.StickerTagClockController</item>
+        <item>com.android.keyguard.clock.TypeAltClockController</item>
+        <item>com.android.keyguard.clock.TypeClockController</item>
+    </string-array>
 </resources>
