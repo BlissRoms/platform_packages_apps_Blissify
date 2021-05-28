@@ -951,5 +951,8 @@
     <string name="qs_sb_bg_alpha_title">Status bar opacity</string>
 
     <!-- Notification background opacity -->
-    <string name="notification_alpha_title">Notification background alpha</string>
+    <string name="notification_alpha_title">Notification background opacity</string>
+
+    <!-- Power menu background opacity -->
+    <string name="power_menu_alpha_title">Power menu opacity</string>
 </resources>
