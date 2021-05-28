@@ -112,4 +112,11 @@
 
     </PreferenceCategory>
 
+        <!-- Animations -->
+        <Preference
+            android:key="animations_category"
+            android:title="@string/blissify_animation_title"
+            android:fragment="com.blissroms.blissify.fragments.animations.Animations"
+            android:icon="@drawable/ic_blissify_animations" />
+
 </PreferenceScreen>
