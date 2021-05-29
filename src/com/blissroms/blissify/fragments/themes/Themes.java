@@ -41,6 +41,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settingslib.search.SearchIndexable;
+import com.blissroms.blissify.fragments.themes.SystemThemePreferenceController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -154,6 +155,7 @@ public class Themes extends DashboardFragment  implements
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.icon_pack.android"));
         controllers.add(mFontPickerPreference = new FontPickerPreferenceController(context, lifecycle));
+        controllers.add(new SystemThemePreferenceController(context));
         return controllers;
     }
 

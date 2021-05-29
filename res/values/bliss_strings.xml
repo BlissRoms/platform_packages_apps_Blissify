@@ -765,4 +765,13 @@
     <string name="aggressive_standby_summary">Restrict apps from running the background</string>
     <string name="aggressive_battery_saver_title">Auto-enable on battery saver </string>
     <string name="aggressive_battery_saver_summary">Enable Aggressive Battery automatically when using battery saver</string>
+
+    <string name="theme_type_title">System Themes</string>
+    <string name="theme_type_summary">Select theme</string>
+    <string name="theme_type_default">Stock theme</string>
+    <string name="theme_type_solarized_dark">Solarized dark</string>
+    <string name="theme_type_pitchblack">Pitch black</string>
+    <string name="theme_type_dark_grey">Dark Grey</string>
+    <string name="theme_type_xtended_clear">Clear Theme</string>
+    <string name="theme_type_material_ocean">Material Ocean</string>
 </resources>

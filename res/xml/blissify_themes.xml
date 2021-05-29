@@ -43,6 +43,13 @@
         android:title="@string/font_picker_title"
         android:persistent="false" />
 
+        <ListPreference
+            android:key="system_theme"
+            android:title="@string/theme_type_title"
+            android:persistent="false"
+            android:entries="@array/theme_type_titles"
+            android:entryValues="@array/theme_type_values" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -83,4 +90,5 @@
             android:entries="@array/lock_screen_custom_clock_face_entries"
             android:entryValues="@array/lock_screen_custom_clock_face_values" />
     </PreferenceCategory>
+
 </PreferenceScreen>
