@@ -1169,4 +1169,35 @@
     <string name="gaming_mode_danmaku_speed_horizontal_title">Danmaku speed (horizontal)</string>
     <string name="gaming_mode_danmaku_speed_vertical_title">Danmaku speed (vertical)</string>
     <string name="gaming_mode_danmaku_blacklist">Blacklist</string>
+
+    <!-- Battery tweaks -->
+    <string name="battery_tweaks_title">Battery Tweaks</string>
+    <string name="battery_tweaks_summary">Advanced battery tweaks for your device</string>
+
+    <!-- Sleep Mode -->
+    <string name="sleep_mode_title">Sleep Mode</string>
+    <string name="sleep_mode_title_summary">Scheduled Energy Saving Settings</string>
+    <string name="sleep_mode_schedule_sunset">Sunset</string>
+    <string name="sleep_mode_schedule_sunrise">Sunrise</string>
+    <string name="sleep_mode_schedule_mixed_sunset">Turns on from sunset to a custom time</string>
+    <string name="sleep_mode_schedule_mixed_sunrise">Turns on from a custom time to sunrise</string>
+    <string name="sleep_mode_toggles_title">Toggles</string>
+    <string name="sleep_mode_wifi_toggle_title">Turn off Wi-Fi</string>
+    <string name="sleep_mode_wifi_toggle_summary">Disable Wi-Fi when Sleep mode is turned on</string>
+    <string name="sleep_mode_bluetooth_toggle_title">Turn off Bluetooth</string>
+    <string name="sleep_mode_bluetooth_toggle_summary">Disable Bluetooth when Sleep mode is turned on</string>
+    <string name="sleep_mode_cellular_toggle_title">Turn off Mobile data</string>
+    <string name="sleep_mode_cellular_toggle_summary">Disable Mobile data when Sleep mode is turned on</string>
+    <string name="sleep_mode_location_toggle_title">Turn off Location</string>
+    <string name="sleep_mode_location_toggle_summary">Disable Location when Sleep mode is turned on</string>
+    <string name="sleep_mode_sensors_toggle_title">Turn off Sensors</string>
+    <string name="sleep_mode_sensors_toggle_summary">Disable Sensors when Sleep mode is turned on</string>
+    <string name="sleep_mode_aod_toggle_title">Turn off AOD</string>
+    <string name="sleep_mode_aod_toggle_summary">Disable Always on display when Sleep mode is turned on</string>
+    <string name="sleep_mode_ringer_title">Ringer mode</string>
+    <string name="sleep_mode_ringer_off_title">Do not change</string>
+    <string name="sleep_mode_ringer_vibrate_title">Vibrate</string>
+    <string name="sleep_mode_ringer_dnd_title">Do Not Disturb</string>
+    <string name="sleep_mode_ringer_silent_title">Silent</string>
+    <string name="sleep_mode_display_text">Sleep mode allows you to disable certain services to help save battery and silence your phone while you sleep.</string>
 </resources>
