@@ -51,6 +51,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import android.util.Log;
 import android.hardware.fingerprint.FingerprintManager;
+import android.app.WallpaperManager;
+import android.os.ParcelFileDescriptor;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -79,14 +81,17 @@ public class Lockscreen extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.blissify_lockscreen);
         PreferenceScreen prefScreen = getPreferenceScreen();
+        Context mContext = getContext();
+        WallpaperManager manager = WallpaperManager.getInstance(mContext);
 
         FODSettings = (Preference) findPreference(LOCKSCREEN_FOD_CATEGORY);
         if (!getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) {
             prefScreen.removePreference(FODSettings);
         }
 
+        ParcelFileDescriptor pfd = manager.getWallpaperFile(WallpaperManager.FLAG_LOCK);
         mLockscreenBlur = (SystemSettingSeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR);
-        if (!Utils.isBlurSupported()) {
+        if (!Utils.isBlurSupported() || pfd != null) {
             prefScreen.removePreference(mLockscreenBlur);
         }
     }
