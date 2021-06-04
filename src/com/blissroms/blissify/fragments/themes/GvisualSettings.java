@@ -119,21 +119,31 @@ public class GvisualSettings extends SettingsPreferenceFragment implements
             handleOverlays(ThemesUtils.NAVBAR_COLOR_ORCD, false, mOverlayManager);
             handleOverlays(ThemesUtils.NAVBAR_COLOR_OPRD, false, mOverlayManager);
             handleOverlays(ThemesUtils.NAVBAR_COLOR_PURP, false, mOverlayManager);
+            handleOverlays(ThemesUtils.NAVBAR_COLOR_ACCENT, false, mOverlayManager);
             break;
             case "2":
             handleOverlays(ThemesUtils.NAVBAR_COLOR_ORCD, true, mOverlayManager);
             handleOverlays(ThemesUtils.NAVBAR_COLOR_OPRD, false, mOverlayManager);
             handleOverlays(ThemesUtils.NAVBAR_COLOR_PURP, false, mOverlayManager);
+            handleOverlays(ThemesUtils.NAVBAR_COLOR_ACCENT, false, mOverlayManager);
             break;
             case "3":
             handleOverlays(ThemesUtils.NAVBAR_COLOR_ORCD, false, mOverlayManager);
             handleOverlays(ThemesUtils.NAVBAR_COLOR_OPRD, true, mOverlayManager);
             handleOverlays(ThemesUtils.NAVBAR_COLOR_PURP, false, mOverlayManager);
+            handleOverlays(ThemesUtils.NAVBAR_COLOR_ACCENT, false, mOverlayManager);
             break;
             case "4":
             handleOverlays(ThemesUtils.NAVBAR_COLOR_ORCD, false, mOverlayManager);
             handleOverlays(ThemesUtils.NAVBAR_COLOR_OPRD, false, mOverlayManager);
             handleOverlays(ThemesUtils.NAVBAR_COLOR_PURP, true, mOverlayManager);
+            handleOverlays(ThemesUtils.NAVBAR_COLOR_ACCENT, false, mOverlayManager);
+            break;
+            case "5":
+            handleOverlays(ThemesUtils.NAVBAR_COLOR_ORCD, false, mOverlayManager);
+            handleOverlays(ThemesUtils.NAVBAR_COLOR_OPRD, false, mOverlayManager);
+            handleOverlays(ThemesUtils.NAVBAR_COLOR_PURP, false, mOverlayManager);
+            handleOverlays(ThemesUtils.NAVBAR_COLOR_ACCENT, true, mOverlayManager);
             break;
         }
         try {
@@ -200,7 +210,9 @@ public class GvisualSettings extends SettingsPreferenceFragment implements
     private void setupNavbarSwitchPref() {
         mnbSwitch = (ListPreference) findPreference(PREF_NB_COLOR);
         mnbSwitch.setOnPreferenceChangeListener(this);
-        if (BlissUtils.isNavbarColor("com.gnonymous.gvisualmod.pgm_purp")){
+        if (BlissUtils.isNavbarColor("com.gnonymous.gvisualmod.pgm_accent")){
+            mnbSwitch.setValue("5");
+        } else if (BlissUtils.isNavbarColor("com.gnonymous.gvisualmod.pgm_purp")){
             mnbSwitch.setValue("4");
         } else if (BlissUtils.isNavbarColor("com.gnonymous.gvisualmod.pgm_oprd")){
             mnbSwitch.setValue("3");

@@ -665,6 +665,7 @@
     <string name="navbar_orchid">Orchid</string>
     <string name="navbar_red">Red</string>
     <string name="navbar_purp">Purple</string>
+    <string name="navbar_accent">Accent</string>
 
     <!-- AOSP Gestures -->
     <string name="aosp_gesture_preference">System settings</string>
