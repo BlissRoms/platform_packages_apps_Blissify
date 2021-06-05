@@ -21,175 +21,178 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
-import android.database.ContentObserver;
 import android.os.Bundle;
-import android.provider.Settings;
+import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.ListPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.SwitchPreference;
+import android.provider.Settings;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.android.internal.logging.nano.MetricsProto;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceGroup;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
-import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
-
-import com.android.settingslib.search.Indexable;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ClockDateSettings extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener, Indexable {
+@SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
+public class ClockDateSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_AM_PM_STYLE = "status_bar_am_pm";
-    private static final String PREF_CLOCK_DATE_DISPLAY = "clock_date_display";
-    private static final String PREF_CLOCK_DATE_STYLE = "clock_date_style";
-    private static final String PREF_CLOCK_DATE_FORMAT = "clock_date_format";
-    private static final String PREF_STATUS_BAR_CLOCK = "status_bar_show_clock";
-    private static final String PREF_CLOCK_DATE_POSITION = "clock_date_position";
+    private static final String STATUSBAR_CLOCK = "statusbar_clock";
+    private static final String STATUSBAR_CLOCK_SECONDS = "statusbar_clock_seconds";
+    private static final String STATUSBAR_CLOCK_STYLE = "statusbar_clock_style";
+    private static final String STATUSBAR_AM_PM = "statusbar_am_pm";
+    private static final String STATUSBAR_CLOCK_DATE_DISPLAY = "clock_date_display";
+    private static final String STATUSBAR_CLOCK_DATE_STYLE = "clock_date_style";
+    private static final String STATUSBAR_CLOCK_DATE_FORMAT = "clock_date_format";
+    private static final String STATUSBAR_CLOCK_DATE_POSITION = "statusbar_clock_date_position";
 
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
     private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;
 
-    private ListPreference mClockAmPmStyle;
+    private ListPreference mStatusBarClock;
+    private ListPreference mStatusBarAmPm;
     private ListPreference mClockDateDisplay;
     private ListPreference mClockDateStyle;
     private ListPreference mClockDateFormat;
     private ListPreference mClockDatePosition;
-    private SwitchPreference mStatusBarClock;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.clock_date_settings);
+        final ContentResolver resolver = getActivity().getContentResolver();
 
-        mClockAmPmStyle = (ListPreference) findPreference(PREF_AM_PM_STYLE);
-        mClockAmPmStyle.setOnPreferenceChangeListener(this);
-        mClockAmPmStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
-                .getContentResolver(), Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE,
-                0)));
-        boolean is24hour = DateFormat.is24HourFormat(getActivity());
-        if (is24hour) {
-            mClockAmPmStyle.setSummary(R.string.status_bar_am_pm_info);
+        // clock settings
+        mStatusBarClock = (ListPreference) findPreference(STATUSBAR_CLOCK_STYLE);
+        mStatusBarAmPm = (ListPreference) findPreference(STATUSBAR_AM_PM);
+        mClockDateDisplay = (ListPreference) findPreference(STATUSBAR_CLOCK_DATE_DISPLAY);
+        mClockDateStyle = (ListPreference) findPreference(STATUSBAR_CLOCK_DATE_STYLE);
+
+        int clockStyle = Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_CLOCK_STYLE, 0);
+        mStatusBarClock.setValue(String.valueOf(clockStyle));
+        mStatusBarClock.setSummary(mStatusBarClock.getEntry());
+        mStatusBarClock.setOnPreferenceChangeListener(this);
+
+        if (DateFormat.is24HourFormat(getActivity())) {
+            mStatusBarAmPm.setEnabled(false);
+            mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_info);
         } else {
-            mClockAmPmStyle.setSummary(mClockAmPmStyle.getEntry());
+            int statusBarAmPm = Settings.System.getInt(resolver,
+                    Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE, 2);
+            mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
+            mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
+            mStatusBarAmPm.setOnPreferenceChangeListener(this);
         }
-        mClockAmPmStyle.setEnabled(!is24hour);
 
-        mClockDateDisplay = (ListPreference) findPreference(PREF_CLOCK_DATE_DISPLAY);
-        mClockDateDisplay.setOnPreferenceChangeListener(this);
-        mClockDateDisplay.setValue(Integer.toString(Settings.System.getInt(getActivity()
-                .getContentResolver(), Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY,
-                0)));
+        // date settings
+        int clockDateDisplay = Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY, 0);
+        mClockDateDisplay.setValue(String.valueOf(clockDateDisplay));
         mClockDateDisplay.setSummary(mClockDateDisplay.getEntry());
+        mClockDateDisplay.setOnPreferenceChangeListener(this);
 
-        mClockDateStyle = (ListPreference) findPreference(PREF_CLOCK_DATE_STYLE);
-        mClockDateStyle.setOnPreferenceChangeListener(this);
-        mClockDateStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
-                .getContentResolver(), Settings.System.STATUSBAR_CLOCK_DATE_STYLE,
-                0)));
+        int clockDateStyle = Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_CLOCK_DATE_STYLE, 0);
+        mClockDateStyle.setValue(String.valueOf(clockDateStyle));
         mClockDateStyle.setSummary(mClockDateStyle.getEntry());
+        mClockDateStyle.setOnPreferenceChangeListener(this);
 
-        mClockDateFormat = (ListPreference) findPreference(PREF_CLOCK_DATE_FORMAT);
+        mClockDateFormat = (ListPreference) findPreference(STATUSBAR_CLOCK_DATE_FORMAT);
         mClockDateFormat.setOnPreferenceChangeListener(this);
-        String value = Settings.System.getString(getActivity().getContentResolver(),
+        String clkvalue = Settings.System.getString(getActivity().getContentResolver(),
                 Settings.System.STATUSBAR_CLOCK_DATE_FORMAT);
-        if (value == null || value.isEmpty()) {
-            value = "EEE";
+
+        if (clkvalue == null || clkvalue.isEmpty()) {
+            clkvalue = "EEE";
         }
-        int index = mClockDateFormat.findIndexOfValue((String) value);
+
+        int index = mClockDateFormat.findIndexOfValue((String) clkvalue);
         if (index == -1) {
             mClockDateFormat.setValueIndex(CUSTOM_CLOCK_DATE_FORMAT_INDEX);
         } else {
-            mClockDateFormat.setValue(value);
+            mClockDateFormat.setValue(clkvalue);
         }
-
         parseClockDateFormats();
 
-        mStatusBarClock = (SwitchPreference) findPreference(PREF_STATUS_BAR_CLOCK);
-        mStatusBarClock.setChecked((Settings.System.getInt(
-                getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUSBAR_CLOCK, 1) == 1));
-        mStatusBarClock.setOnPreferenceChangeListener(this);
-
-        mClockDatePosition = (ListPreference) findPreference(PREF_CLOCK_DATE_POSITION);
-        mClockDatePosition.setOnPreferenceChangeListener(this);
+        mClockDatePosition = (ListPreference) findPreference(STATUSBAR_CLOCK_DATE_POSITION);
         mClockDatePosition.setValue(Integer.toString(Settings.System.getInt(getActivity()
-                .getContentResolver(), Settings.System.STATUSBAR_CLOCK_DATE_POSITION,
-                0)));
+                .getContentResolver(), Settings.System.STATUSBAR_CLOCK_DATE_POSITION, 0)));
         mClockDatePosition.setSummary(mClockDatePosition.getEntry());
+        mClockDatePosition.setOnPreferenceChangeListener(this);
 
-         boolean mClockDateToggle = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY, 0) != 0;
-        if (!mClockDateToggle) {
-            mClockDateStyle.setEnabled(false);
-            mClockDateFormat.setEnabled(false);
-            mClockDatePosition.setEnabled(false);
-        }
+        int clockDatePosition = Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_CLOCK_DATE_POSITION, 0);
+        mClockDatePosition.setValue(String.valueOf(clockDatePosition));
+        mClockDatePosition.setSummary(mClockDatePosition.getEntry());
+        mClockDatePosition.setOnPreferenceChangeListener(this);
+
+        setDateOptions();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         AlertDialog dialog;
-
-        if (preference == mClockAmPmStyle) {
-            int val = Integer.parseInt((String) newValue);
-            int index = mClockAmPmStyle.findIndexOfValue((String) newValue);
+        if (preference == mStatusBarClock) {
+            int clockStyle = Integer.parseInt((String) newValue);
+            int index = mStatusBarClock.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE, val);
-            mClockAmPmStyle.setSummary(mClockAmPmStyle.getEntries()[index]);
+                    Settings.System.STATUSBAR_CLOCK_STYLE, clockStyle);
+            mStatusBarClock.setSummary(mStatusBarClock.getEntries()[index]);
+            return true;
+        } else if (preference == mStatusBarAmPm) {
+            int statusBarAmPm = Integer.valueOf((String) newValue);
+            int index = mStatusBarAmPm.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE, statusBarAmPm);
+            mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntries()[index]);
             return true;
         } else if (preference == mClockDateDisplay) {
-            int val = Integer.parseInt((String) newValue);
+            int clockDateDisplay = Integer.valueOf((String) newValue);
             int index = mClockDateDisplay.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY, val);
+                    Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY, clockDateDisplay);
             mClockDateDisplay.setSummary(mClockDateDisplay.getEntries()[index]);
-            if (val == 0) {
-                mClockDateStyle.setEnabled(false);
-                mClockDateFormat.setEnabled(false);
-                mClockDatePosition.setEnabled(false);
-            } else {
-                mClockDateStyle.setEnabled(true);
-                mClockDateFormat.setEnabled(true);
-                mClockDatePosition.setEnabled(true);
-            }
+            setDateOptions();
             return true;
         } else if (preference == mClockDateStyle) {
-            int val = Integer.parseInt((String) newValue);
+            int clockDateStyle = Integer.valueOf((String) newValue);
             int index = mClockDateStyle.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUSBAR_CLOCK_DATE_STYLE, val);
+                    Settings.System.STATUSBAR_CLOCK_DATE_STYLE, clockDateStyle);
             mClockDateStyle.setSummary(mClockDateStyle.getEntries()[index]);
             parseClockDateFormats();
-            return true;
-        } else if (preference == mStatusBarClock) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUSBAR_CLOCK,
-                    (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mClockDateFormat) {
             int index = mClockDateFormat.findIndexOfValue((String) newValue);
 
-             if (index == CUSTOM_CLOCK_DATE_FORMAT_INDEX) {
+            if (index == CUSTOM_CLOCK_DATE_FORMAT_INDEX) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
                 alert.setTitle(R.string.clock_date_string_edittext_title);
                 alert.setMessage(R.string.clock_date_string_edittext_summary);
-
-                final EditText input = new EditText(getActivity());
+                 final EditText input = new EditText(getActivity());
                 String oldText = Settings.System.getString(
                     getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_DATE_FORMAT);
@@ -197,8 +200,7 @@ public class ClockDateSettings extends SettingsPreferenceFragment
                     input.setText(oldText);
                 }
                 alert.setView(input);
-
-                alert.setPositiveButton(R.string.menu_save, new DialogInterface.OnClickListener() {
+                 alert.setPositiveButton(R.string.menu_save, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int whichButton) {
                         String value = input.getText().toString();
                         if (value.equals("")) {
@@ -242,7 +244,8 @@ public class ClockDateSettings extends SettingsPreferenceFragment
         CharSequence parsedDateEntries[];
         parsedDateEntries = new String[dateEntries.length];
         Date now = new Date();
-         int lastEntry = dateEntries.length - 1;
+
+        int lastEntry = dateEntries.length - 1;
         int dateFormat = Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.STATUSBAR_CLOCK_DATE_STYLE, 0);
         for (int i = 0; i < dateEntries.length; i++) {
@@ -258,24 +261,44 @@ public class ClockDateSettings extends SettingsPreferenceFragment
                 } else {
                     newDate = dateString.toString();
                 }
-                 parsedDateEntries[i] = newDate;
+                parsedDateEntries[i] = newDate;
             }
         }
         mClockDateFormat.setEntries(parsedDateEntries);
     }
 
+    private void setDateOptions() {
+        int enableDateOptions = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY, 0);
+        if (enableDateOptions == 0) {
+            mClockDateStyle.setEnabled(false);
+            mClockDateFormat.setEnabled(false);
+            mClockDatePosition.setEnabled(false);
+        } else {
+            mClockDateStyle.setEnabled(true);
+            mClockDateFormat.setEnabled(true);
+            mClockDatePosition.setEnabled(true);
+        }
+    }
+
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BLISSIFY;
+        return MetricsEvent.BLISSIFY;
     }
+
+    /**
+     * For Search.
+     */
 
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
+
                 @Override
                 public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
                         boolean enabled) {
-                    final ArrayList<SearchIndexableResource> result = new ArrayList<>();
-                    final SearchIndexableResource sir = new SearchIndexableResource(context);
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
                     sir.xmlResId = R.xml.clock_date_settings;
                     result.add(sir);
                     return result;
@@ -283,8 +306,9 @@ public class ClockDateSettings extends SettingsPreferenceFragment
 
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
-                    final List<String> keys = super.getNonIndexableKeys(context);
+                    List<String> keys = super.getNonIndexableKeys(context);
                     return keys;
                 }
     };
 }
+
