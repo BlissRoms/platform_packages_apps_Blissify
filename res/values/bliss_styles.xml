@@ -22,4 +22,22 @@
    <dimen name="fod_picker_item_size">100dp</dimen>
    <dimen name="fod_picker_item_padding">20dp</dimen>
 
+    <!-- Preview cards -->
+    <style name="PreviewCard" parent="CardView">
+        <item name="cardCornerRadius">?android:dialogCornerRadius</item>
+        <item name="android:clipChildren">true</item>
+        <item name="contentPadding">20dp</item>
+        <item name="cardBackgroundColor">?android:colorPrimary</item>
+    </style>
+    <style name="FullContentPreviewCard" parent="PreviewCard">
+        <item name="android:clipChildren">true</item>
+        <item name="contentPadding">0dp</item>
+        <item name="cardBackgroundColor">?android:colorPrimary</item>
+    </style>
+    <style name="OptionTitleTextAppearance" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:lineHeight">15sp</item>
+    </style>
+
 </resources>

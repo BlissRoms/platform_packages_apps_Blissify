@@ -153,15 +153,11 @@
         android:title="@string/lock_screen_custom_clock_face_category">
 
        <Preference
-            android:key="clock_style"
-            android:title="@string/clock_style_title"
-            android:summary="@string/clock_style_summary"
-            android:icon="@drawable/ic_clock_themes">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetPackage="com.android.wallpaper"
-                android:targetClass="com.android.customization.picker.LockClockPickerActivity" />
-        </Preference>
+            android:key="lockscreen_clock"
+            android:title="LS Clock"
+            android:icon="@drawable/ic_clock_themes"
+            android:summary="Change LockScreen Clock"
+            android:fragment="com.blissroms.blissify.fragments.themes.LockscreenClock" />
     </PreferenceCategory>
 
 </PreferenceScreen>

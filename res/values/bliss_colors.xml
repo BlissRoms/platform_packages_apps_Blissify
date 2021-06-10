@@ -35,4 +35,6 @@
     <color name="preview_text">#ff000000</color>
     <color name="themes_preview_background">#0f000000</color>
     <color name="themes_preview_card">#ffffffff</color>
+
+    <color name="option_border_default">#5f6368</color>
 </resources>
