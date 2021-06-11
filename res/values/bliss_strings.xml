@@ -69,7 +69,8 @@
     <string name="notifications_light">Lights</string>
     <string name="lockscreen_weather_title2">Weather options</string>
     <string name="lockscreen_weather_summary2">Configure lockscreen weather</string>
-
+    <string name="custom_weather_explainer">You are not limited to the pre-installed weather icon packages. Search the Google PlayStore with the keyword "chronus icons" and you will find a lot of additional packages.</string>
+    
     <!-- Units -->
     <string name="unit_milliseconds">milliseconds</string>
     <string name="unit_seconds">seconds</string>

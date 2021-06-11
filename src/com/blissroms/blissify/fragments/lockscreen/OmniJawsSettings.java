@@ -57,6 +57,8 @@ public class OmniJawsSettings extends SettingsPreferenceFragment implements
     private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
     private static final String CHRONUS_ICON_PACK_INTENT = "com.dvtonder.chronus.ICON_PACK";
 
+    private static final String FOOTER = "custom_weather_footer";
+
     private PreferenceCategory mWeatherCategory;
     private ListPreference mWeatherIconPack;
 
@@ -70,6 +72,8 @@ public class OmniJawsSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.external_omnijaws_settings);
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        findPreference(FOOTER).setTitle(R.string.custom_weather_explainer);
 
         mWeatherCategory = (PreferenceCategory) prefScreen.findPreference(CATEGORY_WEATHER);
         if (mWeatherCategory != null && !isOmniJawsServiceInstalled()) {
