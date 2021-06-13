@@ -36,6 +36,12 @@
             android:summary="@string/lockscreen_qs_disabled_summary"
             android:defaultValue="false" />
 
+   <!-- <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_running_services_toggle"
+            android:title="@string/qs_running_services_title"
+            android:summary="@string/qs_running_services_summary"
+            android:defaultValue="false" /> -->
+
     <!-- QS Header data uasge -->
     <com.bliss.support.preferences.SystemSettingListPreference
         android:key="qs_datausage"
@@ -51,17 +57,11 @@
             android:entryValues="@array/quick_pulldown_values"
             android:defaultValue="0" />
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="qs_running_services_toggle"
-            android:title="@string/qs_running_services_title"
-            android:summary="@string/qs_running_services_summary"
-            android:defaultValue="false" />
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
+   <!-- <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="qs_edit_toggle"
             android:title="@string/qs_edit_title"
             android:summary="@string/qs_edit_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true" /> -->
 
     <PreferenceCategory
         android:key="quick_settings_brighness_category"

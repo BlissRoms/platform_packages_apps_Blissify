@@ -25,6 +25,13 @@
           android:fragment="com.blissroms.blissify.fragments.themes.Themes"
           android:icon="@drawable/ic_blissify_themes"/>
 
+        <!-- Animations -->
+        <Preference
+            android:key="animations_category"
+            android:title="@string/blissify_animation_title"
+            android:fragment="com.blissroms.blissify.fragments.animations.Animations"
+            android:icon="@drawable/ic_blissify_animations" />
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
          android:key="double_tap_sleep_gesture"
          android:title="@string/double_tap_sleep_gesture_title"
@@ -48,6 +55,12 @@
         android:title="@string/fprint_sucess_vib_title"
         android:summary="@string/fprint_sucess_vib_summary"
         android:persistent="true" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+           android:key="notification_guts_kill_app_button"
+           android:title="@string/notification_guts_kill_app_button_title"
+           android:summary="@string/notification_guts_kill_app_button_summary"
+           android:defaultValue="false" />
 
     <!-- OneUI like settings actionbar -->
     <com.bliss.support.preferences.SystemSettingSwitchPreference 
@@ -100,12 +113,6 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-           android:key="notification_guts_kill_app_button"
-           android:title="@string/notification_guts_kill_app_button_title"
-           android:summary="@string/notification_guts_kill_app_button_summary"
-           android:defaultValue="false" />
-
     <PreferenceCategory
         android:key="volume_panel_stuff"
         android:title="@string/volume_panel">
@@ -124,12 +131,5 @@
             android:defaultValue="false" />
 
     </PreferenceCategory>
-
-        <!-- Animations -->
-        <Preference
-            android:key="animations_category"
-            android:title="@string/blissify_animation_title"
-            android:fragment="com.blissroms.blissify.fragments.animations.Animations"
-            android:icon="@drawable/ic_blissify_animations" />
 
 </PreferenceScreen>
