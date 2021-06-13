@@ -804,10 +804,6 @@
     <string name="qs_columns_landscape_title">Tiles columns on landscape</string>
     <string name="qs_tile_title_visibility_title">Show tiles title</string>
 
-    <!-- QS Footer Text -->
-    <string name="qs_footer_text_title">QS footer text</string>
-    <string name="qs_footer_text_summary">Display text at bottom of QS panel</string>
-
     <!-- QS DataUsage Toggle -->
     <string name="qs_datausage_title">Data usage in QS Header</string>
     <string name="qs_datausage_disabled">Disabled</string>

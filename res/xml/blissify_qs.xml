@@ -36,12 +36,6 @@
             android:summary="@string/lockscreen_qs_disabled_summary"
             android:defaultValue="false" />
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="footer_text_show"
-        android:title="@string/qs_footer_text_title"
-        android:summary="@string/qs_footer_text_summary"
-        android:defaultValue="false"/>
-
     <!-- QS Header data uasge -->
     <com.bliss.support.preferences.SystemSettingListPreference
         android:key="qs_datausage"
