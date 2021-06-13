@@ -830,4 +830,8 @@
     <string name="adaptive_playback_timeout_2_min">2 minutes</string>
     <string name="adaptive_playback_timeout_5_min">5 minutes</string>
     <string name="adaptive_playback_timeout_10_min">10 minutes</string>
+
+    <!-- Notification count -->
+    <string name="status_bar_notif_count_title">Show notifications count</string>
+    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 </resources>
