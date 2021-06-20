@@ -912,4 +912,5 @@
     <string name="switch_retro">Retro</string>
     <string name="switch_oos">OxygenOS 11</string>
     <string name="switch_fluid">Fluid</string>
+    <string name="switch_android_s">Android S</string>
 </resources>
