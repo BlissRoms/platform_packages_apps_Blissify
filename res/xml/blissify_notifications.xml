@@ -15,4 +15,23 @@
         android:summary="@string/heads_up_notifications_summary"
         android:fragment="org.blissroms.blissify.fragments.notification.HeadsUpSettings" />
 
+    <PreferenceCategory
+        android:key="reticker"
+        android:title="@string/reticker_category" >
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="reticker_status"
+            android:title="@string/reticker_title"
+            android:summary="@string/reticker_summary"
+            android:defaultValue="false" />
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:dependency="reticker_status"
+            android:key="reticker_colored"
+            android:title="@string/reticker_colored_title"
+            android:summary="@string/reticker_colored_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
