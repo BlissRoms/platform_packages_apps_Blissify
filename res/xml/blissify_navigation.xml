@@ -25,12 +25,24 @@
         android:key="bliss_header"
         android:layout="@layout/buttons_header" /> -->
 
+    <!-- AOSP Gestures -->
+    <PreferenceCategory
+        android:title="@string/blissify_nav_system_gestures"
+        android:icon="@drawable/ic_gestures">
+
     <Preference
         android:key="gesture_settings"
         android:title="@string/aosp_gesture_preference"
         android:summary="@string/aosp_gesture_summary"
         android:fragment="com.android.settings.gestures.GestureSettings"
         settings:controller="com.android.settings.gestures.GesturesSettingPreferenceController"/>
+
+    </PreferenceCategory>
+
+    <!-- Navigation Bar Options -->
+    <PreferenceCategory
+        android:title="@string/blissify_nav_options_title"
+        android:icon="@drawable/ic_navbar_category">
 
     <SwitchPreference
         android:key="navbar_visibility"
@@ -58,6 +70,9 @@
         android:defaultValue="false"
         android:dependency="navbar_visibility" />
 
+    </PreferenceCategory>
+
+	<!-- Hardware Keys -->
     <PreferenceCategory 
 		android:key="hardware_keys"
 		android:title="@string/hardware_keys_category">

@@ -23,53 +23,18 @@
         android:key="bliss_header"
         android:layout="@layout/lockscreen_header" /> -->
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="double_tap_sleep_lockscreen"
-        android:title="@string/double_tap_sleep_lockscreen_title"
-        android:summary="@string/double_tap_sleep_lockscreen_summary"
-        android:defaultValue="false" />
-
-    <!-- Lockscreen Media -->
-    <PreferenceCategory
-        android:key="lockscreen_media_category"
-        android:icon="@drawable/ic_display_media_cover_art"
-        android:title="@string/lockscreen_media_category" >
-
-     <com.bliss.support.preferences.SecureSettingSwitchPreference
-        android:key="lockscreen_media_metadata"
-        android:title="@string/lockscreen_media_art_title"
-        android:summary="@string/lockscreen_media_art_summary"
-        android:defaultValue="false" />
-
-    <com.bliss.support.preferences.CustomSystemSeekBarPreference
-        android:key="lockscreen_media_blur"
-        android:title="@string/lockscreen_media_blur_title"
-        android:dependency="lockscreen_media_metadata"
-        android:max="25"
-        android:min="0"
-        android:defaultValue="25"
-        settings:units="dp" />
-
-        <com.bliss.support.preferences.SystemSettingSeekBarPreference
-            android:key="lockscreen_blur"
-            android:title="@string/lockscreen_blur_title"
-            android:max="100"
-            settings:min="0"
-            settings:units="%"
-            settings:interval="5"
-            android:defaultValue="0" />
-
-   </PreferenceCategory>
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="lockscreen_battery_info"
-        android:title="@string/lockscreen_battery_info_title"
-        android:summary="@string/lockscreen_battery_info_summary"
-        android:defaultValue="true" />
+      <!-- FOD Settings -->
+      <Preference
+          android:key="lockscreen_fod_category"
+          android:title="@string/lockscreen_fod_category"
+          android:summary="@string/fod_category_summary"
+          android:fragment="com.blissroms.blissify.fragments.lockscreen.FODSettings"
+          android:icon="@drawable/ic_fingerprint_category" />
 
     <PreferenceCategory
         android:key="lockscreen_visualizer_options"
-        android:title="@string/lockscreen_visualizer_title" >
+        android:title="@string/lockscreen_visualizer_title"
+        android:icon="@drawable/ic_music_visualizer" >
 
         <Preference
             android:key="lockscreen_visualizer"
@@ -77,14 +42,75 @@
             android:title="@string/lockscreen_visualizer_enable"
             android:summary="@string/lockscreen_visualizer_enable_summary" />
 
-        <com.bliss.support.preferences.SystemSettingListPreference
-            android:key="lockscreen_charging_animation_style"
-            android:title="@string/lockscreen_charging_animation_title"
-            android:entries="@array/lockscreen_charging_animation_entries"
-            android:entryValues="@array/lockscreen_charging_animation_values"
-            android:defaultValue="1" />
-
     </PreferenceCategory>
+
+    <!-- Lockscreen Media -->
+    <PreferenceCategory
+        android:key="lockscreen_media_category"
+        android:icon="@drawable/ic_display_media_cover_art"
+        android:title="@string/lockscreen_media_category" >
+
+		<com.bliss.support.preferences.SystemSettingSwitchPreference
+		    android:key="volume_button_music_control"
+		    android:summary="@string/volume_rocker_music_controls_summary"
+		    android:title="@string/volume_rocker_music_controls_title"
+		    android:defaultValue="false"
+		    android:dependency="volume_rocker_wake" />
+
+		 <com.bliss.support.preferences.SecureSettingSwitchPreference
+		    android:key="lockscreen_media_metadata"
+		    android:title="@string/lockscreen_media_art_title"
+		    android:summary="@string/lockscreen_media_art_summary"
+		    android:defaultValue="false" />
+
+		<com.bliss.support.preferences.CustomSystemSeekBarPreference
+		    android:key="lockscreen_media_blur"
+		    android:title="@string/lockscreen_media_blur_title"
+		    android:dependency="lockscreen_media_metadata"
+		    android:max="25"
+		    android:min="0"
+		    android:defaultValue="25"
+		    settings:units="dp" />
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="adaptive_playback_enabled"
+            android:title="@string/adaptive_playback_title"
+            android:summary="@string/adaptive_playback_summary"
+            android:defaultValue="false" />
+
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="adaptive_playback_timeout"
+            android:title="@string/adaptive_playback_timeout_title"
+            android:entries="@array/adaptive_playback_timeout_entries"
+            android:entryValues="@array/adaptive_playback_timeout_values"
+            android:defaultValue="30000"
+            android:dependency="adaptive_playback_enabled" />
+
+   </PreferenceCategory>
+
+    <!-- Misc Options -->
+    <PreferenceCategory
+        android:title="@string/blissify_misc_category_title"
+        android:icon="@drawable/ic_misc">
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="double_tap_sleep_lockscreen"
+        android:title="@string/double_tap_sleep_lockscreen_title"
+        android:summary="@string/double_tap_sleep_lockscreen_summary"
+        android:defaultValue="false" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_battery_info"
+        android:title="@string/lockscreen_battery_info_title"
+        android:summary="@string/lockscreen_battery_info_summary"
+        android:defaultValue="true" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="lockscreen_charging_animation_style"
+        android:title="@string/lockscreen_charging_animation_title"
+        android:entries="@array/lockscreen_charging_animation_entries"
+        android:entryValues="@array/lockscreen_charging_animation_values"
+        android:defaultValue="1" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="volume_rocker_wake"
@@ -93,12 +119,14 @@
         android:disableDependentsState="true"
         android:defaultValue="false" />
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="volume_button_music_control"
-        android:summary="@string/volume_rocker_music_controls_summary"
-        android:title="@string/volume_rocker_music_controls_title"
-        android:defaultValue="false"
-        android:dependency="volume_rocker_wake" />
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="lockscreen_blur"
+        android:title="@string/lockscreen_blur_title"
+        android:max="100"
+        settings:min="0"
+        settings:units="%"
+        settings:interval="5"
+        android:defaultValue="0" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="swap_volume_buttons"
@@ -121,31 +149,6 @@
         android:entryValues="@array/volume_key_cursor_control_values"
         android:defaultValue="0" />
 
-    <PreferenceCategory
-        android:key="media"
-        android:title="@string/media_title">
-
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="adaptive_playback_enabled"
-            android:title="@string/adaptive_playback_title"
-            android:summary="@string/adaptive_playback_summary"
-            android:defaultValue="false" />
-
-        <com.bliss.support.preferences.SystemSettingListPreference
-            android:key="adaptive_playback_timeout"
-            android:title="@string/adaptive_playback_timeout_title"
-            android:entries="@array/adaptive_playback_timeout_entries"
-            android:entryValues="@array/adaptive_playback_timeout_values"
-            android:defaultValue="30000"
-            android:dependency="adaptive_playback_enabled" />
-
     </PreferenceCategory>
-
-      <!-- FOD Settings -->
-      <Preference
-          android:key="lockscreen_fod_category"
-          android:title="@string/lockscreen_fod_category"
-          android:summary="@string/fod_category_summary"
-          android:fragment="com.blissroms.blissify.fragments.lockscreen.FODSettings"/>
 
 </PreferenceScreen>

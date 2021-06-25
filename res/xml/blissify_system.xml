@@ -18,19 +18,84 @@
     android:key="system_settings"
     android:title="@string/blissify_system_category">
 
-      <!-- Themes -->
-      <Preference
-          android:key="themes_category"
-          android:title="@string/blissify_themes_title"
-          android:fragment="com.blissroms.blissify.fragments.themes.Themes"
-          android:icon="@drawable/ic_blissify_themes"/>
+	<!-- UI Customizations -->
+    <PreferenceCategory
+        android:title="@string/blissify_system_customization_title"
+        android:icon="@drawable/ic_bliss_themes" >
+
+		<!-- Themes -->
+		<Preference
+		   android:key="themes_category"
+		   android:title="@string/blissify_themes_title"
+		   android:fragment="com.blissroms.blissify.fragments.themes.Themes"/>
 
         <!-- Animations -->
         <Preference
-            android:key="animations_category"
-            android:title="@string/blissify_animation_title"
-            android:fragment="com.blissroms.blissify.fragments.animations.Animations"
-            android:icon="@drawable/ic_blissify_animations" />
+           android:key="animations_category"
+           android:title="@string/blissify_animation_title"
+           android:fragment="com.blissroms.blissify.fragments.animations.Animations"/>
+
+    	<!-- OneUI like settings actionbar -->
+    	<com.bliss.support.preferences.SystemSettingSwitchPreference 
+            android:key="settings_spacer" 
+            android:title="@string/enable_oneui" 
+            android:summary="@string/enable_oneui_summary" 
+            android:defaultValue="true" />
+
+		<!-- Volume Plugins -->
+		<com.bliss.support.preferences.SystemSettingListPreference
+		    android:key="systemui_plugin_volume"
+		    android:title="@string/volume_panel"
+		    android:entries="@array/volume_panel_entries"
+		    android:entryValues="@array/volume_panel_values"
+		    android:defaultValue="@string/volume_panel_stock_val" />
+
+		<com.bliss.support.preferences.SystemSettingSwitchPreference
+		        android:key="show_app_volume"
+		        android:title="@string/show_app_volume_title"
+		        android:summary="@string/show_app_volume_summary"
+		        android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+	<!-- Notification Customizations -->
+    <PreferenceCategory
+        android:title="@string/blissify_system_notification_title"
+        android:icon="@drawable/ic_notification_count" >
+
+		 <Preference
+		    android:key="heads_up_notifications"
+		    android:summary="@string/heads_up_notifications_summary"
+		    android:title="@string/heads_up_notifications"
+		    android:fragment="com.blissroms.blissify.fragments.system.HeadsUpSettings"/>
+
+		<com.bliss.support.preferences.SystemSettingSwitchPreference
+		    android:key="less_boring_heads_up"
+		    android:title="@string/less_boring_heads_up_title"
+		    android:summary="@string/less_boring_heads_up_summary"
+		    android:defaultValue="false" />
+
+		<com.bliss.support.preferences.SystemSettingSwitchPreference
+		        android:key="vibrate_on_connect"
+		        android:title="@string/incall_vibrate_connect_title"
+		        android:defaultValue="false" />
+
+		<com.bliss.support.preferences.SystemSettingSwitchPreference
+		        android:key="vibrate_on_callwaiting"
+		        android:title="@string/incall_vibrate_call_wait_title"
+		        android:defaultValue="false" />
+
+		<com.bliss.support.preferences.SystemSettingSwitchPreference
+		        android:key="vibrate_on_disconnect"
+		        android:title="@string/incall_vibrate_disconnect_title"
+		        android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+	<!-- System Gestures -->
+    <PreferenceCategory
+        android:title="@string/blissify_system_gestures_title"
+        android:icon="@drawable/ic_doubletap" >
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
          android:key="double_tap_sleep_gesture"
@@ -44,92 +109,43 @@
             android:summary="@string/three_finger_gesture_summary"
             android:defaultValue="false" />
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="toast_icon"
-            android:title="@string/toast_icon_title"
-            android:summary="@string/toast_icon_summary"
-            android:defaultValue="false" />
+    </PreferenceCategory>
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="fingerprint_success_vib"
-        android:title="@string/fprint_sucess_vib_title"
-        android:summary="@string/fprint_sucess_vib_summary"
-        android:persistent="true" />
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-           android:key="notification_guts_kill_app_button"
-           android:title="@string/notification_guts_kill_app_button_title"
-           android:summary="@string/notification_guts_kill_app_button_summary"
-           android:defaultValue="false" />
-
-    <!-- OneUI like settings actionbar -->
-    <com.bliss.support.preferences.SystemSettingSwitchPreference 
-            android:key="settings_spacer" 
-            android:title="@string/enable_oneui" 
-            android:summary="@string/enable_oneui_summary" 
-            android:defaultValue="true" />
-
-        <Preference
-            android:key="aggressive_battery"
-            android:title="@string/aggressive_battery_title"
-            android:summary="@string/aggressive_battery_summary"
-            android:fragment="com.blissroms.blissify.fragments.system.AggressiveBattery" />
-
+	<!-- Battery Saving -->
     <PreferenceCategory
-        android:key="headsup_notifications_category"
-        android:title="@string/headsup_category">
+        android:title="@string/blissify_system_power_title"
+        android:icon="@drawable/ic_battery_percentage">
 
-     <Preference
-        android:key="heads_up_notifications"
-        android:summary="@string/heads_up_notifications_summary"
-        android:title="@string/heads_up_notifications"
-        android:fragment="com.blissroms.blissify.fragments.system.HeadsUpSettings"/>
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="less_boring_heads_up"
-        android:title="@string/less_boring_heads_up_title"
-        android:summary="@string/less_boring_heads_up_summary"
-        android:defaultValue="false" />
+		<Preference
+		    android:key="aggressive_battery"
+		    android:title="@string/aggressive_battery_title"
+		    android:summary="@string/aggressive_battery_summary"
+		    android:fragment="com.blissroms.blissify.fragments.system.AggressiveBattery" />
 
     </PreferenceCategory>
 
+	<!-- Misc Customizations -->
     <PreferenceCategory
-        android:key="incall_vib_options"
-        android:title="@string/incall_vibration_category" >
+        android:title="@string/blissify_misc_category_title"
+        android:icon="@drawable/ic_misc">
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_connect"
-            android:title="@string/incall_vibrate_connect_title"
-            android:defaultValue="false" />
+		<com.bliss.support.preferences.SystemSettingSwitchPreference
+		        android:key="toast_icon"
+		        android:title="@string/toast_icon_title"
+		        android:summary="@string/toast_icon_summary"
+		        android:defaultValue="false" />
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_callwaiting"
-            android:title="@string/incall_vibrate_call_wait_title"
-            android:defaultValue="false" />
+		<com.bliss.support.preferences.SystemSettingSwitchPreference
+		    android:key="fingerprint_success_vib"
+		    android:title="@string/fprint_sucess_vib_title"
+		    android:summary="@string/fprint_sucess_vib_summary"
+		    android:persistent="true" />
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_disconnect"
-            android:title="@string/incall_vibrate_disconnect_title"
-            android:defaultValue="false" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="volume_panel_stuff"
-        android:title="@string/volume_panel">
-
-    <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="systemui_plugin_volume"
-        android:title="@string/volume_panel"
-        android:entries="@array/volume_panel_entries"
-        android:entryValues="@array/volume_panel_values"
-        android:defaultValue="@string/volume_panel_stock_val" />
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="show_app_volume"
-            android:title="@string/show_app_volume_title"
-            android:summary="@string/show_app_volume_summary"
-            android:defaultValue="false" />
+		<com.bliss.support.preferences.SystemSettingSwitchPreference
+		   android:key="notification_guts_kill_app_button"
+		   android:title="@string/notification_guts_kill_app_button_title"
+		   android:summary="@string/notification_guts_kill_app_button_summary"
+		   android:defaultValue="false" />
 
     </PreferenceCategory>
-
 </PreferenceScreen>

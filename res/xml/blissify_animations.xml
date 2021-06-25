@@ -22,6 +22,38 @@
         android:key="bliss_header"
         android:layout="@layout/animations_header" /> -->
 
+	<!-- QS Tile Animations -->
+    <PreferenceCategory
+        android:title="@string/tile_anim"
+        android:icon="@drawable/ic_qs_tile">
+
+        <ListPreference
+            android:key="qs_tile_animation_style"
+            android:title="@string/qs_tile_animation_style_title"
+            android:entries="@array/qs_tile_animation_style_entries"
+            android:entryValues="@array/qs_tile_animation_style_values"
+            android:persistent="false" />
+
+        <ListPreference
+            android:key="qs_tile_animation_duration"
+            android:title="@string/qs_tile_animation_duration_title"
+            android:entries="@array/qs_tile_animation_duration_entries"
+            android:entryValues="@array/qs_tile_animation_duration_values"
+            android:persistent="false" />
+
+        <ListPreference
+            android:key="qs_tile_animation_interpolator"
+            android:title="@string/qs_tile_animation_interpolator_title"
+            android:entries="@array/qs_tile_animation_interpolator_entries"
+            android:entryValues="@array/qs_tile_animation_interpolator_values"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+	<!-- Screen Animations -->
+    <PreferenceCategory
+      android:title="@string/blissify_screen_animation_title">
+
     <com.bliss.support.preferences.SystemSettingListPreference
         android:key="screen_off_animation"
         android:title="@string/screen_off_animation_title"
@@ -37,9 +69,48 @@
         android:summary="%s"
         android:entries="@array/entries_scrollingcache"
         android:entryValues="@array/values_scrollingcache" />
+    </PreferenceCategory>
 
+	<!-- Toast Animations -->
     <PreferenceCategory
+      android:title="@string/toast_category_title">
 
+        <ListPreference
+            android:key="toast_animation"
+            android:title="@string/toast_animation_title"
+            android:summary="%s"
+            android:entries="@array/toast_animation_entries"
+            android:entryValues="@array/toast_animation_values"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+	<!-- ListView Animations -->
+    <PreferenceCategory
+      android:title="@string/listview_category_title">
+
+        <ListPreference
+            android:key="listview_animation"
+            android:dialogTitle="@string/listview_animation_title"
+            android:title="@string/listview_animation_title"
+            android:summary="%s"
+            android:entries="@array/listview_animation_entries"
+            android:entryValues="@array/listview_animation_values"
+            android:defaultValue="0" />
+
+        <ListPreference
+            android:key="listview_interpolator"
+            android:dialogTitle="@string/listview_interpolator_title"
+            android:title="@string/listview_interpolator_title"
+            android:summary="%s"
+            android:entries="@array/listview_interpolator_entries"
+            android:entryValues="@array/listview_interpolator_values"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
+
+	<!-- System Animations -->
+    <PreferenceCategory
         android:title="@string/system_animations_category_title">
 
          <com.bliss.support.preferences.CustomSeekBarPreference
@@ -111,44 +182,6 @@
             android:key="wallpaper_intra_close"
             android:summary="%s"
             android:title="@string/wallpaper_intra_close_title" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-
-      android:title="@string/toast_category_title">
-
-        <ListPreference
-            android:key="toast_animation"
-            android:title="@string/toast_animation_title"
-            android:summary="%s"
-            android:entries="@array/toast_animation_entries"
-            android:entryValues="@array/toast_animation_values"
-            android:persistent="false" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-
-      android:title="@string/listview_category_title">
-
-        <ListPreference
-            android:key="listview_animation"
-            android:dialogTitle="@string/listview_animation_title"
-            android:title="@string/listview_animation_title"
-            android:summary="%s"
-            android:entries="@array/listview_animation_entries"
-            android:entryValues="@array/listview_animation_values"
-            android:defaultValue="0" />
-
-        <ListPreference
-            android:key="listview_interpolator"
-            android:dialogTitle="@string/listview_interpolator_title"
-            android:title="@string/listview_interpolator_title"
-            android:summary="%s"
-            android:entries="@array/listview_interpolator_entries"
-            android:entryValues="@array/listview_interpolator_values"
-            android:defaultValue="0" />
 
     </PreferenceCategory>
 

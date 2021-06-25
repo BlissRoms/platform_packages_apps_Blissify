@@ -46,7 +46,7 @@
     <string name="battery_options">Battery options</string>
     <string name="tile_options">Tile options</string>
     <string name="system_anim">System</string>
-    <string name="tile_anim">Tile</string>
+    <string name="tile_anim">Tile Animations</string>
     <string name="misc_anim">Misc options</string>
     <string name="misc_category_title">MISC</string>
     <string name="status_bar_logo_category">Status Bar Logo</string>
@@ -848,4 +848,14 @@
     <string name="qs_tint_accent">Accent Color</string>
     <string name="qs_tint_oos">OxygenOS 11</string>
     <string name="qs_tint_twelve">Android 12</string>
+
+    <!-- Misc -->
+    <string name="blissify_misc_category_title">Misc Customizations</string>
+    <string name="blissify_nav_system_gestures">AOSP Gestures</string>
+    <string name="blissify_nav_options_title">Navigation Bar</string>
+    <string name="blissify_system_customization_title">UI Customization</string>
+    <string name="blissify_system_notification_title">Notification Settings</string>
+    <string name="blissify_system_power_title">Battery Saving</string>
+    <string name="blissify_system_gestures_title">System Gestures</string>
+    <string name="blissify_screen_animation_title">Screen Animations</string>
 </resources>
