@@ -160,6 +160,7 @@
     <string name="clock_date_right">Right of time</string>
     <string name="clock_date_left">Left of time</string>
 
+<<<<<<< HEAD   (572302 Blissify: allow disabling ripple effect on unlock [2/2])
     <!-- Tiles animation style  -->
     <string name="qs_tile_animation_title">QS Animations</string>
     <string name="qs_tile_animation_style_title">QS Animation style</string>
@@ -190,4 +191,9 @@
     <!-- Ripple Effect on lockscreen -->
     <string name="enable_fingerprint_ripple_effect_title">Unlock animation</string>
     <string name="enable_fingerprint_ripple_effect_summary">Show ripple effect on unlock with fingerprint</string>
+=======
+    <!-- Alert Slider Notifications (OnePlus devices) -->
+    <string name="alert_slider_notifications_title">Alert slider notifications</string>
+    <string name="alert_slider_notifications_summary">Display notification when changing alert slider position</string>
+>>>>>>> CHANGE (968074 Alert Slider: Add toggle to disable notifications [2/2])
 </resources>
