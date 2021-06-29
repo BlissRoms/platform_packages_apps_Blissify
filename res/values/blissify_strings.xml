@@ -190,4 +190,8 @@
     <!-- Ripple Effect on lockscreen -->
     <string name="enable_fingerprint_ripple_effect_title">Unlock animation</string>
     <string name="enable_fingerprint_ripple_effect_summary">Show ripple effect on unlock with fingerprint</string>
+
+    <!-- Alert Slider Notifications (OnePlus devices) -->
+    <string name="alert_slider_notifications_title">Alert slider notifications</string>
+    <string name="alert_slider_notifications_summary">Display notification when changing alert slider position</string>
 </resources>
