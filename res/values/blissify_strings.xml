@@ -159,4 +159,8 @@
     <string name="clock_date_position">Date position</string>
     <string name="clock_date_right">Right of time</string>
     <string name="clock_date_left">Left of time</string>
+
+    <!-- Alert Slider Notifications (OnePlus devices) -->
+    <string name="alert_slider_notifications_title">Alert slider notifications</string>
+    <string name="alert_slider_notifications_summary">Display notification when changing alert slider position</string>
 </resources>

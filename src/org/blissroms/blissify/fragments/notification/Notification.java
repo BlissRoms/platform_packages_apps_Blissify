@@ -56,25 +56,42 @@ import android.os.ServiceManager;
 import static android.os.UserHandle.USER_SYSTEM;
 import static android.os.UserHandle.USER_CURRENT;
 
-@SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
+@SearchIndexable
 public class Notification extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String ALERT_SLIDER_PREF = "alert_slider_notifications";
+
     private Context mContext;
+    private Preference mAlertSlider;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.blissify_notifications);
 
-        final ContentResolver resolver = getActivity().getContentResolver();
-        final PreferenceScreen prefSet = getPreferenceScreen();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final Context mContext = getActivity().getApplicationContext();
+        final ContentResolver resolver = mContext.getContentResolver();
+        final Resources res = mContext.getResources();
         final PackageManager mPm = getActivity().getPackageManager();
+
+        mAlertSlider = (Preference) prefScreen.findPreference(ALERT_SLIDER_PREF);
+        boolean mAlertSliderAvailable = res.getBoolean(
+                com.android.internal.R.bool.config_hasAlertSlider);
+        if (!mAlertSliderAvailable)
+            prefScreen.removePreference(mAlertSlider);
     }
 
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.ALERT_SLIDER_NOTIFICATIONS, 1, UserHandle.USER_CURRENT);
     }
 
     @Override
@@ -88,9 +105,21 @@ public class Notification extends SettingsPreferenceFragment implements
     }
 
     /**
-     * For Search.
+     * For search
      */
-
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.blissify_notifications);
+            new BaseSearchIndexProvider(R.xml.blissify_notifications) {
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = super.getNonIndexableKeys(context);
+                    final Resources res = context.getResources();
+
+                    boolean mAlertSliderAvailable = res.getBoolean(
+                            com.android.internal.R.bool.config_hasAlertSlider);
+                    if (!mAlertSliderAvailable)
+                        keys.add(ALERT_SLIDER_PREF);
+                    return keys;
+                }
+            };
 }
