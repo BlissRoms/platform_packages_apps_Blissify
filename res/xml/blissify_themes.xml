@@ -110,6 +110,14 @@
         android:defaultValue="0"
         android:icon="@drawable/ic_blissify_qspanel" />
 
+        <!-- QS brightness slider styles -->
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="slider_style"
+            android:title="@string/slider_styles_title"
+            android:entries="@array/slider_styles_entries"
+            android:entryValues="@array/slider_styles_values"
+            android:defaultValue="0" />
+
        <ListPreference
             android:layout="@layout/themes_accent_preview"
             android:selectable="false" />

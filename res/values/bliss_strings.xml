@@ -1090,4 +1090,11 @@
     <string name="ambient_notification_light_timeout_three_minutes">3 minutes</string>
     <string name="ambient_notification_light_timeout_five_minutes">5 minutes</string>
     <string name="ambient_notification_light_timeout_ten_minutes">10 minutes</string>
+
+    <!-- Brightness slider styles -->
+    <string name="slider_styles_title">Brightness slider style</string>
+    <string name="slider_default">Default</string>
+    <string name="slider_oos">OOS</string>
+    <string name="slider_aosp">Aosp</string>
+    <string name="slider_rui">RUI</string>
 </resources>

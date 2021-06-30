@@ -25,9 +25,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.om.IOverlayManager;
+import android.database.ContentObserver;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -61,6 +65,7 @@ import com.bliss.support.colorpicker.ColorPickerPreference;
 
 import com.android.internal.util.bliss.BlissUtils;
 import com.android.internal.util.bliss.ThemesUtils;
+import com.bliss.support.preferences.SystemSettingListPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,8 +80,10 @@ public class Themes extends DashboardFragment  implements
     public static final String TAG = "Themes";
 
     private static final String PREF_NAVBAR_STYLE = "theme_navbar_style";
+    private static final String SLIDER_STYLE  = "slider_style";
 
     private Context mContext;
+    private Handler mHandler;
     private IOverlayManager mOverlayManager;
     private IOverlayManager mOverlayService;
 
@@ -88,6 +95,7 @@ public class Themes extends DashboardFragment  implements
 
     private IntentFilter mIntentFilter;
     private static FontPickerPreferenceController mFontPickerPreference;
+    private SystemSettingListPreference mSlider;
 
     private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         @Override
@@ -128,6 +136,9 @@ public class Themes extends DashboardFragment  implements
                 : Color.parseColor("#" + colorVal);
         rgbAccentPicker.setNewPreviewColor(color);
         rgbAccentPicker.setOnPreferenceChangeListener(this);
+
+        mSlider = (SystemSettingListPreference) findPreference(SLIDER_STYLE);
+        mCustomSettingsObserver.observe();
     }
 
     private int getOverlayPosition(String[] overlays) {
@@ -160,6 +171,85 @@ public class Themes extends DashboardFragment  implements
         }
     }
 
+    private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
+    private class CustomSettingsObserver extends ContentObserver {
+
+        CustomSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            Context mContext = getContext();
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SLIDER_STYLE),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.SLIDER_STYLE))) {
+                updateSlider();
+            }
+        }
+    }
+
+    private void updateSlider() {
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        boolean sliderDefault = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.SLIDER_STYLE , 0, UserHandle.USER_CURRENT) == 0;
+        boolean sliderOOS = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.SLIDER_STYLE , 0, UserHandle.USER_CURRENT) == 1;
+        boolean sliderAosp = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.SLIDER_STYLE , 0, UserHandle.USER_CURRENT) == 2;
+        boolean sliderRUI = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.SLIDER_STYLE , 0, UserHandle.USER_CURRENT) == 3;
+
+        if (sliderDefault) {
+            setDefaultSlider(mOverlayService);
+        } else if (sliderOOS) {
+            enableSlider(mOverlayService, "com.android.theme.systemui_slider_oos");
+        } else if (sliderAosp) {
+            enableSlider(mOverlayService, "com.android.theme.systemui_slider.aosp");
+        } else if (sliderRUI) {
+            enableSlider(mOverlayService, "com.android.theme.systemui_slider.rui");
+        }
+    }
+
+    public static void setDefaultSlider(IOverlayManager overlayManager) {
+        for (int i = 0; i < SLIDERS.length; i++) {
+            String sliders = SLIDERS[i];
+            try {
+                overlayManager.setEnabled(sliders, false, USER_SYSTEM);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void enableSlider(IOverlayManager overlayManager, String overlayName) {
+        try {
+            for (int i = 0; i < SLIDERS.length; i++) {
+                String sliders = SLIDERS[i];
+                try {
+                    overlayManager.setEnabled(sliders, false, USER_SYSTEM);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+            overlayManager.setEnabled(overlayName, true, USER_SYSTEM);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static final String[] SLIDERS = {
+        "com.android.theme.systemui_slider_oos",
+        "com.android.theme.systemui_slider.aosp",
+        "com.android.theme.systemui_slider.rui"
+    };
+
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mNavbarPicker) {
             String navbarStyle = (String) newValue;
@@ -185,6 +275,9 @@ public class Themes extends DashboardFragment  implements
                  mOverlayManager.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
              }
+            return true;
+        } else if (preference == mSlider) {
+            mCustomSettingsObserver.observe();
             return true;
         }
         return false;
