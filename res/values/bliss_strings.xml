@@ -472,7 +472,8 @@
     <!-- FOD animations -->
     <string name="fod_recog_animation">Fingerprint animation</string>
     <string name="fod_recog_animation_summary">Shows an animation while reading your finger</string>
-    <string name="fod_recog_animation_effect_title">Select fingerprint animation effect</string>
+    <string name="fod_recog_animation_effect_title">Fingerprint animation effect</string>
+    <string name="fod_recog_animation_effect_summary">Choose recognizing animation effect</string>
     <string name="fod_recog_animation_miui_normal">Xiaomi default</string>
     <string name="fod_recog_animation_miui_aod">Xiaomi AOD</string>
     <string name="fod_recog_animation_miui_aurora">Xiaomi Aurora (K30 Pro)</string>
