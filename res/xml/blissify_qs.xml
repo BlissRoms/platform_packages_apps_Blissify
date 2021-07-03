@@ -188,4 +188,40 @@
            settings:min="0"
            settings:units="" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="notification_headers"
+        android:title="@string/notification_headers_category" >
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="separators_notification_header"
+            android:title="@string/separators_notification_header_title"
+            android:summary="@string/separators_notification_header_summary"
+            android:defaultValue="false" />
+
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="notification_header_gravity"
+            android:title="@string/notification_header_gravity_title"
+            android:dialogTitle="@string/clear_all_button_gravity_pick"
+            android:entries="@array/gravity_lcr_entries"
+            android:entryValues="@array/gravity_lcr_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="clear_all_button"
+        android:title="@string/clear_all_button_category" >
+
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="clear_all_button_gravity"
+            android:title="@string/clear_all_button_gravity_title"
+            android:dialogTitle="@string/clear_all_button_gravity_pick"
+            android:entries="@array/gravity_lcr_entries"
+            android:entryValues="@array/gravity_lcr_values"
+            android:summary="%s"
+            android:defaultValue="1" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

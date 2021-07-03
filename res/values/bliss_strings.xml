@@ -961,4 +961,21 @@
     <string name="header_xlarge">XLarge</string>
     <string name="header_title">Header sizes</string>
     <string name="header_dialog_title">Select size</string>
+
+    <!-- Clear All Button Options -->
+    <string name="clear_all_button_category">Clear All Button</string>
+    <string name="clear_all_button_gravity_title">Clear All Button Gravity</string>
+    <string name="clear_all_button_gravity_pick">Select a gravity</string>
+
+    <!-- Gravity Left Center Right -->
+    <string name="gravity_lcr_left">Left</string>
+    <string name="gravity_lcr_center">Center</string>
+    <string name="gravity_lcr_right">Right</string>
+
+    <!-- Notification Headers Options -->
+    <string name="notification_headers_category">Notification Headers</string>
+    <string name="separators_notification_header_title">Separators in header</string>
+    <string name="separators_notification_header_summary">Add separators in notification headers</string>
+
+    <string name="notification_header_gravity_title">Notification Header Text Gravity</string>
 </resources>
