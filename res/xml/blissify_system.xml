@@ -143,6 +143,13 @@
 		    android:summary="@string/aggressive_battery_summary"
 		    android:fragment="com.blissroms.blissify.fragments.system.AggressiveBattery" />
 
+        <!-- Smart Pixels -->
+        <Preference
+           android:key="smart_pixels" 
+           android:title="@string/smart_pixels_title"
+           android:summary="@string/smart_pixels_summary" 
+           android:fragment="com.blissroms.blissify.fragments.system.SmartPixels" />
+
     </PreferenceCategory>
 
 	<!-- Misc Customizations -->
