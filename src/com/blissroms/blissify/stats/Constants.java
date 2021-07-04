@@ -16,5 +16,6 @@ public class Constants {
     public static final String KEY_VERSION = "14.5";
     public static final String KEY_BUILD_TYPE = "ro.bliss.build.status";
     public static final String KEY_BUILD_DATE = "ro.build.date";
+    public static final String KEY_ANDROID_VERSION = "ro.build.version.release";
 
 }

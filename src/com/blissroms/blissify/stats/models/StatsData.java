@@ -15,6 +15,7 @@ public class StatsData {
     private String buildType;
     private String countryCode;
     private String buildDate;
+    private String androidVersion;
 
     public String getDevice() {
         return SystemProperties.get(Constants.KEY_DEVICE);
@@ -46,6 +47,14 @@ public class StatsData {
 
     public void setBuildType(String buildType) {
         this.buildType = TextUtils.isEmpty(buildType) ? "unknown" : buildType;
+    }
+
+    public String getAndroidVersion() {
+        return SystemProperties.get(Constants.KEY_ANDROID_VERSION);
+    }
+
+    public void setAndroidVersion(String androidVersion) {
+        this.androidVersion = TextUtils.isEmpty(androidVersion) ? "unknown" : androidVersion;
     }
 
     public String getCountryCode(Context context) {
