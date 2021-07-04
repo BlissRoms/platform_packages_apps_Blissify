@@ -978,4 +978,8 @@
     <string name="separators_notification_header_summary">Add separators in notification headers</string>
 
     <string name="notification_header_gravity_title">Notification Header Text Gravity</string>
+
+    <!-- Quick Settings Footer Page Indicator -->
+    <string name="qs_footer_page_indicator_title">Page Indicator</string>
+    <string name="qs_footer_page_indicator_summary">Show page indicator in quick settings footer</string>
 </resources>

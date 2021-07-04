@@ -224,4 +224,11 @@
             android:defaultValue="1" />
 
     </PreferenceCategory>
+
+    <!-- QS footer page indicator -->
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="qs_footer_page_indicator"
+        android:title="@string/qs_footer_page_indicator_title"
+        android:summary="@string/qs_footer_page_indicator_summary"
+        android:defaultValue="true" />
 </PreferenceScreen>
