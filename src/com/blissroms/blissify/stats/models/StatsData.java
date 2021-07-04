@@ -11,7 +11,7 @@ public class StatsData {
 
     private String device;
     private String model;
-    private String version;
+    private String blissVersion;
     private String buildType;
     private String countryCode;
     private String buildDate;
@@ -33,12 +33,12 @@ public class StatsData {
         this.model = TextUtils.isEmpty(model) ? "unknown" : model;
     }
 
-    public String getVersion() {
-        return Constants.KEY_VERSION;
+    public String getBlissVersion() {
+        return Constants.KEY_BLISS_VERSION;
     }
 
-    public void setVersion(String version) {
-        this.version = TextUtils.isEmpty(version) ? "unknown" : version;
+    public void setBlissVersion(String blissVersion) {
+        this.blissVersion = TextUtils.isEmpty(blissVersion) ? "unknown" : blissVersion;
     }
 
     public String getBuildType() {
