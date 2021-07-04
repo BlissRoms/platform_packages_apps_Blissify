@@ -1,4 +1,3 @@
-/*
  * Copyright (C) 2019 The BlissRoms Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -62,6 +61,7 @@ public class SystemSettings extends SettingsPreferenceFragment
     private FingerprintManager mFingerprintManager;
     private SystemSettingSwitchPreference mFingerprintVib;
     private static final String AGGRESSIVE_BATTERY ="aggressive_battery";
+    private static final String SMART_PIXELS = "smart_pixels";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,6 +70,8 @@ public class SystemSettings extends SettingsPreferenceFragment
         final ContentResolver resolver = getActivity().getContentResolver();
         addPreferencesFromResource(R.xml.blissify_system);
         setRetainInstance(true);
+        updateSmartPixelsPreference();
+        
         final PreferenceScreen prefSet = getPreferenceScreen();
 
         PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
@@ -94,6 +96,16 @@ public class SystemSettings extends SettingsPreferenceFragment
             prefSet.removePreference(mFingerprintVib);
         }
     }
+    private void updateSmartPixelsPreference() {
+        PreferenceScreen prefSet = getPreferenceScreen();
+        boolean enableSmartPixels = getContext().getResources().
+                getBoolean(com.android.internal.R.bool.config_supportSmartPixels);
+        Preference smartPixels = findPreference(SMART_PIXELS);
+
+        if (!enableSmartPixels){
+            prefSet.removePreference(smartPixels);
+         }
+	}
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
