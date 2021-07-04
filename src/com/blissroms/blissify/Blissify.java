@@ -27,7 +27,9 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.ContentResolver;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.provider.SearchIndexableResource;
 import android.view.Surface;
 import androidx.core.content.ContextCompat;
@@ -43,6 +45,8 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.fragment.app.FragmentTransaction;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -53,11 +57,24 @@ import com.blissroms.blissify.fragments.qs.QuickSettings;
 import com.blissroms.blissify.fragments.navigation.NavigationSettings;
 import com.blissroms.blissify.fragments.lockscreen.Lockscreen;
 import com.blissroms.blissify.fragments.system.SystemSettings;
+import com.blissroms.blissify.stats.Constants;
+import com.blissroms.blissify.stats.RequestInterface;
+import com.blissroms.blissify.stats.models.ServerRequest;
+import com.blissroms.blissify.stats.models.ServerResponse;
+import com.blissroms.blissify.stats.models.StatsData;
 
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 import java.util.List;
 import java.util.ArrayList;
+import android.util.Log;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import android.app.ActionBar;
 import android.content.Context;
@@ -80,6 +97,8 @@ public class Blissify extends SettingsPreferenceFragment {
     Context mContext;
     View view;
     AnimatedBottomBar animatedBottomBar;
+    private CompositeDisposable mCompositeDisposable;
+    private SharedPreferences pref;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -89,6 +108,13 @@ public class Blissify extends SettingsPreferenceFragment {
         mContext = getActivity();
         Resources res = getResources();
         Window win = getActivity().getWindow();
+
+        mCompositeDisposable = new CompositeDisposable();
+        pref = getActivity().getSharedPreferences("BlissStatsPref", Context.MODE_PRIVATE);
+        if (!pref.getString(Constants.LAST_BUILD_DATE, "null").equals(Build.DATE)
+                || pref.getBoolean(Constants.IS_FIRST_LAUNCH, true)) {
+            pushStats();
+        }
 
         win.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         win.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
@@ -183,6 +209,73 @@ public class Blissify extends SettingsPreferenceFragment {
             }
             return false;
         });
+    }
+
+    private void pushStats() {
+        //Anonymous Stats
+
+        if (!TextUtils.isEmpty(SystemProperties.get(Constants.KEY_DEVICE))) {
+            RequestInterface requestInterface = new Retrofit.Builder()
+                    .baseUrl(Constants.BASE_URL)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build().create(RequestInterface.class);
+
+            StatsData stats = new StatsData();
+            stats.setDevice(stats.getDevice());
+            stats.setModel(stats.getModel());
+            stats.setBlissVersion(stats.getBlissVersion());
+            stats.setBuildType(stats.getBuildType());
+            stats.setBuildName(stats.getBuildName());
+            stats.setCountryCode(stats.getCountryCode(getActivity()));
+            stats.setBuildDate(stats.getBuildDate());
+            stats.setAndroidVersion(stats.getAndroidVersion());
+            stats.setManufacturer(stats.getManufacturer());
+
+            ServerRequest request = new ServerRequest();
+            request.setOperation(Constants.PUSH_OPERATION);
+            request.setStats(stats);
+            mCompositeDisposable.add(requestInterface.operation(request)
+                    .observeOn(AndroidSchedulers.mainThread(),false,100)
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(this::handleResponse, this::handleError));
+        } else {
+            Log.d(Constants.TAG, "This ain't BlissRoms!");
+        }
+
+    }
+
+    private void handleResponse(ServerResponse resp) {
+
+        if (resp.getResult().equals(Constants.SUCCESS)) {
+
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putBoolean(Constants.IS_FIRST_LAUNCH, false);
+            editor.putString(Constants.LAST_BUILD_DATE, Build.DATE);
+            editor.apply();
+            Log.d(Constants.TAG, "push successful");
+
+        } else {
+            Log.d(Constants.TAG, resp.getMessage());
+        }
+
+    }
+
+    private void handleError(Throwable error) {
+
+        Log.d(Constants.TAG, error.toString());
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mCompositeDisposable.clear();
     }
 
     public static int getThemeAccentColor (final Context context) {

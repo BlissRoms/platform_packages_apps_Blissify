@@ -16,6 +16,8 @@ public class StatsData {
     private String countryCode;
     private String buildDate;
     private String androidVersion;
+    private String manufacturer;
+    private String buildName;
 
     public String getDevice() {
         return SystemProperties.get(Constants.KEY_DEVICE);
@@ -72,5 +74,21 @@ public class StatsData {
 
     public void setBuildDate(String buildDate) {
         this.buildDate = TextUtils.isEmpty(buildDate) ? "unknown" : buildDate;
+    }
+
+    public String getManufacturer() {
+        return SystemProperties.get(Constants.KEY_DEVICE_OEM);
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = TextUtils.isEmpty(manufacturer) ? "unknown" : manufacturer;
+    }
+
+    public String getBuildName() {
+        return SystemProperties.get(Constants.KEY_BUILD_NAME);
+    }
+
+    public void setBuildName(String buildName) {
+        this.buildName = TextUtils.isEmpty(buildName) ? "unknown" : buildName;
     }
 }
