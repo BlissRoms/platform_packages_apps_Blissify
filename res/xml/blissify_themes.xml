@@ -35,9 +35,11 @@
             android:title="@string/theme_customization_icon_shape_title"
             android:icon="@drawable/ic_icon_shape"/>
 
-        <ListPreference
+        <Preference
             android:key="android.theme.customization.icon_pack.android"
-            android:title="@string/theme_customization_sysui_icon_title"
+            android:title="@string/theme_customization_system_icon_title"
+            android:summary="@string/theme_customization_system_icon_summary"
+            android:fragment="com.blissroms.blissify.fragments.themes.StatusbarIcons"
             android:icon="@drawable/ic_icon_pack"/>
 
         <com.bliss.support.preferences.SystemSettingListPreference
