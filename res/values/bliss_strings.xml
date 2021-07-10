@@ -578,7 +578,6 @@
     <!--  Volume Panel Plugin   -->
     <string name="volume_panel">Volume Panel Style</string>
     <string name="volume_panel_stock">Stock AOSP Panel</string>
-    <string name="volume_panel_aosp">AOSP Expanded</string>
     <string name="volume_panel_compact">Compact</string>
     <string name="volume_panel_oreo">Oreo</string>
     <string name="volume_panel_tiled">Tiled</string>
@@ -589,7 +588,6 @@
 
     <!--  Volume Panel Plugin Values   -->
     <string name="volume_panel_stock_val" translatable="false">com.android.systemui.volume</string>
-    <string name="volume_panel_aosp_val">co.potatoproject.plugin.volume.aosp</string>
     <string name="volume_panel_compact_val">co.potatoproject.plugin.volume.compact</string>
     <string name="volume_panel_oreo_val">co.potatoproject.plugin.volume.oreo</string>
     <string name="volume_panel_tiled_val">co.potatoproject.plugin.volume.tiled</string>
@@ -600,7 +598,7 @@
 
     <!-- Per-app volume -->
     <string name="show_app_volume_title">Show app volume</string>
-    <string name="show_app_volume_summary">Show app volume in volume panel (Only works for Stock Volume panel)</string>
+    <string name="show_app_volume_summary">Show app volume in volume panel</string>
 
     <!-- QS tile styles -->
     <string name="qs_tile_style_title">QS tile style</string>
