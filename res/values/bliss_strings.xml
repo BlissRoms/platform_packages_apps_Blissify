@@ -913,4 +913,10 @@
     <string name="switch_oos">OxygenOS 11</string>
     <string name="switch_fluid">Fluid</string>
     <string name="switch_android_s">Android S</string>
+
+    <!-- Custom Signal bar icons -->
+    <string name="custom_signal_bar_title">Signal icons</string>
+
+    <!-- Custom Wi-Fi bar icons -->
+    <string name="custom_wifi_bar_title">Wi-Fi icon</string>
 </resources>

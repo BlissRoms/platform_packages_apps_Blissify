@@ -74,6 +74,16 @@
         android:summary="%s"
         android:defaultValue="0" />
 
+        <ListPreference
+            android:key="android.theme.customization.wifi_icon"
+            android:title="@string/custom_wifi_bar_title"
+            android:icon="@drawable/ic_wifi"/>
+
+        <ListPreference
+            android:key="android.theme.customization.signal_icon"
+            android:title="@string/custom_signal_bar_title"
+            android:icon="@drawable/ic_cell"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory

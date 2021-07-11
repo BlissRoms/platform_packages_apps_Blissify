@@ -156,6 +156,10 @@ public class Themes extends DashboardFragment  implements
                 "android.theme.customization.icon_pack.android"));
         controllers.add(mFontPickerPreference = new FontPickerPreferenceController(context, lifecycle));
         controllers.add(new SystemThemePreferenceController(context));
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.signal_icon"));
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.wifi_icon"));
         return controllers;
     }
 
