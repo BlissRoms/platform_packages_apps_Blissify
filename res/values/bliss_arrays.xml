@@ -1074,6 +1074,7 @@
         <item>@string/slider_oos</item>
         <item>@string/slider_aosp</item>
         <item>@string/slider_rui</item>
+        <item>@string/slider_a12</item>
     </string-array>
 
     <string-array name="slider_styles_values" translatable="false">
@@ -1081,5 +1082,6 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>
