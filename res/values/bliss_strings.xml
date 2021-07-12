@@ -637,40 +637,6 @@
     <string name="theme_customization_sysui_icon_title">Statusbar Icon</string>
     <string name="theme_customization_device_default">Device default</string>
 
-    <!-- Lockscreen Clocks -->
-    <string name="lock_screen_custom_clock_face_category">Lockscreen Clock</string>
-    <string name="lock_screen_custom_clock_face_title">Lockscreen clock style</string>
-    <string name="lock_screen_custom_clock_face_analog">Analog</string>
-    <string name="lock_screen_custom_clock_face_binary">Binary</string>
-    <string name="lock_screen_custom_clock_face_bliss">Bliss</string>
-    <string name="lock_screen_custom_clock_face_clockertino">Clockertino</string>
-    <string name="lock_screen_custom_clock_face_customnum">Custom-Num</string>
-    <string name="lock_screen_custom_clock_face_default">Default</string>
-    <string name="lock_screen_custom_clock_face_default_bold">Default (bold)</string>
-    <string name="lock_screen_custom_clock_face_divided_lines">Divided Lines</string>
-    <string name="lock_screen_custom_clock_face_dot">Dot</string>
-    <string name="lock_screen_custom_clock_face_fluid">Fluid</string>
-    <string name="lock_screen_custom_clock_face_ide">IDE</string>
-    <string name="lock_screen_custom_clock_face_ide_java">IDE Java</string>
-    <string name="lock_screen_custom_clock_face_mnml_box" translatable="false">MNML\'s Box</string>
-    <string name="lock_screen_custom_clock_face_mnml_minimal" translatable="false">MNML\'s Minimal</string>
-    <string name="lock_screen_custom_clock_face_op_analog">OnePlus Analog</string>
-    <string name="lock_screen_custom_clock_face_op_minimal">OnePlus Minimal</string>
-    <string name="lock_screen_custom_clock_face_op_minimalism">OnePlus Minimalism</string>
-    <string name="lock_screen_custom_clock_face_op_numbers">OnePlus Numbers</string>
-    <string name="lock_screen_custom_clock_face_op_romanclock">OnePlus Roman</string>
-    <string name="lock_screen_custom_clock_face_oronos">Oronos</string>
-    <string name="lock_screen_custom_clock_face_oronos_reshaped">Oronos Square</string>
-    <string name="lock_screen_custom_clock_face_samsung">Samsung</string>
-    <string name="lock_screen_custom_clock_face_samsung_bold">Samsung (bold)</string>
-    <string name="lock_screen_custom_clock_face_sfuny">Sfuny</string>
-    <string name="lock_screen_custom_clock_face_sneeky">Sneeky</string>
-    <string name="lock_screen_custom_clock_face_spectrum">Spectrum</string>
-    <string name="lock_screen_custom_clock_face_spidey">Spidey</string>
-    <string name="lock_screen_custom_clock_face_sticker_tag">Sticker Tag</string>
-    <string name="lock_screen_custom_clock_face_type_alt">Type Alt</string>
-    <string name="lock_screen_custom_clock_face_typographic">Typographic</string>
-
     <!-- gvisual mod -->
     <string name="gvisual_title">G-Visual Mod</string>
     <string name="gvisual_summary">Various UI customizations</string>

@@ -55,10 +55,6 @@ public class Themes extends DashboardFragment  implements
 
     public static final String TAG = "Themes";
 
-    private static final String CUSTOM_CLOCK_FACE = Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE;
-    private static final String DEFAULT_CLOCK = "com.android.keyguard.clock.DefaultClockController";
-
-    private ListPreference mLockClockStyles;
     private Context mContext;
 
     private IntentFilter mIntentFilter;
@@ -90,37 +86,7 @@ public class Themes extends DashboardFragment  implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mLockClockStyles) {
-            setLockScreenCustomClockFace((String) newValue);
-            int index = mLockClockStyles.findIndexOfValue((String) newValue);
-            mLockClockStyles.setSummary(mLockClockStyles.getEntries()[index]);
-            return true;
-        }
         return false;
-    }
-
-    private String getLockScreenCustomClockFace() {
-        String value = Settings.Secure.getStringForUser(mContext.getContentResolver(),
-                CUSTOM_CLOCK_FACE, USER_CURRENT);
-
-        if (value == null || value.isEmpty()) value = DEFAULT_CLOCK;
-
-        try {
-            JSONObject json = new JSONObject(value);
-            return json.getString("clock");
-        } catch (JSONException ex) {
-        }
-        return value;
-    }
-
-    private void setLockScreenCustomClockFace(String value) {
-        try {
-            JSONObject json = new JSONObject();
-            json.put("clock", value);
-            Settings.Secure.putStringForUser(mContext.getContentResolver(), CUSTOM_CLOCK_FACE,
-                    json.toString(), USER_CURRENT);
-        } catch (JSONException ex) {
-        }
     }
 
     @Override
