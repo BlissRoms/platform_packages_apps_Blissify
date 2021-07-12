@@ -77,12 +77,6 @@ public class Themes extends DashboardFragment  implements
 
         mIntentFilter = new IntentFilter();
         mIntentFilter.addAction("com.android.server.ACTION_FONT_CHANGED");
-
-        mLockClockStyles = (ListPreference) findPreference(CUSTOM_CLOCK_FACE);
-        String mLockClockStylesValue = getLockScreenCustomClockFace();
-        mLockClockStyles.setValue(mLockClockStylesValue);
-        mLockClockStyles.setSummary(mLockClockStyles.getEntry());
-        mLockClockStyles.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
