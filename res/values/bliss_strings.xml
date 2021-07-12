@@ -895,4 +895,9 @@
     <!-- Status Bar Lyric -->
     <string name="status_bar_show_lyric_title">Status bar lyric</string>
     <string name="status_bar_show_lyric_summary">Show lyric in status bar (need App support)</string>
+
+    <!-- Clock style -->
+    <string name="lock_screen_custom_clock_face_category">Lockscreen Clock</string>
+    <string name="clock_style_title">Clock style</string>
+    <string name="clock_style_summary">Customize lockscreen clock</string>
 </resources>
