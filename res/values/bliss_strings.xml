@@ -770,7 +770,7 @@
     <string name="theme_type_material_ocean">Material Ocean</string>
 
     <!-- Settings dashboard icon style -->
-    <string name="theming_settings_dashboard_icons_title">Settings dashboard icons</string>
+    <string name="theming_settings_dashboard_icons_title">Settings dashboard style</string>
     <string name="theming_settings_dashboard_icons_default">Default background / Transparent foreground</string>
     <string name="theming_settings_dashboard_icons_white">Default background / White foreground</string>
     <string name="theming_settings_dashboard_icons_accent">Accent background / Transparent foreground</string>
