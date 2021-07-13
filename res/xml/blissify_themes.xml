@@ -101,7 +101,8 @@
             android:title="@string/theme_navbar_picker_title"
             android:dialogTitle="@string/theme_navbar_picker_summary"
             android:entries="@array/navbar_name_entries"
-            android:entryValues="@array/navbar_picker_values"/>
+            android:entryValues="@array/navbar_picker_values"
+            android:icon="@drawable/ic_blissify_navigation"/>
     </PreferenceCategory>
 
     <PreferenceCategory
