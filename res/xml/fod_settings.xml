@@ -52,13 +52,12 @@
             android:summary="@string/fod_icon_animation_summary"
             android:defaultValue="false" />
 
-        <com.bliss.support.preferences.SystemSettingListPreference
-            android:key="fod_icon_anim_type"
+        <Preference
+            android:key="fod_icon_anim_type_preview"
+            settings:iconSpaceReserved="false"
             android:title="@string/fod_icon_animation_effect_title"
-            android:summary="%s"
-            android:entries="@array/fod_icon_animation_entries"
-            android:entryValues="@array/fod_icon_animation_values"
-            android:defaultValue="0"
+            android:summary="@string/fod_icon_animation_summary"
+            android:fragment="com.blissroms.blissify.fragments.statusbar.FODIconAnimation"
             android:dependency="fod_icon_animation" />
 
         <com.bliss.support.preferences.SystemSettingListPreference
