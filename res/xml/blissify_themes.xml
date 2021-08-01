@@ -13,6 +13,7 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="themes_category"
     android:title="@string/blissify_themes_title">
 
@@ -160,14 +161,6 @@
             android:persistent="false"
             android:dependency="sysui_rounded_fwvals" />
 
-        <!-- <com.bliss.support.preferences.CustomSeekBarPreference
-            android:key="sysui_rounded_content_padding"
-            android:title="@string/content_padding"
-            android:max="30"
-            settings:min="0"
-            settings:units="dp"
-            android:persistent="false"
-            android:dependency="sysui_rounded_fwvals" /-->
     </PreferenceCategory>
 
 
