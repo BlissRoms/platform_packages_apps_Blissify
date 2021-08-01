@@ -72,6 +72,7 @@
     <string name="custom_weather_explainer">You are not limited to the pre-installed weather icon packages. Search the Google PlayStore with the keyword "chronus icons" and you will find a lot of additional packages.</string>
     <string name="gaming_title">Gaming mode</string>
     <string name="gaming_title_summary">Extra features for immersive gaming experience</string>
+    <string name="powersave_title">Power Saving</string>
     
     <!-- Units -->
     <string name="unit_milliseconds">milliseconds</string>
@@ -1200,4 +1201,13 @@
     <string name="sleep_mode_ringer_dnd_title">Do Not Disturb</string>
     <string name="sleep_mode_ringer_silent_title">Silent</string>
     <string name="sleep_mode_display_text">Sleep mode allows you to disable certain services to help save battery and silence your phone while you sleep.</string>
+
+    <!-- Power Profiles -->
+    <string name="power_profile">Battery saver profile</string>
+    <string name="power_profile_default">Default</string>
+    <string name="power_profile_light">Light</string>
+    <string name="power_profile_med">Moderate</string>
+    <string name="power_profile_high">High</string>
+    <string name="power_profile_ext">Extreme</string>
+    <string name="powersave_summary">Options to extend your battery life</string>
 </resources>

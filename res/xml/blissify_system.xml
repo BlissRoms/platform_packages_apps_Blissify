@@ -165,6 +165,12 @@
 		    android:summary="@string/aggressive_battery_summary"
 		    android:fragment="com.blissroms.blissify.fragments.system.AggressiveBattery" />
 
+                <Preference
+                    android:key="ps_cat"
+                    android:title="@string/powersave_title" 
+                    android:summary="@string/powersave_summary"
+                    android:fragment="com.blissroms.blissify.fragments.system.PowerSaving" />
+
     </PreferenceCategory>
 
 	<!-- Misc Customizations -->
