@@ -51,12 +51,6 @@
             android:defaultValue="0"
         	android:icon="@drawable/ic_themes_dashboard" />
 
-    <com.android.settings.display.FontDialogPreference
-        android:key="custom_font"
-        android:title="@string/font_picker_title"
-        android:persistent="false" 
-        android:icon="@drawable/ic_themes_font" />
-
         <ListPreference
             android:key="system_theme"
             android:title="@string/theme_type_title"
@@ -130,9 +124,11 @@
             android:layout="@layout/themes_font_preview"
             android:selectable="false" />
 
-        <ListPreference
-            android:key="android.theme.customization.font"
-            android:title="@string/theme_customization_font_title"/>
+    <com.android.settings.display.FontDialogPreference
+        android:key="custom_font"
+        android:title="@string/font_picker_title"
+        android:persistent="false" 
+        android:icon="@drawable/ic_themes_font" />
 
     </PreferenceCategory>
 

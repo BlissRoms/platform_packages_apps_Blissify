@@ -217,8 +217,6 @@ public class Themes extends DashboardFragment  implements
                 "android.theme.customization.primary_color"));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.adaptive_icon_shape"));
-        controllers.add(new OverlayCategoryPreferenceController(context,
-                "android.theme.customization.icon_pack.android"));
         controllers.add(mFontPickerPreference = new FontPickerPreferenceController(context, lifecycle));
         controllers.add(new SystemThemePreferenceController(context));
         controllers.add(new OverlayCategoryPreferenceController(context,
