@@ -31,13 +31,6 @@
           android:fragment="com.blissroms.blissify.fragments.lockscreen.FODSettings"
           android:icon="@drawable/ic_fingerprint_category" />
 
-    <PreferenceCategory
-        android:key="lockscreen_visualizer_options"
-        android:title="@string/lockscreen_visualizer_title"
-        android:icon="@drawable/ic_music_visualizer" >
-
-    </PreferenceCategory>
-
     <!-- Lockscreen Media -->
     <PreferenceCategory
         android:key="lockscreen_media_category"
