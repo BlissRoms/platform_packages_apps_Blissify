@@ -36,12 +36,6 @@
         android:title="@string/lockscreen_visualizer_title"
         android:icon="@drawable/ic_music_visualizer" >
 
-        <Preference
-            android:key="lockscreen_visualizer"
-            android:fragment="com.blissroms.blissify.fragments.lockscreen.Visualizer"
-            android:title="@string/lockscreen_visualizer_enable"
-            android:summary="@string/lockscreen_visualizer_enable_summary" />
-
     </PreferenceCategory>
 
     <!-- Lockscreen Media -->
