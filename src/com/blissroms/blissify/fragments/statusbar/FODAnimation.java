@@ -101,6 +101,9 @@ public class FODAnimation extends SettingsPreferenceFragment {
         "fod_recog_animation_smoke",
         "fod_recog_animation_strings",
         "fod_recog_animation_quantum",
+        "fod_blue_firework_recognizing_anim",
+        "fod_coloros7_1_recognizing_anim",
+        "fod_coloros7_2_recognizing_anim",
     };
 
     private String[] mAnimPreviews = {
@@ -132,6 +135,9 @@ public class FODAnimation extends SettingsPreferenceFragment {
         "fod_recog_animation_smoke_5",
         "fod_recog_animation_strings_9",
         "fod_recog_animation_quantum_1",
+        "fod_blue_firework_anim_06",
+        "fod_coloros7_1_anim_26",
+        "fod_coloros7_2_anim22",
     };
 
     private String[] mTitles = {
@@ -163,6 +169,9 @@ public class FODAnimation extends SettingsPreferenceFragment {
         "Smoke",
         "Strings",
         "Quantum",
+        "Blue Fireworks",
+        "ColorOS7 1",
+        "ColorOS7 2",
     };
 
     @Override
