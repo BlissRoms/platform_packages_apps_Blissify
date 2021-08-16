@@ -58,12 +58,15 @@ import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settingslib.search.SearchIndexable;
 import com.blissroms.blissify.fragments.themes.SystemThemePreferenceController;
 import com.bliss.support.colorpicker.ColorPickerPreference;
+import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.bliss.BlissUtils;
 import com.android.internal.util.bliss.ThemesUtils;
+import com.blissroms.blissify.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -75,12 +78,14 @@ public class Themes extends DashboardFragment  implements
     public static final String TAG = "Themes";
 
     private static final String PREF_NAVBAR_STYLE = "theme_navbar_style";
+    private static final String ACCENT_PRESET = "accent_preset";
 
     private Context mContext;
     private IOverlayManager mOverlayManager;
     private IOverlayManager mOverlayService;
 
     private ListPreference mNavbarPicker;
+    private ListPreference mAccentPreset;
 
     private static final String PREF_RGB_ACCENT_PICKER = "rgb_accent_picker";
 
@@ -128,6 +133,10 @@ public class Themes extends DashboardFragment  implements
                 : Color.parseColor("#" + colorVal);
         rgbAccentPicker.setNewPreviewColor(color);
         rgbAccentPicker.setOnPreferenceChangeListener(this);
+        
+        mAccentPreset = (ListPreference) findPreference(ACCENT_PRESET);
+        mAccentPreset.setOnPreferenceChangeListener(this);
+        checkColorPreset(colorVal);
     }
 
     private int getOverlayPosition(String[] overlays) {
@@ -180,14 +189,42 @@ public class Themes extends DashboardFragment  implements
             Settings.Secure.putStringForUser(mContext.getContentResolver(),
                         Settings.Secure.ACCENT_COLOR,
                         hexColor, UserHandle.USER_CURRENT);
+	        checkColorPreset(hexColor);
             try {
                  mOverlayManager.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
                  mOverlayManager.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
              }
             return true;
+        } else if (preference == mAccentPreset) {
+            String value = (String) newValue;
+            int index = mAccentPreset.findIndexOfValue(value);
+            mAccentPreset.setSummary(mAccentPreset.getEntries()[index]);
+            Settings.Secure.putStringForUser(mContext.getContentResolver(),
+                        Settings.Secure.ACCENT_COLOR,
+                        value, UserHandle.USER_CURRENT);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;
         }
         return false;
+    }
+
+    private void checkColorPreset(String colorValue) {
+        List<String> colorPresets = Arrays.asList(
+                getResources().getStringArray(R.array.accent_presets_values));
+        if (colorPresets.contains(colorValue)) {
+            mAccentPreset.setValue(colorValue);
+            int index = mAccentPreset.findIndexOfValue(colorValue);
+            mAccentPreset.setSummary(mAccentPreset.getEntries()[index]);
+        }
+        else {
+            mAccentPreset.setSummary(
+                    getResources().getString(R.string.custom_string));
+        }
     }
 
     @Override
