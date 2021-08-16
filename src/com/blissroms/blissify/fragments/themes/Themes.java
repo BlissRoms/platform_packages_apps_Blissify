@@ -66,12 +66,15 @@ import com.bliss.support.colorpicker.ColorPickerPreference;
 import com.bliss.support.preferences.SecureSettingSwitchPreference;
 import com.bliss.support.preferences.CustomSeekBarPreference;
 
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.util.bliss.BlissUtils;
 import com.android.internal.util.bliss.ThemesUtils;
 import com.bliss.support.preferences.SystemSettingListPreference;
+import com.blissroms.blissify.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -86,6 +89,7 @@ public class Themes extends DashboardFragment  implements
     private static final String SLIDER_STYLE  = "slider_style";
     private static final String SYSUI_ROUNDED_SIZE = "sysui_rounded_size";
     private static final String SYSUI_ROUNDED_FWVALS = "sysui_rounded_fwvals";
+    private static final String ACCENT_PRESET = "accent_preset";
 
     private Context mContext;
     private Handler mHandler;
@@ -95,6 +99,7 @@ public class Themes extends DashboardFragment  implements
     private SecureSettingSwitchPreference mRoundedFwvals;
 
     private ListPreference mNavbarPicker;
+    private ListPreference mAccentPreset;
 
     private static final String PREF_RGB_ACCENT_PICKER = "rgb_accent_picker";
 
@@ -166,6 +171,9 @@ public class Themes extends DashboardFragment  implements
 
         mSlider = (SystemSettingListPreference) findPreference(SLIDER_STYLE);
         mCustomSettingsObserver.observe();
+        mAccentPreset = (ListPreference) findPreference(ACCENT_PRESET);
+        mAccentPreset.setOnPreferenceChangeListener(this);
+        checkColorPreset(colorVal);
     }
 
     private int getOverlayPosition(String[] overlays) {
@@ -302,6 +310,7 @@ public class Themes extends DashboardFragment  implements
             Settings.Secure.putStringForUser(mContext.getContentResolver(),
                         Settings.Secure.ACCENT_COLOR,
                         hexColor, UserHandle.USER_CURRENT);
+	        checkColorPreset(hexColor);
             try {
                  mOverlayManager.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
                  mOverlayManager.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
@@ -317,6 +326,19 @@ public class Themes extends DashboardFragment  implements
             return true;
         } else if (preference == mRoundedFwvals) {
             restoreCorners();
+            return true;
+        } else if (preference == mAccentPreset) {
+            String value = (String) newValue;
+            int index = mAccentPreset.findIndexOfValue(value);
+            mAccentPreset.setSummary(mAccentPreset.getEntries()[index]);
+            Settings.Secure.putStringForUser(mContext.getContentResolver(),
+                        Settings.Secure.ACCENT_COLOR,
+                        value, UserHandle.USER_CURRENT);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
             return true;
         }
         return false;
@@ -335,7 +357,20 @@ public class Themes extends DashboardFragment  implements
 
         int resourceIdRadius = (int) ctx.getResources().getDimension(com.android.internal.R.dimen.rounded_corner_radius);
         mCornerRadius.setValue((int) (resourceIdRadius / density));
+    }
 
+    private void checkColorPreset(String colorValue) {
+        List<String> colorPresets = Arrays.asList(
+                getResources().getStringArray(R.array.accent_presets_values));
+        if (colorPresets.contains(colorValue)) {
+            mAccentPreset.setValue(colorValue);
+            int index = mAccentPreset.findIndexOfValue(colorValue);
+            mAccentPreset.setSummary(mAccentPreset.getEntries()[index]);
+        }
+        else {
+            mAccentPreset.setSummary(
+                    getResources().getString(R.string.custom_string));
+        }
     }
 
     @Override

@@ -127,7 +127,16 @@
         android:key="rgb_accent_picker"
         android:title="@string/rgb_accent_picker_title"
         android:summary="@string/rgb_accent_picker_summary"
-        android:persistent="false" />
+        android:persistent="false"
+        android:icon="@drawable/ic_themes_accent" />
+
+        <ListPreference
+            android:key="accent_preset"
+            android:title="@string/accent_preset_title"
+            android:persistent="false"
+            android:entries="@array/accent_presets_entries"
+            android:entryValues="@array/accent_presets_values"
+        	android:icon="@drawable/ic_themes_accent" />
 
         <ListPreference
             android:layout="@layout/themes_font_preview"
