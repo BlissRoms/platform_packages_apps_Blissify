@@ -164,13 +164,6 @@
             settings:min="0"
             settings:units="" />
 
-        <!-- QS panel gradient below status bar -->
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="qs_sb_bg_gradient"
-            android:title="@string/qs_panel_gradient_title"
-            android:summary="@string/qs_panel_gradient_summary"
-            android:defaultValue="false" />
-
         <!-- QS panel opacity -->
         <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="qs_panel_bg_alpha"
