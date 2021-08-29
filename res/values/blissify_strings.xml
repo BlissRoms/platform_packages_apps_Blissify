@@ -306,4 +306,15 @@
     <string name="network_traffic_layout_h">Horizontal</string>
     <string name="network_traffic_layout_v">Vertical</string>
     <string name="nettraf_font_size">Single net font size</string>
+
+    <!-- VoLTE Icon Type -->
+    <string name="volte_icon_style_title">Select VoLTE/HD Icon</string>
+    <string name="volte_icon_off">Off</string>
+    <string name="volte_icon_vo">Vo Icon</string>
+    <string name="volte_icon_volte">VoLTE Icon</string>
+    <string name="volte_icon_oos">VoLTE OnePlus Icon</string>
+    <string name="volte_icon_dynamic">Dynamic Icons</string>
+    <string name="volte_icon_hd">HD Icons</string>
+    <string name="volte_icon_miui">MiUi Icons</string>
+    <string name="volte_icon_emui">EMUI Icons</string>
 </resources>
