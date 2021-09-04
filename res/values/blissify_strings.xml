@@ -688,4 +688,10 @@
     <string name="fod_pressed_color_yellow">Yellow</string>
     <string name="fod_pressed_color_light_yellow">Light Yellow</string>
 
+    <!-- Custom FOD Icon -->
+    <string name="custom_fp_icon_title">Custom FOD Icon</string>
+    <string name="custom_fp_icon_summary">Enable custom FOD Icon from files</string>
+    <string name="custom_fp_select_title">Select Custom FOD Icon</string>
+    <string name="custom_fp_select_summary">Select custom image from your saved files or gallery</string>
+
 </resources>
