@@ -15,6 +15,20 @@
         android:summary="%s"
         android:title="@string/status_bar_logo_title" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="custom_sb_logo_enabled"
+        android:title="@string/custom_sb_logo_title"
+        android:summary="@string/custom_sb_logo_summary"
+        android:defaultValue="false" />
+
+    <Preference
+        android:key="custom_sb_logo_image"
+        android:title="@string/custom_sb_logo_select_title"
+        android:summary="@string/custom_sb_logo_select_summary"
+        android:dependency="custom_sb_logo_enabled"
+        android:persistent="false" >
+    </Preference>
+
     <ListPreference
         android:key="status_bar_logo_style"
         android:entries="@array/status_bar_logo_style_entries"
