@@ -631,4 +631,9 @@
     <string name="pulse_light_both">All Four Sides</string>
     <string name="pulse_light_top_bottom">Only Top-Bottom</string>
     <string name="pulse_light_left_right">Only Left-Right</string>
+
+    <!-- Statusbar left_right padding -->
+    <string name="corners_category">Corners & Padding</string>
+    <string name="statusbar_left_padding">Statusbar left padding</string>
+    <string name="statusbar_right_padding">Statusbar right padding</string>
 </resources>
