@@ -217,7 +217,7 @@
         android:title="@string/blissify_misc_category_title"
         android:icon="@drawable/ic_misc">
 
-    <com.android.settings.widget.CardPreference
+    <Preference
         android:key="cutout_settings"
         android:fragment="com.blissroms.blissify.fragments.statusbar.CutoutFragment"
         android:title="@string/cutout_main"

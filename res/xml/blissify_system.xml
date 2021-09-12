@@ -197,7 +197,7 @@
         android:title="@string/blissify_misc_category_title"
         android:icon="@drawable/ic_misc">
 
-       <com.android.settings.widget.CardPreference
+       <Preference
             android:key="gaming_category"
             android:title="@string/gaming_title"
             android:fragment="com.blissroms.blissify.fragments.system.GamingModeSettings"

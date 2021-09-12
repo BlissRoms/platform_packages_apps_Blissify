@@ -29,7 +29,6 @@ import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.provider.Settings;
 import com.android.settings.R;
-import com.android.settings.widget.CardPreference;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -79,7 +78,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mNetTrafficSize;
     private PreferenceCategory mLedsCategory;
     private Preference mChargingLeds;
-    private CardPreference mCutoutPref;
+    private Preference mCutoutPref;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -126,12 +125,12 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mNetTrafficLayout.setSummary(mNetTrafficLayout.getEntry());
         mNetTrafficLayout.setOnPreferenceChangeListener(this);
 
-        CardPreference mCutoutPref = findPreference("cutout_settings");
+        Preference mCutoutPref = findPreference("cutout_settings");
         String hasDisplayCutout = getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
         if (TextUtils.isEmpty(hasDisplayCutout)) {
             getPreferenceScreen().removePreference(mCutoutPref);
         } else {
-            mCutoutPref = (CardPreference) findPreference(PREF_KEY_CUTOUT);
+            mCutoutPref = (Preference) findPreference(PREF_KEY_CUTOUT);
         }
 
         mNetTrafficLocation = (ListPreference) findPreference("network_traffic_location");
