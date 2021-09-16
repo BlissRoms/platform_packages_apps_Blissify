@@ -47,6 +47,12 @@
             android:entryValues="@array/battery_percent_values"
             android:defaultValue="0" />
 
+         <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="do_left_battery_text"
+            android:title="@string/left_battery_text_title"
+            android:summary="@string/left_battery_text_summary" 
+            android:defaultValue="false"/>
+
     </PreferenceCategory>
 
     <Preference
