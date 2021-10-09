@@ -633,7 +633,7 @@
     <string name="pulse_light_left_right">Only Left-Right</string>
 
     <!-- Statusbar left_right padding -->
-    <string name="corners_category">Corners & Padding</string>
+    <string name="corners_category">Corners n Padding</string>
     <string name="statusbar_left_padding">Statusbar left padding</string>
     <string name="statusbar_right_padding">Statusbar right padding</string>
 </resources>
