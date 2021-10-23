@@ -72,11 +72,6 @@ public class SystemSettings extends SettingsPreferenceFragment
         setRetainInstance(true);
         final PreferenceScreen prefSet = getPreferenceScreen();
 
-        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
-        if (!Utils.isVoiceCapable(getActivity())) {
-                prefSet.removePreference(incallVibCategory);
-        }
-
         final PackageManager mPm = getActivity().getPackageManager();
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
