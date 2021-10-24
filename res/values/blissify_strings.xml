@@ -33,4 +33,13 @@
     <string name="blissify_status_bar_title">Status bar</string>
     <string name="blissify_themes_title">Themes</string>
 
+    <!-- Lock screen general category -->
+    <string name="general_category">General</string>
+    <string name="lockscreen_shortcuts">Lockscreen shortcuts</string>
+
+    <!-- Lock screen icons -->
+    <string name="lockscreen_tuner_title">Lock screen shortcuts</string>
+
+    <!-- Status bar items -->
+    <string name="statusbar_items_category">Status bar items</string>
 </resources>
