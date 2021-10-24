@@ -42,4 +42,8 @@
 
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
+
+    <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_vibrate_title">Vibrate on touch</string>
+    <string name="quick_settings_vibrate_summary">Vibrate when touching QS tiles</string>
 </resources>
