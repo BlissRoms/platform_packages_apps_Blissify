@@ -267,4 +267,8 @@
     <string name="status_bar_battery_percentage_text_next">Next to the icon</string>
     <string name="status_bar_battery_percentage_text_inside">Inside the icon</string>
 
+    <!-- Show VoLTE icon on statusbar -->
+    <string name="volte_icon_title">VoLTE icon</string>
+    <string name="volte_icon_summary">Display VoLTE icon</string>
+
 </resources>
