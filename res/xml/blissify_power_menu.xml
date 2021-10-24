@@ -9,6 +9,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_powermenu_title">
 
+	<com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_power_menu_disabled"
+            android:title="@string/lockscreen_power_menu_disabled_title"
+            android:summary="@string/lockscreen_power_menu_disabled_summary"
+            android:defaultValue="true" />
+
 	<com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="transparent_power_menu"
             android:title="@string/power_menu_transparency"
