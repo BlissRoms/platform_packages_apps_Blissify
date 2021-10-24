@@ -19,7 +19,11 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_powermenu_title">
 
-    <PreferenceCategory>
+         <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_power_menu_disabled"
+            android:title="@string/lockscreen_power_menu_disabled_title"
+            android:summary="@string/lockscreen_power_menu_disabled_summary"
+            android:defaultValue="true" />
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="powermenu_power"
@@ -70,6 +74,4 @@
             android:key="powermenu_logout"
             android:title="@string/powermenu_logout"
             android:defaultValue="false" />
-
-    </PreferenceCategory>
 </PreferenceScreen>
