@@ -24,6 +24,16 @@
     <string name="dt2s_title">DT2S</string>
     <string name="power_key">Power</string>
 
+    <!-- Lock screen general category -->
+    <string name="general_category">General</string>
+    <string name="lockscreen_shortcuts">Lockscreen shortcuts</string>
+
+    <!-- Lock screen icons -->
+    <string name="lockscreen_tuner_title">Lock screen shortcuts</string>
+
+    <!-- Status bar items -->
+    <string name="statusbar_items_category">Status bar items</string>
+
     <!-- Categories -->
     <string name="blissify_animation_title">Animations</string>
     <string name="blissify_buttons_title">Buttons</string>
