@@ -24,4 +24,15 @@
         android:entries="@array/torch_power_button_gesture_entries"
         android:entryValues="@array/torch_power_button_gesture_values" />
 
+     <PreferenceCategory
+        android:key="volume_category"
+        android:title="@string/volume_category">
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="volume_rocker_wake"
+        android:summary="@string/volume_rocker_wake_summary"
+        android:title="@string/volume_rocker_wake_title"
+        android:defaultValue="false" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
