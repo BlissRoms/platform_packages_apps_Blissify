@@ -68,6 +68,12 @@
             android:summary="@string/fourg_icon_summary"
             android:defaultValue="false" />
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="data_disabled_icon"
+            android:title="@string/data_disabled_icon_title"
+            android:summary="@string/data_disabled_icon_summary"
+            android:defaultValue="true"/>
+
 	<com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="use_old_mobiletype"
             android:title="@string/old_mobiletype_title"
