@@ -30,6 +30,7 @@
 
     <!-- Lock screen icons -->
     <string name="lockscreen_tuner_title">Lock screen shortcuts</string>
+    <string name="fingerprint_category">Fingerprint</string>    
 
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
@@ -202,4 +203,9 @@
     <string name="quick_pulldown_right">Pulldown statusbar from right side</string>
     <string name="quick_pulldown_left">Pulldown statusbar from left side</string>
 
+    <!-- Fingerprint authentication vibration -->
+    <string name="fprint_sucess_vib_title">Fingerprint success vibration</string>
+    <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
+    <string name="fprint_error_vib_title">Fingerprint error vibration</string>
+    <string name="fprint_error_vib_summary">Vibrate on failed fingerprint authentication</string>
 </resources>
