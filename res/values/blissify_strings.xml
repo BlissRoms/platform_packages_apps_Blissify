@@ -301,4 +301,8 @@
     <string name="fourg_icon_title">4G icon</string>
     <string name="fourg_icon_summary">Display 4G icon instead of LTE</string>
 
+    <!-- Roaming indicator icon -->
+    <string name="roaming_indicator_icon_title">Roaming indicator</string>
+    <string name="roaming_indicator_icon_summary">Display roaming indicator in signal icon when in roaming mode</string>
+
 </resources>
