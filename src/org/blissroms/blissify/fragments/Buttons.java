@@ -31,6 +31,7 @@ import android.util.Log;
 
 import androidx.fragment.app.DialogFragment;
 import android.os.RemoteException;
+import android.os.PowerManager;
 import android.os.ServiceManager;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -45,6 +46,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.bliss.support.preferences.CustomSeekBarPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -72,7 +74,12 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
     private static final String CATEGORY_APPSWITCH = "app_switch_key";
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String CATEGORY_POWER = "power_key";
-     // Masks for checking presence of hardware keys.
+
+    private static final String KEY_BUTTON_MANUAL_BRIGHTNESS_NEW = "button_manual_brightness_new";
+    private static final String KEY_BUTTON_TIMEOUT = "button_timeout";
+    private static final String KEY_BUTON_BACKLIGHT_OPTIONS = "button_backlight_options_category";
+
+    // Masks for checking presence of hardware keys.
     // Must match values in frameworks/base/core/res/res/values/config.xml
     public static final int KEY_MASK_HOME = 0x01;
     public static final int KEY_MASK_BACK = 0x02;
@@ -85,6 +92,9 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
     private static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
 
     private ListPreference mTorchPowerButton;
+    private CustomSeekBarPreference mButtonTimoutBar;
+    private CustomSeekBarPreference mManualButtonBrightness;
+    private PreferenceCategory mButtonBackLightCategory;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -144,6 +154,32 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
         mTorchPowerButton.setValue(Integer.toString(mTorchPowerButtonValue));
         mTorchPowerButton.setSummary(mTorchPowerButton.getEntry());
         mTorchPowerButton.setOnPreferenceChangeListener(this);
+
+        mManualButtonBrightness = (CustomSeekBarPreference) findPreference(
+                KEY_BUTTON_MANUAL_BRIGHTNESS_NEW);
+        final int customButtonBrightness = getResources().getInteger(
+                com.android.internal.R.integer.config_button_brightness_default);
+        final int currentBrightness = Settings.System.getInt(resolver,
+                Settings.System.CUSTOM_BUTTON_BRIGHTNESS, customButtonBrightness);
+        PowerManager pm = (PowerManager)getActivity().getSystemService(Context.POWER_SERVICE);
+        mManualButtonBrightness.setMax(pm.getMaximumScreenBrightnessSetting());
+        mManualButtonBrightness.setValue(currentBrightness);
+        mManualButtonBrightness.setOnPreferenceChangeListener(this);
+
+        mButtonTimoutBar = (CustomSeekBarPreference) findPreference(KEY_BUTTON_TIMEOUT);
+        int currentTimeout = Settings.System.getInt(resolver,
+                Settings.System.BUTTON_BACKLIGHT_TIMEOUT, 0);
+        mButtonTimoutBar.setValue(currentTimeout);
+        mButtonTimoutBar.setOnPreferenceChangeListener(this);
+
+        final boolean enableBacklightOptions = getResources().getBoolean(
+                com.android.internal.R.bool.config_button_brightness_support);
+
+        mButtonBackLightCategory = (PreferenceCategory) findPreference(KEY_BUTON_BACKLIGHT_OPTIONS);
+
+        if (!enableBacklightOptions) {
+            prefSet.removePreference(mButtonBackLightCategory);
+        }
     }
 
     @Override
@@ -157,8 +193,18 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
             Settings.System.putInt(resolver, Settings.System.TORCH_POWER_BUTTON_GESTURE,
                     mTorchPowerButtonValue);
             return true;
+        } else if (preference == mButtonTimoutBar) {
+            int buttonTimeout = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.BUTTON_BACKLIGHT_TIMEOUT, buttonTimeout);
+        } else if (preference == mManualButtonBrightness) {
+            int buttonBrightness = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.CUSTOM_BUTTON_BRIGHTNESS, buttonBrightness);
+        } else {
+            return false;
         }
-        return false;
+        return true;
     }
 
     @Override
