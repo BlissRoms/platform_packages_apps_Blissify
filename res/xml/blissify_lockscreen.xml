@@ -32,4 +32,25 @@
         android:summary="@string/double_tap_to_sleep_lockscreen_summary"
         android:defaultValue="true" />
 
+    <PreferenceCategory
+        android:key="lockscreen_media_art_options"
+        android:title="@string/lockscreen_media_art_options_title" >
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="show_lockscreen_media_art"
+            android:title="@string/show_lockscreen_media_art_title"
+            android:defaultValue="true" />
+
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="lockscreen_media_blur"
+            android:title="@string/lockscreen_media_blur_title"
+            android:dependency="show_lockscreen_media_art"
+            settings:allowEditText="true"
+            android:max="25"
+            android:min="0"
+            android:defaultValue="25"
+            settings:units="dp"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
