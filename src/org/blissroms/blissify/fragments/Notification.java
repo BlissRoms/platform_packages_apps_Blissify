@@ -37,6 +37,24 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceViewHolder;
 import androidx.preference.SwitchPreference;
+import android.app.ActivityManagerNative;
+import android.content.Context;
+import android.content.ContentResolver;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
+import android.os.UserHandle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import android.provider.Settings;
+import android.util.Log;
+import android.view.WindowManagerGlobal;
+import android.view.IWindowManager;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.Locale;
+import android.text.TextUtils;
+import android.view.View;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
@@ -46,6 +64,7 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.android.internal.util.bliss.BlissUtils;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Notification extends SettingsPreferenceFragment implements
@@ -58,6 +77,7 @@ public class Notification extends SettingsPreferenceFragment implements
     private Preference mChargingLeds;
     private Preference mNotLights;
     private PreferenceCategory mLedCategory;
+    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -68,6 +88,11 @@ public class Notification extends SettingsPreferenceFragment implements
         final Context mContext = getActivity().getApplicationContext();
         final PreferenceScreen prefSet = getPreferenceScreen();
         final Resources res = mContext.getResources();
+
+        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+        if (!BlissUtils.isVoiceCapable(getActivity())) {
+                prefSet.removePreference(incallVibCategory);
+        }
 
         boolean hasLED = res.getBoolean(
                 com.android.internal.R.bool.config_hasNotificationLed);
