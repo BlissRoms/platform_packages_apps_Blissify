@@ -71,6 +71,11 @@
         android:fragment="org.blissroms.blissify.fragments.Traffic"
         android:title="@string/traffic_title" />
 
+    <Preference
+        android:key="battery_bar_category"
+        android:fragment="org.blissroms.blissify.fragments.BatteryBar"
+        android:title="@string/battery_bar_title" />
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="show_fourg_icon"
         android:title="@string/show_fourg_icon_title"
