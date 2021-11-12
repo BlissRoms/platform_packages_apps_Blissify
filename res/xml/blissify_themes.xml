@@ -19,4 +19,9 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_themes_title">
 
+        <Preference
+        android:key="customisation"
+        android:fragment="org.blissroms.blissify.fragments.Customisation"
+        android:title="@string/customisation_title" />
+
 </PreferenceScreen>
