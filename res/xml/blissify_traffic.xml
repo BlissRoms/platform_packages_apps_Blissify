@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014-2021 The BlissRoms Project
+<!--
+     Copyright (C) 2014-2022 BlissRoms Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,23 +16,20 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/blissify_status_bar_title">
+    android:title="@string/traffic_title">
 
-    <Preference
-            android:key="systemui_tuner_statusbar"
-            android:title="@string/statusbar_items_category" >
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
-    </Preference>
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="network_traffic_state"
+        android:title="@string/network_traffic_state_title"
+        android:defaultValue="false" />
 
-    <Preference
-        android:key="traffic"
-        android:fragment="org.blissroms.blissify.fragments.Traffic"
-        android:title="@string/traffic_title"
-        android:summary="@string/traffic_summary"
-        app:allowDividerAbove="true" />
+    <com.bliss.support.preferences.CustomSeekBarPreference
+        android:key="network_traffic_autohide_threshold"
+        android:title="@string/network_traffic_autohide_threshold_title"
+        android:max="10"
+        settings:min="0"
+        settings:units="KB/s"
+        android:defaultValue="0" />
 
 </PreferenceScreen>
