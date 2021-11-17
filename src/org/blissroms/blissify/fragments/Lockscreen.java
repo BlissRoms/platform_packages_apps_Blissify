@@ -48,6 +48,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -63,7 +65,10 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
     private static final String AOD_SCHEDULE_KEY = "always_on_display_schedule";
     private static final String SCREEN_OFF_FOD_KEY = "screen_off_fod";
+    private static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
 
+    private SystemSettingSwitchPreference mFODScreenOff;
+    private SystemSettingSwitchPreference mUdfpsHapticFeedback;
 
     static final int MODE_DISABLED = 0;
     static final int MODE_NIGHT = 1;
@@ -108,9 +113,11 @@ public class Lockscreen extends SettingsPreferenceFragment implements
             prefSet.removePreference(mFingerprintErrorVib);
         }
 
-        mFODPref = findPreference(SCREEN_OFF_FOD_KEY);
+        mFODScreenOff = (SystemSettingSwitchPreference) findPreference(SCREEN_OFF_FOD_KEY);
+        mUdfpsHapticFeedback = (SystemSettingSwitchPreference) findPreference(UDFPS_HAPTIC_FEEDBACK);
         if (!UdfpsUtils.hasUdfpsSupport(getContext())) {
-            removePreference(SCREEN_OFF_FOD_KEY);
+            prefSet.removePreference(mFODScreenOff);
+            prefSet.removePreference(mUdfpsHapticFeedback);
         }
 
         mAODPref = findPreference(AOD_SCHEDULE_KEY);
