@@ -5,10 +5,9 @@
     android:viewportWidth="24"
     android:viewportHeight="24"
     android:tint="?android:attr/colorControlNormal">
-
     <path
         android:pathData="M0,0 L24,0 L24,24 L0,24 L0,0 Z" />
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M18,4 L18,3 C18,2.45,17.55,2,17,2 L5,2 C4.45,2,4,2.45,4,3 L4,7 C4,7.55,4.45,8,5,8 L17,8 C17.55,8,18,7.55,18,7 L18,6 L19,6 L19,10 L9,10 L9,21 C9,21.55,9.45,22,10,22 L12,22 C12.55,22,13,21.55,13,21 L13,12 L21,12 L21,4 L18,4 Z M16,6 L6,6 L6,4 L16,4 L16,6 Z" />
+        android:pathData="M16.66,4.52 L19.49,7.35 L16.66,10.18 L13.83,7.35 L16.66,4.52 M9,5 L9,9 L5,9 L5,5 L9,5 M19,15 L19,19 L15,19 L15,15 L19,15 M9,15 L9,19 L5,19 L5,15 L9,15 M16.66,1.69 L11,7.34 L16.66,13 L22.32,7.34 L16.66,1.69 Z M11,3 L3,3 L3,11 L11,11 L11,3 Z M21,13 L13,13 L13,21 L21,21 L21,13 Z M11,13 L3,13 L3,21 L11,21 L11,13 Z" />
 </vector>
