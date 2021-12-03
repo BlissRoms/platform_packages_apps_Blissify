@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014-2021 The BlissRoms Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Blissify -->
+    <string name="blissify_dashboard_title">Blissify</string>
+
+    <!-- Categories -->
+    <string name="blissify_animation_title">Animations</string>
+    <string name="blissify_buttons_title">Buttons</string>
+    <string name="blissify_gestures_title">Gestures</string>
+    <string name="blissify_lockscreen_title">Lock screen</string>
+    <string name="blissify_misc_title">Miscellaneous</string>
+    <string name="blissify_navigation_title">Navigation</string>
+    <string name="blissify_notifications_title">Notifications</string>
+    <string name="blissify_powermenu_title">Power menu</string>
+    <string name="blissify_quicksettings_title">Quick settings</string>
+    <string name="blissify_status_bar_title">Status bar</string>
+    <string name="blissify_themes_title">Themes</string>
+
+</resources>
