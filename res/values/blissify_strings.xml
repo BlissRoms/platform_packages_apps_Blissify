@@ -338,4 +338,12 @@
     <!-- Force to show settings in volume dialog -->
     <string name="volume_dialog_force_show_settings_title">Media controller</string>
     <string name="volume_dialog_force_show_settings_summary">Force to show media controller in volume dialog</string>
+
+    <!-- Incall options -->
+    <string name="incall_category">In-call options</string>
+    <string name="flashlight_on_call_title">Blink Flashlight for call</string>
+    <string name="flashlight_on_call_disabled">Disabled</string>
+    <string name="flashlight_on_call_ringer">Only in ringer mode</string>
+    <string name="flashlight_on_call_silent">Only when ringer is silent</string>
+    <string name="flashlight_on_call_always">Always</string>
 </resources>
