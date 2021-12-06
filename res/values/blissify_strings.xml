@@ -486,4 +486,12 @@
     <string name="dt2s_lockscreen_title">DT2S on lock screen</string>
     <string name="dt2s_lockscreen_summary">Double-tap on the top third or bottom shortcut area of the lock screen to put the device to sleep</string>
 
+    <!-- Incall options -->
+    <string name="incall_category">In-call options</string>
+    <string name="flashlight_on_call_title">Blink Flashlight for call</string>
+    <string name="flashlight_on_call_disabled">Disabled</string>
+    <string name="flashlight_on_call_ringer">Only in ringer mode</string>
+    <string name="flashlight_on_call_silent">Only when ringer is silent</string>
+    <string name="flashlight_on_call_always">Always</string>
+
 </resources>
