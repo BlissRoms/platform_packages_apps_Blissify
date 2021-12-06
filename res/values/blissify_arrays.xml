@@ -350,11 +350,13 @@
         <item>tourney-medium</item>
         <item>vg5000</item>
         <item>zerofour</item>
+    </string-array>
 
     <!-- Blink flashlight for incoming calls -->
     <string-array name="flashlight_on_call_entries">
         <item>@string/flashlight_on_call_disabled</item>
         <item>@string/flashlight_on_call_ringer</item>
+        <item>@string/flashlight_on_call_no_ringer</item>
         <item>@string/flashlight_on_call_silent</item>
         <item>@string/flashlight_on_call_always</item>
     </string-array>
@@ -364,6 +366,7 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
 
 </resources>
