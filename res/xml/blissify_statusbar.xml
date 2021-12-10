@@ -82,6 +82,12 @@
             <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+             android:key="statusbar_colored_icons"
+             android:title="@string/statusbar_colored_icons_title"
+             android:summary="@string/statusbar_colored_icons_summary"
+             android:defaultValue="false" />
+
         <!-- Network Traffic -->
        <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="network_traffic_state"
