@@ -27,6 +27,12 @@
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
     </Preference>
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="statusbar_icons_style"
+        android:title="@string/statusbar_icons_style"
+        android:summary="@string/statusbar_icons_style_summary"
+        android:defaultValue="false" />
+
     <Preference
         android:key="traffic"
         android:fragment="org.blissroms.blissify.fragments.Traffic"

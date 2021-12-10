@@ -235,4 +235,8 @@
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">Scale</string>
 
+    <!-- Sb Icon Style -->
+    <string name="statusbar_icons_style">Colored Statusbar Icons</string>
+    <string name="statusbar_icons_style_summary">Choose the style of your statusbar icons (requires SystemUI restart)</string>
+
 </resources>
