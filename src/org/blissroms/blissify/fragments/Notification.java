@@ -65,12 +65,19 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.ArrayList;
 import java.util.List;
 import com.android.internal.util.bliss.BlissUtils;
+import com.bliss.support.preferences.SystemSettingMasterSwitchPreference;
+import com.bliss.support.preferences.CustomSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingListPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Notification extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+    private static final String KEY_EDGE_LIGHTNING = "pulse_ambient_light";
+
+    private SystemSettingMasterSwitchPreference mEdgeLightning;
 
     private Preference mChargingLeds;
 
@@ -87,6 +94,13 @@ public class Notification extends SettingsPreferenceFragment implements
                 prefSet.removePreference(incallVibCategory);
         }
 
+        mEdgeLightning = (SystemSettingMasterSwitchPreference)
+                findPreference(KEY_EDGE_LIGHTNING);
+        boolean enabled = Settings.System.getIntForUser(resolver,
+                KEY_EDGE_LIGHTNING, 0, UserHandle.USER_CURRENT) == 1;
+        mEdgeLightning.setChecked(enabled);
+        mEdgeLightning.setOnPreferenceChangeListener(this);
+
         mChargingLeds = (Preference) findPreference("charging_light");
         if (mChargingLeds != null
                 && !getResources().getBoolean(
@@ -97,6 +111,13 @@ public class Notification extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mEdgeLightning) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(resolver, KEY_EDGE_LIGHTNING,
+                    value ? 1 : 0, UserHandle.USER_CURRENT);
+            return true;
+        }
         return false;
     }
 
