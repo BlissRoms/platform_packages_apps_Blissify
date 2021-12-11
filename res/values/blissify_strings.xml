@@ -589,4 +589,8 @@
     <string name="statusbar_left_padding">Statusbar left padding</string>
     <string name="statusbar_right_padding">Statusbar right padding</string>
 
+    <!-- Screen off FOD -->
+    <string name="screen_off_fod_title">Screen off FOD</string>
+    <string name="screen_off_fod_summary">Keep FOD enabled when the screen is off</string>
+
 </resources>
