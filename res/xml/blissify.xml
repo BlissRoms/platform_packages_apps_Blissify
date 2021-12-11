@@ -22,14 +22,14 @@
     <Preference
         android:key="animations_category"
         android:title="@string/blissify_animation_title"
-        android:fragment="org.blissroms.blissify.fragments.AnimationSettings"
+        android:fragment="org.blissroms.blissify.fragments.Animations"
         android:icon="@drawable/ic_blissify_animations" />
 
     <!-- Buttons -->
     <Preference
         android:key="buttons_category"
         android:title="@string/blissify_buttons_title"
-        android:fragment="org.blissroms.blissify.fragments.ButtonSettings"
+        android:fragment="org.blissroms.blissify.fragments.Buttons"
         android:icon="@drawable/ic_blissify_buttons" />
 
     <!-- Gestures -->
@@ -43,21 +43,21 @@
     <Preference
         android:key="lockscreen_category"
         android:title="@string/blissify_lockscreen_title"
-        android:fragment="org.blissroms.blissify.fragments.LockscreenSettings"
+        android:fragment="org.blissroms.blissify.fragments.Lockscreen"
         android:icon="@drawable/ic_blissify_lockscreen" />
 
     <!-- Notifications -->
     <Preference
         android:key="notifications_category"
         android:title="@string/blissify_notifications_title"
-        android:fragment="org.blissroms.blissify.fragments.NotificationSettings"
+        android:fragment="org.blissroms.blissify.fragments.Notification"
         android:icon="@drawable/ic_blissify_notifications" />
 
     <!-- Power Menu -->
     <Preference
         android:key="powermenu_category"
         android:title="@string/blissify_powermenu_title"
-        android:fragment="org.blissroms.blissify.fragments.PowerMenuSettings"
+        android:fragment="org.blissroms.blissify.fragments.PowerMenu"
         android:icon="@drawable/ic_blissify_powermenu" />
 
     <!-- Quick Settings panel -->
@@ -71,7 +71,7 @@
     <Preference
         android:key="statusbar_category"
         android:title="@string/blissify_status_bar_title"
-        android:fragment="org.blissroms.blissify.fragments.StatusbarSettings"
+        android:fragment="org.blissroms.blissify.fragments.Statusbar"
         android:icon="@drawable/ic_blissify_statusbar" />
 
     <!-- Themes -->
@@ -85,7 +85,7 @@
     <Preference
         android:key="misc_category"
         android:title="@string/blissify_misc_title"
-        android:fragment="org.blissroms.blissify.fragments.MiscellaneousSettings"
+        android:fragment="org.blissroms.blissify.fragments.Misc"
         android:icon="@drawable/ic_blissify_miscellaneous" />
 
 </PreferenceScreen>
