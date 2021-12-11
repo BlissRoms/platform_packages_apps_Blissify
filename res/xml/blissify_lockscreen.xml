@@ -26,6 +26,11 @@
                 android:targetClass="com.android.systemui.tuner.LockscreenActivity" />
         </Preference -->
 
+    <Preference
+        android:key="always_on_display_schedule"
+        android:title="@string/always_on_display_schedule_title"
+        android:fragment="org.blissroms.blissify.fragments.AODSchedule" />
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
         android:title="@string/lockscreen_charging_info_title"
