@@ -134,6 +134,23 @@
     <string name="volte_icon_miui">MIUI 11</string>
     <string name="volte_icon_emui">EMUI</string>
 
+    <!-- VoWiFi icon -->
+    <string name="vowifi_icon_title">VoWiFi icon</string>
+    <string name="vowifi_icon_enabled">VoWiFi icon enabled</string>
+    <string name="vowifi_icon_disabled">VoWiFi icon disabled</string>
+    <string name="vowifi_icon_enabled_volte_disabled">Display VoWiFi instead of VoLTE</string>
+    <string name="vowifi_icon_style_title">Select VoWiFi icon</string>
+    <string name="vowifi_icon_default">Default</string>
+    <string name="vowifi_icon_emui">EMUI</string>
+    <string name="vowifi_icon_asus">Asus</string>
+    <string name="vowifi_icon_oneplus">OOS</string>
+    <string name="vowifi_icon_moto">Motorola</string>
+    <string name="vowifi_icon_simple1">Simple 1</string>
+    <string name="vowifi_icon_simple2">Simple 2</string>
+    <string name="vowifi_icon_simple3">Simple 3</string>
+    <string name="vowifi_icon_vivo">Vivo</string>
+    <string name="vowifi_icon_margaritov">Margaritov</string>
+
     <!-- Volume swap buttons -->
     <string name="swap_volume_buttons_title">Reorient</string>
     <string name="swap_volume_buttons_summary">Swap volume buttons when the screen is rotated</string>
