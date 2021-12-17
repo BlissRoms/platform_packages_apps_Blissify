@@ -17,11 +17,16 @@
 package org.blissroms.blissify.fragments;
 
 import android.content.ContentResolver;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.om.IOverlayManager;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -60,6 +65,9 @@ public class ThemeSettings extends DashboardFragment implements
 
     public static final String TAG = "ThemeSettings";
 
+    private IOverlayManager mOverlayManager;
+    private IOverlayManager mOverlayService;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -83,7 +91,11 @@ public class ThemeSettings extends DashboardFragment implements
                 "android.theme.customization.font"));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.icon_pack"));
-        return controllers;
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.signal_icon"));
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.wifi_icon"));
+	        return controllers;
     }
 
     @Override
