@@ -73,6 +73,9 @@ public class ThemeSettings extends DashboardFragment implements
         super.onCreate(icicle);
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
     }
 
     @Override
