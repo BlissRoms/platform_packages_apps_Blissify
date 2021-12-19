@@ -47,6 +47,7 @@
     <!-- Lock screen icons -->
     <string name="lockscreen_tuner_title">Lock screen shortcuts</string>
     <string name="fingerprint_category">Fingerprint</string>    
+    <string name="statusbar_padding">Statusbar Padding</string>
 
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
@@ -609,5 +610,9 @@
 
     <!-- Custom Wi-Fi bar icons -->
     <string name="custom_wifi_bar_title">Wi-Fi</string>
+
+    <!-- Statusbar left_right padding -->
+    <string name="statusbar_left_padding">Statusbar left padding</string>
+    <string name="statusbar_right_padding">Statusbar right padding</string>
 
 </resources>

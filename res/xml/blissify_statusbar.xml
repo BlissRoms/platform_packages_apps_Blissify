@@ -88,6 +88,26 @@
         android:fragment="org.blissroms.blissify.fragments.BatteryBar"
         android:title="@string/battery_bar_title" />
 
+    <PreferenceCategory
+        android:key="statusbar_padding"
+        android:title="@string/statusbar_padding" >
+
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="statusbar_left_padding"
+            android:title="@string/statusbar_left_padding"
+            android:max="50"
+            android:min="-5"
+            android:defaultValue="8"/>
+
+         <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="statusbar_right_padding"
+            android:title="@string/statusbar_right_padding"
+            android:max="50"
+            android:min="-5"
+            android:defaultValue="8"/>
+
+    </PreferenceCategory>
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
 	android:key="status_bar_notif_count"
 	android:title="@string/status_bar_notif_count_title"
