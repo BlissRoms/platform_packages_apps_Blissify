@@ -123,6 +123,7 @@ public class Notification extends SettingsPreferenceFragment implements
 
         mFlashOnCall = (SystemSettingListPreference)
                 findPreference(PREF_FLASH_ON_CALL);
+        mFlashOnCall.setSummary(mFlashOnCall.getEntries()[value]);
         mFlashOnCall.setOnPreferenceChangeListener(this);
 
         mChargingLeds = (Preference) findPreference("charging_light");
@@ -140,6 +141,7 @@ public class Notification extends SettingsPreferenceFragment implements
             int value = Integer.parseInt((String) newValue);
             Settings.System.putInt(resolver,
                     Settings.System.FLASHLIGHT_ON_CALL, value);
+            mFlashOnCall.setSummary(mFlashOnCall.getEntries()[value]);
             mFlashOnCallIgnoreDND.setVisible(value > 1);
             mFlashOnCallRate.setVisible(value != 0);
             return true;
