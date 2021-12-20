@@ -45,6 +45,11 @@
             android:title="@string/powermenu_screenshot"
             android:defaultValue="false" />
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="powermenu_onthego"
+            android:title="@string/powermenu_onthego"
+            android:defaultValue="false" />
+
         <SwitchPreference
             android:key="powermenu_torch"
             android:title="@string/powermenu_torch"
