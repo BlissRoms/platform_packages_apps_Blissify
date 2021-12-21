@@ -47,6 +47,7 @@
     <!-- Lock screen general category -->
     <string name="general_category">General</string>
     <string name="lockscreen_shortcuts">Lockscreen shortcuts</string>
+    <string name="udfps_category">Fingerprint On Display</string>
 
     <!-- Lock screen icons -->
     <string name="lockscreen_tuner_title">Lock screen shortcuts</string>
@@ -662,5 +663,15 @@
     <string name="screen_off_animation_title">Screen off animation</string>
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">Scale</string>
+
+    <!-- Udfps animations -->
+    <string name="udfps_recog_animation">FOD animation</string>
+    <string name="udfps_recog_animation_summary">Shows an animation while reading your finger</string>
+    <string name="udfps_recog_animation_effect_title">FOD animation effect</string>
+    <string name="udfps_recog_animation_effect_summary">Choose animation effect</string>
+
+    <!-- Udfps icon picker -->
+    <string name="udfps_icon_picker_title">FOD icon picker</string>
+    <string name="udfps_icon_picker_summary">Choose your favorite fingerprint icon</string>
 
 </resources>

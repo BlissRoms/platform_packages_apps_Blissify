@@ -80,6 +80,24 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="udfps_category"
+        android:title="@string/udfps_category">
+
+    <Preference
+            android:key="udfps_icon_picker"
+            android:title="@string/udfps_icon_picker_title"
+            android:summary="@string/udfps_icon_picker_summary"
+            android:fragment="org.blissroms.blissify.fragments.UdfpsIconPicker" />
+
+    <Preference
+            android:key="udfps_recognizing_animation_preview"
+            android:title="@string/udfps_recog_animation_effect_title"
+            android:summary="@string/udfps_recog_animation_effect_summary"
+            android:fragment="org.blissroms.blissify.fragments.UdfpsAnimation" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="lockscreen_media_art_options"
         android:title="@string/lockscreen_media_art_options_title" >
 
