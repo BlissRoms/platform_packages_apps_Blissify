@@ -38,6 +38,7 @@ import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.bliss.udfps.UdfpsUtils;
+import com.android.internal.util.bliss.BlissUtils;
 
 import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import com.bliss.support.preferences.CustomSeekBarPreference;
@@ -152,7 +153,15 @@ public class Lockscreen extends SettingsPreferenceFragment implements
                 mAODPref.setSummary(R.string.always_on_display_schedule_mixed_sunrise);
                 break;
         }
+
+        boolean udfpsResPkgInstalled = BlissUtils.isPackageInstalled(getContext(),
+                "org.bliss.udfps.resources");
+        PreferenceCategory udfps = (PreferenceCategory) prefSet.findPreference("udfps_category");
+        if (!udfpsResPkgInstalled) {
+            prefSet.removePreference(udfps);
+        }
     }
+
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
