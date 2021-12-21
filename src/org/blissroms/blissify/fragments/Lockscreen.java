@@ -99,7 +99,9 @@ public class Lockscreen extends SettingsPreferenceFragment implements
         if (!UdfpsUtils.hasUdfpsSupport(getContext())) {
             prefSet.removePreference(mUdfpsCategory);
         }
+
     }
+
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
