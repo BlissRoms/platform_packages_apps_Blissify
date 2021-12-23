@@ -37,6 +37,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.bliss.udfps.UdfpsUtils;
 
 import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import com.bliss.support.preferences.CustomSeekBarPreference;
@@ -61,6 +62,8 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
     private static final String AOD_SCHEDULE_KEY = "always_on_display_schedule";
+    private static final String SCREEN_OFF_FOD_KEY = "screen_off_fod";
+
 
     static final int MODE_DISABLED = 0;
     static final int MODE_NIGHT = 1;
@@ -69,6 +72,7 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     static final int MODE_MIXED_SUNRISE = 4;
 
     Preference mAODPref;
+    Preference mFODPref;
 
     private FingerprintManager mFingerprintManager;
     private SystemSettingSwitchPreference mFingerprintSuccessVib;
@@ -102,6 +106,11 @@ public class Lockscreen extends SettingsPreferenceFragment implements
         } else {
             prefSet.removePreference(mFingerprintSuccessVib);
             prefSet.removePreference(mFingerprintErrorVib);
+        }
+
+        mFODPref = findPreference(SCREEN_OFF_FOD_KEY);
+        if (!UdfpsUtils.hasUdfpsSupport(getContext())) {
+            removePreference(SCREEN_OFF_FOD_KEY);
         }
 
         mAODPref = findPreference(AOD_SCHEDULE_KEY);
