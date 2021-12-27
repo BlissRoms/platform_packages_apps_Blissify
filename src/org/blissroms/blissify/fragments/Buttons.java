@@ -47,6 +47,7 @@ import java.util.regex.Pattern;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.bliss.support.preferences.CustomSeekBarPreference;
+import com.android.internal.util.bliss.BlissUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -231,7 +232,9 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
                 defaultToNavigationBar ? 1 : 0) == 1));
         mNavigationBar.setOnPreferenceChangeListener(this);
 
+        final boolean isThreeButtonNavbarEnabled = BlissUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton");
         mLayoutSettings = (Preference) findPreference(KEY_LAYOUT_SETTINGS);
+        mLayoutSettings.setEnabled(isThreeButtonNavbarEnabled);
 
         mNavigationArrows = (SystemSettingSwitchPreference) findPreference(KEY_NAVIGATION_BAR_ARROWS);
 
