@@ -63,6 +63,8 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
+    private static final String VOLTE_ICON_STYLE = "volte_icon_style";
+    private static final String VOWIFI_ICON_STYLE = "vowifi_icon_style";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 2;
@@ -71,6 +73,8 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private SwitchPreference mBatteryTextCharging;
     private SystemSettingListPreference mBatteryPercent;
     private SystemSettingListPreference mBatteryStyle;
+    private SystemSettingListPreference mVolteIconStyle;
+    private SystemSettingListPreference mVowifiIconStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -97,6 +101,18 @@ public class Statusbar extends SettingsPreferenceFragment implements
         mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
                 (batterystyle != BATTERY_STYLE_TEXT && batterypercent != 2));
 
+        mVowifiIconStyle = (SystemSettingListPreference) findPreference(VOWIFI_ICON_STYLE);
+        mVolteIconStyle = (SystemSettingListPreference) findPreference(VOLTE_ICON_STYLE);
+
+        int vowifiIconStyle = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.VOWIFI_ICON_STYLE, 1);
+        mVowifiIconStyle.setValue(String.valueOf(vowifiIconStyle));
+        mVowifiIconStyle.setOnPreferenceChangeListener(this);
+        if (vowifiIconStyle == 0) {
+            mVolteIconStyle.setEnabled(true);
+        } else {
+            mVolteIconStyle.setEnabled(false);
+        }
     }
 
     @Override
@@ -117,6 +133,17 @@ public class Statusbar extends SettingsPreferenceFragment implements
                     Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
             mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
                     (batterystyle != BATTERY_STYLE_TEXT && value != 2));
+            return true;
+        } else if (preference == mVowifiIconStyle) {
+            int vowifiIconStyle = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putInt(resolver,
+                  Settings.System.VOWIFI_ICON_STYLE, vowifiIconStyle);
+            mVowifiIconStyle.setValue(String.valueOf(vowifiIconStyle));
+            if (vowifiIconStyle == 0) {
+                mVolteIconStyle.setEnabled(true);
+            } else {
+                mVolteIconStyle.setEnabled(false);
+            }
             return true;
         }
        return false;
