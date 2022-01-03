@@ -38,6 +38,12 @@
         android:summary="@string/double_tap_to_sleep_lockscreen_summary"
         android:defaultValue="true" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_small_clock"
+        android:title="@string/lockscreen_small_clock_title"
+        android:summary="@string/lockscreen_small_clock_summary"
+        android:defaultValue="false" />
+
     <Preference
         android:key="always_on_display_schedule"
         android:title="@string/always_on_display_schedule_title"
@@ -46,24 +52,6 @@
     <PreferenceCategory
         android:key="lockscreen_ui_finterprint_category"
         android:title="@string/fingerprint_category">
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="screen_off_fod"
-        android:title="@string/screen_off_fod_title"
-        android:summary="@string/screen_off_fod_summary"
-        android:defaultValue="true" />
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="udfps_haptic_feedback"
-        android:title="@string/udfps_haptic_feedback_title"
-        android:summary="@string/udfps_haptic_feedback_summary"
-        android:defaultValue="true" />
-
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="lockscreen_small_clock"
-        android:title="@string/lockscreen_small_clock_title"
-        android:summary="@string/lockscreen_small_clock_summary"
-        android:defaultValue="false" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="fingerprint_success_vib"
@@ -96,10 +84,30 @@
             android:fragment="org.blissroms.blissify.fragments.UdfpsAnimation" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="screen_off_fod"
+        android:title="@string/screen_off_fod_title"
+        android:summary="@string/screen_off_fod_summary"
+        android:defaultValue="true" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="udfps_haptic_feedback"
+        android:title="@string/udfps_haptic_feedback_title"
+        android:summary="@string/udfps_haptic_feedback_summary"
+        android:defaultValue="true" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="fod_night_light"
             android:title="@string/fod_night_light_title"
             android:summary="@string/fod_night_light_summary"
             android:defaultValue="@*android:bool/disable_fod_night_light" />
+
+    <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="fod_color"
+            android:title="@string/fod_pressed_color_title"
+            android:summary="%s"
+            android:entries="@array/fod_pressed_color_entries"
+            android:entryValues="@array/fod_pressed_color_values"
+            android:defaultValue="@*android:integer/config_fod_pressed_color" />
 
     </PreferenceCategory>
 
