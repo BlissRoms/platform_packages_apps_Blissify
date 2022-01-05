@@ -101,13 +101,11 @@
             android:summary="@string/fod_night_light_summary"
             android:defaultValue="@*android:bool/disable_fod_night_light" />
 
-    <com.bliss.support.preferences.SystemSettingListPreference
-            android:key="fod_color"
-            android:title="@string/fod_pressed_color_title"
-            android:summary="%s"
-            android:entries="@array/fod_pressed_color_entries"
-            android:entryValues="@array/fod_pressed_color_values"
-            android:defaultValue="@*android:integer/config_fod_pressed_color" />
+    <Preference
+            android:key="udfps_pressedicon_picker"
+            android:title="@string/udfps_pressed_color_title"
+            android:summary="@string/udfps_pressed_color_summary"
+            android:fragment="org.blissroms.blissify.fragments.UdfpsPressedIconPicker" />
 
     </PreferenceCategory>
 
