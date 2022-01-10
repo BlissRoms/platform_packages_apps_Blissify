@@ -40,5 +40,11 @@
             android:summary="@string/fprint_sucess_vib_summary"
             android:persistent="false" />
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="auth_ripple_enabled"
+            android:title="@string/enable_fingerprint_ripple_effect_title"
+            android:summary="@string/enable_fingerprint_ripple_effect_summary"
+            android:defaultValue="true" />
     </PreferenceCategory>
+
 </PreferenceScreen>
