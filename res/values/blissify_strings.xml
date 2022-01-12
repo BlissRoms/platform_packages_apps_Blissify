@@ -636,4 +636,8 @@
     <string name="corners_category">Corners n Padding</string>
     <string name="statusbar_left_padding">Statusbar left padding</string>
     <string name="statusbar_right_padding">Statusbar right padding</string>
+
+    <!-- Black theme -->
+    <string name="system_black_theme_title">Use black theme</string>
+    <string name="system_black_theme_summary">Force black background colors</string>
 </resources>
