@@ -19,6 +19,18 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_misc_title">
 
+    <PreferenceCategory
+        android:key="pulse_category"
+        android:title="@string/pulse_category">
+
+        <Preference
+            android:key="pulse_settings"
+            android:title="@string/pulse_settings"
+            android:summary="@string/pulse_settings_summary"
+            android:fragment="com.evolution.settings.fragments.PulseSettings" />
+
+    </PreferenceCategory>
+
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="toast_icon"
             android:title="@string/toast_icon_title"
