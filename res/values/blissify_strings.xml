@@ -615,9 +615,9 @@
     <string name="udfps_haptic_feedback_title">FOD haptic feedback</string>
     <string name="udfps_haptic_feedback_summary">Vibrate when touching FOD icon</string>
 
-    <!-- Location Privacy Indicator -->
-    <string name="location_privacy_title"> Show Location Privacy Indicator</string>
-    <string name="location_privacy_summary">Enable - Disable location privacy indicator in qs and sb</string>
+    <!-- Location privacy indicator -->
+    <string name="location_privacy_indicator_title">Location privacy indicator</string>
+    <string name="location_privacy_indicator_summary">Show separate indicator when an any app uses location</string>
 
     <!-- Pulse music visualizer -->
     <string name="pulse_category">Pulse music visualizer</string>
