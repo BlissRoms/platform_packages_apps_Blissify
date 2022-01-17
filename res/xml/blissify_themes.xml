@@ -24,4 +24,16 @@
         android:fragment="org.blissroms.blissify.fragments.Customisation"
         android:title="@string/customisation_title" />
 
+        <PreferenceCategory
+         android:key="theme_customization_category"
+         android:title="@string/theme_customization_category">
+
+         <ListPreference
+            android:key="android.theme.customization.font"
+            android:title="@string/theme_customization_font_title"/>
+        <ListPreference
+            android:key="android.theme.customization.icon_pack"
+            android:title="@string/theme_customization_icon_pack_title"/>
+    </PreferenceCategory>
+
 </PreferenceScreen>
