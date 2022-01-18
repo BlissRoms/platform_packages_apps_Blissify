@@ -95,6 +95,12 @@
             android:summary="@string/udfps_recog_animation_effect_summary"
             android:fragment="org.blissroms.blissify.fragments.UdfpsAnimation" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="fod_night_light"
+            android:title="@string/fod_night_light_title"
+            android:summary="@string/fod_night_light_summary"
+            android:defaultValue="@*android:bool/disable_fod_night_light" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
