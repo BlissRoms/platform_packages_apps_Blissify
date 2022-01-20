@@ -54,4 +54,8 @@
     <string name="status_bar_toggle_brightness">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
 
+    <!-- Gaming mode -->
+    <string name="gaming_mode_title">Game space</string>
+    <string name="gaming_mode_summary">Extra features for immersive gaming experience</string>
+
 </resources>
