@@ -54,6 +54,12 @@
         android:title="@string/fingerprint_category">
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="enable_ripple_effect"
+        android:title="@string/enable_fingerprint_ripple_effect_title"
+        android:summary="@string/enable_fingerprint_ripple_effect_summary"
+        android:defaultValue="true" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="fingerprint_success_vib"
         android:title="@string/fprint_sucess_vib_title"
         android:summary="@string/fprint_sucess_vib_summary"
