@@ -28,25 +28,6 @@
          android:key="theme_customization_category"
          android:title="@string/theme_customization_category">
 
-         <ListPreference
-            android:key="android.theme.customization.font"
-            android:title="@string/theme_customization_font_title"/>
-
-        <ListPreference
-            android:key="android.theme.customization.adaptive_icon_shape"
-            android:title="@string/theme_customization_icon_shape_title"/>
-
-        <ListPreference
-            android:key="android.theme.customization.icon_pack"
-            android:title="@string/theme_customization_icon_pack_title"/>
-
-        <ListPreference
-            android:key="android.theme.customization.signal_icon"
-            android:title="@string/custom_signal_bar_title" />
-
-        <ListPreference
-            android:key="android.theme.customization.wifi_icon"
-            android:title="@string/custom_wifi_bar_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>
