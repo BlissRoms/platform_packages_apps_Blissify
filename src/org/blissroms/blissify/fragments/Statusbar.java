@@ -18,6 +18,7 @@ package org.blissroms.blissify.fragments;
 
 import android.content.Context;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
@@ -27,12 +28,13 @@ import android.os.UserHandle;
 import android.provider.Settings;
 
 import androidx.preference.ListPreference;
-import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.bliss.BlissUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -49,6 +51,12 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
     private static final String COMBINED_STATUSBAR_ICONS = "show_combined_status_bar_signal_icons";
     private static final String CONFIG_RESOURCE_NAME = "flag_combined_status_bar_signal_icons";
+    private static final String KEY_VOLTE_ICON_STYLE = "volte_icon_style";
+    private static final String KEY_VOWIFI_ICON_STYLE = "vowifi_icon_style";
+    private static final String KEY_SHOW_ROAMING = "roaming_indicator_icon";
+    private static final String KEY_SHOW_FOURG = "show_fourg_icon";
+    private static final String KEY_SHOW_DATA_DISABLED = "data_disabled_icon";
+    private static final String KEY_USE_OLD_MOBILETYPE = "use_old_mobiletype";
     private static final String SYSTEMUI_PACKAGE = "com.android.systemui";
     private static final String PREF_STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String PREF_STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
@@ -63,6 +71,12 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
     private ListPreference mBatteryPercent;
     private ListPreference mBatteryStyle;
+    private SwitchPreference mShowRoaming;
+    private SwitchPreference mShowFourg;
+    private SwitchPreference mDataDisabled;
+    private SwitchPreference mOldMobileType;
+    private SystemSettingSeekBarPreference mVolteIconStyle;
+    private SystemSettingSeekBarPreference mVowifiIconStyle;
     private SecureSettingSwitchPreference mCombinedIcons;
     private SystemSettingSwitchPreference mLeftBatteryText;
     private int mBatteryPercentValue;
@@ -80,6 +94,7 @@ public class Statusbar extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
+        final Context mContext = getActivity().getApplicationContext();
 
         Resources res = null;
         Context ctx = getContext();
@@ -138,13 +153,35 @@ public class Statusbar extends SettingsPreferenceFragment implements
         mBatteryPercent.setValue(String.valueOf(mBatteryPercentValue));
         mBatteryPercent.setSummary(mBatteryPercent.getEntry());
         mBatteryPercent.setOnPreferenceChangeListener(this);
-
         mBatteryPercent.setEnabled(
                 batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
-		
+
         mLeftBatteryText = (SystemSettingSwitchPreference) findPreference(LEFT_BATTERY_TEXT);
         mLeftBatteryText.setEnabled(
                 batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
+
+        mVolteIconStyle = (SystemSettingSeekBarPreference) findPreference(KEY_VOLTE_ICON_STYLE);
+        mVowifiIconStyle = (SystemSettingSeekBarPreference) findPreference(KEY_VOWIFI_ICON_STYLE);
+        mShowRoaming = (SwitchPreference) findPreference(KEY_SHOW_ROAMING);
+        mShowFourg = (SwitchPreference) findPreference(KEY_SHOW_FOURG);
+        mDataDisabled = (SwitchPreference) findPreference(KEY_SHOW_DATA_DISABLED);
+        mOldMobileType = (SwitchPreference) findPreference(KEY_USE_OLD_MOBILETYPE);
+
+        if (!BlissUtils.isVoiceCapable(getActivity())) {
+            prefScreen.removePreference(mVolteIconStyle);
+            prefScreen.removePreference(mVowifiIconStyle);
+            prefScreen.removePreference(mShowRoaming);
+            prefScreen.removePreference(mShowFourg);
+            prefScreen.removePreference(mDataDisabled);
+            prefScreen.removePreference(mOldMobileType);
+        } else {
+            boolean mConfigUseOldMobileType = mContext.getResources().getBoolean(
+                    com.android.internal.R.bool.config_useOldMobileIcons);
+            boolean showing = Settings.System.getIntForUser(resolver,
+                    Settings.System.USE_OLD_MOBILETYPE,
+                    mConfigUseOldMobileType ? 1 : 0, UserHandle.USER_CURRENT) != 0;
+            mOldMobileType.setChecked(showing);
+        }
     }
 
     @Override
