@@ -53,6 +53,19 @@
         <item>preset</item>
     </string-array>
 
+    <!-- Themes - Screen off animation -->
+    <string-array name="themes_screen_off_animation_entries">
+        <item>@string/themes_screen_off_animation_default</item>
+        <item>@string/themes_screen_off_animation_crt</item>
+        <item>@string/themes_screen_off_animation_scale</item>
+    </string-array>
+
+    <string-array name="themes_screen_off_animation_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <!-- Status bar/Clock & date-->
     <string-array name="status_bar_clock_position_entries" translatable="false">
         <item>@string/status_bar_clock_position_right</item>
