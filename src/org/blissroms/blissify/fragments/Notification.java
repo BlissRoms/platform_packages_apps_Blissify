@@ -74,18 +74,21 @@ import com.bliss.support.preferences.SystemSettingSwitchPreference;
 public class Notification extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String CHARGING_LIGHTS_PREF = "charging_light";
+    private static final String FLASHLIGHT_CATEGORY = "flashlight_category";
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+    private static final String NOTIFICATION_LIGHTS_PREF = "notification_light";
     private static final String KEY_EDGE_LIGHTNING = "pulse_ambient_light";
     private static final String PREF_FLASH_ON_CALL = "flashlight_on_call";
     private static final String PREF_FLASH_ON_CALL_DND = "flashlight_on_call_ignore_dnd";
     private static final String PREF_FLASH_ON_CALL_RATE = "flashlight_on_call_rate";
 
+    private Preference mChargingLeds;
+    private Preference mNotLights;
     private SystemSettingListPreference mFlashOnCall;
     private SystemSettingSwitchPreference mFlashOnCallIgnoreDND;
     private CustomSeekBarPreference mFlashOnCallRate;
     private SystemSettingMasterSwitchPreference mEdgeLightning;
-
-    private Preference mChargingLeds;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -93,7 +96,9 @@ public class Notification extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.blissify_notifications);
 
 	final ContentResolver resolver = getActivity().getContentResolver();
+        final Context mContext = getActivity().getApplicationContext();
         final PreferenceScreen prefSet = getPreferenceScreen();
+        final Resources res = mContext.getResources();
 
         PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
         if (!BlissUtils.isVoiceCapable(getActivity())) {
@@ -107,26 +112,39 @@ public class Notification extends SettingsPreferenceFragment implements
         mEdgeLightning.setChecked(enabled);
         mEdgeLightning.setOnPreferenceChangeListener(this);
 
-		mFlashOnCallRate = (CustomSeekBarPreference)
-                findPreference(PREF_FLASH_ON_CALL_RATE);
-        int value = Settings.System.getInt(resolver,
-                Settings.System.FLASHLIGHT_ON_CALL_RATE, 1);
-        mFlashOnCallRate.setValue(value);
-        mFlashOnCallRate.setOnPreferenceChangeListener(this);
+        if (!BlissUtils.deviceHasFlashlight(mContext)) {
+            final PreferenceCategory flashlightCategory =
+                    (PreferenceCategory) findPreference(FLASHLIGHT_CATEGORY);
+            prefSet.removePreference(flashlightCategory);
+        } else {
+            mFlashOnCallRate = (CustomSeekBarPreference)
+                    findPreference(PREF_FLASH_ON_CALL_RATE);
+            int value = Settings.System.getInt(resolver,
+                    Settings.System.FLASHLIGHT_ON_CALL_RATE, 1);
+            mFlashOnCallRate.setValue(value);
+            mFlashOnCallRate.setOnPreferenceChangeListener(this);
 
-        mFlashOnCallIgnoreDND = (SystemSettingSwitchPreference)
-                findPreference(PREF_FLASH_ON_CALL_DND);
-        value = Settings.System.getInt(resolver,
-                Settings.System.FLASHLIGHT_ON_CALL, 0);
-        mFlashOnCallIgnoreDND.setVisible(value > 1);
-        mFlashOnCallRate.setVisible(value != 0);
+            mFlashOnCallIgnoreDND = (SystemSettingSwitchPreference)
+                    findPreference(PREF_FLASH_ON_CALL_DND);
+            value = Settings.System.getInt(resolver,
+                    Settings.System.FLASHLIGHT_ON_CALL, 0);
+            mFlashOnCallIgnoreDND.setVisible(value > 1);
+            mFlashOnCallRate.setVisible(value != 0);
 
-        mFlashOnCall = (SystemSettingListPreference)
-                findPreference(PREF_FLASH_ON_CALL);
-        mFlashOnCall.setSummary(mFlashOnCall.getEntries()[value]);
-        mFlashOnCall.setOnPreferenceChangeListener(this);
+            mFlashOnCall = (SystemSettingListPreference)
+                    findPreference(PREF_FLASH_ON_CALL);
+            mFlashOnCall.setSummary(mFlashOnCall.getEntries()[value]);
+            mFlashOnCall.setOnPreferenceChangeListener(this);
+        }
 
-        mChargingLeds = (Preference) findPreference("charging_light");
+        mNotLights = (Preference) findPreference(NOTIFICATION_LIGHTS_PREF);
+        boolean mNotLightsSupported = res.getBoolean(
+                com.android.internal.R.bool.config_intrusiveNotificationLed);
+        if (!mNotLightsSupported) {
+            prefSet.removePreference(mNotLights);
+        }
+
+        mChargingLeds = (Preference) findPreference(CHARGING_LIGHTS_PREF);
         if (mChargingLeds != null
                 && !getResources().getBoolean(
                         com.android.internal.R.bool.config_intrusiveBatteryLed)) {
