@@ -19,12 +19,6 @@
     android:title="@string/blissify_quicksettings_title">
 
     <com.bliss.support.preferences.SecureSettingSwitchPreference
-            android:key="secure_lockscreen_qs_disabled"
-            android:title="@string/disable_qs_title"
-            android:summary="@string/disable_qs_summary"
-            android:defaultValue="false" />
-
-    <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
             android:summary="@string/quick_settings_vibrate_summary"
@@ -56,7 +50,7 @@
             android:defaultValue="0" />
 
     <com.bliss.support.preferences.SecureSettingSwitchPreference
-            android:key="qstile_requires_unlocking"
+            android:key="disable_secure_tiles_on_lockscreen"
             android:title="@string/qstile_requires_unlocking_title"
             android:summary="@string/qstile_requires_unlocking_summary"
             android:defaultValue="true" />
