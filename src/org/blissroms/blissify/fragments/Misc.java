@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.preference.ListPreference;
@@ -50,9 +51,11 @@ import java.util.List;
 public class Misc extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_FORCE_FULL_SCREEN = "display_cutout_force_fullscreen_settings";
     private static final String KEY_SPOOF = "use_photos_spoof";
     private static final String SYS_SPOOF = "persist.sys.photo";
 
+    private Preference mShowCutoutForce;
     private SwitchPreference mSpoof;
 
     @Override
@@ -62,6 +65,14 @@ public class Misc extends SettingsPreferenceFragment implements
 
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefSet = getPreferenceScreen();
+        Context mContext = getActivity().getApplicationContext();
+
+        final String displayCutout =
+                mContext.getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
+        mShowCutoutForce = (Preference) findPreference(KEY_FORCE_FULL_SCREEN);
+        if (TextUtils.isEmpty(displayCutout)) {
+            prefSet.removePreference(mShowCutoutForce);
+        }
 
         final String useSpoof = SystemProperties.get(SYS_SPOOF, "1");
         mSpoof = (SwitchPreference) findPreference(KEY_SPOOF);
@@ -94,5 +105,19 @@ public class Misc extends SettingsPreferenceFragment implements
      */
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.blissify_misc);
+            new BaseSearchIndexProvider(R.xml.blissify_misc) {
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = super.getNonIndexableKeys(context);
+                    final String displayCutout =
+                        context.getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
+
+                    if (TextUtils.isEmpty(displayCutout)) {
+                        keys.add(KEY_FORCE_FULL_SCREEN);
+                    }
+
+                    return keys;
+                }
+            };
 }
