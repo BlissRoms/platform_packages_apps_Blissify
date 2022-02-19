@@ -35,6 +35,11 @@
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
 
+    <!-- General strings -->
+    <string name="default_string">Default</string>
+    <string name="search">Search</string>
+    <string name="search_apps">Search apps</string>
+
     <!-- Categories -->
     <string name="blissify_animation_title">Animations</string>
     <string name="blissify_buttons_title">Buttons</string>
