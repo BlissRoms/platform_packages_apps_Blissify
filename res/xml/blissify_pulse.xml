@@ -31,12 +31,38 @@
         android:title="@string/show_ambient_pulse_title"
         android:summary="@string/show_ambient_pulse_summary"/>
 
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
+        android:key="qs_pulse_enabled"
+        android:title="@string/show_qs_pulse_title"
+        android:summary="@string/show_qs_pulse_summary"
+        android:defaultValue="false" />
+
     <com.bliss.support.preferences.SecureSettingListPreference
         android:key="pulse_render_style"
         android:title="@string/pulse_render_mode_title"
         android:entries="@array/pulse_render_mode_entries"
         android:entryValues="@array/pulse_render_mode_values"
         android:defaultValue="1"/>
+
+    <com.bliss.support.preferences.SecureSettingListPreference
+        android:key="pulse_custom_gravity"
+        android:title="@string/pulse_custom_gravity_title"
+        android:entries="@array/pulse_custom_gravity_entries"
+        android:entryValues="@array/pulse_custom_gravity_values"
+        android:summary="%s"
+        android:defaultValue="0"/>
+
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
+        android:key="visualizer_center_mirrored"
+        android:title="@string/visualizer_center_mirrored_title"
+        android:summary="@string/visualizer_center_mirrored_summary"
+        android:defaultValue="false"/>
+
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
+        android:key="pulse_vertical_mirror"
+        android:title="@string/pulse_vertical_mirror_title"
+        android:summary="@string/pulse_vertical_mirror_summary"
+        android:defaultValue="false"/>
 
     <com.bliss.support.preferences.SecureSettingSwitchPreference
         android:key="pulse_smoothing_enabled"
@@ -118,6 +144,13 @@
     <PreferenceCategory
         android:key="pulse_2"
         android:title="@string/pulse_solid_dimen_category">
+
+        <com.bliss.support.preferences.SecureSettingSwitchPreference
+            android:key="pulse_solid_units_rounded"
+            android:title="@string/pulse_solid_units_rounded_title"
+            android:summary="@string/pulse_solid_units_rounded_summary"
+            android:defaultValue="false"
+            android:dependency="pulse_2"/>
 
         <com.bliss.support.preferences.SecureSettingSeekBarPreference
             android:key="pulse_solid_units_opacity"
