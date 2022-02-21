@@ -12,6 +12,12 @@
     <PreferenceCategory
         android:title="@string/general_category">
 
+        <Preference
+            android:title="@string/weather_title"
+            android:key="weather_option"
+            android:summary="@string/weather_config_title"
+            android:fragment="org.blissroms.blissify.fragments.lockscreen.Weather" />
+
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="enable_ripple_effect"
             android:title="@string/enable_fingerprint_ripple_effect_title"
