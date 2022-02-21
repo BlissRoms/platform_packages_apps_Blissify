@@ -67,6 +67,12 @@
 
     </PreferenceCategory>
 
+    <Preference
+        android:title="@string/weather_title"
+        android:key="weather_option"
+        android:summary="@string/weather_config_title"
+        android:fragment="org.blissroms.blissify.fragments.lockscreen.Weather" />
+
     <!-- Udfps options -->
     <PreferenceCategory
         android:key="udfps_category"
