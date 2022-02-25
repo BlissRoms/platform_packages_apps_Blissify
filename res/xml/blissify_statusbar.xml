@@ -79,11 +79,6 @@
         android:defaultValue="false" />
 
     <Preference
-        android:key="traffic"
-        android:fragment="org.blissroms.blissify.fragments.Traffic"
-        android:title="@string/traffic_title" />
-
-    <Preference
         android:key="battery_bar_category"
         android:fragment="org.blissroms.blissify.fragments.BatteryBar"
         android:title="@string/battery_bar_title" />
