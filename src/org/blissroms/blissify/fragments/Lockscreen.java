@@ -37,8 +37,8 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.bliss.udfps.UdfpsUtils;
 import com.android.internal.util.bliss.BlissUtils;
+import com.android.internal.util.bliss.udfps.UdfpsUtils;
 
 import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import com.bliss.support.preferences.CustomSeekBarPreference;
@@ -49,26 +49,12 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
-import com.bliss.support.preferences.SystemSettingSwitchPreference;
-
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 import android.util.Log;
-import java.util.Collection;
-import java.io.FileDescriptor;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.BitmapDrawable;
-import android.text.TextUtils;
-import org.blissroms.blissify.fragments.UdfpsIconPicker;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Lockscreen extends SettingsPreferenceFragment implements
@@ -77,19 +63,7 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
     private static final String AOD_SCHEDULE_KEY = "always_on_display_schedule";
-    private static final String SCREEN_OFF_FOD_KEY = "screen_off_fod";
-    private static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
-    private static final String FOD_NIGHT_LIGHT = "fod_night_light";
-    private static final String CUSTOM_FOD_ICON_KEY = "custom_fp_icon_enabled";
-    private static final String CUSTOM_FP_FILE_SELECT = "custom_fp_file_select";
-    private static final int REQUEST_PICK_IMAGE = 0;
-
-    private SystemSettingSwitchPreference mFODScreenOff;
-    private Preference mCustomFPImage;
-    private SystemSettingSwitchPreference mCustomFodIcon;
-    private Preference mUdfpsIconPicker;
-    private SystemSettingSwitchPreference mUdfpsHapticFeedback;
-    private SystemSettingSwitchPreference mFodNightLight;
+    private static final String LOCKSCREEN_FOD_CATEGORY = "lockscreen_fod_category";
 
     static final int MODE_DISABLED = 0;
     static final int MODE_NIGHT = 1;
@@ -98,11 +72,11 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     static final int MODE_MIXED_SUNRISE = 4;
 
     Preference mAODPref;
-    Preference mFODPref;
 
     private FingerprintManager mFingerprintManager;
     private SystemSettingSwitchPreference mFingerprintSuccessVib;
     private SystemSettingSwitchPreference mFingerprintErrorVib;
+    private Preference FODSettings;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -112,44 +86,21 @@ public class Lockscreen extends SettingsPreferenceFragment implements
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefSet = getPreferenceScreen();
         final PackageManager mPm = getActivity().getPackageManager();
-        final PreferenceCategory fpCategory = (PreferenceCategory)
-                findPreference("lockscreen_ui_finterprint_category");
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintSuccessVib = findPreference(FINGERPRINT_SUCCESS_VIB);
         mFingerprintErrorVib = findPreference(FINGERPRINT_ERROR_VIB);
-        mUdfpsHapticFeedback = findPreference(UDFPS_HAPTIC_FEEDBACK);
-        mFodNightLight = findPreference(FOD_NIGHT_LIGHT);
-        mUdfpsIconPicker = (Preference) prefSet.findPreference("udfps_icon_picker");
 
-        boolean udfpsResPkgInstalled = BlissUtils.isPackageInstalled(getContext(),
-                "org.bliss.udfps.resources");
-        PreferenceCategory udfps = (PreferenceCategory) prefSet.findPreference("udfps_category");
-        if (!udfpsResPkgInstalled) {
-            prefSet.removePreference(udfps);
-        }
-
-        mCustomFPImage = findPreference(CUSTOM_FP_FILE_SELECT);
-        final String customIconURI = Settings.System.getString(getContext().getContentResolver(),
-               Settings.System.OMNI_CUSTOM_FP_ICON);
-        if (!TextUtils.isEmpty(customIconURI)) {
-            setPickerIcon(customIconURI);
-        }
-
-        mCustomFodIcon = (SystemSettingSwitchPreference) findPreference(CUSTOM_FOD_ICON_KEY);
-        boolean val = Settings.System.getIntForUser(getActivity().getContentResolver(),
-                Settings.System.OMNI_CUSTOM_FP_ICON_ENABLED, 0, UserHandle.USER_CURRENT) == 1;
-        mCustomFodIcon.setOnPreferenceChangeListener(this);
-        if (val) {
-            mUdfpsIconPicker.setEnabled(false);
-        } else {
-            mUdfpsIconPicker.setEnabled(true);
+        FODSettings = (Preference) findPreference(LOCKSCREEN_FOD_CATEGORY);
+        if (!UdfpsUtils.hasUdfpsSupport(getContext())) {
+            prefSet.removePreference(FODSettings);
         }
 
         if (mPm.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) &&
                  mFingerprintManager != null) {
             if (!mFingerprintManager.isHardwareDetected()){
-                prefSet.removePreference(fpCategory);
+                prefSet.removePreference(mFingerprintSuccessVib);
+                prefSet.removePreference(mFingerprintErrorVib);
             } else {
                 mFingerprintSuccessVib.setChecked((Settings.System.getInt(getContentResolver(),
                         Settings.System.FP_SUCCESS_VIBRATE, 1) == 1));
@@ -157,17 +108,10 @@ public class Lockscreen extends SettingsPreferenceFragment implements
                 mFingerprintErrorVib.setChecked((Settings.System.getInt(getContentResolver(),
                         Settings.System.FP_ERROR_VIBRATE, 1) == 1));
                 mFingerprintErrorVib.setOnPreferenceChangeListener(this);
-                if (UdfpsUtils.hasUdfpsSupport(getActivity())) {
-                    mUdfpsHapticFeedback.setChecked((Settings.System.getInt(getContentResolver(),
-                            Settings.System.UDFPS_HAPTIC_FEEDBACK, 1) == 1));
-                    mUdfpsHapticFeedback.setOnPreferenceChangeListener(this);
-                } else {
-                    fpCategory.removePreference(mUdfpsHapticFeedback);
-                    fpCategory.removePreference(mFodNightLight);
-                }
             }
         } else {
-            prefSet.removePreference(fpCategory);
+            prefSet.removePreference(mFingerprintSuccessVib);
+            prefSet.removePreference(mFingerprintErrorVib);
         }
 
         mAODPref = findPreference(AOD_SCHEDULE_KEY);
@@ -176,7 +120,7 @@ public class Lockscreen extends SettingsPreferenceFragment implements
 
     @Override
     public void onResume() {
-	        super.onResume();
+        super.onResume();
         updateAlwaysOnSummary();
     }
 
@@ -202,18 +146,6 @@ public class Lockscreen extends SettingsPreferenceFragment implements
                 mAODPref.setSummary(R.string.always_on_display_schedule_mixed_sunrise);
                 break;
         }
-
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference == mCustomFPImage) {
-            Intent intent = new Intent(Intent.ACTION_PICK);
-            intent.setType("image/*");
-            startActivityForResult(intent, REQUEST_PICK_IMAGE);
-            return true;
-        }
-        return super.onPreferenceTreeClick(preference);
     }
 
     @Override
@@ -228,53 +160,8 @@ public class Lockscreen extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FP_ERROR_VIBRATE, value ? 1 : 0);
             return true;
-        } else if (preference == mUdfpsHapticFeedback) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.UDFPS_HAPTIC_FEEDBACK, value ? 1 : 0);
-            return true;
-        } else if (preference == mCustomFodIcon) {
-            boolean val = (Boolean) newValue;
-            Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    Settings.System.OMNI_CUSTOM_FP_ICON_ENABLED, val ? 1 : 0,
-                    UserHandle.USER_CURRENT);
-            if (val) {
-                mUdfpsIconPicker.setEnabled(false);
-            } else {
-                mUdfpsIconPicker.setEnabled(true);
-            }
-            return true;
         }
         return false;
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent result) {
-       if (requestCode == REQUEST_PICK_IMAGE && resultCode == Activity.RESULT_OK) {
-           Uri uri = null;
-           if (result != null) {
-               uri = result.getData();
-               setPickerIcon(uri.toString());
-               Settings.System.putString(getContentResolver(), Settings.System.OMNI_CUSTOM_FP_ICON,
-                   uri.toString());
-            }
-        } else if (requestCode == REQUEST_PICK_IMAGE && resultCode == Activity.RESULT_CANCELED) {
-            mCustomFPImage.setIcon(new ColorDrawable(Color.TRANSPARENT));
-            Settings.System.putString(getContentResolver(), Settings.System.OMNI_CUSTOM_FP_ICON, "");
-        }
-    }
-
-    private void setPickerIcon(String uri) {
-        try {
-                ParcelFileDescriptor parcelFileDescriptor =
-                    getContext().getContentResolver().openFileDescriptor(Uri.parse(uri), "r");
-                FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
-                Bitmap image = BitmapFactory.decodeFileDescriptor(fileDescriptor);
-                parcelFileDescriptor.close();
-                Drawable d = new BitmapDrawable(getResources(), image);
-                mCustomFPImage.setIcon(d);
-            }
-            catch (Exception e) {}
     }
 
     @Override
