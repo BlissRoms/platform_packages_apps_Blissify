@@ -47,7 +47,8 @@
     <!-- Lock screen general category -->
     <string name="general_category">General</string>
     <string name="lockscreen_shortcuts">Lockscreen shortcuts</string>
-    <string name="udfps_category">Fingerprint On Display</string>
+    <string name="lockscreen_fod_category">Fingerprint On Display</string>
+    <string name="fod_category_summary">Configure FOD View</string>
 
     <!-- Lock screen icons -->
     <string name="lockscreen_tuner_title">Lock screen shortcuts</string>
