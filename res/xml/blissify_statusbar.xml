@@ -58,4 +58,10 @@
         android:summary="@string/use_old_mobiletype_summary"
         android:defaultValue="false" />
 
+    <!-- Battery settings -->
+    <Preference
+        android:key="battery_settings"
+        android:title="@string/battery_style_category_title"
+        android:fragment="org.blissroms.blissify.fragments.StatusbarBattery" />
+
 </PreferenceScreen>
