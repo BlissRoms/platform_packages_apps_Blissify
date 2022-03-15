@@ -37,12 +37,6 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.bliss.BlissUtils;
-import com.android.internal.util.bliss.udfps.UdfpsUtils;
-
-import com.bliss.support.preferences.SystemSettingSwitchPreference;
-import com.bliss.support.preferences.CustomSeekBarPreference;
-import com.bliss.support.preferences.SystemSettingListPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -51,117 +45,19 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Collections;
-import android.util.Log;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Lockscreen extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
-    private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
-    private static final String AOD_SCHEDULE_KEY = "always_on_display_schedule";
-    private static final String LOCKSCREEN_FOD_CATEGORY = "lockscreen_fod_category";
-    private static final String FINGERPRINT_CATEGORY = "lockscreen_fingerprint_category";
-
-    static final int MODE_DISABLED = 0;
-    static final int MODE_NIGHT = 1;
-    static final int MODE_TIME = 2;
-    static final int MODE_MIXED_SUNSET = 3;
-    static final int MODE_MIXED_SUNRISE = 4;
-
-    Preference mAODPref;
-
-    private FingerprintManager mFingerprintManager;
-    private PreferenceCategory mFingerprintCategory;
-    private SystemSettingSwitchPreference mFingerprintSuccessVib;
-    private SystemSettingSwitchPreference mFingerprintErrorVib;
-    private Preference FODSettings;
-
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.blissify_lockscreen);
-
-        final ContentResolver resolver = getActivity().getContentResolver();
-        final PreferenceScreen prefSet = getPreferenceScreen();
-        final PackageManager mPm = getActivity().getPackageManager();
-
-        mFingerprintCategory = (PreferenceCategory) findPreference(FINGERPRINT_CATEGORY);
-        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
-        mFingerprintSuccessVib = findPreference(FINGERPRINT_SUCCESS_VIB);
-        mFingerprintErrorVib = findPreference(FINGERPRINT_ERROR_VIB);
-
-        FODSettings = (Preference) findPreference(LOCKSCREEN_FOD_CATEGORY);
-        if (!UdfpsUtils.hasUdfpsSupport(getContext())) {
-            prefSet.removePreference(FODSettings);
-        }
-
-        if (mPm.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) &&
-                 mFingerprintManager != null) {
-            if (!mFingerprintManager.isHardwareDetected()){
-                prefSet.removePreference(mFingerprintCategory);
-            } else {
-                mFingerprintSuccessVib.setChecked((Settings.System.getInt(getContentResolver(),
-                        Settings.System.FP_SUCCESS_VIBRATE, 1) == 1));
-                mFingerprintSuccessVib.setOnPreferenceChangeListener(this);
-                mFingerprintErrorVib.setChecked((Settings.System.getInt(getContentResolver(),
-                        Settings.System.FP_ERROR_VIBRATE, 1) == 1));
-                mFingerprintErrorVib.setOnPreferenceChangeListener(this);
-            }
-        } else {
-            prefSet.removePreference(mFingerprintCategory);
-        }
-
-        mAODPref = findPreference(AOD_SCHEDULE_KEY);
-        updateAlwaysOnSummary();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        updateAlwaysOnSummary();
-    }
-
-    private void updateAlwaysOnSummary() {
-        if (mAODPref == null) return;
-        int mode = Settings.Secure.getIntForUser(getActivity().getContentResolver(),
-                Settings.Secure.DOZE_ALWAYS_ON_AUTO_MODE, 0, UserHandle.USER_CURRENT);
-        switch (mode) {
-            default:
-            case MODE_DISABLED:
-                mAODPref.setSummary(R.string.disabled);
-                break;
-            case MODE_NIGHT:
-                mAODPref.setSummary(R.string.night_display_auto_mode_twilight);
-                break;
-            case MODE_TIME:
-                mAODPref.setSummary(R.string.night_display_auto_mode_custom);
-                break;
-            case MODE_MIXED_SUNSET:
-                mAODPref.setSummary(R.string.always_on_display_schedule_mixed_sunset);
-                break;
-            case MODE_MIXED_SUNRISE:
-                mAODPref.setSummary(R.string.always_on_display_schedule_mixed_sunrise);
-                break;
-        }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mFingerprintSuccessVib) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.FP_SUCCESS_VIBRATE, value ? 1 : 0);
-            return true;
-        } else if (preference == mFingerprintErrorVib) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.FP_ERROR_VIBRATE, value ? 1 : 0);
-            return true;
-        }
         return false;
     }
 

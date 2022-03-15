@@ -28,8 +28,6 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
-import android.text.TextUtils;
-import android.widget.Toast;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -51,64 +49,14 @@ import java.util.List;
 public class Misc extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String KEY_FORCE_FULL_SCREEN = "display_cutout_force_fullscreen_settings";
-    private static final String KEY_GAMES_SPOOF = "use_games_spoof";
-    private static final String KEY_PHOTOS_SPOOF = "use_photos_spoof";
-    private static final String KEY_STREAM_SPOOF = "use_stream_spoof";
-
-    private static final String SYS_GAMES_SPOOF = "persist.sys.pixelprops.games";
-    private static final String SYS_PHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
-    private static final String SYS_STREAM_SPOOF = "persist.sys.pixelprops.streaming";
-
-    private Preference mShowCutoutForce;
-    private SwitchPreference mGamesSpoof;
-    private SwitchPreference mPhotosSpoof;
-    private SwitchPreference mStreamSpoof;
-
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.blissify_misc);
-
-        final ContentResolver resolver = getActivity().getContentResolver();
-        final PreferenceScreen prefSet = getPreferenceScreen();
-        Context mContext = getActivity().getApplicationContext();
-
-        final String displayCutout =
-                mContext.getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
-        mShowCutoutForce = (Preference) findPreference(KEY_FORCE_FULL_SCREEN);
-        if (TextUtils.isEmpty(displayCutout)) {
-            prefSet.removePreference(mShowCutoutForce);
-        }
-
-        mGamesSpoof = (SwitchPreference) findPreference(KEY_GAMES_SPOOF);
-        mGamesSpoof.setChecked(SystemProperties.getBoolean(SYS_GAMES_SPOOF, false));
-        mGamesSpoof.setOnPreferenceChangeListener(this);
-
-        mPhotosSpoof = (SwitchPreference) findPreference(KEY_PHOTOS_SPOOF);
-        mPhotosSpoof.setChecked(SystemProperties.getBoolean(SYS_PHOTOS_SPOOF, true));
-        mPhotosSpoof.setOnPreferenceChangeListener(this);
-
-        mStreamSpoof = (SwitchPreference) findPreference(KEY_STREAM_SPOOF);
-        mStreamSpoof.setChecked(SystemProperties.getBoolean(SYS_STREAM_SPOOF, true));
-        mStreamSpoof.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mGamesSpoof) {
-            boolean value = (Boolean) newValue;
-            SystemProperties.set(SYS_GAMES_SPOOF, value ? "true" : "false");
-            return true;
-        } else if (preference == mPhotosSpoof) {
-            boolean value = (Boolean) newValue;
-            SystemProperties.set(SYS_PHOTOS_SPOOF, value ? "true" : "false");
-            return true;
-        } else if (preference == mStreamSpoof) {
-            boolean value = (Boolean) newValue;
-            SystemProperties.set(SYS_STREAM_SPOOF, value ? "true" : "false");
-            return true;
-        }
         return false;
     }
 
@@ -122,19 +70,5 @@ public class Misc extends SettingsPreferenceFragment implements
      */
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.blissify_misc) {
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    final String displayCutout =
-                        context.getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
-
-                    if (TextUtils.isEmpty(displayCutout)) {
-                        keys.add(KEY_FORCE_FULL_SCREEN);
-                    }
-
-                    return keys;
-                }
-            };
+            new BaseSearchIndexProvider(R.xml.blissify_misc);
 }
