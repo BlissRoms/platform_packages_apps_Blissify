@@ -58,4 +58,8 @@
     <string name="gaming_mode_title">Game space</string>
     <string name="gaming_mode_summary">Extra features for immersive gaming experience</string>
 
+    <!-- Lockscreen battery info -->
+    <string name="lockscreen_charging_info_title">Show charging info in lockscreen</string>
+    <string name="lockscreen_charging_info_summary">Shows temperature, charging current and more while plugged in</string>
+
 </resources>
