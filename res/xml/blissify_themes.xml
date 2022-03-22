@@ -19,4 +19,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_themes_title">
 
+    <Preference
+        android:key="monet_engine_settings"
+        android:title="@string/monet_engine_title"
+        android:summary="@string/monet_engine_summary"
+        android:fragment="org.blissroms.blissify.fragments.MonetEngineSettingsFragment" />
+
 </PreferenceScreen>
