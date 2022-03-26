@@ -41,6 +41,12 @@
         android:summary="@string/status_bar_clock_show_seconds_desc"
         android:defaultValue="false"/>
 
+    <Preference
+        android:key="batterybar"
+        android:title="@string/battery_bar_title"
+        android:summary="@string/battery_bar_summary"
+        android:fragment="org.blissroms.blissify.fragments.statusbar.BatteryBar" />
+
     <PreferenceCategory
         android:title="@string/network_options_title">
 
