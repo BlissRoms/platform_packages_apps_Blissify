@@ -481,4 +481,9 @@
     <string name="single_line">Single-line</string>
     <string name="double_line">Double-line</string>
     <string name="qs_apply_change_button_title">Apply change</string>
+
+    <!-- Double tap lock screen to sleep -->
+    <string name="dt2s_lockscreen_title">DT2S on lock screen</string>
+    <string name="dt2s_lockscreen_summary">Double-tap on the top third or bottom shortcut area of the lock screen to put the device to sleep</string>
+
 </resources>
