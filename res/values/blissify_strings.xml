@@ -319,4 +319,8 @@
     <string name="screenshot_type_fullscreen">Take fullscreen screenshots</string>
     <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
 
+    <!-- Charging animation -->
+    <string name="charging_animation_title">Charging animation</string>
+    <string name="charging_animation_summary">Display an animation when the device is plugged in</string>
+
 </resources>
