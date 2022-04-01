@@ -44,6 +44,12 @@
         android:summary="@string/use_tiles_on_secure_keyguard_summary"
         android:defaultValue="true" />
 
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
+        android:key="secure_lockscreen_qs_disabled"
+        android:title="@string/disable_qs_title"
+        android:summary="@string/disable_qs_summary"
+        android:defaultValue="false" />
+
     <com.bliss.support.preferences.SystemSettingListPreference
         android:key="screenshot_type"
         android:entries="@array/screenshot_type_entries"
