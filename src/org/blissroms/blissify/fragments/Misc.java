@@ -37,10 +37,15 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.bliss.BlissUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
+
+import com.bliss.support.preferences.CustomSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.SystemSettingListPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,16 +54,71 @@ import java.util.List;
 public class Misc extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String PREF_FLASH_ON_CALL = "flashlight_on_call";
+    private static final String PREF_FLASH_ON_CALL_DND = "flashlight_on_call_ignore_dnd";
+    private static final String PREF_FLASH_ON_CALL_RATE = "flashlight_on_call_rate";
+    private static final String FLASHLIGHT_CATEGORY = "flashlight_category";
+
+    private CustomSeekBarPreference mFlashOnCallRate;
+    private SystemSettingSwitchPreference mFlashOnCallIgnoreDND;
+    private SystemSettingListPreference mFlashOnCall;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.blissify_misc);
+
+        final ContentResolver resolver = getActivity().getContentResolver();
+        final Context mContext = getActivity().getApplicationContext();
+        final PreferenceScreen prefSet = getPreferenceScreen();
+        final Resources res = mContext.getResources();
+
+        if (!BlissUtils.deviceHasFlashlight(mContext)) {
+            final PreferenceCategory flashlightCategory =
+                    (PreferenceCategory) findPreference(FLASHLIGHT_CATEGORY);
+            prefSet.removePreference(flashlightCategory);
+        } else {
+            mFlashOnCallRate = (CustomSeekBarPreference)
+                    findPreference(PREF_FLASH_ON_CALL_RATE);
+            int value = Settings.System.getInt(resolver,
+                    Settings.System.FLASHLIGHT_ON_CALL_RATE, 1);
+            mFlashOnCallRate.setValue(value);
+            mFlashOnCallRate.setOnPreferenceChangeListener(this);
+
+            mFlashOnCallIgnoreDND = (SystemSettingSwitchPreference)
+                    findPreference(PREF_FLASH_ON_CALL_DND);
+            value = Settings.System.getInt(resolver,
+                    Settings.System.FLASHLIGHT_ON_CALL, 0);
+            mFlashOnCallIgnoreDND.setVisible(value > 1);
+            mFlashOnCallRate.setVisible(value != 0);
+
+            mFlashOnCall = (SystemSettingListPreference)
+                    findPreference(PREF_FLASH_ON_CALL);
+            mFlashOnCall.setSummary(mFlashOnCall.getEntries()[value]);
+            mFlashOnCall.setOnPreferenceChangeListener(this);
+        }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mFlashOnCall) {
+            int value = Integer.parseInt((String) newValue);
+            Settings.System.putInt(resolver,
+                    Settings.System.FLASHLIGHT_ON_CALL, value);
+            mFlashOnCall.setSummary(mFlashOnCall.getEntries()[value]);
+            mFlashOnCallIgnoreDND.setVisible(value > 1);
+            mFlashOnCallRate.setVisible(value != 0);
+            return true;
+        } else if (preference == mFlashOnCallRate) {
+            int value = (Integer) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.FLASHLIGHT_ON_CALL_RATE, value);
+            return true;
+        } else {
         return false;
     }
+  }
 
     @Override
     public int getMetricsCategory() {
