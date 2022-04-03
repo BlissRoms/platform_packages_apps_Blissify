@@ -27,6 +27,13 @@
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
     </Preference>
 
+    <!-- Show logo on Statusbar -->
+    <Preference
+        android:key="status_bar_logo"
+        android:title="@string/status_bar_logo_title"
+        android:summary="@string/status_bar_logo_summary"
+        android:fragment="org.blissroms.blissify.fragments.StatusBarLogo" />
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="statusbar_icons_style"
         android:title="@string/statusbar_icons_style"
