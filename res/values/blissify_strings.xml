@@ -488,8 +488,19 @@
 
     <!-- UDFPS settings -->
     <string name="udfps_category">UDFPS</string>
+
+    <!-- UDFPS Recog Animation -->
+    <string name="udfps_customization">UDFPS customization</string>
+    <string name="udfps_recog_animation">UDFPS animation</string>
+    <string name="udfps_recog_animation_summary">Shows an animation while reading your finger</string>
+    <string name="udfps_recog_animation_effect_title">UDFPS custom animation</string>
+    <string name="udfps_recog_animation_effect_summary">Choose animation effect</string>
     <string name="udfps_settings_title">UDFPS settings</string>
-    <string name="udfps_settings_summary">Customize under-display fingerprint scanner</string>
+    <string name="udfps_settings_summary">Settings for customizing the UDFPS</string>
+
+    <!-- UDFPS icon picker -->
+    <string name="udfps_icon_picker_title">UDFPS icon picker</string>
+    <string name="udfps_icon_picker_summary">Choose your favorite fingerprint icon</string>
 
     <!-- UDFPS Haptic Feedback -->
     <string name="udfps_haptic_feedback_title">UDFPS haptic feedback</string>
@@ -654,4 +665,5 @@
     <string name="status_bar_logo_style_gender_female">Female</string>
     <string name="status_bar_logo_style_gender_male_female">Male &amp; female</string>
     <string name="status_bar_logo_style_guitar_electric">Electric guitar</string>
+
 </resources>
