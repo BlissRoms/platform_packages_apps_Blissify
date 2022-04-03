@@ -65,6 +65,9 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.ArrayList;
 import java.util.List;
 import com.android.internal.util.bliss.BlissUtils;
+import com.bliss.support.preferences.CustomSeekBarPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.SystemSettingListPreference;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Notification extends SettingsPreferenceFragment implements
@@ -73,11 +76,13 @@ public class Notification extends SettingsPreferenceFragment implements
     private static final String CHARGING_LIGHTS_PREF = "charging_light";
     private static final String LED_CATEGORY = "led";
     private static final String NOTIFICATION_LIGHTS_PREF = "notification_light";
+    private static final String RETICKER_STATUS = "reticker_status";
 
     private Preference mChargingLeds;
     private Preference mNotLights;
     private PreferenceCategory mLedCategory;
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+    private SystemSettingSwitchPreference mRetickerStatus;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -113,11 +118,25 @@ public class Notification extends SettingsPreferenceFragment implements
             mLedCategory = findPreference(LED_CATEGORY);
             mLedCategory.setVisible(false);
         }
+
+        mRetickerStatus = findPreference(RETICKER_STATUS);
+        mRetickerStatus.setChecked((Settings.System.getInt(resolver,
+                Settings.System.RETICKER_STATUS, 0) == 1));
+        mRetickerStatus.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mRetickerStatus) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.RETICKER_STATUS, value ? 1 : 0);
+            BlissUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else {
         return false;
+        }
     }
 
     @Override
