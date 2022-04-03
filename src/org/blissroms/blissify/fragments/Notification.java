@@ -68,6 +68,8 @@ import com.android.internal.util.bliss.BlissUtils;
 import com.bliss.support.preferences.CustomSeekBarPreference;
 import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import com.bliss.support.preferences.SystemSettingListPreference;
+import com.bliss.support.preferences.SystemSettingSwitchPreference;
+import com.bliss.support.preferences.SystemSettingMasterSwitchPreference;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Notification extends SettingsPreferenceFragment implements
@@ -77,12 +79,14 @@ public class Notification extends SettingsPreferenceFragment implements
     private static final String LED_CATEGORY = "led";
     private static final String NOTIFICATION_LIGHTS_PREF = "notification_light";
     private static final String RETICKER_STATUS = "reticker_status";
+    private static final String KEY_EDGE_LIGHTING = "pulse_ambient_light";
 
     private Preference mChargingLeds;
     private Preference mNotLights;
     private PreferenceCategory mLedCategory;
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
     private SystemSettingSwitchPreference mRetickerStatus;
+    private SystemSettingMasterSwitchPreference mEdgeLighting;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -123,6 +127,13 @@ public class Notification extends SettingsPreferenceFragment implements
         mRetickerStatus.setChecked((Settings.System.getInt(resolver,
                 Settings.System.RETICKER_STATUS, 0) == 1));
         mRetickerStatus.setOnPreferenceChangeListener(this);
+
+        mEdgeLighting = (SystemSettingMasterSwitchPreference)
+                findPreference(KEY_EDGE_LIGHTING);
+        boolean enabled = Settings.System.getIntForUser(resolver,
+                KEY_EDGE_LIGHTING, 0, UserHandle.USER_CURRENT) == 1;
+        mEdgeLighting.setChecked(enabled);
+        mEdgeLighting.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -133,6 +144,11 @@ public class Notification extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver,
                     Settings.System.RETICKER_STATUS, value ? 1 : 0);
             BlissUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mEdgeLighting) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(resolver, KEY_EDGE_LIGHTING,
+                    value ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
         } else {
         return false;
