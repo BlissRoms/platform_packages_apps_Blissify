@@ -31,6 +31,14 @@
             android:targetClass="org.exthmui.game.ui.MainActivity" />
     </Preference>
 
+    <!-- Hidden apps -->
+    <Preference
+        android:key="hidden_apps"
+        android:title="@string/hidden_apps_title"
+        android:summary="@string/hidden_apps_summary"
+        android:persistent="false"
+        android:fragment="org.blissroms.blissify.fragments.HiddenAppSettingsFragment" />
+
     <!-- Launch music player when headset is connected -->
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="headset_connect_player"
