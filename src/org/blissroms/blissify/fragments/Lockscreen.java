@@ -50,6 +50,12 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import static android.os.UserHandle.USER_SYSTEM;
+import static android.os.UserHandle.USER_CURRENT;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Lockscreen extends SettingsPreferenceFragment implements
@@ -59,6 +65,8 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
     private static final String UDFPS_CATEGORY = "udfps_category";
     private static final String AOD_SCHEDULE_KEY = "always_on_display_schedule";
+    private static final String CUSTOM_CLOCK_FACE = Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE;
+    private static final String DEFAULT_CLOCK = "com.android.keyguard.clock.DefaultClockController";
 
     static final int MODE_DISABLED = 0;
     static final int MODE_NIGHT = 1;
@@ -70,9 +78,12 @@ public class Lockscreen extends SettingsPreferenceFragment implements
 
     private PreferenceCategory mUdfpsCategory;
 
+    private ListPreference mLockClockStyles;
     private FingerprintManager mFingerprintManager;
     private SystemSettingSwitchPreference mFingerprintSuccessVib;
     private SystemSettingSwitchPreference mFingerprintErrorVib;
+
+    private Context mContext;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -111,6 +122,11 @@ public class Lockscreen extends SettingsPreferenceFragment implements
 
 	mAODPref = findPreference(AOD_SCHEDULE_KEY);
         updateAlwaysOnSummary();
+        mLockClockStyles = (ListPreference) findPreference(CUSTOM_CLOCK_FACE);
+        String mLockClockStylesValue = getLockScreenCustomClockFace();
+        mLockClockStyles.setValue(mLockClockStylesValue);
+        mLockClockStyles.setSummary(mLockClockStyles.getEntry());
+        mLockClockStyles.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -155,8 +171,38 @@ public class Lockscreen extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FP_ERROR_VIBRATE, value ? 1 : 0);
             return true;
+        } else if (preference == mLockClockStyles) {
+            setLockScreenCustomClockFace((String) newValue);
+            int index = mLockClockStyles.findIndexOfValue((String) newValue);
+            mLockClockStyles.setSummary(mLockClockStyles.getEntries()[index]);
+            return true;
         }
         return false;
+    }
+
+    private String getLockScreenCustomClockFace() {
+        mContext = getActivity();
+        String value = Settings.Secure.getStringForUser(mContext.getContentResolver(),
+                CUSTOM_CLOCK_FACE, USER_CURRENT);
+
+        if (value == null || value.isEmpty()) value = DEFAULT_CLOCK;
+
+        try {
+            JSONObject json = new JSONObject(value);
+            return json.getString("clock");
+        } catch (JSONException ex) {
+        }
+        return value;
+    }
+
+    private void setLockScreenCustomClockFace(String value) {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("clock", value);
+            Settings.Secure.putStringForUser(mContext.getContentResolver(), CUSTOM_CLOCK_FACE,
+                    json.toString(), USER_CURRENT);
+        } catch (JSONException ex) {
+        }
     }
 
     @Override
