@@ -25,4 +25,12 @@
             android:entryValues="@array/quick_pulldown_values"
             android:defaultValue="0" />
 
+    <!-- QS Battery estimates -->
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="qs_show_battery_estimate"
+        android:title="@string/qs_show_battery_estimate_title"
+        android:summaryOn="@string/qs_show_battery_estimate_summary_on"
+        android:summaryOff="@string/qs_show_battery_estimate_summary_off"
+        android:defaultValue="true" />
+
 </PreferenceScreen>
