@@ -51,6 +51,12 @@
         android:summary="@string/app_downgrade_summary"
         android:defaultValue="false"/>
 
+    <org.blissroms.blissify.preferences.SecureSettingSwitchPreference
+        android:key="window_ignore_secure"
+        android:title="@string/ignore_window_secure_title"
+        android:summary="@string/ignore_window_secure_summary"
+        android:defaultValue="false"/>
+
     <Preference
         android:key="default_usb_configuration"
         android:title="@string/usb_default_config_title"
