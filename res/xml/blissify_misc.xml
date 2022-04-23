@@ -31,6 +31,12 @@
             android:targetClass="org.exthmui.game.ui.MainActivity" />
     </Preference>
 
+    <com.bliss.support.preferences.GlobalSettingSwitchPreference
+        android:key="pm_downgrade_allowed"
+        android:title="@string/app_downgrade_title"
+        android:summary="@string/app_downgrade_summary"
+        android:defaultValue="false"/>
+
     <!-- Hidden apps -->
     <Preference
         android:key="hidden_apps"
