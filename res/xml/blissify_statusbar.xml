@@ -41,6 +41,12 @@
         android:defaultValue="false" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="battery_level_colors"
+        android:title="@string/battery_level_colors_title"
+        android:summary="@string/battery_level_colors_summary"
+        android:defaultValue="false" />
+
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
 	android:key="status_bar_notif_count"
 	android:title="@string/status_bar_notif_count_title"
 	android:summary="@string/status_bar_notif_count_summary"
