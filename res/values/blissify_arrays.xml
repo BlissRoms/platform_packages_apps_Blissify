@@ -142,7 +142,6 @@
         <item>@string/status_bar_battery_style_port</item>
         <item>@string/status_bar_battery_style_circle</item>
         <item>@string/status_bar_battery_style_dotted_circle</item>
-        <item>@string/status_bar_battery_style_full_circle</item>
         <item>@string/status_bar_battery_style_text</item>
     </string-array>
 
@@ -151,7 +150,6 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
-        <item>4</item>
     </string-array>
 	
 	<!-- VoLTE Icon Type -->
