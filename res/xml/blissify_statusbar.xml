@@ -35,9 +35,9 @@
         android:fragment="org.blissroms.blissify.fragments.StatusBarLogo" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
-        android:key="statusbar_icons_style"
-        android:title="@string/statusbar_icons_style"
-        android:summary="@string/statusbar_icons_style_summary"
+        android:key="statusbar_colored_icons"
+        android:title="@string/statusbar_colored_icons_title"
+        android:summary="@string/statusbar_colored_icons_summary"
         android:defaultValue="false" />
 
     <com.bliss.support.preferences.SystemSettingSwitchPreference
