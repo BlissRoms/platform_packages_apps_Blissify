@@ -87,6 +87,22 @@
             android:summary="@string/artwork_media_background_summary"
             android:defaultValue="false" />
 
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="artwork_media_background_fade_percent"
+            android:title="@string/artwork_media_background_fade_filter_title"
+            android:dependency="artwork_media_background"
+            android:defaultValue="30"
+            android:max="50"
+            settings:min="1" />
+
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="artwork_media_background_alpha"
+            android:title="@string/artwork_media_background_alpha_title"
+            android:dependency="artwork_media_background"
+            android:defaultValue="255"
+            android:max="255"
+            settings:min="0" />
+
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="artwork_media_background_enable_blur"
             android:title="@string/artwork_media_background_enable_blur_title"
@@ -100,14 +116,6 @@
             android:defaultValue="1"
             android:max="25"
             settings:min="1" />
-
-        <com.bliss.support.preferences.SystemSettingSeekBarPreference
-            android:key="artwork_media_background_alpha"
-            android:title="@string/artwork_media_background_alpha_title"
-            android:dependency="artwork_media_background"
-            android:defaultValue="255"
-            android:max="255"
-            settings:min="0" />
 
     </PreferenceCategory>
 
