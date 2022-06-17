@@ -56,8 +56,7 @@
         android:key="traffic"
         android:fragment="org.blissroms.blissify.fragments.Traffic"
         android:title="@string/traffic_title"
-        android:summary="@string/traffic_summary"
-        app:allowDividerAbove="true" />
+        android:summary="@string/traffic_summary" />
 
     <Preference
         android:key="batterybar"

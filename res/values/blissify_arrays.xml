@@ -435,7 +435,6 @@
 
     <!-- Status bar logo style -->
     <string-array name="status_bar_logo_style_entries" translatable="false">
-        <item>@string/status_bar_logo_style_bliss</item>
         <item>@string/status_bar_logo_style_android</item>
         <item>@string/status_bar_logo_style_apple</item>
         <item>@string/status_bar_logo_style_ios</item>
@@ -471,7 +470,6 @@
     </string-array>
 
     <string-array name="status_bar_logo_style_values" translatable="false">
-        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>

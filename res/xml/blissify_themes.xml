@@ -19,15 +19,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_themes_title">
 
+    <PreferenceCategory
+        android:key="theme_customization_category"
+        android:title="@string/theme_customization_category">
+
     <Preference
         android:key="monet_engine_settings"
         android:title="@string/monet_engine_title"
         android:summary="@string/monet_engine_summary"
         android:fragment="org.blissroms.blissify.fragments.MonetEngineSettingsFragment" />
-
-    <PreferenceCategory
-        android:key="theme_customization_category"
-        android:title="@string/theme_customization_category">
 
         <Preference
             android:key="android.theme.customization.fonts"
@@ -61,7 +61,6 @@
 
         <Preference
             android:key="android.theme.customization.navbar"
-            android:icon="@drawable/ic_navbar"
             android:title="@string/theme_customization_navbar_title"
             android:summary="@string/theme_customization_navbar_summary"
             android:fragment="org.blissroms.blissify.fragments.NavbarStyles"/>
