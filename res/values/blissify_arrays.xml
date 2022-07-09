@@ -603,16 +603,6 @@
         <item>1</item>
     </string-array>
 
-    <string-array name="brightness_slider_position_entries" translatable="false">
-        <item>@string/top</item>
-        <item>@string/bottom</item>
-    </string-array>
-
-    <string-array name="brightness_slider_position_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-    </string-array>
-
     <!-- Lockscreen Clock -->
     <string-array name="lock_screen_custom_clock_face_entries" translatable="false">
         <item>@string/lock_screen_custom_clock_face_default</item>
