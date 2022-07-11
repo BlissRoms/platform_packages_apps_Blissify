@@ -60,7 +60,7 @@ import java.util.Collections;
 public class Statusbar extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String COMBINED_STATUSBAR_ICONS = "show_combined_status_bar_signal_icons";
+    private static final String KEY_COMBINED_ICONS = "combined_status_bar_signal_icons";
     private static final String CONFIG_RESOURCE_NAME = "flag_combined_status_bar_signal_icons";
     private static final String SYSTEMUI_PACKAGE = "com.android.systemui";
     private static final String KEY_STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
@@ -74,7 +74,7 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mBatteryPercent;
     private SystemSettingListPreference mBatteryStyle;
     private SwitchPreference mBatteryTextCharging;
-    private SecureSettingSwitchPreference mCombinedIcons;
+    private SwitchPreference mCombinedIcons;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -84,8 +84,8 @@ public class Statusbar extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-        mCombinedIcons = (SecureSettingSwitchPreference)
-                findPreference(COMBINED_STATUSBAR_ICONS);
+        mCombinedIcons = (SwitchPreference)
+                findPreference(KEY_COMBINED_ICONS);
         Resources sysUIRes = null;
         boolean def = false;
         int resId = 0;
@@ -100,8 +100,8 @@ public class Statusbar extends SettingsPreferenceFragment implements
                     CONFIG_RESOURCE_NAME, "bool", SYSTEMUI_PACKAGE);
             if (resId != 0) def = sysUIRes.getBoolean(resId);
         }
-        boolean enabled = Settings.Secure.getInt(resolver,
-                COMBINED_STATUSBAR_ICONS, def ? 1 : 0) == 1;
+        boolean enabled = Settings.System.getInt(resolver,
+                KEY_COMBINED_ICONS, def ? 1 : 0) == 1;
         mCombinedIcons.setChecked(enabled);
         mCombinedIcons.setOnPreferenceChangeListener(this);
 
@@ -145,8 +145,8 @@ public class Statusbar extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mCombinedIcons) {
             boolean enabled = (boolean) newValue;
-            Settings.Secure.putInt(resolver,
-                    COMBINED_STATUSBAR_ICONS, enabled ? 1 : 0);
+            Settings.System.putInt(resolver,
+                    KEY_COMBINED_ICONS, enabled ? 1 : 0);
             return true;
         }
         return false;

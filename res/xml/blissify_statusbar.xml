@@ -145,8 +145,8 @@
         android:defaultValue="true" />
 
     <!-- Combined signal icons -->
-    <com.bliss.support.preferences.SecureSettingSwitchPreference
-        android:key="show_combined_status_bar_signal_icons"
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="combined_status_bar_signal_icons"
         android:title="@string/combined_status_bar_signal_icons"
         android:summary="@string/combined_status_bar_signal_icons_summary"
         android:defaultValue="false" />
