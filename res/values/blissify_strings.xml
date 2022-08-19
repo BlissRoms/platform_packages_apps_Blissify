@@ -40,6 +40,7 @@
     <string name="statusbar_battery_category_title">Battery</string>
     <string name="powermenu_items_category_title">Power menu items</string>
     <string name="panel_transparency_category_title">Transparency</string>
+    <string name="screen_off_animation_category_title">Screen OFF</string>
 
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
@@ -178,4 +179,9 @@
     <!-- Quick Settings quick pulldown -->
     <string name="quick_settings_quick_pull_down_title">Quick QS pulldown</string>
     <string name="quick_settings_quick_pull_down_summary">Pull down statusbar from right side to expand quick settings</string>
+
+    <!-- Screen off animation -->
+    <string name="screen_off_animation_title">Screen off animation</string>
+    <string name="screen_off_animation_crt" translatable="false">CRT</string>
+    <string name="screen_off_animation_scale">Scale</string>
 </resources>
