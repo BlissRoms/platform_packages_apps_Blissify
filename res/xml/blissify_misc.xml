@@ -9,4 +9,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_misc_title">
 
+	<com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="wake_when_plugged_or_unplugged"
+            android:title="@string/wake_on_plug_title"
+            android:summary="@string/wake_on_plug_summary"
+            android:defaultValue="true" />
+
 </PreferenceScreen>

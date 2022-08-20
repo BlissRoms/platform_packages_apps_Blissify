@@ -169,4 +169,8 @@
     <string name="notification_sound_vib_screen_on_title">Notification sound if active</string>
     <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
 
+    <!-- Wake on plug -->
+    <string name="wake_on_plug_title">Wake on plug</string>
+    <string name="wake_on_plug_summary">Turn the screen on when connecting or disconnecting a power source</string>
+
 </resources>
