@@ -194,4 +194,8 @@
     <string name="dt2s_statusbar_title">Tap on status bar</string>
     <string name="dt2s_statusbar_summary">Double tap the status bar to put the device to sleep</string>
 
+    <!-- Double tap lock screen to sleep -->
+    <string name="dt2s_lockscreen_title">Tap on lock screen</string>
+    <string name="dt2s_lockscreen_summary">Double tap on lock screen to put the device to sleep</string>
+
 </resources>
