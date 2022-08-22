@@ -190,4 +190,8 @@
     <string name="udfps_haptic_feedback_title">Udfps haptic feedback</string>
     <string name="udfps_haptic_feedback_summary">Vibrate when touching UDFPS icon</string>
 
+    <!-- Double tap status bar to sleep -->
+    <string name="dt2s_statusbar_title">Tap on status bar</string>
+    <string name="dt2s_statusbar_summary">Double tap the status bar to put the device to sleep</string>
+
 </resources>
