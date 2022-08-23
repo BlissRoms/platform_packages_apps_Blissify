@@ -50,6 +50,7 @@
     <string name="developer_options_category">Developer Options</string>
     <string name="volume_category">Volume Rocker</string>
     <string name="statusbar_icons_category_title">Icons</string>
+    <string name="statusbar_telephony_category_title">Telephony icons</string>
 
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
@@ -457,4 +458,8 @@
     <!-- Old mobile type icons -->
     <string name="use_old_mobiletype_title">Small mobile type icon</string>
     <string name="use_old_mobiletype_summary">Show mobile type icon on top of the signal indicator</string>
+
+    <!-- 4G icon -->
+    <string name="fourg_icon_title">4G icon</string>
+    <string name="fourg_icon_summary">Display 4G icon instead of LTE</string>
 </resources>
