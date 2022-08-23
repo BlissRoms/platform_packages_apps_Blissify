@@ -227,4 +227,8 @@
     <!-- 4G icon -->
     <string name="fourg_icon_title">4G icon</string>
     <string name="fourg_icon_summary">Display 4G icon instead of LTE</string>
+
+    <!-- Old mobile type icons -->
+    <string name="old_mobiletype_title">Small mobile icon</string>
+    <string name="old_mobiletype_summary">Show mobile type icon on top of the signal indicator</string>
 </resources>
