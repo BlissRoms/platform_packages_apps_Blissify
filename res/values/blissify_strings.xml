@@ -42,6 +42,7 @@
     <string name="panel_transparency_category_title">Transparency</string>
     <string name="screen_off_animation_category_title">Screen OFF</string>
     <string name="udfps_category">UDFPS</string>
+    <string name="statusbar_telephony_category_title">Telephony icons</string>
 
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
@@ -227,4 +228,7 @@
     <string name="qs_battery_percent_title">QS battery</string>
     <string name="qs_use_status_bar_battery_style">Follow status bar style</string>
 
+    <!-- 4G icon -->
+    <string name="fourg_icon_title">4G icon</string>
+    <string name="fourg_icon_summary">Display 4G icon instead of LTE</string>
 </resources>

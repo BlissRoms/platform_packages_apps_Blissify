@@ -59,4 +59,15 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/statusbar_telephony_category_title">
+
+	<com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="show_fourg_icon"
+            android:title="@string/fourg_icon_title"
+            android:summary="@string/fourg_icon_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
