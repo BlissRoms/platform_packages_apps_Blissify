@@ -297,4 +297,8 @@
     <string name="data_disabled_icon_title">Show data disabled icon</string>
     <string name="data_disabled_icon_summary">Display the cross sign next to signal bar when data is disabled</string>
 
+    <!-- 4G icon -->
+    <string name="fourg_icon_title">4G icon</string>
+    <string name="fourg_icon_summary">Display 4G icon instead of LTE</string>
+
 </resources>
