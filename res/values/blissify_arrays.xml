@@ -168,4 +168,16 @@
         <item>3</item>
     </string-array>
 
+    <!-- Power to toggle torch -->
+    <string-array name="torch_power_button_entries" translatable="false">
+        <item>@string/torch_power_button_none</item>
+        <item>@string/torch_power_button_dt</item>
+        <item>@string/torch_power_button_lp</item>
+    </string-array>
+
+    <string-array name="torch_power_button_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>
