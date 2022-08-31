@@ -231,4 +231,11 @@
     <!-- Old mobile type icons -->
     <string name="old_mobiletype_title">Small mobile icon</string>
     <string name="old_mobiletype_summary">Show mobile type icon on top of the signal indicator</string>
+
+    <!-- Power to toggle torch -->
+    <string name="torch_power_button_title">Toggle torch when screen off</string>
+    <string name="torch_power_button_none">Disabled</string>
+    <string name="torch_power_button_dt">Double tap power button (slower single tap response), Disables double power tap for camera</string>
+    <string name="torch_power_button_lp">Long press power button</string>
+
 </resources>
