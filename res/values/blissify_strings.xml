@@ -343,4 +343,9 @@
     <string name="custom_timeout_summary_4hours">4 hours</string>
     <string name="custom_timeout_summary_8hours">8 hours</string>
 
+    <!-- Footer -->
+    <string name="qs_footer_category">QS Footer</string>
+    <string name="qs_footer_datausage_title">Data usage</string>
+    <string name="qs_footer_datausage_summary">Display data usage summary in quick settings footer</string>
+
 </resources>
