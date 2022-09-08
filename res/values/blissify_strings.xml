@@ -162,4 +162,10 @@
     <!-- Status bar Icon Manager -->
     <string name="statusbar_icon_manager_title">Statusbar Icon manager</string>
     <string name="statusbar_icon_manager_summary">Control visibility of status bar icons</string>
+
+    <!-- Volume key cursor control -->
+    <string name="volbtn_cursor_control_title">Keyboard cursor control</string>
+    <string name="volbtn_cursor_control_off">Disabled</string>
+    <string name="volbtn_cursor_control_on">Volume up/down moves cursor left/right</string>
+    <string name="volbtn_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
 </resources>
