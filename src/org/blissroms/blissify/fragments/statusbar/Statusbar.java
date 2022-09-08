@@ -34,6 +34,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
+import android.text.format.DateFormat;
 import android.provider.Settings;
 import com.android.settings.R;
 
@@ -44,6 +45,7 @@ import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import com.bliss.support.preferences.SystemSettingSeekBarPreference;
 import com.bliss.support.preferences.SecureSettingSwitchPreference;
 import com.bliss.support.preferences.SystemSettingListPreference;
+import com.bliss.support.preferences.SecureSettingListPreference;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
@@ -60,6 +62,10 @@ import java.util.Collections;
 public class Statusbar extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_STATUS_BAR_AM_PM = "status_bar_am_pm";
+
+    private SecureSettingListPreference mStatusBarAmPm;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -68,6 +74,7 @@ public class Statusbar extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
+	mStatusBarAmPm = findPreference(KEY_STATUS_BAR_AM_PM);
     }
 
     @Override
@@ -79,6 +86,16 @@ public class Statusbar extends SettingsPreferenceFragment implements
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.BLISSIFY;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (DateFormat.is24HourFormat(requireContext())) {
+            mStatusBarAmPm.setEnabled(false);
+            mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_unavailable);
+        }
     }
 
     /**
