@@ -190,4 +190,8 @@
     <string name="monet_engine_color_source_lock">Lock wallpaper</string>
     <string name="monet_engine_color_source_preset">Preset</string>
 
+    <!-- USB configuration -->
+    <string name="usb_default_config_title">USB configuration</string>
+    <string name="usb_default_config_summary">Choose the default behavior when connected to a device via USB</string>
+
 </resources>
