@@ -334,5 +334,8 @@
     <string name="volume_dialog_category">Volume dialog</string>
     <string name="volume_panel_on_left_title">Show volume panel on left</string>
     <string name="volume_panel_on_left_summary">Move volume panel to the left side of the screen</string>
-</resources>
 
+    <!-- Force to show settings in volume dialog -->
+    <string name="volume_dialog_force_show_settings_title">Media controller</string>
+    <string name="volume_dialog_force_show_settings_summary">Force to show media controller in volume dialog</string>
+</resources>
