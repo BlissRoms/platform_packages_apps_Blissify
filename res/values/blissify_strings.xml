@@ -257,4 +257,8 @@
     <string name="projection_privacy_indicator_title">Media projection privacy indicator</string>
     <string name="projection_privacy_indicator_summary">Show indicator when device screen is projected</string>
 
+    <!-- Status bar colored icons -->
+    <string name="status_bar_colored_icons_title">Colored icons</string>
+    <string name="status_bar_colored_icons_summary">Use app\'s icon for notification icons in status bar</string>
+
 </resources>
