@@ -258,4 +258,12 @@
     <string name="status_bar_colored_icons_title">Colored icons</string>
     <string name="status_bar_colored_icons_summary">Use app\'s icon for notification icons in status bar</string>
 
+    <!-- Privacy indicators -->
+    <string name="mic_camera_privacy_indicator_title">Mic and camera privacy indicator</string>
+    <string name="mic_camera_privacy_indicator_summary">Show indicator when any app uses mic or camera</string>
+    <string name="location_privacy_indicator_title">Location privacy indicator</string>
+    <string name="location_privacy_indicator_summary">Show indicator when any app uses location</string>
+    <string name="projection_privacy_indicator_title">Media projection privacy indicator</string>
+    <string name="projection_privacy_indicator_summary">Show indicator when device screen is projected</string>
+
 </resources>
