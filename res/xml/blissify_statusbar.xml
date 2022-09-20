@@ -41,4 +41,26 @@
         android:summary="@string/status_bar_clock_show_seconds_desc"
         android:defaultValue="false"/>
 
+    <PreferenceCategory
+      android:title="@string/blissify_powermenu_title">
+
+	<com.bliss.support.preferences.SecureSettingSwitchPreference
+            android:key="camera_privacy_indicator"
+            android:title="@string/mic_camera_privacy_indicator_title"
+            android:summary="@string/mic_camera_privacy_indicator_summary"
+            android:defaultValue="true" />
+
+        <com.bliss.support.preferences.SecureSettingSwitchPreference
+            android:key="location_privacy_indicator"
+            android:title="@string/location_privacy_indicator_title"
+            android:summary="@string/location_privacy_indicator_summary"
+            android:defaultValue="true" />
+
+        <com.bliss.support.preferences.SecureSettingSwitchPreference
+            android:key="projection_privacy_indicator"
+            android:title="@string/projection_privacy_indicator_title"
+            android:summary="@string/projection_privacy_indicator_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
