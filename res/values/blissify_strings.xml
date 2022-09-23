@@ -39,6 +39,7 @@
     <string name="power_key">Power</string>
     <string name="statusbar_battery_category_title">Battery</string>
     <string name="powermenu_items_category_title">Power menu items</string>
+    <string name="panel_transparency_category_title">Transparency</string>
 
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
