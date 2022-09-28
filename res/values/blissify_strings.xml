@@ -198,4 +198,12 @@
     <string name="dt2s_lockscreen_title">Tap on lock screen</string>
     <string name="dt2s_lockscreen_summary">Double tap on lock screen to put the device to sleep</string>
 
+    <!-- UDFPS icon picker -->
+    <string name="udfps_icon_picker_title">UDFPS icon picker</string>
+    <string name="udfps_icon_picker_summary">Choose your favorite icon</string>
+
+    <!-- UDFPS animation -->
+    <string name="udfps_animation_title">UDFPS animation effect</string>
+    <string name="udfps_animation_summary">Choose animation effect</string>
+
 </resources>
