@@ -36,6 +36,8 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
+import com.android.internal.util.bliss.udfps.UdfpsUtils;
+
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.bliss.udfps.UdfpsUtils;
 
@@ -75,20 +77,11 @@ public class Lockscreen extends SettingsPreferenceFragment implements
         final PreferenceScreen prefSet = getPreferenceScreen();
         final PackageManager mPm = getActivity().getPackageManager();
 
-        mUdfpsCategory = findPreference(UDFPS_CATEGORY);
-        if (!UdfpsUtils.hasUdfpsSupport(getContext())) {
-            prefSet.removePreference(mUdfpsCategory);
-        }
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        updateAlwaysOnSummary();
-    }
-
-    private void updateAlwaysOnSummary() {
     }
 
     @Override
