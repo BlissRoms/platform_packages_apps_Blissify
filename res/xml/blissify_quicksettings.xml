@@ -8,11 +8,19 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_quicksettings_title">
 
+    <PreferenceCategory
+        android:title="@string/general_category">
+
     	<com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
             android:summary="@string/quick_settings_vibrate_summary"
             android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/qs_brightness_category_title">
 
 	<com.bliss.support.preferences.SecureSettingListPreference
             android:key="qs_show_brightness_slider"
@@ -34,4 +42,5 @@
             android:summary="@string/qs_auto_brightness_summary"
             android:defaultValue="true" />
 
+    </PreferenceCategory>
 </PreferenceScreen>

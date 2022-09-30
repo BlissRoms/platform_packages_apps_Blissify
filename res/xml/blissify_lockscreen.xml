@@ -9,6 +9,9 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_lockscreen_title">
 
+    <PreferenceCategory
+        android:title="@string/general_category">
+
     <com.bliss.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
         android:title="@string/lockscreen_charging_info_title"
@@ -20,6 +23,8 @@
             android:title="@string/hide_lockscreen_status_bar_title"
             android:summary="@string/hide_lockscreen_status_bar_summary"
             android:defaultValue="false" />
+
+    </PreferenceCategory>
 
     <!-- Udfps options -->
     <PreferenceCategory

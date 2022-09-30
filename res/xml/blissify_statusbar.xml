@@ -9,6 +9,9 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_status_bar_title">
 
+    <PreferenceCategory
+        android:title="@string/general_category">
+
     <Preference
             android:key="systemui_tuner_statusbar"
             android:title="@string/statusbar_items_category" >
@@ -16,6 +19,8 @@
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
     </Preference>
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/statusbar_battery_category_title">
@@ -60,7 +65,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/statusbar_telephony_category_title">
+        android:title="@string/statusbar_icons_category_title">
 
 	<com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="show_fourg_icon"
@@ -74,13 +79,16 @@
             android:summary="@string/old_mobiletype_summary"
             android:defaultValue="false" />   
 
-    </PreferenceCategory>
-
 	<com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="statusbar_colored_icons"
             android:title="@string/status_bar_colored_icons_title"
             android:summary="@string/status_bar_colored_icons_summary"
             android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/statusbar_privacy_category_title">
 
 	<com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="enable_camera_privacy_indicator"
@@ -99,5 +107,6 @@
             android:title="@string/projection_privacy_indicator_title"
             android:summary="@string/projection_privacy_indicator_summary"
             android:defaultValue="true" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
