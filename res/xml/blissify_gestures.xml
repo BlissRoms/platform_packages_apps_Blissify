@@ -9,6 +9,9 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_gestures_title">
 
+    <PreferenceCategory
+        android:title="@string/aosp_gesture_category_title">
+
     <Preference
         android:key="gesture_settings"
         android:title="@string/aosp_gesture_preference"
@@ -22,6 +25,11 @@
         android:summary="@string/system_navigation_summary"
         android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
         settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/double_tap_gesture_title">
 
 	<com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="double_tap_sleep_gesture"
@@ -40,5 +48,7 @@
             android:title="@string/torch_power_button_title"
             android:entries="@array/torch_power_button_entries"
             android:entryValues="@array/torch_power_button_values" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
