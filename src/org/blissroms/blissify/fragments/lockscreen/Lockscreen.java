@@ -81,6 +81,11 @@ public class Lockscreen extends SettingsPreferenceFragment implements
         final PreferenceScreen prefSet = getPreferenceScreen();
         final PackageManager mPm = getActivity().getPackageManager();
 
+        mUdfpsCategory = findPreference(UDFPS_CATEGORY);
+        if (!UdfpsUtils.hasUdfpsSupport(getContext())) {
+            prefSet.removePreference(mUdfpsCategory);
+        }
+
         int unitMode = Settings.System.getIntForUser(resolver,
                 Settings.System.LOCKSCREEN_BATTERY_INFO_TEMP_UNIT, 0, UserHandle.USER_CURRENT);
         mBatteryTempUnit = (SystemSettingListPreference) findPreference(
