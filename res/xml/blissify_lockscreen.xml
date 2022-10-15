@@ -38,6 +38,11 @@
         android:summary="@string/weather_config_title"
         android:fragment="org.blissroms.blissify.fragments.lockscreen.Weather" />
 
+     <Preference
+        android:key="pulse_settings"
+        android:fragment="org.blissroms.blissify.fragments.lockscreen.PulseSettings"
+        android:title="@string/pulse_settings" />
+
     <!-- Udfps options -->
     <PreferenceCategory
         android:key="udfps_category"
