@@ -272,4 +272,9 @@
     <!-- Volume rocker wake -->
     <string name="volume_rocker_wake_title">Volume wake</string>
     <string name="volume_rocker_wake_summary">Wake your device up by pressing the volume keys</string>
+
+    <!-- Ignore window secure -->
+    <string name="ignore_window_secure_title">Ignore window secure flags</string>
+    <string name="ignore_window_secure_summary">Remove screenshot and screenrecord limits for all apps. This can be convenient in some cases but may lead to privacy leaks.</string>
+
 </resources>
