@@ -192,4 +192,8 @@
 
     <!-- Lock screen cover art -->
     <string name="lockscreen_media_blur_title">Media art blur level</string>
+
+    <!-- Click To Partial Screenshot -->
+    <string name="click_partial_screenshot_title">Click to partial screenshot</string>
+    <string name="click_partial_screenshot_summary">Short click Volume Down and Power to take partial screenshot</string>
 </resources>
