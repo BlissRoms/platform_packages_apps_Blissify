@@ -530,4 +530,8 @@
     <string name="games_spoof_title">Unlock higher FPS in games</string>
     <string name="games_spoof_summary">Spoof your device as a different model for specific games to unlock higher FPS</string>
 
+    <!-- Netflix Spoof -->
+    <string name="netflix_spoof_title">Netflix Spoof</string>
+    <string name="netflix_spoof_summary">Spoof your device as different model for Netflix</string>
+
 </resources>
