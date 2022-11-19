@@ -16,4 +16,10 @@
             android:summary="%s"
             android:defaultValue="0" />
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="click_partial_screenshot"
+            android:title="@string/click_partial_screenshot_title"
+            android:summary="@string/click_partial_screenshot_summary"
+            android:defaultValue="false" />
+
 </PreferenceScreen>
