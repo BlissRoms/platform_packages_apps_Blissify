@@ -484,4 +484,11 @@
     <string name="brightness_slider_style_filled">Filled</string>
     <string name="brightness_slider_style_thin">Thin</string>
 
+    <!-- Brightness Slider Vibration -->
+    <string name="qs_brightness_haptic_feedback_title">Vibrate on changing brigtness</string>
+
+    <!-- Volume panel haptic feedback-->
+    <string name="volume_panel_haptic_feedback_title">Vibrate on changing volume</string>
+
 </resources>
+
