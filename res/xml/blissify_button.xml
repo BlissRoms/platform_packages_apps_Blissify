@@ -34,5 +34,9 @@
         android:defaultValue="false"
         android:disableDependentsState="true" />
 
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="volume_panel_haptic_feedback"
+        android:title="@string/volume_panel_haptic_feedback_title"
+        android:defaultValue="false" />
     </PreferenceCategory>
 </PreferenceScreen>
