@@ -72,7 +72,7 @@
             android:key="qs_auto_brightness"
             android:title="@string/qs_auto_brightness_title"
             android:summary="@string/qs_auto_brightness_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true" />        
 
     </PreferenceCategory>
 </PreferenceScreen>
