@@ -73,6 +73,18 @@
             android:title="@string/qs_auto_brightness_title"
             android:summary="@string/qs_auto_brightness_summary"
             android:defaultValue="true" />
+        
+        <com.bliss.support.preferences.SecureSettingSwitchPreference
+            android:key="volume_panel_haptic_feedback"
+            android:title="@string/volume_panel_haptic_feedback_title"
+            android:dependency="touch_vibration_preference_screen"
+            android:defaultValue="false" />
+
+        <com.bliss.support.preferences.SecureSettingSwitchPreference
+            android:key="brightness_slider_haptic_feedback"
+            android:title="@string/qs_brightness_haptic_feedback_title"
+            android:dependency="touch_vibration_preference_screen"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 </PreferenceScreen>
