@@ -592,7 +592,8 @@
     </string-array>
 
    <string-array name="status_bar_logo_style_entries" translatable="false">
-        <item>Bliss logo</item>
+        <item>Bliss Logo</item>
+        <item>BlissLabs Logo</item>
         <item>GZR Skull</item>
         <item>GZR Circle</item>
         <item>Batman</item>
@@ -675,6 +676,7 @@
         <item>37</item>
         <item>38</item>
         <item>39</item>
+        <item>40</item>
     </string-array>
 
     <!-- Ambient light -->
