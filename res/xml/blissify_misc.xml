@@ -50,7 +50,7 @@
             android:key="statusbar_left_padding"
             android:title="@string/statusbar_left_padding"
             android:max="30"
-            android:min="-5"
+            android:min="0"
 	    settings:units="dp"
             android:defaultValue="8"/>
 
@@ -58,7 +58,7 @@
             android:key="statusbar_right_padding"
             android:title="@string/statusbar_right_padding"
             android:max="30"
-            android:min="-5"
+            android:min="0"
 	    settings:units="dp"
             android:defaultValue="8"/>
 
