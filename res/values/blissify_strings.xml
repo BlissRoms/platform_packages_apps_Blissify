@@ -290,4 +290,8 @@
 
     <!-- Enable/Disable Screenshot sound -->
     <string name="screenshot_sound_title">Screenshot sounds</string>
+
+    <!-- Status bar Icon Manager -->
+    <string name="statusbar_icon_manager_title">Statusbar Icon manager</string>
+    <string name="statusbar_icon_manager_summary">Control visibility of status bar icons</string>
 </resources>

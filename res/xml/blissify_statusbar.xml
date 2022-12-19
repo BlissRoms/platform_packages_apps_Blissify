@@ -10,19 +10,6 @@
     android:title="@string/blissify_status_bar_title">
 
     <PreferenceCategory
-        android:title="@string/general_category">
-
-    <Preference
-            android:key="systemui_tuner_statusbar"
-            android:title="@string/statusbar_items_category" >
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
-    </Preference>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:title="@string/statusbar_battery_category_title">
 
         <com.bliss.support.preferences.SystemSettingListPreference
@@ -66,6 +53,14 @@
 
     <PreferenceCategory
         android:title="@string/statusbar_icons_category_title">
+
+        <!-- Statusbar Icon Manager -->
+        <Preference
+            android:key="statusbar_icon_manager"
+            android:title="@string/statusbar_icon_manager_title"
+            android:summary="@string/statusbar_icon_manager_summary">
+            <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
+        </Preference>
 
 	<com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="show_fourg_icon"
