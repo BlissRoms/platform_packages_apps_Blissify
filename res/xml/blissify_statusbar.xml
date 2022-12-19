@@ -9,6 +9,14 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_status_bar_title">
 
+    <!-- Statusbar Icon Manager -->
+    <Preference
+            android:key="statusbar_icon_manager"
+            android:title="@string/statusbar_icon_manager_title"
+            android:summary="@string/statusbar_icon_manager_summary">
+            <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
+    </Preference>
+
     <PreferenceCategory
         android:title="@string/status_bar_clock_title">
 

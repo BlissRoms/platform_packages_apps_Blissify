@@ -413,4 +413,8 @@
     <string name="accent_color_title">Accent Color</string>
     <string name="accent_color_summary">Override default accent color</string>
 
+    <!-- Status bar Icon Manager -->
+    <string name="statusbar_icon_manager_title">Statusbar Icon manager</string>
+    <string name="statusbar_icon_manager_summary">Control visibility of status bar icons</string>
+
 </resources>
