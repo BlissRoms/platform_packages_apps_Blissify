@@ -158,4 +158,8 @@
     <!-- QuickSettings haptic feedback -->
     <string name="quick_settings_vibrate_title">Vibrate on touch</string>
     <string name="quick_settings_vibrate_summary">Vibrate when touching QS tiles</string>
+
+    <!-- Status bar Icon Manager -->
+    <string name="statusbar_icon_manager_title">Statusbar Icon manager</string>
+    <string name="statusbar_icon_manager_summary">Control visibility of status bar icons</string>
 </resources>
