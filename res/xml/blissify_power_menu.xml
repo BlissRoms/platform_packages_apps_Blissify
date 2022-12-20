@@ -61,7 +61,7 @@
             android:defaultValue="false" />
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="powermenu_onthego"
+            android:key="global_actions_onthego"
             android:title="@string/powermenu_onthego"
             android:defaultValue="false" />
 
