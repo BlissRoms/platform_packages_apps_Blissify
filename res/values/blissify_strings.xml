@@ -362,6 +362,7 @@
     <string name="weather_icon_pack_note">Note\u003a you can install new icon packs from play store by searching for \"Chronus icons\"</string>
 
     <!-- Lockscreen Weather -->
+    <string name="weather_category">Weather options</string>
     <string name="lock_screen_weather_category_title">Lockscreen</string>
     <string name="lock_screen_show_weather_title">Weather display</string>
     <string name="lock_screen_show_weather_summaryOn">Weather is shown on Lockscreen</string>
@@ -378,6 +379,7 @@
     <string name="lock_screen_weather_condition_icon_summaryOff">Condition icon is hidden on Lockscreen</string>
 
     <!-- Pulse music visualizer -->
+    <string name="pulse_category">Pulse music visualizer</string>
     <string name="pulse_help_policy_notice_title">About Pulse</string>
     <string name="pulse_help_policy_notice_summary">Pulse is a brilliant audio visualizer when music plays on the device</string>
     <string name="pulse_settings">Pulse</string>
