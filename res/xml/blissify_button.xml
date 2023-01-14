@@ -35,7 +35,7 @@
             android:key="volume_panel_on_left"
             android:title="@string/volume_panel_on_left_title"
             android:summary="@string/volume_panel_on_left_summary"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
 
 	<com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="volume_dialog_force_show_settings"
