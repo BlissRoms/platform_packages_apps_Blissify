@@ -13,6 +13,12 @@
         android:key="theme_customization_category"
         android:title="@string/theme_customization_category">
 
+    <Preference
+        android:key="monet_settings"
+        android:title="@string/monet_settings_title"
+        android:summary="@string/monet_settings_sammary"
+        android:fragment="org.blissroms.blissify.fragments.themes.MonetSettings" />
+
         <Preference
             android:key="android.theme.customization.fonts"
             android:title="@string/theme_customization_font_title"
