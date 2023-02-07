@@ -456,4 +456,10 @@
     <string name="qs_tile_rect">Rounded Rectangle</string>
     <string name="qs_tile_mix">Round for active tiles and Rounded Rectangle for inactive tiles</string>
 
+    <!-- Custom themes -->
+    <string name="dark_ui_mode_summary">Browse the dark theme options</string>
+    <string name="custom_theme_title">Use Custom theme</string>
+    <string name="custom_theme_black">Black</string>
+    <string name="custom_theme_clear">Clear</string>
+
 </resources>
