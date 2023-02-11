@@ -18,6 +18,15 @@
             android:entryValues="@array/qs_tile_shape_values"
             android:defaultValue="2" />
 
+	<com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_transparency"
+            android:title="@string/qs_transparency_title"
+            android:summary="@string/qs_transparency_summary"
+            android:defaultValue="10"
+            settings:interval="1"
+            android:max="10"
+            android:min="1" />
+
     	<com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
