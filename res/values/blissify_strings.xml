@@ -456,4 +456,8 @@
     <string name="qs_tile_rect">Rounded Rectangle</string>
     <string name="qs_tile_mix">Round for active tiles and Rounded Rectangle for inactive tiles</string>
 
+    <!-- QS Transparency -->
+    <string name="qs_transparency_title">QS Transparency</string>
+    <string name="qs_transparency_summary">Choose how transparent you want your QS Panel to be (Requires SystemUI)</string>
+
 </resources>
