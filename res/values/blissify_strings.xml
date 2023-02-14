@@ -184,4 +184,9 @@
     <string name="screen_off_animation_title">Screen off animation</string>
     <string name="screen_off_animation_crt" translatable="false">CRT</string>
     <string name="screen_off_animation_scale">Scale</string>
+
+    <!-- Media art -->
+    <string name="lockscreen_media_art_options_title">Media cover art</string>
+    <string name="media_art_title">Media cover art</string>
+    <string name="media_art_summary">Display media cover art when available</string>
 </resources>
