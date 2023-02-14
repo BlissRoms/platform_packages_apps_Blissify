@@ -460,4 +460,9 @@
     <string name="qs_transparency_title">QS Transparency</string>
     <string name="qs_transparency_summary">Choose how transparent you want your QS Panel to be (Requires SystemUI restart)</string>
 
+    <!-- Media art -->
+    <string name="lockscreen_media_art_options_title">Media cover art</string>
+    <string name="media_art_title">Media cover art</string>
+    <string name="media_art_summary">Display media cover art when available</string>
+
 </resources>
