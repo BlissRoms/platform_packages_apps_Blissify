@@ -357,4 +357,16 @@
     <!-- UDFPS animation -->
     <string name="udfps_animation_title">UDFPS animation effect</string>
     <string name="udfps_animation_summary">Choose animation effect</string>
+
+    <!-- Battery customizations -->
+    <string name="battery_style_title">Battery Style</string>
+    <string name="battery_style_port">Portrait</string>
+    <string name="battery_style_circle">Circle</string>
+    <string name="battery_style_text">Text</string>
+    <string name="battery_percent_title">Show percent</string>
+    <string name="battery_percent_summary">Always show the battery percent with the icon</string>
+    <string name="battery_percent_inside_title">Show percent inside</string>
+    <string name="battery_percent_inside_summary">Show percent inside the icon</string>
+    <string name="show_battery_percent_charging_title">Show percent when charging</string>
+    <string name="show_battery_percent_charging_summary">Enforce showing the percent next to the icon when charging</string>
 </resources>
