@@ -209,4 +209,10 @@
     <!-- Clock show seconds -->
     <string name="status_bar_clock_show_seconds_title">Clock show seconds</string>
     <string name="status_bar_clock_show_seconds_desc">Show hours, minutes, and seconds</string>
+
+    <!-- QS Battery estimates -->
+    <string name="battery_title">Battery</string>
+    <string name="qs_show_battery_estimate_title">Battery estimates</string>
+    <string name="qs_show_battery_estimate_summary_on">Show battery estimates in QS</string>
+    <string name="qs_show_battery_estimate_summary_off">Hide battery estimates in QS</string>
 </resources>

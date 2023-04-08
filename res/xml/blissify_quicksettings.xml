@@ -20,4 +20,17 @@
         android:summary="@string/quick_settings_quick_pull_down_summary"
         android:defaultValue="true" />
 
+     <PreferenceCategory
+        android:key="quick_settings_battery_category"
+        android:title="@string/battery_title">
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_battery_estimate"
+            android:title="@string/qs_show_battery_estimate_title"
+            android:summaryOn="@string/qs_show_battery_estimate_summary_on"
+            android:summaryOff="@string/qs_show_battery_estimate_summary_off"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
