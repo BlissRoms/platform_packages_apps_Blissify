@@ -480,7 +480,6 @@
     <string name="clock_use_single_line_title">Lockscreen clock Format</string>
     <string name="single_line">Single-line</string>
     <string name="double_line">Double-line</string>
-    <string name="qs_apply_change_button_title">Apply change</string>
 
     <!-- Double tap lock screen to sleep -->
     <string name="dt2s_lockscreen_title">DT2S on lock screen</string>
@@ -498,5 +497,25 @@
     <string name="flashlight_on_call_ignore_dnd_summary">Whether to flash when in Do Not Disturb mode</string>
     <string name="flashlight_on_call_rate_title">Rate</string>
     <string name="flashlight_on_call_rate_summary">Flashlight on call blink rate</string>
+
+    <!-- QS tiles layout -->
+    <string name="qs_layout_category_title">QuickSettings settings</string>
+    <string name="qs_tile_layout_title">QS tiles layout</string>
+    <string name="qs_tile_layout_summary">Customize QuickSettings panel</string>
+    <string name="qs_tiles_layout_category">Tiles layout</string>
+    <string name="qs_rows_portrait_title">Rows (Portrait)</string>
+    <string name="qqs_rows_portrait_title">Rows (Quick QS portrait)</string>
+    <string name="qs_columns_portrait_title">Columns (Portrait)</string>
+    <string name="qs_apply_change_button_title">Apply change</string>
+    <string name="qs_apply_change_failed">Failed to apply change</string>
+    <string name="qs_tile_hide_label_title">Hide labels</string>
+    <string name="qs_tile_hide_label_summary">Show only icon for QS tiles</string>
+    <string name="qs_tile_vertical_layout_title">Vertical layout</string>
+    <string name="qs_tile_vertical_layout_summary">Enable vertical layout for QS tiles</string>
+    <string name="qs_tile_label_size_title">Label text size</string>
+
+    <!-- QS Transparency -->
+    <string name="qs_transparency_title">QS Background transparency</string>
+    <string name="qs_transparency_summary">Set transparency level for QS background</string>
 
 </resources>
