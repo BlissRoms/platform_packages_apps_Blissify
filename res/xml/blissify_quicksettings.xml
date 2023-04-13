@@ -75,4 +75,15 @@
             android:defaultValue="true" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/qs_layout_category_title">
+
+	<Preference
+        android:key="qs_tile_layout"
+        android:title="@string/qs_tile_layout_title"
+        android:summary="@string/qs_tile_layout_summary"
+        android:fragment="org.blissroms.blissify.fragments.qs.QsLayoutSettings" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
