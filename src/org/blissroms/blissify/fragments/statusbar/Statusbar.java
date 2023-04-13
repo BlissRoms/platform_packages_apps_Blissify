@@ -20,9 +20,11 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import android.os.Bundle;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.UserHandle;
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -46,12 +48,12 @@ import com.bliss.support.preferences.SystemSettingSeekBarPreference;
 import com.bliss.support.preferences.SecureSettingSwitchPreference;
 import com.bliss.support.preferences.SystemSettingListPreference;
 import com.bliss.support.preferences.SecureSettingListPreference;
+import com.bliss.support.preferences.CustomSeekBarPreference;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settings.Utils;
 import android.util.Log;
-import com.bliss.support.preferences.SystemSettingSwitchPreference;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -68,6 +70,9 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private static final String SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String SHOW_BATTERY_PERCENT_CHARGING = "status_bar_show_battery_percent_charging";
     private static final String SHOW_BATTERY_PERCENT_INSIDE = "status_bar_show_battery_percent_inside";
+    private static final String STATUSBAR_LEFT_PADDING = "statusbar_left_padding";
+    private static final String STATUSBAR_RIGHT_PADDING = "statusbar_right_padding";
+    private static final String STATUSBAR_TOP_PADDING = "statusbar_top_padding";
 
     private SystemSettingListPreference mBatteryStyle;
     private SystemSettingSwitchPreference mBatteryPercent;
@@ -76,7 +81,10 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private SecureSettingListPreference mStatusBarAmPm;
     private SystemSettingSwitchPreference mThreshold;
     private SystemSettingSwitchPreference mNetMonitor;
-
+    private SystemSettingSeekBarPreference mSbLeftPadding;
+    private SystemSettingSeekBarPreference mSbRightPadding;
+    private SystemSettingSeekBarPreference mSbTopPadding;
+    
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -84,6 +92,9 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+        Context mContext = getActivity().getApplicationContext();
+        Resources res = null;
+        Context ctx = getContext();
 
 	mStatusBarAmPm = findPreference(KEY_STATUS_BAR_AM_PM);
 
@@ -122,11 +133,39 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
         mBatteryPercentCharging = findPreference(SHOW_BATTERY_PERCENT_CHARGING);
         updatePercentChargingEnablement(value, percentEnabled, percentInside);
+
+        float density = Resources.getSystem().getDisplayMetrics().density;
+
+        try {
+            res = ctx.getPackageManager().getResourcesForApplication("com.android.systemui");
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        mSbLeftPadding = (SystemSettingSeekBarPreference) findPreference(STATUSBAR_LEFT_PADDING);
+        int sbLeftPadding = Settings.System.getIntForUser(ctx.getContentResolver(),
+                Settings.System.LEFT_PADDING, ((int) (res.getIdentifier("com.android.systemui:dimen/status_bar_padding_start", null, null) / density)), UserHandle.USER_CURRENT);
+        mSbLeftPadding.setValue(sbLeftPadding);
+        mSbLeftPadding.setOnPreferenceChangeListener(this);
+
+        mSbRightPadding = (SystemSettingSeekBarPreference) findPreference(STATUSBAR_RIGHT_PADDING);
+        int sbRightPadding = Settings.System.getIntForUser(ctx.getContentResolver(),
+                Settings.System.RIGHT_PADDING, ((int) (res.getIdentifier("com.android.systemui:dimen/status_bar_padding_end", null, null) / density)), UserHandle.USER_CURRENT);
+        mSbRightPadding.setValue(sbRightPadding);
+        mSbRightPadding.setOnPreferenceChangeListener(this);
+        
+        mSbTopPadding = (SystemSettingSeekBarPreference) findPreference(STATUSBAR_TOP_PADDING);
+        int sbTopPadding = Settings.System.getIntForUser(ctx.getContentResolver(),
+               Settings.System.TOP_PADDING, ((int) (res.getIdentifier("com.android.systemui:dimen/status_bar_padding_top", null, null) / density)), UserHandle.USER_CURRENT);
+        mSbTopPadding.setValue(sbTopPadding);
+        mSbTopPadding.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+        Resources res = null;
+        Context ctx = getContext();
+
          if (preference == mNetMonitor) {
             boolean value = (Boolean) newValue;
             Settings.System.putIntForUser(getActivity().getContentResolver(),
@@ -163,6 +202,33 @@ public class Statusbar extends SettingsPreferenceFragment implements
                     SHOW_BATTERY_PERCENT_INSIDE, enabled ? 1 : 0);
             // we already know style isn't text and percent is enabled
             mBatteryPercentCharging.setEnabled(enabled);
+            return true;
+        }
+       float density = Resources.getSystem().getDisplayMetrics().density;
+
+        try {
+            res = ctx.getPackageManager().getResourcesForApplication("com.android.systemui");
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if (preference == mSbLeftPadding) {
+            int leftValue = (Integer) newValue;
+            int sbLeft = ((int) (leftValue / density));
+            Settings.System.putIntForUser(getContext().getContentResolver(),
+                    Settings.System.LEFT_PADDING, sbLeft, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mSbRightPadding) {
+            int rightValue = (Integer) newValue;
+            int sbRight = ((int) (rightValue / density));
+            Settings.System.putIntForUser(getContext().getContentResolver(),
+                    Settings.System.RIGHT_PADDING, sbRight, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mSbTopPadding) {
+            int topValue = (Integer) newValue;
+            int sbTop = ((int) (topValue / density));
+            Settings.System.putIntForUser(getContext().getContentResolver(),
+                    Settings.System.TOP_PADDING, sbTop, UserHandle.USER_CURRENT);
             return true;
         }
        return false;

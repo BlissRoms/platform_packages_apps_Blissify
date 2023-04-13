@@ -131,14 +131,22 @@
         <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="statusbar_left_padding"
             android:title="@string/statusbar_left_padding"
-            android:max="50"
-            android:min="0"
-            android:defaultValue="8"/>
+            android:max="30"
+            android:min="-10"
+            android:defaultValue="1"/>
 
          <com.bliss.support.preferences.SystemSettingSeekBarPreference
             android:key="statusbar_right_padding"
             android:title="@string/statusbar_right_padding"
-            android:max="50"
-            android:min="0"
-            android:defaultValue="8"/>
+            android:max="30"
+            android:min="-10"
+            android:defaultValue="1"/>
+
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="statusbar_top_padding"
+            android:title="@string/statusbar_top_padding"
+            android:max="30"
+            android:min="-10"
+            settings:units="dp"
+            android:defaultValue="1"/>
 </PreferenceScreen>
