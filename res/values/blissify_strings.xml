@@ -459,4 +459,7 @@
     <string name="brightness_slider_style_filled">Filled</string>
     <string name="brightness_slider_style_thin">Thin</string>
 
+    <!-- QS Styles -->
+    <string name="qs_ui_title">Quick Settings UI</string>
+    <string name="android_eleven">Android 11</string>
 </resources>

@@ -16,6 +16,7 @@
 
 package org.blissroms.blissify.fragments.qs;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -25,8 +26,10 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.os.Handler;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.database.ContentObserver;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.provider.Settings;
@@ -50,6 +53,8 @@ import com.bliss.support.preferences.SystemSettingEditTextPreference;
 import com.bliss.support.preferences.SystemSettingMasterSwitchPreference;
 import com.bliss.support.preferences.SystemSettingListPreference;
 
+import com.android.internal.util.bliss.ThemeUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,10 +65,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_QS_BRIGHTNESS_SLIDER = "qs_brightness_slider";
     private static final String KEY_QS_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
     private static final String KEY_QS_AUTO_BRIGHTNESS = "qs_auto_brightness";
+    private static final String KEY_QS_UI_STYLE = "qs_ui_style";
 
     private ListPreference mBrightnessSlider;
     private ListPreference mBrightnessSliderPosition;
     private SwitchPreference mAutoBrightness;
+    private SystemSettingListPreference mQsUI;
+    private ThemeUtils mThemeUtils;
+    private Handler mHandler;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -90,6 +99,32 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         } else {
             prefSet.removePreference(mAutoBrightness);
         }
+        
+        mQsUI = (SystemSettingListPreference) findPreference(KEY_QS_UI_STYLE);
+        mCustomSettingsObserver.observe();
+    }
+
+    private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
+    private class CustomSettingsObserver extends ContentObserver {
+
+        CustomSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            Context mContext = getContext();
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_UI_STYLE),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.QS_UI_STYLE))) {
+                updateQsStyle(true /*QS UI theme*/);
+            }
+        }
     }
 
     @Override
@@ -101,8 +136,27 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             if (mAutoBrightness != null)
                 mAutoBrightness.setEnabled(value > 0);
             return true;
-        }
+        } else if (preference == mQsUI) {
+            mCustomSettingsObserver.observe();
+            return true;
+        } 
         return false;
+    }
+
+    private void updateQsStyle(boolean isQsUI) {
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        boolean isA11Style = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.QS_UI_STYLE , 1, UserHandle.USER_CURRENT) == 1;
+	if (isQsUI) {
+	    setQsStyle(isA11Style ? "com.android.system.qs.ui.A11" : "com.android.systemui");
+	}
+    }
+
+    public void setQsStyle(String overlayName) {
+        boolean isA11Style = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.QS_UI_STYLE , 1, UserHandle.USER_CURRENT) == 1;
+        mThemeUtils.setOverlayEnabled(isA11Style ? "android.theme.customization.qs_ui" : "android.theme.customization.qs_panel", overlayName, "com.android.systemui");
     }
 
     @Override
