@@ -8,6 +8,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_buttons_title">
 
+   <PreferenceCategory
+        android:key="volume_category"
+        android:title="@string/volume_category">
+
     <com.bliss.support.preferences.SystemSettingListPreference
             android:key="volume_key_cursor_control"
             android:title="@string/volbtn_cursor_control_title"
@@ -29,4 +33,6 @@
         android:summary="@string/volume_rocker_wake_summary"
         android:defaultValue="false"
         android:disableDependentsState="true" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

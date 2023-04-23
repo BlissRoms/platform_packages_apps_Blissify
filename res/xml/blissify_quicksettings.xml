@@ -8,6 +8,9 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_quicksettings_title">
 
+    <PreferenceCategory
+        android:title="@string/general_category">
+
     <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
@@ -25,6 +28,8 @@
                 android:title="@string/qs_show_data_usage_title"
                 android:summary="@string/qs_show_data_usage_summary"
                 android:defaultValue="true" />
+
+    </PreferenceCategory>
 
      <PreferenceCategory
         android:key="quick_settings_battery_category"

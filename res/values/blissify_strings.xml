@@ -45,6 +45,9 @@
     <string name="panel_transparency_category_title">Transparency</string>
     <string name="screen_off_animation_category_title">Screen OFF</string>
     <string name="udfps_category">UDFPS</string>
+    <string name="developer_options_category">Developer Options</string>
+    <string name="volume_category">Volume Rocker</string>
+    <string name="statusbar_icons_category_title">Icons</string>
 
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
@@ -78,7 +81,7 @@
     <string name="theme_customization_navbar_summary">Set custom navigation bar style</string>
 
     <!-- Monet settings -->
-    <string name="monet_settings_title">Theming settings</string>
+    <string name="monet_settings_title">Monet Customizations</string>
     <string name="monet_settings_sammary">A few extra settings to customize monet engine</string>
     <string name="theme_style_title">Theme style</string>
     <string name="theme_style_tonal_spot">Tonal Spot (Default)</string>
@@ -256,13 +259,13 @@
     <string name="udfps_settings_summary">Settings for customizing the UDFPS</string>
 
     <!-- Udfps haptic feedback -->
-    <string name="udfps_haptic_feedback_title">Udfps haptic feedback</string>
+    <string name="udfps_haptic_feedback_title">UDFPS haptic feedback</string>
     <string name="udfps_haptic_feedback_summary">Vibrate when touching UDFPS icon</string>
 
     <!-- Udfps authentication / error vibration -->
-    <string name="udfps_success_vib_title">Udfps authentication vibration</string>
+    <string name="udfps_success_vib_title">UDFPS authentication vibration</string>
     <string name="udfps_success_vib_summary">Vibrate on successful fingerprint authentication</string>
-    <string name="udfps_error_vib_title">Udfps error vibration</string>
+    <string name="udfps_error_vib_title">UDFPS error vibration</string>
     <string name="udfps_error_vib_summary">Vibrate on unsuccessful fingerprint authentication</string>
 
     <!-- QS brightness slider -->
