@@ -381,4 +381,10 @@
     <string name="lockscreen_charge_temp_unit_title">Temperature unit</string>
     <string name="lockscreen_charge_temp_unit_farhenheit">Fahrenheit</string>
     <string name="lockscreen_charge_temp_unit_celsius">Celsius</string>
+
+    <!-- Statusbar left_right padding -->
+    <string name="padding_category">Statusbar padding</string>
+    <string name="statusbar_left_padding">Left padding</string>
+    <string name="statusbar_right_padding">Right padding</string>
+    <string name="statusbar_top_padding">Top padding</string>
 </resources>
