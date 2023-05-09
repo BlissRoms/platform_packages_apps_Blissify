@@ -31,7 +31,7 @@
 
     </PreferenceCategory>
 
-     <PreferenceCategory
+<!--     <PreferenceCategory
         android:key="quick_settings_battery_category"
         android:title="@string/battery_title">
 
@@ -43,7 +43,7 @@
             android:defaultValue="true" />
 
     </PreferenceCategory>
-
+-->
     <PreferenceCategory
         android:title="@string/qs_brightness_category_title">
 
