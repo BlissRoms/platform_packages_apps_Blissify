@@ -32,4 +32,7 @@
     <dimen name="ambient_light_preview_paddingHorizontal">50dp</dimen>
     <dimen name="ambient_light_preview_paddingVertical">30dp</dimen>
 
+    <dimen name="lockscreen_preview_width">280dp</dimen>
+    <dimen name="lockscreen_preview_height">420dp</dimen>
+
 </resources>
