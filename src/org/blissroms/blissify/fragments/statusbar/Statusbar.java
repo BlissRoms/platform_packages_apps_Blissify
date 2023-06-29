@@ -63,10 +63,10 @@ import java.util.Collections;
 public class Statusbar extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+    private static final String KEY_STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+    private static final String KEY_STATUS_BAR_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
     private static final String KEY_STATUS_BAR_AM_PM = "status_bar_am_pm";
-    private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
-    private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
-    private static final String STATUS_BAR_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 5;
@@ -75,7 +75,6 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private SwitchPreference mBatteryTextCharging;
     private SystemSettingListPreference mBatteryPercent;
     private SystemSettingListPreference mBatteryStyle;
-
     private SecureSettingListPreference mStatusBarAmPm;
     private SystemSettingSwitchPreference mThreshold;
     private SystemSettingSwitchPreference mNetMonitor;
@@ -89,23 +88,6 @@ public class Statusbar extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
 
 	mStatusBarAmPm = findPreference(KEY_STATUS_BAR_AM_PM);
-	
-	int batterystyle = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
-        int batterypercent = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
-
-        mBatteryStyle = (SystemSettingListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
-        mBatteryStyle.setOnPreferenceChangeListener(this);
-
-        mBatteryPercent = (SystemSettingListPreference) findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
-        mBatteryPercent.setEnabled(
-                batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
-        mBatteryPercent.setOnPreferenceChangeListener(this);
-
-        mBatteryTextCharging = (SwitchPreference) findPreference(STATUS_BAR_BATTERY_TEXT_CHARGING);
-        mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
-                (batterystyle != BATTERY_STYLE_TEXT && batterypercent != 2));
 
         boolean isNetMonitorEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_STATE, 1, UserHandle.USER_CURRENT) == 1;
@@ -118,12 +100,44 @@ public class Statusbar extends SettingsPreferenceFragment implements
         mThreshold = (SystemSettingSwitchPreference) findPreference("network_traffic_autohide_threshold");
         mThreshold.setChecked(isThresholdEnabled);
         mThreshold.setOnPreferenceChangeListener(this);
+        
+        int batterystyle = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
+        int batterypercent = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
+
+        mBatteryStyle = (SystemSettingListPreference) findPreference(KEY_STATUS_BAR_BATTERY_STYLE);
+        mBatteryStyle.setOnPreferenceChangeListener(this);
+
+        mBatteryPercent = (SystemSettingListPreference) findPreference(KEY_STATUS_BAR_SHOW_BATTERY_PERCENT);
+        mBatteryPercent.setEnabled(
+                batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
+        mBatteryPercent.setOnPreferenceChangeListener(this);
+
+        mBatteryTextCharging = (SwitchPreference) findPreference(KEY_STATUS_BAR_BATTERY_TEXT_CHARGING);
+        mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
+                (batterystyle != BATTERY_STYLE_TEXT && batterypercent != 2));
+
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-         if (preference == mBatteryStyle) {
+         if (preference == mNetMonitor) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_STATE, value ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+            mNetMonitor.setChecked(value);
+            mThreshold.setEnabled(value);
+            return true;
+        } else if (preference == mThreshold) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, value ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mBatteryStyle) {
             int value = Integer.parseInt((String) newValue);
             int batterypercent = Settings.System.getIntForUser(getContentResolver(),
                     Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
@@ -139,26 +153,9 @@ public class Statusbar extends SettingsPreferenceFragment implements
             mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
                     (batterystyle != BATTERY_STYLE_TEXT && value != 2));
             return true;
-         } else if (preference == mNetMonitor) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    Settings.System.NETWORK_TRAFFIC_STATE, value ? 1 : 0,
-                    UserHandle.USER_CURRENT);
-            mNetMonitor.setChecked(value);
-            mThreshold.setEnabled(value);
-            return true;
-        } else if (preference == mThreshold) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, value ? 1 : 0,
-                    UserHandle.USER_CURRENT);
-            return true;
-        
         }
        return false;
     }
-
-
 
     @Override
     public int getMetricsCategory() {
