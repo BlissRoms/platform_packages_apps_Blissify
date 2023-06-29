@@ -37,8 +37,6 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import com.bliss.support.preferences.SystemSettingListPreference;
 
-import com.android.internal.util.bliss.udfps.UdfpsUtils;
-
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.bliss.udfps.UdfpsUtils;
 
@@ -98,6 +96,10 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
+        updateAlwaysOnSummary();
+    }
+
+    private void updateAlwaysOnSummary() {
     }
 
     @Override

@@ -340,14 +340,6 @@
     <string name="reticker_landscape_only_title">Landscape only</string>
     <string name="reticker_landscape_only_summary">Only enable reTicker when device is in landscape mode</string>
 
-    <!-- UDFPS icon picker -->
-    <string name="udfps_icon_picker_title">UDFPS icon picker</string>
-    <string name="udfps_icon_picker_summary">Choose your favorite icon</string>
-
-    <!-- UDFPS animation -->
-    <string name="udfps_animation_title">UDFPS animation effect</string>
-    <string name="udfps_animation_summary">Choose animation effect</string>
-
     <!-- Battery customizations -->
     <string name="battery_style_title">Battery Style</string>
     <string name="battery_style_port">Portrait</string>
