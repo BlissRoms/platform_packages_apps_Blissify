@@ -68,12 +68,6 @@
         android:entryValues="@array/status_bar_am_pm_values"
         android:defaultValue="0"/>
 
-    <com.bliss.support.preferences.SecureSettingSwitchPreference
-        android:key="clock_seconds"
-        android:title="@string/status_bar_clock_show_seconds_title"
-        android:summary="@string/status_bar_clock_show_seconds_desc"
-        android:defaultValue="false"/>
-
         <!-- Statusbar Icon Manager -->
         <Preference
             android:key="statusbar_icon_manager"
