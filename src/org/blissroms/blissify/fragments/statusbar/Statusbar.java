@@ -63,18 +63,16 @@ import java.util.Collections;
 public class Statusbar extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String KEY_STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
-    private static final String KEY_STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
-    private static final String KEY_STATUS_BAR_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
     private static final String KEY_STATUS_BAR_AM_PM = "status_bar_am_pm";
+    private static final String BATTERY_STYLE = "status_bar_battery_style";
+    private static final String SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+    private static final String SHOW_BATTERY_PERCENT_CHARGING = "status_bar_show_battery_percent_charging";
+    private static final String SHOW_BATTERY_PERCENT_INSIDE = "status_bar_show_battery_percent_inside";
 
-    private static final int BATTERY_STYLE_PORTRAIT = 0;
-    private static final int BATTERY_STYLE_TEXT = 5;
-    private static final int BATTERY_STYLE_HIDDEN = 6;
-
-    private SwitchPreference mBatteryTextCharging;
-    private SystemSettingListPreference mBatteryPercent;
     private SystemSettingListPreference mBatteryStyle;
+    private SystemSettingSwitchPreference mBatteryPercent;
+    private SystemSettingSwitchPreference mBatteryPercentCharging;
+    private SystemSettingSwitchPreference mBatteryPercentInside;
     private SecureSettingListPreference mStatusBarAmPm;
     private SystemSettingSwitchPreference mThreshold;
     private SystemSettingSwitchPreference mNetMonitor;
@@ -100,24 +98,30 @@ public class Statusbar extends SettingsPreferenceFragment implements
         mThreshold = (SystemSettingSwitchPreference) findPreference("network_traffic_autohide_threshold");
         mThreshold.setChecked(isThresholdEnabled);
         mThreshold.setOnPreferenceChangeListener(this);
-        
-        int batterystyle = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
-        int batterypercent = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
 
-        mBatteryStyle = (SystemSettingListPreference) findPreference(KEY_STATUS_BAR_BATTERY_STYLE);
-        mBatteryStyle.setOnPreferenceChangeListener(this);
-
-        mBatteryPercent = (SystemSettingListPreference) findPreference(KEY_STATUS_BAR_SHOW_BATTERY_PERCENT);
-        mBatteryPercent.setEnabled(
-                batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
+        mBatteryPercent = findPreference(SHOW_BATTERY_PERCENT);
+        final boolean percentEnabled = Settings.System.getIntForUser(resolver,
+                SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT) == 1;
+        mBatteryPercent.setChecked(percentEnabled);
         mBatteryPercent.setOnPreferenceChangeListener(this);
 
-        mBatteryTextCharging = (SwitchPreference) findPreference(KEY_STATUS_BAR_BATTERY_TEXT_CHARGING);
-        mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
-                (batterystyle != BATTERY_STYLE_TEXT && batterypercent != 2));
+        mBatteryPercentInside = findPreference(SHOW_BATTERY_PERCENT_INSIDE);
+        mBatteryPercentInside.setEnabled(percentEnabled);
+        final boolean percentInside = Settings.System.getIntForUser(resolver,
+                SHOW_BATTERY_PERCENT_INSIDE, 0, UserHandle.USER_CURRENT) == 1;
+        mBatteryPercentInside.setChecked(percentInside);
+        mBatteryPercentInside.setOnPreferenceChangeListener(this);
 
+        mBatteryStyle = findPreference(BATTERY_STYLE);
+        int value = Settings.System.getIntForUser(resolver,
+                BATTERY_STYLE, 0, UserHandle.USER_CURRENT);
+        mBatteryStyle.setValue(Integer.toString(value));
+        mBatteryStyle.setSummary(mBatteryStyle.getEntry());
+        mBatteryStyle.setOnPreferenceChangeListener(this);
+        updatePercentEnablement(value != 2);
+
+        mBatteryPercentCharging = findPreference(SHOW_BATTERY_PERCENT_CHARGING);
+        updatePercentChargingEnablement(value, percentEnabled, percentInside);
     }
 
     @Override
@@ -138,23 +142,42 @@ public class Statusbar extends SettingsPreferenceFragment implements
                     UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mBatteryStyle) {
-            int value = Integer.parseInt((String) newValue);
-            int batterypercent = Settings.System.getIntForUser(getContentResolver(),
-                    Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
-            mBatteryPercent.setEnabled(
-                    value != BATTERY_STYLE_TEXT && value != BATTERY_STYLE_HIDDEN);
-            mBatteryTextCharging.setEnabled(value == BATTERY_STYLE_HIDDEN ||
-                    (value != BATTERY_STYLE_TEXT && batterypercent != 2));
+            int value = Integer.valueOf((String) newValue);
+            int index = mBatteryStyle.findIndexOfValue((String) newValue);
+            mBatteryStyle.setSummary(mBatteryStyle.getEntries()[index]);
+            Settings.System.putIntForUser(resolver,
+                    BATTERY_STYLE, value, UserHandle.USER_CURRENT);
+            updatePercentEnablement(value != 2);
+            updatePercentChargingEnablement(value, null, null);
             return true;
         } else if (preference == mBatteryPercent) {
-            int value = Integer.parseInt((String) newValue);
-            int batterystyle = Settings.System.getIntForUser(getContentResolver(),
-                    Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
-            mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
-                    (batterystyle != BATTERY_STYLE_TEXT && value != 2));
+            boolean enabled = (boolean) newValue;
+            Settings.System.putInt(resolver,
+                    SHOW_BATTERY_PERCENT, enabled ? 1 : 0);
+            mBatteryPercentInside.setEnabled(enabled);
+            updatePercentChargingEnablement(null, enabled, null);
+            return true;
+        } else if (preference == mBatteryPercentInside) {
+            boolean enabled = (boolean) newValue;
+            Settings.System.putInt(resolver,
+                    SHOW_BATTERY_PERCENT_INSIDE, enabled ? 1 : 0);
+            // we already know style isn't text and percent is enabled
+            mBatteryPercentCharging.setEnabled(enabled);
             return true;
         }
        return false;
+    }
+
+    private void updatePercentEnablement(boolean enabled) {
+        mBatteryPercent.setEnabled(enabled);
+        mBatteryPercentInside.setEnabled(enabled && mBatteryPercent.isChecked());
+    }
+
+    private void updatePercentChargingEnablement(Integer style, Boolean percent, Boolean inside) {
+        if (style == null) style = Integer.valueOf(mBatteryStyle.getValue());
+        if (percent == null) percent = mBatteryPercent.isChecked();
+        if (inside == null) inside = mBatteryPercentInside.isChecked();
+        mBatteryPercentCharging.setEnabled(style != 2 && (!percent || inside));
     }
 
     @Override
