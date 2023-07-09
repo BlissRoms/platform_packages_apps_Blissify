@@ -51,6 +51,7 @@
     <string name="volume_category">Volume Rocker</string>
     <string name="statusbar_icons_category_title">Icons</string>
     <string name="statusbar_telephony_category_title">Telephony icons</string>
+    <string name="notifications_general_category_title">General</string>
 
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
@@ -461,5 +462,9 @@
     <!-- Notification count -->
     <string name="status_bar_notif_count_title">Notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+
+    <!-- Hide developer status -->
+    <string name="hide_developer_status_title">Hide developer status</string>
+    <string name="hide_developer_status_summary">Hide developer status from apps</string>
 
 </resources>
