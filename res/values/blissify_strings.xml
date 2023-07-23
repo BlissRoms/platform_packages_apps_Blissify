@@ -341,16 +341,22 @@
     <string name="reticker_landscape_only_summary">Only enable reTicker when device is in landscape mode</string>
 
     <!-- Battery customizations -->
-    <string name="battery_style_title">Battery Style</string>
-    <string name="battery_style_port">Portrait</string>
-    <string name="battery_style_circle">Circle</string>
-    <string name="battery_style_text">Text</string>
-    <string name="battery_percent_title">Show percent</string>
-    <string name="battery_percent_summary">Always show the battery percent with the icon</string>
-    <string name="battery_percent_inside_title">Show percent inside</string>
-    <string name="battery_percent_inside_summary">Show percent inside the icon</string>
-    <string name="show_battery_percent_charging_title">Show percent when charging</string>
-    <string name="show_battery_percent_charging_summary">Enforce showing the percent next to the icon when charging</string>
+    <string name="status_bar_battery_style_title">Battery style</string>
+    <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
+    <string name="status_bar_battery_style_icon_rlandscape">Icon landscape (Right)</string>
+    <string name="status_bar_battery_style_icon_landscape">Icon landscape (Left)</string>
+    <string name="status_bar_battery_style_circle">Circle</string>
+    <string name="status_bar_battery_style_dotted_circle">Dotted circle</string>
+    <string name="status_bar_battery_style_filled_circle">Filled circle</string>
+    <string name="status_bar_battery_style_text">Text</string>
+    <string name="status_bar_battery_style_hidden">Hidden</string>
+    <string name="status_bar_battery_percent_title">Battery percent</string>
+    <string name="status_bar_battery_percent_hidden">Hidden</string>
+    <string name="status_bar_battery_percent_text_inside">Inside the icon</string>
+    <string name="status_bar_battery_percent_text_next_right">Next to the icon (right)</string>
+    <string name="status_bar_battery_percent_text_next_left">Next to the icon (left)</string>
+    <string name="status_bar_battery_text_charging_title">Battery percentage when charging</string>
+    <string name="status_bar_battery_text_charging_summary">Always display battery percentage when charging</string>
 
     <!-- Lockscreen battery info indicator  -->
     <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
