@@ -523,4 +523,11 @@
     <string name="qs_transparency_title">QS Background transparency</string>
     <string name="qs_transparency_summary">Set transparency level for QS background</string>
 
+    <!-- Spoofing -->
+    <string name="spoof_title">Spoofing</string>
+
+    <!-- Unlock FPS for specific games -->
+    <string name="games_spoof_title">Unlock higher FPS in games</string>
+    <string name="games_spoof_summary">Spoof your device as a different model for specific games to unlock higher FPS</string>
+
 </resources>
