@@ -37,4 +37,17 @@
                android:defaultValue="false"/>
 
          </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="spoof_category"
+        android:title="@string/spoof_title">
+
+        <!-- Unlock FPS for specific games -->
+        <com.bliss.support.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pixelprops.games"
+            android:title="@string/games_spoof_title"
+            android:summary="@string/games_spoof_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
