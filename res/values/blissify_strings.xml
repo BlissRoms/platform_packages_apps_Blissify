@@ -205,10 +205,6 @@
     <string name="incall_vibrate_call_wait_title">Vibrate on call waiting</string>
     <string name="incall_vibrate_disconnect_title">Vibrate on disconnect</string>
 
-    <!-- Quick Settings quick pulldown -->
-    <string name="quick_settings_quick_pull_down_title">Quick QS pulldown</string>
-    <string name="quick_settings_quick_pull_down_summary">Pull down statusbar from right side to expand quick settings</string>
-
     <!-- Screen off animation -->
     <string name="screen_off_animation_title">Screen off animation</string>
     <string name="screen_off_animation_crt" translatable="false">CRT</string>
