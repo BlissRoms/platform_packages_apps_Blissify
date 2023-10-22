@@ -9,6 +9,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/udfps_category">
 
+    <!-- Screen Off UDFPS -->
+    <com.bliss.support.preferences.SystemSettingSwitchPreference
+        android:key="screen_off_udfps_enabled"
+        android:title="@string/screen_off_udfps_title"
+        android:summary="@string/screen_off_udfps_summary"
+        android:persistent="true" />
+
         <Preference
             android:key="udfps_recognizing_animation_preview"
             android:title="@string/udfps_animation_title"
