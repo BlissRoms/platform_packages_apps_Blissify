@@ -37,6 +37,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.text.TextUtils;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
@@ -75,9 +76,11 @@ public class Udfps extends SettingsPreferenceFragment implements
         Resources resources = getResources();
 
         mScreenOffUdfps = (Preference) prefSet.findPreference(SCREEN_OFF_UDFPS_ENABLED);
-        boolean mScreenOffUdfpsAvailable = resources.getBoolean(
-                com.android.internal.R.bool.config_supportScreenOffUdfps);
-        if (!mScreenOffUdfpsAvailable)
+        boolean screenOffUdfpsAvailable = resources.getBoolean(
+                com.android.internal.R.bool.config_supportScreenOffUdfps) ||
+                !TextUtils.isEmpty(resources.getString(
+                    com.android.internal.R.string.config_dozeUdfpsLongPressSensorType));
+        if (!screenOffUdfpsAvailable)
             prefSet.removePreference(mScreenOffUdfps);
     }
 
