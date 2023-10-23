@@ -62,6 +62,10 @@ import java.util.Arrays;
 public class Udfps extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String SCREEN_OFF_UDFPS_ENABLED = "screen_off_udfps_enabled";
+
+    private Preference mScreenOffUdfps;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -70,6 +74,11 @@ public class Udfps extends SettingsPreferenceFragment implements
         final PreferenceScreen prefSet = getPreferenceScreen();
         Resources resources = getResources();
 
+        mScreenOffUdfps = (Preference) prefSet.findPreference(SCREEN_OFF_UDFPS_ENABLED);
+        boolean mScreenOffUdfpsAvailable = resources.getBoolean(
+                com.android.internal.R.bool.config_supportScreenOffUdfps);
+        if (!mScreenOffUdfpsAvailable)
+            prefSet.removePreference(mScreenOffUdfps);
     }
 
     @Override
