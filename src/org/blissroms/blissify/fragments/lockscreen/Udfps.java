@@ -84,7 +84,7 @@ public class Udfps extends SettingsPreferenceFragment implements
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
         Settings.Secure.putIntForUser(resolver,
-                Settings.Secure.SCREEN_OFF_UDFPS_ENABLED, 1, UserHandle.USER_CURRENT);
+                Settings.Secure.SCREEN_OFF_UDFPS_ENABLED, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
