@@ -81,6 +81,12 @@ public class Udfps extends SettingsPreferenceFragment implements
             prefSet.removePreference(mScreenOffUdfps);
     }
 
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.Secure.putIntForUser(resolver,
+                Settings.Secure.SCREEN_OFF_UDFPS_ENABLED, 1, UserHandle.USER_CURRENT);
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
