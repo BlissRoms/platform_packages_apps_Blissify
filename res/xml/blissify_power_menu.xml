@@ -10,24 +10,6 @@
     android:title="@string/blissify_powermenu_title">
 
     <PreferenceCategory
-        android:title="@string/panel_transparency_category_title">
-
-	<com.bliss.support.preferences.SystemSettingSeekBarPreference
-            android:key="transparent_power_menu"
-            android:title="@string/power_menu_transparency"
-            android:max="100"
-            android:min="0"
-            android:defaultValue="100" />
-
-        <com.bliss.support.preferences.SystemSettingSeekBarPreference
-            android:key="transparent_power_dialog_dim"
-            android:title="@string/power_menu_dialog_dim"
-            android:max="100"
-            android:min="0"
-            android:defaultValue="50" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:title="@string/powermenu_items_category_title">
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference

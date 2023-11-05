@@ -57,51 +57,16 @@ import java.util.List;
 public class QuickSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String KEY_QS_BRIGHTNESS_SLIDER = "qs_brightness_slider";
-    private static final String KEY_QS_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
-    private static final String KEY_QS_AUTO_BRIGHTNESS = "qs_auto_brightness";
-
-    private ListPreference mBrightnessSlider;
-    private ListPreference mBrightnessSliderPosition;
-    private SwitchPreference mAutoBrightness;
-
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.blissify_quicksettings);
 
-        final Context mContext = getActivity().getApplicationContext();
-        final ContentResolver resolver = mContext.getContentResolver();
-        final PreferenceScreen prefSet = getPreferenceScreen();
-
-        mBrightnessSlider = findPreference(KEY_QS_BRIGHTNESS_SLIDER);
-        mBrightnessSlider.setOnPreferenceChangeListener(this);
-        boolean showSlider = Settings.Secure.getIntForUser(resolver,
-                Settings.Secure.QS_BRIGHTNESS_SLIDER, 1, UserHandle.USER_CURRENT) > 0;
-
-        mBrightnessSliderPosition = findPreference(KEY_QS_BRIGHTNESS_SLIDER_POSITION);
-        mBrightnessSliderPosition.setEnabled(showSlider);
-
-        mAutoBrightness = findPreference(KEY_QS_AUTO_BRIGHTNESS);
-        boolean automaticAvailable = mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_automatic_brightness_available);
-        if (automaticAvailable) {
-            mAutoBrightness.setEnabled(showSlider);
-        } else {
-            prefSet.removePreference(mAutoBrightness);
-        }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mBrightnessSlider) {
-            int value = Integer.parseInt((String) newValue);
-            mBrightnessSliderPosition.setEnabled(value > 0);
-            if (mAutoBrightness != null)
-                mAutoBrightness.setEnabled(value > 0);
-            return true;
-        }
         return false;
     }
 
