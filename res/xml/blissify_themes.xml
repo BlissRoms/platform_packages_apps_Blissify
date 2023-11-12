@@ -13,11 +13,11 @@
         android:key="theme_customization_category"
         android:title="@string/theme_customization_category">
 
-        <!--Preference
+        <Preference
             android:key="android.theme.customization.fonts"
             android:title="@string/theme_customization_font_title"
             android:summary="@string/theme_customization_font_summary"
-            android:fragment="org.blissroms.blissify.fragments.themes.FontsPicker" /-->
+            android:fragment="org.blissroms.blissify.fragments.themes.FontsPicker" />
 
         <Preference
             android:key="android.theme.customization.icon_pack"
@@ -37,11 +37,11 @@
             android:summary="@string/theme_customization_wifi_icon_summary"
             android:fragment="org.blissroms.blissify.fragments.themes.WifiIcons"/>
 
-        <!--Preference
+        <Preference
             android:key="android.theme.customization.adaptive_icon_shape"
             android:title="@string/theme_customization_icon_shape_title"
             android:summary="@string/theme_customization_icon_shape_summary"
-            android:fragment="org.blissroms.blissify.fragments.themes.IconShapes" /-->
+            android:fragment="org.blissroms.blissify.fragments.themes.IconShapes" />
 
     <!-- Navbar Style -->
     <Preference
