@@ -17,10 +17,10 @@
 
     <!-- Buttons -->
     <Preference
-        android:key="buttons_category"
-        android:title="@string/blissify_buttons_title"
-        android:fragment="org.blissroms.blissify.fragments.buttons.Buttons"
-        android:icon="@drawable/ic_blissify_buttons" />
+        android:key="button_settings"
+        android:title="@string/button_pref_title"
+        android:icon="@drawable/ic_blissify_buttons"
+        android:fragment="com.android.settings.bliss.buttons.ButtonSettings"/>
 
     <!-- Gestures -->
     <Preference
