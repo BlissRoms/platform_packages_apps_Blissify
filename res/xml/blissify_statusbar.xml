@@ -9,19 +9,35 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_status_bar_title">
 
-    <com.bliss.support.preferences.SystemSettingListPreference
-        android:key="status_bar_clock"
-        android:title="@string/status_bar_clock_position_title"
-        android:summary="%s"
-        android:dialogTitle="@string/status_bar_clock_position_title"
-        android:entries="@array/status_bar_clock_position_entries"
-        android:entryValues="@array/status_bar_clock_position_values"
-        android:defaultValue="2" />
+    <PreferenceCategory
+        android:title="@string/status_bar_clock_title">
 
-    <Preference
-        android:key="clock"
-        android:title="@string/status_bar_clock_title"
-        android:summary="@string/status_bar_clock_summary"
-        android:fragment="org.blissroms.blissify.fragments.statusbar.ClockCustomization" />
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="status_bar_clock"
+            android:title="@string/status_bar_clock_position_title"
+            android:summary="%s"
+            android:dialogTitle="@string/status_bar_clock_position_title"
+            android:entries="@array/status_bar_clock_position_entries"
+            android:entryValues="@array/status_bar_clock_position_values"
+            android:defaultValue="2" />
+
+        <Preference
+            android:key="clock"
+            android:title="@string/status_bar_clock_title"
+            android:summary="@string/status_bar_clock_summary"
+            android:fragment="org.blissroms.blissify.fragments.statusbar.ClockCustomization" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/blissify_gestures_title">
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="double_tap_sleep_gesture"
+            android:title="@string/status_bar_double_tap_to_sleep_title"
+            android:summary="@string/status_bar_double_tap_to_sleep_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

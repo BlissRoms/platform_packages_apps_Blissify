@@ -23,10 +23,4 @@
         android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
         settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController" />
 
-    <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="double_tap_sleep_gesture"
-            android:title="@string/status_bar_double_tap_to_sleep_title"
-            android:summary="@string/status_bar_double_tap_to_sleep_summary"
-            android:defaultValue="true" />
-
 </PreferenceScreen>

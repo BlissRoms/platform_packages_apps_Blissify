@@ -43,12 +43,12 @@
         android:fragment="org.blissroms.blissify.fragments.notification.Notification"
         android:icon="@drawable/ic_blissify_notifications" />
 
-    <!-- Power Menu -->
+    <!-- Power Menu
     <Preference
         android:key="powermenu_category"
         android:title="@string/blissify_powermenu_title"
         android:fragment="org.blissroms.blissify.fragments.powermenu.PowerMenu"
-        android:icon="@drawable/ic_blissify_powermenu" />
+        android:icon="@drawable/ic_blissify_powermenu" /> -->
 
     <!-- Quick Settings panel -->
     <Preference
