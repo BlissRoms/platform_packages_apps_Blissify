@@ -261,4 +261,10 @@
     <string name="network_traffic_hidearrow">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the network traffic indicator arrows</string>
 
+     <!-- Quick QS pulldown -->
+     <string name="qs_quick_pulldown">Quick QS pulldown</string>
+     <string name="quick_pulldown_none">Disabled</string>
+     <string name="quick_pulldown_right">Pulldown statusbar from right side</string>
+     <string name="quick_pulldown_left">Pulldown statusbar from left side</string>
+
 </resources>
