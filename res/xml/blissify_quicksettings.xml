@@ -19,4 +19,26 @@
 
     </PreferenceCategory>
 
+    <!-- Qs battery customizations -->
+    <PreferenceCategory
+        android:title="@string/qs_battery_category_title" >
+
+        <!-- Battery styles -->
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="qs_battery_style"
+            android:title="@string/status_bar_battery_style_title"
+            android:entries="@array/qs_battery_style_entries"
+            android:entryValues="@array/qs_battery_style_values"
+            android:defaultValue="-1" />
+
+        <!-- Battery percent -->
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="qs_show_battery_percent"
+            android:title="@string/status_bar_battery_percent_title"
+            android:entries="@array/status_bar_battery_percent_entries"
+            android:entryValues="@array/status_bar_battery_percent_values"
+            android:defaultValue="1" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
