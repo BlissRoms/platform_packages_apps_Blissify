@@ -86,5 +86,12 @@
             android:summary="@string/spoof_recent_pixel_summary"
             android:defaultValue="true" />
 
+        <!-- Spoof all gapps as recent Pixel -->
+        <com.bliss.support.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pixelprops.recent.all"
+            android:title="@string/spoof_recent_pixel_all_title"
+            android:summary="@string/spoof_recent_pixel_all_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 </PreferenceScreen>
