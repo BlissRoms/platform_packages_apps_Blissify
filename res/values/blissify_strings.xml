@@ -193,6 +193,7 @@
 
     <!-- Spoofing -->
     <string name="spoof_title">Spoofing</string>
+    <string name="spoof_summary">Enable spoofing for specific features within the ROM</string>
 
     <!-- Unlock FPS for specific games -->
     <string name="games_spoof_title">Unlock higher FPS in games</string>
