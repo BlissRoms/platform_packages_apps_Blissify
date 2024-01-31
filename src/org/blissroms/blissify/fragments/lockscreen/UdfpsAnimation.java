@@ -24,7 +24,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,9 +44,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.widget.SettingsMainSwitchBar;
 import com.android.settingslib.search.Indexable;
-import com.android.settingslib.widget.OnMainSwitchChangeListener;
 
 import com.bumptech.glide.Glide;
 
@@ -58,10 +55,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class UdfpsAnimation extends SettingsPreferenceFragment implements
-        OnMainSwitchChangeListener {
-
-    private Switch mSwitch;
+public class UdfpsAnimation extends SettingsPreferenceFragment {
 
     private RecyclerView mRecyclerView;
     private String mPkg = "org.bliss.udfps.animations";
@@ -72,8 +66,6 @@ public class UdfpsAnimation extends SettingsPreferenceFragment implements
     private String[] mAnims;
     private String[] mAnimPreviews;
     private String[] mTitles;
-
-    private boolean mEnabled;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -118,31 +110,6 @@ public class UdfpsAnimation extends SettingsPreferenceFragment implements
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         final SettingsActivity activity = (SettingsActivity) getActivity();
-        final SettingsMainSwitchBar switchBar = activity.getSwitchBar();
-        mSwitch = switchBar.getSwitch();
-        mEnabled = Settings.System.getInt(getActivity().getContentResolver(),
-                       Settings.System.UDFPS_ANIM, 0) == 1;
-        mSwitch.setChecked(mEnabled);
-        setEnabled(mEnabled);
-        switchBar.setTitle(getActivity().getString(R.string.enable));
-        switchBar.addOnSwitchChangeListener(this);
-        switchBar.show();
-    }
-
-    @Override
-    public void onSwitchChanged(Switch switchView, boolean isChecked) {
-        Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.UDFPS_ANIM, isChecked ? 1 : 0);
-        setEnabled(isChecked);
-    }
-
-    public void setEnabled(boolean enabled) {
-        for (int i = 0; i < mRecyclerView.getChildCount(); ++i) {
-            RecyclerView.ViewHolder holder = mRecyclerView.getChildViewHolder(mRecyclerView.getChildAt(i));
-            holder.itemView.setEnabled(enabled);
-            holder.itemView.findViewById(R.id.option_thumbnail).setAlpha(enabled ? 1f : 0.5f);
-            holder.itemView.findViewById(R.id.option_label).setAlpha(enabled ? 1f : 0.5f);
-        }
     }
 
     @Override
@@ -205,10 +172,6 @@ public class UdfpsAnimation extends SettingsPreferenceFragment implements
                             Settings.System.UDFPS_ANIM_STYLE, position);
                 }
             });
-
-            holder.itemView.setEnabled(mEnabled);
-            holder.itemView.findViewById(R.id.option_thumbnail).setAlpha(mEnabled ? 1f : 0.5f);
-            holder.itemView.findViewById(R.id.option_label).setAlpha(mEnabled ? 1f : 0.5f);
         }
 
         @Override
