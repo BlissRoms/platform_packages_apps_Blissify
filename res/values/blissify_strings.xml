@@ -309,4 +309,8 @@
     <string name="udfps_settings_title">UDFPS settings</string>
     <string name="udfps_settings_summary">Settings for customizing the UDFPS</string>
 
+    <!-- UDFPS animation -->
+    <string name="udfps_animation_title">UDFPS animation effect</string>
+    <string name="udfps_animation_summary">Choose animation effect</string>
+
 </resources>
