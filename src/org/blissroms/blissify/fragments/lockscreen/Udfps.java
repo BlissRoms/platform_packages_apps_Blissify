@@ -50,6 +50,7 @@ import androidx.preference.SwitchPreference;
 import com.bliss.support.preferences.SystemSettingSwitchPreference;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.bliss.BlissUtils;
+import org.blissroms.blissify.fragments.lockscreen.UdfpsAnimation;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -88,6 +89,7 @@ public class Udfps extends SettingsPreferenceFragment implements
         ContentResolver resolver = mContext.getContentResolver();
         Settings.Secure.putIntForUser(resolver,
                 Settings.Secure.SCREEN_OFF_UDFPS_ENABLED, 0, UserHandle.USER_CURRENT);
+        UdfpsAnimation.reset(mContext);
     }
 
     @Override
