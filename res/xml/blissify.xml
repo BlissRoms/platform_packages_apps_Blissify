@@ -36,12 +36,12 @@
         android:fragment="org.blissroms.blissify.fragments.lockscreen.Lockscreen"
         android:icon="@drawable/ic_blissify_lockscreen" />
 
-    <!-- Notifications
+    <!-- Notifications -->
     <Preference
         android:key="notifications_category"
         android:title="@string/blissify_notifications_title"
         android:fragment="org.blissroms.blissify.fragments.notification.Notification"
-        android:icon="@drawable/ic_blissify_notifications" /> -->
+        android:icon="@drawable/ic_blissify_notifications" />
 
     <!-- Power Menu
     <Preference
