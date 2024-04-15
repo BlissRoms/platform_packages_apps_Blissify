@@ -101,6 +101,14 @@
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Monet settings</string>
     <string name="themes_monet_summary">Customize Android\'s built-in theme engine</string>
+    <string name="themes_fonts_category">Fonts</string>
+    <string name="themes_system_font_title">System font</string>
+    <string name="themes_system_font_summary">Set system font style</string>
+    <string name="themes_icons_category">Icons</string>
+    <string name="themes_system_icons_title">System Icons</string>
+    <string name="themes_system_icons_summary">Set system icon style</string>
+    <string name="themes_icon_shape_title">Icon shape</string>
+    <string name="themes_icon_shape_summary">Set system icon shape</string>
 
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Accent color</string>
