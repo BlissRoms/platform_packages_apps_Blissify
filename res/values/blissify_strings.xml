@@ -113,7 +113,8 @@
     <string name="themes_signal_icon_summary">Set signal icon style</string>
     <string name="themes_wifi_icon_title">Wi-Fi icon</string>
     <string name="themes_wifi_icon_summary">Set Wi-Fi icon style</string>
-
+    <string name="themes_navigation_bar_icons_title">Navigation bar icons</string>
+    <string name="themes_navigation_bar_icons_summary">Set navigation bar icon style</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Accent color</string>
     <string name="monet_engine_custom_color_summary">Choose custom color for accent</string>

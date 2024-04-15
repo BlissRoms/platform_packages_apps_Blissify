@@ -64,13 +64,33 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
     public static final String TAG = "ThemeSettings";
 
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
+    private static final String KEY_NAVBAR_ICON = "android.theme.customization.navbar";
     private static final String KEY_SIGNAL_ICON = "android.theme.customization.signal_icon";
 
     private PreferenceCategory mIconsCategory;
+    private Preference mNavbarIcon;
     private Preference mSignalIcon;
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        addPreferencesFromResource(R.xml.blissify_themes);
+
+        final Context context = getContext();
+        final ContentResolver resolver = context.getContentResolver();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final Resources resources = context.getResources();
+
+        mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
+        mNavbarIcon = (Preference) findPreference(KEY_NAVBAR_ICON);
+        mSignalIcon = (Preference) findPreference(KEY_SIGNAL_ICON);
+
+        if (!DeviceUtils.deviceSupportsMobileData(context)) {
+            mIconsCategory.removePreference(mSignalIcon);
+        }
+
+        if (DeviceUtils.isEdgeToEdgeEnabled(context)) {
+            mIconsCategory.removePreference(mNavbarIcon);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
