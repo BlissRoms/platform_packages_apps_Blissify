@@ -56,10 +56,18 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import org.blissroms.blissify.utils.DeviceUtils;
+
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class ThemeSettings extends DashboardFragment implements OnPreferenceChangeListener {
 
     public static final String TAG = "ThemeSettings";
+
+    private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
+    private static final String KEY_SIGNAL_ICON = "android.theme.customization.signal_icon";
+
+    private PreferenceCategory mIconsCategory;
+    private Preference mSignalIcon;
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -89,5 +97,16 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
      */
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.blissify_themes);
+            new BaseSearchIndexProvider(R.xml.blissify_themes) {
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                final Resources resources = context.getResources();
+                if (!DeviceUtils.deviceSupportsMobileData(context)) {
+                    keys.add(KEY_SIGNAL_ICON);
+                }
+               return keys;
+            }
+        };
 }
