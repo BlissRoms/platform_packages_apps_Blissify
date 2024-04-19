@@ -190,6 +190,11 @@
     <!-- Running services - Background processes tab -->
     <string name="background_processes_settings_title">Background processes</string>
 
+    <!-- Lock screen -->
+    <string name="lock_screen_interface_category">Interface</string>
+    <string name="lock_screen_charging_stats_title">Charging stats</string>
+    <string name="lock_screen_charging_stats_summary">Display current, voltage, wattage, and temperature stats while charging</string>
+
     <!-- Status bar -->
     <string name="status_bar_icons_category">Icons</string>
     <string name="status_bar_tuner_title">Status bar tuner</string>
