@@ -19,12 +19,24 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_lockscreen_title">
 
+    <PreferenceCategory
+        android:key="lock_screen_interface_category"
+        android:title="@string/lock_screen_interface_category">
+
         <!-- DT2S -->
         <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
             android:defaultValue="false"
             android:key="double_tap_sleep_lockscreen"
             android:summary="@string/double_tap_to_sleep_lockscreen_summary"
             android:title="@string/double_tap_to_sleep_lockscreen_title" />
+
+        <!-- Charging stats -->
+        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_battery_info"
+            android:title="@string/lock_screen_charging_stats_title"
+            android:summary="@string/lock_screen_charging_stats_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="lockscreen_weather_category"

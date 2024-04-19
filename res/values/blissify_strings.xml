@@ -402,4 +402,9 @@
     <string name="systemui_restart_yes">Yes</string>
     <string name="systemui_restart_not_now">Not now</string>
 
+    <!-- Lock screen -->
+    <string name="lock_screen_interface_category">Interface</string>
+    <string name="lock_screen_charging_stats_title">Charging stats</string>
+    <string name="lock_screen_charging_stats_summary">Display current, voltage, wattage, and temperature stats while charging</string>
+
 </resources>
