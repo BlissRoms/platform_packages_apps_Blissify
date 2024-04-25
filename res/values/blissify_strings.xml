@@ -220,4 +220,8 @@
     <string name="double_tap_to_sleep_lockscreen_title">Double tap to sleep</string>
     <string name="double_tap_to_sleep_lockscreen_summary">Double tap lockscreen to put the device to sleep</string>
 
+    <!-- Colored icons -->
+    <string name="status_bar_colored_icons_title">Colored icons</string>
+    <string name="status_bar_colored_icons_summary">Use launcher icons for app notifications</string>
+
 </resources>
