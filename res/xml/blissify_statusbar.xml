@@ -67,6 +67,12 @@
             android:summary="@string/status_bar_battery_text_charging_summary"
             android:defaultValue="true" />
 
+        <!-- Colored icons -->
+        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+            android:key="statusbar_colored_icons"
+            android:title="@string/status_bar_colored_icons_title"
+            android:summary="@string/status_bar_colored_icons_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
 </PreferenceScreen>
