@@ -39,6 +39,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="lock_screen_fingerprint_category"
+        android:title="@string/lock_screen_fingerprint_category">
+
+        <!-- Fingerprint unlock ripple animation -->
+        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+            android:key="enable_ripple_effect"
+            android:title="@string/lock_screen_fingerprint_ripple_title"
+            android:summary="@string/lock_screen_fingerprint_ripple_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="lockscreen_weather_category"
         android:title="@string/lockscreen_weather_category">
 
