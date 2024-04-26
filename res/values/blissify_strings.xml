@@ -30,6 +30,7 @@
     <string name="blissify_misc_title">Miscellaneous</string>
     <string name="blissify_navigation_title">Navigation</string>
     <string name="blissify_notifications_title">Notifications</string>
+    <string name="blissify_powermenu_title">Power Menu</string>
     <string name="blissify_quicksettings_title">Quick settings</string>
     <string name="blissify_status_bar_title">Status bar</string>
     <string name="blissify_themes_title">Themes</string>
@@ -409,5 +410,10 @@
     <string name="lock_screen_fingerprint_category">Fingerprint</string>
     <string name="lock_screen_fingerprint_ripple_title">Ripple animation</string>
     <string name="lock_screen_fingerprint_ripple_summary">Show ripple animation when unlocked with fingerprint</string>
+
+    <!-- Power menu -->
+    <string name="power_menu_lock_screen_category">Lock screen</string>
+    <string name="power_menu_lock_screen_secure_title">Show on secure lock screen</string>
+    <string name="power_menu_lock_screen_secure_summary">Show the power menu while the device is locked</string>
 
 </resources>
