@@ -288,4 +288,9 @@
     <string name="lockscreen_weather_humidity_info_title">Humidity info</string>
     <string name="lockscreen_weather_humidity_info_summary">Display current humidity in percentage</string>
 
+    <!-- Lock screen - Ripple animation -->
+    <string name="lock_screen_fingerprint_category">Fingerprint</string>
+    <string name="lock_screen_fingerprint_ripple_title">Ripple animation</string>
+    <string name="lock_screen_fingerprint_ripple_summary">Show ripple animation when unlocked with fingerprint</string>
+
 </resources>
