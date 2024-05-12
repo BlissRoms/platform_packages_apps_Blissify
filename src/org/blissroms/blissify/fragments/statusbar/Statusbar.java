@@ -61,6 +61,7 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
     private static final String KEY_DATA_DISABLED_ICON = "data_disabled_icon";
     private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
+    private static final String KEY_FOUR_G_ICON = "show_fourg_icon";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 4;
@@ -71,6 +72,7 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mBatteryTextCharging;
     private PreferenceCategory mIconsCategory;
     private SystemSettingSwitchPreference mDataDisabledIcon;
+    private SystemSettingSwitchPreference mFourgIcon;
     private SystemSettingSwitchPreference mBluetoothBatteryStatus;
 
     @Override
@@ -85,10 +87,12 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
         mDataDisabledIcon = (SystemSettingSwitchPreference) findPreference(KEY_DATA_DISABLED_ICON);
+        mFourgIcon = (SystemSettingSwitchPreference) findPreference(KEY_FOUR_G_ICON);
         mBluetoothBatteryStatus = (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
 
         if (!DeviceUtils.deviceSupportsMobileData(context)) {
             mIconsCategory.removePreference(mDataDisabledIcon);
+            mIconsCategory.removePreference(mFourgIcon);
         }
 
         if (!DeviceUtils.deviceSupportsBluetooth(context)) {
@@ -158,6 +162,7 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
                 if (!DeviceUtils.deviceSupportsMobileData(context)) {
                     keys.add(KEY_DATA_DISABLED_ICON);
+                    keys.add(KEY_FOUR_G_ICON);
                 }
                 if (!DeviceUtils.deviceSupportsBluetooth(context)) {
                     keys.add(KEY_BLUETOOTH_BATTERY_STATUS);
