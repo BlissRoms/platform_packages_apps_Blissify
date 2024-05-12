@@ -59,6 +59,7 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private static final String KEY_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String KEY_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
     private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
+    private static final String KEY_DATA_DISABLED_ICON = "data_disabled_icon";
     private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
@@ -69,6 +70,7 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mBatteryStyle;
     private SystemSettingSwitchPreference mBatteryTextCharging;
     private PreferenceCategory mIconsCategory;
+    private SystemSettingSwitchPreference mDataDisabledIcon;
     private SystemSettingSwitchPreference mBluetoothBatteryStatus;
 
     @Override
@@ -82,7 +84,12 @@ public class Statusbar extends SettingsPreferenceFragment implements
         final Resources resources = context.getResources();
 
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
+        mDataDisabledIcon = (SystemSettingSwitchPreference) findPreference(KEY_DATA_DISABLED_ICON);
         mBluetoothBatteryStatus = (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
+
+        if (!DeviceUtils.deviceSupportsMobileData(context)) {
+            mIconsCategory.removePreference(mDataDisabledIcon);
+        }
 
         if (!DeviceUtils.deviceSupportsBluetooth(context)) {
             mIconsCategory.removePreference(mBluetoothBatteryStatus);
@@ -149,6 +156,9 @@ public class Statusbar extends SettingsPreferenceFragment implements
                 List<String> keys = super.getNonIndexableKeys(context);
                 final Resources resources = context.getResources();
 
+                if (!DeviceUtils.deviceSupportsMobileData(context)) {
+                    keys.add(KEY_DATA_DISABLED_ICON);
+                }
                 if (!DeviceUtils.deviceSupportsBluetooth(context)) {
                     keys.add(KEY_BLUETOOTH_BATTERY_STATUS);
                 }
