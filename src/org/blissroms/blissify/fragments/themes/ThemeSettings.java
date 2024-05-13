@@ -64,11 +64,15 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
 
     public static final String TAG = "ThemeSettings";
 
+    private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
+    private static final String KEY_UDFPS_ICON = "udfps_icon";
 
+    private PreferenceCategory mIconsCategory;
     private PreferenceCategory mAnimationsCategory;
     private Preference mUdfpsAnimation;
+    private Preference mUdfpsIcon;
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -79,6 +83,8 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources resources = context.getResources();
 
+        mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
+        mUdfpsIcon = (Preference) findPreference(KEY_UDFPS_ICON);
         mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
         mUdfpsAnimation = (Preference) findPreference(KEY_UDFPS_ANIMATION);
 
@@ -86,8 +92,12 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+            mIconsCategory.removePreference(mUdfpsIcon);
             mAnimationsCategory.removePreference(mUdfpsAnimation);
         } else {
+            if (!BlissUtils.isPackageInstalled(context, "org.blissroms.udfps.icons")) {
+                mIconsCategory.removePreference(mUdfpsIcon);
+            }
             if (!BlissUtils.isPackageInstalled(context, "org.blissroms.udfps.animations")) {
                 mAnimationsCategory.removePreference(mUdfpsAnimation);
             }
@@ -129,8 +139,12 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
                         context.getSystemService(Context.FINGERPRINT_SERVICE);
 
                 if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+                    keys.add(KEY_UDFPS_ICON);
                     keys.add(KEY_UDFPS_ANIMATION);
                 } else {
+                    if (!BlissUtils.isPackageInstalled(context, "org.blissroms.udfps.icons")) {
+                        keys.add(KEY_UDFPS_ICON);
+                    }
                     if (!BlissUtils.isPackageInstalled(context, "org.blissroms.udfps.animations")) {
                         keys.add(KEY_UDFPS_ANIMATION);
                     }
