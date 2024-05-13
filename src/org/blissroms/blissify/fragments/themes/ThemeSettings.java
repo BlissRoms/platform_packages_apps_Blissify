@@ -27,6 +27,7 @@ import android.content.IntentFilter;
 import android.content.om.IOverlayManager;
 import android.content.res.Resources;
 import android.database.ContentObserver;
+import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -56,6 +57,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.android.internal.util.bliss.BlissUtils;
 import org.blissroms.blissify.utils.DeviceUtils;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
@@ -66,10 +68,14 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
     private static final String KEY_NAVBAR_ICON = "android.theme.customization.navbar";
     private static final String KEY_SIGNAL_ICON = "android.theme.customization.signal_icon";
+    private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
+    private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
 
     private PreferenceCategory mIconsCategory;
     private Preference mNavbarIcon;
     private Preference mSignalIcon;
+    private PreferenceCategory mAnimationsCategory;
+    private Preference mUdfpsAnimation;
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -83,6 +89,8 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
         mNavbarIcon = (Preference) findPreference(KEY_NAVBAR_ICON);
         mSignalIcon = (Preference) findPreference(KEY_SIGNAL_ICON);
+        mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
+        mUdfpsAnimation = (Preference) findPreference(KEY_UDFPS_ANIMATION);
 
         if (!DeviceUtils.deviceSupportsMobileData(context)) {
             mIconsCategory.removePreference(mSignalIcon);
@@ -90,6 +98,17 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
 
         if (DeviceUtils.isEdgeToEdgeEnabled(context)) {
             mIconsCategory.removePreference(mNavbarIcon);
+        }
+
+        FingerprintManager fingerprintManager = (FingerprintManager)
+                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+
+        if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+            mAnimationsCategory.removePreference(mUdfpsAnimation);
+        } else {
+            if (!BlissUtils.isPackageInstalled(context, "org.blissroms.udfps.animations")) {
+                mAnimationsCategory.removePreference(mUdfpsAnimation);
+            }
         }
     }
 
@@ -123,8 +142,20 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
                 final Resources resources = context.getResources();
+
+                FingerprintManager fingerprintManager = (FingerprintManager)
+                        context.getSystemService(Context.FINGERPRINT_SERVICE);
+
                 if (!DeviceUtils.deviceSupportsMobileData(context)) {
                     keys.add(KEY_SIGNAL_ICON);
+                }
+
+                if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+                    keys.add(KEY_UDFPS_ANIMATION);
+                } else {
+                    if (!BlissUtils.isPackageInstalled(context, "org.blissroms.udfps.animations")) {
+                        keys.add(KEY_UDFPS_ANIMATION);
+                    }
                 }
                return keys;
             }
