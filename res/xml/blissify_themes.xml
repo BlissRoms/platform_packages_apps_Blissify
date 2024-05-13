@@ -46,6 +46,19 @@
     <PreferenceCategory
         android:key="themes_icons_category"
         android:title="@string/themes_icons_category">
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="themes_animations_category"
+        android:title="@string/themes_animations_category">
+
+        <!-- Udfps animation -->
+        <Preference
+            android:key="udfps_animation"
+            android:title="@string/themes_udfps_animation_title"
+            android:summary="@string/themes_udfps_animation_summary"
+            android:fragment="org.blissroms.blissify.fragments.themes.UdfpsAnimations" />
     </PreferenceCategory>
 
 </PreferenceScreen>

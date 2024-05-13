@@ -27,6 +27,7 @@ import android.content.IntentFilter;
 import android.content.om.IOverlayManager;
 import android.content.res.Resources;
 import android.database.ContentObserver;
+import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -56,13 +57,41 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.android.internal.util.bliss.BlissUtils;
+
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class ThemeSettings extends DashboardFragment implements OnPreferenceChangeListener {
 
     public static final String TAG = "ThemeSettings";
 
+    private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
+    private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
+
+    private PreferenceCategory mAnimationsCategory;
+    private Preference mUdfpsAnimation;
+
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        addPreferencesFromResource(R.xml.blissify_themes);
+
+        final Context context = getContext();
+        final ContentResolver resolver = context.getContentResolver();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final Resources resources = context.getResources();
+
+        mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
+        mUdfpsAnimation = (Preference) findPreference(KEY_UDFPS_ANIMATION);
+
+        FingerprintManager fingerprintManager = (FingerprintManager)
+                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+
+        if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+            mAnimationsCategory.removePreference(mUdfpsAnimation);
+        } else {
+            if (!BlissUtils.isPackageInstalled(context, "org.blissroms.udfps.animations")) {
+                mAnimationsCategory.removePreference(mUdfpsAnimation);
+            }
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -89,5 +118,24 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
      */
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.blissify_themes);
+            new BaseSearchIndexProvider(R.xml.blissify_themes) {
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                final Resources resources = context.getResources();
+
+                FingerprintManager fingerprintManager = (FingerprintManager)
+                        context.getSystemService(Context.FINGERPRINT_SERVICE);
+
+                if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+                    keys.add(KEY_UDFPS_ANIMATION);
+                } else {
+                    if (!BlissUtils.isPackageInstalled(context, "org.blissroms.udfps.animations")) {
+                        keys.add(KEY_UDFPS_ANIMATION);
+                    }
+                }
+               return keys;
+            }
+        };
 }
