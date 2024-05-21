@@ -386,4 +386,9 @@
     <string name="anbi_title">Accidental touch</string>
     <string name="anbi_summary">Prevent interaction with navigation buttons while the screen is being touched</string>
 
+    <!-- Data Usage on QS Footer -->
+    <string name="quick_settings_interface_category">Interface</string>
+    <string name="quick_settings_data_usage_title">Data usage</string>
+    <string name="quick_settings_data_usage_summary">Display data usage summary in quick settings footer</string>
+
 </resources>

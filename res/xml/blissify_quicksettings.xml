@@ -27,6 +27,18 @@
         android:defaultValue="0" />
 
     <PreferenceCategory
+        android:key="quick_settings_interface_category"
+        android:title="@string/quick_settings_interface_category">
+
+        <!-- Data usage -->
+        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_data_usage"
+            android:title="@string/quick_settings_data_usage_title"
+            android:summary="@string/quick_settings_data_usage_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/status_bar_brightness_category">
 
         <lineageos.preference.LineageSecureSettingSwitchPreference
