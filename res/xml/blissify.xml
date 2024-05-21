@@ -18,12 +18,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_dashboard_title">
 
-    <!-- Animations -->
+    <!-- Animations >
     <Preference
         android:key="animations_category"
         android:title="@string/blissify_animation_title"
         android:fragment="org.blissroms.blissify.fragments.animations.Animations"
-        android:icon="@drawable/ic_blissify_animations" />
+        android:icon="@drawable/ic_blissify_animations" /> -->
 
     <!-- Buttons -->
     <Preference
