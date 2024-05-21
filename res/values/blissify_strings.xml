@@ -250,6 +250,8 @@
     <string name="quick_settings_miscellaneous_category">Miscellaneous</string>
     <string name="quick_settings_bluetooth_show_dialog_title">Bluetooth tile dialog</string>
     <string name="quick_settings_bluetooth_show_dialog_summary">Show bluetooth dialog or toggle bluetooth state on tapping bluetooth tile</string>
+    <string name="quick_settings_data_usage_title">Data usage</string>
+    <string name="quick_settings_data_usage_summary">Display data usage summary in quick settings footer</string>
 
     <!-- Status bar/Battery Bar -->
     <string name="status_bar_battery_bar_title">Battery bar</string>
