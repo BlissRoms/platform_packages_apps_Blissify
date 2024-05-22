@@ -308,4 +308,10 @@
     <string name="power_menu_lock_screen_secure_title">Show on secure lock screen</string>
     <string name="power_menu_lock_screen_secure_summary">Show the power menu while the device is locked</string>
 
+    <!-- Fingerprint vibration -->
+    <string name="lock_screen_fingerprint_success_vibration_title">Authentication success vibration</string>
+    <string name="lock_screen_fingerprint_success_vibration_summary">Vibrate when fingerprint authentication is successful</string>
+    <string name="lock_screen_fingerprint_error_vibration_title">Authentication error vibration</string>
+    <string name="lock_screen_fingerprint_error_vibration_summary">Vibrate when fingerprint authentication fails</string>
+
 </resources>
