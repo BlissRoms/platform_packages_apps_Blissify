@@ -56,6 +56,7 @@ import lineageos.providers.LineageSettings;
 
 import org.blissroms.blissify.preferences.SystemSettingListPreference;
 import org.blissroms.blissify.preferences.SystemSettingSwitchPreference;
+import org.blissroms.blissify.utils.DeviceUtils;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class QuickSettings extends SettingsPreferenceFragment implements
@@ -68,6 +69,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
     private static final String KEY_BRIGHTNESS_SLIDER_HAPTIC = "qs_brightness_slider_haptic";
     private static final String KEY_INTERFACE_CATEGORY = "quick_settings_interface_category";
+    private static final String KEY_MISCELLANEOUS_CATEGORY = "quick_settings_miscellaneous_category";
+    private static final String KEY_QS_BLUETOOTH_SHOW_DIALOG = "qs_bt_show_dialog";
     private static final String KEY_QS_PANEL_STYLE  = "qs_panel_style";
     private static final String KEY_QS_UI_STYLE  = "qs_tile_ui_style";
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
@@ -78,6 +81,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final int BATTERY_STYLE_HIDDEN = 5;
 
     private PreferenceCategory mInterfaceCategory;
+    private PreferenceCategory mMiscellaneousCategory;
     private ListPreference mShowBrightnessSlider;
     private ListPreference mBrightnessSliderPosition;
     private ListPreference mQsPanelStyle;
@@ -100,6 +104,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         final ContentResolver resolver = mContext.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources resources = mContext.getResources();
+
+        mMiscellaneousCategory = (PreferenceCategory) findPreference(KEY_MISCELLANEOUS_CATEGORY);
+
+        if (!DeviceUtils.deviceSupportsBluetooth(mContext)) {
+            prefScreen.removePreference(mMiscellaneousCategory);
+        }
 
         mBatteryStyle = (SystemSettingListPreference) findPreference(KEY_BATTERY_STYLE);
         mBatteryPercent = (SystemSettingListPreference) findPreference(KEY_BATTERY_PERCENT);
@@ -282,6 +292,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
                 final Resources resources = context.getResources();
+
+                if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+                    keys.add(KEY_QS_BLUETOOTH_SHOW_DIALOG);
+                }
+
                 boolean autoBrightnessAvailable = resources.getBoolean(
                         com.android.internal.R.bool.config_automatic_brightness_available);
                 if (!autoBrightnessAvailable) {
