@@ -50,6 +50,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.blissroms.blissify.preferences.SystemSettingListPreference;
+import org.blissroms.blissify.utils.DeviceUtils;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class QuickSettings extends SettingsPreferenceFragment implements
@@ -57,11 +58,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_BATTERY_PERCENT = "qs_show_battery_percent";
     private static final String KEY_BATTERY_STYLE = "qs_battery_style";
+    private static final String KEY_MISCELLANEOUS_CATEGORY = "quick_settings_miscellaneous_category";
+    private static final String KEY_QS_BLUETOOTH_SHOW_DIALOG = "qs_bt_show_dialog";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 4;
     private static final int BATTERY_STYLE_HIDDEN = 5;
 
+    private PreferenceCategory mMiscellaneousCategory;
     private SystemSettingListPreference mBatteryStyle;
     private SystemSettingListPreference mBatteryPercent;
 
@@ -74,6 +78,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         final ContentResolver resolver = mContext.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources resources = mContext.getResources();
+
+        mMiscellaneousCategory = (PreferenceCategory) findPreference(KEY_MISCELLANEOUS_CATEGORY);
+
+        if (!DeviceUtils.deviceSupportsBluetooth(mContext)) {
+            prefScreen.removePreference(mMiscellaneousCategory);
+        }
 
         mBatteryStyle = (SystemSettingListPreference) findPreference(KEY_BATTERY_STYLE);
         mBatteryPercent = (SystemSettingListPreference) findPreference(KEY_BATTERY_PERCENT);
@@ -110,5 +120,18 @@ public class QuickSettings extends SettingsPreferenceFragment implements
      */
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.blissify_quicksettings);
+        new BaseSearchIndexProvider(R.xml.blissify_quicksettings) {
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                final Resources resources = context.getResources();
+
+                if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+                    keys.add(KEY_QS_BLUETOOTH_SHOW_DIALOG);
+                }
+
+                return keys;
+            }
+        };
 }
