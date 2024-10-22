@@ -193,6 +193,8 @@
     <string name="status_bar_battery_text_charging_summary">Always display battery percentage when charging</string>
     <string name="status_bar_clock_and_date_title">Clock &amp; date</string>
     <string name="status_bar_clock_and_date_summary">Customize clock &amp; date</string>
+    <string name="status_bar_carrier_lock_screen_title">Carrier name on lockscreen</string>
+    <string name="status_bar_carrier_lock_screen_summary">Display carrier name on lockscreen status bar</string>
 
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Clock position</string>
