@@ -314,4 +314,8 @@
     <string name="lock_screen_fingerprint_error_vibration_title">Authentication error vibration</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">Vibrate when fingerprint authentication fails</string>
 
+    <!-- Carrier name on lockscreen -->
+    <string name="status_bar_carrier_lock_screen_title">Carrier name on lockscreen</string>
+    <string name="status_bar_carrier_lock_screen_summary">Display carrier name on lockscreen status bar</string>
+
 </resources>

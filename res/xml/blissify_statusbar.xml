@@ -36,6 +36,12 @@
             <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
 
+        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_show_carrier"
+            android:title="@string/status_bar_carrier_lock_screen_title"
+            android:summary="@string/status_bar_carrier_lock_screen_summary"
+            android:defaultValue="true" />
+
         <!-- Bluetooth battery status -->
         <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
             android:key="bluetooth_show_battery"
