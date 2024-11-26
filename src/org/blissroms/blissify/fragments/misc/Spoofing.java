@@ -6,6 +6,7 @@
 package org.blissroms.blissify.fragments.misc;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemProperties;
 import android.util.Log;
 
 import androidx.preference.Preference;
@@ -27,6 +29,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
 import org.json.JSONObject;
+import org.json.JSONException;
+
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
@@ -65,6 +69,14 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mPixelProps = (SystemPropertySwitchPreference) findPreference(KEY_PIXEL_PROPS);
 
         mPifJsonFilePreference = findPreference(KEY_PIF_JSON_FILE_PREFERENCE);
+
+        Preference showPropertiesPref = findPreference("show_pif_properties");
+        if (showPropertiesPref != null) {
+            showPropertiesPref.setOnPreferenceClickListener(preference -> {
+                showPropertiesDialog();
+                return true;
+            });
+        }
     }
 
     @Override
@@ -99,6 +111,40 @@ public class Spoofing extends SettingsPreferenceFragment implements
                 Log.e(TAG, "Error reading JSON or setting properties", e);
             }
         }
+    }
+
+    private void showPropertiesDialog() {
+        StringBuilder properties = new StringBuilder();
+        try {
+            JSONObject jsonObject = new JSONObject();
+            String[] keys = {
+                "persist.sys.pihooks_ID",
+                "persist.sys.pihooks_BRAND",
+                "persist.sys.pihooks_DEVICE",
+                "persist.sys.pihooks_FINGERPRINT",
+                "persist.sys.pihooks_MANUFACTURER",
+                "persist.sys.pihooks_MODEL",
+                "persist.sys.pihooks_PRODUCT",
+                "persist.sys.pihooks_SECURITY_PATCH",
+                "persist.sys.pihooks_DEVICE_INITIAL_SDK_INT"
+            };
+            for (String key : keys) {
+                String value = SystemProperties.get(key, null);
+                if (value != null) {
+                    String buildKey = key.replace("persist.sys.pihooks_", "");
+                    jsonObject.put(buildKey, value);
+                }
+            }
+            properties.append(jsonObject.toString(4));
+        } catch (JSONException e) {
+            Log.e(TAG, "Error creating JSON from properties", e);
+            properties.append(getString(R.string.error_loading_properties));
+        }
+        new AlertDialog.Builder(getContext())
+            .setTitle(R.string.show_pif_properties_title)
+            .setMessage(properties.toString())
+            .setPositiveButton(android.R.string.ok, null)
+            .show();
     }
 
     @Override

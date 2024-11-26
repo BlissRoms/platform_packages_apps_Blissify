@@ -543,4 +543,11 @@
     <string name="pif_spoofing_title">Select PIF JSON File</string>
     <string name="pif_spoofing_summary">Pick PIF JSON file to be used for spoofing play integrity</string>
 
+    <!-- Play Integrity Fix JSON Update -->
+    <string name="toast_spoofing_success">Successfully downloaded pif.json. Spoofing as %1$s for play integrity.</string>
+    <string name="toast_spoofing_failure">Failed to spoof properties.</string>
+    <string name="show_pif_properties_title">Play Integrity Fix properties</string>
+    <string name="show_pif_properties_summary">Show all currently set PIF properties</string>
+    <string name="error_loading_properties">Error loading PIF properties</string>
+
 </resources>
