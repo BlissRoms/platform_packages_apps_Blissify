@@ -39,6 +39,7 @@
     <string name="powermenu_items_title">Power menu items</string>
     <string name="flashlight_category">Flashlight</string>
     <string name="double_tap_gesture_title">Double Tap</string>
+    <string name="ambient_display_custom_title">Ambient Display</string>
 
     <!-- Sub category -->
     <string name="general_category">General</string>
