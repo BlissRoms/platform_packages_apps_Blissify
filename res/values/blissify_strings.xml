@@ -550,8 +550,14 @@
     <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
 
     <!-- Notification -->
+    <string name="notifications_heads_up_title">Heads up</string>
+    <string name="notifications_heads_up_summary">Allow pop up notifications</string>
     <string name="notifications_interface_category">Interface</string>
     <string name="notifications_kill_app_button_title">Kill app</string>
     <string name="notifications_kill_app_button_summary">Show a kill app button in the notification\'s longpress menu</string>
+
+    <!-- Notifications/Less boring heads up -->
+    <string name="notifications_less_boring_heads_up_title">Less boring</string>
+    <string name="notifications_less_boring_heads_up_summary">Display popup notifications only for alarm, dialer and messaging app</string>
 
 </resources>
