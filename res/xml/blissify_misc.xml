@@ -38,6 +38,13 @@
         android:summary="@string/sensor_block_summary"
         android:fragment="org.blissroms.blissify.fragments.misc.SensorBlock"/>
 
+    <!-- Smart Pixels -->
+    <Preference
+        android:key="smart_pixels"
+        android:title="@string/smart_pixels_title" 
+        android:summary="@string/smart_pixels_summary" 
+        android:fragment="org.blissroms.blissify.fragments.misc.SmartPixels" />
+
     <Preference
         android:key="default_usb_configuration"
         android:title="@string/usb_default_config_title"
