@@ -29,6 +29,7 @@ import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.widget.Toast;
 
 import androidx.preference.SwitchPreferenceCompat;
 import androidx.preference.ListPreference;
@@ -76,9 +77,9 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     private SwitchPreferenceCompat mFingerprintSuccessVib;
     private SwitchPreferenceCompat mFingerprintErrorVib;
     private PreferenceCategory mUdfpsCategory;
-    private Preference mWeather;
     private SwitchPreferenceCompat mSmartspace;
     private OmniJawsClient mWeatherClient;
+    private SwitchPreferenceCompat mWeather;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -113,7 +114,9 @@ public class Lockscreen extends SettingsPreferenceFragment implements
         mSmartspace = (SwitchPreferenceCompat) findPreference(KEY_SMARTSPACE);
         mSmartspace.setOnPreferenceChangeListener(this);
 
-        mWeather = (Preference) findPreference(KEY_WEATHER);
+        mWeather = (SwitchPreferenceCompat) findPreference(KEY_WEATHER);
+        mWeather.setOnPreferenceChangeListener(this);
+
         mWeatherClient = new OmniJawsClient(getContext());
         updateWeatherSettings();
 
@@ -139,6 +142,11 @@ public class Lockscreen extends SettingsPreferenceFragment implements
         } else if (preference == mSmartspace) {
             mSmartspace.setChecked((Boolean)newValue);
             updateWeatherSettings();
+            showRestartToast();
+            return true;
+        } else if (preference == mWeather) {
+            mWeather.setChecked((Boolean)newValue);
+            showRestartToast();
             return true;
         }
         return false;
@@ -151,6 +159,10 @@ public class Lockscreen extends SettingsPreferenceFragment implements
         mWeather.setEnabled(!mSmartspace.isChecked() && weatherEnabled);
         mWeather.setSummary(!mSmartspace.isChecked() && weatherEnabled ? R.string.lockscreen_weather_summary :
             R.string.lockscreen_weather_enabled_info);
+    }
+
+    private void showRestartToast() {
+        Toast.makeText(getContext(), R.string.restart_systemui, Toast.LENGTH_LONG).show();
     }
 
     @Override

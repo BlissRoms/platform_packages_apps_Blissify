@@ -63,6 +63,7 @@
     <string name="blissify_status_bar_summary">Tune StatusBar Customizations</string>
     <string name="blissify_themes_summary">Configure Theming according to your tastes</string>
     <string name="blissify_misc_summary">Change parameters for System Settings</string>
+    <string name="restart_systemui">Restart SystemUI for change to take effect!</string>
 
     <!-- Status bar items -->
     <string name="statusbar_items_category">Status bar items</string>
