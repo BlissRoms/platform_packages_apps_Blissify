@@ -31,6 +31,16 @@
         android:summary="@string/smart_pixels_summary" 
         android:fragment="org.blissroms.blissify.fragments.misc.SmartPixels" />
 
+    <!-- Freeform launch mode -->
+    <com.bliss.support.preferences.SystemSettingListPreference
+        android:key="freeform_launch_mode"
+        android:title="@string/freeform_launch_mode_title"
+        android:dialogTitle="@string/freeform_launch_mode_title"
+        android:entries="@array/freeform_launch_mode_entries"
+        android:entryValues="@array/freeform_launch_mode_values"
+        android:defaultValue="0"
+        android:summary="%s" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

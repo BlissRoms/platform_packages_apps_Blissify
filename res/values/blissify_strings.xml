@@ -550,4 +550,9 @@
     <string name="lockscreen_smartspace_title">Smartspace</string>
     <string name="lockscreen_smartspace_summary">Show Google Smartspace when available</string>
 
+    <!-- Freeform launch mode -->
+    <string name="freeform_launch_mode_title">Freeform launch mode</string>
+    <string name="freeform_launch_mode_1">Native AOSP</string>
+    <string name="freeform_launch_mode_2">LMOFreeForm</string>
+
 </resources>
