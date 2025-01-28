@@ -66,6 +66,13 @@
             android:summary="@string/notification_heads_up_summary"
             android:defaultValue="true" />
 
+        <com.bliss.support.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.compact_heads_up_notification.always_show"
+            android:title="@string/compact_heads_up_notifications_enabled_title"
+            android:summary="@string/compact_heads_up_notifications_enabled_summary"
+            android:defaultValue="false"
+            android:dependency="heads_up_notifications_enabled" />
+
         <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="less_boring_heads_up"
             android:title="@string/less_boring_heads_up_title"
