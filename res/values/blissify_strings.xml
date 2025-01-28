@@ -290,9 +290,13 @@
     <string name="statusbar_icon_manager_title">Statusbar Icon manager</string>
     <string name="statusbar_icon_manager_summary">Control visibility of status bar icons</string>
 
-    <!-- Heads up options -->
-    <string name="less_boring_heads_up_title">Make heads up less annoying</string>
-    <string name="less_boring_heads_up_summary">Show heads up only for dialer or messaging app if they are not in foreground</string>
+    <!-- Heads up timeout -->
+    <string name="notification_heads_up_title">Heads up</string>
+    <string name="notification_heads_up_summary">Allow pop up notifications</string>
+
+    <!-- Less boring heads up -->
+    <string name="less_boring_heads_up_title">Less boring</string>
+    <string name="less_boring_heads_up_summary">Display popup notifications only for alarm, dialer and messaging app</string>
 
     <!-- UDFPS Recog Animation -->
     <string name="udfps_settings_title">UDFPS settings</string>
