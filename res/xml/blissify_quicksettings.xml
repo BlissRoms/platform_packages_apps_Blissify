@@ -18,6 +18,17 @@
     <PreferenceCategory
         android:title="@string/general_category">
 
+        <!-- QS Transparency -->
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_transparency"
+            android:title="@string/quick_settings_transparency_title"
+            android:summary="@string/quick_settings_transparency_summary"
+            android:defaultValue="100"
+            settings:interval="1"
+            settings:units="%"
+            android:max="100"
+            android:min="1" />
+
         <com.bliss.support.preferences.SecureSettingSwitchPreference
             android:key="qstile_requires_unlocking"
             android:title="@string/qstile_requires_unlocking_title"
