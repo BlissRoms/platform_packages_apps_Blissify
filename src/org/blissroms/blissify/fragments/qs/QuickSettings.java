@@ -204,29 +204,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         int qsPanelStyle = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_PANEL_STYLE , 0, UserHandle.USER_CURRENT);
 
-        if (isA11Style > 0) {
-            mQsUI.setEnabled(true);
-            mQsPanelStyle.setEnabled(false);
-            if (qsPanelStyle > 0) {
-                qsPanelStyle = 0;
-                Settings.System.putIntForUser(resolver,
-                        Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
-                updateQsPanelStyle(context);
-            }
-        } else if (qsPanelStyle > 0) {
-            mQsPanelStyle.setEnabled(true);
-            mQsUI.setEnabled(false);
-            if (isA11Style > 0) {
-                isA11Style = 0;
-                Settings.System.putIntForUser(resolver,
-                        Settings.System.QS_TILE_UI_STYLE, 0, UserHandle.USER_CURRENT);
-                updateQsStyle(context);
-            }
-        } else {
-            mQsUI.setEnabled(true);
-            mQsPanelStyle.setEnabled(true);
-        }
-
         // Update summaries
         int index = mQsUI.findIndexOfValue(Integer.toString(isA11Style));
         mQsUI.setValue(Integer.toString(isA11Style));
