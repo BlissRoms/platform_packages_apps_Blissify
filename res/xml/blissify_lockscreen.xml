@@ -22,6 +22,36 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/lockscreen_media" >
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="ls_media_art_enabled"
+            android:title="@string/media_art_title"
+            android:summary="@string/media_art_summary"
+            android:defaultValue="false" />
+
+        <com.bliss.support.preferences.SystemSettingListPreference
+            android:key="ls_media_art_filter"
+            android:title="@string/lockscreen_albumart_filter_title"
+            android:entries="@array/lockscreen_albumart_filter_entries"
+            android:entryValues="@array/lockscreen_albumart_filter_values"
+            android:dependency="ls_media_art_enabled"
+            android:defaultValue="0" />
+
+        <com.bliss.support.preferences.SystemSettingSeekBarPreference
+            android:key="ls_media_art_fade_level"
+            android:title="@string/ls_media_art_fade_level_title"
+            android:summary="@string/ls_media_art_fade_level_summary"
+            android:defaultValue="40"
+            settings:interval="1"
+            settings:units="%"
+            android:max="100"
+            android:min="0"
+            android:dependency="ls_media_art_enabled" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/general_category">
 
         <SwitchPreferenceCompat
