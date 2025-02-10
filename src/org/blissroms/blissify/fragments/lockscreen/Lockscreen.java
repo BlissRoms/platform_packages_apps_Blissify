@@ -30,13 +30,14 @@ import android.os.ParcelFileDescriptor;
 import android.os.UserHandle;
 import android.provider.Settings;
 
-import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.bliss.OmniJawsClient;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -46,19 +47,65 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.blissroms.blissify.utils.SystemUtils;
+
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Lockscreen extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
+    private static final String KEY_SMARTSPACE = "lockscreen_smartspace_enabled";
+    private static final String KEY_WEATHER = "lockscreen_weather_enabled";
+
+    private SwitchPreferenceCompat mSmartspace;
+    private SwitchPreferenceCompat mWeather;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.blissify_lockscreen);
+
+        final Context context = getContext();
+        final ContentResolver resolver = context.getContentResolver();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final Resources resources = context.getResources();
+
+        mSmartspace = (SwitchPreferenceCompat) findPreference(KEY_SMARTSPACE);
+        mSmartspace.setOnPreferenceChangeListener(this);
+
+        mWeather = (SwitchPreferenceCompat) findPreference(KEY_WEATHER);
+        mWeather.setOnPreferenceChangeListener(this);
+
+        updateWeatherSettings();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mSmartspace) {
+            mSmartspace.setChecked((Boolean)newValue);
+            updateWeatherSettings();
+            SystemUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mWeather) {
+            mWeather.setChecked((Boolean)newValue);
+            SystemUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        }
         return false;
+    }
+
+    private void updateWeatherSettings() {
+        if (mWeather == null || mSmartspace == null) return;
+
+        boolean weatherEnabled = OmniJawsClient.get().isOmniJawsEnabled(getContext());
+        mWeather.setEnabled(!mSmartspace.isChecked() && weatherEnabled);
+        mWeather.setSummary(!mSmartspace.isChecked() && weatherEnabled ? R.string.lockscreen_weather_summary :
+            R.string.lockscreen_weather_enabled_info);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateWeatherSettings();
     }
 
     @Override
