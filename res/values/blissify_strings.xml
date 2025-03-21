@@ -34,4 +34,11 @@
     <string name="blissify_status_bar_title">Status bar</string>
     <string name="blissify_themes_title">Themes</string>
 
+    <!-- AOSP Gestures -->
+    <string name="aosp_gesture_preference">System settings</string>
+    <string name="aosp_gesture_summary">Stock gestures included with AOSP</string>
+
+    <!-- Navigation -->
+    <string name="system_navigation_summary">Configure navigation menus</string>
+
 </resources>

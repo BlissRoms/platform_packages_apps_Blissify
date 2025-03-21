@@ -19,4 +19,18 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_gestures_title">
 
+    <Preference
+        android:key="gesture_settings"
+        android:title="@string/aosp_gesture_preference"
+        android:summary="@string/aosp_gesture_summary"
+        android:fragment="com.android.settings.gestures.GestureSettings"
+        settings:controller="com.android.settings.gestures.GesturesSettingPreferenceController"/>
+
+    <Preference
+        android:key="gesture_system_navigation"
+        android:title="@string/system_navigation_title"
+        android:summary="@string/system_navigation_summary"
+        android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
+        settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController" />
+
 </PreferenceScreen>
