@@ -34,6 +34,9 @@
     <string name="blissify_status_bar_title">Status bar</string>
     <string name="blissify_themes_title">Themes</string>
 
+    <!-- Units -->
+    <string name="unit_pixels">dp</string>
+
     <!-- AOSP Gestures -->
     <string name="aosp_gesture_preference">System settings</string>
     <string name="aosp_gesture_summary">Stock gestures included with AOSP</string>
@@ -193,5 +196,24 @@
     <!-- USB configuration -->
     <string name="usb_default_config_title">USB configuration</string>
     <string name="usb_default_config_summary">Choose the default behavior when connected to a device via USB</string>
+
+    <!-- Status bar/Battery Bar -->
+    <string name="status_bar_battery_bar_title">Battery bar</string>
+    <string name="status_bar_battery_bar_summary">Display and customize battery bar above status bar</string>
+    <string name="battery_bar_color">Color</string>
+    <string name="battery_bar_charging_color">Charging color</string>
+    <string name="battery_bar_battery_low_color">Low battery color</string>
+    <string name="battery_bar_style_title">Alignment</string>
+    <string name="battery_bar_thickness_title">Thickness</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_style_regular">Regular</string>
+    <string name="battery_bar_style_center_mirrored">Center-mirrored</string>
+    <string name="battery_bar_style_reversed">Reversed</string>
+    <string name="battery_bar_use_charging_color">Custom charging color</string>
+    <string name="battery_bar_blend_color_title">Blend colors</string>
+    <string name="battery_bar_blend_color_summary">Blend full/empty colors corresponding to battery percentage</string>
+    <string name="battery_bar_blend_color_reverse_title">Reverse color direction</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Full &#8594; empty: red &#8592; green &#8592; blue &#8592; red</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Full &#8594; empty: red &#8594; green &#8594; blue &#8594; red</string>
 
 </resources>
