@@ -429,4 +429,8 @@
     <string name="battery_bar_blend_color_reverse_summary_off">Full &#8594; empty: red &#8592; green &#8592; blue &#8592; red</string>
     <string name="battery_bar_blend_color_reverse_summary_on">Full &#8594; empty: red &#8594; green &#8594; blue &#8594; red</string>
 
+    <!-- Double tap lockscreen to sleep -->
+    <string name="double_tap_to_sleep_lockscreen_title">Double tap to sleep</string>
+    <string name="double_tap_to_sleep_lockscreen_summary">Double tap lockscreen to put the device to sleep</string>
+
 </resources>
