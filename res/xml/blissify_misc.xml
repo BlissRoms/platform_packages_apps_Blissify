@@ -32,10 +32,10 @@
     </PreferenceCategory>
 
     <!-- Sensor block per package -->
-    <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
-        android:key="sensor_block"
+    <Preference
+        android:key="sensor_block_settings"
         android:title="@string/sensor_block_title"
         android:summary="@string/sensor_block_summary"
-        android:defaultValue="false" />
+        android:fragment="org.blissroms.blissify.fragments.misc.SensorBlock"/>
 
 </PreferenceScreen>
