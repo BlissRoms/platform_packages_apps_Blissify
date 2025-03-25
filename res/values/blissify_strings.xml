@@ -433,4 +433,10 @@
     <string name="double_tap_to_sleep_lockscreen_title">Double tap to sleep</string>
     <string name="double_tap_to_sleep_lockscreen_summary">Double tap lockscreen to put the device to sleep</string>
 
+    <!-- Statusbar Padding -->
+    <string name="statusbar_extra_padding_category">Extra padding</string>
+    <string name="statusbar_extra_padding_start_title">Start padding</string>
+    <string name="statusbar_extra_padding_top_title">Top padding</string>
+    <string name="statusbar_extra_padding_end_title">End padding</string>
+
 </resources>
