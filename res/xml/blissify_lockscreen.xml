@@ -19,4 +19,11 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_lockscreen_title">
 
+        <!-- DT2S -->
+        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+            android:defaultValue="false"
+            android:key="double_tap_sleep_lockscreen"
+            android:summary="@string/double_tap_to_sleep_lockscreen_summary"
+            android:title="@string/double_tap_to_sleep_lockscreen_title" />
+
 </PreferenceScreen>
