@@ -560,4 +560,8 @@
     <string name="notifications_less_boring_heads_up_title">Less boring</string>
     <string name="notifications_less_boring_heads_up_summary">Display popup notifications only for alarm, dialer and messaging app</string>
 
+    <!-- Heads up timeout -->
+    <string name="notification_heads_up_timeout_title">Time out</string>
+    <string name="notification_heads_up_timeout_summary">Time to display heads up notifications</string>
+
 </resources>
