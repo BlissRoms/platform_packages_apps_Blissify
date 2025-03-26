@@ -17,4 +17,7 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Custom pickup sensor for doze customization -->
+    <string name="pickup_sensor" translatable="false"></string>
+
 </resources>
