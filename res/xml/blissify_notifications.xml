@@ -35,6 +35,17 @@
             android:summary="@string/notifications_less_boring_heads_up_summary"
             android:defaultValue="false"
             android:dependency="heads_up_notifications_enabled" />
+
+        <!-- Heads up timeout -->
+        <org.blissroms.blissify.preferences.SystemSettingSeekBarPreference
+            android:key="heads_up_timeout"
+            android:title="@string/notification_heads_up_timeout_title"
+            android:summary="@string/notification_heads_up_timeout_summary"
+            settings:units="@string/unit_seconds"
+            android:defaultValue="5"
+            settings:min="1"
+            android:max="10"
+            android:dependency="heads_up_notifications_enabled" />
     </PreferenceCategory>
 
     <PreferenceCategory
