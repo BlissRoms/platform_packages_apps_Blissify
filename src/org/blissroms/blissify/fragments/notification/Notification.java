@@ -47,12 +47,16 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.android.internal.util.bliss.BlissUtils;
+
 import org.blissroms.blissify.preferences.CustomSeekBarPreference;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Notification extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String FLASHLIGHT_CATEGORY = "flashlight_category";
+    private static final String FLASHLIGHT_CALL_PREF = "flashlight_on_call";
     private static final String HEADS_UP_TIMEOUT_PREF = "heads_up_timeout";
 
     private CustomSeekBarPreference mHeadsUpTimeOut;
@@ -70,6 +74,18 @@ public class Notification extends SettingsPreferenceFragment implements
         mHeadsUpTimeOut = (CustomSeekBarPreference)
                             prefScreen.findPreference(HEADS_UP_TIMEOUT_PREF);
         mHeadsUpTimeOut.setDefaultValue(getDefaultDecay(mContext));
+
+        if (!BlissUtils.deviceHasFlashlight(mContext)) {
+            final PreferenceCategory flashlightCategory =
+                    (PreferenceCategory) prefScreen.findPreference(FLASHLIGHT_CATEGORY);
+            prefScreen.removePreference(flashlightCategory);
+        }
+    }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.FLASHLIGHT_ON_CALL, 0, UserHandle.USER_CURRENT);
     }
 
     private static int getDefaultDecay(Context context) {
