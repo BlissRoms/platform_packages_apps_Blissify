@@ -47,14 +47,31 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.android.internal.util.bliss.BlissUtils;
+
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Notification extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
+    private static final String FLASHLIGHT_CATEGORY = "flashlight_category";
+    private static final String FLASHLIGHT_CALL_PREF = "flashlight_on_call";
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.blissify_notifications);
+
+        if (!BlissUtils.deviceHasFlashlight(mContext)) {
+            final PreferenceCategory flashlightCategory =
+                    (PreferenceCategory) prefScreen.findPreference(FLASHLIGHT_CATEGORY);
+            prefScreen.removePreference(flashlightCategory);
+        }
+    }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.FLASHLIGHT_ON_CALL, 0, UserHandle.USER_CURRENT);
     }
 
     @Override

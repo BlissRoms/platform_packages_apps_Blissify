@@ -18,4 +18,17 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_notifications_title">
 
+    <PreferenceCategory
+        android:key="flashlight_category"
+        android:title="@string/power_menu_torch_title">
+
+        <org.blissroms.blissify.preferences.SystemSettingListPreference
+            android:key="flashlight_on_call"
+            android:title="@string/flashlight_on_call_title"
+            android:entries="@array/flashlight_on_call_entries"
+            android:entryValues="@array/flashlight_on_call_values"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

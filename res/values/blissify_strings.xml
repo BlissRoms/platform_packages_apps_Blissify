@@ -145,4 +145,12 @@
     <string name="network_traffic_show_units_summary">Whether to show traffic measurement units in the statusbar</string>
     <string name="network_traffic_disabled_clock">Network traffic disabled due to clock position</string>
 
+    <!-- Blink flashlight for incoming calls -->
+    <string name="power_menu_torch_title">Flashlight</string>
+    <string name="flashlight_on_call_title">Blink flashlight for call</string>
+    <string name="flashlight_on_call_disabled">Disabled</string>
+    <string name="flashlight_on_call_ringer">Only in ringer mode</string>
+    <string name="flashlight_on_call_silent">Only when ringer is silent</string>
+    <string name="flashlight_on_call_always">Always</string>
+
 </resources>
