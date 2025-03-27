@@ -29,7 +29,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
@@ -42,7 +42,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     private static final String TAG = PulseSettings.class.getSimpleName();
 
-    private static final String NAVBAR_PULSE_ENABLED_KEY = "navbar_pulse_enabled";
     private static final String LOCKSCREEN_PULSE_ENABLED_KEY = "lockscreen_pulse_enabled";
     private static final String AMBIENT_PULSE_ENABLED_KEY = "ambient_pulse_enabled";
     private static final String PULSE_SMOOTHING_KEY = "pulse_smoothing_enabled";
@@ -61,10 +60,9 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     private static final String PULSE_SETTINGS_FOOTER = "pulse_settings_footer";
 
-    private SwitchPreference mNavbarPulse;
-    private SwitchPreference mLockscreenPulse;
-    private SwitchPreference mAmbientPulse;
-    private SwitchPreference mPulseSmoothing;
+    private SwitchPreferenceCompat mLockscreenPulse;
+    private SwitchPreferenceCompat mAmbientPulse;
+    private SwitchPreferenceCompat mPulseSmoothing;
     private Preference mRenderMode;
     private ListPreference mColorModePref;
     private ColorPickerPreference mColorPickerPref;
@@ -82,19 +80,13 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
         ContentResolver resolver = getContext().getContentResolver();
 
-        mNavbarPulse = (SwitchPreference) findPreference(NAVBAR_PULSE_ENABLED_KEY);
-        boolean navbarPulse = Settings.Secure.getIntForUser(resolver,
-                Settings.Secure.NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
-        mNavbarPulse.setChecked(navbarPulse);
-        mNavbarPulse.setOnPreferenceChangeListener(this);
-
-        mLockscreenPulse = (SwitchPreference) findPreference(LOCKSCREEN_PULSE_ENABLED_KEY);
+        mLockscreenPulse = (SwitchPreferenceCompat) findPreference(LOCKSCREEN_PULSE_ENABLED_KEY);
         boolean lockscreenPulse = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.LOCKSCREEN_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
         mLockscreenPulse.setChecked(lockscreenPulse);
         mLockscreenPulse.setOnPreferenceChangeListener(this);
 
-        mAmbientPulse = (SwitchPreference) findPreference(AMBIENT_PULSE_ENABLED_KEY);
+        mAmbientPulse = (SwitchPreferenceCompat) findPreference(AMBIENT_PULSE_ENABLED_KEY);
         boolean ambientPulse = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.AMBIENT_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
         mAmbientPulse.setChecked(ambientPulse);
@@ -113,7 +105,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mSolidBarsCat = (PreferenceCategory) findPreference(
                 PULSE_RENDER_CATEGORY_SOLID);
 
-        mPulseSmoothing = (SwitchPreference) findPreference(PULSE_SMOOTHING_KEY);
+        mPulseSmoothing = (SwitchPreferenceCompat) findPreference(PULSE_SMOOTHING_KEY);
 
         mFooterPref = findPreference(PULSE_SETTINGS_FOOTER);
         mFooterPref.setTitle(R.string.pulse_help_policy_notice_summary);
@@ -124,13 +116,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getContext().getContentResolver();
-        if (preference == mNavbarPulse) {
-            boolean val = (Boolean) newValue;
-            Settings.Secure.putIntForUser(resolver,
-                Settings.Secure.NAVBAR_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
-            updateAllPrefs();
-            return true;
-        } else if (preference == mLockscreenPulse) {
+        if (preference == mLockscreenPulse) {
             boolean val = (Boolean) newValue;
             Settings.Secure.putIntForUser(resolver,
                 Settings.Secure.LOCKSCREEN_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
@@ -155,17 +141,15 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private void updateAllPrefs() {
         ContentResolver resolver = getContext().getContentResolver();
 
-        boolean navbarPulse = Settings.Secure.getIntForUser(resolver,
-                Settings.Secure.NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
         boolean lockscreenPulse = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.LOCKSCREEN_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
         boolean ambientPulse = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.AMBIENT_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
 
-        mPulseSmoothing.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
+        mPulseSmoothing.setEnabled(lockscreenPulse || ambientPulse);
 
-        mColorModePref.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
-        if (navbarPulse || lockscreenPulse) {
+        mColorModePref.setEnabled(lockscreenPulse || ambientPulse);
+        if (lockscreenPulse || ambientPulse) {
             int colorMode = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.PULSE_COLOR_MODE, COLOR_TYPE_LAVALAMP, UserHandle.USER_CURRENT);
             updateColorPrefs(colorMode);
@@ -174,8 +158,8 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             mLavaSpeedPref.setEnabled(false);
         }
 
-        mRenderMode.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
-        if (navbarPulse || lockscreenPulse || ambientPulse) {
+        mRenderMode.setEnabled(lockscreenPulse || ambientPulse);
+        if (lockscreenPulse || ambientPulse) {
             int renderMode = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.PULSE_RENDER_STYLE, RENDER_STYLE_SOLID_LINES, UserHandle.USER_CURRENT);
             updateRenderCategories(renderMode);
@@ -184,7 +168,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             mSolidBarsCat.setEnabled(false);
         }
 
-        mFooterPref.setEnabled(navbarPulse || lockscreenPulse);
+        mFooterPref.setEnabled(lockscreenPulse || ambientPulse);
     }
 
     private void updateColorPrefs(int val) {
