@@ -560,5 +560,9 @@
     <string name="flashlight_on_call_ringer">Only in ringer mode</string>
     <string name="flashlight_on_call_silent">Only when ringer is silent</string>
     <string name="flashlight_on_call_always">Always</string>
+    <string name="flashlight_on_call_ignore_dnd_title">Ignore DND</string>
+    <string name="flashlight_on_call_ignore_dnd_summary">Whether to flash when Do Not Disturb mode is active</string>
+    <string name="flashlight_on_call_rate_title">Blink rate</string>
+    <string name="unit_hz">hz</string>
 
 </resources>
