@@ -66,14 +66,12 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
     public static final String TAG = "ThemeSettings";
 
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
-    private static final String KEY_NAVBAR_ICON = "android.theme.customization.navbar";
     private static final String KEY_SIGNAL_ICON = "android.theme.customization.signal_icon";
     private static final String KEY_UDFPS_ICON = "udfps_icon";
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
 
     private PreferenceCategory mIconsCategory;
-    private Preference mNavbarIcon;
     private Preference mSignalIcon;
     private Preference mUdfpsIcon;
     private PreferenceCategory mAnimationsCategory;
@@ -89,7 +87,6 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
         final Resources resources = context.getResources();
 
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
-        mNavbarIcon = (Preference) findPreference(KEY_NAVBAR_ICON);
         mSignalIcon = (Preference) findPreference(KEY_SIGNAL_ICON);
         mUdfpsIcon = (Preference) findPreference(KEY_UDFPS_ICON);
         mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
@@ -97,10 +94,6 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
 
         if (!DeviceUtils.deviceSupportsMobileData(context)) {
             mIconsCategory.removePreference(mSignalIcon);
-        }
-
-        if (DeviceUtils.isEdgeToEdgeEnabled(context)) {
-            mIconsCategory.removePreference(mNavbarIcon);
         }
 
         FingerprintManager fingerprintManager = (FingerprintManager)
