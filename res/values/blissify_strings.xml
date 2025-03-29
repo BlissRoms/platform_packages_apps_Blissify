@@ -608,4 +608,8 @@
     <string name="pulse_solid_units_rounded_title">Solid lines rounded</string>
     <string name="pulse_solid_units_rounded_summary">Round the solid lines</string>
 
+    <!-- Application downgrade -->
+    <string name="app_downgrade_title">Allow app downgrade</string>
+    <string name="app_downgrade_summary">This allows you to downgrade applications. Note that this may lead to crashes and data corruption.</string>
+
 </resources>
