@@ -663,4 +663,8 @@
     <string name="pulse_solid_units_rounded_title">Solid lines rounded</string>
     <string name="pulse_solid_units_rounded_summary">Round the solid lines</string>
 
+    <!-- Floating rotation button -->
+    <string name="floating_rotation_button_title">Floating rotate button</string>
+    <string name="floating_rotation_button_summary">Show a floating rotate button when device is rotated</string>
+
 </resources>

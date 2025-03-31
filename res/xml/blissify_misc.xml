@@ -31,6 +31,13 @@
             android:fragment="org.blissroms.blissify.fragments.misc.Spoofing" />
     </PreferenceCategory>
 
+    <!-- Rotation button -->
+    <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+        android:key="enable_rotation_button"
+        android:title="@string/floating_rotation_button_title"
+        android:summary="@string/floating_rotation_button_summary"
+        android:defaultValue="true" />
+
     <!-- Sensor block per package -->
     <Preference
         android:key="sensor_block_settings"
