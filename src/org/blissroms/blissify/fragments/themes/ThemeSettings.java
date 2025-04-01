@@ -77,9 +77,9 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
     private PreferenceCategory mAnimationsCategory;
     private Preference mUdfpsAnimation;
 
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.blissify_themes);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
@@ -106,6 +106,7 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
         }
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         return false;
     }
