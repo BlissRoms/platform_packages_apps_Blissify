@@ -31,13 +31,14 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
 
-import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.bliss.OmniJawsClient;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -48,6 +49,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.blissroms.blissify.preferences.SecureSettingSwitchPreference;
+import org.blissroms.blissify.utils.SystemUtils;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Lockscreen extends SettingsPreferenceFragment implements
@@ -58,9 +60,16 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     private static final String KEY_SCREEN_OFF_UDFPS = "screen_off_udfps_enabled";
     private static final String KEY_AUTHENTICATION_SUCCESS = "fp_success_vibrate";
     private static final String KEY_AUTHENTICATION_ERROR = "fp_error_vibrate";
+    private static final String KEY_SMARTSPACE = "lockscreen_smartspace_enabled";
+    private static final String KEY_WEATHER = "lockscreen_weather_enabled";
 
     private PreferenceCategory mFingerprintCategory;
     private SecureSettingSwitchPreference mScreenOffUdfps;
+
+    private SwitchPreferenceCompat mSmartspace;
+    private SwitchPreferenceCompat mWeather;
+
+    private OmniJawsClient mWeatherClient;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -90,11 +99,45 @@ public class Lockscreen extends SettingsPreferenceFragment implements
                 mFingerprintCategory.removePreference(mScreenOffUdfps);
             }
         }
+
+        mSmartspace = (SwitchPreferenceCompat) findPreference(KEY_SMARTSPACE);
+        mSmartspace.setOnPreferenceChangeListener(this);
+
+        mWeather = (SwitchPreferenceCompat) findPreference(KEY_WEATHER);
+        mWeather.setOnPreferenceChangeListener(this);
+
+        mWeatherClient = new OmniJawsClient(getContext());
+        updateWeatherSettings();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mSmartspace) {
+            mSmartspace.setChecked((Boolean)newValue);
+            updateWeatherSettings();
+            SystemUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mWeather) {
+            mWeather.setChecked((Boolean)newValue);
+            SystemUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        }
         return false;
+    }
+
+    private void updateWeatherSettings() {
+        if (mWeatherClient == null || mWeather == null || mSmartspace == null) return;
+
+        boolean weatherEnabled = mWeatherClient.isOmniJawsEnabled();
+        mWeather.setEnabled(!mSmartspace.isChecked() && weatherEnabled);
+        mWeather.setSummary(!mSmartspace.isChecked() && weatherEnabled ? R.string.lockscreen_weather_summary :
+            R.string.lockscreen_weather_enabled_info);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateWeatherSettings();
     }
 
     @Override
