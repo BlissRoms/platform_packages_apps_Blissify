@@ -45,6 +45,18 @@
         android:summary="@string/smart_pixels_summary" 
         android:fragment="org.blissroms.blissify.fragments.misc.SmartPixels" />
 
+    <!-- Sidebar -->
+    <Preference
+        android:key="sidebar"
+        android:title="@string/sidebar_title"
+        android:summary="@string/sidebar_summary">
+ 
+        <intent
+            android:action="android.intent.action.IA_SETTINGS"
+            android:targetPackage="com.libremobileos.sidebar"
+            android:targetClass="com.libremobileos.sidebar.ui.sidebar.SidebarSettingsActivity" />
+    </Preference>
+
     <org.blissroms.blissify.preferences.GlobalSettingSwitchPreference
         android:key="pm_downgrade_allowed"
         android:title="@string/app_downgrade_title"
