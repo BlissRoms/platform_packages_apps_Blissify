@@ -16,11 +16,13 @@
 package org.blissroms.blissify.utils;
 
 import android.app.ActivityManager;
-import android.app.AlertDialog;
 import android.app.IActivityManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.android.settings.R;
 
@@ -52,6 +54,7 @@ public class SystemUtils {
             IActivityManager ams = ActivityManager.getService();
             for (ActivityManager.RunningAppProcessInfo app : am.getRunningAppProcesses()) {
                 if ("com.android.systemui".equals(app.processName)) {
+                    Toast.makeText(context, R.string.systemui_restart_process, Toast.LENGTH_LONG).show();
                     ams.killApplicationProcess(app.processName, app.uid);
                     break;
                 }
