@@ -26,7 +26,7 @@ import com.android.settings.R;
 
 public class SystemUtils {
 
-    public static void showSystemUiRestartDialog(final Context context) {
+    public static void showSystemUiRestartDialog(Context context) {
         new AlertDialog.Builder(context)
                 .setTitle(R.string.systemui_restart_title)
                 .setMessage(R.string.systemui_restart_message)
@@ -35,19 +35,7 @@ public class SystemUtils {
                         new AsyncTask<Void, Void, Void>() {
                             @Override
                             protected Void doInBackground(Void... params) {
-                                try {
-                                    ActivityManager am =
-                                            (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-                                    IActivityManager ams = ActivityManager.getService();
-                                    for (ActivityManager.RunningAppProcessInfo app : am.getRunningAppProcesses()) {
-                                        if ("com.android.systemui".equals(app.processName)) {
-                                            ams.killApplicationProcess(app.processName, app.uid);
-                                            break;
-                                        }
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
+                                restartSystemUI(context);
                                 return null;
                             }
                         }.execute();
@@ -55,5 +43,21 @@ public class SystemUtils {
                 })
                 .setNegativeButton(R.string.systemui_restart_not_now, null)
                 .show();
+    }
+
+    public static void restartSystemUI(Context context) {
+        try {
+            ActivityManager am =
+                    (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            IActivityManager ams = ActivityManager.getService();
+            for (ActivityManager.RunningAppProcessInfo app : am.getRunningAppProcesses()) {
+                if ("com.android.systemui".equals(app.processName)) {
+                    ams.killApplicationProcess(app.processName, app.uid);
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
