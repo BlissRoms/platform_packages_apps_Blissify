@@ -736,4 +736,7 @@
     <string name="sidebar_title">Sidebar</string>
     <string name="sidebar_summary">Quickly open apps in a floating window</string>
 
+    <!-- Three fingers swipe action -->
+    <string name="three_fingers_swipe_title">Three fingers swipe</string>
+
 </resources>
