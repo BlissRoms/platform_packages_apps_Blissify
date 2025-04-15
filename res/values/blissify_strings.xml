@@ -542,4 +542,7 @@
     <string name="add_sensor_block_package_title">Add apps for Sensor block</string>
     <string name="add_sensor_block_package_summary">Significant motion, accelerometer, linear acceleration sensors will be blocked for these apps</string>
 
+    <!-- Three fingers swipe action -->
+    <string name="three_fingers_swipe_title">Three fingers swipe</string>
+
 </resources>
