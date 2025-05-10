@@ -25,6 +25,12 @@
          android:title="@string/ongoing_action_chip_title"
          android:summary="@string/ongoing_action_chip_summary"
          android:defaultValue="true" />
+
+     <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+         android:key="compact_progress_mode"
+         android:title="@string/compact_progress_mode_title"
+         android:summary="@string/compact_progress_mode_summary"
+         android:defaultValue="false" />
  
      <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
          android:key="show_media_progress"
