@@ -23,13 +23,18 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -42,6 +47,8 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
+
+import org.blissroms.blissify.fragments.misc.KeyboxDataPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,9 +63,13 @@ public class Misc extends SettingsPreferenceFragment implements
 
     private static final String KEY_DEV_CATEGORY = "miscellaneous_developer_options_category";
     private static final String KEY_SMART_PIXELS = "smart_pixels";
+    private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
 
     private PreferenceCategory mDevOptionsCategory;
     private Preference mSmartPixels;
+
+    private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
+    private KeyboxDataPreference mKeyboxDataPreference;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -80,6 +91,29 @@ public class Misc extends SettingsPreferenceFragment implements
             }
         } else {
             Log.w(TAG, "Developer options not found in preferences");
+        }
+
+         mKeyboxFilePickerLauncher = registerForActivityResult(
+             new ActivityResultContracts.StartActivityForResult(),
+             result -> {
+                 if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                     Uri uri = result.getData().getData();
+                     Preference pref = findPreference(KEYBOX_DATA_KEY);
+                     if (pref instanceof KeyboxDataPreference) {
+                         ((KeyboxDataPreference) pref).handleFileSelected(uri);
+                     }
+                 }
+             }
+         );
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mKeyboxDataPreference = findPreference(KEYBOX_DATA_KEY);
+        if (mKeyboxDataPreference != null) {
+            mKeyboxDataPreference.setFilePickerLauncher(mKeyboxFilePickerLauncher);
         }
     }
 
