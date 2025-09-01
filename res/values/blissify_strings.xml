@@ -564,4 +564,8 @@
     <string name="notification_heads_up_timeout_title">Time out</string>
     <string name="notification_heads_up_timeout_summary">Time to display heads up notifications</string>
 
+    <!-- Show clipboard overlay -->
+    <string name="show_clipboard_overlay_title">Show clipboard overlay</string>
+    <string name="show_clipboard_overlay_summary">Show an overlay in the left bottom corner of the screen when something is copied to the clipboard</string>
+
 </resources>
