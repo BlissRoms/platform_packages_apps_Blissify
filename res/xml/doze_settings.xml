@@ -36,6 +36,11 @@
             android:action="org.lineageos.settings.device.DOZE_SETTINGS" />
     </lineageos.preference.RemotePreference>
 
+    <org.blissroms.blissify.preferences.SecureSettingSwitchPreference
+        android:key="pulse_on_new_tracks"
+        android:title="@string/pulse_on_new_tracks_title"
+        android:summary="@string/pulse_on_new_tracks_summary" />
+
     <PreferenceCategory
         android:key="doze_sensor"
         android:title="@string/doze_sensor_title" >
