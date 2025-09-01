@@ -28,6 +28,13 @@
             android:title="@string/heads_up_notifications_enabled_title"
             android:summary="@string/heads_up_notifications_enabled_summary" />
 
+        <org.blissroms.blissify.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.compact_heads_up_notification.always_show"
+            android:title="@string/compact_heads_up_notifications_enabled_title"
+            android:summary="@string/compact_heads_up_notifications_enabled_summary"
+            android:defaultValue="false"
+            android:dependency="heads_up_notifications_enabled" />
+
         <!-- Less boring heads up -->
         <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
             android:key="less_boring_heads_up"
