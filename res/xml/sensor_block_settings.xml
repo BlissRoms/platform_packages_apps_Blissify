@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2016-2022 crDroid Android Project
+     Copyright (C) 2016-2025 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -20,11 +20,9 @@
     android:title="@string/sensor_block_title">
 
     <!-- Master switch -->
-    <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+    <lineageos.preference.GlobalSettingMainSwitchPreference
         android:key="sensor_block"
-        android:title="@string/sensor_block_title"
-        android:summary="@string/sensor_block_summary"
-        android:defaultValue="false" />
+        android:title="@string/enable" />
 
     <!-- App picker activity for sensor block -->
     <PreferenceCategory

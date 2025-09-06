@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019-2022 crDroid Android Project
+ * Copyright (C) 2019-2025 crDroid Android Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 
 package org.blissroms.blissify.fragments.misc;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -27,7 +26,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -37,6 +35,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.preference.SwitchPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -60,7 +59,8 @@ public class SensorBlock extends SettingsPreferenceFragment
         implements Preference.OnPreferenceClickListener {
 
     private static final int DIALOG_BLOCKED_APPS = 1;
-    private static final String SENSOR_BLOCK = "sensor_block";
+    private static final String SENSOR_BLOCK_ADD_PACKAGES = "add_sensor_block_packages";
+    private static final String SENSOR_BLOCK_APPLICATIONS = "sensor_block_applications";
     private static final String SENSOR_BLOCK_FOOTER = "sensor_block_footer";
 
     private PackageListAdapter mPackageAdapter;
@@ -70,7 +70,6 @@ public class SensorBlock extends SettingsPreferenceFragment
 
     private String mBlockedPackageList;
     private Map<String, Package> mBlockedPackages;
-    private Context mContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,16 +84,14 @@ public class SensorBlock extends SettingsPreferenceFragment
         mPackageManager = getPackageManager();
         mPackageAdapter = new PackageListAdapter(getActivity());
 
-        mSensorBlockPrefList = (PreferenceGroup) findPreference("sensor_block_applications");
+        mSensorBlockPrefList = (PreferenceGroup) findPreference(SENSOR_BLOCK_APPLICATIONS);
         mSensorBlockPrefList.setOrderingAsAdded(false);
 
         mBlockedPackages = new HashMap<String, Package>();
 
-        mAddSensorBlockPref = findPreference("add_sensor_block_packages");
+        mAddSensorBlockPref = findPreference(SENSOR_BLOCK_ADD_PACKAGES);
 
         mAddSensorBlockPref.setOnPreferenceClickListener(this);
-
-        mContext = getActivity().getApplicationContext();
     }
 
     @Override
@@ -146,12 +143,12 @@ public class SensorBlock extends SettingsPreferenceFragment
         return dialog;
     }
 
-    public static void reset(Context mContext) {
-        ContentResolver resolver = mContext.getContentResolver();
-        Settings.System.putIntForUser(resolver,
-                Settings.System.SENSOR_BLOCK, 0, UserHandle.USER_CURRENT);
-        Settings.System.putString(resolver,
-                Settings.System.SENSOR_BLOCKED_APP, null);
+    public static void reset(Context context) {
+        ContentResolver resolver = context.getContentResolver();
+        Settings.Global.putInt(resolver,
+                Settings.Global.SENSOR_BLOCK, 0);
+        Settings.Global.putString(resolver,
+                Settings.Global.SENSOR_BLOCKED_APP, null);
     }
 
     /**
@@ -242,7 +239,7 @@ public class SensorBlock extends SettingsPreferenceFragment
         if (pkg == null) {
             pkg = new Package(packageName);
             map.put(packageName, pkg);
-            savePackageList(false, map);
+            savePackageList(map);
             refreshCustomApplicationPrefs();
         }
     }
@@ -264,7 +261,7 @@ public class SensorBlock extends SettingsPreferenceFragment
 
     private void removeApplicationPref(String packageName, Map<String,Package> map) {
         if (map.remove(packageName) != null) {
-            savePackageList(false, map);
+            savePackageList(map);
             refreshCustomApplicationPrefs();
         }
     }
@@ -272,8 +269,8 @@ public class SensorBlock extends SettingsPreferenceFragment
     private boolean parsePackageList() {
         boolean parsed = false;
 
-        String sensorBlockString = Settings.System.getString(getContentResolver(),
-                Settings.System.SENSOR_BLOCKED_APP);
+        String sensorBlockString = Settings.Global.getString(getContentResolver(),
+                Settings.Global.SENSOR_BLOCKED_APP);
 
         if (sensorBlockString != null &&
                 !TextUtils.equals(mBlockedPackageList, sensorBlockString)) {
@@ -302,20 +299,14 @@ public class SensorBlock extends SettingsPreferenceFragment
     }
 
 
-    private void savePackageList(boolean preferencesUpdated, Map<String,Package> map) {
-        String setting = map == mBlockedPackages ? Settings.System.SENSOR_BLOCKED_APP : Settings.System.SENSOR_BLOCKED_APP_DUMMY;
-
+    private void savePackageList(Map<String,Package> map) {
+        if (map != mBlockedPackages) return;
         List<String> settings = new ArrayList<String>();
         for (Package app : map.values()) {
             settings.add(app.toString());
         }
         final String value = TextUtils.join("|", settings);
-        if (preferencesUpdated) {
-            if (TextUtils.equals(setting, Settings.System.SENSOR_BLOCKED_APP)) {
-                mBlockedPackageList = value;
-            }
-        }
-        Settings.System.putString(getContentResolver(),
-                setting, value);
+        Settings.Global.putString(getContentResolver(),
+                Settings.Global.SENSOR_BLOCKED_APP, value);
     }
 }
