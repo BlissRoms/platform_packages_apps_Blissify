@@ -60,6 +60,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_BATTERY_STYLE = "qs_battery_style";
     private static final String KEY_MISCELLANEOUS_CATEGORY = "quick_settings_miscellaneous_category";
     private static final String KEY_QS_BLUETOOTH_SHOW_DIALOG = "qs_bt_show_dialog";
+    private static final String PREF_DUAL_TONE_SHADE = "qs_dual_tone";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 4;
@@ -68,6 +69,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mMiscellaneousCategory;
     private SystemSettingListPreference mBatteryStyle;
     private SystemSettingListPreference mBatteryPercent;
+    private SwitchPreferenceCompat mDualToneShadePref;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -95,6 +97,22 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         mBatteryPercent.setEnabled(
                 batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
+
+        mDualToneShadePref = findPreference(PREF_DUAL_TONE_SHADE);
+        mDualToneShadePref.setOnPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updatePreferences();
+    }
+
+    private void updatePreferences() {
+        final ContentResolver resolver = getActivity().getContentResolver();
+        boolean dualToneEnabled = Settings.System.getIntForUser(resolver,
+                PREF_DUAL_TONE_SHADE, 1, UserHandle.USER_CURRENT) == 1;
+        mDualToneShadePref.setChecked(dualToneEnabled);
     }
 
     @Override
@@ -106,6 +124,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             mBatteryPercent.setEnabled(
                     value != BATTERY_STYLE_TEXT && value != BATTERY_STYLE_HIDDEN);
             return true;
+        } else if (preference == mDualToneShadePref) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(resolver, PREF_DUAL_TONE_SHADE,
+                    value ? 1 : 0, UserHandle.USER_CURRENT);
+           return true;
         }
         return false;
     }

@@ -44,6 +44,12 @@
             android:entries="@array/status_bar_battery_percent_entries"
             android:entryValues="@array/status_bar_battery_percent_values"
             android:defaultValue="2" />
+
+        <SwitchPreferenceCompat
+            android:key="qs_dual_tone"
+            android:title="@string/dual_tone_shade_title"
+            android:summary="@string/dual_tone_shade_summary"
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory

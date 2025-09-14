@@ -682,4 +682,8 @@
     <string name="keybox_toast_missing_data">Invalid keybox XML: required fields missing</string>
     <string name="keybox_toast_file_loaded">Keybox loaded</string>
     <string name="keybox_toast_file_cleared">Keybox cleared</string>
+
+    <!-- Dual Tone Shade -->
+    <string name="dual_tone_shade_title">Use dual-tone shade</string>
+    <string name="dual_tone_shade_summary">Use a secondary background for the notification shade</string>
 </resources>
