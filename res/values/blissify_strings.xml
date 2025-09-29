@@ -686,4 +686,27 @@
     <!-- Dual Tone Shade -->
     <string name="dual_tone_shade_title">Use dual-tone shade</string>
     <string name="dual_tone_shade_summary">Use a secondary background for the notification shade</string>
+
+   <!-- Lock screen media art -->
+    <string name="ls_media_art_title">Media cover art</string>
+    <string name="ls_media_art_summary">Display media cover art when available</string>
+
+    <!-- Lock screen album art filter -->
+    <string name="ls_media_art_filter_title">Media cover art filter</string>
+    <string name="ls_media_art_filter_none">None</string>
+    <string name="ls_media_art_filter_blur">Blur</string>
+    <string name="ls_media_art_filter_grayscale">Grayscale</string>
+    <string name="ls_media_art_filter_sepia">Sepia</string>
+    <string name="ls_media_art_filter_tint">Accent tinted</string>
+    <string name="ls_media_art_filter_invert">Invert</string>
+    <string name="ls_media_art_filter_grayblur">Grayscale and blur</string>
+
+    <!-- Lock screen media art fade level -->
+    <string name="ls_media_art_fade_level_title">Media cover art fade level</string>
+    <string name="ls_media_art_fade_level_summary">Set media cover art fade level</string>
+    
+    <!-- Lock screen media art blur level -->
+    <string name="ls_media_art_blur_level_title">Media art blur level</string>
+    <string name="ls_media_art_blur_level_summary">Blur intensity when blur filter is applied</string>
+
 </resources>
