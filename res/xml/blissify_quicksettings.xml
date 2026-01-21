@@ -15,7 +15,42 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lineage="http://schemas.android.com/apk/res-auto"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_quicksettings_title">
+
+    <lineageos.preference.LineageSystemSettingListPreference
+        android:key="qs_quick_pulldown"
+        android:title="@string/status_bar_quick_qs_pulldown_title"
+        android:entries="@array/status_bar_quick_qs_pulldown_entries"
+        android:entryValues="@array/status_bar_quick_qs_pulldown_values"
+        android:defaultValue="0" />
+
+    <PreferenceCategory
+        android:title="@string/status_bar_brightness_category">
+
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/status_bar_brightness_slider_title"
+            android:summary="@string/status_bar_brightness_slider_summary"
+            android:defaultValue="true" />
+
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:key="qs_brightness_slider_position"
+            android:title="@string/status_bar_brightness_slider_position_title"
+            android:summary="%s"
+            android:dependency="qs_show_brightness_slider"
+            android:entries="@array/status_bar_brightness_slider_position_entries"
+            android:entryValues="@array/status_bar_brightness_slider_position_values"
+            android:defaultValue="0" />
+
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/status_bar_brightness_slider_auto_title"
+            android:summary="@string/status_bar_brightness_slider_auto_summary"
+            android:dependency="qs_show_brightness_slider"
+            lineage:requiresConfig="@*android:bool/config_automatic_brightness_available"
+            android:defaultValue="true" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
