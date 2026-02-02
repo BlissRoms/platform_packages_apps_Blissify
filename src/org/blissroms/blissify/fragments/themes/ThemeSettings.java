@@ -92,14 +92,17 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
-            mIconsCategory.removePreference(mUdfpsIcon);
-            mAnimationsCategory.removePreference(mUdfpsAnimation);
+            prefScreen.removePreference(mIconsCategory);
+            prefScreen.removePreference(mAnimationsCategory);
         } else {
-            if (!BlissUtils.isPackageInstalled(context, "org.blissroms.udfps.icons")) {
-                mIconsCategory.removePreference(mUdfpsIcon);
+            boolean isIconsPackageInstalled = BlissUtils.isPackageInstalled(context, "org.blissroms.udfps.icons");
+            boolean isAnimationsPackageInstalled = BlissUtils.isPackageInstalled(context, "org.blissroms.udfps.animations");
+
+            if (!isIconsPackageInstalled) {
+                prefScreen.removePreference(mIconsCategory);
             }
-            if (!BlissUtils.isPackageInstalled(context, "org.blissroms.udfps.animations")) {
-                mAnimationsCategory.removePreference(mUdfpsAnimation);
+            if (!isAnimationsPackageInstalled) {
+                prefScreen.removePreference(mAnimationsCategory);
             }
         }
     }
