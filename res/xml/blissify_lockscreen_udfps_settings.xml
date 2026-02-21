@@ -22,7 +22,7 @@
         android:title="@string/themes_udfps_icon_title"
         android:summary="@string/themes_udfps_icon_summary"
         android:icon="@drawable/ic_blissify_udfps_icon"
-        android:fragment="org.blissroms.blissify.fragments.lockscreen.UdfpsIcons"
+        android:fragment="org.blissroms.blissify.fragments.lockscreen.UdfpsIconPicker"
         android:widgetLayout="@layout/preference_arrow_widget" />
 
     <Preference
@@ -30,7 +30,7 @@
         android:title="@string/themes_udfps_animation_title"
         android:summary="@string/themes_udfps_animation_summary"
         android:icon="@drawable/ic_blissify_animations"
-        android:fragment="org.blissroms.blissify.fragments.lockscreen.UdfpsAnimations"
+        android:fragment="org.blissroms.blissify.fragments.lockscreen.UdfpsAnimation"
         android:widgetLayout="@layout/preference_arrow_widget" />
 
 </PreferenceScreen>
