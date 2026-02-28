@@ -308,6 +308,7 @@
     <string name="systemui_restart_message">For changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
     <string name="systemui_restart_yes">Yes</string>
     <string name="systemui_restart_not_now">Not now</string>
+    <string name="systemui_restart_process">Restarting SystemUI to apply changes...</string>
 
     <!-- Smartspace -->
     <string name="lockscreen_smartspace_title">Smartspace</string>

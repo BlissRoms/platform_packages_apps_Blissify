@@ -39,15 +39,13 @@
         android:title="@string/themes_fonts_category"
         android:layout="@layout/blissify_category_header">
 
-        <!-- System font -->
-        <Preference
-            android:key="android.theme.customization.fonts"
-            android:title="@string/themes_system_font_title"
-            android:summary="@string/themes_system_font_summary"
+        <!-- Font style -->
+        <org.blissroms.blissify.preferences.FontsPickerPreference
+            android:key="system_font"
             android:icon="@drawable/ic_pref_font"
-            android:fragment="org.blissroms.blissify.fragments.appearance.Fonts"
+            android:title="@string/themes_system_font_title"
+            android:summary="themes_system_font_summary"
             android:widgetLayout="@layout/preference_arrow_widget"/>
     </PreferenceCategory>
-
 
 </PreferenceScreen>
