@@ -16,138 +16,63 @@
 
 package org.blissroms.blissify.fragments.lockscreen;
 
-import android.app.Activity;
-import android.app.WallpaperManager;
-import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.ParcelFileDescriptor;
-import android.os.UserHandle;
-import android.provider.Settings;
-
-import androidx.preference.SwitchPreferenceCompat;
-import androidx.preference.ListPreference;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceScreen;
-
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.bliss.OmniJawsClient;
-
 import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-
-import java.util.ArrayList;
 import java.util.List;
-
-import org.blissroms.blissify.utils.SystemUtils;
+import org.blissroms.blissify.fragments.BlissifyDashboardFragment;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
-public class Lockscreen extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+public class Lockscreen extends BlissifyDashboardFragment {
 
-    private static final String KEY_SMARTSPACE = "lockscreen_smartspace_enabled";
-    private static final String KEY_WEATHER = "lockscreen_weather_enabled";
-    private static final String KEY_FINGERPRINT_CATEGORY = "lock_screen_fingerprint_category";
-    private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
-    private static final String KEY_AUTHENTICATION_SUCCESS = "fp_success_vibrate";
-    private static final String KEY_AUTHENTICATION_ERROR = "fp_error_vibrate";
+  public static final String TAG = "Lockscreen";
 
-    private SwitchPreferenceCompat mSmartspace;
-    private SwitchPreferenceCompat mWeather;
-    private PreferenceCategory mFingerprintCategory;
+  private static final String KEY_FINGERPRINT = "lockscreen_fingerprint";
 
-    @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.blissify_lockscreen);
+  @Override
+  public void onCreate(Bundle icicle) {
+    super.onCreate(icicle);
+    final FingerprintManager fpm = getContext().getSystemService(FingerprintManager.class);
+    if (fpm == null || !fpm.isHardwareDetected()) {
+      Preference fingerprintPref = findPreference(KEY_FINGERPRINT);
+      if (fingerprintPref != null) {
+        getPreferenceScreen().removePreference(fingerprintPref);
+      }
+    }
+  }
 
-        final Context context = getContext();
-        final ContentResolver resolver = context.getContentResolver();
-        final PreferenceScreen prefScreen = getPreferenceScreen();
-        final Resources resources = context.getResources();
+  @Override
+  public int getMetricsCategory() {
+    return MetricsEvent.BLISSIFY;
+  }
 
-        mFingerprintCategory = (PreferenceCategory) findPreference(KEY_FINGERPRINT_CATEGORY);
+  @Override
+  protected String getLogTag() {
+    return TAG;
+  }
 
-        FingerprintManager fingerprintManager = (FingerprintManager)
-                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+  @Override
+  protected int getPreferenceScreenResId() {
+    return R.xml.blissify_lockscreen;
+  }
 
-        if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
-            prefScreen.removePreference(mFingerprintCategory);
+  public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+      new BaseSearchIndexProvider(R.xml.blissify_lockscreen) {
+
+        @Override
+        public List<String> getNonIndexableKeys(Context context) {
+          List<String> keys = super.getNonIndexableKeys(context);
+          FingerprintManager fingerprintManager =
+              (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+          if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+            keys.add(KEY_FINGERPRINT);
+          }
+          return keys;
         }
-
-        mSmartspace = (SwitchPreferenceCompat) findPreference(KEY_SMARTSPACE);
-        mSmartspace.setOnPreferenceChangeListener(this);
-
-        mWeather = (SwitchPreferenceCompat) findPreference(KEY_WEATHER);
-        mWeather.setOnPreferenceChangeListener(this);
-
-        updateWeatherSettings();
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mSmartspace) {
-            mSmartspace.setChecked((Boolean)newValue);
-            updateWeatherSettings();
-            SystemUtils.showSystemUiRestartDialog(getContext());
-            return true;
-        } else if (preference == mWeather) {
-            mWeather.setChecked((Boolean)newValue);
-            SystemUtils.showSystemUiRestartDialog(getContext());
-            return true;
-        }
-        return false;
-    }
-
-    private void updateWeatherSettings() {
-        if (mWeather == null || mSmartspace == null) return;
-
-        boolean weatherEnabled = OmniJawsClient.get().isOmniJawsEnabled(getContext());
-        mWeather.setEnabled(!mSmartspace.isChecked() && weatherEnabled);
-        mWeather.setSummary(!mSmartspace.isChecked() && weatherEnabled ? R.string.lockscreen_weather_summary :
-            R.string.lockscreen_weather_enabled_info);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        updateWeatherSettings();
-    }
-
-    @Override
-    public int getMetricsCategory() {
-        return MetricsEvent.BLISSIFY;
-    }
-
-    /**
-     * For Search.
-     */
-
-    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider(R.xml.blissify_lockscreen) {
-
-            @Override
-            public List<String> getNonIndexableKeys(Context context) {
-                List<String> keys = super.getNonIndexableKeys(context);
-                final Resources resources = context.getResources();
-
-                FingerprintManager fingerprintManager = (FingerprintManager)
-                    context.getSystemService(Context.FINGERPRINT_SERVICE);
-
-                if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
-                    keys.add(KEY_RIPPLE_EFFECT);
-                    keys.add(KEY_AUTHENTICATION_SUCCESS);
-                    keys.add(KEY_AUTHENTICATION_ERROR);
-                }
-                return keys;
-            }
-        };
+      };
 }

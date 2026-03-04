@@ -20,7 +20,8 @@
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="network_traffic_enabled"
-        android:title="@string/enable" />
+        android:title="@string/enable"
+        android:icon="@drawable/ic_pref_nt_enable" />
 
     <org.blissroms.blissify.preferences.SystemSettingListPreference
         android:key="network_traffic_mode"
@@ -28,6 +29,7 @@
         android:entries="@array/network_traffic_mode_entries"
         android:entryValues="@array/network_traffic_mode_values"
         android:summary="%s"
+        android:icon="@drawable/ic_pref_nt_mode"
         android:dependency="network_traffic_enabled"
         android:defaultValue="0" />
 
@@ -35,6 +37,7 @@
         android:key="network_traffic_autohide"
         android:title="@string/network_traffic_autohide"
         android:summary="@string/network_traffic_autohide_summary"
+        android:icon="@drawable/ic_pref_nt_autohide"
         android:dependency="network_traffic_enabled"
         android:defaultValue="true" />
 
@@ -64,6 +67,7 @@
         android:entries="@array/network_traffic_units_entries"
         android:entryValues="@array/network_traffic_units_values"
         android:summary="%s"
+        android:icon="@drawable/ic_pref_nt_units"
         android:dependency="network_traffic_enabled"
         android:defaultValue="1" />
 
@@ -71,6 +75,7 @@
         android:key="network_traffic_hidearrow"
         android:title="@string/network_traffic_hidearrow"
         android:summary="@string/network_traffic_hidearrow_summary"
+        android:icon="@drawable/ic_pref_nt_arrow"
         android:dependency="network_traffic_enabled"
         android:defaultValue="false" />
 </PreferenceScreen>

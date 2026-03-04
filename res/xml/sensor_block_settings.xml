@@ -22,7 +22,8 @@
     <!-- Master switch -->
     <lineageos.preference.GlobalSettingMainSwitchPreference
         android:key="sensor_block"
-        android:title="@string/enable" />
+        android:title="@string/enable"
+        android:icon="@drawable/ic_pref_sensor_enable" />
 
     <!-- App picker activity for sensor block -->
     <PreferenceCategory
@@ -31,7 +32,8 @@
         android:key="sensor_block_applications">
         <Preference
             android:key="add_sensor_block_packages"
-            android:title="@string/add_sensor_block_package_title" />
+            android:title="@string/add_sensor_block_package_title"
+            android:icon="@drawable/ic_pref_sensor_apps" />
     </PreferenceCategory>
 
     <com.android.settingslib.widget.FooterPreference

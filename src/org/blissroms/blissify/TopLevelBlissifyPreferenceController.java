@@ -18,36 +18,33 @@ package org.blissroms.blissify;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
-
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.core.BasePreferenceController;
 
 public class TopLevelBlissifyPreferenceController extends BasePreferenceController {
 
-    public TopLevelBlissifyPreferenceController(Context context,
-            String preferenceKey) {
-        super(context, preferenceKey);
-    }
+  public TopLevelBlissifyPreferenceController(Context context, String preferenceKey) {
+    super(context, preferenceKey);
+  }
 
-    @Override
-    public int getAvailabilityStatus() {
-        return AVAILABLE;
-    }
+  @Override
+  public int getAvailabilityStatus() {
+    return AVAILABLE;
+  }
 
-    @Override
-    public void displayPreference(PreferenceScreen screen) {
-        super.displayPreference(screen);
-        Preference preference = screen.findPreference(getPreferenceKey());
-        if (preference != null) {
-            Drawable icon = mContext.getDrawable(R.drawable.ic_settings_blissify);
-            icon.setTint(mContext.getColor(R.color.homepage_connected_device_foreground));
-            preference.setIcon(
-                    Utils.getAdaptiveIcon(mContext, icon,
-                            mContext.getColor(R.color.homepage_connected_device_background)));
-        }
+  @Override
+  public void displayPreference(PreferenceScreen screen) {
+    super.displayPreference(screen);
+    Preference preference = screen.findPreference(getPreferenceKey());
+    if (preference != null) {
+      Drawable icon = mContext.getDrawable(R.drawable.ic_settings_blissify);
+      icon.setTint(mContext.getColor(R.color.homepage_connected_device_foreground));
+      preference.setIcon(
+          Utils.getAdaptiveIcon(
+              mContext, icon, mContext.getColor(R.color.homepage_connected_device_background)));
     }
+  }
 }

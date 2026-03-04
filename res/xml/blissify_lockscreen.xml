@@ -15,108 +15,38 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_lockscreen_title">
 
-    <PreferenceCategory
-        android:key="lock_screen_interface_category"
-        android:title="@string/lock_screen_interface_category">
+    <Preference
+        android:key="lockscreen_interface"
+        android:title="@string/blissify_lockscreen_interface_title"
+        android:summary="@string/blissify_lockscreen_interface_summary"
+        android:icon="@drawable/ic_pref_dt2s"
+        android:fragment="org.blissroms.blissify.fragments.lockscreen.LockscreenInterface"
+        android:widgetLayout="@layout/preference_arrow_widget" />
 
-        <!-- DT2S -->
-        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
-            android:defaultValue="false"
-            android:key="double_tap_sleep_lockscreen"
-            android:summary="@string/double_tap_to_sleep_lockscreen_summary"
-            android:title="@string/double_tap_to_sleep_lockscreen_title" />
+    <Preference
+        android:key="lockscreen_fingerprint"
+        android:title="@string/blissify_lockscreen_fingerprint_title"
+        android:summary="@string/blissify_lockscreen_fingerprint_summary"
+        android:icon="@drawable/ic_pref_fp_ripple"
+        android:fragment="org.blissroms.blissify.fragments.lockscreen.LockscreenFingerprint"
+        android:widgetLayout="@layout/preference_arrow_widget" />
 
-        <!-- Charging stats -->
-        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_battery_info"
-            android:title="@string/lock_screen_charging_stats_title"
-            android:summary="@string/lock_screen_charging_stats_summary"
-            android:defaultValue="true" />
+    <Preference
+        android:key="lockscreen_weather"
+        android:title="@string/blissify_lockscreen_weather_title"
+        android:summary="@string/blissify_lockscreen_weather_summary"
+        android:icon="@drawable/ic_pref_weather"
+        android:fragment="org.blissroms.blissify.fragments.lockscreen.LockscreenWeather"
+        android:widgetLayout="@layout/preference_arrow_widget" />
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="lock_screen_fingerprint_category"
-        android:title="@string/lock_screen_fingerprint_category">
-
-        <!-- Fingerprint unlock ripple animation -->
-        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
-            android:key="enable_ripple_effect"
-            android:title="@string/lock_screen_fingerprint_ripple_title"
-            android:summary="@string/lock_screen_fingerprint_ripple_summary"
-            android:defaultValue="true" />
-
-        <!-- Authentication success vibration -->
-        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
-            android:key="fp_success_vibrate"
-            android:title="@string/lock_screen_fingerprint_success_vibration_title"
-            android:summary="@string/lock_screen_fingerprint_success_vibration_summary"
-            android:defaultValue="true" />
-
-        <!-- Authentication error vibration -->
-        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
-            android:key="fp_error_vibrate"
-            android:title="@string/lock_screen_fingerprint_error_vibration_title"
-            android:summary="@string/lock_screen_fingerprint_error_vibration_summary"
-            android:defaultValue="true" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="lockscreen_weather_category"
-        android:title="@string/lockscreen_weather_category">
-
-        <org.blissroms.blissify.preferences.SecureSettingSwitchPreference
-            android:key="lockscreen_smartspace_enabled"
-            android:title="@string/lockscreen_smartspace_title"
-            android:summary="@string/lockscreen_smartspace_summary"
-            android:defaultValue="true" />
-
-        <Preference
-            android:title="@string/weather_settings_title"
-            android:summary="@string/weather_settings_summary">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="org.omnirom.omnijaws"
-                android:targetClass="org.omnirom.omnijaws.SettingsActivity" />
-        </Preference>
-
-        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_enabled"
-            android:title="@string/lockscreen_weather_title"
-            android:summary="@string/lockscreen_weather_summary" />
-
-        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_location"
-            android:title="@string/lockscreen_weather_location_title"
-            android:summary="@string/lockscreen_weather_location_summary"    
-            android:defaultValue="false"
-            android:dependency="lockscreen_weather_enabled" />
-
-        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_text"
-            android:title="@string/lockscreen_weather_text_title"
-            android:summary="@string/lockscreen_weather_text_summary"
-            android:defaultValue="true"
-            android:dependency="lockscreen_weather_enabled" />
-
-        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_wind_info"
-            android:title="@string/lockscreen_weather_wind_info_title"
-            android:summary="@string/lockscreen_weather_wind_info_summary"
-            android:defaultValue="false"
-            android:dependency="lockscreen_weather_enabled" />
-
-        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_humidity_info"
-            android:title="@string/lockscreen_weather_humidity_info_title"
-            android:summary="@string/lockscreen_weather_humidity_info_summary"
-            android:defaultValue="false"
-            android:dependency="lockscreen_weather_enabled" />
-
-    </PreferenceCategory>
+    <Preference
+        android:key="lockscreen_power_menu"
+        android:title="@string/blissify_lockscreen_powermenu_title"
+        android:summary="@string/blissify_lockscreen_powermenu_summary"
+        android:icon="@drawable/ic_pref_power_menu"
+        android:fragment="org.blissroms.blissify.fragments.lockscreen.LockscreenPowerMenu"
+        android:widgetLayout="@layout/preference_arrow_widget" />
 
 </PreferenceScreen>

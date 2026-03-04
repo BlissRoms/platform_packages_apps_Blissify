@@ -21,19 +21,34 @@
     <string name="blissify_settings_title">Blissify</string>
     <string name="blissify_settings_summary">Blissify your device!</string>
     <string name="blissify_dashboard_title">Blissify</string>
+    <string name="blissify_dashboard_subtitle">Customize your device on your own</string>
 
     <!-- Categories -->
-    <string name="blissify_animation_title">Animations</string>
-    <string name="blissify_buttons_title">Buttons</string>
-    <string name="blissify_gestures_title">Gestures</string>
-    <string name="blissify_lockscreen_title">Lock screen</string>
-    <string name="blissify_misc_title">Miscellaneous</string>
-    <string name="blissify_navigation_title">Navigation</string>
-    <string name="blissify_notifications_title">Notifications</string>
-    <string name="blissify_powermenu_title">Power Menu</string>
+    <string name="blissify_display_title">Display</string>
+    <string name="blissify_display_subtitle">Status Bar, Quick Settings</string>
+    <string name="blissify_input_title">Buttons &amp; Gestures</string>
+    <string name="blissify_input_subtitle">Navigation, Buttons, Gestures</string>
+    <string name="blissify_lockscreen_title">Lock Screen</string>
+    <string name="blissify_lockscreen_subtitle">Interface, Fingerprint, Weather, Power Menu</string>
     <string name="blissify_quicksettings_title">Quick settings</string>
     <string name="blissify_status_bar_title">Status bar</string>
-    <string name="blissify_themes_title">Themes</string>
+    <string name="blissify_statusbar_icons_title">Icons</string>
+    <string name="blissify_statusbar_padding_title">Padding</string>
+    <string name="blissify_system_title">System</string>
+    <string name="blissify_system_subtitle">Flashlight, Miscellaneous</string>
+    <string name="blissify_system_flashlight_title">Flashlight</string>
+    <string name="blissify_system_misc_category_title">Miscellaneous</string>
+    <string name="blissify_appearance_title">Appearance</string>
+    <string name="blissify_appearance_subtitle">Monet, Fonts</string>
+    <string name="blissify_about_title">About</string>
+    <string name="blissify_about_subtitle">People behind this Open Source Project</string>
+
+    <!-- About fragment -->
+    <string name="about_blissroms_category_title">BlissRoms</string>
+    <string name="about_blissos_category_title">BlissOS</string>
+    <string name="about_links_category_title">Links</string>
+    <string name="about_blissroms_website_title">BlissRoms Website</string>
+    <string name="about_blissos_website_title">BlissOS Website</string>
 
     <!-- General -->
     <string name="enable">Enable</string>
@@ -44,9 +59,11 @@
     <string name="unit_pixels" translatable="false">dp</string>
     <string name="unit_seconds">seconds</string>
 
-    <!-- AOSP Gestures -->
-    <string name="aosp_gesture_preference">System settings</string>
-    <string name="aosp_gesture_summary">Stock gestures included with AOSP</string>
+    <!-- Buttons & Gestures hub titles -->
+    <string name="blissify_input_buttons_title">Buttons</string>
+    <string name="blissify_input_power_button_title">Power button</string>
+    <string name="blissify_input_volume_buttons_title">Volume buttons</string>
+    <string name="blissify_input_gestures_title">System gestures</string>
 
     <!-- Navigation -->
     <string name="system_navigation_summary">Configure navigation menus</string>
@@ -80,7 +97,6 @@
     <string name="status_bar_double_tap_to_sleep_summary">Double-tap on the status bar to turn off the display</string>
 
     <!-- Status bar - icons -->
-    <string name="status_bar_icons_title">Status bar icons</string>
     <string name="status_bar_system_icons_title">System icons</string>
     <string name="status_bar_system_icons_summary">Control which status bar icons are shown</string>
 
@@ -119,7 +135,6 @@
     <string name="status_bar_battery_percentage_text_next">Next to the icon</string>
 
     <!-- Status bar - Brightness -->
-    <string name="status_bar_brightness_category">Brightness</string>
     <string name="status_bar_brightness_slider_title">Brightness slider</string>
     <string name="status_bar_brightness_slider_summary">Adjust brightness from the Quick Settings</string>
     <string name="status_bar_brightness_slider_auto_title">Auto brightness</string>
@@ -132,7 +147,6 @@
     <string name="status_bar_brightness_slider_position_bottom">Bottom</string>
 
     <!-- Blink flashlight for incoming calls -->
-    <string name="power_menu_torch_title">Flashlight</string>
     <string name="flashlight_on_call_title">Blink flashlight for call</string>
     <string name="flashlight_on_call_disabled">Disabled</string>
     <string name="flashlight_on_call_ringer">Only in ringer mode</string>
@@ -150,10 +164,8 @@
     <string name="themes_fonts_category">Fonts</string>
     <string name="themes_system_font_title">System font</string>
     <string name="themes_system_font_summary">Set system font style</string>
-    <string name="themes_icons_category">Icons</string>
     <string name="themes_udfps_icon_title">UDFPS icon</string>
     <string name="themes_udfps_icon_summary">Set UDFPS icon style</string>
-    <string name="themes_animations_category">Animations</string>
     <string name="themes_udfps_animation_title">UDFPS animation</string>
     <string name="themes_udfps_animation_summary">Set UDFPS animation style</string>
 
@@ -267,8 +279,15 @@
     <string name="statusbar_extra_padding_top_title">Top padding</string>
     <string name="statusbar_extra_padding_end_title">End padding</string>
 
+    <!-- Lock screen hub titles -->
+    <string name="blissify_lockscreen_interface_title">Interface</string>
+    <string name="blissify_lockscreen_fingerprint_title">Fingerprint</string>
+    <string name="blissify_lockscreen_udfps_settings_title">UDFPS Settings</string>
+    <string name="blissify_lockscreen_vibrations_title">Vibrations</string>
+    <string name="blissify_lockscreen_weather_title">Weather</string>
+    <string name="blissify_lockscreen_powermenu_title">Power Menu</string>
+
     <!-- Lock screen -->
-    <string name="lock_screen_interface_category">Interface</string>
     <string name="lock_screen_charging_stats_title">Charging stats</string>
     <string name="lock_screen_charging_stats_summary">Display current, voltage, wattage, and temperature stats while charging</string>
 
@@ -282,11 +301,13 @@
     <string name="lockscreen_smartspace_title">Smartspace</string>
     <string name="lockscreen_smartspace_summary">Show Google Smartspace when available</string>
 
+    <!-- OmniJaws Weather -->
+    <string name="blissify_omnijaws_weather_title">OmniJaws Weather</string>
+    <string name="blissify_omnijaws_disable_smartspace_toast">Disable Smartspace to enable OmniJaws Weather</string>
+
     <!-- Weather -->
     <string name="weather_settings_title">Weather settings</string>
     <string name="weather_settings_summary">Setup icon pack and weather service</string>
-    <string name="lockscreen_weather_category">Weather</string>
-    <string name="lockscreen_weather_title">Weather update</string>
     <string name="lockscreen_weather_summary">Display current weather update</string>
     <string name="lockscreen_weather_enabled_info">Requires custom weather service configured and smartspce disabled</string>
     <string name="lockscreen_weather_location_title">Current location</string>
@@ -412,5 +433,28 @@
     <string name="hardware_keys_action_notifications_panel">Toggle notifications panel</string>
     <string name="hardware_keys_action_expand_qs_panel">Expand QS panel</string>
     <string name="hardware_keys_action_ringer_modes">Change ringer mode</string>
+
+    <!-- Navigating preference summaries -->
+    <string name="blissify_input_buttons_summary">Configure hardware button actions and behavior</string>
+    <string name="blissify_input_gestures_summary">Configure system-wide gesture controls</string>
+    <string name="blissify_lockscreen_interface_summary">Customize lock screen layout and appearance</string>
+    <string name="blissify_lockscreen_fingerprint_summary">Ripple animation, UDFPS customization, and vibration feedback</string>
+    <string name="blissify_lockscreen_weather_summary">Show weather info on the lock screen</string>
+    <string name="blissify_lockscreen_powermenu_summary">Control power menu visibility on lock screen</string>
+    <string name="blissify_omnijaws_weather_summary">Configure OmniJaws weather provider settings</string>
+    <string name="blissify_lockscreen_udfps_settings_summary">Customize under-display fingerprint icon and animation style</string>
+    <string name="blissify_lockscreen_vibrations_summary">Set vibration feedback for fingerprint events</string>
+    <string name="blissify_statusbar_icons_summary">Manage status bar icon visibility and color</string>
+    <string name="blissify_statusbar_clock_summary">Adjust clock position, format, and visibility</string>
+    <string name="blissify_statusbar_battery_summary">Choose battery icon style and percentage display</string>
+    <string name="blissify_statusbar_privacy_summary">Control mic, camera, and location indicators</string>
+    <string name="blissify_statusbar_padding_summary">Adjust status bar start, top, and end padding</string>
+    <string name="blissify_status_bar_summary">Icons, clock, battery, and padding settings</string>
+    <string name="blissify_quicksettings_summary">Pulldown, data usage, and brightness slider</string>
+    <string name="blissify_brightness_slider_summary">Control brightness slider position and behavior</string>
+    <string name="blissify_system_flashlight_summary">Blink flashlight for incoming calls</string>
+    <string name="blissify_system_misc_summary">Sensor blocking, navigation, and USB configuration</string>
+    <string name="blissify_input_power_button_summary">Configure power button actions and behavior</string>
+    <string name="blissify_input_volume_buttons_summary">Configure volume button actions and behavior</string>
 
 </resources>

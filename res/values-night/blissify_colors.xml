@@ -17,5 +17,11 @@
 <resources>
 
     <color name="homepage_bliss_background">@android:color/system_neutral1_800</color>
+    <color name="blissify_dashboard_bg">@android:color/system_neutral1_900</color>
+    <color name="blissify_card_surface">#252525</color>
+    <color name="blissify_card_surface_pressed">#303030</color>
+    <color name="blissify_arrow_bg">#141414</color>
+    <color name="blissify_title_text">@android:color/system_accent2_50</color>
+    <color name="blissify_subtitle_text">@android:color/system_neutral1_400</color>
 
 </resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014-2025 The BlissRoms Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/blissify_input_buttons_title">
+
+    <Preference
+        android:key="input_power_button"
+        android:title="@string/blissify_input_power_button_title"
+        android:summary="@string/blissify_input_power_button_summary"
+        android:icon="@drawable/ic_pref_power_menu"
+        android:widgetLayout="@layout/preference_arrow_widget">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="org.lineageos.lineageparts"
+            android:targetClass="org.lineageos.lineageparts.PartsActivity">
+            <extra
+                android:name=":settings:show_fragment"
+                android:value="org.lineageos.lineageparts.input.ButtonSettings" />
+        </intent>
+    </Preference>
+
+    <Preference
+        android:key="input_volume_buttons"
+        android:title="@string/blissify_input_volume_buttons_title"
+        android:summary="@string/blissify_input_volume_buttons_summary"
+        android:icon="@drawable/ic_blissify_buttons"
+        android:widgetLayout="@layout/preference_arrow_widget">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="org.lineageos.lineageparts"
+            android:targetClass="org.lineageos.lineageparts.PartsActivity">
+            <extra
+                android:name=":settings:show_fragment"
+                android:value="org.lineageos.lineageparts.input.ButtonSettings" />
+        </intent>
+    </Preference>
+
+    <!-- Three fingers swipe action -->
+    <ListPreference
+        android:key="three_fingers_swipe"
+        android:title="@string/three_fingers_swipe_title"
+        android:dialogTitle="@string/three_fingers_swipe_title"
+        android:icon="@drawable/ic_pref_three_finger"
+        android:entries="@array/hardware_keys_action_entries"
+        android:entryValues="@array/hardware_keys_action_values"
+        android:persistent="false" />
+
+</PreferenceScreen>

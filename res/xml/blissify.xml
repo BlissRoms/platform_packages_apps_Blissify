@@ -18,82 +18,46 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/blissify_dashboard_title">
 
-    <!-- Animations >
+    <!-- Appearance -->
     <Preference
-        android:key="animations_category"
-        android:title="@string/blissify_animation_title"
-        android:fragment="org.blissroms.blissify.fragments.animations.Animations"
-        android:icon="@drawable/ic_blissify_animations" /-->
+        android:key="appearance_category"
+        android:title="@string/blissify_appearance_title"
+        android:fragment="org.blissroms.blissify.fragments.appearance.Appearance"
+        android:icon="@drawable/ic_blissify_themes" />
 
-    <!-- Buttons -->
+    <!-- Display (Status bar + Quick Settings) -->
     <Preference
-        android:key="buttons_category"
-        android:title="@string/blissify_buttons_title"
-        android:icon="@drawable/ic_blissify_buttons">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="org.lineageos.lineageparts"
-            android:targetClass="org.lineageos.lineageparts.PartsActivity">
-            <extra
-                android:name=":settings:show_fragment"
-                android:value="org.lineageos.lineageparts.input.ButtonSettings" />
-        </intent>
-    </Preference>
+        android:key="display_category"
+        android:title="@string/blissify_display_title"
+        android:fragment="org.blissroms.blissify.fragments.display.Display"
+        android:icon="@drawable/ic_blissify_display" />
 
-    <!-- Gestures -->
-    <Preference
-        android:key="gestures_category"
-        android:title="@string/blissify_gestures_title"
-        android:fragment="org.blissroms.blissify.fragments.gestures.Gestures"
-        android:icon="@drawable/ic_settings_gestures" />
-
-    <!-- Lock Screen -->
+    <!-- Lock Screen (+ Power Menu) -->
     <Preference
         android:key="lockscreen_category"
         android:title="@string/blissify_lockscreen_title"
         android:fragment="org.blissroms.blissify.fragments.lockscreen.Lockscreen"
         android:icon="@drawable/ic_blissify_lockscreen" />
 
-    <!-- Notifications -->
+    <!-- Input (Gestures + Buttons) -->
     <Preference
-        android:key="notifications_category"
-        android:title="@string/blissify_notifications_title"
-        android:fragment="org.blissroms.blissify.fragments.notification.Notification"
-        android:icon="@drawable/ic_blissify_notifications" />
+        android:key="input_category"
+        android:title="@string/blissify_input_title"
+        android:fragment="org.blissroms.blissify.fragments.input.Input"
+        android:icon="@drawable/ic_blissify_input" />
 
-    <!-- Power Menu -->
+    <!-- System (Notifications + Misc) -->
     <Preference
-        android:key="powermenu_category"
-        android:title="@string/blissify_powermenu_title"
-        android:fragment="org.blissroms.blissify.fragments.powermenu.PowerMenu"
-        android:icon="@drawable/ic_blissify_powermenu" />
+        android:key="system_category"
+        android:title="@string/blissify_system_title"
+        android:fragment="org.blissroms.blissify.fragments.system.SystemSettings"
+        android:icon="@drawable/ic_blissify_system" />
 
-    <!-- Quick Settings panel -->
+    <!-- About -->
     <Preference
-        android:key="quicksettings_category"
-        android:title="@string/blissify_quicksettings_title"
-        android:fragment="org.blissroms.blissify.fragments.qs.QuickSettings"
-        android:icon="@drawable/ic_blissify_quicksettings" />
-
-    <!-- Status bar -->
-    <Preference
-        android:key="statusbar_category"
-        android:title="@string/blissify_status_bar_title"
-        android:fragment="org.blissroms.blissify.fragments.statusbar.Statusbar"
-        android:icon="@drawable/ic_blissify_statusbar" />
-
-    <!-- Themes -->
-    <Preference
-        android:key="themes_category"
-        android:title="@string/blissify_themes_title"
-        android:fragment="org.blissroms.blissify.fragments.themes.ThemeSettings" 
-        android:icon="@drawable/ic_blissify_themes" />
-
-    <!-- Misc -->
-    <Preference
-        android:key="misc_category"
-        android:title="@string/blissify_misc_title"
-        android:fragment="org.blissroms.blissify.fragments.misc.Misc"
-        android:icon="@drawable/ic_blissify_miscellaneous" />
+        android:key="about_category"
+        android:title="@string/blissify_about_title"
+        android:fragment="org.blissroms.blissify.fragments.about.About"
+        android:icon="@drawable/ic_blissify_about" />
 
 </PreferenceScreen>

@@ -22,291 +22,273 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-
 import androidx.appcompat.app.AlertDialog;
-import androidx.preference.SwitchPreference;
-import androidx.preference.ListPreference;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
-
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-
-import org.blissroms.blissify.preferences.PackageListAdapter;
-import org.blissroms.blissify.preferences.PackageListAdapter.PackageItem;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.blissroms.blissify.fragments.BlissifyFragment;
+import org.blissroms.blissify.preferences.PackageListAdapter;
+import org.blissroms.blissify.preferences.PackageListAdapter.PackageItem;
 
-public class SensorBlock extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceClickListener {
+public class SensorBlock extends BlissifyFragment implements Preference.OnPreferenceClickListener {
 
-    private static final int DIALOG_BLOCKED_APPS = 1;
-    private static final String SENSOR_BLOCK_ADD_PACKAGES = "add_sensor_block_packages";
-    private static final String SENSOR_BLOCK_APPLICATIONS = "sensor_block_applications";
-    private static final String SENSOR_BLOCK_FOOTER = "sensor_block_footer";
+  private static final int DIALOG_BLOCKED_APPS = 1;
+  private static final String SENSOR_BLOCK_ADD_PACKAGES = "add_sensor_block_packages";
+  private static final String SENSOR_BLOCK_APPLICATIONS = "sensor_block_applications";
+  private static final String SENSOR_BLOCK_FOOTER = "sensor_block_footer";
 
-    private PackageListAdapter mPackageAdapter;
-    private PackageManager mPackageManager;
-    private PreferenceGroup mSensorBlockPrefList;
-    private Preference mAddSensorBlockPref;
+  private PackageListAdapter mPackageAdapter;
+  private PackageManager mPackageManager;
+  private PreferenceGroup mSensorBlockPrefList;
+  private Preference mAddSensorBlockPref;
 
-    private String mBlockedPackageList;
-    private Map<String, Package> mBlockedPackages;
+  private String mBlockedPackageList;
+  private Map<String, Package> mBlockedPackages;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // Get launch-able applications
-        addPreferencesFromResource(R.xml.sensor_block_settings);
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    // Get launch-able applications
+    addPreferencesFromResource(R.xml.sensor_block_settings);
 
-        findPreference(SENSOR_BLOCK_FOOTER).setTitle(R.string.add_sensor_block_package_summary);
+    findPreference(SENSOR_BLOCK_FOOTER).setTitle(R.string.add_sensor_block_package_summary);
 
-        final PreferenceScreen prefScreen = getPreferenceScreen();
-        
-        mPackageManager = getPackageManager();
-        mPackageAdapter = new PackageListAdapter(getActivity());
+    final PreferenceScreen prefScreen = getPreferenceScreen();
 
-        mSensorBlockPrefList = (PreferenceGroup) findPreference(SENSOR_BLOCK_APPLICATIONS);
-        mSensorBlockPrefList.setOrderingAsAdded(false);
+    mPackageManager = getPackageManager();
+    mPackageAdapter = new PackageListAdapter(getActivity());
 
-        mBlockedPackages = new HashMap<String, Package>();
+    mSensorBlockPrefList = (PreferenceGroup) findPreference(SENSOR_BLOCK_APPLICATIONS);
+    mSensorBlockPrefList.setOrderingAsAdded(false);
 
-        mAddSensorBlockPref = findPreference(SENSOR_BLOCK_ADD_PACKAGES);
+    mBlockedPackages = new HashMap<String, Package>();
 
-        mAddSensorBlockPref.setOnPreferenceClickListener(this);
+    mAddSensorBlockPref = findPreference(SENSOR_BLOCK_ADD_PACKAGES);
+
+    mAddSensorBlockPref.setOnPreferenceClickListener(this);
+  }
+
+  @Override
+  public void onResume() {
+    super.onResume();
+    refreshCustomApplicationPrefs();
+  }
+
+  @Override
+  public int getMetricsCategory() {
+    return MetricsProto.MetricsEvent.BLISSIFY;
+  }
+
+  @Override
+  public int getDialogMetricsCategory(int dialogId) {
+    if (dialogId == DIALOG_BLOCKED_APPS) {
+      return MetricsProto.MetricsEvent.BLISSIFY;
     }
+    return 0;
+  }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        refreshCustomApplicationPrefs();
-    }
+  /** Utility classes and supporting methods */
+  @Override
+  public Dialog onCreateDialog(int id) {
+    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+    final Dialog dialog;
+    final ListView list = new ListView(getActivity());
+    list.setAdapter(mPackageAdapter);
+    list.setDivider(null);
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BLISSIFY;
-    }
+    builder.setTitle(R.string.choose_app);
+    builder.setView(list);
+    dialog = builder.create();
 
-    @Override
-    public int getDialogMetricsCategory(int dialogId) {
-        if (dialogId == DIALOG_BLOCKED_APPS) {
-            return MetricsProto.MetricsEvent.BLISSIFY;
-        }
-        return 0;
+    switch (id) {
+      case DIALOG_BLOCKED_APPS:
+        list.setOnItemClickListener(
+            new OnItemClickListener() {
+              @Override
+              public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Add empty application definition, the user will be able to edit it later
+                PackageItem info = (PackageItem) parent.getItemAtPosition(position);
+                addCustomApplicationPref(info.packageName, mBlockedPackages);
+                dialog.cancel();
+              }
+            });
     }
+    return dialog;
+  }
+
+  public static void reset(Context context) {
+    ContentResolver resolver = context.getContentResolver();
+    Settings.Global.putInt(resolver, Settings.Global.SENSOR_BLOCK, 0);
+    Settings.Global.putString(resolver, Settings.Global.SENSOR_BLOCKED_APP, null);
+  }
+
+  /** Application class */
+  private static class Package {
+    public String name;
 
     /**
-     * Utility classes and supporting methods
+     * Stores all the application values in one call
+     *
+     * @param name
      */
-    @Override
-    public Dialog onCreateDialog(int id) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        final Dialog dialog;
-        final ListView list = new ListView(getActivity());
-        list.setAdapter(mPackageAdapter);
-        list.setDivider(null);
+    public Package(String name) {
+      this.name = name;
+    }
 
-        builder.setTitle(R.string.choose_app);
-        builder.setView(list);
-        dialog = builder.create();
+    public String toString() {
+      StringBuilder builder = new StringBuilder();
+      builder.append(name);
+      return builder.toString();
+    }
 
-        switch (id) {
-            case DIALOG_BLOCKED_APPS:
-                list.setOnItemClickListener(new OnItemClickListener() {
+    public static Package fromString(String value) {
+      if (TextUtils.isEmpty(value)) {
+        return null;
+      }
+
+      try {
+        Package item = new Package(value);
+        return item;
+      } catch (NumberFormatException e) {
+        return null;
+      }
+    }
+  }
+  ;
+
+  private void refreshCustomApplicationPrefs() {
+    if (!parsePackageList()) {
+      return;
+    }
+
+    // Add the Application Preferences
+    if (mSensorBlockPrefList != null) {
+      mSensorBlockPrefList.removeAll();
+
+      for (Package pkg : mBlockedPackages.values()) {
+        try {
+          Preference pref = createPreferenceFromInfo(pkg);
+          mSensorBlockPrefList.addPreference(pref);
+        } catch (PackageManager.NameNotFoundException e) {
+          // Do nothing
+        }
+      }
+
+      // Keep these at the top
+      mAddSensorBlockPref.setOrder(0);
+      // Add 'add' options
+      mSensorBlockPrefList.addPreference(mAddSensorBlockPref);
+    }
+  }
+
+  @Override
+  public boolean onPreferenceClick(Preference preference) {
+    if (preference == mAddSensorBlockPref) {
+      showDialog(DIALOG_BLOCKED_APPS);
+    } else {
+      AlertDialog.Builder builder =
+          new AlertDialog.Builder(getActivity())
+              .setTitle(R.string.delete)
+              .setMessage(R.string.delete_message)
+              .setIconAttribute(android.R.attr.alertDialogIcon)
+              .setPositiveButton(
+                  android.R.string.ok,
+                  new DialogInterface.OnClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        // Add empty application definition, the user will be able to edit it later
-                        PackageItem info = (PackageItem) parent.getItemAtPosition(position);
-                        addCustomApplicationPref(info.packageName, mBlockedPackages);
-                        dialog.cancel();
+                    public void onClick(DialogInterface dialog, int which) {
+                      if (preference == mSensorBlockPrefList.findPreference(preference.getKey())) {
+                        removeApplicationPref(preference.getKey(), mBlockedPackages);
+                      }
                     }
-                });
-        }
-        return dialog;
+                  })
+              .setNegativeButton(android.R.string.cancel, null);
+
+      builder.show();
+    }
+    return true;
+  }
+
+  private void addCustomApplicationPref(String packageName, Map<String, Package> map) {
+    Package pkg = map.get(packageName);
+    if (pkg == null) {
+      pkg = new Package(packageName);
+      map.put(packageName, pkg);
+      savePackageList(map);
+      refreshCustomApplicationPrefs();
+    }
+  }
+
+  private Preference createPreferenceFromInfo(Package pkg)
+      throws PackageManager.NameNotFoundException {
+    PackageInfo info = mPackageManager.getPackageInfo(pkg.name, PackageManager.GET_META_DATA);
+    Preference pref = new Preference(getActivity());
+
+    pref.setKey(pkg.name);
+    pref.setTitle(info.applicationInfo.loadLabel(mPackageManager));
+    pref.setIcon(info.applicationInfo.loadIcon(mPackageManager));
+    pref.setPersistent(false);
+    pref.setOnPreferenceClickListener(this);
+    return pref;
+  }
+
+  private void removeApplicationPref(String packageName, Map<String, Package> map) {
+    if (map.remove(packageName) != null) {
+      savePackageList(map);
+      refreshCustomApplicationPrefs();
+    }
+  }
+
+  private boolean parsePackageList() {
+    boolean parsed = false;
+
+    String sensorBlockString =
+        Settings.Global.getString(getContentResolver(), Settings.Global.SENSOR_BLOCKED_APP);
+
+    if (sensorBlockString != null && !TextUtils.equals(mBlockedPackageList, sensorBlockString)) {
+      mBlockedPackageList = sensorBlockString;
+      mBlockedPackages.clear();
+      parseAndAddToMap(sensorBlockString, mBlockedPackages);
+      parsed = true;
     }
 
-    public static void reset(Context context) {
-        ContentResolver resolver = context.getContentResolver();
-        Settings.Global.putInt(resolver,
-                Settings.Global.SENSOR_BLOCK, 0);
-        Settings.Global.putString(resolver,
-                Settings.Global.SENSOR_BLOCKED_APP, null);
+    return parsed;
+  }
+
+  private void parseAndAddToMap(String baseString, Map<String, Package> map) {
+    if (baseString == null) {
+      return;
     }
 
-    /**
-     * Application class
-     */
-    private static class Package {
-        public String name;
-        /**
-         * Stores all the application values in one call
-         * @param name
-         */
-        public Package(String name) {
-            this.name = name;
-        }
-
-        public String toString() {
-            StringBuilder builder = new StringBuilder();
-            builder.append(name);
-            return builder.toString();
-        }
-
-        public static Package fromString(String value) {
-            if (TextUtils.isEmpty(value)) {
-                return null;
-            }
-
-            try {
-                Package item = new Package(value);
-                return item;
-            } catch (NumberFormatException e) {
-                return null;
-            }
-        }
-
-    };
-
-    private void refreshCustomApplicationPrefs() {
-        if (!parsePackageList()) {
-            return;
-        }
-
-        // Add the Application Preferences
-        if (mSensorBlockPrefList != null) {
-            mSensorBlockPrefList.removeAll();
-
-            for (Package pkg : mBlockedPackages.values()) {
-                try {
-                    Preference pref = createPreferenceFromInfo(pkg);
-                    mSensorBlockPrefList.addPreference(pref);
-                } catch (PackageManager.NameNotFoundException e) {
-                    // Do nothing
-                }
-            }
-
-            // Keep these at the top
-            mAddSensorBlockPref.setOrder(0);
-            // Add 'add' options
-            mSensorBlockPrefList.addPreference(mAddSensorBlockPref);
-        }
+    final String[] array = TextUtils.split(baseString, "\\|");
+    for (String item : array) {
+      if (TextUtils.isEmpty(item)) {
+        continue;
+      }
+      Package pkg = Package.fromString(item);
+      map.put(pkg.name, pkg);
     }
+  }
 
-    @Override
-    public boolean onPreferenceClick(Preference preference) {
-        if (preference == mAddSensorBlockPref) {
-            showDialog(DIALOG_BLOCKED_APPS);
-        } else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.delete)
-                    .setMessage(R.string.delete_message)
-                    .setIconAttribute(android.R.attr.alertDialogIcon)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (preference == mSensorBlockPrefList.findPreference(preference.getKey())) {
-                                removeApplicationPref(preference.getKey(), mBlockedPackages);
-                            }
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null);
-
-            builder.show();
-        }
-        return true;
+  private void savePackageList(Map<String, Package> map) {
+    if (map != mBlockedPackages) return;
+    List<String> settings = new ArrayList<String>();
+    for (Package app : map.values()) {
+      settings.add(app.toString());
     }
-
-    private void addCustomApplicationPref(String packageName, Map<String,Package> map) {
-        Package pkg = map.get(packageName);
-        if (pkg == null) {
-            pkg = new Package(packageName);
-            map.put(packageName, pkg);
-            savePackageList(map);
-            refreshCustomApplicationPrefs();
-        }
-    }
-
-    private Preference createPreferenceFromInfo(Package pkg)
-            throws PackageManager.NameNotFoundException {
-        PackageInfo info = mPackageManager.getPackageInfo(pkg.name,
-                PackageManager.GET_META_DATA);
-        Preference pref =
-                new Preference(getActivity());
-
-        pref.setKey(pkg.name);
-        pref.setTitle(info.applicationInfo.loadLabel(mPackageManager));
-        pref.setIcon(info.applicationInfo.loadIcon(mPackageManager));
-        pref.setPersistent(false);
-        pref.setOnPreferenceClickListener(this);
-        return pref;
-    }
-
-    private void removeApplicationPref(String packageName, Map<String,Package> map) {
-        if (map.remove(packageName) != null) {
-            savePackageList(map);
-            refreshCustomApplicationPrefs();
-        }
-    }
-
-    private boolean parsePackageList() {
-        boolean parsed = false;
-
-        String sensorBlockString = Settings.Global.getString(getContentResolver(),
-                Settings.Global.SENSOR_BLOCKED_APP);
-
-        if (sensorBlockString != null &&
-                !TextUtils.equals(mBlockedPackageList, sensorBlockString)) {
-            mBlockedPackageList = sensorBlockString;
-            mBlockedPackages.clear();
-            parseAndAddToMap(sensorBlockString, mBlockedPackages);
-            parsed = true;
-        }
-
-        return parsed;
-    }
-
-    private void parseAndAddToMap(String baseString, Map<String,Package> map) {
-        if (baseString == null) {
-            return;
-        }
-
-        final String[] array = TextUtils.split(baseString, "\\|");
-        for (String item : array) {
-            if (TextUtils.isEmpty(item)) {
-                continue;
-            }
-            Package pkg = Package.fromString(item);
-            map.put(pkg.name, pkg);
-        }
-    }
-
-
-    private void savePackageList(Map<String,Package> map) {
-        if (map != mBlockedPackages) return;
-        List<String> settings = new ArrayList<String>();
-        for (Package app : map.values()) {
-            settings.add(app.toString());
-        }
-        final String value = TextUtils.join("|", settings);
-        Settings.Global.putString(getContentResolver(),
-                Settings.Global.SENSOR_BLOCKED_APP, value);
-    }
+    final String value = TextUtils.join("|", settings);
+    Settings.Global.putString(getContentResolver(), Settings.Global.SENSOR_BLOCKED_APP, value);
+  }
 }
