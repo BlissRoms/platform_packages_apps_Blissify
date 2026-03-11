@@ -20,6 +20,18 @@
     <!-- Blissify -->
     <string name="blissify_settings_title">Blissify</string>
     <string name="blissify_settings_summary">Blissify your device!</string>
+    <string-array name="blissify_settings_summaries">
+        <item>Blissify your device!</item>
+        <item>Customize your experience</item>
+        <item>Make it yours</item>
+        <item>Your device, your rules</item>
+        <item>Tweak to perfection</item>
+        <item>Fine-tune every detail</item>
+        <item>Personalize everything</item>
+        <item>Unleash your inner tweaker</item>
+        <item>Style it your way</item>
+        <item>More control, more bliss</item>
+    </string-array>
     <string name="blissify_dashboard_title">Blissify</string>
     <string name="blissify_dashboard_subtitle">Customize your device on your own</string>
 

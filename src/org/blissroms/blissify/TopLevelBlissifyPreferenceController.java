@@ -23,6 +23,7 @@ import androidx.preference.PreferenceScreen;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.core.BasePreferenceController;
+import java.util.Random;
 
 public class TopLevelBlissifyPreferenceController extends BasePreferenceController {
 
@@ -45,6 +46,9 @@ public class TopLevelBlissifyPreferenceController extends BasePreferenceControll
       preference.setIcon(
           Utils.getAdaptiveIcon(
               mContext, icon, mContext.getColor(R.color.homepage_connected_device_background)));
+      String[] summaries =
+          mContext.getResources().getStringArray(R.array.blissify_settings_summaries);
+      preference.setSummary(summaries[new Random().nextInt(summaries.length)]);
     }
   }
 }
