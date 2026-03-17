@@ -18,6 +18,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/blissify_quicksettings_title">
 
+    <!-- QS Panel Style -->
+    <org.blissroms.blissify.preferences.SecureSettingListPreference
+        android:key="qs_panel_style"
+        android:title="@string/qs_panel_style_title"
+        android:dialogTitle="@string/qs_panel_style_title"
+        android:entries="@array/qs_panel_style_entries"
+        android:entryValues="@array/qs_panel_style_values"
+        android:icon="@drawable/ic_blissify_quicksettings"
+        android:defaultValue="0" />
+
     <lineageos.preference.LineageSystemSettingListPreference
         android:key="qs_quick_pulldown"
         android:title="@string/status_bar_quick_qs_pulldown_title"

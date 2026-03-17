@@ -43,6 +43,9 @@
     <string name="blissify_lockscreen_title">Lock Screen</string>
     <string name="blissify_lockscreen_subtitle">Interface, Fingerprint, Weather, Power Menu</string>
     <string name="blissify_quicksettings_title">Quick settings</string>
+    <string name="qs_panel_style_title">QS panel style</string>
+    <string name="qs_panel_style_card">Card</string>
+    <string name="qs_panel_style_circular">Circular</string>
     <string name="blissify_status_bar_title">Status bar</string>
     <string name="blissify_statusbar_icons_title">Icons</string>
     <string name="blissify_statusbar_padding_title">Padding</string>
@@ -463,7 +466,7 @@
     <string name="blissify_statusbar_privacy_summary">Control mic, camera, and location indicators</string>
     <string name="blissify_statusbar_padding_summary">Adjust status bar start, top, and end padding</string>
     <string name="blissify_status_bar_summary">Icons, clock, battery, and padding settings</string>
-    <string name="blissify_quicksettings_summary">Pulldown, data usage, and brightness slider</string>
+    <string name="blissify_quicksettings_summary">Panel style, pulldown, data usage, and brightness slider</string>
     <string name="blissify_brightness_slider_summary">Control brightness slider position and behavior</string>
     <string name="blissify_system_flashlight_summary">Blink flashlight for incoming calls</string>
     <string name="blissify_system_misc_summary">Sensor blocking, navigation, and USB configuration</string>
