@@ -28,6 +28,13 @@
         android:icon="@drawable/ic_blissify_quicksettings"
         android:defaultValue="0" />
 
+    <org.blissroms.blissify.preferences.SecureSettingSwitchPreference
+        android:key="qs_tile_label_hide"
+        android:title="@string/qs_tile_label_hide_title"
+        android:summary="@string/qs_tile_label_hide_summary"
+        android:icon="@drawable/ic_blissify_quicksettings"
+        android:defaultValue="false" />
+
     <lineageos.preference.LineageSystemSettingListPreference
         android:key="qs_quick_pulldown"
         android:title="@string/status_bar_quick_qs_pulldown_title"

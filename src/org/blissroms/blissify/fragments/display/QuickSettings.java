@@ -16,6 +16,12 @@
 
 package org.blissroms.blissify.fragments.display;
 
+import android.os.Bundle;
+import android.os.UserHandle;
+import android.provider.Settings;
+
+import androidx.preference.Preference;
+
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -23,9 +29,44 @@ import com.android.settingslib.search.SearchIndexable;
 import org.blissroms.blissify.fragments.BlissifyDashboardFragment;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
-public class QuickSettings extends BlissifyDashboardFragment {
+public class QuickSettings extends BlissifyDashboardFragment
+        implements Preference.OnPreferenceChangeListener {
 
   public static final String TAG = "QuickSettings";
+
+  private static final String KEY_QS_PANEL_STYLE = "qs_panel_style";
+  private static final String KEY_TILE_LABEL_HIDE = "qs_tile_label_hide";
+
+  private Preference mTileLabelHide;
+
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    Preference stylePref = findPreference(KEY_QS_PANEL_STYLE);
+    mTileLabelHide = findPreference(KEY_TILE_LABEL_HIDE);
+
+    if (stylePref != null) {
+      stylePref.setOnPreferenceChangeListener(this);
+    }
+
+    int style = Settings.Secure.getIntForUser(getContext().getContentResolver(),
+            KEY_QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
+    updateCircularPrefs(style == 1);
+  }
+
+  @Override
+  public boolean onPreferenceChange(Preference preference, Object newValue) {
+    if (KEY_QS_PANEL_STYLE.equals(preference.getKey())) {
+      int style = Integer.parseInt((String) newValue);
+      updateCircularPrefs(style == 1);
+    }
+    return true;
+  }
+
+  private void updateCircularPrefs(boolean circular) {
+    if (mTileLabelHide != null) mTileLabelHide.setVisible(circular);
+  }
 
   @Override
   public int getMetricsCategory() {
