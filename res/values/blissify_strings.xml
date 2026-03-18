@@ -360,6 +360,9 @@
     <string name="lock_screen_fingerprint_ripple_summary">Show ripple animation when unlocked with fingerprint</string>
 
     <!-- Power menu -->
+    <string name="power_menu_style_title">Power menu style</string>
+    <string name="power_menu_style_default">Default</string>
+    <string name="power_menu_style_fullscreen">Asus</string>
     <string name="power_menu_lock_screen_category">Lock screen</string>
     <string name="power_menu_lock_screen_secure_title">Show on secure lock screen</string>
     <string name="power_menu_lock_screen_secure_summary">Show the power menu while the device is locked</string>

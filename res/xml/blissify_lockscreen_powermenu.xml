@@ -17,6 +17,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/blissify_lockscreen_powermenu_title">
 
+    <!-- Power menu style -->
+    <org.blissroms.blissify.preferences.SecureSettingListPreference
+        android:key="power_menu_style"
+        android:title="@string/power_menu_style_title"
+        android:dialogTitle="@string/power_menu_style_title"
+        android:entries="@array/power_menu_style_entries"
+        android:entryValues="@array/power_menu_style_values"
+        android:icon="@drawable/ic_pref_power_menu"
+        android:defaultValue="0" />
+
     <!-- Secure lock screen power menu -->
     <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_enable_power_menu"
