@@ -48,6 +48,9 @@
     <string name="qs_panel_style_circular">Circular</string>
     <string name="qs_tile_label_hide_title">Hide tile labels</string>
     <string name="qs_tile_label_hide_summary">Show only icons without labels in circular style</string>
+    <string name="qs_tile_columns_title">QS tile columns</string>
+    <string name="qs_tile_qqs_rows_title">Quick QS rows</string>
+    <string name="qs_tile_qs_rows_title">Expanded QS rows</string>
     <string name="blissify_status_bar_title">Status bar</string>
     <string name="blissify_statusbar_icons_title">Icons</string>
     <string name="blissify_statusbar_padding_title">Padding</string>
