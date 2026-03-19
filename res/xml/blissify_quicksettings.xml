@@ -39,6 +39,15 @@
             android:icon="@drawable/ic_blissify_quicksettings"
             android:defaultValue="false" />
 
+        <org.blissroms.blissify.preferences.SecureSettingListPreference
+            android:key="qs_tile_shape"
+            android:title="@string/qs_tile_shape_title"
+            android:dialogTitle="@string/qs_tile_shape_title"
+            android:entries="@array/qs_tile_shape_entries"
+            android:entryValues="@array/qs_tile_shape_values"
+            android:icon="@drawable/ic_blissify_quicksettings"
+            android:defaultValue="0" />
+
         <org.blissroms.blissify.preferences.SecureSeekBarPreference
             android:key="qs_tile_columns"
             android:title="@string/qs_tile_columns_title"

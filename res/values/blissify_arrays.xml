@@ -28,6 +28,36 @@
         <item>1</item>
     </string-array>
 
+    <string-array name="qs_tile_shape_entries">
+        <item>@string/qs_tile_shape_circle</item>
+        <item>@string/qs_tile_shape_squircle</item>
+        <item>@string/qs_tile_shape_rounded_square</item>
+        <item>@string/qs_tile_shape_diamond</item>
+        <item>@string/qs_tile_shape_hexagon</item>
+        <item>@string/qs_tile_shape_teardrop</item>
+        <item>@string/qs_tile_shape_clover</item>
+        <item>@string/qs_tile_shape_star</item>
+        <item>@string/qs_tile_shape_pentagon</item>
+        <item>@string/qs_tile_shape_octagon</item>
+        <item>@string/qs_tile_shape_flower</item>
+        <item>@string/qs_tile_shape_bliss</item>
+    </string-array>
+
+    <string-array name="qs_tile_shape_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+
     <!-- Status bar -->
     <string-array name="status_bar_clock_position_entries" translatable="false">
         <item>@string/status_bar_clock_position_right</item>

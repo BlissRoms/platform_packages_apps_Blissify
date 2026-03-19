@@ -37,11 +37,13 @@ public class QuickSettings extends BlissifyDashboardFragment
 
   private static final String KEY_QS_PANEL_STYLE = "qs_panel_style";
   private static final String KEY_TILE_LABEL_HIDE = "qs_tile_label_hide";
+  private static final String KEY_TILE_SHAPE = "qs_tile_shape";
   private static final String KEY_TILE_COLUMNS = "qs_tile_columns";
   private static final String KEY_QQS_ROWS = "qs_tile_qqs_rows";
   private static final String KEY_QS_ROWS = "qs_tile_qs_rows";
 
   private Preference mTileLabelHide;
+  private Preference mTileShape;
   private SecureSeekBarPreference mTileColumns;
   private SecureSeekBarPreference mQqsRows;
   private SecureSeekBarPreference mQsRows;
@@ -52,6 +54,7 @@ public class QuickSettings extends BlissifyDashboardFragment
 
     Preference stylePref = findPreference(KEY_QS_PANEL_STYLE);
     mTileLabelHide = findPreference(KEY_TILE_LABEL_HIDE);
+    mTileShape = findPreference(KEY_TILE_SHAPE);
     mTileColumns = findPreference(KEY_TILE_COLUMNS);
     mQqsRows = findPreference(KEY_QQS_ROWS);
     mQsRows = findPreference(KEY_QS_ROWS);
@@ -90,6 +93,7 @@ public class QuickSettings extends BlissifyDashboardFragment
 
   private void updateCircularPrefs(boolean circular) {
     if (mTileLabelHide != null) mTileLabelHide.setVisible(circular);
+    if (mTileShape != null) mTileShape.setVisible(circular);
     if (mTileColumns != null) mTileColumns.setVisible(circular);
     if (mQqsRows != null) mQqsRows.setVisible(circular);
     if (mQsRows != null) mQsRows.setVisible(circular);
