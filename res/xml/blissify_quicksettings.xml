@@ -49,6 +49,15 @@
             android:defaultValue="0" />
 
         <org.blissroms.blissify.preferences.SecureSeekBarPreference
+            android:key="qs_tile_opacity"
+            android:title="@string/qs_tile_opacity_title"
+            android:defaultValue="100"
+            android:max="100"
+            settings:min="0"
+            settings:interval="5"
+            settings:units="%"  />
+
+        <org.blissroms.blissify.preferences.SecureSeekBarPreference
             android:key="qs_tile_columns"
             android:title="@string/qs_tile_columns_title"
             android:defaultValue="4"

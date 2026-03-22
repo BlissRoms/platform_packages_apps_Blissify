@@ -61,6 +61,7 @@
     <string name="qs_tile_shape_octagon">Octagon</string>
     <string name="qs_tile_shape_flower">Flower</string>
     <string name="qs_tile_shape_bliss">Bliss</string>
+    <string name="qs_tile_opacity_title">Tile opacity</string>
     <string name="qs_tile_columns_title">QS tile columns</string>
     <string name="qs_tile_qqs_rows_title">Quick QS rows</string>
     <string name="qs_tile_qs_rows_title">Expanded QS rows</string>
