@@ -27,6 +27,8 @@ import android.util.Log;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
+import java.util.HashMap;
+import java.util.Map;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -55,7 +57,24 @@ public class About extends BlissifyFragment {
   private static final String KEY_CACHE_BLISSROMS = "cache_blissroms";
   private static final String KEY_CACHE_BLISSOS = "cache_blissos";
   private static final String KEY_CACHE_TIMESTAMP = "cache_timestamp";
-  private static final long CACHE_TTL_MS = 24 * 60 * 60 * 1000L; // 24 hours
+  private static final long CACHE_TTL_MS = 24 * 60 * 60 * 1000L;
+
+  private static final Map<String, Integer> LINK_ICONS = new HashMap<>();
+  static {
+    LINK_ICONS.put("github", R.drawable.ic_link_github);
+    LINK_ICONS.put("twitter", R.drawable.ic_link_twitter);
+    LINK_ICONS.put("instagram", R.drawable.ic_link_instagram);
+    LINK_ICONS.put("facebook", R.drawable.ic_link_facebook);
+    LINK_ICONS.put("telegram", R.drawable.ic_link_telegram);
+    LINK_ICONS.put("mastodon", R.drawable.ic_link_mastodon);
+    LINK_ICONS.put("opencollective", R.drawable.ic_link_opencollective);
+    LINK_ICONS.put("bsky", R.drawable.ic_link_bluesky);
+    LINK_ICONS.put("bluesky", R.drawable.ic_link_bluesky);
+    LINK_ICONS.put("discord", R.drawable.ic_link_discord);
+    LINK_ICONS.put("matrix", R.drawable.ic_link_matrix);
+    LINK_ICONS.put("blog", R.drawable.ic_link_blog);
+    LINK_ICONS.put("website", R.drawable.ic_link_website);
+  }
 
   private final ExecutorService mExecutor = Executors.newFixedThreadPool(2);
   private final Handler mHandler = new Handler(Looper.getMainLooper());
@@ -211,6 +230,8 @@ public class About extends BlissifyFragment {
           linkPref.setKey("about_" + keyPrefix + "_link_" + i);
           linkPref.setTitle(linkName);
           linkPref.setSummary(linkUrl);
+          linkPref.setIconSpaceReserved(true);
+          linkPref.setIcon(getLinkIcon(linkName, linkUrl));
           final String finalUrl = linkUrl;
           linkPref.setOnPreferenceClickListener(
               p -> {
@@ -318,8 +339,8 @@ public class About extends BlissifyFragment {
     cat.setLayoutResource(R.layout.blissify_category_header);
     screen.addPreference(cat);
 
-    addStaticMember(cat, "about_jonwest", "Jon West", "BlissOS Project Co-Founder");
-    addStaticMember(cat, "about_huyminh", "HMTheBoy154", "BlissOS Project Manager");
+    addStaticMember(cat, "about_blissos_jonwest", "Jon West", "BlissOS Project Co-Founder");
+    addStaticMember(cat, "about_blissos_huyminh", "HMTheBoy154", "BlissOS Project Manager");
     addStaticMember(cat, "about_blissos_jackeagle", "Jackeagle", "Android Platform Developer");
 
     PreferenceCategory links = new PreferenceCategory(ctx);
@@ -368,12 +389,28 @@ public class About extends BlissifyFragment {
     p.setKey(key);
     p.setTitle(name);
     p.setSummary(url);
+    p.setIconSpaceReserved(true);
+    p.setIcon(getLinkIcon(name, url));
     p.setOnPreferenceClickListener(
         pref -> {
           startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
           return true;
         });
     cat.addPreference(p);
+  }
+
+  private int getLinkIcon(String name, String url) {
+    String lower = name.toLowerCase();
+    for (Map.Entry<String, Integer> entry : LINK_ICONS.entrySet()) {
+      if (lower.contains(entry.getKey())) return entry.getValue();
+    }
+    String lowerUrl = url.toLowerCase();
+    for (Map.Entry<String, Integer> entry : LINK_ICONS.entrySet()) {
+      if (lowerUrl.contains(entry.getKey())) return entry.getValue();
+    }
+    if (lowerUrl.contains("github.com")) return R.drawable.ic_link_github;
+    if (lowerUrl.contains("t.me/") || lowerUrl.contains("telegram.")) return R.drawable.ic_link_telegram;
+    return R.drawable.ic_link_website;
   }
 
   private JSONObject fetchJson(String urlString) {

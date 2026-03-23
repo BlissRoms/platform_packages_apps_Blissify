@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2014-2026 The BlissRoms Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?android:attr/colorControlNormal">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M0.632,0.55v22.9H2.28V24H0V0h2.28v0.55zM7.82,7.6v0.86h0.04c0.67,-1 1.56,-1.5 2.7,-1.5 1.06,0 1.87,0.33 2.41,0.99 0.27,0.33 0.46,0.74 0.56,1.23 0.67,-1.07 1.63,-1.62 2.87,-1.62 1.22,0 2.07,0.44 2.55,1.32 0.31,0.58 0.47,1.38 0.47,2.41v5.31h-2.36v-4.68c0,-0.69 -0.04,-1.18 -0.13,-1.48 -0.15,-0.5 -0.53,-0.75 -1.13,-0.75 -0.63,0 -1.08,0.28 -1.33,0.83 -0.15,0.33 -0.22,0.82 -0.22,1.47v4.61h-2.36v-4.61c0,-0.63 -0.02,-1.06 -0.06,-1.28 -0.08,-0.44 -0.24,-0.74 -0.49,-0.91 -0.24,-0.17 -0.54,-0.25 -0.89,-0.25 -0.63,0 -1.09,0.26 -1.38,0.78 -0.18,0.33 -0.27,0.83 -0.27,1.5v4.77H6.84V7.6zM23.368,24H21.72v-0.55h0.01v-22.9H21.72V0H24v24z"/>
+</vector>
