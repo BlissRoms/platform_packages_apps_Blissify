@@ -16,7 +16,9 @@
 
 package org.blissroms.blissify.fragments.lockscreen;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.widget.Toast;
 import androidx.preference.Preference;
@@ -35,33 +37,60 @@ public class LockscreenWeather extends BlissifyFragment
 
   private static final String KEY_SMARTSPACE = "lockscreen_smartspace_enabled";
   private static final String KEY_OMNIJAWS = "omnijaws_weather";
+  private static final String GOOGLE_APP_PACKAGE = "com.google.android.googlequicksearchbox";
 
   private SwitchPreferenceCompat mSmartspace;
   private Preference mOmniJaws;
+  private boolean mHasGoogleApp;
+  private boolean mHasOmniJawsService;
 
   @Override
   public void onCreate(Bundle icicle) {
     super.onCreate(icicle);
     addPreferencesFromResource(R.xml.blissify_lockscreen_weather);
 
+    mHasGoogleApp = isPackageInstalled(GOOGLE_APP_PACKAGE);
+    mHasOmniJawsService = OmniJawsClient.get().isOmniJawsServiceInstalled(getContext());
+
     mSmartspace = (SwitchPreferenceCompat) findPreference(KEY_SMARTSPACE);
-    mSmartspace.setOnPreferenceChangeListener(this);
+    if (!mHasGoogleApp) {
+      mSmartspace.setVisible(false);
+      Settings.Secure.putIntForUser(
+          getContext().getContentResolver(),
+          KEY_SMARTSPACE, 0, UserHandle.USER_CURRENT);
+    } else {
+      mSmartspace.setOnPreferenceChangeListener(this);
+    }
 
     mOmniJaws = findPreference(KEY_OMNIJAWS);
-    mOmniJaws.setOnPreferenceClickListener(
-        pref -> {
-          if (mSmartspace.isChecked()) {
-            Toast.makeText(
-                    getContext(),
-                    R.string.blissify_omnijaws_disable_smartspace_toast,
-                    Toast.LENGTH_SHORT)
-                .show();
-            return true;
-          }
-          return false;
-        });
+    if (!mHasOmniJawsService) {
+      mOmniJaws.setEnabled(false);
+      mOmniJaws.setSummary(R.string.lockscreen_weather_service_missing);
+    } else {
+      mOmniJaws.setOnPreferenceClickListener(
+          pref -> {
+            if (mHasGoogleApp && mSmartspace.isChecked()) {
+              Toast.makeText(
+                      getContext(),
+                      R.string.blissify_omnijaws_disable_smartspace_toast,
+                      Toast.LENGTH_SHORT)
+                  .show();
+              return true;
+            }
+            return false;
+          });
+    }
 
     updateState();
+  }
+
+  private boolean isPackageInstalled(String packageName) {
+    try {
+      getContext().getPackageManager().getApplicationInfo(packageName, 0);
+      return true;
+    } catch (PackageManager.NameNotFoundException e) {
+      return false;
+    }
   }
 
   @Override
@@ -77,19 +106,29 @@ public class LockscreenWeather extends BlissifyFragment
 
   private void updateState() {
     if (mOmniJaws == null || mSmartspace == null) return;
-    boolean smartspaceOn = mSmartspace.isChecked();
-    boolean omniJawsAvailable = OmniJawsClient.get().isOmniJawsEnabled(getContext());
 
-    mOmniJaws.setEnabled(!smartspaceOn && omniJawsAvailable);
-    mOmniJaws.setSummary(
-        !smartspaceOn && omniJawsAvailable
-            ? R.string.lockscreen_weather_summary
-            : R.string.lockscreen_weather_enabled_info);
+    if (!mHasOmniJawsService) return;
 
-    boolean omniJawsWeatherOn =
-        Settings.System.getInt(getContext().getContentResolver(), "lockscreen_weather_enabled", 0)
-            != 0;
-    mSmartspace.setEnabled(!omniJawsWeatherOn);
+    boolean smartspaceOn = mHasGoogleApp && mSmartspace.isChecked();
+    boolean omniJawsConfigured = OmniJawsClient.get().isOmniJawsEnabled(getContext());
+
+    if (smartspaceOn) {
+      mOmniJaws.setEnabled(false);
+      mOmniJaws.setSummary(R.string.lockscreen_weather_smartspace_active);
+    } else if (!omniJawsConfigured) {
+      mOmniJaws.setEnabled(true);
+      mOmniJaws.setSummary(R.string.lockscreen_weather_not_configured);
+    } else {
+      mOmniJaws.setEnabled(true);
+      mOmniJaws.setSummary(R.string.lockscreen_weather_summary);
+    }
+
+    if (mHasGoogleApp) {
+      boolean omniJawsWeatherOn =
+          Settings.System.getInt(getContext().getContentResolver(), "lockscreen_weather_enabled", 0)
+              != 0;
+      mSmartspace.setEnabled(!omniJawsWeatherOn);
+    }
   }
 
   @Override
