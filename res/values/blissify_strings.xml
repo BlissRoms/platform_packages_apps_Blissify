@@ -497,4 +497,17 @@
     <string name="blissify_input_power_button_summary">Configure power button actions and behavior</string>
     <string name="blissify_input_volume_buttons_summary">Configure volume button actions and behavior</string>
 
+    <!-- Screen off animation -->
+    <string name="screen_off_animation_title">Screen off animation</string>
+    <string name="screen_off_animation_default">Default</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Scale down</string>
+    <string name="screen_off_animation_fade">Fade out</string>
+    <string name="screen_off_animation_collapse">Collapse</string>
+    <string name="screen_off_animation_radial">Radial wipe</string>
+    <string name="screen_off_animation_pixel_dissolve">Pixel dissolve</string>
+    <string name="screen_off_animation_tv_static">TV static</string>
+    <string name="screen_off_animation_pixelate">Pixelate</string>
+    <string name="screen_off_animation_blinds">Blinds</string>
+
 </resources>

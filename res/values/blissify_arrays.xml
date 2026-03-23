@@ -326,4 +326,31 @@
         <item>18</item>
     </string-array>
 
+    <!-- Screen off animation -->
+    <string-array name="screen_off_animation_entries">
+        <item>@string/screen_off_animation_default</item>
+        <item>@string/screen_off_animation_crt</item>
+        <item>@string/screen_off_animation_scale</item>
+        <item>@string/screen_off_animation_fade</item>
+        <item>@string/screen_off_animation_collapse</item>
+        <item>@string/screen_off_animation_radial</item>
+        <item>@string/screen_off_animation_pixel_dissolve</item>
+        <item>@string/screen_off_animation_tv_static</item>
+        <item>@string/screen_off_animation_pixelate</item>
+        <item>@string/screen_off_animation_blinds</item>
+    </string-array>
+
+    <string-array name="screen_off_animation_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
 </resources>
