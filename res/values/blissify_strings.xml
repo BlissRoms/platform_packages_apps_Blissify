@@ -54,7 +54,6 @@
     <string name="qs_tile_shape_rounded_square">Rounded square</string>
     <string name="qs_tile_shape_diamond">Diamond</string>
     <string name="qs_tile_shape_hexagon">Hexagon</string>
-    <string name="qs_tile_shape_teardrop">Teardrop</string>
     <string name="qs_tile_shape_clover">Clover</string>
     <string name="qs_tile_shape_star">Star</string>
     <string name="qs_tile_shape_pentagon">Pentagon</string>

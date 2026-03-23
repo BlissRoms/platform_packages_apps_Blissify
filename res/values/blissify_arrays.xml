@@ -34,7 +34,6 @@
         <item>@string/qs_tile_shape_rounded_square</item>
         <item>@string/qs_tile_shape_diamond</item>
         <item>@string/qs_tile_shape_hexagon</item>
-        <item>@string/qs_tile_shape_teardrop</item>
         <item>@string/qs_tile_shape_clover</item>
         <item>@string/qs_tile_shape_star</item>
         <item>@string/qs_tile_shape_pentagon</item>
@@ -55,7 +54,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-        <item>11</item>
     </string-array>
 
     <!-- Power menu style -->
