@@ -353,4 +353,17 @@
         <item>9</item>
     </string-array>
 
+    <!-- Volume panel style -->
+    <string-array name="volume_panel_style_entries">
+        <item>@string/volume_panel_style_default</item>
+        <item>@string/volume_panel_style_oneplus</item>
+        <item>@string/volume_panel_style_samsung</item>
+    </string-array>
+
+    <string-array name="volume_panel_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>
