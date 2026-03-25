@@ -34,14 +34,4 @@
         android:fragment="org.blissroms.blissify.fragments.display.QuickSettings"
         android:widgetLayout="@layout/preference_arrow_widget" />
 
-    <org.blissroms.blissify.preferences.SystemSettingListPreference
-        android:key="screen_off_animation"
-        android:title="@string/screen_off_animation_title"
-        android:dialogTitle="@string/screen_off_animation_title"
-        android:entries="@array/screen_off_animation_entries"
-        android:entryValues="@array/screen_off_animation_values"
-        android:icon="@drawable/ic_blissify_animations"
-        android:defaultValue="0"
-        app:useSimpleSummaryProvider="true" />
-
 </PreferenceScreen>

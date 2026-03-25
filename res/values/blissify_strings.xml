@@ -72,7 +72,7 @@
     <string name="blissify_system_flashlight_title">Flashlight</string>
     <string name="blissify_system_misc_category_title">Miscellaneous</string>
     <string name="blissify_appearance_title">Appearance</string>
-    <string name="blissify_appearance_subtitle">Monet, Fonts</string>
+    <string name="blissify_appearance_subtitle">Monet, Fonts, Animations</string>
     <string name="blissify_about_title">About</string>
     <string name="blissify_about_subtitle">People behind this Open Source Project</string>
 
@@ -201,6 +201,7 @@
     <string name="themes_udfps_icon_summary">Set UDFPS icon style</string>
     <string name="themes_udfps_animation_title">UDFPS animation</string>
     <string name="themes_udfps_animation_summary">Set UDFPS animation style</string>
+    <string name="themes_animations_category">Animations</string>
 
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Accent color</string>
