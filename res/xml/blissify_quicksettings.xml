@@ -81,6 +81,16 @@
             settings:min="2"
             settings:interval="1" />
 
+        <org.blissroms.blissify.preferences.SecureSettingListPreference
+            android:key="qs_tile_animation_style"
+            android:title="@string/qs_tile_animation_style_title"
+            android:dialogTitle="@string/qs_tile_animation_style_title"
+            android:entries="@array/qs_tile_animation_style_entries"
+            android:entryValues="@array/qs_tile_animation_style_values"
+            android:icon="@drawable/ic_blissify_animations"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true" />
+
     </PreferenceCategory>
 
     <lineageos.preference.LineageSystemSettingListPreference
