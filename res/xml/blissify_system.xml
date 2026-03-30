@@ -33,4 +33,12 @@
         android:fragment="org.blissroms.blissify.fragments.system.SystemMisc"
         android:widgetLayout="@layout/preference_arrow_widget" />
 
+    <Preference
+        android:key="notification_schedule"
+        android:title="@string/notification_schedule_title"
+        android:summary="@string/notification_schedule_summary"
+        android:icon="@drawable/ic_blissify_notifications"
+        android:fragment="org.blissroms.blissify.fragments.notifications.NotificationSchedule"
+        android:widgetLayout="@layout/preference_arrow_widget" />
+
 </PreferenceScreen>

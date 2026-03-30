@@ -530,4 +530,14 @@
     <string name="qs_tile_animation_style_pulse">Pulse</string>
     <string name="qs_tile_animation_style_shake">Shake</string>
 
+    <!-- Notification schedule -->
+    <string name="notification_schedule_title">Notification schedule</string>
+    <string name="notification_schedule_summary">Silence app notifications during specific hours</string>
+    <string name="notification_schedule_time_title">Schedule</string>
+    <string name="notification_schedule_start_time">Start time</string>
+    <string name="notification_schedule_end_time">End time</string>
+    <string name="notification_schedule_apps_title">Apps</string>
+    <string name="notification_schedule_add_app">Add app</string>
+    <string name="notification_schedule_footer">Notifications from selected apps will be silenced during the scheduled time. They will still appear in the notification shade.</string>
+
 </resources>

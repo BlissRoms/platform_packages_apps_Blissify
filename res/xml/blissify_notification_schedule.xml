@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014-2026 The BlissRoms Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/notification_schedule_title">
+
+    <org.blissroms.blissify.preferences.SecureSettingSwitchPreference
+        android:key="bliss_notification_schedule_enabled"
+        android:title="@string/notification_schedule_title"
+        android:summary="@string/notification_schedule_summary"
+        android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:title="@string/notification_schedule_time_title"
+        android:dependency="bliss_notification_schedule_enabled">
+
+        <Preference
+            android:key="schedule_start_time"
+            android:title="@string/notification_schedule_start_time" />
+
+        <Preference
+            android:key="schedule_end_time"
+            android:title="@string/notification_schedule_end_time" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/notification_schedule_apps_title"
+        android:dependency="bliss_notification_schedule_enabled"
+        android:key="schedule_applications">
+
+        <Preference
+            android:key="add_schedule_packages"
+            android:title="@string/notification_schedule_add_app"
+            android:icon="@drawable/ic_pref_sensor_apps" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
