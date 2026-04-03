@@ -63,6 +63,17 @@
             android:icon="@drawable/ic_blissify_animations"
             android:defaultValue="0"
             app:useSimpleSummaryProvider="true" />
+
+        <!-- Charging animation -->
+        <org.blissroms.blissify.preferences.SystemSettingListPreference
+            android:key="charging_animation_style"
+            android:title="@string/charging_animation_title"
+            android:dialogTitle="@string/charging_animation_title"
+            android:entries="@array/charging_animation_style_entries"
+            android:entryValues="@array/charging_animation_style_values"
+            android:icon="@drawable/ic_blissify_animations"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
 </PreferenceScreen>

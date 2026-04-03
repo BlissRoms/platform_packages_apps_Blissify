@@ -540,6 +540,14 @@
     <string name="notification_schedule_add_app">Add app</string>
     <string name="notification_schedule_footer">Notifications from selected apps will be silenced during the scheduled time. They will still appear in the notification shade.</string>
 
+    <!-- Charging animation -->
+    <string name="charging_animation_title">Charging animation</string>
+    <string name="charging_animation_style_none">None</string>
+    <string name="charging_animation_style_ripple">Ripple</string>
+    <string name="charging_animation_style_flash">Flash</string>
+    <string name="charging_animation_style_glow">Glow Pulse</string>
+    <string name="charging_animation_style_battery">Battery Fill</string>
+
     <!-- Heads-up timeout -->
     <string name="heads_up_timeout_title">Heads-up timeout</string>
     <string name="heads_up_timeout_summary">How long heads-up notifications stay on screen</string>
