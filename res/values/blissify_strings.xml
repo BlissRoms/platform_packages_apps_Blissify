@@ -540,4 +540,12 @@
     <string name="notification_schedule_add_app">Add app</string>
     <string name="notification_schedule_footer">Notifications from selected apps will be silenced during the scheduled time. They will still appear in the notification shade.</string>
 
+    <!-- Heads-up timeout -->
+    <string name="heads_up_timeout_title">Heads-up timeout</string>
+    <string name="heads_up_timeout_summary">How long heads-up notifications stay on screen</string>
+    <string name="heads_up_timeout_3s">3 seconds</string>
+    <string name="heads_up_timeout_5s">5 seconds</string>
+    <string name="heads_up_timeout_7s">7 seconds</string>
+    <string name="heads_up_timeout_10s">10 seconds</string>
+
 </resources>

@@ -57,4 +57,13 @@
         android:fragment="org.blissroms.blissify.fragments.display.StatusBarPadding"
         android:widgetLayout="@layout/preference_arrow_widget" />
 
+    <org.blissroms.blissify.preferences.SystemSettingListPreference
+        android:key="heads_up_timeout"
+        android:title="@string/heads_up_timeout_title"
+        android:summary="%s"
+        android:icon="@drawable/ic_blissify_notifications"
+        android:entries="@array/heads_up_timeout_entries"
+        android:entryValues="@array/heads_up_timeout_values"
+        android:defaultValue="5000" />
+
 </PreferenceScreen>

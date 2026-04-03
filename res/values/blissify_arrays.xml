@@ -393,4 +393,20 @@
         <item>6</item>
     </string-array>
 
+    <!-- Heads-up timeout -->
+    <string-array name="heads_up_timeout_entries">
+        <item>@string/heads_up_timeout_3s</item>
+        <item>@string/heads_up_timeout_5s</item>
+        <item>@string/heads_up_timeout_7s</item>
+        <item>@string/heads_up_timeout_10s</item>
+    </string-array>
+
+    <string-array name="heads_up_timeout_values" translatable="false">
+        <item>3000</item>
+        <item>5000</item>
+        <item>7000</item>
+        <item>10000</item>
+    </string-array>
+
+
 </resources>
