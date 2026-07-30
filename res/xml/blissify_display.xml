@@ -34,7 +34,7 @@
         android:fragment="org.blissroms.blissify.fragments.display.QuickSettings"
         android:widgetLayout="@layout/preference_arrow_widget" />
 
-    <org.blissroms.blissify.preferences.SystemSettingListPreference
+    <!--org.blissroms.blissify.preferences.SystemSettingListPreference
         android:key="volume_panel_style"
         android:title="@string/volume_panel_style_title"
         android:dialogTitle="@string/volume_panel_style_title"
@@ -42,6 +42,6 @@
         android:entryValues="@array/volume_panel_style_values"
         android:icon="@drawable/ic_blissify_notifications"
         android:defaultValue="0"
-        app:useSimpleSummaryProvider="true" />
+        app:useSimpleSummaryProvider="true" /-->
 
 </PreferenceScreen>
