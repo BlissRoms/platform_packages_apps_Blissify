@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2025 The BlissRoms Project
+ * Copyright (C) 2014-2026 The BlissRoms Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 package org.blissroms.blissify.fragments.lockscreen;
 
 import android.content.Context;
-import android.hardware.fingerprint.FingerprintManager;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.preference.Preference;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -29,28 +29,25 @@ import org.blissroms.blissify.fragments.BlissifyDashboardFragment;
 import org.blissroms.blissify.utils.DeviceUtils;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
-public class Lockscreen extends BlissifyDashboardFragment {
+public class NowPlaying extends BlissifyDashboardFragment {
 
-  public static final String TAG = "Lockscreen";
+  public static final String TAG = "NowPlaying";
 
-  private static final String KEY_FINGERPRINT = "lockscreen_fingerprint";
-  private static final String KEY_NOW_PLAYING = "lockscreen_now_playing";
+  private static final String KEY_TRIGGER_SEARCH = "now_playing_trigger_search";
 
   @Override
   public void onCreate(Bundle icicle) {
     super.onCreate(icicle);
-    final FingerprintManager fpm = getContext().getSystemService(FingerprintManager.class);
-    if (fpm == null || !fpm.isHardwareDetected()) {
-      Preference fingerprintPref = findPreference(KEY_FINGERPRINT);
-      if (fingerprintPref != null) {
-        getPreferenceScreen().removePreference(fingerprintPref);
-      }
-    }
-    if (DeviceUtils.isPixelDevice()) {
-      Preference nowPlayingPref = findPreference(KEY_NOW_PLAYING);
-      if (nowPlayingPref != null) {
-        getPreferenceScreen().removePreference(nowPlayingPref);
-      }
+
+    Preference triggerSearchPref = findPreference(KEY_TRIGGER_SEARCH);
+    if (triggerSearchPref != null) {
+      triggerSearchPref.setOnPreferenceClickListener(
+          preference -> {
+            getContext()
+                .sendBroadcast(
+                    new Intent("org.blissroms.ambientmusic.action.ON_DEMAND_SEARCH"));
+            return true;
+          });
     }
   }
 
@@ -66,22 +63,22 @@ public class Lockscreen extends BlissifyDashboardFragment {
 
   @Override
   protected int getPreferenceScreenResId() {
-    return R.xml.blissify_lockscreen;
+    return R.xml.blissify_now_playing;
   }
 
   public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-      new BaseSearchIndexProvider(R.xml.blissify_lockscreen) {
+      new BaseSearchIndexProvider(R.xml.blissify_now_playing) {
 
         @Override
         public List<String> getNonIndexableKeys(Context context) {
           List<String> keys = super.getNonIndexableKeys(context);
-          FingerprintManager fingerprintManager =
-              (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
-          if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
-            keys.add(KEY_FINGERPRINT);
-          }
           if (DeviceUtils.isPixelDevice()) {
-            keys.add(KEY_NOW_PLAYING);
+            keys.add("now_playing_enabled");
+            keys.add("now_playing_show_lockscreen");
+            keys.add("now_playing_show_aod");
+            keys.add("now_playing_show_album_art");
+            keys.add("now_playing_on_demand");
+            keys.add(KEY_TRIGGER_SEARCH);
           }
           return keys;
         }

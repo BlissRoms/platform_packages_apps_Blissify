@@ -302,4 +302,8 @@ public class DeviceUtils {
             .getResources()
             .getInteger(com.android.internal.R.integer.config_navBarInteractionMode);
   }
+
+  public static boolean isPixelDevice() {
+    return "google".equalsIgnoreCase(Build.BRAND) || "google".equalsIgnoreCase(Build.MANUFACTURER);
+  }
 }

@@ -558,4 +558,31 @@
     <string name="heads_up_timeout_7s">7 seconds</string>
     <string name="heads_up_timeout_10s">10 seconds</string>
 
+    <!-- Now Playing -->
+    <string name="now_playing_title">Now Playing</string>
+    <string name="now_playing_summary">Identify music playing nearby</string>
+    <string name="blissify_lockscreen_now_playing_title">Now Playing</string>
+    <string name="blissify_lockscreen_now_playing_summary">Identify songs playing nearby on lock screen</string>
+    <string name="now_playing_enabled_title">Identify songs playing nearby</string>
+    <string name="now_playing_enabled_summary">Show song name and artist on your lock screen and ambient display</string>
+    <string name="now_playing_display_category">Display</string>
+    <string name="now_playing_show_lockscreen_title">Show on lock screen</string>
+    <string name="now_playing_show_lockscreen_summary">Display recognized songs when the screen is locked</string>
+    <string name="now_playing_show_aod_title">Show on Ambient Display</string>
+    <string name="now_playing_show_aod_summary">Display recognized songs on Always-on Display</string>
+    <string name="now_playing_show_album_art_title">Show album art</string>
+    <string name="now_playing_show_album_art_summary">Display album artwork when song details are expanded</string>
+    <string name="now_playing_on_demand_title">On-demand recognition shortcut</string>
+    <string name="now_playing_on_demand_summary">Show a search shortcut on lock screen to identify songs manually</string>
+    <string name="now_playing_recognize_now_title">Identify now</string>
+    <string name="now_playing_recognize_now_summary">Trigger music recognition search immediately</string>
+    <string name="now_playing_footer_info">Now Playing displays recognized music on your lock screen and ambient display. Songs identified nearby are automatically recorded into your history.</string>
+    <string name="now_playing_history_title">Now Playing history</string>
+    <string name="now_playing_history_summary">View previously recognized songs</string>
+    <string name="now_playing_clear_history">Clear all</string>
+    <string name="now_playing_clear_history_title">Clear history?</string>
+    <string name="now_playing_clear_history_message">This will remove all songs from your Now Playing history.</string>
+    <string name="now_playing_history_empty">No songs identified yet</string>
+    <string name="now_playing_history_empty_summary">Songs recognized by Now Playing will appear here</string>
+
 </resources>

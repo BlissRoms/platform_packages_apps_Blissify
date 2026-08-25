@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014-2026 The BlissRoms Project
+     Licensed under the Apache License, Version 2.0 -->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/now_playing_title">
+
+    <lineageos.preference.SystemSettingMainSwitchPreference
+        android:key="now_playing_enabled"
+        android:title="@string/enable"
+        android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:key="now_playing_display_category"
+        android:title="@string/now_playing_display_category"
+        android:dependency="now_playing_enabled">
+
+        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+            android:key="now_playing_show_lockscreen"
+            android:title="@string/now_playing_show_lockscreen_title"
+            android:summary="@string/now_playing_show_lockscreen_summary"
+            android:icon="@drawable/ic_pref_lock"
+            android:defaultValue="false" />
+
+        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+            android:key="now_playing_show_aod"
+            android:title="@string/now_playing_show_aod_title"
+            android:summary="@string/now_playing_show_aod_summary"
+            android:icon="@drawable/ic_pref_now_playing_aod"
+            android:defaultValue="false" />
+
+        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+            android:key="now_playing_show_album_art"
+            android:title="@string/now_playing_show_album_art_title"
+            android:summary="@string/now_playing_show_album_art_summary"
+            android:icon="@drawable/ic_pref_album_art"
+            android:defaultValue="false" />
+
+        <org.blissroms.blissify.preferences.SystemSettingSwitchPreference
+            android:key="now_playing_on_demand"
+            android:title="@string/now_playing_on_demand_title"
+            android:summary="@string/now_playing_on_demand_summary"
+            android:icon="@drawable/ic_pref_gestures_aosp"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="now_playing_trigger_search"
+            android:title="@string/now_playing_recognize_now_title"
+            android:summary="@string/now_playing_recognize_now_summary"
+            android:icon="@drawable/ic_pref_now_playing_search" />
+
+        <Preference
+            android:key="now_playing_history"
+            android:title="@string/now_playing_history_title"
+            android:summary="@string/now_playing_history_summary"
+            android:icon="@drawable/ic_pref_history"
+            android:fragment="org.blissroms.blissify.fragments.lockscreen.NowPlayingHistory" />
+
+    </PreferenceCategory>
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="now_playing_footer"
+        android:title="@string/now_playing_footer_info"
+        android:selectable="false"
+        settings:searchable="false" />
+
+</PreferenceScreen>

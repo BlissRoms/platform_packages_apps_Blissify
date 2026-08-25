@@ -49,4 +49,12 @@
         android:fragment="org.blissroms.blissify.fragments.lockscreen.LockscreenPowerMenu"
         android:widgetLayout="@layout/preference_arrow_widget" />
 
+    <Preference
+        android:key="lockscreen_now_playing"
+        android:title="@string/now_playing_title"
+        android:summary="@string/now_playing_summary"
+        android:icon="@drawable/ic_pref_music"
+        android:fragment="org.blissroms.blissify.fragments.lockscreen.NowPlaying"
+        android:widgetLayout="@layout/preference_arrow_widget" />
+
 </PreferenceScreen>

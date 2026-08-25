@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014-2026 The BlissRoms Project
+     Licensed under the Apache License, Version 2.0 -->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/now_playing_history_title">
+
+    <PreferenceCategory
+        android:key="now_playing_history_category"
+        android:title="@string/now_playing_history_title" />
+
+</PreferenceScreen>
