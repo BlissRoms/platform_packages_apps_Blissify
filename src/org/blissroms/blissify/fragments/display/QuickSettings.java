@@ -82,25 +82,27 @@ public class QuickSettings extends BlissifyDashboardFragment
 
     int style = Settings.Secure.getIntForUser(getContext().getContentResolver(),
             KEY_QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
-    updateCircularPrefs(style == 1);
+    updateStylePrefs(style);
   }
 
   @Override
   public boolean onPreferenceChange(Preference preference, Object newValue) {
     if (KEY_QS_PANEL_STYLE.equals(preference.getKey())) {
       int style = Integer.parseInt((String) newValue);
-      updateCircularPrefs(style == 1);
+      updateStylePrefs(style);
     }
     return true;
   }
 
-  private void updateCircularPrefs(boolean circular) {
-    if (mTileLabelHide != null) mTileLabelHide.setVisible(circular);
-    if (mTileShape != null) mTileShape.setVisible(circular);
-    if (mTileOpacity != null) mTileOpacity.setVisible(circular);
-    if (mTileColumns != null) mTileColumns.setVisible(circular);
-    if (mQqsRows != null) mQqsRows.setVisible(circular);
-    if (mQsRows != null) mQsRows.setVisible(circular);
+  private void updateStylePrefs(int style) {
+    boolean isCircular = style == 1;
+    boolean isNothing = style == 5;
+    if (mTileLabelHide != null) mTileLabelHide.setVisible(isCircular);
+    if (mTileShape != null) mTileShape.setVisible(isCircular);
+    if (mTileOpacity != null) mTileOpacity.setVisible(isCircular || isNothing);
+    if (mTileColumns != null) mTileColumns.setVisible(isCircular || isNothing);
+    if (mQqsRows != null) mQqsRows.setVisible(isCircular || isNothing);
+    if (mQsRows != null) mQsRows.setVisible(isCircular || isNothing);
   }
 
   @Override

@@ -24,6 +24,7 @@
         <item>@string/qs_panel_style_outline</item>
         <item>@string/qs_panel_style_neumorph</item>
         <item>@string/qs_panel_style_cyberpunk</item>
+        <item>@string/qs_panel_style_nothing</item>
     </string-array>
 
     <string-array name="qs_panel_style_values" translatable="false">
@@ -32,6 +33,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
     <string-array name="qs_tile_shape_entries">

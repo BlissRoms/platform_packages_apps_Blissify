@@ -49,6 +49,7 @@
     <string name="qs_panel_style_outline">Outline</string>
     <string name="qs_panel_style_neumorph">Neumorph</string>
     <string name="qs_panel_style_cyberpunk">CyberPunk</string>
+    <string name="qs_panel_style_nothing">Nothing</string>
     <string name="qs_tile_label_hide_title">Hide tile labels</string>
     <string name="qs_tile_label_hide_summary">Show only icons without labels in circular style</string>
     <string name="qs_tile_shape_title">Tile shape</string>
